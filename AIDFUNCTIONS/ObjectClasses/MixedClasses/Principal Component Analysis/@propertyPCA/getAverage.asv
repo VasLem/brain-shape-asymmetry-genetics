@@ -1,0 +1,6 @@
+function getAverage(obj,D)
+         checkModel(obj);
+         getAverage(obj.Model,D);
+         D = getData(obj,D);
+         getAver
+end

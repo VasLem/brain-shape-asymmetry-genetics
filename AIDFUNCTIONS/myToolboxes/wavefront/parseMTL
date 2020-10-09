@@ -1,0 +1,55 @@
+function [UseMtl,Maps,startingpoints] = parseMTL(filename)
+        UseMtl = false;Maps = [];startingpoints = [];
+        MTLName = [filename(1:end-4) '.mtl'];
+        tmp = dir(MTLName);
+        if isempty(tmp), return;end
+        UseMtl = true;
+        fid = fopen(MTLName,'r');
+        MTL = textscan(fid,'%[^\n\r]');MTL = MTL{1};
+        fclose(fid);
+        nlines = length(MTL);
+        % searching for mtl definition(s)
+        newmtl = {};
+        newmtlindex = [];
+        for i=1:1:nlines
+            str = MTL{i};
+            if ~contains(str,'newmtl'), continue; end
+            index = strfind(str,' ');
+            newmtl{end+1} = str(index+1:end); %#ok<*AGROW>
+            newmtlindex = [newmtlindex i];
+        end
+        nnewmtl = length(newmtl);
+        % searching for map_Kd definitions
+        map_Kd = cell(1,nnewmtl);
+        for i=1:1:nnewmtl
+            startindex = newmtlindex(i);
+            if i<nnewmtl
+               endindex = newmtlindex(i+1);
+            else
+               endindex = nlines;
+            end
+            for j=startindex:endindex
+                str = MTL{j};
+                if ~contains(str,'map_Kd'), continue; end
+                index = strfind(str,' ');
+                map_Kd{i} = str(index+1:end);
+            end
+        end
+        nMaps = length(map_Kd);
+        Maps = cell(1,nMaps);
+        for i=1:1:nMaps
+            if ~isempty(map_Kd{i}), Maps{i} = imread([path map_Kd{i}]);end
+        end
+        usemtl = +inf*ones(1,nnewmtl);
+        list = strcmp('usemtl',names);index = find(list==1);
+        listdata = data(index);
+        for i=1:1:nnewmtl
+            for j=1:1:length(listdata)
+               if contains(listdata{j},newmtl{i})
+                  usemtl(i) = index(j);
+                  break;
+               end
+            end
+        end
+        
+end

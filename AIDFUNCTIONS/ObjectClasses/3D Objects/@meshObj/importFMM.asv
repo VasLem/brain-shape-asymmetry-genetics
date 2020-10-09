@@ -1,0 +1,22 @@
+function importFMM(obj,filename,varargin)
+
+
+
+end
+
+function [path, type] = readVarargin(varargin)
+  Input = find(strcmp(varargin,'Path'));
+  if isempty(Input)
+      path = pwd;
+  else
+      path = varargin{Input+1};
+  end
+  Input = find(strcmp(varargin,'Type'));
+  if isempty(Input)
+      type = 'FMM Original';
+  else
+      path = varargin{Input+1};
+  end
+
+
+end

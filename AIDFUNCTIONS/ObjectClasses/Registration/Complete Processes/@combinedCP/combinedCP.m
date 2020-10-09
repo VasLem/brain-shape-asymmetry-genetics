@@ -1,0 +1,296 @@
+classdef combinedCP < CP
+    % This is the abstract interface class Combined Complete Processes
+    % A combined complete process is typically used when having more than
+    % one target surface simultaniously.
+    properties
+        CompleteP = {};% Complete Processes part of the Combined Complete Process
+        CompletePW = [];% Complete Process gradients in floating surface points
+        Correspondence = [];% Weighted combination of correspondences in all CompleteProcesses
+        Temp = 0;
+    end
+    properties (Dependent = true) 
+        InlierP; % link to Inlier Process
+        OutlierP; % link to Outlier Process
+        LatentV; % link to Latent variable
+        Target;% Target handle is stored in CompleteProcess.InlierP.Smeasure.Target;
+        Smeasure;% Smeasure handle is stored in CompleteProcess.InlierP
+        Kappa;%Statistical significance level
+        Fields;% Fields on which the combinedCp operates
+        B;% B values = LatentV.Value
+        nrCP;% number of complete processes
+        sumCPW;%sum of the individual CP weights
+    end
+    methods %Constructor
+        function obj = combinedCP(varargin)
+          obj = obj@CP(varargin{:});
+          if nargin > 0
+             Input = find(strcmp(varargin, 'CompleteP'));if ~isempty(Input), obj.CompleteP = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'CompletePW'));if ~isempty(Input), obj.CompletePW = varargin{Input+1}; end
+          end
+        end
+    end  
+    methods % Special Setting and Getting
+        function nr = get.nrCP(obj)
+            nr = length(obj.CompleteP);
+        end 
+        function w = get.CompletePW(obj)
+                 w = obj.CompletePW;
+                 if isempty(w)
+                    w = ones(1,obj.nrCP);% Defaults
+                 end
+        end
+        function obj = set.CompletePW(obj,w)
+                 if numel(w) == 1
+                    w = w*ones(1,obj.nrCP);
+                 end
+                 obj.CompleteP = w;
+        end
+        function out = get.CompleteP(obj)
+                 out = obj.CompleteP;
+                 if isempty(out), return; end
+                 index = (1:length(out));
+                 badindex = [];
+                 for i=1:1:length(out)
+                     if ~mySuperClass.isH(out{i}), badindex = [badindex i]; end %#ok<AGROW>
+                 end
+                 restindex = setdiff(index,badindex);
+                 out = out(restindex);
+        end
+        function obj = set.CompleteP(obj,in)
+            if isempty(obj.CompleteP), obj.CompleteP = in; return; end
+            for i=1:1:max(obj.nrCP,length(in))
+                obj.CompleteP{i} = in{i};
+            end
+        end
+        function obj = set.InlierP(obj,input)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.InlierP = input{i};
+                 end
+        end
+        function out = get.InlierP(obj)
+                 out = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out{i} = obj.CompleteP{i}.InlierP; %#ok<AGROW>
+                 end
+        end
+        function obj = set.OutlierP(obj,input)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.OutlierP = input{i};
+                 end
+        end
+        function out = get.OutlierP(obj)
+                 out = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out{i} = obj.CompleteP{i}.OutlierP; %#ok<AGROW>
+                 end
+        end
+        function obj = set.LatentV(obj,input)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.LatentV = input{i};
+                 end
+        end
+        function out = get.LatentV(obj)
+                 out = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out{i} = obj.CompleteP{i}.LatentV; %#ok<AGROW>
+                 end
+        end
+        function obj = set.Target(obj,input)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.Target = input{i};
+                 end
+        end
+        function out = get.Target(obj)
+                 out = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out{i} = obj.CompleteP{i}.Target; %#ok<AGROW>
+                 end
+        end
+        function obj = set.Smeasure(obj,input)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.Smeasure = input{i};
+                 end
+        end
+        function out = get.Smeasure(obj)
+                 out = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out{i} = obj.CompleteP{i}.Smeasure; %#ok<AGROW>
+                 end
+        end
+        function obj = set.Kappa(obj,in)
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP      
+                     obj.CompleteP{i}.Kappa = in(i);
+                 end
+        end
+        function out = get.Kappa(obj)
+                 out = [];
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     out(i) = obj.CompleteP{i}.Kappa; %#ok<AGROW>
+                 end
+        end
+        function out = get.B(obj)
+                 out = [];
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     if isempty(obj.CompleteP{i}.B), return; end
+                     out(i,:) = obj.CompleteP{i}.B; %#ok<AGROW>
+                 end
+                 out = mean(out);
+                 
+        end
+        function fields = get.Fields(obj)
+                 fields = {};
+                 if isempty(obj.CompleteP), return; end                 
+                 for i=1:1:obj.nrCP
+                     fields = union(fields,obj.CompleteP{i}.Fields); %#ok<AGROW>
+                 end            
+        end
+        function obj = set.Temp(obj,val)
+                 obj.Temp = val;
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     obj.CompleteP{i}.Temp = val;
+                 end
+        end
+        function obj = set.Fields(obj,field) %#ok<INUSD>
+                 % dummy
+        end
+        function obj = set.Correspondence(obj,cor)
+            if isempty(cor) 
+               if ~isempty(obj.Correspondence), delete(obj.Correspondence); end 
+               obj.Correspondence = [];
+               return;
+            end
+            switch class(cor)
+                case 'meshObj'
+                    if isempty(obj.Correspondence), obj.Correspondence = fastClone(cor); return; end
+                    if ~strcmp(class(obj.Correspondence),'meshObj'), delete(obj.Correspondence);obj.Correspondence = fastClone(cor); return; end
+                    fastCopy(cor,obj.Correspondence);
+                case 'LMObj'
+                    if isempty(obj.Correspondence), obj.Correspondence = fastClone(cor); return; end
+                    if ~strcmp(class(obj.Correspondence),'LMObj'), delete(obj.Correspondence);obj.Correspondence = fastClone(cor); return; end
+                    fastCopy(fs,obj.Correspondence);
+                otherwise
+                   error('Correspondence Input is nor a meshObj, nor a LMobj'); 
+            end
+        end       
+        function cor = get.Correspondence(obj)
+                 cor = obj.Correspondence;
+                 % Cannot call TM.validEval in this function, infinite Loop of recursions!!!
+                 % isempty(obj.Correspondence) == ~validH(obj,'Correspondence');
+                 if ~mySuperClass.isH(cor), cor = []; return; end
+        end
+        function val = get.sumCPW(obj)
+            val = sum(obj.CompletePW);
+        end
+    end       
+    methods % InterFace functions 
+        function copy(obj,cobj)
+                 copy@CP(obj,cobj);
+                 cobj.CompletePW = obj.CompletePW;                 
+                 cobj.Temp = obj.Temp;
+                 cobj.CompleteP = {};
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     cobj.CompleteP{i} = clone(obj.CompleteP{i});
+                 end
+        end
+        function delete(obj) 
+            if isempty(obj.CompleteP), return; end
+            tmp = obj.CompleteP;
+            for i=1:1:obj.nrCP
+                delete(tmp{i});
+            end
+        end
+        function out = clear(obj)
+                 if nargout == 1
+                    obj = clone(obj);
+                    out = obj;
+                 end
+                 if isempty(obj.CompleteP), return; end
+                 for i=1:1:obj.nrCP
+                     clear(obj.CompleteP{i});
+                 end
+        end
+        function struc = obj2struc(obj)
+            % converting relevant information
+            struc = obj2struc@CP(obj);
+            struc.CompletePW = obj.CompletePW;
+            struc.Temp = obj.Temp;
+            struc.CompleteP = {};
+            if isempty(obj.CompleteP), return; end
+            for i=1:1:obj.nrCP
+                struc.CompleteP{i} = obj2struc(obj.CompleteP{i});
+            end
+        end
+        function obj = struc2obj(obj,struc)
+                 obj = struc2obj@CP(obj,struc);
+                 obj.CompletePW = struc.CompletePW;
+                 obj.Temp = struc.Temp;
+                 obj.CompleteP = {};
+                 if isempty(struc.CompleteP), return; end
+                 for i=1:1:length(struc.CompleteP)
+                     obj.CompleteP{i} = struc2obj(eval(struc.CompleteP{i}.Type),struc.CompletP{i});
+                 end
+        end
+        function out = eval(obj,Tmodel)
+                 if isempty(obj.CompleteP), return; end%error('Cannot eval combined CP: InlierP is not set'); end
+                 tmpout = 0;
+                 for i=1:1:obj.nrCP
+                     eval(obj.CompleteP{i},Tmodel);
+                     tmpout = tmpout + obj.CompletePW(i)*obj.CompleteP{i}.Evaluation;
+                 end
+                 if nargout == 1, out = tmpout; return; end
+                 obj.Evaluation = tmpout;          
+        end
+        function out = derivate(obj,Tmodel)
+                 if isempty(obj.CompleteP), return; end%error('Cannot eval combined CP: InlierP is not set'); end
+                 tmpout = 0;
+                 for i=1:1:obj.nrCP
+                     derivate(obj.CompleteP{i},Tmodel);
+                     tmpout = tmpout + obj.CompletePW(i)*obj.CompleteP{i}.Derivative;
+                 end
+                 if nargout == 1, out = tmpout; return; end
+                 obj.Derivative = tmpout;
+        end
+        function out = update(obj,Tmodel)
+                 if nargout == 1
+                    obj = clone(obj);
+                    out = obj;
+                 end
+                 if isempty(obj.CompleteP), return; end
+                 tmpout = 0;
+                 for i=1:1:obj.nrCP
+                     update(obj.CompleteP{i},Tmodel);
+                     tmpout = tmpout + obj.CompletePW(i)*obj.CompleteP{i}.Evaluation;
+                 end
+                 obj.Evaluation = tmpout;
+        end
+        function out = initialize(obj,Tmodel)
+            if nargout == 1
+               obj = clone(obj);
+               out = obj;
+            end
+            if isempty(obj.CompleteP), return; end
+            tmpout = 0;
+            for i=1:1:obj.nrCP
+                initialize(obj.CompleteP{i},Tmodel);
+                tmpout = tmpout + obj.CompletePW(i)*obj.CompleteP{i}.Evaluation;
+            end
+            obj.Evaluation = tmpout;
+        end
+    end
+end % classdef
+

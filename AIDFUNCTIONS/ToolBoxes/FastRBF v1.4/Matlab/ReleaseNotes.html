@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+  <title>FastRBF Release Notes</title>
+                               
+  <style>
+      h1 { text-align: center; color: #008000 }
+      h2 { color: #A00000 }
+      h3 { color: #0000A0 }
+      .footer { text-align: right }
+    </style>
+</head>
+    <body>
+<h1>FastRBF Release Notes</h1>
+
+<hr>
+<h2>Version 1.4.2</h2>
+<h3>New Features:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Small memory leaks fixed when multiple calls are made to fitting and surfacing libraries under Matlab.</li>
+  <li>Matlab 2006a and 2006b supported.</li>
+  <li>Linux Commandline build - change in compiler optimisation.</li>
+  <li>Linux Matlab feedback and abort features disabled to support new Matlab versions (>R13). Recommend use of Matlab under Windows.</li>
+</ul>
+
+<hr>
+<h2>Version 1.4.1</h2>
+<h3>New Features:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Additional documentation for "NormalsFromPoints" functions.</li>
+  <li>Error bar fitter will now make use of per-point accuracy field if a Lower or Upper bound field is not available.
+      The per-point accuracy is treated as a symmetric error-bound. As with all per-point bounds, if a global accuracy is also specified, then the greater of the two bounds (i.e. the easiest to meet) at each point is chosen. If a global accuracy is not specified or is set to zero then the per-point bounds are enforced at all the data points. </li>
+</ul>
+
+<h4>Matlab Interface</h4>
+<ul>
+  <li>Matlab R14 now supported.</li>
+  <li>Matlab R11.1 no longer supported.</li>
+</ul>
+
+<h4>DLL C Interface</h4>
+<ul>
+  <li>Licensing adjustments - linking to FastRBF without a valid license is now possible. The license is checked at Run time</li>
+</ul>
+
+<h3>Bugs Fixed:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Isosurfacing Bug: an isolated point could be collapsed to two back-to-back triangles in some previous versions.</li>
+  <li>Importing text format data - the %l and %u fields (used for importing Upper and Lower bounds for the error-bar fitter) are now working properly.</li>
+</ul>
+
+<h4>Matlab Interface</h4>
+<ul>
+  <li>Attribute name error fixed. Occasionally, under some platforms an unknown attribute warning appeared.</li>
+</ul>
+
+<hr>
+
+<h2>Version 1.4.0</h2>
+<h3>New Features:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Command Line Toolbox supported under LINUX.</li>
+  <li>Matlab R13 release supported under LINUX.</li>
+  <li>Documentation & Tutorials updated.</li>
+  <li>Addition of generalised multiquadric basic function - useful for implicit smoothing (low pass filtering) of RBFs.</li>
+  <li>Progressive refinement of fitting accuracy supported - iteratively fit an RBF by tightening the fitting tolerance or by adding new points.</li>
+</ul>
+
+<h4>Matlab Interface</h4>
+<ul>
+  <li>FastRBF_Energy function added.</li>
+</ul>
+<h3>Changes:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Default fitting method is 'direct' fit.</li>
+  <li>'alt' arrays now reffered to as 'attr' (attribute) arrays.</li>
+</ul>
+
+<h3>Bugs Fixed:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Improved importing of text data.</li>
+</ul>
+
+
+<hr>
+<h2>Version 1.2.0</h2>
+<h3>New Features:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Data smoothing with new "Error Bar" fitting algorithm.</li>
+  <li>Data smoothing by applying a low-pass filter to a noisy RBF when evaluating.</li>
+  <li>New "up" option to specify angle of plane slices in Isosurf command.</li>
+  <li>New marching cubes command.</li>
+  <li>New mesh consistency checking command.</li>
+  <li>Improved mesh simplifier algorithm.</li>
+  <li>Mesh simplifier now handles inverted faces.</li>
+  <li>New "edges" option for Trim command to only trim mesh edges.</li>
+  <li>Unique command now supports both absolute and relative distances.</li>
+  <li>Import now supports text files with user-specified format string.</li>
+  <li>Export command now supports exporting points to DXF and OBJ format.</li>
+  <li>DensityFromNormals has new methods for creating density data.</li>
+</ul>
+<h4>Command Line Interface</h4>
+<ul>
+  <li>Range command now also supports RBF solution files.</li>
+</ul>
+<h4>Matlab Interface</h4>
+<ul>
+  <li>View command now supports alpha values with Matlab R12.1</li>
+</ul>
+<h3>Changes:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Added DefaultEvalAcc field to RBF.</li>
+  <li>"noreduce" fit option renamed "direct".</li>
+  <li>"smooth" fit option renamed "rho" to distinguish from new evalutation "smooth" option.</li>
+  <li>"autosmooth" fit option removed.</li>
+  <li>Export to DXF now defaults to full machine precision (scientific format
+		numbers) rather than 2 decimal places.</li>
+  <li>Isosurf "fit" option now defaults to all directions ("xyz") rather
+		than no directions. This means that exact fitting to the bounding box
+		is now the default behaviour.</li>
+</ul>
+<h4>Command Line Interface</h4>
+<ul>
+  <li>-fitx, -fity and -fitz options to Isosurf command replaced with -fit="xyz".</li>
+</ul>
+<h4>Matlab Interface</h4>
+<ul>
+  <li>The NormalsFromScans and NormalsFromSigns commands RADIUS and FACTOR
+		arguments are now optional.</li>
+</ul>
+<h3>Bugs Fixed:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>Improved determining of default evaluation accuracy. Now stored 
+		with RBF rather than calculated from AchievedAcc.</li>
+  <li>Fixed bugs in evaluator when co-planar points encountered.</li>
+  <li>Fixed error in reporting memory requirements.</li>
+  <li>Fixed error reporting evaluation accuracy in Isosurf command.</li>
+  <li>Mesh simplifier now handles inverted faces.</li>
+</ul>
+<h4>Command Line Interface</h4>
+<ul>
+  <li>Fixed problems with progress meter not displaying properly with -verbose.</li>
+</ul>
+<h4>Matlab Interface</h4>
+<ul>
+  <li>NormalsFromSigns now correctly handles 'alt' argument.</li>
+</ul>
+
+<hr>
+<h2>Version 1.0.3</h2>
+<h3>Bugs Fixed:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li> 	License expiration dates were being incorrectly calculated so  	that
+ licenses that should have been valid did not work.  This 	is now fixed.</li>
+</ul>
+<h4>Command Line Interface</h4>
+<ul>
+  <li>The log file now includes the FastRBF version number.</li>
+</ul>
+<h4>Matlab Interface</h4>
+<ul>
+  <li>Now works with Matlab R11.1 and R12.1.</li>
+  <li>The FastRBF_View command now works for meshes that contain 	both tris
+		and quads.</li>
+</ul>
+
+<hr>
+<h2>Version 1.0.2</h2>
+<h3>Bugs fixed:</h3>
+<h4>All Interfaces</h4>
+<ul>
+  <li>LoadSolution now sets the number of coefficients correctly.</li>
+  <li>2D grideval of an RBF with tri-harmonic basis returned incorrect values.</li>
+</ul>
+<h4>Matlab Interface</h4>
+<ul>
+  <li>Default precision for DXF export was 0 dp instead of documented 2 dp.</li>
+  <li>PointEval now assigns gradients to output struct properly.</li>
+  <li>smoothing and meshing tutorial scripts fixed.</li>
+</ul>
+<hr>
+<h2>Version 1.0.0</h2>
+<p> This is the initial release of FastRBF.  Please report all bugs to 
+   <a href="mailto:support@farfieldtechnology.com">support@farfieldtechnology.com</a>.     
+</p>
+
+</body>
+</html>

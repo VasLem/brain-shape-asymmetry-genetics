@@ -1,0 +1,5 @@
+function updatePCPanel(obj,pc)
+         if 
+         set(obj.Handles.PC.Popupmenu,'Value',pc);
+         
+end

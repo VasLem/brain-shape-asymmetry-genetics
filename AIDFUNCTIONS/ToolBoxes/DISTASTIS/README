@@ -1,0 +1,38 @@
+This set of files correspond to the
+the following paper:
+
+Abdi, H., Valentin, D., Chollet, S., & Chrea, C. 
+(in press, 2007). 
+Analyzing assesors and products in sorting tasks: 
+DISTATIS, theory and applications. 
+Food Quality and Preference, 18, -. 
+
+
+This paper (as well as other related papers)
+and this set of programs can be downloaded 
+from Hervé Abdi's Home Page at
+www.utdallas.edu/~herve
+
+
+e-mail of corresponding author: herve@utdallas.edu
+
+The program implements DISTATIS for sorting tasks.
+This distribution includes the following files:
+1. Main Program: 
+distatisFQP07.m
+2. functions (matlab m-files):
+corr2mat.m
+eigen.m
+plotline.m
+plotxyabs.m
+plotxyrange.m
+3. This file:
+README
+
+
+The main program is distatisFQP07.m
+The other files are functions (i.e., m-files)
+called by the main program.
+Look at the the main program (distatisFQP07.m)
+for comments and explanations.
+
