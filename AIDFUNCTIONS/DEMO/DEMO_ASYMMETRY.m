@@ -2,18 +2,21 @@
 close all;clear all;
 restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
-addpath(genpath('AIDFUNCTIONS'));
+addpath(genpath('code/AIDFUNCTIONS'));
 %% SETTING UP COMPUTATION POWER
 try
     parpool('LocalSingle',20);
 catch
 end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-in = load('/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
+in = load('data/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
 MASK = in.index;
 nVertices = length(MASK);
 %% WITH THE UNCORRECTED DATA SET
-phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
+phenopath = 'data/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
+nSamples = 100;
+% phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
+% nSamples = 1000;
 Regions = {'LH' 'RH'};
 nR = length(Regions);
 DATA = cell(1,2);
@@ -38,9 +41,9 @@ Template = clone(DATA{1}.Region.AvgShape);
 %%
 clear DATA LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
-nSamples = size(AlignedShapes,3)/2;
-LHAligned = AlignedShapes(:,:,1:1000);% a subselection for now
-RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+1000);
+% nAnovaSamples = size(AlignedShapes,3)/2;
+LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
+RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
 Shapes = cat(3,LHAligned,RHAligned);
 Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
@@ -51,10 +54,9 @@ for i=1:nRep
     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
 end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
-nSamples = 1000;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POITNS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;

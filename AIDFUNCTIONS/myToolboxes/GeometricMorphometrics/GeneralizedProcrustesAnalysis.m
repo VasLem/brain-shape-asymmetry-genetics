@@ -23,8 +23,8 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
          for i=1:iter
              if progress, disp([num2str(i) ' out of ' num2str(iter)]);end
              if progress, [path,ID] = setupParForProgress(N);end
-%              parfor n=1:1:N
-             for n=1:1:N
+             parfor n=1:N
+%              for n=1:1:N
                  tmp = squeeze(AlignedLandmarks(:,:,n));
                  if i==1
                     avg = mean(tmp,1);
