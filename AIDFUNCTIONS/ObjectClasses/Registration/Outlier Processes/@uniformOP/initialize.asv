@@ -1,0 +1,10 @@
+function varargout = initialize(obj,fs,inlierP)
+         if nargout == 1
+            obj = clone(obj);
+            v
+         level = update(obj,fs,inlierP);
+         if nargout == 1
+
+
+
+end

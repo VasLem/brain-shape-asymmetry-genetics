@@ -1,0 +1,25 @@
+function b = normaliseArray(a)
+
+nrchannels = numel(size(a));
+
+if nrchannels == 3
+   for i=1:1:size(a,3)
+       mi = min(min(a(:,:,i)));
+       ma = max(max(a(:,:,i)))
+       
+   end
+else
+   
+       
+
+
+end
+
+% x-direction
+            mi = min(tmp.Location(1,:));
+            ma = max(tmp.Location(1,:));
+            tmp.Location(1,:) = (tmp.Location(1,:)-mi)./((ma-mi)/1);
+        % y-direction
+            mi = min(tmp.Location(2,:));
+            ma = max(tmp.Location(2,:));
+            tmp.Location(2,:) = (tmp.Location(2,:)-mi)./((ma-mi)/1);

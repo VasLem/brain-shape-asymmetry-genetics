@@ -1,0 +1,9 @@
+function smoothTexture(obj,naver,type)
+  
+  if strcmp(type,'distance'), type = 'texturedistance'; end
+  
+  smoothTexture(obj.Parent,naver,type,''
+  
+  obj.TextureColor = smoothFunction(obj,obj.TextureColor,naver,type,varargin{:})';
+
+end

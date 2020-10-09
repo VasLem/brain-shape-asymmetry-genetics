@@ -1,0 +1,66 @@
+classdef MultiLevel < mySuperClass
+    % This is the abstract interface class for Multi Level (Hierachical)
+    % Shemes, affecting the used number of Points in a MAP objective
+    % function optimization
+    properties
+        MinPoints = 500;% minimum amounts of Points used, lowest level
+        MaxPoints = [];% Maximum amount of Points used, highest level,if [] == floating.nrV
+        NrLevels = 4;% Number of Levels in the Sheme
+        Level = 0;% Current Level
+    end
+    properties (Dependent = true)
+        nrPoints;
+        Fraction;
+    end
+    methods %Constructor
+        function obj = MultiLevel(varargin)
+          obj = obj@mySuperClass(varargin{:});
+          if nargin > 0
+             Input = find(strcmp(varargin, 'MinPoints'));if ~isempty(Input), obj.MinPoints = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'MaxPoints'));if ~isempty(Input), obj.MaxPoints = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'NrLevels'));if ~isempty(Input), obj.NrLevels = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'Level'));if ~isempty(Input), obj.Level = varargin{Input+1}; end
+          end
+        end
+    end
+   methods % Special Getting & Setting
+       function out = get.Fraction(obj)
+           frac = (obj.MaxPoints-obj.MinPoints)/obj.NrLevels;
+           
+       end
+       function get.nrPoints(obj)
+           frac = obj.
+       end
+   end
+   methods % InterFace functions
+        function copy(obj,cobj)
+                 copy@mySuperClass(obj,cobj);
+                 cobj.StartTemp = obj.StartTemp;
+                 cobj.Fraction = obj.Fraction;
+                 cobj.Rate = obj.Rate;
+                 cobj.MaxIter = obj.MaxIter;
+        end
+        function struc = obj2struc(obj)
+                 struc = obj2struc@mySuperClass(obj);
+                 struc.StartTemp = obj.StartTemp;
+                 struc.Fraction = obj.Fraction;
+                 struc.Rate = obj.Rate;
+                 struc.MaxIter = obj.MaxIter;
+        end
+        function obj = struc2obj(obj,struc)
+                 obj.StartTemp = struc.StartTemp;
+                 obj.Fraction = struc.Fraction;
+                 obj.Rate = struc.Rate;
+                 obj.MaxIter = struc.MaxIter;
+        end
+        function str = strInfo(obj)
+            str = ['DA(' num2str(obj.Step) ',' num2str(obj.nrSteps) ')/'];
+        end
+        function displayInfo(obj)
+            display(strInfo(obj));
+        end
+        function updateTemp(obj,MapFunction)
+            MapFunction.Temp = obj.Rate*MapFunction.Temp;
+        end
+   end
+end % classdef

@@ -1,0 +1,56 @@
+Image Compression 
+
+A collection of simple routines for image compression using different techniques.
+
+BTCODE:
+Image compression Using Block Truncation Coding.
+
+PYRAMID:
+Image compression based on Gaussian Pyramids.
+
+DCTCOMPR:
+Image compression based on Discrete Cosine Transform.
+
+IMCOMPR:
+Image compression based on Singular Value Decomposition.
+
+
+The given codes can be also used in 2D noise suppression.
+
+
+
+Notes:
+       The function "conv2fft" performs a 2D FFT-based convolution.
+       Type "help conv2fft" on Matlab command window for more informations.
+
+
+
+
+
+
+
+For a more detailed description see:
+
+Ohad Gal's file submission
+http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=4328&objectType=file
+
+Vallabha Hampiholi's file submission
+http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=4718&objectType=file
+
+
+Type "helpwin functionname" on Matlab command window to see the references and how to use these functions.
+
+Please contribute if you find this software useful.
+Report bugs to luigi.rosa@tiscali.it
+
+
+
+------------------------------------------------------------------
+   Luigi Rosa
+   Via Centrale 27
+   67042 Civita di Bagno
+   L'Aquila --- ITALY
+   email  luigi.rosa@tiscali.it
+   mobile +39 340 3463208
+   http://utenti.lycos.it/matlab
+------------------------------------------------------------------

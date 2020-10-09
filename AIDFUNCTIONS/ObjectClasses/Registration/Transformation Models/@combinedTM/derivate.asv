@@ -1,0 +1,82 @@
+function out = derivate(obj,p)
+      if ~isField(obj,obj.ActiveField)||isempty(obj.Tmodel)
+         if nargout == 1, out = [];end
+         return;
+      end      
+      nrV = TM.getNrPoints(p);
+      if ~(nrV==obj.nrV), eval(obj,p); end
+      % current evaluation is different for sure than what is needed
+      % Adviced to: always eval before derivate in main procedures!!!
+      % Calling eval always, here is computational un-efficient!!!!!!
+      mindex = obj.ActiveModel;% function of ActiveP
+      % if not the last model in the list, take the evaluation of the
+      % next model in the list to start with
+      if mindex < obj.nrTM
+         p = obj.Tmodel{obj.ActiveModle+1}.Evaluation;
+      end
+      % perform derivate
+      grad = derivate(obj.Tmodel{mindex},p);
+      % if not the first model in the list, ripple the grad back to front
+      % using the appropriate chainrules
+      
+      if ~isempty(grad)
+          
+          if mindex>1
+             for k=mindex-1:-1:1
+                 grad = chainRule(obj.Tmodel{k},grad);
+             end
+          end
+      end
+      if nargout == 1, out = grad; return; end
+      % Storing approriatly based on ActiveField see set.Derivative in
+      % TM class
+      obj.Derivative = grad;
+end
+
+
+% function [mindex,pindex] = getModelIndex(index,nrP,nrM)
+%          nr = 0;
+%          for mindex = 1:1:nrM
+%              nr = nr + nrP(mindex);
+%              if index<nr
+%                  break;
+%              end
+%          end
+%          pindex = nrP(mindex)-(nr-index);         
+% end
+
+%       if isempty(obj.Tmodel), return; end
+%       nr = size(p,2);
+%       nrP = obj.nrTMP;
+%       if ~(nr==obj.nrE),clear(obj);eval(obj,p,varargin{:});end
+%       Input = find(strcmp(varargin,'PIndex'));
+%       if ~isempty(Input)% memory efficient
+%          [mindex,pindex] = getModelIndex(varargin{Input+1},nrP,obj.nrTM);
+%          if mindex < obj.nrTM
+%                 p = obj.Tmodel{mindex+1}.Evaluation;
+%          end
+%          grad = derivate(obj.Tmodel{mindex},p,'Pindex',pindex,varargin{:});
+%          if mindex>1
+%             for k=mindex-1:-1:1
+%                 grad = chainRule(obj.Tmodel{k},grad,varargin{:});
+%             end
+%          end
+%       else % computation efficient
+%           grad = zeros(3,nr,obj.nrP);
+%           index = obj.nrP;
+%           for i=obj.nrTM:-1:1
+%               tmpgrad = derivate(obj.Tmodel,p,varargin{:});
+%               if ~(i==1)
+%                  tmpgrad = matrix2list(tmpgrad,3); 
+%                  for k=i-1:-1:1
+%                      tmpgrad = chainRule(obj.Tmodel{k},tmpgrad,varargin{:});
+%                  end
+%                  tmpgrad = list2matrix(tmpgrad,3,nrP(i));
+%               end
+%               grad(:,:,index:index-nrP(i)+1) = tmpgrad;
+%               p = obj.Tmodel{i}.Evaluation;
+%               index = index-nrP(i);         
+%           end
+%       end
+%       if nargout == 1, varargout{1} = grad; return; end
+%       obj.Grads = grad;

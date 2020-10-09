@@ -1,0 +1,10 @@
+function varargout = update(obj,fs,varargin)
+         if~validCompleteP(obj), return; end
+         pdf(obj.CompleteP.InlierP,fs,varargin{:});
+         pdf(obj.CompleteP.OutlierP,fs,varargin{:});
+         fpdf = obj.CompleteP.InlierP.pdfEvaluation;
+         gpdf = obj.CompleteP.OutlierP.pdfEvaluation;
+         
+         
+         
+end

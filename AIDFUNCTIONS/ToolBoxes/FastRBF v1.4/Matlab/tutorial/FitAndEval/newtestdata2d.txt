@@ -1,0 +1,4 @@
+% Additional 2D data
+Loc 0.11 0.03 Tval 6.11e-001 Pval 7.96e-001
+Loc 0.72 0.74 Tval 5.78e-001 Pval -3.84e-001
+Loc 0.92 0.53 Tval -6.57e-002 Pval -3.81e-001

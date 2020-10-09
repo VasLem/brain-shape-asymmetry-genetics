@@ -1,0 +1,61 @@
+classdef batchPreMapper < batchConvertor
+    properties       
+       CenterVertices = true;
+       IndicatePoseLM = true;
+       AdjustScale = false;
+       ScaleRefScan = [];
+       Crop = false;
+       CropDistance = 200;
+       PreView = false;
+       PostView = false;
+       RbfFit = false;
+       DownSampleTextureMap = false;
+       DownSampleFaces = false;
+       DownSampleFacesPercentage = 50;
+    end
+    methods %Constructor
+        function obj = batchPreMapper(varargin)
+          obj = obj@batchConvertor(varargin{:});
+          obj.InputFormat = 'Mat Object';
+          obj.OutputFormat = 'Mat Object';
+          obj.Overwrite = false;
+        end
+    end
+    methods% special getting and setting
+        function out = get.RefScan(obj)
+            out = obj.RefScan;
+            if ~superClass.isH(out), out = []; end
+        end
+    end
+    methods% Interface Functions
+        function scan = innerFunction(obj,scan)
+            %if ~isempty(scan.PoseLM), return; end
+            if obj.CenterVertices, centerVertices(scan); end
+            if obj.PreView, batchView(scan); end
+            if obj.IndicatePoseLM, indicatePoseLM(scan); end
+            if obj.AdjustScale
+               T = scaledRigidTM;
+               if isempty(obj.ScaleRefScan),
+                  scale = 1;
+               else
+                  match(T,scan.PoseLM,obj.ScaleRefScan.PoseLM);
+                  scale = max(1,round(T.Scale));
+               end
+               T.Scale = 1/scale;
+               transform(T,scan);
+            end
+            if obj.DownSampleFaces, reduceTriangles(scan,obj.DownSamplePercentage/100); end
+            if obj.Crop, poseLMCrop(scan,obj.CropDistance);end
+            if obj.View, batchView(scan); end
+            if obj.DownSampleTextureMap
+                try
+                 factor = round(numel(scan.TextureMap.Image)/4000000);
+                 if factor> 0, downSample(scan.TextureMap,factor); end
+                catch
+                end
+            end
+            if obj.RbfFit, rbfFit(scan); end
+            % dummy, do nothing
+        end     
+    end
+end
