@@ -9,11 +9,11 @@ try
 catch
 end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-in = load('data/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
+in = load('code/SampleData/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
 MASK = in.index;
 nVertices = length(MASK);
 %% WITH THE UNCORRECTED DATA SET
-phenopath = 'data/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
+phenopath = 'code/SampleData/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
 nSamples = 100;
 % phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
 % nSamples = 1000;
@@ -36,7 +36,7 @@ Template = clone(DATA{1}.Region.AvgShape);
 % Is it really the same to perform Procrustes Analysis to the total shape,
 % rather than to each shape separately?
 [LHAlignedSingle,LHAvgShape,LHCentroidSizes] = GeneralizedProcrustesAnalysis(LH,Template,3,true,false,true,false);
-[RHAlignedSignle,RHAvgShape,RHCentroidSizes] = GeneralizedProcrustesAnalysis(RH,Template,3,true,false,true,false);
+[RHAlignedSingle,RHAvgShape,RHCentroidSizes] = GeneralizedProcrustesAnalysis(RH,Template,3,true,false,true,false);
 
 %%
 clear DATA LH RH TotalShapes;
