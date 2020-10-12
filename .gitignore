@@ -37,3 +37,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Matlab temporary files
+*~
+*.DS_Store*
