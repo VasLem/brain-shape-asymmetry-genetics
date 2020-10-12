@@ -20,11 +20,14 @@ nSamples = 100;
 Regions = {'LH' 'RH'};
 nR = length(Regions);
 DATA = cell(1,2);
+Render = cell(1,2);
 for r=1:nR
     %r=2
     disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     regphenopath = [phenopath Regions{r} '/'];
     DATA{r} = load([regphenopath 'STAGE00DATA']);
+    Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
+    
 end    
 %% GPA
 LH = DATA{1}.Region.AlignedShapes;
@@ -45,7 +48,7 @@ clear DATA LH RH TotalShapes;
 LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
 Shapes = cat(3,LHAligned,RHAligned);
-Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
+% Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 nRep = 3;
@@ -92,7 +95,7 @@ for i=1:nValues
        if ~isempty(clim), set(fout.ax1{i},'clim',clim);end
        renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
        colorbar(fout.ax1{i},'SouthOutside');
-       if mod(i,3)>0,          
+       if mod(i,3)>0          
            set(fout.ax1{i},'clim',[0 max(VertexValues{i})]);
        end
        if mod(i,3)==0,set(fout.ax1{i},'clim',[0 1]); colormap(fout.ax1{i},'summer');end
