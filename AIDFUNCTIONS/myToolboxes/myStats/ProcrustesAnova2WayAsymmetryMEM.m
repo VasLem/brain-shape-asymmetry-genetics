@@ -1,4 +1,4 @@
-function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
+function out = ProcrustesAnova2WayAsymmetryMEM(X3,X2,t)
          if nargin < 3, t = 0; end
          [n,nrV,rep] = size(X1);
          SS = zeros(4,nrV);

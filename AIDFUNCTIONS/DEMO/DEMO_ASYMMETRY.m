@@ -1,5 +1,5 @@
 %% Investigating LEFT - RIGHT asymmetry
-close all;clear all;
+close all;clear;
 restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 addpath(genpath('AIDFUNCTIONS'));
@@ -47,6 +47,9 @@ clear DATA LH RH TotalShapes;
 % nAnovaSamples = size(AlignedShapes,3)/2;
 LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
+RHAligned = reshape(permute(repmat( (strcat('r', string(1:(size(RHAligned, 1) * size(RHAligned, 2))))), nSamples, 1), [2, 1]), size(RHAligned));
+LHAligned = reshape(permute(repmat( (strcat('r',string(1:(size(LHAligned, 1) * size(LHAligned, 2))))), nSamples, 1), [2, 1]), size(LHAligned));
+
 Shapes = cat(3,LHAligned,RHAligned);
 % Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
