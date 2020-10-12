@@ -2,18 +2,18 @@
 close all;clear all;
 restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
-addpath(genpath('code/AIDFUNCTIONS'));
+addpath(genpath('AIDFUNCTIONS'));
 %% SETTING UP COMPUTATION POWER
 try
     parpool('LocalSingle',20);
 catch
 end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-in = load('code/SampleData/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
+in = load('SampleData/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
 MASK = in.index;
 nVertices = length(MASK);
 %% WITH THE UNCORRECTED DATA SET
-phenopath = 'code/SampleData/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
+phenopath = 'SampleData/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
 nSamples = 100;
 % phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
 % nSamples = 1000;

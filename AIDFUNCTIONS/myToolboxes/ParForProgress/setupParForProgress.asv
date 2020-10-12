@@ -1,9 +1,9 @@
 function [path,ID] = setupParForProgress(N)
          warning off; %#ok<*WNOFF>
          path = pwd;
-         if ~startsWith(getComputerName, 'mic')
+         try
              if strcmp(computer,'PCWIN64')
-                direc = 'C:/PARFORTMP/';
+                cd C:/PARFORTMP/;
              elseif strcmp(computer,'GLNXA64')
                 %cd /home/pclaes4/Documents/MATLAB/PARFORTMP/;
                 direc = ['/home/' getUserName '/Documents/MATLAB/PARFORTMP/'];
@@ -11,8 +11,10 @@ function [path,ID] = setupParForProgress(N)
                 %cd /Users/pclaes4/Documents/MATLAB/PARFORTMP/;
                 direc = ['/Users/' getUserName '/Documents/MATLAB/PARFORTMP/'];
              end
-         else
+
+         catch
              direc = ['/usr/local/avalok/tmp/' getUserName '/MATLAB/PARFORTMP/'];
+
          end
          mkdir(direc);
          cd(direc);
