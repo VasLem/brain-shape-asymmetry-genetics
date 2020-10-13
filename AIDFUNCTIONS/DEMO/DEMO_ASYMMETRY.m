@@ -48,7 +48,7 @@ clear DATA LH RH TotalShapes;
 LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
 RHAligned = reshape(permute(repmat( (strcat('r', string(1:(size(RHAligned, 1) * size(RHAligned, 2))))), nSamples, 1), [2, 1]), size(RHAligned));
-LHAligned = reshape(permute(repmat( (strcat('r',string(1:(size(LHAligned, 1) * size(LHAligned, 2))))), nSamples, 1), [2, 1]), size(LHAligned));
+LHAligned = reshape(permute(repmat( (strcat('l',string(1:(size(LHAligned, 1) * size(LHAligned, 2))))), nSamples, 1), [2, 1]), size(LHAligned));
 
 Shapes = cat(3,LHAligned,RHAligned);
 % Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
