@@ -1,4 +1,4 @@
-function out = ProcrustesAnova2WayAsymmetryMEM(X3,X2,t)
+function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
          if nargin < 3, t = 0; end
          [n,nrV,rep] = size(X1);
          SS = zeros(4,nrV);
@@ -6,7 +6,7 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X3,X2,t)
          factor = 10000;
          tic;
          [path,ID] = setupParForProgress(nrV);
-         parfor i=1:nrV
+         for i=1:nrV
             Set1 = squeeze(single(X1(:,i,:))/factor)'; 
             %Set1 = reshape(Set1,n,rep)'; 
             Set2 = squeeze(single(X2(:,i,:))/factor)'; 

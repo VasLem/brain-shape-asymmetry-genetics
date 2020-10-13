@@ -3,6 +3,7 @@ close all;clear;
 restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 addpath(genpath('AIDFUNCTIONS'));
+
 %% SETTING UP COMPUTATION POWER
 try
     parpool('LocalSingle',20);
@@ -14,7 +15,7 @@ MASK = in.index;
 nVertices = length(MASK);
 %% WITH THE UNCORRECTED DATA SET
 phenopath = 'SampleData/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
-nSamples = 100;
+
 % phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
 % nSamples = 1000;
 Regions = {'LH' 'RH'};
@@ -30,26 +31,23 @@ for r=1:nR
     
 end    
 %% GPA
-LH = DATA{1}.Region.AlignedShapes;
-RH = DATA{2}.Region.AlignedShapes;
+% a subselection for now
+nSamples = 100;
+LH = DATA{1}.Region.AlignedShapes(:, :, 1:nSamples);
+RH = DATA{2}.Region.AlignedShapes(:, :, 1:nSamples);
 RH(:,1,:,:) = -1*RH(:,1,:,:);
 TotalShapes = cat(3,LH,RH);
 Template = clone(DATA{1}.Region.AvgShape);
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
-% Is it really the same to perform Procrustes Analysis to the total shape,
-% rather than to each shape separately?
-[LHAlignedSingle,LHAvgShape,LHCentroidSizes] = GeneralizedProcrustesAnalysis(LH,Template,3,true,false,true,false);
-[RHAlignedSingle,RHAvgShape,RHCentroidSizes] = GeneralizedProcrustesAnalysis(RH,Template,3,true,false,true,false);
-
 %%
 clear DATA LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
 % nAnovaSamples = size(AlignedShapes,3)/2;
-LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
+LHAligned = AlignedShapes(:,:,1:nSamples);
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
-RHAligned = reshape(permute(repmat( (strcat('r', string(1:(size(RHAligned, 1) * size(RHAligned, 2))))), nSamples, 1), [2, 1]), size(RHAligned));
-LHAligned = reshape(permute(repmat( (strcat('l',string(1:(size(LHAligned, 1) * size(LHAligned, 2))))), nSamples, 1), [2, 1]), size(LHAligned));
-
+RHAligned = reshape(permute(repmat(1:(size(RHAligned, 1) * size(RHAligned, 2)), nSamples, 1), [2, 1]), size(RHAligned))/prod(size(RHAligned, [1,2]));
+LHAligned = reshape(permute(-repmat(1:(size(LHAligned, 1) * size(LHAligned, 2)), nSamples, 1), [2, 1]), size(LHAligned))/prod(size(LHAligned, [1,2]));
+%%
 Shapes = cat(3,LHAligned,RHAligned);
 % Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
@@ -63,7 +61,7 @@ RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
-%% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POITNS
+%% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
 VertexValues{i} = out.LM.I;titlenames{i} = 'I';i=i+1;
