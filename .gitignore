@@ -41,3 +41,6 @@ vignettes/*.pdf
 # Matlab temporary files
 *~
 *.DS_Store*
+
+# temp images
+.*.png
