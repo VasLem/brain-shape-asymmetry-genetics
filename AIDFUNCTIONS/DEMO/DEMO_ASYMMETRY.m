@@ -45,22 +45,30 @@ clear DATA LH RH TotalShapes;
 % nAnovaSamples = size(AlignedShapes,3)/2;
 LHAligned = AlignedShapes(:,:,1:nSamples);
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
-RHAligned = reshape(permute(repmat(1:(size(RHAligned, 1) * size(RHAligned, 2)), nSamples, 1), [2, 1]), size(RHAligned))/prod(size(RHAligned, [1,2]));
-LHAligned = reshape(permute(-repmat(1:(size(LHAligned, 1) * size(LHAligned, 2)), nSamples, 1), [2, 1]), size(LHAligned))/prod(size(LHAligned, [1,2]));
+% RHAligned = reshape(permute(repmat(1:(size(RHAligned, 1) * size(RHAligned, 2)), nSamples, 1), [2, 1]), size(RHAligned))/prod(size(RHAligned, [1,2]));
+% LHAligned = reshape(permute(-repmat(1:(size(LHAligned, 1) * size(LHAligned, 2)), nSamples, 1), [2, 1]), size(LHAligned))/prod(size(LHAligned, [1,2]));
 %%
 Shapes = cat(3,LHAligned,RHAligned);
 % Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
-nRep = 3;
+%%
+% nRep = 3
+% RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
+% for i=1:nRep
+%     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
+% end
+nRep = 1;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
 for i=1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
+    RepShapes(:,:,i) = single(Shapes);
 end
+%%
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
+%%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
+out = ProcrustesAnova2WayAsymmetryMEM(X1',X2',nSamples);
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
