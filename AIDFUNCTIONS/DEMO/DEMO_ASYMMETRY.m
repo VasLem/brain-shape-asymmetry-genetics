@@ -35,8 +35,8 @@ Template = clone(DATA{1}.Region.AvgShape);
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
 % Is it really the same to perform Procrustes Analysis to the total shape,
 % rather than to each shape separately?
-[LHAlignedSingle,LHAvgShape,LHCentroidSizes] = GeneralizedProcrustesAnalysis(LH,Template,3,true,false,true,false);
-[RHAlignedSingle,RHAvgShape,RHCentroidSizes] = GeneralizedProcrustesAnalysis(RH,Template,3,true,false,true,false);
+% [LHAlignedSingle,LHAvgShape,LHCentroidSizes] = GeneralizedProcrustesAnalysis(LH,Template,3,true,false,true,false);
+% [RHAlignedSingle,RHAvgShape,RHCentroidSizes] = GeneralizedProcrustesAnalysis(RH,Template,3,true,false,true,false);
 
 %%
 clear DATA LH RH TotalShapes;
@@ -45,7 +45,7 @@ clear DATA LH RH TotalShapes;
 LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
 RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
 Shapes = cat(3,LHAligned,RHAligned);
-Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
+% Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
 Shapes = permute(Shapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 nRep = 3;
@@ -56,6 +56,7 @@ end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
+%%
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POITNS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
