@@ -23,13 +23,19 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
          end
          closeParForProgress(path,ID)
          toc;
-         SS_D = reshape(SS(1,:),3,length(SS(1,:))/3);
-         SS_I = reshape(SS(2,:),3,length(SS(2,:))/3);
-         SS_F = reshape(SS(3,:),3,length(SS(3,:))/3);
-         SS_E = reshape(SS(4,:),3,length(SS(4,:))/3);
+        pSet1 = reshape(X1, [], 1);
+        pSet2= reshape(X2, [], 1);
+        pX = [pSet1(:) pSet2(:)];
+         [~, PROP_TABLE, PROP_STATS] = anova2(pX, t);
+        
          
-         MeanX1 = reshape(Means(1,:),3,length(Means(1,:))/3);
-         MeanX2 = reshape(Means(2,:),3,length(Means(2,:))/3);
+         SS_D = reshape(SS(1,:),rep,length(SS(1,:))/rep);
+         SS_I = reshape(SS(2,:),rep,length(SS(2,:))/rep);
+         SS_F = reshape(SS(3,:),rep,length(SS(3,:))/rep);
+         SS_E = reshape(SS(4,:),rep,length(SS(4,:))/rep);
+         
+         MeanX1 = reshape(Means(1,:),rep,length(Means(1,:))/rep);
+         MeanX2 = reshape(Means(2,:),rep,length(Means(2,:))/rep);
          MeanDiff = MeanX2 - MeanX1;
          % Error
          LM.E = sum(SS_E);
