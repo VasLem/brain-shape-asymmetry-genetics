@@ -1,0 +1,73 @@
+classdef LV < mySuperClass
+    % This is the abstract interface class for Random LV, typically
+    % combined with a InlierP and OutlierP in a CompleteP, to improve
+    % robustness against outliers
+    properties 
+        CompleteP = []; %Link to Parent being a complete Process
+        Values = [];% LV values
+        Target = [];% Setting a handle to the Target surface (kind of Parent as well)
+    end
+    properties (Dependent = true)
+        sumV;
+        nrV;
+    end
+    methods %Constructor
+        function obj = LV(varargin)
+          if nargin > 0
+             Input = find(strcmp(varargin, 'CompleteP'));if ~isempty(Input), obj.CompleteP = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'Values'));if ~isempty(Input), obj.Values = varargin{Input+1}; end
+             Input = find(strcmp(varargin, 'Target'));if ~isempty(Input), obj.Target = varargin{Input+1}; end
+          end
+        end
+    end  
+    methods % Special Setting and Getting
+        function s = get.sumV(obj)
+            s = sum(obj.Values);
+        end
+        function nr = get.nrV(obj)
+            nr = length(obj.Values);
+        end
+        function cp = get.CompleteP(obj)
+            cp = obj.CompleteP;
+            if~mySuperClass.isH(cp), cp = []; end
+        end
+        function target = get.Target(obj)
+            target = obj.Target;
+            if~mySuperClass.isH(target), target = []; end
+        end
+        function obj = set.Target(obj,target)
+    end       
+    methods % InterFace functions 
+        function copy(obj,cobj)
+                 copy@mySuperClass(obj,cobj);
+                 cobj.CompleteP = obj.CompleteP;% parents are not cloned
+                 cobj.Values = obj.Values;
+        end
+        function out = clear(obj)
+                 if nargout == 1
+                    obj = clone(obj);
+                    out = obj;
+                 end
+                 obj.Values = [];
+        end
+        function struc = obj2struc(obj)
+            % converting relevant information
+            struc = obj2struc@mySuperClass(obj);
+            struc.Values = obj.Values;
+        end
+        function obj = struc2obj(obj,struc)
+                 obj.Values = struc.Values;
+        end
+        function out = initialize(obj,Tmodel)
+                 if nargout == 1
+                    obj = clone(obj);
+                    out = obj;
+                 end
+                 obj.Values = ones(1,Tmodel.nrV);            
+        end
+    end
+    methods (Abstract = true) %Abstract Interfaces Functions
+            out = update(obj,Tmodel);
+    end
+end % classdef
+

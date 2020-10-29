@@ -1,0 +1,11 @@
+function out = eval(obj,p)
+    if obj.nrTM==0, return; end
+    p = TM.convertInput;
+    out = p;
+    for i=obj.nrTM:-1:1% from back to front
+        eval(obj.Tmodel{i},out,varargin{:});
+        out = obj.Tmodel{i}.Evaluation;
+    end
+    if nargout==1,varargout{1}=out;return;end
+    obj.Evaluation = out;
+end

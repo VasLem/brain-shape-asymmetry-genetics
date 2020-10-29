@@ -1,0 +1,8 @@
+function syncCamera(refobj,obj)
+         obj.CameraPosition = refobj.CameraPosition;
+         obj.CameraPosition = refobj.CameraTarget;
+         
+         
+
+
+end

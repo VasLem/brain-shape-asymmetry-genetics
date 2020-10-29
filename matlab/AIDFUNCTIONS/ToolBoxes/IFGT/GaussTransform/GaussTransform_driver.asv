@@ -1,0 +1,149 @@
+% Script the demonstrate the use of GaussTransform
+
+clear all;
+close all;
+clear functions;
+clc;
+
+disp('---------------------------------------------');
+disp(sprintf('Example to demonstrate the use of Gauss Transform'));
+disp('---------------------------------------------');
+
+% the data dimensionality
+
+d=2;
+
+disp(sprintf('Dimensionality d=%d\n',d));
+
+% the number of sources
+
+N=100;
+
+disp(sprintf('Number of source points N=%d\n',N));
+
+% the number of targets
+
+M=100;
+
+disp(sprintf('Number of target points M=%d\n',N));
+
+% the source points
+% d x N matrix of N source points in d dimensions.
+
+X=rand(d,N);
+
+% the target points
+% d x M matrix of M source points in d dimensions.
+
+Y=rand(d,M);
+
+% the source weights
+% 1 x N row vector
+
+q=rand(1,N);  
+
+% the bandwidth
+
+h=sqrt(2)*0.2*sqrt(d);
+
+disp(sprintf('Bandwidth h=%f\n',h));
+
+
+disp('---------------------------------------------');
+disp(sprintf('Running the k-center clustering\n'));
+disp('---------------------------------------------');
+
+% k-center clustering
+
+to=clock;
+[rx,ClusterIndex,ClusterCenter,NumPoints,ClusterRadii]=KCenterClustering(d,N,X,double(K));
+clustering_time=etime(clock,to);
+
+disp(sprintf('Maximum cluster radius=%f\n',rx));
+disp(sprintf('Time taken=%f secs\n',clustering_time));
+
+%Pretty plot of the results of the clustering procedure. 
+%Plots only for two and three dimensions.
+
+plot_clusters(N,d,X,K,ClusterIndex,ClusterCenter);
+
+disp(sprintf('Press any key to continue...\n'));
+
+pause
+
+disp('---------------------------------------------');
+disp(sprintf('Updating the truncation number\n'));
+disp('---------------------------------------------');
+
+to=clock;
+[p_maxu]=ChooseTruncNumber(d,h,epsil,rx,R);
+trunc_time=etime(clock,to);
+
+disp(sprintf('Updated Maximum Truncation Number=%d\n',double(p_maxu)));
+disp(sprintf('Time taken=%f secs\n',trunc_time));
+
+p_max=min(p_maxu,p_max);
+
+disp(sprintf('Press any key to continue...\n'));
+
+pause
+
+disp('---------------------------------------------');
+disp(sprintf('Running the  IFGT\n'));
+disp('---------------------------------------------');
+
+to=clock;
+[G_IFGT]=ImprovedFastGaussTransform(d,N,M,X,h,q,Y,double(p_max),double(K),ClusterIndex,ClusterCenter,ClusterRadii,r,epsil);
+IFGT_time=etime(clock,to);
+
+disp(sprintf('Time taken=%f secs\n',IFGT_time));
+
+disp(sprintf('Press any key to continue...\n'));
+
+pause
+
+disp('---------------------------------------------');
+disp(sprintf('Running the Data adaptive IFGT\n'));
+disp('---------------------------------------------');
+
+to=clock;
+[G_DAIFGT,T]=DataAdaptiveImprovedFastGaussTransform(d,N,M,X,h,q,Y,double(p_max),double(K),ClusterIndex,ClusterCenter,ClusterRadii,r,epsil);
+DAIFGT_time=etime(clock,to);
+
+disp(sprintf('Time taken=%f secs\n',DAIFGT_time));
+
+disp(sprintf('Press any key to continue...\n'));
+
+pause
+
+disp('---------------------------------------------');
+disp(sprintf('Running the direct method.\n'));
+disp('---------------------------------------------');
+
+to=clock;
+[G_direct]=GaussTransform(d,N,M,X,h,q,Y);
+GT_time=etime(clock,to);
+
+disp(sprintf('Time taken=%f secs\n',GT_time));
+
+disp('---------------------------------------------');
+disp(sprintf('Summary\n'));
+disp('---------------------------------------------');
+
+IFGT_total_time=parameters_time+clustering_time+trunc_time+IFGT_time;
+IFGT_err=max(abs((G_direct-G_IFGT)))/sum(q);
+
+DAIFGT_total_time=parameters_time+clustering_time+trunc_time+DAIFGT_time;
+DAIFGT_err=max(abs((G_direct-G_DAIFGT)))/sum(q);
+
+disp(sprintf('Direct computation takes %f secs\n',GT_time));
+disp('---------------------------------------------');
+disp(sprintf('IFGT takes %f secs Speedup=%f\n',IFGT_total_time,GT_time/IFGT_total_time));
+disp(sprintf('Actual error for IFGT is %e Target was %e \n',IFGT_err,epsil));
+disp('---------------------------------------------');
+disp(sprintf('Data adaptive IFGT takes %f secs Speedup=%f\n',DAIFGT_total_time,GT_time/DAIFGT_total_time));
+disp(sprintf('Actual error for Data adaptive IFGT is %e Target was %e \n',DAIFGT_err,epsil));
+disp('---------------------------------------------');
+
+
+

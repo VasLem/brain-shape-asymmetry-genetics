@@ -1,0 +1,41 @@
+classdef dummyOP < OP
+    % This is the abstract interface class for Transformation models
+    properties
+        pdfP=[];% Outlier Process parameters
+    end
+    methods %Constructor
+        function obj = dummyOP(varargin)
+          obj = obj@OP(varargin{:});
+          obj.Type = 'dummyOP';
+        end
+    end        
+%     methods (Static = true) % Static interface functions
+%         function obj = loadobj(struc)
+%             obj = struc2obj(eval(struc.Type),struc);
+%         end
+%     end
+    methods %Interfaces Functions
+        function varargout = eval(obj,fs,varargin) %#ok<INUSD>
+                 if nargout == 1, varargout{1} = 0; return; end
+                 obj.Evaluation = 0;
+        end
+        function varargout = derivate(obj,fs,varargin)
+                 grad = zeros(size(fs.Tmodel.Derivative,3),1);
+                 if nargout == 1, varargout{1} = grad; return; end
+                 obj.Derivative = grad;        
+        end
+        function varargout = update(obj,varargin) %#ok<INUSD>
+                 if nargout == 1, varargout = []; end
+        end
+        function varargout = initialize(obj,fs,varargin) %#ok<INUSD>
+                 if nargout == 1
+                    obj = clone(obj;
+                    varargout{1} = obj;
+                 end
+        end
+        function varargout = pdf(obj,fs,varargin);
+                 out = zeros(1,fs.nrV)
+        end
+    end
+end % classdef
+

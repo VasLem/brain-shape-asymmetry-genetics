@@ -1,0 +1,4 @@
+function list = matrix2list(matrix,nr)
+         list = reshape(matrix,
+
+end

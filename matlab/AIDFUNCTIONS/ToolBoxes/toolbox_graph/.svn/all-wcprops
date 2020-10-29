@@ -1,0 +1,605 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/matlabcompanion/!svn/ver/12/toolbox/toolbox_graph
+END
+write_obj.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_obj.m
+END
+write_off.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_off.m
+END
+metro_wrapper.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/metro_wrapper.m
+END
+read_tet.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_tet.m
+END
+bunny.gim.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/bunny.gim.jpg
+END
+compute_levelset_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_levelset_mesh.m
+END
+griddata_arbitrary.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/griddata_arbitrary.m
+END
+plot_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_graph.m
+END
+compute_vertex_face_ring.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_vertex_face_ring.m
+END
+select3d.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/select3d.m
+END
+perform_dijkstra_propagation_old.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation_old.m
+END
+perform_dijkstra_propagation.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation.m
+END
+compute_traveling_salesman.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_traveling_salesman.m
+END
+batch_levelsets_meshes.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/batch_levelsets_meshes.m
+END
+pawn.wrl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/pawn.wrl
+END
+perform_faces_reorientation.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_faces_reorientation.m
+END
+compute_geometric_laplacian.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_geometric_laplacian.m
+END
+write_ply.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_ply.m
+END
+write_wrl.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_wrl.m
+END
+mesh.exe
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/mesh.exe
+END
+compute_diffusion_kernel.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_diffusion_kernel.m
+END
+compute_combinatorial_laplacian.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_combinatorial_laplacian.m
+END
+compute_edges.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_edges.m
+END
+plot_silouhette.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_silouhette.m
+END
+mesh_previewer.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/mesh_previewer.m
+END
+progressive_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/progressive_mesh.m
+END
+reverse_orientation.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/reverse_orientation.m
+END
+read_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_mesh.m
+END
+perform_point_picking.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_point_picking.m
+END
+perform_dijkstra_propagation.dll
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation.dll
+END
+check_face_vertex.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/check_face_vertex.m
+END
+plot_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_mesh.m
+END
+compute_mesh_laplacian.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_mesh_laplacian.m
+END
+compute_edge_face_ring.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_edge_face_ring.m
+END
+perform_dijkstra_propagation.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation.mexmaci
+END
+write_smf.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_smf.m
+END
+perform_dijkstra_fast.dll
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_fast.dll
+END
+compute_voronoi_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_voronoi_mesh.m
+END
+perform_dijkstra.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra.m
+END
+write_mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_mesh.m
+END
+read_gim.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_gim.m
+END
+toolbox_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/toolbox_graph.m
+END
+perform_dijkstra_fast.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_fast.mexmaci
+END
+content.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/matlabcompanion/!svn/ver/6/toolbox/toolbox_graph/content.m
+END
+compute_parameterization.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_parameterization.m
+END
+metro.exe
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/metro.exe
+END
+perform_floyd_algorithm.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_floyd_algorithm.m
+END
+copyright
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/copyright
+END
+compute_boundary.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_boundary.m
+END
+triangulate.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/triangulate.m
+END
+perform_mesh_simplification.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_mesh_simplification.m
+END
+perform_dijkstra_path_extraction.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_path_extraction.m
+END
+perform_saturation.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_saturation.m
+END
+compute_laplacian_curve.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_laplacian_curve.m
+END
+qslim.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/qslim.m
+END
+compute_vertex_ring.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_vertex_ring.m
+END
+plot_geometry_image.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_geometry_image.m
+END
+compute_rotation.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_rotation.m
+END
+perform_mesh_heat_diffusion.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_mesh_heat_diffusion.m
+END
+tet2tri.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/tet2tri.m
+END
+compile_mex.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compile_mex.m
+END
+compute_dual_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_dual_graph.m
+END
+incidence2adjacency.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/incidence2adjacency.m
+END
+adjacency2incidence.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/adjacency2incidence.m
+END
+compute_mesh_gradient.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_mesh_gradient.m
+END
+read_obj.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/12/toolbox/toolbox_graph/read_obj.m
+END
+read_off.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_off.m
+END
+mesh_flip_faces.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/mesh_flip_faces.m
+END
+compute_face_ring.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_face_ring.m
+END
+convert_gim2mesh.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/convert_gim2mesh.m
+END
+perform_dijkstra_propagation_slow.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation_slow.m
+END
+compute_normal.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_normal.m
+END
+plot_edges.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_edges.m
+END
+write_gim.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/write_gim.m
+END
+read_mfile.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_mfile.m
+END
+publish_html.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/matlabcompanion/!svn/ver/6/toolbox/toolbox_graph/publish_html.m
+END
+triangle.exe
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/triangle.exe
+END
+perform_lloyd_iteration.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_lloyd_iteration.m
+END
+mesh_wrapper.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/mesh_wrapper.m
+END
+compute_mesh_local_covariance.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_mesh_local_covariance.m
+END
+compute_diffusion_geometry.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_diffusion_geometry.m
+END
+compute_mesh_weight.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_mesh_weight.m
+END
+read_ply.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/matlabcompanion/!svn/ver/12/toolbox/toolbox_graph/read_ply.m
+END
+read_wrl.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_wrl.m
+END
+load_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/load_graph.m
+END
+adjmatrix2list.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/adjmatrix2list.m
+END
+build_euclidean_weight_matrix.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/build_euclidean_weight_matrix.m
+END
+triangulation2adjacency.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/triangulation2adjacency.m
+END
+build_graph_from_image.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/build_graph_from_image.m
+END
+compute_distance_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_distance_graph.m
+END
+plot_spherical_triangulation.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_spherical_triangulation.m
+END
+plot_dijkstra.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/plot_dijkstra.m
+END
+perform_normal_displacement.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_normal_displacement.m
+END
+load_gim.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/load_gim.m
+END
+compute_curvature.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_curvature.m
+END
+copying
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/copying
+END
+perform_mesh_smoothing.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_mesh_smoothing.m
+END
+perform_dijkstra_propagation.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/perform_dijkstra_propagation.mexglx
+END
+compute_semidual_graph.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/compute_semidual_graph.m
+END
+read_smf.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/matlabcompanion/!svn/ver/1/toolbox/toolbox_graph/read_smf.m
+END

@@ -1,0 +1,7 @@
+function out = getPropFromScan(obj,Scan)         
+         vec = getCoeff(obj.Model,Scan);
+         vec = [vec nan*ones(1,obj.nrP)];
+         propcoeff = partialFit(obj,
+         
+
+end

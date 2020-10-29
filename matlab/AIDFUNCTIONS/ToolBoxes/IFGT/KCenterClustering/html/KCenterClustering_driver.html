@@ -1,0 +1,203 @@
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>KCenterClustering_driver</title>
+      <meta name="generator" content="MATLAB 7.2">
+      <meta name="date" content="2006-10-12">
+      <meta name="m-file" content="KCenterClustering_driver"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows.  On Gecko-based browsers, the shrink-to-fit doesn't work. */ 
+p,h1,h2,div.content div {
+  /* for MATLAB's browser */
+  width: 600px;
+  /* for Mozilla, but the "width" tag overrides it anyway */
+  max-width: 600px;
+  /* for IE */
+  width:expression(document.body.clientWidth > 620 ? "600px": "auto" );
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="comment">% Script the demonstrate the use of KCenterClustering</span>
+
+clear <span class="string">all</span>;
+close <span class="string">all</span>;
+clear <span class="string">functions</span>;
+clc;
+
+disp(<span class="string">'---------------------------------------------'</span>);
+disp(sprintf(<span class="string">'Example to demonstrate the use of  KcenterClustering'</span>));
+disp(<span class="string">'---------------------------------------------'</span>);
+
+<span class="comment">% the data dimensionality</span>
+
+d=2;
+
+disp(sprintf(<span class="string">'Dimensionality d=%d\n'</span>,d));
+
+<span class="comment">% the number of sources</span>
+
+N=5000;
+
+disp(sprintf(<span class="string">'Number of source points N=%d\n'</span>,N));
+
+<span class="comment">% the source points</span>
+<span class="comment">% d x N matrix of N source points in d dimensions.</span>
+
+X=rand(d,N);
+
+<span class="comment">% Number of clusters</span>
+
+K=20;
+
+disp(sprintf(<span class="string">'Number of clusters K=%d\n'</span>,K));
+
+disp(<span class="string">'---------------------------------------------'</span>);
+disp(sprintf(<span class="string">'Running the k-center clustering\n'</span>));
+disp(<span class="string">'---------------------------------------------'</span>);
+
+<span class="comment">% k-center clustering</span>
+
+to=clock;
+[rx,ClusterIndex,ClusterCenter,NumPoints,ClusterRadii]=KCenterClustering(d,N,X,double(K));
+clustering_time=etime(clock,to);
+
+disp(sprintf(<span class="string">'Maximum cluster radius=%f\n'</span>,rx));
+disp(sprintf(<span class="string">'Time taken=%f secs\n'</span>,clustering_time));
+
+<span class="comment">%Pretty plot of the results of the clustering procedure.</span>
+<span class="comment">%Plots only for two and three dimensions.</span>
+
+plot_clusters(N,d,X,K,ClusterIndex,ClusterCenter);
+</pre><pre class="codeoutput">---------------------------------------------
+Example to demonstrate the use of  KcenterClustering
+---------------------------------------------
+Dimensionality d=2
+
+Number of source points N=5000
+
+Number of clusters K=20
+
+---------------------------------------------
+Running the k-center clustering
+
+---------------------------------------------
+Maximum cluster radius=0.217316
+
+Time taken=0.015000 secs
+
+</pre><img vspace="5" hspace="5" src="KCenterClustering_driver_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.2<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+% Script the demonstrate the use of KCenterClustering
+
+clear all;
+close all;
+clear functions;
+clc;
+
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-');
+disp(sprintf('Example to demonstrate the use of  KcenterClustering'));
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-');
+
+% the data dimensionality
+
+d=2;
+
+disp(sprintf('Dimensionality d=%d\n',d));
+
+% the number of sources
+
+N=5000;
+
+disp(sprintf('Number of source points N=%d\n',N));
+
+% the source points
+% d x N matrix of N source points in d dimensions.
+
+X=rand(d,N);
+
+% Number of clusters
+
+K=20;
+
+disp(sprintf('Number of clusters K=%d\n',K));
+
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-');
+disp(sprintf('Running the k-center clustering\n'));
+disp('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-');
+
+% k-center clustering
+
+to=clock;
+[rx,ClusterIndex,ClusterCenter,NumPoints,ClusterRadii]=KCenterClustering(d,N,X,double(K));
+clustering_time=etime(clock,to);
+
+disp(sprintf('Maximum cluster radius=%f\n',rx));
+disp(sprintf('Time taken=%f secs\n',clustering_time));
+
+%Pretty plot of the results of the clustering procedure. 
+%Plots only for two and three dimensions.
+
+plot_clusters(N,d,X,K,ClusterIndex,ClusterCenter);
+
+
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

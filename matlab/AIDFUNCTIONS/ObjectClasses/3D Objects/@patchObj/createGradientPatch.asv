@@ -1,0 +1,8 @@
+function createGradientPatch(obj)
+         if isempty(obj.ph)||~ishandle(obj.ph), return; end
+         % an object patch is required
+         obj.Gradientph = quiver3([],[],[],[],[],[],'Parent',obj.Axes,'Visible','off')
+         obj.ph = patch('Parent',obj.Axes,'Visible','off','UserData',obj);
+         setPatch(obj,'All');
+         updateChildren(obj,'Patch Created');
+end % create Patch handle.
