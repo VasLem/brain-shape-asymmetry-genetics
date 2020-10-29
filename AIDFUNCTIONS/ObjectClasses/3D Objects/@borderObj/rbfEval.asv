@@ -1,8 +1,0 @@
-function value = rbfEval(obj,points,varargin)
-         if isempty(obj.RBF)
-            rbfFit(obj,varargin{:});
-         end
-         value = eval(obj.RBF,pl,varargin{:});
-         %pl = fastrbf_pointeval(obj.RBF,pl,'messages',0);
-         %eval = pl.Value;
-end

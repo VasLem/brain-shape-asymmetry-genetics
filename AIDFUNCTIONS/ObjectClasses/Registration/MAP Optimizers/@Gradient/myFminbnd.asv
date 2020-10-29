@@ -1,8 +1,0 @@
-function myFminbnd(obj)
-
-
-
-
-end
-
-function error = ErrorFunction(X

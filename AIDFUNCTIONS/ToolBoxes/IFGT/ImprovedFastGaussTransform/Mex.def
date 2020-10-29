@@ -1,2 +1,0 @@
-LIBRARY	ImprovedFastGaussTransform.dll
-EXPORTS mexFunction          

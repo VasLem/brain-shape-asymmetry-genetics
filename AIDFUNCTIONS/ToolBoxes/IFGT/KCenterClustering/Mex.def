@@ -1,2 +1,0 @@
-LIBRARY	KCenterClustering.dll
-EXPORTS mexFunction          

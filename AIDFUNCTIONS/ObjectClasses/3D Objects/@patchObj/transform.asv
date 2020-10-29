@@ -1,6 +1,0 @@
-function varargout = transform(obj,T)
-         if ~size(T,1)==4||~size(T,2)==4, error('Incorrect Transformation Matrix'); end
-         vertex = obj.Vertices;
-         vertex = [vertex;ones(1,size(vertex,2))
-
-end
