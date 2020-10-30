@@ -42,5 +42,8 @@ vignettes/*.pdf
 *~
 *.DS_Store*
 
+# Python venv
+.venv
+
 # temp images
 .*.png
