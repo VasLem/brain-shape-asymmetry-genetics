@@ -70,6 +70,8 @@ strTemplate = Template.obj2struc();
 savePath = [DATA_DIR 'gpa_data.mat'];
 save(savePath,  'TotalShapes', 'strTemplate');
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
+savePath = [DATA_DIR 'aligned.mat'];
+save(savePath,  'AlignedShapes');
 %%
 clear DATA LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
@@ -89,7 +91,7 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 % for i=1:nRep
 %     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
 % end
-nRep = 1;
+nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
 for i=1:nRep
     % RepShapes(:,:,i) = single(Shapes);
@@ -100,7 +102,11 @@ RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
-out = ProcrustesAnova2WayAsymmetryMEM(X1',X2',nSamples);
+totalX = cat(1, X1, X2);
+savePath = [DATA_DIR 'replicated.mat'];
+save(savePath,  'totalX');
+%%
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
