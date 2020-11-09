@@ -21,21 +21,21 @@ nVertices = length(MASK);
 Regions = {'LH' 'RH'};
 nR = length(Regions);
 %% Extract mat file of serialized objects
-strDATA = cell(1,2);
-strRender = cell(1, 2);
-savePath = [DATA_DIR 'asym_data.mat'];
-disp(['Extracting mat file of serialized objects to ' savePath]);
-for r=1:nR
-    %r=2
-    regphenopath = [phenopath Regions{r} '/'];
-    strDATA{r} =  load([regphenopath 'STAGE00DATA']);
-    strDATA{r}.Region.AvgShape = strDATA{r}.Region.AvgShape.obj2struc();
-    strRender{r} = load([regphenopath 'RENDERMATERIAL.mat']);
-    strRender{r}.RefScan = strRender{r}.RefScan.obj2struc();
-    
-end
-save(savePath,  'strDATA', 'strRender');
-clear strDATA strRender;
+% strDATA = cell(1,2);
+% strRender = cell(1, 2);
+% savePath = [DATA_DIR 'asym_data.mat'];
+% disp(['Extracting mat file of serialized objects to ' savePath]);
+% for r=1:nR
+%     %r=2
+%     regphenopath = [phenopath Regions{r} '/'];
+%     strDATA{r} =  load([regphenopath 'STAGE00DATA']);
+%     strDATA{r}.Region.AvgShape = strDATA{r}.Region.AvgShape.obj2struc();
+%     strRender{r} = load([regphenopath 'RENDERMATERIAL.mat']);
+%     strRender{r}.RefScan = strRender{r}.RefScan.obj2struc();
+%     
+% end
+% save(savePath,  'strDATA', 'strRender');
+% clear strDATA strRender;
 
 %% WITH THE UNCORRECTED DATA SET
 
@@ -53,67 +53,112 @@ for r=1:nR
     
 end
 
-
-%% GPA
-% a subselection for now
-
-
+%% Subsampling space to match R version which has memory issues to pick the whole space
 nSamples = 100;
-LH = DATA{1}.Region.AlignedShapes(:, :, 1:nSamples);
-RH = DATA{2}.Region.AlignedShapes(:, :, 1:nSamples);
+Ns = 100;
+LH = DATA{1}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
+RH = DATA{2}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
 RH(:,1,:,:) = -1*RH(:,1,:,:);
+Template = clone(DATA{1}.Region.AvgShape);
+Template.Vertices = Template.Vertices(1:Ns:end,:);
+
+%% Prepare Data to be provided to GPA
+
+% figure;
+% hold on;
+% scatter3(RH(:,1,1),RH(:,2,1),RH(:,3,1),'b');,
+% scatter3(LH(:,1,1),LH(:,2,1),LH(:,3,1),'r');,
+% hold off;
+
 TotalShapes = cat(3,LH,RH);
 
 
-Template = clone(DATA{1}.Region.AvgShape);
-strTemplate = Template.obj2struc();
-savePath = [DATA_DIR 'gpa_data.mat'];
-save(savePath,  'TotalShapes', 'strTemplate');
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
-savePath = [DATA_DIR 'aligned.mat'];
-save(savePath,  'AlignedShapes');
+nRep = 3;
+% Currently noise injection does nate into account locality. It might be
+% helpful to create a smoother noisy version, TBD
+TotalRepShapes = zeros([size(TotalShapes),nRep],'single');% noise injected replications
+for i=1:nRep
+    % RepShapes(:,:,i) = single(Shapes);
+    TotalRepShapes(:,:,:,i) = single(TotalShapes) + single(randn(size(TotalShapes))).*0.05;
+end
+
+s = size(TotalRepShapes);
+GPAInput = reshape(TotalRepShapes, [s(1:2), prod(s(3:4))]); 
+
+LHIndex = reshape(1:nSamples,[nSamples, 1]) + reshape((0:2:2*nRep-1) * nSamples,[ 1, nRep]);
+RHIndex = reshape(1:nSamples,[nSamples, 1]) + reshape((1:2:2*nRep) * nSamples,[ 1, nRep]);
+%% prepare output to R
+
+
+strTemplate = DATA{1}.Region.AvgShape.obj2struc();
+LHReps= TotalRepShapes(:,:,1:nSamples,:);
+s = size(LHReps);
+LHReps = reshape(LHReps, [s(1:2),s(3)*s(4)]);
+RHReps = TotalRepShapes(:,:,nSamples+1:end,:);
+RHReps = reshape(RHReps, [s(1:2),s(3)*s(4)]);
+
+
+% 
+input_to_r_path =  [DATA_DIR 'input_to_r.mat'];
+save(input_to_r_path, 'LHReps', 'RHReps','strTemplate','nSamples','Ns','nRep');
+
+% TotalRepShapes: 
+
+%% GPA
+
+[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(GPAInput,Template,3,true,false,true,false);
+
+
+
+
 %%
 clear DATA LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
-% nAnovaSamples = size(AlignedShapes,3)/2;
-LHAligned = AlignedShapes(:,:,1:nSamples);% a subselection for now
-RHAligned = AlignedShapes(:,:,nSamples+1:nSamples+nSamples);
-% RHAligned = reshape(permute(repmat(1:(size(RHAligned, 1) * size(RHAligned, 2)), nSamples, 1), [2, 1]), size(RHAligned))/prod(size(RHAligned, [1,2]));
-% LHAligned = reshape(permute(-repmat(1:(size(LHAligned, 1) * size(LHAligned, 2)), nSamples, 1), [2, 1]), size(LHAligned))/prod(size(LHAligned, [1,2]));
-    %%
-Shapes = cat(3,LHAligned,RHAligned);
-% Shapes = Shapes(1:100:end,:,:);% reducing the amount of vertices
-Shapes = permute(Shapes,[2 1 3]);
-Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
+LHAligned = AlignedShapes(:,:,LHIndex);
+RHAligned = AlignedShapes(:,:,RHIndex);
+% figure;
+% hold on;
+% scatter3(RHAligned(:,1,1),RHAligned(:,2,1),RHAligned(:,3,1),'b');,
+% scatter3(LHAligned (:,1,1),LHAligned (:,2,1),LHAligned (:,3,1),'r');,
+% hold off;
+
+
+LHAlignedInt16 = int16(LHAligned.*10000);clear LHAligned;
+RHAlignedInt16 = int16(RHAligned.*10000);clear RHAligned;
+
+X1 = reshape(LHAlignedInt16, size(LHAlignedInt16, 1) * size(LHAlignedInt16,2), nSamples, nRep);
+
+X2 = reshape(RHAlignedInt16, size(RHAlignedInt16, 1) * size(RHAlignedInt16,2), nSamples, nRep);
+X1 = permute(X1, [2 1 3]);
+X2= permute(X2, [2 1 3]);
+% 
+% 
+% RepShapes = permute(RepShapes,[2 1 3]);
+% RepShapes = reshape(RepShapes,size(RepShapes,1)*size(RepShapes,2),size(RepShapes,3))';
+
 %%
 % nRep = 3
 % RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
 % for i=1:nRep
 %     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
 % end
-nRep = 3;
-RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
-for i=1:nRep
-    % RepShapes(:,:,i) = single(Shapes);
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
-end
+
 %%
-RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
-%%
-X1 = RepShapesInt16(1:nSamples,:,:);
-X2 = RepShapesInt16(nSamples+1:end,:,:);
-totalX = cat(1, X1, X2);
-savePath = [DATA_DIR 'replicated.mat'];
-save(savePath,  'totalX');
+
 %%
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
+
+
+
+
+
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
 VertexValues{i} = out.LM.I;titlenames{i} = 'I';i=i+1;
-VertexValues{i} = out.LM.IF;titlenames{i} = 'IF';i=i+1;
 val = out.LM.permIF;res = zeros(size(val));
 res(val<=0.05) = 0.5;
+VertexValues{i} = out.LM.IF;titlenames{i} = 'IF';i=i+1;
 res(val<=0.001) = 1;
 VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
 VertexValues{i} = out.LM.D;titlenames{i} = 'D';i=i+1;
