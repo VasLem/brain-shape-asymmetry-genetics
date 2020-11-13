@@ -22,10 +22,32 @@ side <- c(rep(1,nSamples*nReps), rep(2,nSamples*nReps))
 
 sym <- bilat.symmetry(allShapes, ind=ind,side=side,rep=rep)
 
-
-
 plot(sym, warpgrids = TRUE)
-
-da_values <- rep(sym$DA.component,each=Ns)
-fa_values <- rep(sym$FA.component,each=Ns)
+dim(sym$DA.component)
+da_values <- rowSums((sym$DA.component[,,1]-sym$DA.component[,,2])^2)
+da_values <- rep(da_values,each=Ns)
+fa_values <- rowSums((sym$FA.component[,,1]-sym$FA.component[,,2])^2)
+fa_values <- rep(fa_values,each=Ns)
 template <- GPA_DATA_INPUT$strTemplate
+
+vertices <- rbind(t(as.matrix(template[[2]])),1)
+indices <- template[[3]]
+
+
+material <- fa_values[1:dim(vertices)[2]]
+
+
+
+material <- as.integer(255 * (material-min(material))/(max(material)-min(material)))
+paletteFunc <- colorRampPalette(c("blue", "red"));
+
+palette <- paletteFunc(255);
+
+mesh1 <- tmesh3d(vertices = vertices, indices = indices, homogeneous = TRUE, 
+                 material = list(palette[material])
+                 )
+
+shade3d(mesh1, meshColor = "vertices")
+
+
+wire3d(mesh1)
