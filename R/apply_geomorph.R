@@ -3,22 +3,74 @@ library(rgl)
 knit_hooks$set(webgl = hook_webgl)
 require(geomorph)
 library(R.matlab)
-library(abind)
 
-GPA_DATA_INPUT <- readMat("../SAMPLE_DATA/input_to_r.mat")
+GPA_DATA <- readMat("../SAMPLE_DATA/m2r.mat")
+nSamples <- GPA_DATA$nSamples
+Ns <- GPA_DATA$Ns
+nReps <- GPA_DATA$nRep
 
 
-LH <- GPA_DATA_INPUT$LHReps
-RH <- GPA_DATA_INPUT$RHReps
-allShapes <- abind(LH, RH,along=3)
-nSamples <- GPA_DATA_INPUT$nSamples
-Ns <- GPA_DATA_INPUT$Ns
-nReps <- GPA_DATA_INPUT$nRep
+# center
+# centers a matrix faster than scale()
+# used in various functions where mean-centering is required
+center <- function(x){
+  if(is.vector(x)) x - mean(x) else {
+    x <- as.matrix(x)
+    dims <- dim(x)
+    fast.center(x, dims[1], dims[2])
+  }
+}
+
+fast.center <- function(x, n, p){
+  m <- colMeans(x)
+  x - rep.int(m, rep_len(n, p))
+}
+
+fast.scale <- function(x, n, p){
+  if(p > 1) {
+    x <- fast.center(x, n, p)
+    scale <- apply(x, 2, sd)
+    x / rep.int(scale, rep_len(n, p))
+  } else {
+    x <- x - mean(x)
+    x/sd(x)
+  }
+}
+
+# csize
+# calculates centroid size
+# digitsurface
+csize <- function(x) sqrt(sum(center(as.matrix(x))^2))
+
+LH <- GPA_DATA$LH
+RH <- GPA_DATA$RH
+template <- GPA_DATA$strTemplate[[2]]
+sampledTemplate <- template[seq(from=1, to=dim(template)[1], by=Ns),];
+dim(sampledTemplate)
+
+allShapes <- array(c(sampledTemplate, LH, RH), dim = c(dim(LH)[1], dim(LH)[2], 1 + dim(LH)[3] + dim(RH)[3]))
+
+Y.gpa = gpagen(allShapes, Proj=FALSE, PrinAxes=FALSE,max.iter=3)
+sampledTemplateAligned = Y.gpa$coords[,,1];
+LHAligned=Y.gpa$coords[,,2:dim(LH)[3]+1]
+RHAligned=Y.gpa$coords[,,-(1:dim(LH)[3])]
+
+# scalingFactor = csize(template)/csize(TemplateAligned);
+# scaledTemplateAligned = TemplateAligned * scalingFactor;
+
+# translationFactor = colMeans(sampledTemplate)- colMeans(scaledTemplateAligned); 
+# recSampledTemplate = scaledTemplateAligned + translationFactor;
+
+
+writeMat("../SAMPLE_DATA/r2m.mat",LHAligned=LHAligned,RHAligned=RHAligned)
 
 
 ind <- rep(1:nSamples, 2*nReps)
 rep <- rep(rep(1:3,each=nSamples),2)
 side <- c(rep(1,nSamples*nReps), rep(2,nSamples*nReps))
+
+
+
 
 sym <- bilat.symmetry(allShapes, ind=ind,side=side,rep=rep)
 
@@ -32,6 +84,14 @@ template <- GPA_DATA_INPUT$strTemplate
 
 vertices <- rbind(t(as.matrix(template[[2]])),1)
 indices <- template[[3]]
+
+
+
+center(template)
+templateCenter <- mean(template, 1)
+templateCenter
+
+
 
 
 material <- fa_values[1:dim(vertices)[2]]

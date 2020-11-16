@@ -2,6 +2,7 @@
 close all;clear;
 restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
+
 addpath(genpath('AIDFUNCTIONS'));
 
 %% SETTING UP COMPUTATION POWER
@@ -70,43 +71,30 @@ Template = clone(DATA{1}.Region.AvgShape);
 % scatter3(LH(:,1,1),LH(:,2,1),LH(:,3,1),'r');,
 % hold off;
 
-TotalShapes = cat(3,LH,RH);
 
-
-nRep = 3;
-% Currently noise injection does nate into account locality. It might be
-% helpful to create a smoother noisy version, TBD
-TotalRepShapes = zeros([size(TotalShapes),nRep],'single');% noise injected replications
-for i=1:nRep
-    % RepShapes(:,:,i) = single(Shapes);
-    TotalRepShapes(:,:,:,i) = single(TotalShapes) + single(randn(size(TotalShapes))).*0.05;
-end
-
-s = size(TotalRepShapes);
-GPAInput = reshape(TotalRepShapes, [s(1:2), prod(s(3:4))]); 
-
-LHIndex = reshape(1:nSamples,[nSamples, 1]) + reshape((0:2:2*nRep-1) * nSamples,[ 1, nRep]);
-RHIndex = reshape(1:nSamples,[nSamples, 1]) + reshape((1:2:2*nRep) * nSamples,[ 1, nRep]);
 %% prepare output to R
 
 
 strTemplate = DATA{1}.Region.AvgShape.obj2struc();
-LHReps= TotalRepShapes(:,:,1:nSamples,:);
-s = size(LHReps);
-LHReps = reshape(LHReps, [s(1:2),s(3)*s(4)]);
-RHReps = TotalRepShapes(:,:,nSamples+1:end,:);
-RHReps = reshape(RHReps, [s(1:2),s(3)*s(4)]);
-
-
+nRep = 3;
 % 
-input_to_r_path =  [DATA_DIR 'input_to_r.mat'];
-save(input_to_r_path, 'LHReps', 'RHReps','strTemplate','nSamples','Ns','nRep');
+input_to_r_path =  [DATA_DIR 'm2r.mat'];
+save(input_to_r_path, 'LH', 'RH','strTemplate','nSamples','Ns','nRep');
 
 % TotalRepShapes: 
 
 %% GPA
+input_from_r_path = [DATA_DIR 'r2m.mat'];
+gpa_from_r = load(input_from_r_path);
+%%
 Template.Vertices = Template.Vertices(1:Ns:end,:);
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(GPAInput,Template,3,true,false,true,false);
+TotalShapes = cat(3,LH,RH);
+%%
+Template.Vertices = Template.Vertices - mean(Template.Vertices, 1);
+Template.Vertices = (Template.Vertices ./ sqrt(sum(Template.Vertices.^2,'all')));
+% [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
+[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,'best',true,true);
+
 
 
 
@@ -114,8 +102,30 @@ Template.Vertices = Template.Vertices(1:Ns:end,:);
 %%
 clear DATA LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
-LHAligned = AlignedShapes(:,:,LHIndex);
-RHAligned = AlignedShapes(:,:,RHIndex);
+LHAligned = AlignedShapes(:,:,1:size(AlignedShapes, 3)/2 );
+RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
+%%
+%%
+
+LHAligned_R=gpa_from_r.LHAligned;
+RHAligned_R = gpa_from_r.RHAligned;
+shape = shape3D;
+shape.Vertices = Template.Vertices;
+shape.VertexSize = 20;
+shape.SingleColor = [0 1 0];
+v = viewer(shape);
+N = size(LHAligned,3);
+for n=1:1:N
+   shape = shape3D;
+   shape.Vertices = squeeze(LHAligned_R(:,:,n));
+   shape.VertexSize = 10;
+   viewer(shape,v);
+end
+drawnow;
+
+%%
+
+
 % figure;
 % hold on;
 % scatter3(RHAligned(:,1,1),RHAligned(:,2,1),RHAligned(:,3,1),'b');,
@@ -131,17 +141,17 @@ X1 = reshape(LHAlignedInt16, size(LHAlignedInt16, 1) * size(LHAlignedInt16,2), n
 X2 = reshape(RHAlignedInt16, size(RHAlignedInt16, 1) * size(RHAlignedInt16,2), nSamples, nRep);
 X1 = permute(X1, [2 1 3]);
 X2= permute(X2, [2 1 3]);
-% 
-% 
-% RepShapes = permute(RepShapes,[2 1 3]);
-% RepShapes = reshape(RepShapes,size(RepShapes,1)*size(RepShapes,2),size(RepShapes,3))';
+
+
+RepShapes = permute(RepShapes,[2 1 3]);
+RepShapes = reshape(RepShapes,size(RepShapes,1)*size(RepShapes,2),size(RepShapes,3))';
 
 %%
-% nRep = 3
-% RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
-% for i=1:nRep
-%     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
-% end
+nRep = 3;
+RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
+for i=1:nRep
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
+end
 
 %%
 

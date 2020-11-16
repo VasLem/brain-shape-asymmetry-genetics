@@ -23,12 +23,6 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
          end
          closeParForProgress(path,ID)
          toc;
-%         pSet1 = reshape(X1, [], 1);
-%         pSet2= reshape(X2, [], 1);
-%         pX = [pSet1(:) pSet2(:)];
-%          [~, PROP_TABLE, PROP_STATS] = anova2(pX, t);
-        
-         % Return stats to 3d setup
          SS_D = reshape(SS(1,:),3,length(SS(1,:))/3);
          SS_I = reshape(SS(2,:),3,length(SS(2,:))/3);
          SS_F = reshape(SS(3,:),3,length(SS(3,:))/3);
@@ -61,7 +55,6 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
          Total.IF =  Total.I/Total.F;
          Total.IP = Ftest(Total.IF,((n-1)*(nrV-7)),(n-1)*(nrV-7));         
          % Directional
-         %%%% To be verified in R
          LM.D = sum(SS_D);
          Total.D = sum(LM.D);
          LM.D = (LM.D./3)/n;
@@ -70,7 +63,6 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
          LM.DP = Ftest(LM.DF,3,3*(n-1));
          Total.DF =  Total.D/Total.F;
          Total.DP = Ftest(Total.DF,nrV-7,(n-1)*(nrV-7));
-         %%%%
          out.Total = Total;
          out.LM = LM;
          out.MeanX1 = MeanX1;
