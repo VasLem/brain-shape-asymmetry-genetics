@@ -109,6 +109,7 @@ RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
 
 LHAligned_R=gpa_from_r.LHAligned;
 RHAligned_R = gpa_from_r.RHAligned;
+%%
 shape = shape3D;
 shape.Vertices = Template.Vertices;
 shape.VertexSize = 20;

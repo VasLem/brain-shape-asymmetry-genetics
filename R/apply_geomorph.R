@@ -52,8 +52,8 @@ allShapes <- array(c(sampledTemplate, LH, RH), dim = c(dim(LH)[1], dim(LH)[2], 1
 
 Y.gpa = gpagen(allShapes, Proj=FALSE, PrinAxes=FALSE,max.iter=3)
 sampledTemplateAligned = Y.gpa$coords[,,1];
-LHAligned=Y.gpa$coords[,,2:dim(LH)[3]+1]
-RHAligned=Y.gpa$coords[,,-(1:dim(LH)[3])]
+LHAligned=Y.gpa$coords[,,2:(dim(LH)[3]+1)]
+RHAligned=Y.gpa$coords[,,-(1:(dim(LH)[3] + 1))]
 
 # scalingFactor = csize(template)/csize(TemplateAligned);
 # scaledTemplateAligned = TemplateAligned * scalingFactor;
