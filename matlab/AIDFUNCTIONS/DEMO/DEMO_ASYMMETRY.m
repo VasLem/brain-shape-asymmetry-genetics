@@ -61,7 +61,13 @@ LH = DATA{1}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
 RH = DATA{2}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
 RH(:,1,:,:) = -1*RH(:,1,:,:);
 Template = clone(DATA{1}.Region.AvgShape);
+reducedTemplate = shape3D;
+reducedTemplate.struc2obj(Template.obj2struc());
 
+reducedTemplate.Vertices = reducedTemplate.Vertices(1:Ns:end,:);
+reducedTemplate.Vertices = reducedTemplate.Vertices - mean(reducedTemplate.Vertices, 1);
+reducedTemplate.Vertices = (reducedTemplate.Vertices ./ sqrt(sum(reducedTemplate.Vertices.^2,'all')));
+strTemplate = reducedTemplate.obj2struc();
 
 %% Prepare Data to be provided to GPA
 
@@ -75,7 +81,7 @@ Template = clone(DATA{1}.Region.AvgShape);
 %% prepare output to R
 
 
-strTemplate = DATA{1}.Region.AvgShape.obj2struc();
+
 nRep = 3;
 % 
 input_to_r_path =  [DATA_DIR 'm2r.mat'];
@@ -87,13 +93,11 @@ save(input_to_r_path, 'LH', 'RH','strTemplate','nSamples','Ns','nRep');
 input_from_r_path = [DATA_DIR 'r2m.mat'];
 gpa_from_r = load(input_from_r_path);
 %%
-Template.Vertices = Template.Vertices(1:Ns:end,:);
+
 TotalShapes = cat(3,LH,RH);
 %%
-Template.Vertices = Template.Vertices - mean(Template.Vertices, 1);
-Template.Vertices = (Template.Vertices ./ sqrt(sum(Template.Vertices.^2,'all')));
 % [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,'best',true,true);
+[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,reducedTemplate,3,true,'best',true,false);
 
 
 
@@ -106,24 +110,20 @@ LHAligned = AlignedShapes(:,:,1:size(AlignedShapes, 3)/2 );
 RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
 %%
 %%
-
 LHAligned_R=gpa_from_r.LHAligned;
 RHAligned_R = gpa_from_r.RHAligned;
+reducedTemplateAligned_R = gpa_from_r.TemplateAligned;
 %%
-shape = shape3D;
-shape.Vertices = Template.Vertices;
-shape.VertexSize = 20;
-shape.SingleColor = [0 1 0];
-v = viewer(shape);
-N = size(LHAligned,3);
-for n=1:1:N
-   shape = shape3D;
-   shape.Vertices = squeeze(LHAligned_R(:,:,n));
-   shape.VertexSize = 10;
-   viewer(shape,v);
-end
-drawnow;
 
+display3DLandmarks(reducedTemplate, reducedTemplateAligned_R);
+%%
+display3DLandmarks(LHAligned(:,:,1), LHAligned_R(:,:,1));
+
+%%
+display3DLandmarks(reducedTemplateAligned_R, LHAligned_R(:,:,1));
+%%
+
+display3DLandmarks(LHAligned(:,:,1), reducedTemplate.Vertices);
 %%
 
 
@@ -136,29 +136,23 @@ drawnow;
 
 LHAlignedInt16 = int16(LHAligned.*10000);clear LHAligned;
 RHAlignedInt16 = int16(RHAligned.*10000);clear RHAligned;
-
-X1 = reshape(LHAlignedInt16, size(LHAlignedInt16, 1) * size(LHAlignedInt16,2), nSamples, nRep);
-
-X2 = reshape(RHAlignedInt16, size(RHAlignedInt16, 1) * size(RHAlignedInt16,2), nSamples, nRep);
-X1 = permute(X1, [2 1 3]);
-X2= permute(X2, [2 1 3]);
-
-
-RepShapes = permute(RepShapes,[2 1 3]);
-RepShapes = reshape(RepShapes,size(RepShapes,1)*size(RepShapes,2),size(RepShapes,3))';
-
 %%
+
+Shapes = permute(AlignedShapes,[2 1 3]);
+Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
+clear AlignedShapes;
+%nRep = 6;
 nRep = 3;
-RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');% noise injected replications
-for i=1:nRep
+RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
+for i=1:1:nRep
     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
 end
+RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 
-%%
+X1 = RepShapesInt16(1:nSamples,:,:);
+X2 = RepShapesInt16(nSamples+1:end,:,:);
 
-%%
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nSamples);
-
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,0);
 
 
 

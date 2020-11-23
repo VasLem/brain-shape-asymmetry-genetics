@@ -3,6 +3,9 @@ library(rgl)
 knit_hooks$set(webgl = hook_webgl)
 require(geomorph)
 library(R.matlab)
+# install.packages("tidyverse")
+library(tidyr)
+library(scatterplot3d) # load
 
 GPA_DATA <- readMat("../SAMPLE_DATA/m2r.mat")
 nSamples <- GPA_DATA$nSamples
@@ -45,13 +48,12 @@ csize <- function(x) sqrt(sum(center(as.matrix(x))^2))
 LH <- GPA_DATA$LH
 RH <- GPA_DATA$RH
 template <- GPA_DATA$strTemplate[[2]]
-sampledTemplate <- template[seq(from=1, to=dim(template)[1], by=Ns),];
-dim(sampledTemplate)
+dim(template)
 
-allShapes <- array(c(sampledTemplate, LH, RH), dim = c(dim(LH)[1], dim(LH)[2], 1 + dim(LH)[3] + dim(RH)[3]))
+allShapes <- array(c(template, LH, RH), dim = c(dim(LH)[1], dim(LH)[2], 1 + dim(LH)[3] + dim(RH)[3]))
 
 Y.gpa = gpagen(allShapes, Proj=FALSE, PrinAxes=FALSE,max.iter=3)
-sampledTemplateAligned = Y.gpa$coords[,,1];
+templateAligned = Y.gpa$coords[,,1];
 LHAligned=Y.gpa$coords[,,2:(dim(LH)[3]+1)]
 RHAligned=Y.gpa$coords[,,-(1:(dim(LH)[3] + 1))]
 
@@ -62,17 +64,20 @@ RHAligned=Y.gpa$coords[,,-(1:(dim(LH)[3] + 1))]
 # recSampledTemplate = scaledTemplateAligned + translationFactor;
 
 
-writeMat("../SAMPLE_DATA/r2m.mat",LHAligned=LHAligned,RHAligned=RHAligned)
+writeMat("../SAMPLE_DATA/r2m.mat",LHAligned=LHAligned,RHAligned=RHAligned, TemplateAligned=templateAligned)
 
 
-ind <- rep(1:nSamples, 2*nReps)
-rep <- rep(rep(1:3,each=nSamples),2)
-side <- c(rep(1,nSamples*nReps), rep(2,nSamples*nReps))
+ind <- c(0, rep(1:nSamples, 2*nReps))
+rep <- c(1 ,rep(rep(1:3,each=nSamples),2))
+side <- c(1, c(rep(1,nSamples*nReps), rep(2,nSamples*nReps)))
+
+ind <- c(0, rep(1:nSamples, 2))
+rep <- c(1 ,rep(rep(1,each=nSamples),2))
+side <- c(1, c(rep(1,nSamples*1), rep(2,nSamples*1)))
 
 
 
-
-sym <- bilat.symmetry(allShapes, ind=ind,side=side,rep=rep)
+sym <- bilat.symmetry(Y.gpa, ind=ind,side=side,rep=rep)
 
 plot(sym, warpgrids = TRUE)
 dim(sym$DA.component)
@@ -87,27 +92,27 @@ indices <- template[[3]]
 
 
 
-center(template)
-templateCenter <- mean(template, 1)
-templateCenter
-
-
-
-
-material <- fa_values[1:dim(vertices)[2]]
-
-
-
-material <- as.integer(255 * (material-min(material))/(max(material)-min(material)))
-paletteFunc <- colorRampPalette(c("blue", "red"));
-
-palette <- paletteFunc(255);
-
-mesh1 <- tmesh3d(vertices = vertices, indices = indices, homogeneous = TRUE, 
-                 material = list(palette[material])
-                 )
-
-shade3d(mesh1, meshColor = "vertices")
-
-
-wire3d(mesh1)
+# center(template)
+# templateCenter <- mean(template, 1)
+# templateCenter
+# 
+# 
+# 
+# 
+# material <- fa_values[1:dim(vertices)[2]]
+# 
+# 
+# 
+# material <- as.integer(255 * (material-min(material))/(max(material)-min(material)))
+# paletteFunc <- colorRampPalette(c("blue", "red"));
+# 
+# palette <- paletteFunc(255);
+# 
+# mesh1 <- tmesh3d(vertices = vertices, indices = indices, homogeneous = TRUE, 
+#                  material = list(palette[material])
+#                  )
+# 
+# shade3d(mesh1, meshColor = "vertices")
+# 
+# 
+# wire3d(mesh1)
