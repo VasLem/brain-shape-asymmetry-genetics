@@ -67,7 +67,8 @@ reducedTemplate.struc2obj(Template.obj2struc());
 reducedTemplate.Vertices = reducedTemplate.Vertices(1:Ns:end,:);
 reducedTemplate.Vertices = reducedTemplate.Vertices - mean(reducedTemplate.Vertices, 1);
 reducedTemplate.Vertices = (reducedTemplate.Vertices ./ sqrt(sum(reducedTemplate.Vertices.^2,'all')));
-strTemplate = reducedTemplate.obj2struc();
+strReducedTemplate = reducedTemplate.obj2struc();
+strTemplate = Template.obj2struc();
 
 %% Prepare Data to be provided to GPA
 
@@ -85,7 +86,7 @@ strTemplate = reducedTemplate.obj2struc();
 nRep = 3;
 % 
 input_to_r_path =  [DATA_DIR 'm2r.mat'];
-save(input_to_r_path, 'LH', 'RH','strTemplate','nSamples','Ns','nRep');
+save(input_to_r_path, 'LH', 'RH','strReducedTemplate', 'strTemplate', 'nSamples','Ns','nRep');
 
 % TotalRepShapes: 
 
@@ -93,7 +94,7 @@ save(input_to_r_path, 'LH', 'RH','strTemplate','nSamples','Ns','nRep');
 input_from_r_path = [DATA_DIR 'r2m.mat'];
 gpa_from_r = load(input_from_r_path);
 %%
-
+ 
 TotalShapes = cat(3,LH,RH);
 %%
 % [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(TotalShapes,Template,3,true,false,true,false);
