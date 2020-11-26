@@ -137,11 +137,13 @@ display3DLandmarks(LHAligned(:,:,1), reducedTemplate.Vertices);
 
 LHAlignedInt16 = int16(LHAligned.*10000);clear LHAligned;
 RHAlignedInt16 = int16(RHAligned.*10000);clear RHAligned;
-%%
+
 
 Shapes = permute(AlignedShapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 clear AlignedShapes;
+
+%%
 %nRep = 6;
 nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
@@ -153,70 +155,70 @@ RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,0);
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,100);
 
 
 
 
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
-% f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
-% i=1;
-% VertexValues{i} = out.LM.I;titlenames{i} = 'I';i=i+1;
-% val = out.LM.permIF;res = zeros(size(val));
-% res(val<=0.05) = 0.5;
-% VertexValues{i} = out.LM.IF;titlenames{i} = 'IF';i=i+1;
-% res(val<=0.001) = 1;
-% VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-% VertexValues{i} = out.LM.D;titlenames{i} = 'D';i=i+1;
-% VertexValues{i} = out.LM.DF;titlenames{i} = 'DF';i=i+1;
-% val = out.LM.permDF;res = zeros(size(val));
-% res(val<=0.002) = 0.5;
-% res(val<=0.001) = 1;
-% VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-% VertexValues{i} = out.LM.F;titlenames{i} = 'F';i=i+1;
-% VertexValues{i} = out.LM.FF;titlenames{i} = 'FF';i=i+1;
-% val = out.LM.permFF;res = zeros(size(val));
-% res(val<=0.05) = 0.5;
-% res(val<=0.001) = 1;
-% VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-% nValues = length(VertexValues);
-% arrange = [3 6];
-% counter = 0;
-% map = parula(256);
-% clim = [];
-% rend = Render{1};
-% for i=1:nValues
-%         %i=1;
-%        counter = counter+1;
-%        fout.ax1{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-%        colormap(fout.ax1{i},map);
-%        if ~isempty(clim), set(fout.ax1{i},'clim',clim);end
-%        renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
-%        colorbar(fout.ax1{i},'SouthOutside');
-%        if mod(i,3)>0,          
-%            set(fout.ax1{i},'clim',[0 max(VertexValues{i})]);
-%        end
-%        if mod(i,3)==0,set(fout.ax1{i},'clim',[0 1]); colormap(fout.ax1{i},'summer');end
-%        view(fout.ax1{i},rend.viewval(1),0);
-%        light = camlight(fout.ax1{i},'headlight');
-%        set(light,'Position',get(fout.ax1{i},'CameraPosition'));
-%        drawnow;
-%        title(fout.ax1{i},titlenames{i})
-%        counter = counter+1;
-%        fout.ax2{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-%        renderBrainSurface(rend,VertexValues{i},fout.ax2{i});
-%        view(fout.ax2{i},-1*rend.viewval(1),0);
-%        colorbar(fout.ax2{i},'SouthOutside');
-%        if mod(i,3)>0,
-%            set(fout.ax2{i},'clim',[0 max(VertexValues{i})]);
-%        end
-%        colormap(fout.ax2{i},map);
-%        if mod(i,3)==0,set(fout.ax2{i},'clim',[0 1]); colormap(fout.ax2{i},'summer');end
-%        light = camlight(fout.ax2{i},'headlight');
-%        set(light,'Position',get(fout.ax2{i},'CameraPosition'));
-%        drawnow;
-%        if ~isempty(clim), set(fout.ax2{i},'clim',clim);end
-% end
+f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
+i=1;
+VertexValues{i} = out.LM.I;titlenames{i} = 'I';i=i+1;
+val = out.LM.permIF;res = zeros(size(val));
+res(val<=0.05) = 0.5;
+VertexValues{i} = out.LM.IF;titlenames{i} = 'IF';i=i+1;
+res(val<=0.001) = 1;
+VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
+VertexValues{i} = out.LM.D;titlenames{i} = 'D';i=i+1;
+VertexValues{i} = out.LM.DF;titlenames{i} = 'DF';i=i+1;
+val = out.LM.permDF;res = zeros(size(val));
+res(val<=0.002) = 0.5;%%
+res(val<=0.001) = 1;
+VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
+VertexValues{i} = out.LM.F;titlenames{i} = 'F';i=i+1;
+VertexValues{i} = out.LM.FF;titlenames{i} = 'FF';i=i+1;
+val = out.LM.permFF;res = zeros(size(val));
+res(val<=0.05) = 0.5;
+res(val<=0.001) = 1;
+VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
+nValues = length(VertexValues);
+arrange = [3 6];
+counter = 0;
+map = parula(256);
+clim = [];
+rend = Render{1};
+for i=1:nValues
+        %i=1;
+       counter = counter+1;
+       fout.ax1{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
+       colormap(fout.ax1{i},map);
+       if ~isempty(clim), set(fout.ax1{i},'clim',clim);end
+       renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
+       colorbar(fout.ax1{i},'SouthOutside');
+       if mod(i,3)>0,          
+           set(fout.ax1{i},'clim',[0 max(VertexValues{i})]);
+       end
+       if mod(i,3)==0,set(fout.ax1{i},'clim',[0 1]); colormap(fout.ax1{i},'summer');end
+       view(fout.ax1{i},rend.viewval(1),0);
+       light = camlight(fout.ax1{i},'headlight');
+       set(light,'Position',get(fout.ax1{i},'CameraPosition'));
+       drawnow;
+       title(fout.ax1{i},titlenames{i})
+       counter = counter+1;
+       fout.ax2{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
+       renderBrainSurface(rend,VertexValues{i},fout.ax2{i});
+       view(fout.ax2{i},-1*rend.viewval(1),0);
+       colorbar(fout.ax2{i},'SouthOutside');
+       if mod(i,3)>0,
+           set(fout.ax2{i},'clim',[0 max(VertexValues{i})]);
+       end
+       colormap(fout.ax2{i},map);
+       if mod(i,3)==0,set(fout.ax2{i},'clim',[0 1]); colormap(fout.ax2{i},'summer');end
+       light = camlight(fout.ax2{i},'headlight');
+       set(light,'Position',get(fout.ax2{i},'CameraPosition'));
+       drawnow;
+       if ~isempty(clim), set(fout.ax2{i},'clim',clim);end
+end
 % 
 % 
 % 
