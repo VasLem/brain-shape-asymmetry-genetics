@@ -1,7 +1,7 @@
 function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
 if nargin < 3, t = 0; end
 [n,nrV,rep] = size(X1);
-SS = zeros(4,nrV);
+SSs = zeros(4,nrV);
 Means = zeros(2,nrV);
 
 
@@ -10,16 +10,14 @@ tic;
 [path,ID] = setupParForProgress(nrV);
 parfor i=1:nrV
     Set1 = squeeze(single(X1(:,i,:))/factor)';
-    %Set1 = reshape(Set1,n,rep)';
     Set2 = squeeze(single(X2(:,i,:))/factor)';
-    %Set2 = reshape(Set2,n,rep)';
     X = [Set1(:) Set2(:)];
     [~,TABLE,STATS] = anova2(X,rep,'off');
     ss = zeros(4,1);
     for j=1:4
         ss(j) = TABLE{j+1,2};
     end
-    SS(:,i) =  ss(:);
+    SSs(:,i) =  ss(:);
     Means(:,i) = STATS.colmeans';
     parfor_progress;
 end
@@ -31,7 +29,7 @@ MeanX2 = reshape(Means(2,:),3,length(Means(2,:))/3);
 MeanDiff = MeanX2 - MeanX1;
 asm = AsymmetryComponentsAnalysis(n,nrV, rep);
 
-[LM, Total] = asm.apply(SS);
+[LM, Total] = asm.apply(SSs);
 
 out.Total = Total;
 out.LM = LM;
@@ -47,10 +45,10 @@ TIFCount = false(t,1);
 DFCount = false(t,nrV/3);
 TDFCount = false(t,1);
 %f = statusbar('Permuting');
-[path,ID] = setupParForProgress(t);
 
-parfor k=1:1:t
+[path,ID] = setupParForProgress(t);
 % for k=1:1:t
+parfor k=1:1:t
     %k=1;
     %disp(num2str(k));
     SSF = zeros(4,nrV);
@@ -58,17 +56,15 @@ parfor k=1:1:t
     SSD = zeros(4,nrV);
     for i=1:nrV
         %i=1;
-        Set1 = single(X1(:,i,:))/factor;
-        Set2 = single(X2(:,i,:))/factor;
+        Set1 = squeeze(single(X1(:,i,:)))/factor;
+        Set2 = squeeze(single(X2(:,i,:)))/factor;
         % Colom-wise shuffeling of cells for Directional effect
-        Set1Copy = Set1;
-        Set2Copy = Set2;
+        Set1Copy = Set1';
+        Set2Copy = Set2';
         r = randi(2,n,1);
         index = find(r==2);
-        Set1Copy(index,:,:) = Set2(index,:,:);
-        Set2Copy(index,:,:) = Set1(index,:,:);
-        Set1Copy = reshape(Set1Copy,n,rep)';
-        Set2Copy = reshape(Set2Copy,n,rep)';
+        Set1Copy(:, index) = Set2Copy(:, index);
+        Set2Copy(:, index) = Set1Copy(:, index);
         X = [Set1Copy(:) Set2Copy(:)];
         [~,TABLE] = anova2(X,rep,'off');
         ss = zeros(4,1);
@@ -77,8 +73,8 @@ parfor k=1:1:t
         end
         SSD(:,i) =  ss;
         % Row-wise shuffeling for Individual effect
-        Set1Copy = reshape(Set1,n,rep)';
-        Set2Copy = reshape(Set2,n,rep)';
+        Set1Copy = Set1';
+        Set2Copy = Set2';
         index = randperm(n);
         Set1Copy = Set1Copy(:,index);
         X = [Set1Copy(:) Set2Copy(:)];
@@ -89,11 +85,13 @@ parfor k=1:1:t
         end
         SSI(:,i) =  ss(:);
         % Residual shuffeling for Interaction effect
+        Set1Copy = Set1';
+        Set2Copy = Set2';
         X = [Set1Copy(:) Set2Copy(:)];
         avgC = mean(X,1);
         avgR = mean(X,2);
         avg = mean(X(:));
-        X = X - repmat(avgC,n*rep,1) - repmat(avgR,1,2) + repmat(avg,n*rep,2);
+        X = X - avgC - avgR + avg;
         index = randperm(n*rep*2);
         X = reshape(X(index),n*rep,2);
         [~,TABLE] = anova2(X,rep,'off');
@@ -131,12 +129,14 @@ parfor k=1:1:t
     TFFCount(k) = TFF>=Total.FF;
     parfor_progress;
 end
-closeParForProgress(path,ID);
+closeParForProgress(  path,ID);
 out.LM.permFF = (sum(FFCount,1)+1)/(t+1);
 out.Total.permFF = (sum(TFFCount)+1)/(t+1);
 out.LM.permDF = (sum(DFCount,1)+1)/(t+1);
 out.Total.permDF = (sum(TDFCount)+1)/(t+1);
 out.LM.permIF = (sum(IFCount,1)+1)/(t+1);
 out.Total.permIF = (sum(TIFCount)+1)/(t+1);
+
+
 end
 

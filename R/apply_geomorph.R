@@ -66,6 +66,35 @@ allShapes.gpa$template = allShapes.gpa$coords[, , 1]
 allShapes.gpa$LH = allShapes.gpa$coords[, , 2:(dim(LH)[3] + 1)]
 allShapes.gpa$RH = allShapes.gpa$coords[, , -(1:(dim(LH)[3] + 1))]
 
+allShapes.gpa$LHReps = allShapes.gpa$LH
+
+function(x) {
+  m <- mean(x)
+  rnorm(some_number, m, 0.1*m)
+}
+
+mat <-allShapes.gpa$LH
+createNoisySample<- function(mat){
+  dim(mat) <- c(298 * 3 , 100)
+  w <-apply(mat,2,var)
+  m <- matrix(rnorm(prod(dim(mat))), dim(mat)) * w
+  noisy <- mat + m * 0.2
+  dim(noisy) <- c(298,3,100)
+  noisy
+}
+
+createNoisyHemispheres <- function(hemi){
+  ret <- c()
+  for (rep in 1:nReps){
+    ret <- abind(ret, createNoisySample(hemi), along=3);
+  }
+  ret
+}
+allShapes.gpa$noisyAllShapes = abind(allShapes.gpa$template,
+  createNoisyHemispheres(allShapes.gpa$LH), createNoisyHemispheres(allShapes.gpa$RH),along=3)
+dim(allShapes.gpa$noisyAllShapes)
+
+
 writeMat(
   "../SAMPLE_DATA/r2m.mat",
   LHAligned = allShapes.gpa$LH,
@@ -78,30 +107,34 @@ writeMat(
 # rep <- c(1 ,rep(rep(1:3,each=nSamples),2))
 # side <- c(1, c(rep(1,nSamples*nReps), rep(2,nSamples*nReps)))
 
-ind <- c(0, rep(1:nSamples, 2))
-rep <- c(1 , rep(rep(1, each = nSamples), 2))
-side <- c(1, c(rep(1, nSamples * 1), rep(2, nSamples * 1)))
+ind <- c(0, rep(1:nSamples, 2*nReps))
+rep <- c(1 , rep(rep(1:nReps, each = 2 * nSamples)))
+side <- c(1, rep(c(rep(1, nSamples * 1), rep(2, nSamples * 1)),nReps))
 
-nPoints <- dim(allShapes.gpa$coords)[1]
+nPoints <- dim(allShapes.gpa$noisyAllShapes)[1]
 toPlot <- seq(1, nPoints, 10)
 nToPlot <- length(toPlot)
 
-sym <- bilat.symmetry(allShapes.gpa,
+sym <- bilat.symmetry(allShapes.gpa$noisyAllShapes,
                       ind = ind,
                       side = side,
+                      rep=rep,
                       iter = nSamples)
 summary(sym)
-# plot(sym, warpgrids = TRUE)
+plot(sym, warpgrids = TRUE)
 dim(sym$DA.component)
 da_values <-
   rowSums((sym$DA.component[, , 1] - sym$DA.component[, , 2]) ^ 2)
-da_values <- rep(da_values, each = Ns)
-
-
+# da_values <- rep(da_values, each = Ns)
 
 fa_values <-
   rowSums((sym$FA.component[, , 1] - sym$FA.component[, , 2]) ^ 2)
-fa_values <- rep(fa_values, each = Ns)
+# fa_values <- rep(fa_values, each = Ns)
+
+ia_values <-
+  rowSums((sym$IA.component[, , 1] - sym$IA.component[, , 2]) ^ 2)
+# fa_values <- rep(fa_values, each = Ns)  
+
 
 template <- GPA_DATA$strTemplate
 

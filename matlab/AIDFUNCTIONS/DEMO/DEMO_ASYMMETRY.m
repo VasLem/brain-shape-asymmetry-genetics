@@ -83,7 +83,7 @@ strTemplate = Template.obj2struc();
 
 
 
-nRep = 3;
+nRep = 6;
 % 
 input_to_r_path =  [DATA_DIR 'm2r.mat'];
 save(input_to_r_path, 'LH', 'RH','strReducedTemplate', 'strTemplate', 'nSamples','Ns','nRep');
@@ -144,19 +144,153 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 clear AlignedShapes;
 
 %%
-%nRep = 6;
-nRep = 3;
+nRep = 6;
+% nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
+var(Shapes);
 for i=1:1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*0.05);
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.2);
 end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
-
+%%
 X1 = RepShapesInt16(1:nSamples,:,:);
-X2 = RepShapesInt16(nSamples+1:end,:,:);
-
+X2 = RepShapesInt16(nSamples+1:end,:,:); 
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,100);
+%%
+shape = shape3D;
+shape.Vertices = reshape(X1(1,:,1),3,size(X1,2)/3)';
+values = out.LM.permFF;
+map = parula(256);
+fout = figure();
+axes = gca();
+colormap(axes,map);
+shape.VertexValue = values;
+shape.ColorMode = "Indexed";
+shape.Material = 'Dull';
+shape.ViewMode = 'solid';
+shape.RenderAxes = axes;
+shape.Visible = true;
+%     scan.PatchHandle.FaceColor = 'flat';
+axis(axes,'image');
+axis(axes,'off');
+colorbar(axes,'off');   
+% renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
+colorbar(axes,'SouthOutside');
+shape.VertexSize = 10;
+view(axes,1,0);
 
+%%
+toCheckSizes= [10, 20, 50, 100];
+numExp = length(toCheckSizes);
+permFPsS = zeros(numExp,1);
+permDPsS = zeros(numExp,1);
+permIPsS = zeros(numExp,1);
+
+for i=1:numExp
+    inputSize = toCheckSizes(i);
+    subsample_vec = 1: ceil((size(X1,1)/inputSize)):size(X1,1);
+    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(subsample_vec,:,:),X2(subsample_vec,:,:),200);
+    permFPsS(i) = ret.LM.permFP;
+    permDPsS(i) = ret.LM.permDP;
+    permIPsS(i) = ret.LM.permIP;
+end
+%%
+
+figure();
+plot(toCheckSizes, permDPsS,'r');
+hold on;
+plot(toCheckSizes, permIPsS, 'g');
+plot(toCheckSizes, permFPsS,'b');
+ylabel('p-value');
+xlabel('samples number');
+legend("Directional","Individual", "Fluctuating");
+title("Dependency of ANOVA2-way asymmetry significance from Number of Samples");
+hold off;
+
+%%
+toCheckLSizes= [50, 100, 150, 200, 250];
+numExp = length(toCheckLSizes);
+permFPsL = zeros(numExp,1);
+permDPsL = zeros(numExp,1);
+permIPsL = zeros(numExp,1);
+
+for i=1:numExp
+    inputSize = toCheckLSizes(i);
+    subsample_vec = 3 * (1: ceil((size(X1,2)/(3 * inputSize))):(size(X1,2)/3));
+    subsample_vec = ([ (subsample_vec-2)' (subsample_vec -1)' subsample_vec'])';
+    subsample_vec = subsample_vec(:);
+    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(:, subsample_vec,:),X2(:,subsample_vec,:),200);
+    permFPsL(i) = ret.LM.permFP;
+    permDPsL(i) = ret.LM.permDP;
+    permIPsL(i) = ret.LM.permIP;
+end
+%%
+
+figure();
+plot(toCheckLSizes, permDPsL,'r');
+hold on;
+plot(toCheckLSizes, permIPsL, 'g');
+plot(toCheckLSizes, permFPsL,'b');
+ylabel('p-value');
+xlabel('landmarks number');
+legend("Directional","Individual", "Fluctuating");
+title("Dependency of ANOVA2-way asymmetry significance from Number of Landmarks");
+hold off;
+
+%%
+toCheckRepsNum= [2,4,6];
+numExp = length(toCheckRepsNum);
+permFPsR = zeros(numExp,1);
+permDPsR = zeros(numExp,1);
+permIPsR = zeros(numExp,1);
+
+for i=1:numExp
+    inputReps = toCheckRepsNum(i);
+    subsample_vec = 1: ceil((size(X1,3)/inputReps)):size(X1,3);
+    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(:,:,subsample_vec),X2(:,:,subsample_vec),200);
+    permFPsR(i) = ret.LM.permFP;
+    permDPsR(i) = ret.LM.permDP;
+    permIPsR(i) = ret.LM.permIP;
+end
+%%
+
+figure();
+plot(toCheckRepsNum, permDPsR,'r');
+hold on;
+plot(toCheckRepsNum, permIPsR, 'g');
+plot(toCheckRepsNum, permFPsR,'b');
+ylabel('p-value');
+xlabel('replications number');
+legend("Directional","Individual", "Fluctuating");
+title("Dependency of ANOVA2-way asymmetry significance from Number of Replications");
+hold off;
+
+%%
+toCheckPermsNum= [50,100,180,300];
+numExp = length(toCheckPermsNum);
+permFPsP = zeros(numExp,1);
+permDPsP = zeros(numExp,1);
+permIPsP = zeros(numExp,1);
+
+for i=1:numExp
+    inputReps = toCheckPermsNum(i);
+    ret  = ProcrustesAnova2WayAsymmetryMEM(X1,X2,inputReps);
+    permFPsP(i) = ret.LM.permFP;
+    permDPsP(i) = ret.LM.permDP;
+    permIPsP(i) = ret.LM.permIP;
+end
+%%
+
+figure();
+plot(toCheckPermsNum, permFPsP,'r');
+hold on;
+plot(toCheckPermsNum, permDPsP, 'g');
+plot(toCheckPermsNum, permIPsP,'b');
+ylabel('p-value');
+xlabel('permutations number');
+legend("Directional","Individual", "Fluctuating");
+title("Dependency of ANOVA2-way asymmetry significance from Number of Permutations");
+hold off;
 
 
 
