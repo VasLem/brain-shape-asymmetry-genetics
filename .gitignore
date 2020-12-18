@@ -43,9 +43,20 @@ vignettes/*.pdf
 *.DS_Store*
 *.asv
 
+#csv and excel tmp files
+.~lock.*
+
 
 # Python venv
 .venv
 
 # temp images
 .*.png
+
+#vscode
+.vscode
+
+#others
+m2r.mat
+r2m.mat
+

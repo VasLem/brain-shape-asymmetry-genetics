@@ -43,9 +43,9 @@ classdef AsymmetryComponentsAnalysis
         
         function dof = getDirectionDOF(obj, total)
             if ~total
-                dof =(obj.dim * obj.n);
+                dof =(obj.dim);
             else
-                dof = ((obj.nrV-7) * obj.n);
+                dof = ((obj.nrV-7));
             end
         end
         
