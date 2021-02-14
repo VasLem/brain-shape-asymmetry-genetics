@@ -56,20 +56,35 @@ end
 
 %% Subsampling space to match R version which has memory issues to pick the whole space
 nSamples = 100;
-Ns = 100;
-LH = DATA{1}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
-RH = DATA{2}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
+reduce = 0.1;
+LH = DATA{1}.Region.AlignedShapes(:, :, 1:nSamples);
+RH = DATA{2}.Region.AlignedShapes(:, :, 1:nSamples);
 RH(:,1,:,:) = -1*RH(:,1,:,:);
 Template = clone(DATA{1}.Region.AvgShape);
-reducedTemplate = shape3D;
-reducedTemplate.struc2obj(Template.obj2struc());
+if reduce ~= 1
+    assert(reduce<1)
+    facesnum =  floor(size(LH,1)*reduce) * 2; % the faces number is ~ 2 * vertices
+    faces = Template.Faces;
+    reducedTemplateStruct = reducepatch(...
+        struct("vertices", Template.Vertices, "faces", Template.Faces) ,  facesnum);    
+    vernum = size(reducedTemplateStruct.vertices,1);
+    reducedLH = zeros(vernum,size(LH,2),size(LH,3));
+    for i=1:size(reducedLH,3)
+        reducedLH(:,:,i) = reducepatch(...
+        struct("vertices", LH(:,:,i), "faces", faces) ,  facesnum).vertices;
+    end
 
-reducedTemplate.Vertices = reducedTemplate.Vertices(1:Ns:end,:);
+else
+    reducedTemplateStruct.vertices = Template.Vertices;
+    reducedTemplateStruct.faces = Template.Faces;
+end
+reducedTemplate = shape3D;
+reducedTemplate.Vertices = reducedTemplateStruct.vertices;
+reducedTemplate.Faces = reducedTemplateStruct.faces;
 reducedTemplate.Vertices = reducedTemplate.Vertices - mean(reducedTemplate.Vertices, 1);
 reducedTemplate.Vertices = (reducedTemplate.Vertices ./ sqrt(sum(reducedTemplate.Vertices.^2,'all')));
 strReducedTemplate = reducedTemplate.obj2struc();
 strTemplate = Template.obj2struc();
-
 %% Prepare Data to be provided to GPA
 
 % figure;
@@ -81,12 +96,12 @@ strTemplate = Template.obj2struc();
 
 %% prepare output to R
 
-
-
-nRep = 6;
 % 
-input_to_r_path =  [DATA_DIR 'm2r.mat'];
-save(input_to_r_path, 'LH', 'RH','strReducedTemplate', 'strTemplate', 'nSamples','Ns','nRep');
+% 
+% nRep = 6;
+% % 
+% input_to_r_path =  [DATA_DIR 'm2r.mat'];
+% save(input_to_r_path, 'LH', 'RH','strReducedTemplate', 'strTemplate', 'nSamples','Ns','nRep');
 
 % TotalRepShapes: 
 
@@ -115,16 +130,16 @@ LHAligned_R=gpa_from_r.LHAligned;
 RHAligned_R = gpa_from_r.RHAligned;
 reducedTemplateAligned_R = gpa_from_r.TemplateAligned;
 %%
-
-display3DLandmarks(reducedTemplate, reducedTemplateAligned_R);
-%%
-display3DLandmarks(LHAligned(:,:,1), LHAligned_R(:,:,1));
-
-%%
-display3DLandmarks(reducedTemplateAligned_R, LHAligned_R(:,:,1));
-%%
-
-display3DLandmarks(LHAligned(:,:,1), reducedTemplate.Vertices);
+% 
+% display3DLandmarks(reducedTemplate, reducedTemplateAligned_R);
+% %%
+% display3DLandmarks(LHAligned(:,:,1), LHAligned_R(:,:,1));
+% 
+% %%
+% display3DLandmarks(reducedTemplateAligned_R, LHAligned_R(:,:,1));
+% %%
+% 
+% display3DLandmarks(LHAligned(:,:,1), reducedTemplate.Vertices);
 %%
 
 
