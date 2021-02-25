@@ -55,32 +55,43 @@ for r=1:nR
 end
 
 %% Subsampling space to match R version which has memory issues to pick the whole space
+
 nSamples = 100;
-reduce = 0.1;
-LH = DATA{1}.Region.AlignedShapes(:, :, 1:nSamples);
-RH = DATA{2}.Region.AlignedShapes(:, :, 1:nSamples);
+reduce = 0.01;
+Ns = floor(1/reduce);
+pdim = size(DATA{1}.Region.AlignedShapes,1);
+LH = DATA{1}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
+RH = DATA{2}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
 RH(:,1,:,:) = -1*RH(:,1,:,:);
 Template = clone(DATA{1}.Region.AvgShape);
-if reduce ~= 1
-    assert(reduce<1)
-    facesnum =  floor(size(LH,1)*reduce) * 2; % the faces number is ~ 2 * vertices
-    faces = Template.Faces;
-    reducedTemplateStruct = reducepatch(...
-        struct("vertices", Template.Vertices, "faces", Template.Faces) ,  facesnum);    
-    vernum = size(reducedTemplateStruct.vertices,1);
-    reducedLH = zeros(vernum,size(LH,2),size(LH,3));
-    for i=1:size(reducedLH,3)
-        reducedLH(:,:,i) = reducepatch(...
-        struct("vertices", LH(:,:,i), "faces", faces) ,  facesnum).vertices;
-    end
+% The folowing will not work as the number of vertices differs per reduced
+% template
+% if reduce ~= 1
+%     assert(reduce<1)
+%     facesnum =  floor(size(LH,1)*reduce) * 2; % the faces number is ~ 2 * vertices
+%     faces = Template.Faces;
+%     reducedTemplateStruct = reducepatch(...
+%         struct("vertices", Template.Vertices, "faces", Template.Faces) ,  facesnum);    
+%     vernum = size(reducedTemplateStruct.vertices,1);
+%     reducedLH = zeros(vernum,size(LH,2),size(LH,3));
+%     for i=1:size(reducedLH,3)
+%         reducedLH(:,:,i) = reducepatch(...
+%         struct("vertices", LH(:,:,i), "faces", faces) ,  facesnum).vertices;
+%     end
+% 
+% else
+%     reducedTemplateStruct.vertices = Template.Vertices;
+%     reducedTemplateStruct.faces = Template.Faces;
+% end
 
-else
-    reducedTemplateStruct.vertices = Template.Vertices;
-    reducedTemplateStruct.faces = Template.Faces;
-end
+
 reducedTemplate = shape3D;
-reducedTemplate.Vertices = reducedTemplateStruct.vertices;
-reducedTemplate.Faces = reducedTemplateStruct.faces;
+reducedTemplate.struc2obj(Template.obj2struc());
+
+reducedTemplate.Vertices = reducedTemplate.Vertices(1:Ns:end,:);
+reducedTemplateIndices = 1:Ns:pdim;
+reducedTemplateAdjacency = Template.Adjacency;
+
 reducedTemplate.Vertices = reducedTemplate.Vertices - mean(reducedTemplate.Vertices, 1);
 reducedTemplate.Vertices = (reducedTemplate.Vertices ./ sqrt(sum(reducedTemplate.Vertices.^2,'all')));
 strReducedTemplate = reducedTemplate.obj2struc();
@@ -164,17 +175,18 @@ nRep = 6;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
 var(Shapes);
 for i=1:1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.2);
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.5);
 end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:); 
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,100);
+%%
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
 %%
 shape = shape3D;
 shape.Vertices = reshape(X1(1,:,1),3,size(X1,2)/3)';
-values = out.LM.permFF;
+values = out.LM.permIF;
 map = parula(256);
 fout = figure();
 axes = gca();
@@ -196,31 +208,8 @@ view(axes,1,0);
 
 %%
 toCheckSizes= [10, 20, 50, 100];
-numExp = length(toCheckSizes);
-permFPsS = zeros(numExp,1);
-permDPsS = zeros(numExp,1);
-permIPsS = zeros(numExp,1);
-
-for i=1:numExp
-    inputSize = toCheckSizes(i);
-    subsample_vec = 1: ceil((size(X1,1)/inputSize)):size(X1,1);
-    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(subsample_vec,:,:),X2(subsample_vec,:,:),200);
-    permFPsS(i) = ret.LM.permFP;
-    permDPsS(i) = ret.LM.permDP;
-    permIPsS(i) = ret.LM.permIP;
-end
-%%
-
-figure();
-plot(toCheckSizes, permDPsS,'r');
-hold on;
-plot(toCheckSizes, permIPsS, 'g');
-plot(toCheckSizes, permFPsS,'b');
-ylabel('p-value');
-xlabel('samples number');
-legend("Directional","Individual", "Fluctuating");
-title("Dependency of ANOVA2-way asymmetry significance from Number of Samples");
-hold off;
+ret = checkSize(X1, X2, toCheckSizes);
+plotExp(ret, toCheckSizes, 'Population Size');
 
 %%
 toCheckLSizes= [50, 100, 150, 200, 250];
@@ -235,9 +224,9 @@ for i=1:numExp
     subsample_vec = ([ (subsample_vec-2)' (subsample_vec -1)' subsample_vec'])';
     subsample_vec = subsample_vec(:);
     ret  = ProcrustesAnova2WayAsymmetryMEM(X1(:, subsample_vec,:),X2(:,subsample_vec,:),200);
-    permFPsL(i) = ret.LM.permFP;
-    permDPsL(i) = ret.LM.permDP;
-    permIPsL(i) = ret.LM.permIP;
+    permFPsL(i) = ret.Total.permFF;
+    permDPsL(i) = ret.Total.permDF;
+    permIPsL(i) = ret.Total.permIF;
 end
 %%
 
@@ -307,26 +296,39 @@ legend("Directional","Individual", "Fluctuating");
 title("Dependency of ANOVA2-way asymmetry significance from Number of Permutations");
 hold off;
 
+%% Upsampling
+toupsample = [out.LM.I;out.LM.IF;out.LM.permIF;out.LM.D;out.LM.DF; out.LM.permDF; out.LM.F;out.LM.FF;out.LM.permFF]';
 
-
+outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, reducedTemplateIndices);
+outu.LM.I = outupsampled(:,1);
+outu.LM.IF = outupsampled(:,2);
+outu.LM.permIF = outupsampled(:,3);
+outu.LM.D = outupsampled(:,4);
+outu.LM.DF = outupsampled(:,5);
+outu.LM.permDF = outupsampled(:,6);
+outu.LM.F = outupsampled(:,7);
+outu.LM.FF= outupsampled(:,8);
+outu.LM.permFF = outupsampled(:,9);
+%%
+showstruct = outu;
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
-VertexValues{i} = out.LM.I;titlenames{i} = 'I';i=i+1;
-val = out.LM.permIF;res = zeros(size(val));
+VertexValues{i} = showstruct.LM.I;titlenames{i} = 'I';i=i+1;
+val = showstruct.LM.permIF;res = zeros(size(val));
 res(val<=0.05) = 0.5;
-VertexValues{i} = out.LM.IF;titlenames{i} = 'IF';i=i+1;
+VertexValues{i} = showstruct.LM.IF;titlenames{i} = 'IF';i=i+1;
 res(val<=0.001) = 1;
 VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-VertexValues{i} = out.LM.D;titlenames{i} = 'D';i=i+1;
-VertexValues{i} = out.LM.DF;titlenames{i} = 'DF';i=i+1;
-val = out.LM.permDF;res = zeros(size(val));
-res(val<=0.002) = 0.5;%%
+VertexValues{i} = showstruct.LM.D;titlenames{i} = 'D';i=i+1;
+VertexValues{i} = showstruct.LM.DF;titlenames{i} = 'DF';i=i+1;
+val = showstruct.LM.permDF;res = zeros(size(val));
+res(val<=0.05) = 0.5;%% was 0.002
 res(val<=0.001) = 1;
 VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-VertexValues{i} = out.LM.F;titlenames{i} = 'F';i=i+1;
-VertexValues{i} = out.LM.FF;titlenames{i} = 'FF';i=i+1;
-val = out.LM.permFF;res = zeros(size(val));
+VertexValues{i} = showstruct.LM.F;titlenames{i} = 'F';i=i+1;
+VertexValues{i} = showstruct.LM.FF;titlenames{i} = 'FF';i=i+1;
+val = showstruct.LM.permFF;res = zeros(size(val));
 res(val<=0.05) = 0.5;
 res(val<=0.001) = 1;
 VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
@@ -375,4 +377,4 @@ end
 % 
 % 
 % 
-% %save([savepath 'TwoWayProcrustesAnovat0vFinal'],'out','-v7.3');
+% %save([savepath 'TwoWayProcrustesAnovat0vFinal'],'showstruct','-v7.3');
