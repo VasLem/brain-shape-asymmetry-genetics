@@ -47,6 +47,9 @@ vignettes/*.pdf
 .~lock.*
 
 
+#notebook
+*checkpoint*.ipynb
+
 # Python venv
 .venv
 

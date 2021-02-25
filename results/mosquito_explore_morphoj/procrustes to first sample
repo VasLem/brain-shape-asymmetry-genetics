@@ -1,0 +1,50 @@
+Dataset: mosquito_red5
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.05687736    0.0004443544      128       3.10      <.0001
+Side           0.00505726    0.0001580393       32       1.10      0.3400
+Ind * Side     0.01832152    0.0001431369      128       0.94      0.6567
+Error 1        0.04879022    0.0001524695      320
+
+Dataset: mosquito_red8
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.08794960    0.0003926321      224       2.49      <.0001
+Side           0.00328039    0.0001025123       32       0.65      0.9274
+Ind * Side     0.03533512    0.0001577461      224       1.11      0.1711
+Error 1        0.07269241    0.0001419774      512
+
+Dataset: mosquito
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.10389623    0.0003607508      288       2.69      <.0001
+Side           0.00319483    0.0000998383       32       0.74      0.8431
+Ind * Side     0.03866650    0.0001342587      288       1.04      0.3393
+Error 1        0.08253713    0.0001289643      640
+
+
+Dataset: mosquito_aug1
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.20779246    0.0003417639      608       2.69      <.0001
+Side           0.00638965    0.0001996767       32       1.57      0.0252
+Ind * Side     0.07733301    0.0001271924      608       0.99      0.5754        9.00       0.9994
+Error 1        0.16507425    0.0001289643     1280
+
+
+Dataset: mosquito_aug2
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.31168869    0.0003358714      928       2.69      <.0001
+Side           0.00958448    0.0002995150       32       2.40      <.0001
+Ind * Side     0.11599951    0.0001249995      928       0.97      0.7070        9.00       0.9999
+Error 1        0.24761138    0.0001289643     1920
+
+
+
+

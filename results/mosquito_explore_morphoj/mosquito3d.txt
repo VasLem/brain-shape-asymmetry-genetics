@@ -1,0 +1,30 @@
+Dataset: mosquito3d_red5 (first 5 samples)
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.05701919    0.0001411366      404       2.32      <.0001
+Side           0.00537799    0.0000532474      101       0.87      0.7924
+Ind * Side     0.02462514    0.0000609533      404       1.06      0.2270
+Error 1        0.05791357    0.0000573402     1010
+
+Dataset: mosquito3d_red8 (first 8 samples)
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.08936952    0.0001264067      707       2.02      <.0001
+Side           0.00324563    0.0000321349      101       0.51      1.0000
+Ind * Side     0.04416564    0.0000624691      707       1.20      0.0023
+Error 1        0.08443395    0.0000522487     1616
+
+
+Dataset: mosquito3d (10 samples)
+
+Shape, Procrustes ANOVA:
+Effect		    SS		  MS	        df        F      P (param.)   Pillai tr.   P (param.)
+Individual     0.10640982    0.0001170625      909       2.11      <.0001
+Side           0.00381411    0.0000377635      101       0.68      0.9922
+Ind * Side     0.05037577    0.0000554189      909       1.17      0.0027
+Error 1        0.09583174    0.0000474415     2020
+
+
+

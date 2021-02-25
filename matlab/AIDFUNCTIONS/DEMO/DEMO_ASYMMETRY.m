@@ -183,7 +183,6 @@ X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:); 
 %%
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
-%%
 shape = shape3D;
 shape.Vertices = reshape(X1(1,:,1),3,size(X1,2)/3)';
 values = out.LM.permIF;

@@ -3,7 +3,7 @@ restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 addpath(genpath('AIDFUNCTIONS'));
 
-file = "../SAMPLE_DATA/mosquito3d.csv";
+file = "../SAMPLE_DATA/augmented_mosquito3d_reps_2.csv";
 opts = detectImportOptions(file);
 preview(file,opts)
 t = readtable(file,opts);
@@ -14,14 +14,14 @@ info = zeros(n,3);
 for c=1:n
 s = string(t.index(c));
 p = split(s,'_');
-info(c,1) =  str2double(p(2));
-info(c,2) = str2double(p(3));
-info(c,3) = str2double(p(4));
+info(c,1) =  str2double(p(1));
+info(c,2) = str2double(p(2));
+info(c,3) = str2double(p(3));
 end
 %%
 m = readmatrix(file);
 m = m(:,2:end);
-m = permute(reshape(m,[40, 3, 36]),[3,2,1]);
+m = permute(reshape(m,[120, 3, 36]),[3,2,1]);
 %%
 
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(m,int16.empty(5,0),100,true,'best',true,false);
@@ -46,6 +46,12 @@ for i=1:nRep
 end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
 %%
-X1 = RepShapesInt16(1:10,:,:);
-X2 = RepShapesInt16(11:end,:,:); 
+X1 = RepShapesInt16(1:size(RepShapesInt16,1)/2,:,:);
+X2 = RepShapesInt16(size(RepShapesInt16,1)/2+1:end,:,:); 
+%%
+toCheckSizes= [5,8, 10];
+ret = checkSize(X1, X2, toCheckSizes,true);  
+plotExp(ret, toCheckSizes, 'Population Size');
+
+%%
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,100);
