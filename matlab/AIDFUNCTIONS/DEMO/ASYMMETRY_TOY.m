@@ -40,7 +40,7 @@ Sinfo = cat(1,LHInfo,RHInfo);
 Shapes = permute(Shapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 nRep = 2;
-RepShapes = zeros(size(Shapes,1)/2,size(Shapes,2),nRep,'single');% noise injected replications
+RepShapes = zeros(size(Shapes,1)/2,size(Shapes,2),nRep,'single');
 for i=1:nRep
     RepShapes(:,:,i) = Shapes(Sinfo(:,3)==i,:);
 end

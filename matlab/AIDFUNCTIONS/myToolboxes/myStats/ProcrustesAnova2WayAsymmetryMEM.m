@@ -47,8 +47,8 @@ TDFCount = false(t,1);
 %f = statusbar('Permuting');
 
 [path,ID] = setupParForProgress(t);
-% for k=1:1:t
 parfor k=1:1:t
+% for k=1:1:t
     %k=1;
     %disp(num2str(k));
     SSF = zeros(4,nrV);
@@ -58,7 +58,7 @@ parfor k=1:1:t
         %i=1;
         Set1 = squeeze(single(X1(:,i,:)))/factor;
         Set2 = squeeze(single(X2(:,i,:)))/factor;
-        % Colom-wise shuffeling of cells for Directional effect
+        % Column-wise shuffling of cells for Directional effect
         Set1Copy = Set1';
         Set2Copy = Set2';
         r = randi(2,n,1);
@@ -72,7 +72,7 @@ parfor k=1:1:t
             ss(j) = TABLE{j+1,2};
         end
         SSD(:,i) =  ss;
-        % Row-wise shuffeling for Individual effect
+        % Row-wise shuffling for Individual effect
         Set1Copy = Set1';
         Set2Copy = Set2';
         index = randperm(n);
@@ -84,7 +84,7 @@ parfor k=1:1:t
             ss(j) = TABLE{j+1,2};
         end
         SSI(:,i) =  ss(:);
-        % Residual shuffeling for Interaction effect
+        % Residual shuffling for Interaction effect
         Set1Copy = Set1';
         Set2Copy = Set2';
         X = [Set1Copy(:) Set2Copy(:)];

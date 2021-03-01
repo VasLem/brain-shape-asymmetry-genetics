@@ -7,12 +7,11 @@ addpath(genpath('AIDFUNCTIONS'));
 
 %% SETTING UP COMPUTATION POWER
 try
-%     parpool('LocalSingle',20);
-    parpool('local',6);
+%  parpool('LocalSingle',20);
+parpool('local',8);
 catch
 end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-% DATA_DIR = '/';
 DATA_DIR = '../SAMPLE_DATA/';
 
 in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
@@ -175,9 +174,10 @@ nRep = 6;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
 var(Shapes);
 for i=1:1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.5);
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.2);
 end
 RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
+figure; histogram(reshape(var(double(RepShapesInt16),0,3),1,[])); title({'Mean landmark dislocation','for generated replications'});
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:); 
@@ -200,7 +200,7 @@ shape.Visible = true;
 axis(axes,'image');
 axis(axes,'off');
 colorbar(axes,'off');   
-% renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
+% renderBrainSurface(rend,VertexValues{i},fout.ax1{i,j});
 colorbar(axes,'SouthOutside');
 shape.VertexSize = 10;
 view(axes,1,0);
@@ -212,49 +212,18 @@ plotExp(ret, toCheckSizes, 'Population Size');
 
 %%
 toCheckLSizes= [50, 100, 150, 200, 250];
-numExp = length(toCheckLSizes);
-permFPsL = zeros(numExp,1);
-permDPsL = zeros(numExp,1);
-permIPsL = zeros(numExp,1);
-
-for i=1:numExp
-    inputSize = toCheckLSizes(i);
-    subsample_vec = 3 * (1: ceil((size(X1,2)/(3 * inputSize))):(size(X1,2)/3));
-    subsample_vec = ([ (subsample_vec-2)' (subsample_vec -1)' subsample_vec'])';
-    subsample_vec = subsample_vec(:);
-    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(:, subsample_vec,:),X2(:,subsample_vec,:),200);
-    permFPsL(i) = ret.Total.permFF;
-    permDPsL(i) = ret.Total.permDF;
-    permIPsL(i) = ret.Total.permIF;
-end
-%%
-
-figure();
-plot(toCheckLSizes, permDPsL,'r');
-hold on;
-plot(toCheckLSizes, permIPsL, 'g');
-plot(toCheckLSizes, permFPsL,'b');
-ylabel('p-value');
-xlabel('landmarks number');
-legend("Directional","Individual", "Fluctuating");
-title("Dependency of ANOVA2-way asymmetry significance from Number of Landmarks");
-hold off;
+ret = checkLSize(X1, X2, toCheckLSizes);
+plotExp(ret, toCheckLSizes, 'Number of Landmarks');
 
 %%
+
 toCheckRepsNum= [2,4,6];
-numExp = length(toCheckRepsNum);
-permFPsR = zeros(numExp,1);
-permDPsR = zeros(numExp,1);
-permIPsR = zeros(numExp,1);
+ret = checkRepsNum(X1, X2, toCheckRepsNum);
+plotExp(ret, toCheckRepsNum, 'Number of Replications');
 
-for i=1:numExp
-    inputReps = toCheckRepsNum(i);
-    subsample_vec = 1: ceil((size(X1,3)/inputReps)):size(X1,3);
-    ret  = ProcrustesAnova2WayAsymmetryMEM(X1(:,:,subsample_vec),X2(:,:,subsample_vec),200);
-    permFPsR(i) = ret.LM.permFP;
-    permDPsR(i) = ret.LM.permDP;
-    permIPsR(i) = ret.LM.permIP;
-end
+
+
+
 %%
 
 figure();
@@ -313,61 +282,70 @@ showstruct = outu;
 %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
 i=1;
-VertexValues{i} = showstruct.LM.I;titlenames{i} = 'I';i=i+1;
-val = showstruct.LM.permIF;res = zeros(size(val));
-res(val<=0.05) = 0.5;
-VertexValues{i} = showstruct.LM.IF;titlenames{i} = 'IF';i=i+1;
-res(val<=0.001) = 1;
-VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-VertexValues{i} = showstruct.LM.D;titlenames{i} = 'D';i=i+1;
-VertexValues{i} = showstruct.LM.DF;titlenames{i} = 'DF';i=i+1;
-val = showstruct.LM.permDF;res = zeros(size(val));
-res(val<=0.05) = 0.5;%% was 0.002
-res(val<=0.001) = 1;
-VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
-VertexValues{i} = showstruct.LM.F;titlenames{i} = 'F';i=i+1;
-VertexValues{i} = showstruct.LM.FF;titlenames{i} = 'FF';i=i+1;
-val = showstruct.LM.permFF;res = zeros(size(val));
-res(val<=0.05) = 0.5;
-res(val<=0.001) = 1;
-VertexValues{i} = res;titlenames{i} = 'p';i=i+1;
+VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'I';
+VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'IF';
+VertexValues{i,3} = showstruct.LM.permIF;titlenames{i,3} = 'p-Value';
+i=i+1;
+VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = 'D';
+VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = 'DF';
+VertexValues{i,3} = showstruct.LM.permDF;titlenames{i,3} = 'p-Value';
+i=i+1;
+VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'F';
+VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'FF';
+VertexValues{i,3} = showstruct.LM.permFF;titlenames{i,3} = 'p-Value';
 nValues = length(VertexValues);
-arrange = [3 6];
+arrange = [3 8];
 counter = 0;
 map = parula(256);
 clim = [];
 rend = Render{1};
+thresholds = [0.5, 0.01, 0.001, 0.002, 0.005, 0.008, 0.0001];
 for i=1:nValues
+    val = VertexValues{i,3};
+    res = zeros(size(val));
+    c = 1;
+    for t=thresholds 
+        res(val<=t) = c;
+        c = c+1;
+    end
+    VertexValues{i,4} = res;
+    titlenames{i,4} = "Significance";
+end
+
+for i=1:nValues
+    for j=1:4
         %i=1;
        counter = counter+1;
-       fout.ax1{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-       colormap(fout.ax1{i},map);
-       if ~isempty(clim), set(fout.ax1{i},'clim',clim);end
-       renderBrainSurface(rend,VertexValues{i},fout.ax1{i});
-       colorbar(fout.ax1{i},'SouthOutside');
-       if mod(i,3)>0,          
-           set(fout.ax1{i},'clim',[0 max(VertexValues{i})]);
+       fout.ax1{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
+       colormap(fout.ax1{i,j},map);
+       
+       if ~isempty(clim), set(fout.ax1{i,j},'clim',clim);end
+       renderBrainSurface(rend,VertexValues{i,j},fout.ax1{i,j});
+       colorbar(fout.ax1{i,j},'SouthOutside');
+       if j<4        
+           set(fout.ax1{i,j},'clim',[0 max(VertexValues{i,j})]);
        end
-       if mod(i,3)==0,set(fout.ax1{i},'clim',[0 1]); colormap(fout.ax1{i},'summer');end
-       view(fout.ax1{i},rend.viewval(1),0);
-       light = camlight(fout.ax1{i},'headlight');
-       set(light,'Position',get(fout.ax1{i},'CameraPosition'));
+       if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); colormap(fout.ax1{i,j},'jet'); end
+       view(fout.ax1{i,j},rend.viewval(1),0);
+       light = camlight(fout.ax1{i,j},'headlight');
+       set(light,'Position',get(fout.ax1{i,j},'CameraPosition'));
        drawnow;
-       title(fout.ax1{i},titlenames{i})
+       title(fout.ax1{i,j},titlenames{i,j})
        counter = counter+1;
-       fout.ax2{i} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-       renderBrainSurface(rend,VertexValues{i},fout.ax2{i});
-       view(fout.ax2{i},-1*rend.viewval(1),0);
-       colorbar(fout.ax2{i},'SouthOutside');
-       if mod(i,3)>0,
-           set(fout.ax2{i},'clim',[0 max(VertexValues{i})]);
+       fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
+       renderBrainSurface(rend,VertexValues{i,j},fout.ax2{i,j});
+       view(fout.ax2{i,j},-1*rend.viewval(1),0);
+       colorbar(fout.ax2{i,j},'SouthOutside');
+       if j<4
+           set(fout.ax2{i,j},'clim',[0 max(VertexValues{i,j})]);
        end
-       colormap(fout.ax2{i},map);
-       if mod(i,3)==0,set(fout.ax2{i},'clim',[0 1]); colormap(fout.ax2{i},'summer');end
-       light = camlight(fout.ax2{i},'headlight');
-       set(light,'Position',get(fout.ax2{i},'CameraPosition'));
+       colormap(fout.ax2{i,j},map);
+       if j==4,set(fout.ax2{i,j},'clim',[0 length(thresholds)]); colormap(fout.ax2{i,j},'jet');end
+       light = camlight(fout.ax2{i,j},'headlight');
+       set(light,'Position',get(fout.ax2{i,j},'CameraPosition'));
        drawnow;
-       if ~isempty(clim), set(fout.ax2{i},'clim',clim);end
+       if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
+    end
 end
 % 
 % 
