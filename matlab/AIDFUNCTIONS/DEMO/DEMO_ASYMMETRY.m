@@ -116,8 +116,8 @@ strTemplate = Template.obj2struc();
 % TotalRepShapes: 
 
 %% GPA
-input_from_r_path = [DATA_DIR 'r2m.mat'];
-gpa_from_r = load(input_from_r_path);
+% input_from_r_path = [DATA_DIR 'r2m.mat'];
+% gpa_from_r = load(input_from_r_path);
 %%
  
 TotalShapes = cat(3,LH,RH);
@@ -136,9 +136,9 @@ LHAligned = AlignedShapes(:,:,1:size(AlignedShapes, 3)/2 );
 RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
 %%
 %%
-LHAligned_R=gpa_from_r.LHAligned;
-RHAligned_R = gpa_from_r.RHAligned;
-reducedTemplateAligned_R = gpa_from_r.TemplateAligned;
+% LHAligned_R=gpa_from_r.LHAligned;
+% RHAligned_R = gpa_from_r.RHAligned;
+% reducedTemplateAligned_R = gpa_from_r.TemplateAligned;
 %%
 % 
 % display3DLandmarks(reducedTemplate, reducedTemplateAligned_R);
@@ -169,100 +169,40 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 clear AlignedShapes;
 
 %%
-nRep = 6;
-% nRep = 3;
+nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
-var(Shapes);
 for i=1:1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.2);
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.1);
 end
-RepShapesInt16 = int16(RepShapes.*10000);clear RepShapes;
-figure; histogram(reshape(var(double(RepShapesInt16),0,3),1,[])); title({'Mean landmark dislocation','for generated replications'});
+RepShapesInt16 = int16(RepShapes.*10000);
+figure; histogram(int16(10000* abs(reshape(RepShapes-Shapes, 1,[])))); title({'Landmark Coordinate dislocation','for generated replications'});
+clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:); 
 %%
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
-shape = shape3D;
-shape.Vertices = reshape(X1(1,:,1),3,size(X1,2)/3)';
-values = out.LM.permIF;
-map = parula(256);
-fout = figure();
-axes = gca();
-colormap(axes,map);
-shape.VertexValue = values;
-shape.ColorMode = "Indexed";
-shape.Material = 'Dull';
-shape.ViewMode = 'solid';
-shape.RenderAxes = axes;
-shape.Visible = true;
-%     scan.PatchHandle.FaceColor = 'flat';
-axis(axes,'image');
-axis(axes,'off');
-colorbar(axes,'off');   
-% renderBrainSurface(rend,VertexValues{i},fout.ax1{i,j});
-colorbar(axes,'SouthOutside');
-shape.VertexSize = 10;
-view(axes,1,0);
 
 %%
 toCheckSizes= [10, 20, 50, 100];
-ret = checkSize(X1, X2, toCheckSizes);
-plotExp(ret, toCheckSizes, 'Population Size');
+retS = checkSize(X1, X2, toCheckSizes);
+plotExp(retS, toCheckSizes, 'Population Size');
 
 %%
 toCheckLSizes= [50, 100, 150, 200, 250];
-ret = checkLSize(X1, X2, toCheckLSizes);
-plotExp(ret, toCheckLSizes, 'Number of Landmarks');
+retL = checkLSize(X1, X2, toCheckLSizes);
+plotExp(retL, toCheckLSizes, 'Number of Landmarks');
 
 %%
 
-toCheckRepsNum= [2,4,6];
-ret = checkRepsNum(X1, X2, toCheckRepsNum);
-plotExp(ret, toCheckRepsNum, 'Number of Replications');
-
-
-
-
-%%
-
-figure();
-plot(toCheckRepsNum, permDPsR,'r');
-hold on;
-plot(toCheckRepsNum, permIPsR, 'g');
-plot(toCheckRepsNum, permFPsR,'b');
-ylabel('p-value');
-xlabel('replications number');
-legend("Directional","Individual", "Fluctuating");
-title("Dependency of ANOVA2-way asymmetry significance from Number of Replications");
-hold off;
+toCheckRepsNum= [1,2,3];
+retR = checkRepsNum(X1, X2, toCheckRepsNum);
+plotExp(retR, toCheckRepsNum, 'Number of Replications');
 
 %%
 toCheckPermsNum= [50,100,180,300];
-numExp = length(toCheckPermsNum);
-permFPsP = zeros(numExp,1);
-permDPsP = zeros(numExp,1);
-permIPsP = zeros(numExp,1);
-
-for i=1:numExp
-    inputReps = toCheckPermsNum(i);
-    ret  = ProcrustesAnova2WayAsymmetryMEM(X1,X2,inputReps);
-    permFPsP(i) = ret.LM.permFP;
-    permDPsP(i) = ret.LM.permDP;
-    permIPsP(i) = ret.LM.permIP;
-end
-%%
-
-figure();
-plot(toCheckPermsNum, permFPsP,'r');
-hold on;
-plot(toCheckPermsNum, permDPsP, 'g');
-plot(toCheckPermsNum, permIPsP,'b');
-ylabel('p-value');
-xlabel('permutations number');
-legend("Directional","Individual", "Fluctuating");
-title("Dependency of ANOVA2-way asymmetry significance from Number of Permutations");
-hold off;
+retP = checkPermsNum(X1, X2, toCheckPermsNum);
+plotExp(retP, toCheckPermsNum, 'Number of Permutations');
 
 %% Upsampling
 toupsample = [out.LM.I;out.LM.IF;out.LM.permIF;out.LM.D;out.LM.DF; out.LM.permDF; out.LM.F;out.LM.FF;out.LM.permFF]';
@@ -279,8 +219,8 @@ outu.LM.FF= outupsampled(:,8);
 outu.LM.permFF = outupsampled(:,9);
 %%
 showstruct = outu;
-%% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
-f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
+ %% BELOW IS AN IDEA OF RENDERING, BUT WILL NOT WORK BECAUSE WE DO NOT HAVE ALL THE MESH POINTS
+
 i=1;
 VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'I';
 VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'IF';
@@ -293,13 +233,10 @@ i=i+1;
 VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'F';
 VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'FF';
 VertexValues{i,3} = showstruct.LM.permFF;titlenames{i,3} = 'p-Value';
-nValues = length(VertexValues);
-arrange = [3 8];
-counter = 0;
-map = parula(256);
-clim = [];
-rend = Render{1};
-thresholds = [0.5, 0.01, 0.001, 0.002, 0.005, 0.008, 0.0001];
+labels = ["Individual", "Directional", "Fluctuating"];
+thresholds = [0.05, 0.01, 0.005, 0.0001];
+totalStats = out.Total;
+brainSurface = Render{1};
 for i=1:nValues
     val = VertexValues{i,3};
     res = zeros(size(val));
@@ -311,9 +248,26 @@ for i=1:nValues
     VertexValues{i,4} = res;
     titlenames{i,4} = "Significance";
 end
+data = VertexValues;
+save('asymmetry.mat', "data", "titlenames","labels","thresholds","totalStats","brainSurface",'-v7.3');
+%%
+load('asymmetry.mat');
+f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
+nValues = 3;
+arrange = [3 8];
+counter = 0;
+clim = [];
+rend = brainSurface;
+cmap = parula(256);
 
+
+dmap = parula(length(thresholds));
+
+
+thresholdsTicks = thresholds;
 for i=1:nValues
     for j=1:4
+        if j==4, map=dmap; else, map=cmap; end
         %i=1;
        counter = counter+1;
        fout.ax1{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
@@ -325,7 +279,8 @@ for i=1:nValues
        if j<4        
            set(fout.ax1{i,j},'clim',[0 max(VertexValues{i,j})]);
        end
-       if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); colormap(fout.ax1{i,j},'jet'); end
+       if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
+           cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
        view(fout.ax1{i,j},rend.viewval(1),0);
        light = camlight(fout.ax1{i,j},'headlight');
        set(light,'Position',get(fout.ax1{i,j},'CameraPosition'));
@@ -340,18 +295,25 @@ for i=1:nValues
            set(fout.ax2{i,j},'clim',[0 max(VertexValues{i,j})]);
        end
        colormap(fout.ax2{i,j},map);
-       if j==4,set(fout.ax2{i,j},'clim',[0 length(thresholds)]); colormap(fout.ax2{i,j},'jet');end
+       if j==4,set(fout.ax2{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
+           cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
        light = camlight(fout.ax2{i,j},'headlight');
        set(light,'Position',get(fout.ax2{i,j},'CameraPosition'));
        drawnow;
        if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
     end
 end
-% 
-% 
-% 
-% %%
-% 
-% 
-% 
-% %save([savepath 'TwoWayProcrustesAnovat0vFinal'],'showstruct','-v7.3');
+%%
+load('asymmetry.mat');
+for i=1:4
+        map=dmap;
+       counter = counter+1;
+       viewer = viewer3D;
+       viewer.set("Tag", char(labels(i)));
+       shape = rend.RefScan;
+       shape.TextureMap =  dmap;
+       shape.ColorMode = "indexed";
+       shape.ViewMode = "solid";
+       shape.VertexValue = VertexValues{i,4};
+       shape.viewer(viewer);
+end
