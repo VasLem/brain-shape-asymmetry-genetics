@@ -24,14 +24,14 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
         CentroidSizes = sqrt(sum(Distances.^2)/nLM);      
          for i=1:iter
              if progress, disp([num2str(i) ' out of ' num2str(iter)]);end
-%              if progress, [path,ID] = setupParForProgress(N);end
-%              parfor n=1:1:N
-              for n=1:1:N 
+             if progress, [path,ID] = setupParForProgress(N);end
+             parfor n=1:N
+%               for n=1:1:N 
                 tmp = squeeze(AlignedLandmarks(:,:,n));
                  [~,AlignedLandmarks(:,:,n),~] = procrustes(AvgLandmarks,tmp,'Scaling',scale,'Reflection',reflect);
-%                  if progress, parfor_progress;end
+                 if progress, parfor_progress;end
              end
-%              if progress, closeParForProgress(path,ID);end
+             if progress, closeParForProgress(path,ID);end
              AvgLandmarks = mean(AlignedLandmarks,3);
              if scale
                 tmp = shape3D;tmp.Vertices = AvgLandmarks;

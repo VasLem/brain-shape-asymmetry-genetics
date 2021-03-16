@@ -1,18 +1,29 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
+%%
+% DATA_DIR = '../SAMPLE_DATA/';
+% THREADS = 8;
+% nSamples = 100;
+% reduce = 0.01;
+% performExperiments=1;
+DATA_DIR = '/';
+THREADS = 40;
+nSamples = 2000;
+reduce = 0.1;
+performExperiments = 0;
 restoredefaultpath;
-% addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 addpath(genpath('AIDFUNCTIONS'));
+% addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 %% SETTING UP COMPUTATION POWER
 try
-%  parpool('LocalSingle',20);
-parpool('local',8);
+ parpool('local',THREADS);
+%parpool('local',8);
 catch
 end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-DATA_DIR = '../SAMPLE_DATA/';
+
 
 in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
@@ -40,7 +51,7 @@ nR = length(Regions);
 %% WITH THE UNCORRECTED DATA SET
 
 % phenopath = '/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/';
-% nSamples = 1000;
+
 
 DATA = cell(1,2);
 Render = cell(1,2);
@@ -55,8 +66,6 @@ end
 
 %% Subsampling space to match R version which has memory issues to pick the whole space
 
-nSamples = 100;
-reduce = 0.01;
 Ns = floor(1/reduce);
 pdim = size(DATA{1}.Region.AlignedShapes,1);
 LH = DATA{1}.Region.AlignedShapes(1:Ns:end, :, 1:nSamples);
@@ -171,11 +180,15 @@ clear AlignedShapes;
 %%
 nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
+mag = var(Shapes,0,2);
+%%
 for i=1:1:nRep
-    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*var(Shapes,0,2)*0.1);
+    RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*mag*0.2);
 end
 RepShapesInt16 = int16(RepShapes.*10000);
-figure; histogram(int16(10000* abs(reshape(RepShapes-Shapes, 1,[])))); title({'Landmark Coordinate dislocation','for generated replications'});
+
+figure; histogram(reshape(RepShapesInt16 - int16(10000 * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+%%
 clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
@@ -184,26 +197,28 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
 
 %%
-toCheckSizes= [10, 20, 50, 100];
-retS = checkSize(X1, X2, toCheckSizes);
-plotExp(retS, toCheckSizes, 'Population Size');
 
-%%
-toCheckLSizes= [50, 100, 150, 200, 250];
-retL = checkLSize(X1, X2, toCheckLSizes);
-plotExp(retL, toCheckLSizes, 'Number of Landmarks');
+if performExperiments
+    toCheckSizes= [10, 20, 50, 100];
+    retS = checkSize(X1, X2, toCheckSizes);
+    plotExp(retS, toCheckSizes, 'Population Size');
 
-%%
+    %%
+    toCheckLSizes= [50, 100, 150, 200, 250];
+    retL = checkLSize(X1, X2, toCheckLSizes);
+    plotExp(retL, toCheckLSizes, 'Number of Landmarks');
 
-toCheckRepsNum= [1,2,3];
-retR = checkRepsNum(X1, X2, toCheckRepsNum);
-plotExp(retR, toCheckRepsNum, 'Number of Replications');
+    %%
 
-%%
-toCheckPermsNum= [50,100,180,300];
-retP = checkPermsNum(X1, X2, toCheckPermsNum);
-plotExp(retP, toCheckPermsNum, 'Number of Permutations');
+    toCheckRepsNum= [1,2,3];
+    retR = checkRepsNum(X1, X2, toCheckRepsNum);
+    plotExp(retR, toCheckRepsNum, 'Number of Replications');
 
+    %%
+    toCheckPermsNum= [50,100,180,300];
+    retP = checkPermsNum(X1, X2, toCheckPermsNum);
+    plotExp(retP, toCheckPermsNum, 'Number of Permutations');
+end
 %% Upsampling
 toupsample = [out.LM.I;out.LM.IF;out.LM.permIF;out.LM.D;out.LM.DF; out.LM.permDF; out.LM.F;out.LM.FF;out.LM.permFF]';
 
@@ -237,6 +252,7 @@ labels = ["Individual", "Directional", "Fluctuating"];
 thresholds = [0.05, 0.01, 0.005, 0.0001];
 totalStats = out.Total;
 brainSurface = Render{1};
+nValues = 3;
 for i=1:nValues
     val = VertexValues{i,3};
     res = zeros(size(val));
@@ -253,7 +269,7 @@ save('asymmetry.mat', "data", "titlenames","labels","thresholds","totalStats","b
 %%
 load('asymmetry.mat');
 f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
-nValues = 3;
+
 arrange = [3 8];
 counter = 0;
 clim = [];
@@ -303,17 +319,18 @@ for i=1:nValues
        if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
     end
 end
+saveas(fig, ["../results/demo_asymmetry/results_" nSamples "_" Ns ".fig"]);
 %%
-load('asymmetry.mat');
-for i=1:4
-        map=dmap;
-       counter = counter+1;
-       viewer = viewer3D;
-       viewer.set("Tag", char(labels(i)));
-       shape = rend.RefScan;
-       shape.TextureMap =  dmap;
-       shape.ColorMode = "indexed";
-       shape.ViewMode = "solid";
-       shape.VertexValue = VertexValues{i,4};
-       shape.viewer(viewer);
-end
+% load('asymmetry.mat');
+% for i=1:4
+%         map=dmap;
+%        counter = counter+1;
+%        viewer = viewer3D;
+%        viewer.set("Tag", char(labels(i)));
+%        shape = rend.RefScan;
+%        shape.TextureMap =  dmap;
+%        shape.ColorMode = "indexed";
+%        shape.ViewMode = "solid";
+%        shape.VertexValue = VertexValues{i,4};
+%        shape.viewer(viewer);
+% end
