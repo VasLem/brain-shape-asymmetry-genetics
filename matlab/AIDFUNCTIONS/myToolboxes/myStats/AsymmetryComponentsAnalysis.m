@@ -35,9 +35,9 @@ classdef AsymmetryComponentsAnalysis
         end
         function dof = getIndividualDOF(obj, total)
             if ~total
-                dof = (obj.dim*(obj.n-1));
+                dof =((obj.n-1)*obj.dim);
             else
-                dof = ((obj.nrV-7)*(obj.n-1));
+                dof = ((obj.n-1)*(obj.nrV-7));
             end
         end
         
@@ -126,8 +126,8 @@ classdef AsymmetryComponentsAnalysis
             SSet2 = Set2;
             r = randi(2,obj.n,1);
             index = find(r==2);
-            SSet1(index,:) = Set2(index,:);
-            SSet2(index,:) = Set1(index,:);
+            SSet1(:, index) = Set2(:, index);
+            SSet2(:, index) = Set1(:, index);
         end
         
         function [SSet1, SSet2] = shuffleRowWise(obj, Set1, Set2)
@@ -137,14 +137,14 @@ classdef AsymmetryComponentsAnalysis
             SSet1 = SSet1(:,index);
         end
         
-        function [SSet1, SSet2] = shuffleResidual(obj, Set1, Set2)
+        function ret = shuffleResidual(obj, Set1, Set2)
             X = [Set1(:) Set2(:)];
             avgC = mean(X,1);
             avgR = mean(X,2);
             avg = mean(X(:));
             X = X - repmat(avgC,obj.n*obj.rep,1) - repmat(avgR,1,2) + repmat(avg,obj.n*obj.rep,2);
             index = randperm(obj.n*obj.rep*2);
-            [SSet1, SSet2] = reshape(X(index),obj.n*obj.rep,2);
+            ret = reshape(X(index),obj.n*obj.rep,2);
         end
         
         function computeSS(obj, X1,X2)

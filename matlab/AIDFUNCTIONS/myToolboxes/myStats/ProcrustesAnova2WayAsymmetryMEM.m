@@ -1,11 +1,14 @@
-function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t)
+function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t,factor)
+%Factor is the value required to divide X1 and X2 to get the original
+%value, it will be assumed to be 10000 (for shake of backwards
+%compatibility) if not provided
+%
 if nargin < 3, t = 0; end
+if nargin < 4, factor=10000; end
 [n,nrV,rep] = size(X1);
 SSs = zeros(4,nrV);
 Means = zeros(2,nrV);
 
-
-factor = 10000;
 tic;
 [path,ID] = setupParForProgress(nrV);
 parfor i=1:nrV
@@ -47,25 +50,29 @@ TDFCount = false(t,1);
 %f = statusbar('Permuting');
 
 [path,ID] = setupParForProgress(t);
-parfor k=1:1:t
-% for k=1:1:t
+X1 = permute(X1, [3,2,1]);
+X2 = permute(X2, [3,2,1]);
+% parfor k=1:t
+parfor k=1:t
     %k=1;
     %disp(num2str(k));
+    asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     SSF = zeros(4,nrV);
     SSI = zeros(4,nrV);
     SSD = zeros(4,nrV);
     for i=1:nrV
         %i=1;
-        Set1 = squeeze(single(X1(:,i,:)))/factor;
-        Set2 = squeeze(single(X2(:,i,:)))/factor;
+        Set1 = (squeeze(single(X1(:,i,:)))/factor);
+        Set2 = (squeeze(single(X2(:,i,:)))/factor);
+        
         % Column-wise shuffling of cells for Directional effect
-        Set1Copy = Set1';
-        Set2Copy = Set2';
-        r = randi(2,n,1);
-        index = find(r==2);
-        Set1Copy(:, index) = Set2Copy(:, index);
-        Set2Copy(:, index) = Set1Copy(:, index);
-        X = [Set1Copy(:) Set2Copy(:)];
+      
+%         r = randi(2,n,1);
+%         index = find(r==2);
+%         Set1Copy(:, index) = Set2Copy(:, index);
+%         Set2Copy(:, index) = Set1Copy(:, index);
+%         X = [Set1Copy(:) Set2Copy(:)];
+        X = asm.shuffleColumnWise(Set1, Set2);
         [~,TABLE] = anova2(X,rep,'off');
         ss = zeros(4,1);
         for j=1:4
@@ -73,11 +80,11 @@ parfor k=1:1:t
         end
         SSD(:,i) =  ss;
         % Row-wise shuffling for Individual effect
-        Set1Copy = Set1';
-        Set2Copy = Set2';
-        index = randperm(n);
-        Set1Copy = Set1Copy(:,index);
-        X = [Set1Copy(:) Set2Copy(:)];
+ 
+        X = asm.shuffleRowWise(Set1, Set2);
+%         index = randperm(n);
+%         Set1Copy = Set1Copy(:,index);
+%         X = [Set1Copy(:) Set2Copy(:)];
         [~,TABLE] = anova2(X,rep,'off');
         ss = zeros(4,1);
         for j=1:4
@@ -85,27 +92,28 @@ parfor k=1:1:t
         end
         SSI(:,i) =  ss(:);
         % Residual shuffling for Interaction effect
-        Set1Copy = Set1';
-        Set2Copy = Set2';
-        X = [Set1Copy(:) Set2Copy(:)];
-        avgC = mean(X,1);
-        avgR = mean(X,2);
-        avg = mean(X(:));
-        X = X - avgC - avgR + avg;
-        index = randperm(n*rep*2);
-        X = reshape(X(index),n*rep,2);
+
+        X = asm.shuffleResidual(Set1, Set2);
+%         X = [Set1Copy(:) Set2Copy(:)];
+%         avgC = mean(X,1);
+%         avgR = mean(X,2);
+%         avg = mean(X(:));
+%         X = X - avgC - avgR + avg;
+%         index = randperm(n*rep*2);
+%         X = reshape(X(index),n*rep,2);
         [~,TABLE] = anova2(X,rep,'off');
         ss = zeros(4,1);
         for j=1:4
             ss(j) = TABLE{j+1,2};
         end
         SSF(:,i) =  ss(:);
+        
     end
+   
     % analyzing Direction effect
     SS = SSD;
     SS_F= SS(3,:);
     SS_D = SS(1,:);
-    asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     [~, ~, ~, ~, DF, TDF] = asm.directionEffect(SS_D, SS_F);
     DFCount(k,:) = (DF>=LM.DF);
     TDFCount(k) = TDF>=Total.DF;
@@ -127,7 +135,8 @@ parfor k=1:1:t
     [~, ~, ~, ~, FF, TFF] = asm.interactionEffect(SS_E, SS_F);
     FFCount(k,:) = (FF>=LM.FF);
     TFFCount(k) = TFF>=Total.FF;
-    parfor_progress;
+   
+ parfor_progress; 
 end
 closeParForProgress(  path,ID);
 out.LM.permFF = (sum(FFCount,1)+1)/(t+1);

@@ -8,8 +8,8 @@
 %        df2 = denominator degrees of freedom
 
 function prob = ftest(F,df1,df2)
-  prob = 1-fcdf(F,df1,df2);
-
+%   prob = 1-fcdf(F,df1,df2);
+    prob = fcdf(F,df1,df2,'upper');
 %  if (F<0)                         % Check for F out of range
 %     error('   F-statistic must be non-negative in ftest')
 %  end;

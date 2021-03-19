@@ -5,11 +5,16 @@ close all;clear;
 % THREADS = 8;
 % nSamples = 100;
 % reduce = 0.01;
+% nRep = 3;
 % performExperiments=1;
+% nIter = 1000;
 DATA_DIR = '/';
 THREADS = 40;
-nSamples = 2000;
-reduce = 0.1;
+nSamples = 1000;
+reduce = 0.01;
+nRep = 3;
+nIter = 10000;
+
 performExperiments = 0;
 restoredefaultpath;
 
@@ -139,7 +144,8 @@ TotalShapes = cat(3,LH,RH);
 
 
 %%
-clear DATA LH RH TotalShapes;
+% clear DATA;
+clear  LH RH TotalShapes;
 %% TWO WAY PROCRUSTES ANOVA ON REDUCED DATA
 LHAligned = AlignedShapes(:,:,1:size(AlignedShapes, 3)/2 );
 RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
@@ -169,8 +175,8 @@ RHAligned = AlignedShapes(:,:,size(AlignedShapes, 3)/2+1:end);
 % hold off;
 
 
-LHAlignedInt16 = int16(LHAligned.*10000);clear LHAligned;
-RHAlignedInt16 = int16(RHAligned.*10000);clear RHAligned;
+% LHAlignedInt16 = int16(LHAligned.*10000);clear LHAligned;
+% RHAlignedInt16 = int16(RHAligned.*10000);clear RHAligned;
 
 
 Shapes = permute(AlignedShapes,[2 1 3]);
@@ -178,23 +184,22 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 clear AlignedShapes;
 
 %%
-nRep = 3;
 RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
 mag = var(Shapes,0,2);
-%%
 for i=1:1:nRep
     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*mag*0.2);
 end
-RepShapesInt16 = int16(RepShapes.*10000);
+mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
+RepShapesInt16 = int16(RepShapes.*mult);
 
-figure; histogram(reshape(RepShapesInt16 - int16(10000 * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
 %%
 clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:); 
 %%
-out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,1000);
+out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nIter, mult);
 
 %%
 
@@ -319,7 +324,7 @@ for i=1:nValues
        if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
     end
 end
-saveas(fig, ["../results/demo_asymmetry/results_" nSamples "_" Ns ".fig"]);
+saveas(f, ['../results/demo_asymmetry/results_' num2str(nSamples) '_' num2str(Ns) '.fig']);
 %%
 % load('asymmetry.mat');
 % for i=1:4
