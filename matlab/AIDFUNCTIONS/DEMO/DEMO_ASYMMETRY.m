@@ -1,19 +1,18 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 %%
-% DATA_DIR = '../SAMPLE_DATA/';
-% THREADS = 8;
-% nSamples = 100;
-% reduce = 0.01;
-% nRep = 3;
-% performExperiments=1;
-% nIter = 1000;
-DATA_DIR = '/';
-THREADS = 40;
-nSamples = 1000;
+DATA_DIR = '../SAMPLE_DATA/';
+THREADS = 6;
+nSamples = 100;
 reduce = 0.01;
 nRep = 3;
-nIter = 10000;
+nIter = 1000;
+% DATA_DIR = '/';
+% THREADS = 40;
+% nSamples = 1000;
+% reduce = 0.01;
+% nRep = 3;
+% nIter = 10000;
 
 performExperiments = 0;
 restoredefaultpath;
@@ -190,6 +189,7 @@ for i=1:1:nRep
     RepShapes(:,:,i) = single(Shapes) + single(randn(size(Shapes,1),size(Shapes,2)).*mag*0.2);
 end
 mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
+mult = 10000;
 RepShapesInt16 = int16(RepShapes.*mult);
 
 figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});

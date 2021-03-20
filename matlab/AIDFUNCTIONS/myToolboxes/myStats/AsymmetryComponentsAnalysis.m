@@ -121,20 +121,22 @@ classdef AsymmetryComponentsAnalysis
             drawnow;
         end
         
-        function [SSet1, SSet2] = shuffleColumnWise(obj, Set1, Set2)
+        function ret = shuffleColumnWise(obj, Set1, Set2)
             SSet1 = Set1;
             SSet2 = Set2;
             r = randi(2,obj.n,1);
             index = find(r==2);
             SSet1(:, index) = Set2(:, index);
             SSet2(:, index) = Set1(:, index);
+            ret = [SSet1(:) SSet2(:)];
         end
         
-        function [SSet1, SSet2] = shuffleRowWise(obj, Set1, Set2)
+        function ret = shuffleRowWise(obj, Set1, Set2)
             SSet1 = Set1;
             SSet2 = Set2;
             index = randperm(obj.n);
             SSet1 = SSet1(:,index);
+            ret = [SSet1(:) SSet2(:)];
         end
         
         function ret = shuffleResidual(obj, Set1, Set2)
