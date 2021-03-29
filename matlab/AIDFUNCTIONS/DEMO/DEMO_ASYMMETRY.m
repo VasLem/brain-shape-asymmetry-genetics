@@ -135,6 +135,12 @@ showPerm=1;
     brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
 %%
 f = visualizeBrainAsymmetryData(brainSurface, data , nSamplesPerPick, titlenames);
-saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.fig']);
-saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.png']);
+system('git add *');
+message = ['AutoUpdate ' datestr(datetime('now')];
+system('git commit -m');
+
+
+
+% saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.fig']);
+% saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.png']);
 
