@@ -1,12 +1,13 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 %%
+applyIMMA = true;
 DATA_DIR = '../SAMPLE_DATA/';
 % THREADS = 8;
 samplesIndices = 1:100;
 % nPicks = 10;
-nPicks = 2;
-nSamplesPerPick = [10, 20,30];
+nPicks = 5;
+nSamplesPerPick = [10,20,30, 40, 50,60, 80,100];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 reduce = 0.05;
 nRep = 3;
@@ -103,10 +104,16 @@ Shapes = permute(ReducedShapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
-RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
 mag = var(Shapes,0,1);
+if ~applyIMMA
 for i=1:1:nRep
+    
+    RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
+end
+else
+    RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
+    RepShapes(:,:,1) = Shapes;
 end
 mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
 RepShapesInt16 = int16(RepShapes.*mult);

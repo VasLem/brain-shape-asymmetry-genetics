@@ -49,6 +49,11 @@ classdef AsymmetryComponentsAnalysis
             end
         end
         
+        function SS_F= fluctuatingAMMISS(obj, SS_D, SS_I)
+            tab = [SS_D; SS_I]';
+            SS_F = sum(tab * pca(tab),2)';
+        end
+        
         function [F, TF]=fluctuatingMS(obj, SS_F)
             SS_F = obj.normalizeInput(SS_F);
             F = sum(SS_F);
@@ -102,6 +107,7 @@ classdef AsymmetryComponentsAnalysis
         end
         
         function [E, TE, F, TF, FF, TFF] = interactionEffect(obj,SS_E, SS_F)
+            
             % getting error MS as error term
             [E, TE] = obj.errorMS(SS_E);
             % getting Fluctuating MS
@@ -109,6 +115,7 @@ classdef AsymmetryComponentsAnalysis
             % getting F-statistic
             FF = F./E;
             TFF = TF/TE;
+            
         end
         
         function displayResultInScatter3D(Landmarks, result)
@@ -176,9 +183,10 @@ classdef AsymmetryComponentsAnalysis
             [LM.E, Total.E]= obj.errorMS(SS(4,:));
             
             % Fluctuating
+            if obj.rep == 1
+                SS(3,:) = obj.fluctuatingAMMISS(SS(1,:), SS(2,:));
+            end
             [LM.F, Total.F] = obj.fluctuatingMS(SS(3,:));
-            
-            
             % getting F-statistic
             LM.FF = LM.F./LM.E;
             Total.FF =  Total.F/Total.E;

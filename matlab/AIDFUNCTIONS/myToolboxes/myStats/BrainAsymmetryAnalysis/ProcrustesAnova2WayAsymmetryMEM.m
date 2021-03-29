@@ -25,8 +25,13 @@ parfor i=1:nrV
     X = [Set1(:) Set2(:)];
     [~,TABLE,STATS] = anova2(X,rep,'off');
     ss = zeros(4,1);
-    for j=1:4
+    j = 1;
+    while (j<=4)
         ss(j) = TABLE{j+1,2};
+        j = j+1;
+        if (rep == 1) && (j > 2) % no interaction term is computed
+            j = j+1;
+        end
     end
     SSs(:,i) =  ss(:);
     Means(:,i) = STATS.colmeans';
@@ -82,11 +87,15 @@ parfor k=1:t
         SSF(:, assignedInds)   = computeAnova2SS(X,rep);
     end
     
+    asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     % analyzing Direction effect
     SS = SSD;
-    SS_F= SS(3,:);
+    if rep == 1
+        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
+    else
+        SS_F= SS(3,:);
+    end
     SS_D = SS(1,:);
-    asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     [~, ~, ~, ~, DF, TDF] = asm.directionEffect(SS_D, SS_F);
     DFCount(k,:) = DF>=LM.DF;
     TDFCount(k) = TDF>=Total.DF;
@@ -96,7 +105,11 @@ parfor k=1:t
     % now and not the interaction
     SS = SSI;
     SS_I = SS(2,:);
-    SS_F = SS(3,:);
+    if rep == 1
+        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
+    else
+        SS_F= SS(3,:);
+    end
     [~, ~, ~, ~, IF, TIF] = asm.individualEffect(SS_I, SS_F);
     IFCount(k,:) = IF>=LM.IF;
     TIFCount(k) = TIF>=Total.IF;
@@ -104,7 +117,11 @@ parfor k=1:t
     % analyzing interaction effect
     SS = SSF;
     SS_E = SS(4,:);
-    SS_F = SS(3,:);
+    if rep == 1
+        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
+    else
+        SS_F= SS(3,:);
+    end
     [~, ~, ~, ~, FF, TFF] = asm.interactionEffect(SS_E, SS_F);
     FFCount(k,:) = FF>=LM.FF;
     TFFCount(k) = TFF>=Total.FF;

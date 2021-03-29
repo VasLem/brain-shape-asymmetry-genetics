@@ -40,6 +40,8 @@ TSS =  squeeze(sum(sum(X .^2))) - correction;                    % Total Sum of 
 ISS = reps*squeeze(sum(sum(Y .^2))) - correction - CSS - RSS;   % Interaction Sum of Squares
 if reps == 1,
   SSE = ISS;
+  ISS = zeros(size(ISS));
+  
 else
   SSE = TSS - CSS - RSS - ISS;          % Error Sum of Squares
 end
