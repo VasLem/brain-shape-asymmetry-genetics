@@ -50,8 +50,8 @@ classdef AsymmetryComponentsAnalysis
         end
         
         function SS_F= fluctuatingAMMISS(obj, SS_D, SS_I)
-            tab = [SS_D; SS_I]';
-            SS_F = sum(tab * pca(tab),2)';
+            tab = [SS_D; SS_I];
+            SS_F =  pca(tab);
         end
         
         function [F, TF]=fluctuatingMS(obj, SS_F)
