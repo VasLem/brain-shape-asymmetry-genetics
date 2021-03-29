@@ -1,19 +1,18 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 %%
-applyIMMA = true;
 DATA_DIR = '../SAMPLE_DATA/';
-% THREADS = 8;
+THREADS = 8;
 samplesIndices = 1:100;
 % nPicks = 10;
 nPicks = 1;
-nSamplesPerPick = [50];
+nSamplesPerPick = [10,20, 50];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 reduce = 0.05;
 nRep = 3;
 nIter = 1000;
 % DATA_DIR = '/';
-THREADS = 20;
+% THREADS = 20;
 % samplesIndices = 1:10000;
 % reduce = 0.01;
 % nRep = 3;
@@ -105,12 +104,11 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
 mag = var(Shapes,0,1);
-if ~applyIMMA
-for i=1:1:nRep
-    
+if nRep > 1
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
-    RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
-end
+    for i=1:1:nRep
+        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
+    end
 else
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
     RepShapes(:,:,1) = Shapes;
@@ -127,7 +125,7 @@ clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
-[setOut, avgOut,stdOut] = ProcrustesAnova2WayAsymmetryOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
+[setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
 out = avgOut;
 
 if performExperiments

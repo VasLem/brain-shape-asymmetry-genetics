@@ -49,10 +49,6 @@ classdef AsymmetryComponentsAnalysis
             end
         end
         
-        function SS_F= fluctuatingAMMISS(obj, SS_D, SS_I)
-            tab = [SS_D; SS_I];
-            SS_F =  pca(tab);
-        end
         
         function [F, TF]=fluctuatingMS(obj, SS_F)
             SS_F = obj.normalizeInput(SS_F);
@@ -181,11 +177,6 @@ classdef AsymmetryComponentsAnalysis
         function [LM, Total]= apply(obj, SS)
             % Error
             [LM.E, Total.E]= obj.errorMS(SS(4,:));
-            
-            % Fluctuating
-            if obj.rep == 1
-                SS(3,:) = obj.fluctuatingAMMISS(SS(1,:), SS(2,:));
-            end
             [LM.F, Total.F] = obj.fluctuatingMS(SS(3,:));
             % getting F-statistic
             LM.FF = LM.F./LM.E;

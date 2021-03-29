@@ -1,4 +1,4 @@
-function varargout  = ProcrustesAnova2WayAsymmetryOnSubsets(X1,X2,nSamplesPerPick, nPicks, t,factor,nSplits)
+function varargout  =  AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick, nPicks, t,factor,nSplits)
 % nSamplesPerPick are the number of samples per subset
 % nPicks are the number of picks
 nOutputs = nargout;

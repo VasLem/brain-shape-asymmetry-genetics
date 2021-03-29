@@ -18,20 +18,12 @@ tic;
 [path,ID] = setupParForProgress(nrV);
 parfor i=1:nrV
     Set1 = squeeze(single(X1(:,i,:))/factor);
-    Set2 = squeeze(single(X2(:,i,:))/factor);
-    %     [c,lags] = xcorr(Set1(2,:), Set2(2,:));
-    %     p(i) = (lags(c==max(c)));
-    
+    Set2 = squeeze(single(X2(:,i,:))/factor);    
     X = [Set1(:) Set2(:)];
     [~,TABLE,STATS] = anova2(X,rep,'off');
     ss = zeros(4,1);
-    j = 1;
-    while (j<=4)
+    for j=1:4 
         ss(j) = TABLE{j+1,2};
-        j = j+1;
-        if (rep == 1) && (j > 2) % no interaction term is computed
-            j = j+1;
-        end
     end
     SSs(:,i) =  ss(:);
     Means(:,i) = STATS.colmeans';
@@ -90,11 +82,7 @@ parfor k=1:t
     asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     % analyzing Direction effect
     SS = SSD;
-    if rep == 1
-        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
-    else
-        SS_F= SS(3,:);
-    end
+    SS_F= SS(3,:);
     SS_D = SS(1,:);
     [~, ~, ~, ~, DF, TDF] = asm.directionEffect(SS_D, SS_F);
     DFCount(k,:) = DF>=LM.DF;
@@ -105,11 +93,7 @@ parfor k=1:t
     % now and not the interaction
     SS = SSI;
     SS_I = SS(2,:);
-    if rep == 1
-        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
-    else
-        SS_F= SS(3,:);
-    end
+    SS_F= SS(3,:);
     [~, ~, ~, ~, IF, TIF] = asm.individualEffect(SS_I, SS_F);
     IFCount(k,:) = IF>=LM.IF;
     TIFCount(k) = TIF>=Total.IF;
@@ -117,11 +101,7 @@ parfor k=1:t
     % analyzing interaction effect
     SS = SSF;
     SS_E = SS(4,:);
-    if rep == 1
-        SS_F = asm.fluctuatingAMMISS(SS(1,:), SS(3,:))
-    else
-        SS_F= SS(3,:);
-    end
+    SS_F= SS(3,:);
     [~, ~, ~, ~, FF, TFF] = asm.interactionEffect(SS_E, SS_F);
     FFCount(k,:) = FF>=LM.FF;
     TFFCount(k) = TFF>=Total.FF;
