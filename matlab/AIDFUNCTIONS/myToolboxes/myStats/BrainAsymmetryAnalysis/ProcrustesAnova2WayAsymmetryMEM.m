@@ -63,8 +63,8 @@ X2 = permute(X2, [2,1,3]);
 
 
 splitSize = ceil(nrV / nSplits);
-for k=1:t
-    % parfor k=1:t
+% for k=1:t
+parfor k=1:t
     asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     SSI = zeros(4, nrV);
     SSD = zeros(4, nrV);
@@ -74,35 +74,10 @@ for k=1:t
         
         Set1 = single(X1(assignedInds,:,:)) / factor;
         Set2 = single(X2(assignedInds,:,:)) / factor;
-        
-%         rowPermIndex = randperm(n);
-%         r = randi(2,n,1);
-%         columnPermIndex = find(r==2);
-%         
-%         Set1Copy = Set1;
-%         Set2Copy = Set2;
-%         Set1Copy(:, :, columnPermIndex) = Set2Copy(:, :, columnPermIndex);
-%         Set2Copy(:, :, columnPermIndex) = Set1Copy(:, :, columnPermIndex);
-%         X = permute(cat(3, Set1Copy(:,:), Set2Copy(:, :)), [2,3,1]);
         X = asm.shuffleColumnWise(Set1, Set2);
         SSD(:, assignedInds) = computeAnova2SS(X,rep);
-        % Row-wise shuffling for Individual effect
-%         Set1Copy = Set1;
-%         Set2Copy = Set2;
-%         Set1Copy = Set1Copy(:,:,rowPermIndex);
-%         X = permute(cat(3, Set1Copy(:,:), Set2Copy(:, :)), [2,3,1]);
         X = asm.shuffleRowWise(Set1, Set2);
         SSI(:, assignedInds)  = computeAnova2SS(X,rep);
-%         Set1Copy = Set1;
-%         Set2Copy = Set2;
-%         X = permute(cat(3, Set1Copy(:,:), Set2Copy(:, :)), [2,3,1]);
-%         avgC = mean(X,1);
-%         avgR = mean(X,2);
-%         avg = mean(avgC);
-%         X = X - avgC - avgR + avg;
-%         index = randperm(n*rep*2);
-%         tF = reshape(X, n*rep * 2, size(X,3));
-%         X = reshape(tF(index,:),n*rep,2,size(X,3));
         X = asm.shuffleResidual(Set1, Set2);
         SSF(:, assignedInds)   = computeAnova2SS(X,rep);
     end

@@ -2,23 +2,23 @@
 close all;clear;
 %%
 DATA_DIR = '../SAMPLE_DATA/';
-THREADS = 8;
-samplesIndices = 1:1000;
-nPicks = 10;
+% THREADS = 8;
+samplesIndices = 1:100;
 % nPicks = 10;
-% nSamplesPerPick = [10, 20,30,40];
-nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
+nPicks = 2;
+nSamplesPerPick = [10, 20,30];
+% nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 reduce = 0.05;
 nRep = 3;
 nIter = 1000;
 % DATA_DIR = '/';
-% THREADS = 40;
+THREADS = 20;
 % samplesIndices = 1:10000;
 % reduce = 0.01;
 % nRep = 3;
 % nIter = 5000;
-%nSamplesPerPick = 300;
-%nPicks = 5;
+%nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
+%nPicks = 10;
 performExperiments = 0;
 restoredefaultpath;
 nSamples = length(samplesIndices);
@@ -68,7 +68,7 @@ for r=1:nR
     %r=2
     disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     regphenopath = [phenopath Regions{r} '/'];
-    DATA{r} = load([regphenopath 'STAGEOODATA']);
+    DATA{r} = load([regphenopath 'STAGE00DATA']);
     Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
     
 end
@@ -94,7 +94,7 @@ clear DATA;
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
 clear LH  RH;
 %%
-display3DLandmarksArrows(Template, AvgShape);
+% display3DLandmarksArrows(Template, AvgShape);
 %%
 ReducedShapes = AlignedShapes(landmarksIndices, :, [ samplesIndices, (samplesIndices +size(AlignedShapes,3)/2)] );
 
@@ -135,10 +135,11 @@ showPerm=1;
     brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
 %%
 f = visualizeBrainAsymmetryData(brainSurface, data , nSamplesPerPick, titlenames);
+%%
 system('git add *');
-message = ['AutoUpdate ' datestr(datetime('now')];
-system('git commit -m');
-
+message = ['AutoUpdate ' datestr(datetime('now'))];
+system(['git commit -m "' message '"']);
+system(['git push origin']);
 
 
 % saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.fig']);
