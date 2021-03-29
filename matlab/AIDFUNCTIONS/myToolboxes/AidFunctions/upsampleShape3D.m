@@ -7,21 +7,31 @@ function reconstructed = upsampleShape3D(downsampledValues, adjacency, downsampl
 % downsampledIndices refer to the indices to which downsampledValues
 % correspond to, will be inferred from the rest if not given
 
-if nargin < 3, downsampledIndices = 1: ceil(size(adjacency,1) / size(downsampledValues,1)) :size(adjacency,1) ; end
 pdim = size(adjacency,1);
-reconstructed = zeros(size(adjacency,1),size(downsampledValues,2));
+if length(size(downsampledValues)) == 2
+    downsampledValues = reshape(downsampledValues,[size(downsampledValues,1),1,size(downsampledValues,2)]);
+end
+odim = size(downsampledValues,3);
+if nargin < 3, downsampledIndices = 1: ceil(pdim/odim) : pdim ; end
+d1=size(downsampledValues, 1);
+d2=size(downsampledValues,2);
+
+reconstructed = zeros(d1,d2, pdim);
 reconstructed(:) = NaN;
-reconstructed(downsampledIndices, :) =downsampledValues;
+reconstructed(:, :, downsampledIndices) = downsampledValues;
 for l = 1:50
+    for c= 1:d2
     for k=1:pdim        
-        if isnan(reconstructed(k,1))
-           f = reconstructed(adjacency(:,k) & ~ isnan(reconstructed(:,1)),:);
+        if isnan(reconstructed(1, c,k))
+           f = squeeze(reconstructed(:, c, adjacency(:,k) & ~ squeeze(isnan(reconstructed(1,c,:)))));
            if ~isempty(f)
-               reconstructed(k,:) =  mean(f,1);
+               reconstructed(:, c, k) =  mean(f,2);
            end
         end
     end
     if sum(isnan(reconstructed))==0
         break
     end
+    end
+end
 end

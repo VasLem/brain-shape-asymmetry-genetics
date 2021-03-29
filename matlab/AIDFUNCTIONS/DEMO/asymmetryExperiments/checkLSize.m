@@ -1,4 +1,4 @@
-function ret = checkLSize(X1, X2, lSizes)
+function ret = checkLSize(X1, X2, lSizes, factor)
 assert(max(lSizes)<= size(X1,2)/3);
 numExp = length(lSizes);
 for i=1:numExp
@@ -6,5 +6,5 @@ for i=1:numExp
     subsample_vec = 3 * (1: ceil((size(X1,2)/(3 * inputSize))):(size(X1,2)/3));
     subsample_vec = ([ (subsample_vec-2)' (subsample_vec -1)' subsample_vec'])';
     subsample_vec = subsample_vec(:);
-    ret(i)  = ProcrustesAnova2WayAsymmetryMEM(X1(:, subsample_vec,:),X2(:,subsample_vec,:),200);
+    ret(i)  = ProcrustesAnova2WayAsymmetryMEM(X1(:, subsample_vec,:),X2(:,subsample_vec,:),1000,factor);
 end

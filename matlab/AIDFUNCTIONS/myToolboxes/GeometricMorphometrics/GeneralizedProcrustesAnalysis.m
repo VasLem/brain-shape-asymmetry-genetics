@@ -1,5 +1,6 @@
 function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustesAnalysis(Landmarks,TemplateLandmarks,iter,scale,reflect,progress,display)
-         if nargin<7, display = false;end
+        
+        if nargin<7, display = false;end
          if nargin<6, progress = false;end
          if nargin<5, reflect = true;end
          if nargin<4, scale = true;end
@@ -17,22 +18,30 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
          else
             AvgLandmarks = mean(Landmarks,3);
          end
-         AlignedLandmarks = Landmarks;
-         avg = mean(AlignedLandmarks,1);
-        Differences = avg - AlignedLandmarks;
-        Distances = sqrt(sum(Differences.^2,2));
-        CentroidSizes = sqrt(sum(Distances.^2)/nLM);      
+         
+         avg = mean(Landmarks,1);
+         CentroidSizes = sqrt(sum(sqrt(sum((avg - Landmarks).^2,2)).^2)/nLM);
+         AlignedLandmarks = mat2cell(Landmarks, size(Landmarks,1), size(Landmarks,2), ones(1,size(Landmarks,3)));
+%         Differences = avg - AlignedLandmarks;
+%         Distances = sqrt(sum(Differences.^2,2));
+        
+        
+        
          for i=1:iter
              if progress, disp([num2str(i) ' out of ' num2str(iter)]);end
              if progress, [path,ID] = setupParForProgress(N);end
              parfor n=1:N
 %               for n=1:1:N 
-                tmp = squeeze(AlignedLandmarks(:,:,n));
-                 [~,AlignedLandmarks(:,:,n),~] = procrustes(AvgLandmarks,tmp,'Scaling',scale,'Reflection',reflect);
+                tmp = squeeze(AlignedLandmarks{n});
+                 [~,AlignedLandmarks{n},~] = procrustes(AvgLandmarks,tmp,'Scaling',scale,'Reflection',reflect);
                  if progress, parfor_progress;end
              end
              if progress, closeParForProgress(path,ID);end
-             AvgLandmarks = mean(AlignedLandmarks,3);
+             AvgLandmarks = AlignedLandmarks{1};
+             for n=1:N
+                AvgLandmarks = AvgLandmarks + AlignedLandmarks{n};
+             end
+             AvgLandmarks = AvgLandmarks/N;
              if scale
                 tmp = shape3D;tmp.Vertices = AvgLandmarks;
                 AvgLandmarks = AvgLandmarks./sqrt(sum(AvgLandmarks.^2,'all'));
@@ -47,4 +56,5 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
              AvgLandmarks = clone(TemplateLandmarks);
              AvgLandmarks.Vertices = tmp;
          end
+         AlignedLandmarks = cell2mat(AlignedLandmarks);
 end

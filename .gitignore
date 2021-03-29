@@ -62,4 +62,5 @@ vignettes/*.pdf
 #others
 m2r.mat
 r2m.mat
-
+*.fig
+STAGEOODATA.mat

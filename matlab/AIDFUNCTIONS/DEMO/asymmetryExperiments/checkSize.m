@@ -1,5 +1,5 @@
-function ret = checkSize(X1, X2, sizes,cntFromBeg)
-if nargin < 4
+function ret = checkSize(X1, X2, sizes,factor, cntFromBeg)
+if nargin < 5
     cntFromBeg=0;
 end
 assert(max(sizes)<= size(X1,1))
@@ -14,7 +14,7 @@ for i=1:numExp
     else
         subsample_vec = 1:inputSize;
     end
-    ret(i) = ProcrustesAnova2WayAsymmetryMEM(X1(subsample_vec,:,:),X2(subsample_vec,:,:),100);
+    ret(i) = ProcrustesAnova2WayAsymmetryMEM(X1(subsample_vec,:,:),X2(subsample_vec,:,:),1000,factor);
 end
 end
 

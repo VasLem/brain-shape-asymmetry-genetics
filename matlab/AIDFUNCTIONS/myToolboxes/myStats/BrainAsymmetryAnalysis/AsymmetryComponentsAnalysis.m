@@ -125,28 +125,28 @@ classdef AsymmetryComponentsAnalysis
             SSet1 = Set1;
             SSet2 = Set2;
             r = randi(2,obj.n,1);
-            index = find(r==2);
-            SSet1(:, index) = Set2(:, index);
-            SSet2(:, index) = Set1(:, index);
-            ret = [SSet1(:) SSet2(:)];
+            columnPermIndex = find(r==2);
+            SSet1(:, columnPermIndex) = Set2(:, columnPermIndex);
+            SSet2(:, columnPermIndex) = Set1(:, columnPermIndex);
+            ret  = permute(cat(3, SSet1(:,:), SSet2(:, :)), [2,3,1]);
         end
         
         function ret = shuffleRowWise(obj, Set1, Set2)
-            SSet1 = Set1;
-            SSet2 = Set2;
-            index = randperm(obj.n);
-            SSet1 = SSet1(:,index);
-            ret = [SSet1(:) SSet2(:)];
+            rowPermIndex = randperm(obj.n);
+            SSet1 = Set1(:,:,rowPermIndex);
+            ret =permute(cat(3, SSet1(:,:), Set2(:, :)), [2,3,1]);
         end
         
         function ret = shuffleResidual(obj, Set1, Set2)
-            X = [Set1(:) Set2(:)];
-            avgC = mean(X,1);
-            avgR = mean(X,2);
-            avg = mean(X(:));
-            X = X - repmat(avgC,obj.n*obj.rep,1) - repmat(avgR,1,2) + repmat(avg,obj.n*obj.rep,2);
+            ret = permute(cat(3, Set1(:,:), Set2(:, :)), [2,3,1]);
+            
+            avgC = mean(ret, 1);
+            avgR = mean(ret,2);
+            avg = mean(avgC);
+            ret = ret - avgC - avgR + avg;
             index = randperm(obj.n*obj.rep*2);
-            ret = reshape(X(index),obj.n*obj.rep,2);
+            ret = reshape(ret, obj.n*obj.rep * 2, obj.nrV);
+            ret = reshape(ret(index,:),obj.n*obj.rep,2,obj.nrV);
         end
         
         function computeSS(obj, X1,X2)
