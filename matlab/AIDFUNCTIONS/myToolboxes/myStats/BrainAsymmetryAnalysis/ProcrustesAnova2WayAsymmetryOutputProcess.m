@@ -1,4 +1,4 @@
-function [ data, titlenames, labels, thresholds, totalStats] = ProcrustesAnova2WayAsymmetryOutputProcess(brainSurface, showstruct, nSamplesPerPick, showPerm, saveMatFileName)
+function data= ProcrustesAnova2WayAsymmetryOutputProcess(brainSurface, showstruct, nSamplesPerPick, showPerm, saveMatFileName)
 if nargin < 2
     showPerm = true;
 end
@@ -7,6 +7,7 @@ if nargin < 3
 end
 i=1;
 VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'I';
+try
 VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'IF';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permIF;
@@ -14,8 +15,11 @@ else
     VertexValues{i,3}=showstruct.LM.IP;
 end
 titlenames{i,3} = 'p-Value';
+catch
+end
 i=i+1;
 VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = 'D';
+try
 VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = 'DF';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permDF;
@@ -23,9 +27,11 @@ else
     VertexValues{i,3}=showstruct.LM.DP;
 end
 titlenames{i,3} = 'p-Value';
-
+catch
+end
 i=i+1;
 VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'F';
+try
 VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'FF';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permFF;
@@ -34,10 +40,13 @@ else
 end
 titlenames{i,3} = 'p-Value';
 
+catch
+end
 labels = ["Individual", "Directional", "Fluctuating"];
 thresholds = [0.05, 0.01, 0.005, 0.0001];
-totalStats = showstruct.Total;
+
 nValues = 3;
+try
 for i=1:nValues
     val = VertexValues{i,3};
     res = zeros(size(val));
@@ -49,8 +58,19 @@ for i=1:nValues
     VertexValues{i,4} = res;
     titlenames{i,4} = "Significance";
 end
-data = VertexValues;
+catch
+end
+data.values = VertexValues;
+data.titleNames = titlenames;
+data.brainSurface = brainSurface;
+try
+data.totalStats = showstruct.Total;
+data.nSamplesPerPick = nSamplesPerPick;
+data.labels = labels;
+data.thresholds = thresholds;
+catch
+end
 if ~isempty(saveMatFileName)
-save(saveMatFileName, "data","nSamplesPerPick", "titlenames","labels","thresholds","totalStats","brainSurface",'-v7.3');
+save(saveMatFileName, "data",'-v7.3');
 end
 end

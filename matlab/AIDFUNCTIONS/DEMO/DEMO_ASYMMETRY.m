@@ -3,13 +3,13 @@ close all;clear;
 %%
 DATA_DIR = '../SAMPLE_DATA/';
 THREADS = 8;
-samplesIndices = 1:100;
+samplesIndices = 1:1000;
 % nPicks = 10;
 nPicks = 10;
 nSamplesPerPick = [10, 30,50,80,100];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 reduce = 0.05;
-nRep = 3;
+nRep = 1;
 nIter = 1000;
 % DATA_DIR = '/';
 % THREADS = 20;
@@ -68,7 +68,7 @@ for r=1:nR
     %r=2
     disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     regphenopath = [phenopath Regions{r} '/'];
-    DATA{r} = load([regphenopath 'STAGE00DATA']);
+    DATA{r} = load([regphenopath 'STAGEOODATA']);
     Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
     
 end
@@ -103,11 +103,11 @@ Shapes = permute(ReducedShapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
-mag = var(Shapes,0,1);
+mag = var(Shapes,0,2);
 if nRep > 1
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
+        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
     end
 else
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
@@ -125,28 +125,34 @@ clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
-[setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
-out = avgOut;
+if nRep == 1
+   out = computeAmmiModel(ReducedShapes);
 
-if performExperiments
-[retS, retL, retR, retP] = ProcrustesAnova2WayAsymmetryDebuggingExperiments(X1, X2, mult); %#ok<UNRCH>
+else
+    [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
+    out = avgOut;
+
+    if performExperiments
+    [retS, retL, retR, retP] = ProcrustesAnova2WayAsymmetryDebuggingExperiments(X1, X2, mult); %#ok<UNRCH>
+    end
 end
-%% Upsampling
+% Upsampling
 outu = upsampleAnovaStats(out, reducedTemplateAdjacency, landmarksIndices);
-%%
+
 showstruct = outu;
 showPerm=1;
-[ data, titlenames, ~, ~, ~] = ProcrustesAnova2WayAsymmetryOutputProcess(...
+data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
-%%
-f = visualizeBrainAsymmetryData(brainSurface, data , nSamplesPerPick, titlenames);
+
+f = visualizeBrainAsymmetryData(data);
+
+saveas(f, ['../results/demo_asymmetry/results_' experimentName '.fig']);
+saveas(f, ['../results/demo_asymmetry/results_' experimentName '.png']);
+
 %%
 system('git add *');
 message = ['AutoUpdate ' datestr(datetime('now'))];
 system(['git commit -m "' message '"']);
 system(['git push origin']);
 
-
-% saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.fig']);
-% saveas(f, ['../results/demo_asymmetry/results_' num2str(samplesIndices(1)) '_' num2str(samplesIndices(end)) '_' num2str(Ns) '_' num2str(nIter) '.png']);
 

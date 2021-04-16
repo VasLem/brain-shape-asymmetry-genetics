@@ -1,20 +1,30 @@
 function outu = upsampleAnovaStats(out, reducedTemplateAdjacency, landmarksIndices)
+try
 toupsample = permute(...
     cat(3,out.LM.I,out.LM.IF,out.LM.IP, out.LM.permIF,...
     out.LM.D,out.LM.DF, out.LM.DP,out.LM.permDF,...
     out.LM.F,out.LM.FF,out.LM.FP,out.LM.permFF),[3,1,2]);
-
+catch
+toupsample = permute(cat(3,out.LM.I,out.LM.D,out.LM.F),[3,1,2]);
+end
 outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, landmarksIndices);
-outu.LM.I = squeeze(outupsampled(1,:,:));
-outu.LM.IF = squeeze(outupsampled(2,:,:));
-outu.LM.IP = squeeze(outupsampled(3,:,:));
-outu.LM.permIF = squeeze(outupsampled(4,:,:));
-outu.LM.D = squeeze(outupsampled(5,:,:));
-outu.LM.DF = squeeze(outupsampled(6,:,:));
-outu.LM.DP =squeeze( outupsampled(7,:,:));
-outu.LM.permDF = squeeze(outupsampled(8,:,:));
-outu.LM.F = squeeze(outupsampled(9,:,:));
-outu.LM.FF= squeeze(outupsampled(10,:,:));
-outu.LM.FP= squeeze(outupsampled(11,:,:));
-outu.LM.permFF =squeeze( outupsampled(12,:,:));
+[d,r,l] = size(outupsampled);
+if d == 3
+    outu.LM.I = reshape(outupsampled(1,:,:),r,l);
+    outu.LM.D = reshape(outupsampled(2,:,:),r,l);
+    outu.LM.F = reshape(outupsampled(3,:,:),r,l);
+else
+outu.LM.I = reshape(outupsampled(1,:,:),r,l);
+outu.LM.IF = reshape(outupsampled(2,:,:),r,l);
+outu.LM.IP = reshape(outupsampled(3,:,:),r,l);
+outu.LM.permIF = reshape(outupsampled(4,:,:),r,l);
+outu.LM.D = reshape(outupsampled(5,:,:),r,l);
+outu.LM.DF = reshape(outupsampled(6,:,:),r,l);
+outu.LM.DP =reshape( outupsampled(7,:,:),r,l);
+outu.LM.permDF = reshape(outupsampled(8,:,:),r,l);
+outu.LM.F = reshape(outupsampled(9,:,:),r,l);
+outu.LM.FF= reshape(outupsampled(10,:,:),r,l);
+outu.LM.FP= reshape(outupsampled(11,:,:),r,l);
+outu.LM.permFF =reshape( outupsampled(12,:,:),r,l);
 outu.Total = out.Total;
+end

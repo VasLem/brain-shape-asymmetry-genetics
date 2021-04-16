@@ -1,28 +1,35 @@
-function f = visualizeBrainAsymmetryData(brainSurface, data, nSamplesPerPick, titlenames)
+function f = visualizeBrainAsymmetryData(data)
     if isstring(data)
-        load(data,'data' ,'nSamplesPerPick', 'titlenames', 'brainSurface');
+        load(data,'data');
     end
-    VertexValues = data;
-    
-
-    arrange = [3 8];
+    VertexValues = data.values;
+    brainSurface = data.brainSurface;
+    titlenames = data.titleNames;
+    try
+    thresholds = data.thresholds;
+    nSamplesPerPick = data.nSamplesPerPick;
+    catch
+    end
+    arrange = [size(VertexValues,1) 2 * size(VertexValues,2)];
     counter = 0;
     clim = [];
     rend = brainSurface;
     cmap = parula(256);
-
+    dmap = 0;
     if size(VertexValues{1,1},1) > 1
         for i= 1:3
             f = showSignificanceEvolution(brainSurface, nSamplesPerPick, VertexValues{i,4},  strcat(titlenames{i,1}," ",titlenames{i,4}));
-        end
+        end        
         return
     end
-    dmap = parula(length(thresholds));
-
+    if size(VertexValues,2) > 1
+        dmap = parula(length(thresholds));
+         thresholdsTicks = thresholds;
+    end
     f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
-    thresholdsTicks = thresholds;
-    for i=1:nValues
-        for j=1:4
+   
+    for i=1:size(VertexValues,1)
+        for j=1:size(VertexValues,2)
             if j==4, map=dmap; else, map=cmap; end
             %i=1;
             counter = counter+1;
