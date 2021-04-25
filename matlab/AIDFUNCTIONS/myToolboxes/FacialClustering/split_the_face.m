@@ -9,7 +9,7 @@ function LabelTotal=split_the_face(faces,avScan,n_levels,superimpose)
 % needs parallel computing on
 avFace = avScan.Vertices;
 [nObs,nV] = size(faces);
-nbLM = size(avFace,2);
+nbLM = size(avFace,1);
 
 Mfaces = reshape(faces',3,nbLM,nObs);
 

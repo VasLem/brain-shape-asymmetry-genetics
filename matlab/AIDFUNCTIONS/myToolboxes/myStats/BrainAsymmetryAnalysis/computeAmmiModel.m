@@ -1,7 +1,6 @@
 function out = computeAmmiModel(Shapes)
 inputShapes = Shapes;
 n = size(inputShapes,3)/2;
-nL = size(inputShapes,2);
 LH = inputShapes(:,:,1:n);
 RH =  inputShapes(:,:,n+1:2*n);
 avgShapes = (LH + RH)/2;

@@ -19,19 +19,7 @@ d2=size(downsampledValues,2);
 reconstructed = zeros(d1,d2, pdim);
 reconstructed(:) = NaN;
 reconstructed(:, :, downsampledIndices) = downsampledValues;
-for l = 1:50
-    for c= 1:d2
-    for k=1:pdim        
-        if isnan(reconstructed(1, c,k))
-           f = squeeze(reconstructed(:, c, adjacency(:,k) & ~ squeeze(isnan(reconstructed(1,c,:)))));
-           if ~isempty(f)
-               reconstructed(:, c, k) =  mean(f,2);
-           end
-        end
-    end
-    if sum(isnan(reconstructed))==0
-        break
-    end
-    end
+reconstructed = fillShape3D(reconstructed, adjacency);
 end
-end
+
+

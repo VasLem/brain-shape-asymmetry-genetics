@@ -5,11 +5,12 @@ DATA_DIR = '../SAMPLE_DATA/';
 THREADS = 8;
 samplesIndices = 1:1000;
 % nPicks = 10;
-nPicks = 10;
-nSamplesPerPick = [10, 30,50,80,100];
+nPicks = 1;
+nSamplesPerPick = [1000];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
-reduce = 0.05;
-nRep = 1;
+% reduce = 0.05;
+reduce = 0.01;
+nRep = 3;
 nIter = 1000;
 % DATA_DIR = '/';
 % THREADS = 20;
@@ -23,6 +24,7 @@ performExperiments = 0;
 restoredefaultpath;
 nSamples = length(samplesIndices);
 addpath(genpath('AIDFUNCTIONS'));
+addpath(genpath('fieldtrip'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 %% SETTING UP COMPUTATION POWER
@@ -81,10 +83,14 @@ Ns = floor(1/reduce);
 landmarksIndices = 1:Ns:pdim;
 nLandmarks = length(landmarksIndices);
 
-
-experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) '_' ...
+if nRep > 1
+    experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) '_' ...
     num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
     '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
+else
+    experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) ...
+    '_' num2str(nRep)];
+end
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
 RH(:,1,:,:) = -1*RH(:,1,:,:);
@@ -105,9 +111,14 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 mag = var(Shapes,0,2);
 if nRep > 1
+    percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
+    percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
+    percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
+    percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
+    percent_difference_test_retest = percent_difference_test_retest(:)';
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
+        RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
     end
 else
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
@@ -115,15 +126,18 @@ else
 end
 mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
 RepShapesInt16 = int16(RepShapes.*mult);
-
-
+if nRep > 1
+    
 figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+end
+
 %%
 clear Shapes;
 clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
+
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
    out = computeAmmiModel(ReducedShapes);
