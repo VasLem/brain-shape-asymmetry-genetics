@@ -111,14 +111,16 @@ Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 mag = var(Shapes,0,2);
 if nRep > 1
-    percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
-    percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
-    percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
-    percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
-    percent_difference_test_retest = percent_difference_test_retest(:)';
-    RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
+%     percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
+%     percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
+%     percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
+%     percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
+%     percent_difference_test_retest = percent_difference_test_retest(:)';
+%     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-        RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
+%         RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
+        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
+        
     end
 else
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
