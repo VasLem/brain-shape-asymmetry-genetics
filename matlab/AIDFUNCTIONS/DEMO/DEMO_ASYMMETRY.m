@@ -170,9 +170,9 @@ T = table(ids, out.Raw.F');
 %%
 writetable(T,"fluctuatingAMMI.txt",'WriteVariableNames',false,'Delimiter',' ')
 %%
-% system('git add *');
-% message = ['AutoUpdate ' datestr(datetime('now'))];
-% system(['git commit -m "' message '"']);
-% system(['git push origin']);
-% 
+system('git add *');
+message = ['AutoUpdate ' datestr(datetime('now'))];
+system(['git commit -m "' message '"']);
+system(['git push origin']);
+
 
