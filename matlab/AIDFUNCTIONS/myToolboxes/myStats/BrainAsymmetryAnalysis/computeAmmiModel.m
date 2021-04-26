@@ -23,6 +23,7 @@ rec = coeff(:, 1:numComponents) * score(:, 1:numComponents)' ;
 out.LM.I = I';
 out.LM.D = D';
 out.LM.F = F';
+out.Raw.F = rec;
 end
 
 function [latent, latentLow, latentHigh] = pa_test(x, nShuffle, alpha, varargin)

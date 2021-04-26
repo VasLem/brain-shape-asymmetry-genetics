@@ -1,46 +1,54 @@
-function f = visualizeBrainAsymmetryData(data)
-    if isstring(data)
-        load(data,'data');
-    end
-    VertexValues = data.values;
-    brainSurface = data.brainSurface;
-    titlenames = data.titleNames;
-    try
+function f = visualizeBrainAsymmetryData(data,saveName)
+if isstring(data)
+    load(data,'data');
+end
+VertexValues = data.values;
+brainSurface = data.brainSurface;
+titlenames = data.titleNames;
+try
     thresholds = data.thresholds;
     nSamplesPerPick = data.nSamplesPerPick;
-    catch
+catch
+end
+arrange = [size(VertexValues,1) 2 * size(VertexValues,2)];
+
+clim = [];
+rend = brainSurface;
+cmap = parula(256);
+dmap = 0;
+if size(VertexValues{1,1},1) > 1
+    for i= 1:3
+        showSignificanceEvolution(brainSurface, nSamplesPerPick, VertexValues{i,4},  strcat(titlenames{i,1}," ",titlenames{i,4}));
     end
-    arrange = [size(VertexValues,1) 2 * size(VertexValues,2)];
+end
+if size(VertexValues,2) > 1
+    dmap = parula(length(thresholds));
+    thresholdsTicks = thresholds;
+end
+
+nPicks = size(VertexValues{1,1},1);
+for k=1:nPicks
     counter = 0;
-    clim = [];
-    rend = brainSurface;
-    cmap = parula(256);
-    dmap = 0;
-    if size(VertexValues{1,1},1) > 1
-        for i= 1:3
-            f = showSignificanceEvolution(brainSurface, nSamplesPerPick, VertexValues{i,4},  strcat(titlenames{i,1}," ",titlenames{i,4}));
-        end        
-        return
+    try
+        f = figure('Name', ['Picked:' num2str(nSamplesPerPick(k))]);
+    catch
+        f = figure;
     end
-    if size(VertexValues,2) > 1
-        dmap = parula(length(thresholds));
-         thresholdsTicks = thresholds;
-    end
-    f = figure;f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
-   
+    f.Position = [95  98  2192  1106];f.Color = [1 1 1];%
     for i=1:size(VertexValues,1)
         for j=1:size(VertexValues,2)
             if j==4, map=dmap; else, map=cmap; end
             %i=1;
+            sVertexValues = VertexValues{i,j}(k,:);
             counter = counter+1;
             fout.ax1{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
             colormap(fout.ax1{i,j},map);
-
+            
             if ~isempty(clim), set(fout.ax1{i,j},'clim',clim);end
-            renderBrainSurface(rend,VertexValues{i,j},fout.ax1{i,j});
+            renderBrainSurface(rend,sVertexValues,fout.ax1{i,j});
             colorbar(fout.ax1{i,j},'SouthOutside');
             if j<4
-                set(fout.ax1{i,j},'clim',[0 max(VertexValues{i,j})]);
+                set(fout.ax1{i,j},'clim',[0 max(sVertexValues)]);
             end
             if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
                 cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
@@ -51,11 +59,11 @@ function f = visualizeBrainAsymmetryData(data)
             title(fout.ax1{i,j},titlenames{i,j})
             counter = counter+1;
             fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-            renderBrainSurface(rend,VertexValues{i,j},fout.ax2{i,j});
+            renderBrainSurface(rend,sVertexValues,fout.ax2{i,j});
             view(fout.ax2{i,j},-1*rend.viewval(1),0);
             colorbar(fout.ax2{i,j},'SouthOutside');
             if j<4
-                set(fout.ax2{i,j},'clim',[0 max(VertexValues{i,j})]);
+                set(fout.ax2{i,j},'clim',[0 max(sVertexValues)]);
             end
             colormap(fout.ax2{i,j},map);
             if j==4,set(fout.ax2{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
@@ -64,8 +72,10 @@ function f = visualizeBrainAsymmetryData(data)
             set(light,'Position',get(fout.ax2{i,j},'CameraPosition'));
             drawnow;
             if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
+            saveas(f, [saveName '_' num2str(k) '.fig']);
+            saveas(f, [saveName '_' num2str(k)  '.png']);
         end
     end
-
-    end
+    
+end
 

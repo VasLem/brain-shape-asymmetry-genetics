@@ -5,8 +5,8 @@ DATA_DIR = '../SAMPLE_DATA/';
 THREADS = 8;
 samplesIndices = 1:1000;
 % nPicks = 10;
-nPicks = 1;
-nSamplesPerPick = [1000];
+nPicks = 10;
+nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 reduce = 0.01;
@@ -24,7 +24,6 @@ performExperiments = 0;
 restoredefaultpath;
 nSamples = length(samplesIndices);
 addpath(genpath('AIDFUNCTIONS'));
-addpath(genpath('fieldtrip'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 %% SETTING UP COMPUTATION POWER
@@ -109,17 +108,17 @@ Shapes = permute(ReducedShapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
-mag = var(Shapes,0,2);
+% mag = var(Shapes,0,2);
 if nRep > 1
-%     percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
-%     percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
-%     percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
-%     percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
-%     percent_difference_test_retest = percent_difference_test_retest(:)';
-%     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
+    percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
+    percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
+    percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
+    percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
+    percent_difference_test_retest = percent_difference_test_retest(:)';
+    RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-%         RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
-        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*mag);
+        RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
+%         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
         
     end
 else
@@ -159,16 +158,21 @@ showstruct = outu;
 showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
-
-f = visualizeBrainAsymmetryData(data);
-
-saveas(f, ['../results/demo_asymmetry/results_' experimentName '.fig']);
-saveas(f, ['../results/demo_asymmetry/results_' experimentName '.png']);
+%%
+f = visualizeBrainAsymmetryData(data,['../results/demo_asymmetry/results_' experimentName]);
 
 %%
-system('git add *');
-message = ['AutoUpdate ' datestr(datetime('now'))];
-system(['git commit -m "' message '"']);
-system(['git push origin']);
 
+genotypes = readtable("/home/vaslem/code/imagen/SAMPLE_DATA/PLINKPRUNEDMERGED/ukb_sel19908.fam",'FileType','text');
+%%i
+ids = genotypes.Var1(1:1000);
+T = table(ids, out.Raw.F');
+%%
+writetable(T,"fluctuatingAMMI.txt",'WriteVariableNames',false,'Delimiter',' ')
+%%
+% system('git add *');
+% message = ['AutoUpdate ' datestr(datetime('now'))];
+% system(['git commit -m "' message '"']);
+% system(['git push origin']);
+% 
 
