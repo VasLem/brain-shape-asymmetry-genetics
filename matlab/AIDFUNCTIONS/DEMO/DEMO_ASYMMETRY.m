@@ -117,7 +117,7 @@ if nRep > 1
     percent_difference_test_retest = percent_difference_test_retest(:)';
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-        RepShapes(:,:,i) = single(Shapes) +single(rand(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
+        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
 %         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
         
     end
@@ -165,10 +165,11 @@ f = visualizeBrainAsymmetryData(data,['../results/demo_asymmetry/results_' exper
 
 genotypes = readtable("/home/vaslem/code/imagen/SAMPLE_DATA/PLINKPRUNEDMERGED/ukb_sel19908.fam",'FileType','text');
 %%i
+if nRep==1
 ids = genotypes.Var1(1:1000);
 T = table(ids, out.Raw.F');
-%%
 writetable(T,"fluctuatingAMMI.txt",'WriteVariableNames',false,'Delimiter',' ')
+end
 %%
 system('git add *');
 message = ['AutoUpdate ' datestr(datetime('now'))];
