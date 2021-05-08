@@ -2,27 +2,28 @@
 close all;clear;
 %%
 DATA_DIR = '../SAMPLE_DATA/';
-THREADS = 8;
+% THREADS = 8;
 samplesIndices = 1:1000;
 % nPicks = 10;
 nPicks = 10;
 nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
-reduce = 0.01;
+% reduce = 0.01;
 nRep = 3;
 nIter = 1000;
-% DATA_DIR = '/';
-% THREADS = 20;
-% samplesIndices = 1:10000;
-% reduce = 0.01;
-% nRep = 3;
+DATA_DIR = '/';
+THREADS = 20;
+samplesIndices = 1:19644;
+reduce = 1;
+nRep = 1;
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 %nPicks = 10;
 performExperiments = 0;
 restoredefaultpath;
 nSamples = length(samplesIndices);
+loadAllAligned = 1;
 addpath(genpath('AIDFUNCTIONS'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
@@ -36,11 +37,15 @@ end
 
 
 in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
+
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
+
 MASK = in.index;
 nVertices = length(MASK);
 Regions = {'LH' 'RH'};
 nR = length(Regions);
+
+
 %% Extract mat file of serialized objects
 % strDATA = cell(1,2);
 % strRender = cell(1, 2);
@@ -64,20 +69,52 @@ nR = length(Regions);
 
 
 DATA = cell(1,2);
-Render = cell(1,2);
+
 for r=1:nR
     %r=2
     disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     regphenopath = [phenopath Regions{r} '/'];
-    DATA{r} = load([regphenopath 'STAGEOODATA']);
-    Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
-    
+    DATA{r} = load([regphenopath 'STAGE00DATA']);
 end
 
-brainSurface = Render{1};
-%% Subsampling space to match R version which has memory issues to pick the whole space
+Template = clone(DATA{1}.Region.AvgShape);
+LH = DATA{1}.Region.AlignedShapes;
+RH = DATA{2}.Region.AlignedShapes;
 
-pdim = size(DATA{1}.Region.AlignedShapes,1);
+RH(:,1,:,:) = -1*RH(:,1,:,:);
+
+
+
+
+
+Render = cell(1,2);
+for r=1:nR
+Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
+end
+brainSurface = Render{1};
+%%
+
+
+
+
+
+%% Subsampling space to match R version which has memory issues to pick the whole space
+clear DATA;
+if loadAllAligned
+ load([phenopath 'intAligned.mat'],'mult','intLHAligned','intRHAligned');
+ LH = double(intLHAligned )* mult;
+ RH = double(intRHAligned) * mult;
+ clear intLHAligned intRHAligned;
+ AlignedShapes = cat(3,LH,RH);
+else
+%%
+    [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
+end
+
+clear LH  RH;
+%%
+pdim = size(AlignedShapes,3)/2;
+
 Ns = floor(1/reduce);
 landmarksIndices = 1:Ns:pdim;
 nLandmarks = length(landmarksIndices);
@@ -90,14 +127,13 @@ else
     experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) ...
     '_' num2str(nRep)];
 end
-LH = DATA{1}.Region.AlignedShapes;
-RH = DATA{2}.Region.AlignedShapes;
-RH(:,1,:,:) = -1*RH(:,1,:,:);
-Template = clone(DATA{1}.Region.AvgShape);
-clear DATA;
 %%
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
-clear LH  RH;
+
+
+
+
+
+
 %%
 % display3DLandmarksArrows(Template, AvgShape);
 %%
@@ -139,6 +175,8 @@ clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 
+
+
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
    out = computeAmmiModel(ReducedShapes);
@@ -158,6 +196,15 @@ showstruct = outu;
 showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
+
+%%
+rawF = out.Raw.F;
+save('rawF.mat','rawF');
+system('git add rawF.mat')
+system('git add -u');
+message = ['AutoUpdate ' datestr(datetime('now'))];
+system(['git commit -m "' message '"']);
+system(['git push origin']);
 %%
 f = visualizeBrainAsymmetryData(data,['../results/demo_asymmetry/results_' experimentName]);
 
