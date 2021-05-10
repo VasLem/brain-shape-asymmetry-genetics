@@ -3,27 +3,26 @@ close all;clear;
 %%
 DATA_DIR = '../SAMPLE_DATA/';
 % THREADS = 8;
-samplesIndices = 1:1000;
+% samplesIndices = 1:1000;
 % nPicks = 10;
-nPicks = 10;
-nSamplesPerPick = [200];
+% nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 % reduce = 0.01;
-nRep = 3;
-nIter = 1000;
-DATA_DIR = '/';
+% nRep = 3;
+% nIter = 1000;
 THREADS = 20;
-samplesIndices = 1:19644;
-reduce = 1;
+samplesIndices = 1:100;
+reduce = 0.1;
 nRep = 1;
+% Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 %nPicks = 10;
-performExperiments = 0;
+% performExperiments = 0;
 restoredefaultpath;
 nSamples = length(samplesIndices);
-loadAllAligned = 1;
+loadWhileInLab = 1;
 addpath(genpath('AIDFUNCTIONS'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
@@ -100,16 +99,14 @@ brainSurface = Render{1};
 
 %% Subsampling space to match R version which has memory issues to pick the whole space
 clear DATA;
-if loadAllAligned
+if loadWhileInLab
  load([phenopath 'intAligned.mat'],'mult','intLHAligned','intRHAligned');
  LH = double(intLHAligned )* mult;
  RH = double(intRHAligned) * mult;
  clear intLHAligned intRHAligned;
  AlignedShapes = cat(3,LH,RH);
-else
-%%
-    [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
 end
+[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
 
 clear LH  RH;
 %%
