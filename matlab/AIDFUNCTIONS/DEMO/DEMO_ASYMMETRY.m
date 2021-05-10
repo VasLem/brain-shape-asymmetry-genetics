@@ -177,7 +177,7 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
    out = computeAmmiModel(ReducedShapes);
-
+    nSamplesPerPick = nSamples;
 else
     [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
     out = avgOut;
