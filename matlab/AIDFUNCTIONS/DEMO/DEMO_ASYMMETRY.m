@@ -2,6 +2,7 @@
 close all;clear;
 %%
 DATA_DIR = '../SAMPLE_DATA/';
+RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
 % samplesIndices = 1:1000;
 % nPicks = 10;
@@ -11,8 +12,8 @@ DATA_DIR = '../SAMPLE_DATA/';
 % reduce = 0.01;
 % nRep = 3;
 % nIter = 1000;
-THREADS = 20;
-samplesIndices = 1:100;
+THREADS = 28;
+samplesIndices = 'all';
 reduce = 0.1;
 nRep = 1;
 % Define following when nRep>1 -> no use of AMMI
@@ -21,7 +22,6 @@ nRep = 1;
 %nPicks = 10;
 % performExperiments = 0;
 restoredefaultpath;
-nSamples = length(samplesIndices);
 loadWhileInLab = 1;
 addpath(genpath('AIDFUNCTIONS'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
@@ -38,6 +38,8 @@ end
 in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
+genopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/'];
+covGenoPhenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/'];
 
 MASK = in.index;
 nVertices = length(MASK);
@@ -70,17 +72,25 @@ nR = length(Regions);
 DATA = cell(1,2);
 
 for r=1:nR
-    %r=2
-    disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     regphenopath = [phenopath Regions{r} '/'];
-    DATA{r} = load([regphenopath 'STAGE00DATA']);
+    disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
+    if ~loadWhileInLab
+        DATA{r} = load([regphenopath 'STAGEOODATA']);
+    else
+        DATA{r} = load([regphenopath 'STAGE00DATA']);
+    end
 end
 
 Template = clone(DATA{1}.Region.AvgShape);
+
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
-
 RH(:,1,:,:) = -1*RH(:,1,:,:);
+%%
+assert(sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID)) == size(LH,3))
+phenoIID = DATA{1}.Region.IID;
+%%
+
 
 
 
@@ -88,24 +98,22 @@ RH(:,1,:,:) = -1*RH(:,1,:,:);
 
 Render = cell(1,2);
 for r=1:nR
-Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
+    Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
 end
 brainSurface = Render{1};
+
+
+
 %%
-
-
-
-
-
-%% Subsampling space to match R version which has memory issues to pick the whole space
 clear DATA;
-if loadWhileInLab
- load([phenopath 'intAligned.mat'],'mult','intLHAligned','intRHAligned');
- LH = double(intLHAligned )* mult;
- RH = double(intRHAligned) * mult;
- clear intLHAligned intRHAligned;
- AlignedShapes = cat(3,LH,RH);
+
+if ischar(samplesIndices) && strcmp(samplesIndices, 'all')
+    samplesIndices = 1:size(LH,3);
 end
+nSamples = length(samplesIndices);
+
+
+
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
 
 clear LH  RH;
@@ -113,23 +121,17 @@ clear LH  RH;
 pdim = size(AlignedShapes,3)/2;
 
 Ns = floor(1/reduce);
-landmarksIndices = 1:Ns:pdim;
+landmarksIndices = 1:Ns:nVertices;
 nLandmarks = length(landmarksIndices);
 
 if nRep > 1
     experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) '_' ...
-    num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
-    '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
+        num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
+        '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
 else
     experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) ...
-    '_' num2str(nRep)];
+        '_' num2str(nRep)];
 end
-%%
-
-
-
-
-
 
 %%
 % display3DLandmarksArrows(Template, AvgShape);
@@ -151,7 +153,7 @@ if nRep > 1
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
-%         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
+        %         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
         
     end
 else
@@ -162,7 +164,7 @@ mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
 RepShapesInt16 = int16(RepShapes.*mult);
 if nRep > 1
     
-figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+    figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
 end
 
 %%
@@ -176,44 +178,46 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
-   out = computeAmmiModel(ReducedShapes);
+    out = computeAmmiModel(ReducedShapes);
     nSamplesPerPick = nSamples;
 else
     [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
     out = avgOut;
-
+    
     if performExperiments
-    [retS, retL, retR, retP] = ProcrustesAnova2WayAsymmetryDebuggingExperiments(X1, X2, mult); %#ok<UNRCH>
+        [retS, retL, retR, retP] = ProcrustesAnova2WayAsymmetryDebuggingExperiments(X1, X2, mult); %#ok<UNRCH>
     end
 end
+%%
 % Upsampling
 outu = upsampleAnovaStats(out, reducedTemplateAdjacency, landmarksIndices);
 
 showstruct = outu;
 showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
-    brainSurface, showstruct, nSamplesPerPick , showPerm, ['../results/demo_asymmetry/data_' experimentName '.mat']);
+    brainSurface, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
 
 %%
-rawF = out.Raw.F;
-save('rawF.mat','rawF');
+rawF = outu.Raw.F;
+save('rawF.mat','rawF','-v7.3');
+%%
 system('git add rawF.mat')
 system('git add -u');
 message = ['AutoUpdate ' datestr(datetime('now'))];
 system(['git commit -m "' message '"']);
 system(['git push origin']);
 %%
-f = visualizeBrainAsymmetryData(data,['../results/demo_asymmetry/results_' experimentName]);
+f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 
 %%
-
-genotypes = readtable("/home/vaslem/code/imagen/SAMPLE_DATA/PLINKPRUNEDMERGED/ukb_sel19908.fam",'FileType','text');
-%%i
-if nRep==1
-ids = genotypes.Var1(1:1000);
-T = table(ids, out.Raw.F');
-writetable(T,"fluctuatingAMMI.txt",'WriteVariableNames',false,'Delimiter',' ')
+load([covGenoPhenoPath,'COVDATA2USE.mat'], 'COV');
+mapGenoToPheno = COV;
+%%
+if nRep == 1
+    phenoT = table(phenoIID, out.Raw.F');
+    writetable(T,[RESULTS_DIR 'fluctuatingAMMI.txt'],'WriteVariableNames',false,'Delimiter',' ');
 end
+
 %%
 system('git add *');
 message = ['AutoUpdate ' datestr(datetime('now'))];

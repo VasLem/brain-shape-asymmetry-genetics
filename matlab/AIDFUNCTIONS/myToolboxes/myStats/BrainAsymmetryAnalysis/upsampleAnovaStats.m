@@ -6,13 +6,15 @@ toupsample = permute(...
     out.LM.F,out.LM.FF,out.LM.FP,out.LM.permFF),[3,1,2]);
 catch
 toupsample = permute(cat(3,out.LM.I,out.LM.D,out.LM.F),[3,1,2]);
+outupsampledRaw = upsampleShape3D(out.Raw.F, reducedTemplateAdjacency, landmarksIndices);
 end
 outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, landmarksIndices);
 [d,r,l] = size(outupsampled);
-if d == 3
+if d == 4
     outu.LM.I = reshape(outupsampled(1,:,:),r,l);
     outu.LM.D = reshape(outupsampled(2,:,:),r,l);
     outu.LM.F = reshape(outupsampled(3,:,:),r,l);
+    outu.Raw.F = outupsampledRaw;
 else
 outu.LM.I = reshape(outupsampled(1,:,:),r,l);
 outu.LM.IF = reshape(outupsampled(2,:,:),r,l);
