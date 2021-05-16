@@ -6,7 +6,7 @@ toupsample = permute(...
     out.LM.F,out.LM.FF,out.LM.FP,out.LM.permFF),[3,1,2]);
 catch
 toupsample = permute(cat(3,out.LM.I,out.LM.D,out.LM.F),[3,1,2]);
-outupsampledRaw = upsampleShape3D(out.Raw.F, reducedTemplateAdjacency, landmarksIndices);
+outupsampledRaw = upsampleShape3D(permute(out.Raw.F, [2,3,1]), reducedTemplateAdjacency, landmarksIndices);
 end
 outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, landmarksIndices);
 [d,r,l] = size(outupsampled);

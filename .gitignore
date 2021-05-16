@@ -60,7 +60,6 @@ vignettes/*.pdf
 .vscode
 
 #others
-m2r.mat
-r2m.mat
-*.fig
-STAGEOODATA.mat
+SAMPLE_DATA
+results/demo_asymmetry/*.mat
+results/demo_asymmetry/fluctuatingAMMI.txt
