@@ -10,11 +10,11 @@ outupsampledRaw = upsampleShape3D(permute(out.Raw.F, [2,3,1]), reducedTemplateAd
 end
 outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, landmarksIndices);
 [d,r,l] = size(outupsampled);
-if d == 4
+if d == 3
     outu.LM.I = reshape(outupsampled(1,:,:),r,l);
     outu.LM.D = reshape(outupsampled(2,:,:),r,l);
     outu.LM.F = reshape(outupsampled(3,:,:),r,l);
-    outu.Raw.F = outupsampledRaw;
+    outu.Raw.F = permute(outupsampledRaw, [3,1,2]);
 else
 outu.LM.I = reshape(outupsampled(1,:,:),r,l);
 outu.LM.IF = reshape(outupsampled(2,:,:),r,l);

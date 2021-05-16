@@ -199,23 +199,13 @@ data = ProcrustesAnova2WayAsymmetryOutputProcess(...
 
 %%
 rawF = outu.Raw.F;
-save('rawF.mat','rawF','-v7.3');
-%%
-system('git add rawF.mat')
-system('git add -u');
-message = ['AutoUpdate ' datestr(datetime('now'))];
-system(['git commit -m "' message '"']);
-system(['git push origin']);
 %%
 f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 
 %%
-load([covGenoPhenoPath,'COVDATA2USE.mat'], 'COV');
-mapGenoToPheno = COV;
-%%
 if nRep == 1
     phenoT = table(phenoIID, out.Raw.F');
-    writetable(T,[RESULTS_DIR 'fluctuatingAMMI.txt'],'WriteVariableNames',false,'Delimiter',' ');
+    writetable(phenoT,[RESULTS_DIR 'fluctuatingAMMI.txt'],'WriteVariableNames',false,'Delimiter',' ');
 end
 
 %%
