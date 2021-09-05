@@ -196,9 +196,9 @@ X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 
 %%
-pheno.diff = X2-X1;
-pheno.iid = phenoIID;
-save('pheno.mat', 'pheno');
+% pheno.diff = X2-X1;
+% pheno.iid = phenoIID;
+% save('pheno.mat', 'pheno');
 
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
