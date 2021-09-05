@@ -1,6 +1,9 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 %%
+if endsWith(cd, "AIDFUNCTIONS/DEMO")
+    cd("../..")
+end
 DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
@@ -10,12 +13,11 @@ nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 % reduce = 0.01;
-% nRep = 3;
+nRep = 5;
 nIter = 1000;
 THREADS = 8;
 samplesIndices = 'all';
 reduce = 0.1;
-nRep = 10;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
@@ -100,6 +102,8 @@ brainSurface = Render{1};
 %%
 % Mirror template on y axis to express the right hemisphere instead of the left
 brainSurface.RefScan.Vertices(:,1) = -1 * brainSurface.RefScan.Vertices(:,1);
+%%
+disp("Retrieving Indices for Downsampling MRI Image..")
 [landmarksIndices, reducedFaces, toUpsampleLandmarksIndices]  = getDownsampledLandmarksIndices(brainSurface.RefScan,reduce,true);
 
 %%
@@ -108,16 +112,15 @@ reducedRH = RH(landmarksIndices,:, :);
 %%
 
 %%
-c= 1;
 checkTemplate =  shape3D;
 checkTemplate.Vertices = reducedLH(:,:,1);
 checkTemplate.Faces = reducedFaces;
-checkTemplate.ColorMode = "Indexed";
 checkTemplate.Material = 'Dull';
 checkTemplate.ViewMode = 'solid';
-checkTemplate.Visible = true;
 checkTemplate.PatchHandle.FaceColor = 'flat';
 viewer = checkTemplate.viewer;
+light = camlight(viewer.RenderAxes,'headlight');
+set(light,'Position',get(viewer.RenderAxes,'CameraPosition'));
 
 %%
 clear DATA;
@@ -164,17 +167,17 @@ Shapes = permute(ReducedShapes,[2 1 3]);
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
-% mag = var(Shapes,0,2);
+mag = var(Shapes,0,2);
 if nRep > 1
-    percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
-    percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
-    percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
-    percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
-    percent_difference_test_retest = percent_difference_test_retest(:)';
+%     percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
+%     percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
+%     percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
+%     percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
+%     percent_difference_test_retest = percent_difference_test_retest(:)';
     RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
     for i=1:1:nRep
-        RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
-        %         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
+%         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
+                RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
         
     end
 else
@@ -205,6 +208,7 @@ if nRep == 1
     out = computeAmmiModel(ReducedShapes);
     nSamplesPerPick = nSamples;
 else
+    disp(["Replication-Based Asymmetry Analysis, using " nPicks " random " nSamplesPerPick " samples selections out of the original dataset."])
     [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
     out = avgOut;
     
@@ -221,8 +225,6 @@ showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     brainSurface, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
 
-%%
-rawF = outu.Raw.F;
 %%
 f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 

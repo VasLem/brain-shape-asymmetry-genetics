@@ -18,18 +18,18 @@ bs.centers = (bs.vertices(bs.faces(:,1),:) + bs.vertices(bs.faces(:,2),:) + bs.v
 rbs.centers = (rbs.vertices(rbs.faces(:,1),:) + rbs.vertices(rbs.faces(:,2),:) + rbs.vertices(rbs.faces(:,3),:))/3;
 
 %Compute the  adjacency matrix of the faces. Two faces are adjacent if they share a corner/vertex
-adjacency = double(zeros(size(bs.faces,1)));
+adjacency = false(size(bs.faces,1), size(bs.faces,1));
 for c=1:size(bs.vertices, 1)
     neighbors = find(sum(bs.faces == c,2) > 0);
     [R, C] = meshgrid(neighbors, neighbors);
     ind= sub2ind(size(adjacency), R, C);
-    adjacency(ind) = 1;
+    adjacency(ind) = true;
 end
 adjacency = sparse(adjacency);
 % Compute the path matrix for the required reduction ratio. 
 % The j-th element of the i-th row is non zero if there is a path of at least 1/reduce steps
 % from the i-th face to the j-th face, given the adjacency matrix. 
-path_distance = adjacency ^ round(1/reduce);
+connectivity = adjacency ^ round(1/reduce) > 0;
 %%
 % Compute the distance between the centroids of the rbs and the centroids of the bs. Result is a matrix of indices
 % where the i-th element of the j-th column is the i-th closest, 
@@ -44,18 +44,16 @@ end
 % Combine the path matrix with the  last result, keeping only euclidian neighbors of the face X of bs closest to the i-th face of rbs
 % that do exist in the path matrix X-th row. After, retrieve the vertices in rbs that are closest to the vertices of the filtered faces.
 rbs_vertices_inds_mapped_on_bs = zeros(size(rbs.centers));
-for c=1:size(rbs.centers, 1)
-    gdists = path_distance(faces_bs2rbs_inds(1,c), faces_bs2rbs_inds(2:end, c));
-    vec = gdists > 0;
-    filtered_inds =  [faces_bs2rbs_inds(1,c); faces_bs2rbs_inds([false,vec],c)];
-    all_faces_corrsepondence_on_bs = filtered_inds;
+parfor c=1:size(rbs.centers, 1)
+    gdists = connectivity(faces_bs2rbs_inds(1,c), faces_bs2rbs_inds(2:end, c));
+    all_faces_corrsepondence_on_bs =  [faces_bs2rbs_inds(1,c); faces_bs2rbs_inds([false,gdists],c)];
     all_faces_corrsepondence_on_bs_vertices_inds = bs.faces(all_faces_corrsepondence_on_bs,:);
     all_faces_corrsepondence_on_bs_vertices = bs.vertices(all_faces_corrsepondence_on_bs_vertices_inds,:);
-    
     to_match = rbs.vertices(rbs.faces(c,:),:);
     [~, vertices_correspondence_inds] = pdist2(all_faces_corrsepondence_on_bs_vertices, to_match,"Euclidean",'Smallest', 1);
     rbs_vertices_inds_mapped_on_bs(c,:) = all_faces_corrsepondence_on_bs_vertices_inds(vertices_correspondence_inds);
 end
+
 %%
 % Construct transformation indicators
 [downsampledLandmarksIndices, ~, toUpsampleLandmarksIndices] = unique(rbs_vertices_inds_mapped_on_bs);
