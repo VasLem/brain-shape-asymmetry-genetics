@@ -5,24 +5,24 @@ DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
 % samplesIndices = 1:1000;
-% nPicks = 10;
-% nSamplesPerPick = [200];
+nPicks = 10;
+nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 % reduce = 0.01;
 % nRep = 3;
-% nIter = 1000;
-THREADS = 28;
+nIter = 1000;
+THREADS = 8;
 samplesIndices = 'all';
 reduce = 0.1;
-nRep = 1;
+nRep = 10;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 %nPicks = 10;
-% performExperiments = 0;
+performExperiments = 0;
 restoredefaultpath;
-loadWhileInLab = 1;
+loadWhileInLab = 0;
 addpath(genpath('AIDFUNCTIONS'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
@@ -76,8 +76,9 @@ for r=1:nR
     disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
     if ~loadWhileInLab
         DATA{r} = load([regphenopath 'STAGEOODATA']);
+        DATA{r}.Region = DATA{r}.Region.Region;
     else
-        DATA{r} = load([regphenopath 'STAGE00DATA']);
+        DATA{r} = load([regphenopath 'STAGEOODATA']);
     end
 end
 
@@ -87,41 +88,60 @@ LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
 RH(:,1,:,:) = -1*RH(:,1,:,:);
 %%
-assert(sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID)) == size(LH,3))
-phenoIID = DATA{1}.Region.IID;
+assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
+phenoIID = DATA{1}.Region.IID(1:size(LH,3));
 %%
-
-
-
-
-
 
 Render = cell(1,2);
 for r=1:nR
     Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
 end
 brainSurface = Render{1};
+%%
+% Mirror template on y axis to express the right hemisphere instead of the left
+brainSurface.RefScan.Vertices(:,1) = -1 * brainSurface.RefScan.Vertices(:,1);
+[landmarksIndices, reducedFaces, toUpsampleLandmarksIndices]  = getDownsampledLandmarksIndices(brainSurface.RefScan,reduce,true);
 
+%%
+reducedLH = LH(landmarksIndices,:, :);
+reducedRH = RH(landmarksIndices,:, :);
+%%
 
+%%
+c= 1;
+checkTemplate =  shape3D;
+checkTemplate.Vertices = reducedLH(:,:,1);
+checkTemplate.Faces = reducedFaces;
+checkTemplate.ColorMode = "Indexed";
+checkTemplate.Material = 'Dull';
+checkTemplate.ViewMode = 'solid';
+checkTemplate.Visible = true;
+checkTemplate.PatchHandle.FaceColor = 'flat';
+viewer = checkTemplate.viewer;
 
 %%
 clear DATA;
-
+%%
 if ischar(samplesIndices) && strcmp(samplesIndices, 'all')
-    samplesIndices = 1:size(LH,3);
+    samplesIndices = 1:size(reducedLH,3);
 end
 nSamples = length(samplesIndices);
+%%
+
+%%
 
 
-
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, LH, RH), Template,3,true,false,true,false);
+reducedTemplate= shape3D;
+reducedTemplate.Vertices = brainSurface.RefScan.Vertices(landmarksIndices, :) ;
+reducedTemplate.Faces = reducedFaces;
+%%
+[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate,3,true,false,true,false);
 
 clear LH  RH;
 %%
 pdim = size(AlignedShapes,3)/2;
 
 Ns = floor(1/reduce);
-landmarksIndices = 1:Ns:nVertices;
 nLandmarks = length(landmarksIndices);
 
 if nRep > 1
@@ -136,10 +156,11 @@ end
 %%
 % display3DLandmarksArrows(Template, AvgShape);
 %%
-ReducedShapes = AlignedShapes(landmarksIndices, :, [ samplesIndices, (samplesIndices +size(AlignedShapes,3)/2)] );
+ReducedShapes = AlignedShapes(:, :, [ samplesIndices, (samplesIndices +size(AlignedShapes,3)/2)] );
 
 reducedTemplateAdjacency = Template.Adjacency;
 Shapes = permute(ReducedShapes,[2 1 3]);
+%%
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
 %%
@@ -174,7 +195,10 @@ clear RepShapes;
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 
-
+%%
+pheno.diff = X2-X1;
+pheno.iid = phenoIID;
+save('pheno.mat', 'pheno');
 
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
