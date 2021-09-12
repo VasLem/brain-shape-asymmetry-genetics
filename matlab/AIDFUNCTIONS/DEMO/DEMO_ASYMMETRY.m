@@ -1,6 +1,8 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 %%
+seed = 42;
+rng(seed); % For reproducible results
 if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
 end
@@ -13,7 +15,7 @@ nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 % reduce = 0.01;
-nRep = 5;
+nRep = 1;
 nIter = 1000;
 THREADS = 8;
 samplesIndices = 'all';
@@ -109,6 +111,9 @@ disp("Retrieving Indices for Downsampling MRI Image..")
 %%
 reducedLH = LH(landmarksIndices,:, :);
 reducedRH = RH(landmarksIndices,:, :);
+
+
+
 %%
 
 %%
@@ -140,6 +145,23 @@ reducedTemplate.Faces = reducedFaces;
 %%
 [AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate,3,true,false,true,false);
 
+reducedLH = AlignedShapes(:,:,1:size(reducedLH,3));
+reducedRH = AlignedShapes(:,:,size(reducedLH,3)+1:end);
+symmetric = (reducedLH + reducedRH)/2;
+asymmetric = (reducedLH - reducedRH);
+%%
+% numLevels = 3;
+% seed = 42;
+% clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
+% fig = paintClusters(clustered, reducedTemplate, numLevels);
+% savefig(fig, 'asymmetricClusterting.fig')
+% %%
+% clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
+% fig = paintClusters(clustered, reducedTemplate, numLevels);
+% savefig(fig, 'symmetricClusterting.fig')
+%%
+
+%%
 clear LH  RH;
 %%
 pdim = size(AlignedShapes,3)/2;
@@ -163,6 +185,7 @@ ReducedShapes = AlignedShapes(:, :, [ samplesIndices, (samplesIndices +size(Alig
 
 reducedTemplateAdjacency = Template.Adjacency;
 Shapes = permute(ReducedShapes,[2 1 3]);
+
 %%
 Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
 %%
@@ -197,6 +220,8 @@ clear RepShapes;
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
+%%
+
 
 %%
 % pheno.diff = X2-X1;

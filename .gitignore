@@ -63,3 +63,4 @@ vignettes/*.pdf
 SAMPLE_DATA
 results/demo_asymmetry/*.mat
 results/demo_asymmetry/fluctuatingAMMI.txt
+iELVis
