@@ -204,7 +204,7 @@ f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 
 %%
 if nRep == 1
-    phenoT = table(phenoIID, out.Raw.F');
+    phenoT = table(phenoIID, phenoIID, out.Raw.F');
     writetable(phenoT,[RESULTS_DIR 'fluctuatingAMMI.txt'],'WriteVariableNames',false,'Delimiter',' ');
 end
 
