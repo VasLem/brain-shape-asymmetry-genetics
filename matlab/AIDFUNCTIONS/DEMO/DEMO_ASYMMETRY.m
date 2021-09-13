@@ -1,6 +1,9 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
+addpath(genpath('AIDFUNCTIONS'));
 %%
+loadWhileInLab = 1;
+
 seed = 42;
 rng(seed); % For reproducible results
 if endsWith(cd, "AIDFUNCTIONS/DEMO")
@@ -18,16 +21,18 @@ nSamplesPerPick = [200];
 nRep = 1;
 nIter = 1000;
 THREADS = 8;
-samplesIndices = 'all';
 reduce = 0.1;
+if loadWhileInLab
+    subsample = 0.1;
+else
+    subsample = 1;
+end
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 %nPicks = 10;
 performExperiments = 0;
 restoredefaultpath;
-loadWhileInLab = 0;
-addpath(genpath('AIDFUNCTIONS'));
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 %% SETTING UP COMPUTATION POWER
@@ -82,7 +87,7 @@ for r=1:nR
         DATA{r} = load([regphenopath 'STAGEOODATA']);
         DATA{r}.Region = DATA{r}.Region.Region;
     else
-        DATA{r} = load([regphenopath 'STAGEOODATA']);
+        DATA{r} = load([regphenopath 'STAGE00DATA']);
     end
 end
 
@@ -90,36 +95,28 @@ Template = clone(DATA{1}.Region.AvgShape);
 
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
-RH(:,1,:,:) = -1*RH(:,1,:,:);
-%%
-assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
 phenoIID = DATA{1}.Region.IID(1:size(LH,3));
-%%
 
+%%
 Render = cell(1,2);
 for r=1:nR
     Render{r} = load([regphenopath 'RENDERMATERIAL.mat']);
 end
 brainSurface = Render{1};
-%%
-% Mirror template on y axis to express the right hemisphere instead of the left
-brainSurface.RefScan.Vertices(:,1) = -1 * brainSurface.RefScan.Vertices(:,1);
-%%
-disp("Retrieving Indices for Downsampling MRI Image..")
-[landmarksIndices, reducedFaces, toUpsampleLandmarksIndices]  = getDownsampledLandmarksIndices(brainSurface.RefScan,reduce,true);
 
-%%
-reducedLH = LH(landmarksIndices,:, :);
-reducedRH = RH(landmarksIndices,:, :);
 
 
 
 %%
+[preprocTemplate, preprocLH, preprocRH, preprocLandmarksIndices] = preprocessSymmetry(brainSurface.RefScan, LH, RH, reduce, subsample);
+
+%%
+assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
 
 %%
 checkTemplate =  shape3D;
-checkTemplate.Vertices = reducedLH(:,:,1);
-checkTemplate.Faces = reducedFaces;
+checkTemplate.Vertices = preprocLH(:,:,1);
+checkTemplate.Faces = preprocTemplate.Faces;
 checkTemplate.Material = 'Dull';
 checkTemplate.ViewMode = 'solid';
 checkTemplate.PatchHandle.FaceColor = 'flat';
@@ -127,47 +124,28 @@ viewer = checkTemplate.viewer;
 light = camlight(viewer.RenderAxes,'headlight');
 set(light,'Position',get(viewer.RenderAxes,'CameraPosition'));
 
-%%
+%%SAMPLE_DATA
 clear DATA;
 %%
-if ischar(samplesIndices) && strcmp(samplesIndices, 'all')
-    samplesIndices = 1:size(reducedLH,3);
-end
-nSamples = length(samplesIndices);
+nSamples = size(preprocLH,3);
 %%
-
-%%
-
-
-reducedTemplate= shape3D;
-reducedTemplate.Vertices = brainSurface.RefScan.Vertices(landmarksIndices, :) ;
-reducedTemplate.Faces = reducedFaces;
-%%
-[AlignedShapes,AvgShape,CentroidSizes] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate,3,true,false,true,false);
-
-reducedLH = AlignedShapes(:,:,1:size(reducedLH,3));
-reducedRH = AlignedShapes(:,:,size(reducedLH,3)+1:end);
-symmetric = (reducedLH + reducedRH)/2;
-asymmetric = (reducedLH - reducedRH);
-%%
-% numLevels = 3;
-% seed = 42;
-% clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
-% fig = paintClusters(clustered, reducedTemplate, numLevels);
-% savefig(fig, 'asymmetricClusterting.fig')
-% %%
-% clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
-% fig = paintClusters(clustered, reducedTemplate, numLevels);
-% savefig(fig, 'symmetricClusterting.fig')
+symmetric = (preprocLH + preprocRH)/2;
+asymmetric = (preprocLH - preprocRH);
+numLevels = 3;
+clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
+fig = paintClusters(clustered, preprocTemplate, numLevels);
+savefig(fig, '../results/asymmetricClusterting.fig')
+clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
+fig = paintClusters(clustered, preprocTemplate, numLevels);
+savefig(fig, '../results/symmetricClusterting.fig')
 %%
 
 %%
 clear LH  RH;
 %%
-pdim = size(AlignedShapes,3)/2;
 
 Ns = floor(1/reduce);
-nLandmarks = length(landmarksIndices);
+nLandmarks = length(preprocLandmarksIndices);
 
 if nRep > 1
     experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) '_' ...
@@ -181,59 +159,50 @@ end
 %%
 % display3DLandmarksArrows(Template, AvgShape);
 %%
-ReducedShapes = AlignedShapes(:, :, [ samplesIndices, (samplesIndices +size(AlignedShapes,3)/2)] );
 
-reducedTemplateAdjacency = Template.Adjacency;
-Shapes = permute(ReducedShapes,[2 1 3]);
+repPreprocRH = zeros([size(preprocRH), nRep + 1], 'single');
+repPreprocLH = zeros([size(preprocRH), nRep + 1], 'single');
+repPreprocRH(:, :, :, 1) = single(preprocRH);
+repPreprocLH(:, :, :, 1) = single(preprocLH);
 
-%%
-Shapes = reshape(Shapes,size(Shapes,1)*size(Shapes,2),size(Shapes,3))';
-%%
-%%
-mag = var(Shapes,0,2);
 if nRep > 1
-%     percent_difference_test_retest = load('../SAMPLE_DATA/MeasError/percent_difference_test_retest');
-%     percent_difference_test_retest = round(percent_difference_test_retest.percent_difference_test_retest,2);
-%     percent_difference_test_retest = percent_difference_test_retest(landmarksIndices);
-%     percent_difference_test_retest = repmat(percent_difference_test_retest,1,3)';
-%     percent_difference_test_retest = percent_difference_test_retest(:)';
-    RepShapes = zeros(size(Shapes,1),size(Shapes,2),nRep,'single');
-    for i=1:1:nRep
-%         RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*single(Shapes).*percent_difference_test_retest/100);
-                RepShapes(:,:,i) = single(Shapes) +single(randn(size(Shapes,1),size(Shapes,2)).*0.2.*mag);
-        
+    variance = load('test_retest_information.mat').variance;
+    rvarLH = variance.LH(preprocLandmarksIndices, :);
+    variance.RH(preprocLandmarksIndices, :);
+    rvarRH = variance.LH(preprocLandmarksIndices, :);
+    for i = 2: nRep + 1
+        repPreprocRH(:, :, :, i) = single(preprocRH) + single(randn(size(preprocRH)) .* rvarRH);
+        repPreprocLH(:, :, :, i) = single(preprocLH) + single(randn(size(preprocLH)) .* rvarLH);
     end
 else
-    RepShapes = zeros(size(Shapes,1),size(Shapes,2),1,'single');
-    RepShapes(:,:,1) = Shapes;
+    repPreprocRH(:,:,:,2) = preprocRH;
+    repPreprocLH(:,:,:,2) = preprocLH;
 end
-mult = double(intmax('int16')) / (max(abs(RepShapes),[],'all'));
-RepShapesInt16 = int16(RepShapes.*mult);
-if nRep > 1
-    
-    figure; histogram(reshape(RepShapesInt16 - int16(mult * Shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
-end
-
 %%
-clear Shapes;
-clear RepShapes;
+
+reducedTemplateAdjacency = Template.Adjacency;
+repPreprocShapes = cat(3, repPreprocRH, repPreprocLH);
+repPreprocShapes = permute(repPreprocShapes,[2 1 3, 4]);
+repPreprocShapes = permute(reshape(repPreprocShapes, 3 * nLandmarks, (2 * nSamples) ,nRep + 1), [2, 1, 3]) ;
+shapes = repPreprocShapes(:,:,1);
+repPreprocShapes = repPreprocShapes(:,:,2:end);
+mult = double(intmax('int16')) / (max(abs(repPreprocShapes),[],'all'));
+RepShapesInt16 = int16(repPreprocShapes.*mult);
+if nRep > 1
+    figure; histogram(reshape(RepShapesInt16 - int16(mult * shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+end
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 %%
 
 
-%%
-% pheno.diff = X2-X1;
-% pheno.iid = phenoIID;
-% save('pheno.mat', 'pheno');
-
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
-    out = computeAmmiModel(ReducedShapes);
+    out = computeAmmiModel(preprocShapes);
     nSamplesPerPick = nSamples;
 else
-    disp(["Replication-Based Asymmetry Analysis, using " nPicks " random " nSamplesPerPick " samples selections out of the original dataset."])
+    disp(['Replication-Based Asymmetry Analysis, using ' nPicks ' random ' nSamplesPerPick ' samples selections out of the original dataset.'])
     [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
     out = avgOut;
     
@@ -263,6 +232,6 @@ end
 system('git add *');
 message = ['AutoUpdate ' datestr(datetime('now'))];
 system(['git commit -m "' message '"']);
-system(['git push origin']);
+system('git push origin');
 
 
