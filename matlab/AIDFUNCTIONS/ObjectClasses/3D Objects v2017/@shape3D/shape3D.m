@@ -236,7 +236,7 @@ classdef shape3D < superHandleClass
                 case 'texture'
                    if ~(size(obj.VertexRGB,1)==obj.nVertices), return; end %#ok<*MCSUP>
                 case 'indexed'
-                   if ~(length(obj.VertexValue)==obj.nVertices), return; end
+                   if ~(length(obj.VertexValue)==obj.nVertices) && ~(length(obj.VertexValue)==obj.nFaces) , return; end
                 case 'single'
                 otherwise
                    error('ColorMode must be Texture, Indexed (Values) or Single');   
