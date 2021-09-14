@@ -1,4 +1,4 @@
-function [reducedTemplate, reducedLH,reducedRH, landmarksIndices] = preprocessSymmetry(template, LH, RH, reduction_rate, subsampling_rate)
+function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = preprocessSymmetry(template, LH, RH, samplesIDs, reduction_rate, subsampling_rate)
 %PREPROCESSHEMISPHERES Preprocess LH and RH for symmetry analysis
 %1. Mirrors RH on LH by x axis reversion.
 %2. Reduces landmarks number provided LH and RH if reduction_rate is given using getDownsampledLandmarksIndices function.
@@ -36,5 +36,6 @@ else
 end
 reducedLH = reducedLH(:, :, samplesIndices);
 reducedRH = reducedRH(:, :, samplesIndices);
+samplesIDs = samplesIDs(samplesIndices);
 end
 

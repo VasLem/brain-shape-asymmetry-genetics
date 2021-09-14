@@ -19,7 +19,7 @@ flucMat= squeeze(sqrt(sum((flucMat).^2,2)));
 disp("..Selecting optimal number of Principal Components to retain (Parallel Analysis)..")
 [latent, ~, latentHigh]  = parallelAnalysis(flucMat', 100,0.05);
 numComponents = sum(latent > latentHigh');
-disp(["..Selected number of components: " num2str(numComponents)]);
+disp(['..Selected number of components: ' num2str(numComponents)]);
 disp("..Applying PCA reconstruction..")
 [coeff, score, ~] =  pca(flucMat','Centered',false);
 rec = coeff(:, 1:numComponents) * score(:, 1:numComponents)' ;

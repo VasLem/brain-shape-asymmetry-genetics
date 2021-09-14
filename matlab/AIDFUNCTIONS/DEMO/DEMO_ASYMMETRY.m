@@ -1,4 +1,5 @@
 %% Investigating LEFT - RIGHT asymmetry
+restoredefaultpath;
 close all;clear;
 %%
 addpath(genpath('AIDFUNCTIONS'));
@@ -33,7 +34,6 @@ end
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 %nPicks = 10;
 performExperiments = 0;
-restoredefaultpath;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
 %% SETTING UP COMPUTATION POWER
@@ -109,7 +109,7 @@ brainSurface = Render{1};
 
 
 %%
-[preprocTemplate, preprocLH, preprocRH, preprocLandmarksIndices] = preprocessSymmetry(Template, LH, RH, reduce, subsample);
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(Template, LH, RH, phenoIID, reduce, subsample);
 
 %%
 assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
@@ -149,11 +149,11 @@ Ns = floor(1/reduce);
 nLandmarks = length(preprocLandmarksIndices);
 
 if nRep > 1
-    experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) '_' ...
+    experimentName = [num2str(nSamples) '_' num2str(Ns) '_' ...
         num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
         '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
 else
-    experimentName = [num2str(length(samplesIndices)) '_' num2str(Ns) ...
+    experimentName = [num2str(nSamples) '_' num2str(Ns) ...
         '_' num2str(nRep)];
 end
 
@@ -192,6 +192,7 @@ RepShapesInt16 = int16(repPreprocShapes.*mult);
 if nRep > 1
     figure; histogram(reshape(RepShapesInt16 - int16(mult * shapes), 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
 end
+shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 %%
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
@@ -200,7 +201,7 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
-    out = computeAmmiModel(preprocShapes);
+    out = computeAmmiModel(shapes);
     nSamplesPerPick = nSamples;
 else
     disp(['Replication-Based Asymmetry Analysis, using ' nPicks ' random ' nSamplesPerPick ' samples selections out of the original dataset.'])
@@ -213,7 +214,7 @@ else
 end
 %%
 % Upsampling
-outu = upsampleAnovaStats(out, reducedTemplateAdjacency, landmarksIndices);
+outu = upsampleAnovaStats(out, reducedTemplateAdjacency, preprocLandmarksIndices);
 
 showstruct = outu;
 showPerm=1;
