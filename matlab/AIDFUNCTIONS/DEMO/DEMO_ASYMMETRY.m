@@ -15,20 +15,16 @@ DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
 % samplesIndices = 1:1000;
-nPicks = 5;
-nSamplesPerPick = [200];
+nPicks = 1;
+nSamplesPerPick = [100];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
-% reduce = 0.01;
+% reduce = 0.01;{k}
 nRep = 3;
 nIter = 1000;
 THREADS = 8;
 reduce = 0.1;
-if loadWhileInLab
-    subsample = 0.1;
-else
-    subsample = 1;
-end
+subsample = 100;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
@@ -165,15 +161,17 @@ repPreprocRH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocLH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocRH(:, :, :, 1) = single(preprocRH);
 repPreprocLH(:, :, :, 1) = single(preprocLH);
-
 if nRep > 1
     variance = load('../results/test_retest_information.mat').variance;
     rvarLH = variance.LH(preprocLandmarksIndices, :);
     variance.RH(preprocLandmarksIndices, :);
     rvarRH = variance.LH(preprocLandmarksIndices, :);
+    rvarLH = var(preprocLH, 0, 3);
+    rvarRH = var(preprocRH, 0, 3);
+    
     for i = 2: nRep + 1
-        repPreprocRH(:, :, :, i) = single(preprocRH) + single(randn(size(preprocRH)) .* rvarRH);
-        repPreprocLH(:, :, :, i) = single(preprocLH) + single(randn(size(preprocLH)) .* rvarLH);
+        repPreprocRH(:, :, :, i) = single(preprocRH) + single(randn(size(preprocRH)) .* 0.2 .* rvarRH);
+        repPreprocLH(:, :, :, i) = single(preprocLH) + single(randn(size(preprocLH)) .* 0.2 .* rvarLH);
     end
 else
     repPreprocRH(:,:,:,2) = preprocRH;
