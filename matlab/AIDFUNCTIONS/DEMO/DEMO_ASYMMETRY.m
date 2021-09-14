@@ -109,7 +109,7 @@ brainSurface = Render{1};
 
 
 %%
-[preprocTemplate, preprocLH, preprocRH, preprocLandmarksIndices] = preprocessSymmetry(brainSurface.RefScan, LH, RH, reduce, subsample);
+[preprocTemplate, preprocLH, preprocRH, preprocLandmarksIndices] = preprocessSymmetry(Template, LH, RH, reduce, subsample);
 
 %%
 assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
