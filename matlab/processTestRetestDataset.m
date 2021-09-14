@@ -16,7 +16,7 @@ shape = size(dataset.LH);
 brainSurface = load('../SAMPLE_DATA/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/LH/RENDERMATERIAL.mat');
 pLH = permute(reshape(permute(dataset.LH, [3,4, 1,2]), [shape(3) * shape(4), shape(1:2)]), [2, 3, 1]);
 pRH = permute(reshape(permute(dataset.RH, [3,4, 1,2]), [shape(3) * shape(4), shape(1:2)]), [2, 3, 1]);
-[~, alignedPLH, alignedPRH] = preprocessSymmetry(brainSurface.RefScan, pLH, pRH);
+[~, alignedPLH, alignedPRH, ~, ~] = preprocessSymmetry(brainSurface.RefScan, pLH, pRH, (1:size(pLH,3)));
 alignedLH = permute(reshape(permute(alignedPLH, [3, 1, 2]), [shape(3), shape(4), shape(1), shape(2)]), [3,4,1,2]);
 alignedRH = permute(reshape(permute(alignedPRH, [3, 1, 2]), [shape(3), shape(4), shape(1), shape(2)]), [3,4,1,2]);
 %%

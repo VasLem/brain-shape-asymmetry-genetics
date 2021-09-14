@@ -1,6 +1,6 @@
 %% Investigating LEFT - RIGHT asymmetry
-restoredefaultpath;
 close all;clear;
+restoredefaultpath;
 %%
 addpath(genpath('AIDFUNCTIONS'));
 %%
@@ -15,12 +15,12 @@ DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
 % samplesIndices = 1:1000;
-nPicks = 10;
+nPicks = 5;
 nSamplesPerPick = [200];
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 % reduce = 0.01;
-nRep = 1;
+nRep = 3;
 nIter = 1000;
 THREADS = 8;
 reduce = 0.1;
@@ -167,7 +167,7 @@ repPreprocRH(:, :, :, 1) = single(preprocRH);
 repPreprocLH(:, :, :, 1) = single(preprocLH);
 
 if nRep > 1
-    variance = load('test_retest_information.mat').variance;
+    variance = load('../results/test_retest_information.mat').variance;
     rvarLH = variance.LH(preprocLandmarksIndices, :);
     variance.RH(preprocLandmarksIndices, :);
     rvarRH = variance.LH(preprocLandmarksIndices, :);
@@ -204,7 +204,7 @@ if nRep == 1
     out = computeAmmiModel(shapes);
     nSamplesPerPick = nSamples;
 else
-    disp(['Replication-Based Asymmetry Analysis, using ' nPicks ' random ' nSamplesPerPick ' samples selections out of the original dataset.'])
+    disp(['Replication-Based Asymmetry Analysis, using ' num2str(nPicks) ' random ' num2str(nSamplesPerPick) ' samples selections out of the original dataset.'])
     [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
     out = avgOut;
     
@@ -226,7 +226,7 @@ f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 
 %%
 if nRep == 1
-    phenoT = table(phenoIID, phenoIID, out.Raw.F');
+    phenoT = table(preprocPhenoIID, preprocPhenoIID, out.Raw.F');
     writetable(phenoT,[RESULTS_DIR 'fluctuatingAMMI.txt'],'WriteVariableNames',false,'Delimiter',' ');
 end
 

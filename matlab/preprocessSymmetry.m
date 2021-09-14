@@ -6,7 +6,7 @@ function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = 
 %4. Subsamples them using subsampling_rate, if it has been provided
 %Template is the shape3D object corresponding to LH
 
-if (nargin > 3) && (reduction_rate<1)
+if (nargin > 4) && (reduction_rate<1)
     disp("Retrieving Indices for Downsampling MRI Image..")
     [landmarksIndices, reducedFaces, ~]  = getDownsampledLandmarksIndices(template,reduction_rate,true);
 else
@@ -27,7 +27,7 @@ reducedLH = AlignedShapes(:,:,1:size(reducedLH,3));
 reducedRH = AlignedShapes(:,:,size(reducedLH,3)+1:end);
 
 len = size(reducedLH,3);
-if (nargin > 4) && (subsampling_rate<1)
+if (nargin > 5) && (subsampling_rate<1)
     disp("Applying subsampling")
     step = 1 / subsampling_rate;
     samplesIndices = 1:step:len;
