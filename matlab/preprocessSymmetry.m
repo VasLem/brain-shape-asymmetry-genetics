@@ -5,8 +5,7 @@ function [reducedTemplate, reducedLH,reducedRH, landmarksIndices] = preprocessSy
 %3. Aligns them using Procrustes' Analysis GeneralizedProcrustesAnalysis function
 %4. Subsamples them using subsampling_rate, if it has been provided
 %Template is the shape3D object corresponding to LH
-disp("Mirroring RH to LH..");
-RH(:,1,:,:) = -1*RH(:,1,:,:);
+
 if (nargin > 3) && (reduction_rate<1)
     disp("Retrieving Indices for Downsampling MRI Image..")
     [landmarksIndices, reducedFaces, ~]  = getDownsampledLandmarksIndices(template,reduction_rate,true);
@@ -16,6 +15,8 @@ else
 end
 reducedLH = LH(landmarksIndices,:, :);
 reducedRH = RH(landmarksIndices,:, :);
+disp("Mirroring RH to LH..");
+reducedRH(:,1,:,:) = -1 * reducedRH(:,1,:,:);
 reducedTemplate = shape3D;
 reducedTemplate.Vertices = template.Vertices(landmarksIndices, :) ;
 reducedTemplate.Faces = reducedFaces;

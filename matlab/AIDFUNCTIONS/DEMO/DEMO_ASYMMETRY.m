@@ -1,5 +1,6 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
+%%
 addpath(genpath('AIDFUNCTIONS'));
 %%
 loadWhileInLab = 1;
