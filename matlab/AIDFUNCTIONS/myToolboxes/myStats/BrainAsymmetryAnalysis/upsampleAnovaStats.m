@@ -1,4 +1,4 @@
-function outu = upsampleAnovaStats(out, reducedTemplateAdjacency, landmarksIndices)
+function outu = upsampleAnovaStats(out, originalTemplateAdjacency, landmarksIndices)
 try
 toupsample = permute(...
     cat(3,out.LM.I,out.LM.IF,out.LM.IP, out.LM.permIF,...
@@ -6,9 +6,9 @@ toupsample = permute(...
     out.LM.F,out.LM.FF,out.LM.FP,out.LM.permFF),[3,1,2]);
 catch
 toupsample = permute(cat(3,out.LM.I,out.LM.D,out.LM.F),[3,1,2]);
-outupsampledRaw = upsampleShape3D(permute(out.Raw.F, [2,3,1]), reducedTemplateAdjacency, landmarksIndices);
+outupsampledRaw = upsampleShape3D(permute(out.Raw.F, [2,3,1]), originalTemplateAdjacency, landmarksIndices);
 end
-outupsampled= upsampleShape3D(toupsample, reducedTemplateAdjacency, landmarksIndices);
+outupsampled= upsampleShape3D(toupsample, originalTemplateAdjacency, landmarksIndices);
 [d,r,l] = size(outupsampled);
 if d == 3
     outu.LM.I = reshape(outupsampled(1,:,:),r,l);

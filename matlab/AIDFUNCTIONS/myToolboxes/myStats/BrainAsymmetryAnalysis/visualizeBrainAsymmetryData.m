@@ -52,7 +52,7 @@ for k=1:nPicks
             end
             if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
                 cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
-            view(fout.ax1{i,j},rend.viewval(1),0);
+            view(fout.ax1{i,j},90,0);
             light = camlight(fout.ax1{i,j},'headlight');
             set(light,'Position',get(fout.ax1{i,j},'CameraPosition'));
             drawnow;
@@ -60,7 +60,7 @@ for k=1:nPicks
             counter = counter+1;
             fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
             renderBrainSurface(rend,sVertexValues,fout.ax2{i,j});
-            view(fout.ax2{i,j},-1*rend.viewval(1),0);
+            view(fout.ax2{i,j},-90,0);
             colorbar(fout.ax2{i,j},'SouthOutside');
             if j<4
                 set(fout.ax2{i,j},'clim',[0 max(sVertexValues)]);

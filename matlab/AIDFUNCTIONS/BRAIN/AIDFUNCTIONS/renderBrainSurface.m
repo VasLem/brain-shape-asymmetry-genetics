@@ -1,5 +1,9 @@
 function scan = renderBrainSurface(rend,values,peer)
-    scan = clone(rend.RefScan);
+    try
+        scan = clone(rend.RefScan);
+    catch
+        scan = clone(rend);
+    end
     scan.VertexValue = values;
     scan.ColorMode = "Indexed";
     scan.Material = 'Dull';

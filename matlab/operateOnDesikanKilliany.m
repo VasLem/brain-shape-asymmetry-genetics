@@ -23,7 +23,7 @@ for i=1:3
     end
 end
 data.values = oldData;
-%%
+%%images
 for i=1:3
     for j=1:4
         k = 1;

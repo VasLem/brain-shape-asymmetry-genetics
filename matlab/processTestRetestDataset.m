@@ -5,8 +5,8 @@ close all
 in = load('/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat');
 for subNum=1:20
     for session=1:2
-        dataset.LH(:, :, subNum,session) = readSurface(num2str(subject, '%02.f'), 'L',  num2str(session), in.index).Vertices;
-        dataset.RH(:, :, subNum,session) = readSurface(num2str(subject, '%02.f'), 'R', num2str(session), in.index).Vertices;
+        dataset.LH(:, :, subNum,session) = readSurface(num2str(subNum, '%02.f'), 'L',  num2str(session), in.index).Vertices;
+        dataset.RH(:, :, subNum,session) = readSurface(num2str(subNum, '%02.f'), 'R', num2str(session), in.index).Vertices;
     end
 end
 %%
@@ -27,10 +27,54 @@ outRH = mean(std(alignedRH,0,4),3);
 %measurement errors do not seem to be characterized by symmetry on the
 %midsaggital plane
 fig = figure;
-hist(outLH - outRH);
+colorbar(axes,'SouthOutside');hist(outLH - outRH);
 title('Difference between measurement variances of contralateral and symmetrical, as of the midsaggital plane, landmarks')
 variance.LH = outLH;
 variance.RH = outRH;
+%%
+template = clone(brainSurface.RefScan);
+f = figure;
+
+axes = subplot(2, 2, 1);
+renderBrainSurface(template, mean(variance.LH, 2), axes);
+view(axes,-90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Left');
+colorbar(axes, 'SouthOutside');
+
+
+axes = subplot(2, 2, 2);
+renderBrainSurface(template, mean(variance.LH, 2), axes);
+view(axes,90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Left');
+colorbar(axes,'SouthOutside');
+
+
+axes = subplot(2,2,[3,4]);
+title(axes,'Right');
+axes = subplot(2, 2, 3);
+renderBrainSurface(template, mean(variance.RH, 2), axes);
+view(axes,-90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Right');
+colorbar(axes,'SouthOutside');
+
+axes = subplot(2, 2, 4);
+renderBrainSurface(template, mean(variance.RH, 2), axes);
+view(axes,90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Right');
+colorbar(axes,'SouthOutside');
+
+saveas(f, '../results/demo_asymmetry/test_retest_variance.png')
+
+%%
+
 %%
 save("../SAMPLE_DATA/test_retest_dataset.mat", "dataset", "-v7");
 save("../results/test_retest_information.mat", "variance","-v7");
