@@ -14,16 +14,15 @@ end
 DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
-% samplesIndices = 1:1000;
-nPicks = 1;
-nSamplesPerPick = [100];
+nPicks = 3;
+nSamplesPerPick = 500;
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 nRep = 3;
 nIter = 1000;
 THREADS = 8;
-reduce = 0.1;
-subsample = 100;
+reduce = 0.01;
+subsample = 1;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
@@ -106,73 +105,6 @@ brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
 assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
 
 %%
-f = figure;
-
-oriSize = size(Template.Vertices, 1);
-
-axes = subplot(2,2, 1);
-Template = clone(Template);
-Template.Material = 'Dull';
-Template.ViewMode = 'solid';
-Template.Visible = true;
-Template.PatchHandle.FaceColor = 'flat';
-Template.RenderAxes = axes;
-view(axes,-90,0);
-axis(axes,'image');
-axis(axes,'off');
-colorbar(axes,'off');   
-light = camlight(axes,'headlight');
-set(light,'Position',get(axes,'CameraPosition'));
-title({'Original', [num2str(oriSize) '  landmarks']})
-
-axes = subplot(2,2, 2);
-Template = clone(Template);
-Template.Material = 'Dull';
-Template.ViewMode = 'solid';
-Template.Visible = true;
-Template.PatchHandle.FaceColor = 'flat';
-Template.RenderAxes = axes;
-view(axes,90,0);
-axis(axes,'image');
-axis(axes,'off');
-colorbar(axes,'off'); 
-light = camlight(axes,'headlight');
-set(light,'Position',get(axes, 'CameraPosition'));
-title({'Original',  [num2str(oriSize) '  landmarks']})
-
-reducedSize = size(preprocTemplate.Vertices, 1);
-
-axes = subplot(2,2,3);
-preprocTemplate = clone(preprocTemplate);
-preprocTemplate.Material = 'Dull';
-preprocTemplate.ViewMode = 'solid';
-preprocTemplate.Visible = true;
-preprocTemplate.PatchHandle.FaceColor = 'flat';
-preprocTemplate.RenderAxes = axes;
-view(axes,-90,0);
-axis(axes,'image');
-axis(axes,'off');
-colorbar(axes,'off'); 
-light = camlight(axes,'headlight');
-set(light,'Position',get(axes,'CameraPosition'));
-title({'Reduced',  [num2str(reducedSize) '  landmarks']})
-
-axes = subplot(2,2, 4);
-preprocTemplate = clone(preprocTemplate);
-preprocTemplate.Material = 'Dull';
-preprocTemplate.ViewMode = 'solid';
-preprocTemplate.Visible = true;
-preprocTemplate.PatchHandle.FaceColor = 'flat';
-preprocTemplate.RenderAxes = axes;
-view(axes,90,0);
-axis(axes,'image');
-axis(axes,'off');
-colorbar(axes,'off'); 
-light = camlight(axes,'headlight');
-set(light,'Position',get(axes,'CameraPosition'));
-title({'Reduced',  [num2str(reducedSize) '  landmarks']})
-
-saveas(f,'../results/demo_asymmetry/reduction.png')
 
 
 
@@ -218,14 +150,11 @@ repPreprocRH(:, :, :, 1) = single(preprocRH);
 repPreprocLH(:, :, :, 1) = single(preprocLH);
 if nRep > 1
     variance = load('../results/test_retest_information.mat').variance;
-    rvarLH = variance.LH(preprocLandmarksIndices, :);
-    rvarRH = variance.RH(preprocLandmarksIndices, :);
-%     rvarLH = var(preprocLH, 1, 3);
-%     rvarRH = var(preprocRH, 1, 3);
-    
+    mstdLH = sqrt(variance.LH(preprocLandmarksIndices, :));
+    mstdRH = sqrt(variance.RH(preprocLandmarksIndices, :));
     for i = 2: nRep + 1
-        repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* rvarRH);
-        repPreprocLH(:, :, :, i) = single(preprocLH + randn(size(preprocLH)) .* rvarLH);
+        repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* mstdRH);
+        repPreprocLH(:, :, :, i) = single(preprocLH + randn(size(preprocLH)) .* mstdLH);
     end
 else
     repPreprocRH(:,:,:,2) = preprocRH;
@@ -243,8 +172,6 @@ RepShapesInt16 = int16(repPreprocShapes.*mult);
 if nRep > 1
     figure; histogram(reshape(RepShapesInt16 - int16(mult * shapes), 1,[])); title({'Integer Landmark Coordinate dislocation','for generated replications'});
     figure; histogram(reshape(repPreprocShapes - shapes, 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
-    
-    
 end
 shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 
@@ -270,12 +197,12 @@ else
 end
 %%
 % Upsampling
-% outu = upsampleAnovaStats(out, templateAdjacency, preprocLandmarksIndices);
+outu = upsampleAnovaStats(out, templateAdjacency, preprocLandmarksIndices);
 
-showstruct = out;
+showstruct = outu;
 showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
-    preprocTemplate, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
+    Template, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
 
 %%
 f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);

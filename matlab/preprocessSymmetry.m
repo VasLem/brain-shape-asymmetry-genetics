@@ -10,7 +10,7 @@ function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = 
 
 if (nargin > 4) && (reduction_rate<1)
     disp("Retrieving Indices for Downsampling MRI Image..")
-    [landmarksIndices, reducedFaces, ~]  = getDownsampledLandmarksIndices(template,reduction_rate,false); %TODO!!! CHANGE THAT TO TRUE IF BAD
+    [landmarksIndices, reducedFaces, ~]  = getDownsampledLandmarksIndices(template,reduction_rate,true);
 else
     landmarksIndices = 1:size(LH,1);
     reducedFaces = template.Faces;
