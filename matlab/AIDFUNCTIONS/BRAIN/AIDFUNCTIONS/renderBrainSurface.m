@@ -4,8 +4,10 @@ function scan = renderBrainSurface(rend,values,peer)
     catch
         scan = clone(rend);
     end
-    scan.VertexValue = values;
-    scan.ColorMode = "Indexed";
+    if ~isempty(values)
+        scan.VertexValue = values;
+        scan.ColorMode = "Indexed";
+    end
     scan.Material = 'Dull';
     scan.ViewMode = 'solid';
     

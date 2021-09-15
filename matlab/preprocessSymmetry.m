@@ -8,6 +8,12 @@ function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = 
 %samples
 %Template is the shape3D object corresponding to LH
 
+disp("Mirroring RH to LH..");
+RH = RH(:, :, :);
+RH(:,1,:,:) = -1 * RH(:,1,:,:);
+
+
+
 if (nargin > 4) && (reduction_rate<1)
     disp("Retrieving Indices for Downsampling MRI Image..")
     [landmarksIndices, reducedFaces, ~]  = getDownsampledLandmarksIndices(template,reduction_rate,true);
@@ -17,14 +23,20 @@ else
 end
 reducedLH = LH(landmarksIndices,:, :);
 reducedRH = RH(landmarksIndices,:, :);
-disp("Mirroring RH to LH..");
-reducedRH(:,1,:,:) = -1 * reducedRH(:,1,:,:);
+
+
+
 reducedTemplate = shape3D;
 reducedTemplate.Vertices = template.Vertices(landmarksIndices, :) ;
 reducedTemplate.Faces = reducedFaces;
 
+% We are using only one iteration of Procrustes analysis, so that we can
+% compare different datasets, otherwise it would not be possible,
+% as we would then have different point of reference
 disp("Applying Procrustes Analysis..")
-[AlignedShapes,~,~] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate,3,true,false,true,false);
+
+
+[AlignedShapes,~,~] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate, 1,true,false,true,false);
 reducedLH = AlignedShapes(:,:,1:size(reducedLH,3));
 reducedRH = AlignedShapes(:,:,size(reducedLH,3)+1:end);
 

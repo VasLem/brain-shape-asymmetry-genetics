@@ -15,13 +15,13 @@ DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 % THREADS = 8;
 nPicks = 3;
-nSamplesPerPick = 500;
+nSamplesPerPick = 100;
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 nRep = 3;
 nIter = 1000;
 THREADS = 8;
-reduce = 0.01;
+reduce = 0.1;
 subsample = 1;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
@@ -86,7 +86,7 @@ for r=1:nR
     end
 end
 
-Template = clone(DATA{1}.Region.AvgShape);
+template = clone(DATA{1}.Region.AvgShape);
 
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
@@ -94,22 +94,19 @@ phenoIID = DATA{1}.Region.IID(1:size(LH,3));
 
 %% 
 brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
-
+refTemplate = brainSurface.RefScan;
 
 
 
 %%
-[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(Template, LH, RH, phenoIID, reduce, subsample);
-
-%%
-assert(min(size(LH,3), sum(str2double(DATA{1}.Region.IID) == str2double(DATA{2}.Region.IID))) == size(LH,3))
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample);
 
 %%
 
 
 
 %%SAMPLE_DATA
-clear DATA;
+% clear DATA;
 %%
 nSamples = size(preprocLH,3);
 %%
@@ -118,14 +115,16 @@ asymmetric = (preprocLH - preprocRH);
 numLevels = 3;
 clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, '../results/asymmetricClusterting.fig')
+savefig(fig, '../results/asymmetricClustering.fig')
+saveas(fig, '../results/asymmetricClustering.png');
 clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, '../results/symmetricClusterting.fig')
+savefig(fig, '../results/symmetricClustering.fig')
+saveas(fig, '../results/symmetricClustering.png');
 %%
 
 %%
-clear LH  RH;
+% clear LH  RH;
 %%
 
 Ns = floor(1/reduce);
@@ -141,7 +140,7 @@ else
 end
 
 %%
-% display3DLandmarksArrows(Template, AvgShape);
+% display3DLandmarksArrows(template, AvgShape);
 %%
 
 repPreprocRH = zeros([size(preprocRH), nRep + 1], 'single');
@@ -153,7 +152,7 @@ if nRep > 1
     mstdLH = sqrt(variance.LH(preprocLandmarksIndices, :));
     mstdRH = sqrt(variance.RH(preprocLandmarksIndices, :));
     for i = 2: nRep + 1
-        repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* mstdRH);
+        repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* mstdRH) ;
         repPreprocLH(:, :, :, i) = single(preprocLH + randn(size(preprocLH)) .* mstdLH);
     end
 else
@@ -161,7 +160,7 @@ else
     repPreprocLH(:,:,:,2) = preprocLH;
 end
 
-templateAdjacency = Template.Adjacency;
+templateAdjacency = template.Adjacency;
 repPreprocShapes = cat(3, repPreprocRH, repPreprocLH);
 repPreprocShapes = permute(repPreprocShapes,[2 1 3, 4]);
 repPreprocShapes = permute(reshape(repPreprocShapes, 3 * nLandmarks, (2 * nSamples) ,nRep + 1), [2, 1, 3]) ;
@@ -175,16 +174,12 @@ if nRep > 1
 end
 shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 
-%%
-RepShapesInt16 = repPreprocShapes;
+%%stdstd
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
-%%
-nRep = 5;
-
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 if nRep == 1
-    out = computeAmmiModel(shapes);Compute Measurement Error from test-retest Dataset​
+    out = computeAmmiModel(shapes);
     nSamplesPerPick = nSamples;
 else
     disp(['Replication-Based Asymmetry Analysis, using ' num2str(nPicks) ' random ' num2str(nSamplesPerPick) ' samples selections out of the original dataset.'])
@@ -202,9 +197,8 @@ outu = upsampleAnovaStats(out, templateAdjacency, preprocLandmarksIndices);
 showstruct = outu;
 showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
-    Template, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
+    template, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
 
-%%
 f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
 
 %%
