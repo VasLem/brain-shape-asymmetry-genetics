@@ -151,28 +151,7 @@ classdef AsymmetryComponentsAnalysis
             ret = reshape(ret, obj.n*obj.rep * 2, obj.nrV);
             ret = reshape(ret(index,:),obj.n*obj.rep,2,obj.nrV);
         end
-        
-        function computeSS(obj, X1,X2)
-            SS = zeros(4,obj.nrV);
-            r = obj.rep;
-            parfor i=1:obj.nrV
-                Set1 = squeeze(single(X1(:,i,:))/factor)';
-                %Set1 = reshape(Set1,n,rep)';
-                Set2 = squeeze(single(X2(:,i,:))/factor)';
-                %Set2 = reshape(Set2,n,rep)';
-                X = [Set1(:) Set2(:)];
-                [~,TABLE,STATS] = anova2(X,r,'off');
-                ss = zeros(4,1);
-                for j=1:4
-                    ss(j) = TABLE{j+1,2};
-                end
-                SS(:,i) =  ss(:);
-                Means(:,i) = STATS.colmeans';
-                parfor_progress;
-            end
-            obj.SS = SS;
-            obj.Means = Means;
-        end
+
         
         function [LM, Total]= apply(obj, SS)
             % Error

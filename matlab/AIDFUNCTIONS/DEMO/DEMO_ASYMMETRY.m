@@ -100,27 +100,34 @@ refTemplate = brainSurface.RefScan;
 
 %%
 [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample);
-
-%%
+nSamples = size(preprocLH,3);
 
 
 
 %%SAMPLE_DATA
 % clear DATA;
 %%
-nSamples = size(preprocLH,3);
-%%
 symmetric = (preprocLH + preprocRH)/2;
 asymmetric = (preprocLH - preprocRH);
+%%
+arr = asymmetric;
+arr = reshape(arr, [size(arr,1) * size(arr,2) size(arr,3)])';
+[coeff, score, latent, tsquared, explained] = pca(arr, "NumComponents", 100);
+f = figure;
+plot(cumsum(explained));
+savefig(f, [RESULTS_DIR, 'asymmetricPCAExplained.fig']);
+
+%%
+
 numLevels = 3;
 clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, '../results/asymmetricClustering.fig')
-saveas(fig, '../results/asymmetricClustering.png');
+savefig(fig, [RESULTS_DIR 'asymmetricClustering.fig'])
+saveas(fig, [RESULTS_DIR 'asymmetricClustering.png']);
 clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, '../results/symmetricClustering.fig')
-saveas(fig, '../results/symmetricClustering.png');
+savefig(fig, [RESULTS_DIR 'symmetricClustering.fig'])
+saveas(fig, [RESULTS_DIR 'symmetricClustering.png']);
 %%
 
 %%

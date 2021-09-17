@@ -72,8 +72,11 @@ for k=1:nPicks
             set(light,'Position',get(fout.ax2{i,j},'CameraPosition'));
             drawnow;
             if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
-            saveas(f, [saveName '_' num2str(k) '.fig']);
-            saveas(f, [saveName '_' num2str(k)  '.png']);
+            figName = saveName;
+            if nPicks > 1, figName = [saveName '_' num2str(k)]; end
+               
+            saveas(f, [figName '.fig']);
+            saveas(f, [figName '.png']);
         end
     end
     
