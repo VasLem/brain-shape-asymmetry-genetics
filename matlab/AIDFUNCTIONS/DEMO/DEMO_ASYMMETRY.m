@@ -14,7 +14,7 @@ end
 DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 applyOnAtlas = true;
-% THREADS = 8;
+% THREADS = 8;atlas
 nPicks = 3;
 nSamplesPerPick = 100;
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];

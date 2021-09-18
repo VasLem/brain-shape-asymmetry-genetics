@@ -63,7 +63,7 @@ for s=1:length(nSamplesPerPick)
             clear gMasks gRet
             
         else
-            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,t,factor,nSplits);
+            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits);
         end
        
     end

@@ -17,7 +17,8 @@ RESULTS_DIR = '../results/demo_asymmetry/';
 % end
 
 for s=1:2
-    atlas = loadAatlas(atlasName,sides(s));
+    atlas = loadAtlas(atlasName,sides(s));
+    indices = atlas.indices;
     fil = ['data_' experimentName '.mat'];
     
     data = load([RESULTS_DIR fil]).data;

@@ -61,6 +61,7 @@ end
 catch
 end
 data.values = VertexValues;
+data.total = showstruct.Total;
 data.titleNames = titlenames;
 data.brainSurface = brainSurface;
 try
