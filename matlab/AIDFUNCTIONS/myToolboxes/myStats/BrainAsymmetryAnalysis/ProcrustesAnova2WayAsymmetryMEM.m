@@ -1,4 +1,4 @@
-function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t,factor,nSplits)
+function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t,factor,nSplits,compartments)
 %Factor is the value required to divide X1 and X2 to get the original
 %value, it will be assumed to be 10000 (for shake of backwards
 %compatibility) if not provided

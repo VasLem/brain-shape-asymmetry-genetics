@@ -13,6 +13,7 @@ if endsWith(cd, "AIDFUNCTIONS/DEMO")
 end
 DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
+applyOnAtlas = true;
 % THREADS = 8;
 nPicks = 3;
 nSamplesPerPick = 100;
@@ -145,6 +146,9 @@ else
     experimentName = [num2str(nSamples) '_' num2str(Ns) ...
         '_' num2str(nRep)];
 end
+if applyOnAtlas
+    experimentName = [experimentName '_DK'];
+end
 
 %%
 % display3DLandmarksArrows(template, AvgShape);
@@ -185,12 +189,19 @@ shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
+
+    
 if nRep == 1
     out = computeAmmiModel(shapes);
     nSamplesPerPick = nSamples;
 else
     disp(['Replication-Based Asymmetry Analysis, using ' num2str(nPicks) ' random ' num2str(nSamplesPerPick) ' samples selections out of the original dataset.'])
-    [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1);
+    if applyOnAtlas
+        atlas = loadAtlas('Desikan_Killiany');
+        [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1,atlas.index(preprocLandmarksIndices));
+    else
+        [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1); %#ok<UNRCH>
+    end
     out = avgOut;
     
     if performExperiments

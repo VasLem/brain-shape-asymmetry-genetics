@@ -2,10 +2,10 @@ clear
 close all
 atlasName = 'Desikan_Killiany';
 sides = ['L', 'R'];
-experimentName = '19644_10_1000_3_1_100_100_3';
+experimentName = '19644_10_1000_3_1_100_100_3_DK';
 RESULTS_DIR = '../results/demo_asymmetry/';
 
-mask = load('/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat').index;
+
 % oldData = load([RESULTS_DIR 'data_asymmetry.mat']).data;
 % %%
 % for i=1:3
@@ -17,9 +17,7 @@ mask = load('/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/I
 % end
 
 for s=1:2
-    atlas = load(['../SAMPLE_DATA/atlasses/', sides(s) , atlasName, '_Average.mat']).(atlasName);
-    
-    indices = atlas.index(mask);
+    atlas = loadAatlas(atlasName,sides(s));
     fil = ['data_' experimentName '.mat'];
     
     data = load([RESULTS_DIR fil]).data;
