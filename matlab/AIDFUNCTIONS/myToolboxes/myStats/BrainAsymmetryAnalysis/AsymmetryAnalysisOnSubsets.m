@@ -20,20 +20,36 @@ if ~isvector(nSamplesPerPick)
         nPicks = 1;
     end
 end
-for s=1:length(nSamplesPerPick)
+
+if ~isempty(landmarksGroups)
+    uniqueGroups = unique(landmarksGroups);
+    nGroups = length(uniqueGroups);
+    gMasks = cell(nGroups);
+    for g=1:nGroups
+        mask = landmarksGroups == uniqueGroups(g);
+        gMasks{g} = mask;
+        
+    end
+else
+    nGroups = 1;
+end
+
+[path,ID] = setupParForProgress(length(nSamplesPerPick) * nPicks * nGroups);
+parfor s=1:length(nSamplesPerPick)
     samplePerPick=nSamplesPerPick(s);
     for iter=1:nPicks
         randIndex = randsample(n,samplePerPick);
         randX1 = X1(randIndex,:,:);
         randX2 = X2(randIndex,:,:);
         if ~isempty(landmarksGroups)
-            uniqueGroups = unique(landmarksGroups);
-            for g=1:length(uniqueGroups)
-                mask = landmarksGroups == uniqueGroups(g);
-                gMasks{g} = mask;
-                repMask = repelem(mask, 3);
-                gRet(g) = ProcrustesAnova2WayAsymmetryMEM(randX1(:, repMask,:),randX2(:, repMask,:),nIter,factor,nSplits);
+            gRet = cell(nGroups);
+            
+            for g=1:nGroups
+                repMask = repelem(gMasks{g}, 3);
+                gRet{g} = ProcrustesAnova2WayAsymmetryMEM(randX1(:, repMask,:),randX2(:, repMask,:),nIter,factor,nSplits, false);
+                parfor_progress;
             end
+            gRet = [gRet{:}];
             fields = fieldnames(gRet(1).LM);
             gTret = struct;
             gTret.LM = struct;
@@ -60,14 +76,14 @@ for s=1:length(nSamplesPerPick)
             [total{:}] = gRet.Total;
             gTret.Total = total;
             out(s,iter) = gTret;
-            clear gMasks gRet
-            
         else
-            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits);
+            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits, false);
+            parfor_progress;
         end
        
     end
 end
+closeParForProgress(path,ID);
 varargout{1} = out;
 if nOutputs == 1
     return
@@ -77,94 +93,11 @@ if nPicks == 1
     varargout{2} = out(1);
     return
 end
-varargout{2} = aggregate(nPicks, nSamplesPerPick, out,landmarksGroups, 'mean');
+varargout{2} = aggregateExperimentIterations(nPicks, nSamplesPerPick, out,landmarksGroups, 'mean');
 if nOutputs == 2
     return
 end
-varargout{3} = aggregate(nPicks, nSamplesPerPick,out,landmarksGroups, 'std' );
+varargout{3} = aggregateExperimentIterations(nPicks, nSamplesPerPick,out,landmarksGroups, 'std' );
 
 end
 
-
-function agg = aggregate(nPicks,nSamplesPerPick, out,landmarksGroups, func)
-agg = struct();
-fout = fieldnames(out(1,1));
-for i = 1:length(fout)
-    f = fout{i};
-    if isstruct(out(1,1).(f))
-        fds = fieldnames(out(1,1).(f));
-        av = struct();
-        for j=1:length(fds)
-            attr = fds{j};
-            for t = 1:length(nSamplesPerPick)
-                for k=1:nPicks
-                    v = out(t, k);
-                    try
-                        s(k, t,1)= v.(f).(attr);
-                    catch
-                        s(k, t,:)= v.(f).(attr);
-                    end
-                end
-            end
-            switch func
-                case 'mean'
-                    av.(attr) = squeeze(mean(s));
-                case 'std'
-                    av.(attr) = squeeze(std(s));
-            end
-        end
-        agg.(f) = av;
-    else
-        for t = 1:length(nSamplesPerPick)
-            for k=1:nPicks
-                v = out(t,k);
-                try
-                    s(k,t,1)= v.(f);
-                catch
-                    try
-                        s(k,t,:)= v.(f);
-                    catch
-                        s(k,t,:,:)= v.(f);
-                    end
-                end
-            end
-        end
-        if isempty(landmarksGroups)
-            switch func
-                case 'mean'
-                    agg.(f) = squeeze(mean(s));
-                case 'std'
-                    agg.(f) = squeeze(std(s));
-            end
-        else
-            for i=1:length(unique(landmarksGroups))
-                switch func
-                    case 'mean'
-                        try
-                            agg.(f){i} = squeeze(mean(cell2mat(s(:,:,i)),1));
-                        catch
-                            p = cell2mat(s(:, :, i));
-                            fs = fieldnames(p(1));
-                            for u=1:length(f)
-                                z = fs(u);
-                                agg.(f){i}.(z{1}) = mean([p.(z{1})]);
-                            end
-                        end
-                    case 'std'
-                        try
-                            agg.(f){i} = squeeze(std(cell2mat(s(:,:,i)),1));
-                        catch
-                            p = cell2mat(s(:, :, i));
-                            fs = fieldnames(p(1));
-                            for u=1:length(f)
-                                z = fs(u);
-                                agg.(f){i}.(z{1}) = std([p.(z{1})]);
-                            end
-                        end
-                end
-            end
-        end
-    end
-    clear s;
-end
-end

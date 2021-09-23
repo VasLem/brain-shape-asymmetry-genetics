@@ -1,5 +1,6 @@
 
 classdef AsymmetryComponentsAnalysis
+    % Defines Parameters as having been present by Klingenberg et al (2002) for the matching symmetry case, after applying Procrustes Analysis
     properties
         n
         nrV
@@ -14,6 +15,9 @@ classdef AsymmetryComponentsAnalysis
     methods
         
         function obj=AsymmetryComponentsAnalysis(n,nrV, rep)
+            % n: number of individuals
+            % nrV: 3 * (number of Landmarks)
+            % rep: number of replications
             obj.n = n;
             obj.nrV = nrV;
             obj.rep = rep;
@@ -129,8 +133,8 @@ classdef AsymmetryComponentsAnalysis
             SSet2 = Set2;
             r = randi(2,obj.n,1);
             columnPermIndex = find(r==2);
-            SSet1(:, columnPermIndex) = Set2(:, columnPermIndex);
-            SSet2(:, columnPermIndex) = Set1(:, columnPermIndex);
+            SSet1(:,:, columnPermIndex) = Set2(:,:, columnPermIndex);
+            SSet2(:,:, columnPermIndex) = Set1(:,:, columnPermIndex);
             ret  = permute(cat(3, SSet1(:,:), SSet2(:, :)), [2,3,1]);
         end
         
@@ -154,33 +158,32 @@ classdef AsymmetryComponentsAnalysis
 
         
         function [LM, Total]= apply(obj, SS)
-            % Error
-            [LM.E, Total.E]= obj.errorMS(SS(4,:));
+            % Fluctuating (=Side/Individual Interaction)
             [LM.F, Total.F] = obj.fluctuatingMS(SS(3,:));
-            % getting F-statistic
+            
+            % Directional Effect
+            [LM.D, Total.D] = obj.directionMS(SS(1,:));
+            LM.DF = LM.D./LM.F;
+            Total.DF =  Total.D/Total.F; 
+ 
+            % Individuals Effect
+            [LM.I, Total.I] = obj.individualMS(SS(2,:));
+            LM.IF = LM.I./LM.F;
+            Total.IF =  Total.I/Total.F;
+            
+            % Fluctuating Effect
+            [LM.E, Total.E]= obj.errorMS(SS(4,:));
             LM.FF = LM.F./LM.E;
             Total.FF =  Total.F/Total.E;
             
-            % Individuals
-            [LM.I, Total.I] = obj.individualMS(SS(2,:));
-            
-            % getting F-statistic
-            LM.IF = LM.I./LM.F;
-            Total.IF =  Total.I/Total.F;
-            % Directional
-            [LM.D, Total.D] = obj.directionMS(SS(1,:));
-            
-            % getting F-statistic
-            LM.DF = LM.D./LM.F;
-            Total.DF =  Total.D/Total.F;
             
             LM.DP = Ftest(LM.DF,obj.getDirectionDOF(false),obj.getFluctuatingDOF(false));
-            LM.FP = Ftest(LM.FF,obj.getFluctuatingDOF(false),obj.getErrorDOF(false));
             LM.IP = Ftest(LM.IF,obj.getIndividualDOF(false),obj.getFluctuatingDOF(false));
+            LM.FP = Ftest(LM.FF,obj.getFluctuatingDOF(false),obj.getErrorDOF(false));
             
             Total.DP = Ftest(Total.DF,obj.getDirectionDOF(true),obj.getFluctuatingDOF(true));
-            Total.FP = Ftest(Total.FF,obj.getFluctuatingDOF(true),obj.getErrorDOF(true));
             Total.IP = Ftest(Total.IF,obj.getIndividualDOF(true),obj.getFluctuatingDOF(true));
+            Total.FP = Ftest(Total.FF,obj.getFluctuatingDOF(true),obj.getErrorDOF(true));
         end
     end
 end

@@ -1,4 +1,4 @@
-function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t,factor,nSplits,compartments)
+function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nIter,factor,nSplits, showProgress)
 %Factor is the value required to divide X1 and X2 to get the original
 %value, it will be assumed to be 10000 (for shake of backwards
 %compatibility) if not provided
@@ -6,19 +6,22 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,t,factor,nSplits,compartmen
 %nSplits is supplied to split the computation into parts in case it is
 %memory intensive
 [n,nrV,rep] = size(X1);
-if nargin < 3, t = 0; end
+if nargin < 3, nIter = 0; end
 if nargin < 4, factor=10000; end
 if nargin < 5, nSplits=1; end
+if nargin < 6, showProgress=true; end
 SSs = zeros(4,nrV);
 Means = zeros(2,nrV);
-X1 = permute(X1, [3,2,1]);
-X2 = permute(X2, [3,2,1]);
-tic;
+pX1 = permute(X1, [3,2,1]);
+pX2 = permute(X2, [3,2,1]);
 
-[path,ID] = setupParForProgress(nrV);
+if showProgress
+    tic;
+    [path,ID] = setupParForProgress(nrV);
+end
 parfor i=1:nrV
-    Set1 = squeeze(single(X1(:,i,:))/factor);
-    Set2 = squeeze(single(X2(:,i,:))/factor);    
+    Set1 = squeeze(single(pX1(:,i,:))/factor);
+    Set2 = squeeze(single(pX2(:,i,:))/factor);    
     X = [Set1(:) Set2(:)];
     [~,TABLE,STATS] = anova2(X,rep,'off');
     ss = zeros(4,1);
@@ -27,11 +30,12 @@ parfor i=1:nrV
     end
     SSs(:,i) =  ss(:);
     Means(:,i) = STATS.colmeans';
-    parfor_progress;
+    if showProgress, parfor_progress; end
 end
-closeParForProgress(path,ID)
-toc;
-
+if showProgress
+    closeParForProgress(path,ID)
+    toc;
+end
 MeanX1 = reshape(Means(1,:),3,length(Means(1,:))/3);
 MeanX2 = reshape(Means(2,:),3,length(Means(2,:))/3);
 MeanDiff = MeanX2 - MeanX1;
@@ -45,23 +49,27 @@ out.MeanX1 = MeanX1;
 out.MeanX2 = MeanX2;
 out.MeanDiff = MeanDiff;
 % Disp, permuting test
-if t==0, return; end
-FFCount = false(t,nrV/3);
-TFFCount = false(t,1);
-IFCount = false(t,nrV/3);
-TIFCount = false(t,1);
-DFCount = false(t,nrV/3);
-TDFCount = false(t,1);
+if nIter==0, return; end
+FFCount = false(nIter,nrV/3);
+TFFCount = false(nIter,1);
+IFCount = false(nIter,nrV/3);
+TIFCount = false(nIter,1);
+DFCount = false(nIter,nrV/3);
+TDFCount = false(nIter,1);
 %f = statusbar('Permuting');
-X1 = permute(X1, [2,1,3]);
-X2 = permute(X2, [2,1,3]);
-
-[path,ID] = setupParForProgress(t);
-
+pX1 = permute(pX1, [2,1,3]);
+pX2 = permute(pX2, [2,1,3]);
+% pX1 = permute(X1, [3,2,1]);
+% pX2 = permute(X2, [3,2,1]);
+% pX1 = pX1(:,:,1:n);
+% pX2 = pX2(:,:,1:n);
 
 splitSize = ceil(nrV / nSplits);
-% for k=1:t
-parfor k=1:t
+if showProgress
+tic;
+[path,ID] = setupParForProgress(nIter);
+end
+parfor k=1:nIter
     asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     SSI = zeros(4, nrV);
     SSD = zeros(4, nrV);
@@ -69,25 +77,24 @@ parfor k=1:t
     for i=1:nSplits
         assignedInds =  ((i-1) * splitSize + 1): (min(i*splitSize,nrV));
         
-        Set1 = single(X1(assignedInds,:,:)) / factor;
-        Set2 = single(X2(assignedInds,:,:)) / factor;
+        Set1 = single(pX1(assignedInds,:, :)) / factor;
+        Set2 = single(pX2(assignedInds,:, :)) / factor;
         X = asm.shuffleColumnWise(Set1, Set2);
         SSD(:, assignedInds) = computeAnova2SS(X,rep);
         X = asm.shuffleRowWise(Set1, Set2);
         SSI(:, assignedInds)  = computeAnova2SS(X,rep);
         X = asm.shuffleResidual(Set1, Set2);
-        SSF(:, assignedInds)   = computeAnova2SS(X,rep);
+        SSF(:, assignedInds) = computeAnova2SS(X,rep);
     end
     
     asm = AsymmetryComponentsAnalysis(n,nrV, rep);
     % analyzing Direction effect
     SS = SSD;
-    SS_F= SS(3,:);
     SS_D = SS(1,:);
+    SS_F= SS(3,:);
     [~, ~, ~, ~, DF, TDF] = asm.directionEffect(SS_D, SS_F);
     DFCount(k,:) = DF>=LM.DF;
     TDFCount(k) = TDF>=Total.DF;
-    
     
     % analyzing Individual effect / compared to the total error
     % now and not the interaction
@@ -105,13 +112,16 @@ parfor k=1:t
     [~, ~, ~, ~, FF, TFF] = asm.interactionEffect(SS_E, SS_F);
     FFCount(k,:) = FF>=LM.FF;
     TFFCount(k) = TFF>=Total.FF;
-    parfor_progress;
+    if showProgress; parfor_progress; end
 end
-closeParForProgress(  path,ID);
-out.LM.permFF = (sum(FFCount,1)+1)/(t+1);
-out.Total.permFF = (sum(TFFCount)+1)/(t+1);
-out.LM.permDF = (sum(DFCount,1)+1)/(t+1);
-out.Total.permDF = (sum(TDFCount)+1)/(t+1);
-out.LM.permIF = (sum(IFCount,1)+1)/(t+1);
-out.Total.permIF = (sum(TIFCount)+1)/(t+1);
+if showProgress
+    closeParForProgress(  path,ID);
+    toc;
+end
+out.LM.permFF = (sum(FFCount,1)+1)/(nIter+1);
+out.Total.permFF = (sum(TFFCount)+1)/(nIter+1);
+out.LM.permDF = (sum(DFCount,1)+1)/(nIter+1);
+out.Total.permDF = (sum(TDFCount)+1)/(nIter+1);
+out.LM.permIF = (sum(IFCount,1)+1)/(nIter+1);
+out.Total.permIF = (sum(TIFCount)+1)/(nIter+1);
 end

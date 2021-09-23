@@ -185,7 +185,6 @@ if nRep > 1
 end
 shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 
-%%stdstd
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
@@ -202,6 +201,7 @@ else
     else
         [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1); %#ok<UNRCH>
     end
+
     out = avgOut;
     
     if performExperiments
@@ -217,7 +217,7 @@ showPerm=1;
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     template, showstruct, nSamplesPerPick , showPerm, [RESULTS_DIR 'data_' experimentName '.mat']);
 
-f = visualizeBrainAsymmetryData(data,[RESULTS_DIR 'results_' experimentName]);
+f = visualizeBrainAsymmetryData(data, [RESULTS_DIR 'results_' experimentName]);
 
 %%
 if nRep == 1

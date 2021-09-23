@@ -45,9 +45,10 @@ end
 labels = ["Individual", "Directional", "Fluctuating"];
 thresholds = [0.05, 0.01, 0.005, 0.0001];
 
-nValues = 3;
+
+            
 try
-for i=1:nValues
+for i=1:3
     val = VertexValues{i,3};
     res = zeros(size(val));
     c = 1;
