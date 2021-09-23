@@ -31,7 +31,9 @@ if ~isempty(landmarksGroups)
         
     end
 else
-    nGroups = 1;
+    gMasks = cell(1);
+    uniqueGroups = 0; % req bc of parfor
+    nGroups = 1; % req bc of parfor
 end
 
 [path,ID] = setupParForProgress(length(nSamplesPerPick) * nPicks * nGroups);

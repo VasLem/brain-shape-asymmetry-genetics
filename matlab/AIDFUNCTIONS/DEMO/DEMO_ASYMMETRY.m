@@ -13,7 +13,7 @@ if endsWith(cd, "AIDFUNCTIONS/DEMO")
 end
 DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
-applyOnAtlas = true;
+applyOnAtlas = false;
 % THREADS = 8;atlas
 nPicks = 3;
 nSamplesPerPick = 100;
