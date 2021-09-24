@@ -36,8 +36,9 @@ else
     nGroups = 1; % req bc of parfor
 end
 
-[path,ID] = setupParForProgress(length(nSamplesPerPick) * nPicks * nGroups);
-parfor s=1:length(nSamplesPerPick)
+
+for s=1:length(nSamplesPerPick)
+    disp(['Handling pick ',num2str(s)])
     samplePerPick=nSamplesPerPick(s);
     for iter=1:nPicks
         randIndex = randsample(n,samplePerPick);
@@ -45,12 +46,13 @@ parfor s=1:length(nSamplesPerPick)
         randX2 = X2(randIndex,:,:);
         if ~isempty(landmarksGroups)
             gRet = cell(nGroups);
-            
+            [path,ID] = setupParForProgress(length(nSamplesPerPick) * nPicks * nGroups);
             for g=1:nGroups
                 repMask = repelem(gMasks{g}, 3);
                 gRet{g} = ProcrustesAnova2WayAsymmetryMEM(randX1(:, repMask,:),randX2(:, repMask,:),nIter,factor,nSplits, false);
                 parfor_progress;
             end
+            closeParForProgress(path,ID);
             gRet = [gRet{:}];
             fields = fieldnames(gRet(1).LM);
             gTret = struct;
@@ -79,13 +81,12 @@ parfor s=1:length(nSamplesPerPick)
             gTret.Total = total;
             out(s,iter) = gTret;
         else
-            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits, false);
-            parfor_progress;
+            out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits, true);
+           
         end
        
     end
 end
-closeParForProgress(path,ID);
 varargout{1} = out;
 if nOutputs == 1
     return

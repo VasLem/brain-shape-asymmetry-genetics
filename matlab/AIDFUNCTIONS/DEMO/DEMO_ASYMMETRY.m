@@ -15,8 +15,8 @@ DATA_DIR = '../SAMPLE_DATA/';
 RESULTS_DIR = '../results/demo_asymmetry/';
 applyOnAtlas = false;
 % THREADS = 8;atlas
-nPicks = 3;
-nSamplesPerPick = 100;
+nPicks = 5;
+nSamplesPerPick = 50;
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 % reduce = 0.05;
 nRep = 3;
@@ -31,6 +31,24 @@ subsample = 1;
 performExperiments = 0;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
+Ns = floor(1/reduce);
+if loadWhileInLab
+    nSamples = 19644;
+else
+    nSamples = 1000; %#ok<UNRCH>
+end
+
+if nRep > 1
+    experimentName = [num2str(nSamples) '_' num2str(Ns) '_' ...
+        num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
+        '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
+else
+    experimentName = [num2str(nSamples) '_' num2str(Ns) ...
+        '_' num2str(nRep)];
+end
+if applyOnAtlas
+    experimentName = [experimentName '_DK'];
+end
 %% SETTING UP COMPUTATION POWER
 try
     parpool('local',THREADS);
@@ -101,8 +119,8 @@ refTemplate = brainSurface.RefScan;
 
 %%
 [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample);
-nSamples = size(preprocLH,3);
 
+nLandmarks = length(preprocLandmarksIndices);
 
 
 %%SAMPLE_DATA
@@ -118,41 +136,6 @@ f = figure;
 plot(cumsum(explained));
 savefig(f, [RESULTS_DIR, 'asymmetricPCAExplained.fig']);
 
-%%
-
-numLevels = 3;
-clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
-fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, [RESULTS_DIR 'asymmetricClustering.fig'])
-saveas(fig, [RESULTS_DIR 'asymmetricClustering.png']);
-clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
-fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, [RESULTS_DIR 'symmetricClustering.fig'])
-saveas(fig, [RESULTS_DIR 'symmetricClustering.png']);
-%%
-
-%%
-% clear LH  RH;
-%%
-
-Ns = floor(1/reduce);
-nLandmarks = length(preprocLandmarksIndices);
-
-if nRep > 1
-    experimentName = [num2str(nSamples) '_' num2str(Ns) '_' ...
-        num2str(nIter)  '_' num2str(nPicks) '_' num2str(length(nSamplesPerPick)) '_' num2str(nSamplesPerPick(1))...
-        '_' num2str(nSamplesPerPick (end)) '_' num2str(nRep)];
-else
-    experimentName = [num2str(nSamples) '_' num2str(Ns) ...
-        '_' num2str(nRep)];
-end
-if applyOnAtlas
-    experimentName = [experimentName '_DK'];
-end
-
-%%
-% display3DLandmarksArrows(template, AvgShape);
-%%
 
 repPreprocRH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocLH = zeros([size(preprocRH), nRep + 1], 'single');
