@@ -110,7 +110,8 @@ template = clone(DATA{1}.Region.AvgShape);
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
 phenoIID = DATA{1}.Region.IID(1:size(LH,3));
-
+%%
+Region =  DATA{1}.Region;
 %% 
 brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
 refTemplate = brainSurface.RefScan;
@@ -121,7 +122,94 @@ refTemplate = brainSurface.RefScan;
 [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, 1, subsample);
 
 nLandmarks = length(preprocLandmarksIndices);
+%%
+selection = 'Asymmetry';
+switch selection
+    case 'Asymmetry'
+        A = (preprocLH - preprocRH);
+    case 'Symmetry'
+        A =  (preprocLH + preprocRH)/2;
+end
+meanConditionalOnLandmarks = mean(A, 3);
+stdConditionalOnLandmarks = std(A, 0, 3);
 
+B = (A - meanConditionalOnLandmarks)./max(eps, stdConditionalOnLandmarks);
+resB = reshape(B,[size(A,1), size(A,2) * size(A,3)]);
+similarityMat = abs(resB*resB');
+%% STEP 3: RUNNING CLUSTERING
+n_levels = 9;
+type = 'weiss';%'symmetric laplacian'; %'ratiocute';%'ncute';%'weiss'; is not so 'symmetric laplacian'
+    %nice for RH and SH;
+    %type = 'weiss';%'ratiocute';%'ncute';%'weiss';
+minPercValue = 1;
+runs = 50;
+[LABELS,MASK] = HierarchicalFacialSegmentationv4(double(similarityMat),n_levels,type,runs,minPercValue);
+save([RESULTS_DIR 'Segmentation/WeissSegmentation' selection],'LABELS','MASK','-v7.3');
+
+%% VISUALIZING THE SEGMENTATION
+% find the deepest still meaningfull level
+levels = nansum(LABELS,2);
+index = find(levels);
+u_levels = index(end);% levels to analyze
+ULABELS = LABELS(index,:);
+UHI = HierarchicalInterface;
+UHI.nL = u_levels;
+UMASK = MASK(1:UHI.nLC);
+disp(['Number of total clusters: ' num2str(length(find(UMASK)))]);
+v_levels = 9;% ter visualisatie
+VLABELS = ULABELS(1:v_levels,:);
+VHI = HierarchicalInterface;
+VHI.nL = v_levels;
+VMASK = UMASK(1:VHI.nLC);
+disp(['Number of visualized clusters: ' num2str(length(find(VMASK)))]);  
+
+% make figdir
+figdir = [RESULTS_DIR 'Segmentation_' selection];
+mkdir(fullfile(figdir));    
+ 
+% PATCHES VISUALISATION
+    for lev=1:1:u_levels
+        PLABELS = ULABELS(1:lev,:);
+        [nLevels,nVertices] = size(PLABELS);
+        PHI = HierarchicalInterface;
+        PHI.nL = nLevels;
+
+        % convert from clusterindex to listindex
+        newLABELS = zeros(size(PLABELS));
+        for l=1:size(PLABELS,1)
+            for lm = 1:size(PLABELS,2)
+                cl = PLABELS(l,lm);
+                newLABELS(l,lm) = LC2Ind(PHI,l,cl);
+            end
+        end
+        % For each point find the non-nan listindex
+        VertexLabels = zeros(1,nVertices);
+        for i=1:nVertices
+           index = find(~isnan(PLABELS(:,i)));
+           VertexLabels(i) = newLABELS(index(end),i); 
+        end
+        [UV,~,VertexLabels] = unique(VertexLabels);
+
+        RefScan = clone(Region.AvgShape);
+        RefScan.VertexValue = VertexLabels;
+        RefScan.ColorMode = "Indexed";
+        v = viewer(RefScan);
+        v.Tag = 'All segments on Template';
+        RefScan.ViewMode = "Solid";
+        RefScan.Material = "Dull";
+        colorbar(v.RenderAxes,'color',[1,1,1]);
+        switch Region.Name
+            case {'LH' 'SH'} 
+                view(-90,0)
+            case 'RH'
+                view(90,0)
+        end
+        v.SceneLightVisible = 1;
+        v.SceneLightLinked = true;
+        colormap(v.RenderAxes,'colorcube') % colorcube
+        RefScan.PatchHandle.FaceColor = 'flat';
+        print(v.Figure,'-dpng','-r300',[figdir '/Segmentation_' selection '_nL' num2str(nLevels)]);
+    end
 
 %%SAMPLE_DATA
 % clear DATA;
