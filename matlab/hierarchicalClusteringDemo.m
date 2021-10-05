@@ -3,6 +3,8 @@ close all;clear;
 restoredefaultpath;
 %%
 addpath(genpath('AIDFUNCTIONS'));
+addpath(genpath('FUNCTIONS'));
+
 %%
 loadWhileInLab = 1;
 
@@ -21,7 +23,7 @@ nSamplesPerPick = 50;
 % reduce = 0.05;
 nRep = 3;
 nIter = 1000;
-THREADS = 8;
+THREADS = 32;
 reduce = 0.1;
 subsample = 1;
 % Define following when nRep>1 -> no use of AMMI
@@ -130,12 +132,30 @@ switch selection
     case 'Symmetry'
         A =  (preprocLH + preprocRH)/2;
 end
-meanConditionalOnLandmarks = mean(A, 3);
-stdConditionalOnLandmarks = std(A, 0, 3);
 
-B = (A - meanConditionalOnLandmarks)./max(eps, stdConditionalOnLandmarks);
-resB = reshape(B,[size(A,1), size(A,2) * size(A,3)]);
-similarityMat = abs(resB*resB');
+% 
+% meanConditionalOnLandmarks = mean(A, 3);
+% stdConditionalOnLandmarks = std(A, 0, 3);
+% 
+% B = (A - meanConditionalOnLandmarks)./max(eps, stdConditionalOnLandmarks);
+% resB = reshape(B,[size(A,1), size(A,2) * size(A,3)]);
+% similarityMat = abs(resB*resB');
+
+%% STEP 1:
+[nVertices,DIM,nSubj] = size(A);
+sym2DMatrix = permute(A,[2 1 3]);
+sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj);
+
+avgT = mean(sym2DMatrix,2);
+resT = sym2DMatrix';% getResiduals([COV.DATA Region.CentroidSizes(:)],Thickness2DMatrix');
+resT = repmat(avgT',size(resT,1),1)+resT;
+
+%% STEP 2: BUILDING RV MATRIX
+% similarityMat = buildRVmatrixDim(resT, 'cov', 3);
+% disp("Saving RV Matrix..")
+% save([RESULTS_DIR 'Segmentation/SimilarityMatrix' selection],'similarityMat','-v7.3');
+
+load([RESULTS_DIR 'Segmentation/SimilarityMatrix' selection]);
 %% STEP 3: RUNNING CLUSTERING
 n_levels = 9;
 type = 'weiss';%'symmetric laplacian'; %'ratiocute';%'ncute';%'weiss'; is not so 'symmetric laplacian'
@@ -214,15 +234,9 @@ mkdir(fullfile(figdir));
 %%SAMPLE_DATA
 % clear DATA;
 %%
-symmetric = (preprocLH + preprocRH)/2;
-asymmetric = (preprocLH - preprocRH);
 
 numLevels = 3;
-clustered = hierarchicalClustering(asymmetric,numLevels,true,3,seed);
+clustered = hierarchicalClustering(similarityMat,numLevels,true,3,seed);
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, [RESULTS_DIR 'asymmetricClustering.fig'])
-saveas(fig, [RESULTS_DIR 'asymmetricClustering.png']);
-clustered = hierarchicalClustering(symmetric,numLevels,true,3,seed);
-fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, [RESULTS_DIR 'symmetricClustering.fig'])
-saveas(fig, [RESULTS_DIR 'symmetricClustering.png']);
+savefig(fig, [RESULTS_DIR 'clustering_' selection '.fig']);
+saveas(fig, [RESULTS_DIR 'clustering_' selection '.png']);

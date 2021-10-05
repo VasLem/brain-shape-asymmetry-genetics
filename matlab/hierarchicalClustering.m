@@ -1,4 +1,4 @@
-function clusteringResult = hierarchicalClustering(A, numberOfLevels, useNormSym, eigVectorsNum, seed, eps)
+function clusteringResult = hierarchicalClustering(similarityMat, numberOfLevels, useNormSym, eigVectorsNum, seed, eps)
 % A: Input Array Landmarks of size numSamples x 3 x numLandmarks
 % numberOfLevels: Number of levels of partitioning, defaults to 5
 % useNormSym: Whether to use or not symmetric Laplacian Normalization, defaults to true
@@ -16,72 +16,69 @@ if nargin>=5
     rng(seed);
 end
 if nargin<4
-    eigVectorsNum = 0;
+    eigVectorsNum = 2;
 end
 if nargin<2
     numberOfLevels = 5;
 end
-% Steps for hierarchical Clustering
-% Quasi Landmarks have to be already downsampled and aligned to each other
-% 1.Compute the pairwise 3D correlation matrix
-meanConditionalOnLandmarks = mean(A, 3);
-stdConditionalOnLandmarks = std(A, 0, 3);
-
-B = (A - meanConditionalOnLandmarks)./max(eps, stdConditionalOnLandmarks);
-resB = reshape(B,[size(A,1), size(A,2) * size(A,3)]);
-similarityMat = abs(resB*resB');
-% From here on, we are based on https://en.wikipedia.org/wiki/Spectral_clustering#Algorithms 
+% From here on, we are based on https://en.wikipedia.org/wiki/Spectral_clustering#Algorithms
 % and https://nl.mathworks.com/help/stats/spectralcluster.html
 
-%2. Compute Laplacian Matrix
+
 if nargin<3
-    % There is reference to the paper describing the Normalized Symmetric Laplacian Matrix 
+    % There is reference to the paper describing the Normalized Symmetric Laplacian Matrix
     % in the original publication of Prof. Claes, so we are keeping this as a default
     useNormSym = true;
 end
-degreeMat = diag(sum(similarityMat,1));
-laplacianMat = degreeMat - similarityMat;
-
-%3.Compute Normalized Laplacian Matrix
-if ~useNormSym 
-    invDegreeMat = diag(1./max(eps, diag(degreeMat)));
-    normalizedLaplacianMat = laplacianMat * invDegreeMat ;
-    
-else % Compute Normalized Symmetric Laplacian Matrix
-    sqrtInvDegreeMat = diag(1./max(eps, sqrt(diag(degreeMat))));
-    normalizedLaplacianMat = sqrtInvDegreeMat * laplacianMat * sqrtInvDegreeMat;
-end
-%4. Find the eigenvectors of the Normalized Symmetric Laplacian Matrix
 
 
-if eigVectorsNum == 0
-    %4a Find optimal number of components using parallelAnalysis
-    [latent, ~, latentHigh] = parallelAnalysis(normalizedLaplacianMat);
-    eigVectorsNum = sum(latent > latentHigh');
-end
-sv = randn(size(normalizedLaplacianMat,1),1); % pass random vector to eigs so that to get reproducible results (if using rng from Matlab)
-
-[V,~] = eigs(double(normalizedLaplacianMat),eigVectorsNum,1e-10,'StartVector',sv);
-
-if useNormSym
-    %Normalize V so that rows sum to 1
-    vnorm = vecnorm(V,2,2); % Use vecnorm for improved numerical precision
-    nonZeroVNorm = vnorm > 0;
-    vnorm(~nonZeroVNorm) = 0;
-    if any(nonZeroVNorm)
-        V(nonZeroVNorm,:) = V(nonZeroVNorm,:)./vnorm(nonZeroVNorm);
-    end
-end
-clusteringResult = recursivePartition(V', numberOfLevels, 1:size(V,1));
+clusteringResult = recursivePartition(similarityMat, numberOfLevels, 1:size(similarityMat,1), eigVectorsNum, useNormSym, eps);
 end
 
-function ret = recursivePartition(x, count, indices)
-    if isnan(indices)
-        indices = 1:size(x,2);
-    end
-    ret.indices = indices;
-    ret.parts = {};
-    if count > 0
+    function ret = recursivePartition(similarityMat, count, indices, eigVectorsNum, useNormSym, eps)
+        if isnan(indices)
+            indices = 1:size(similarityMat,1);
+        end
+        ret.indices = indices;
+        ret.parts = {};
+        if length(indices)<eigVectorsNum
+            return
+        end
+        if count > 0
+            disp(['Level ' num2str(count)]);
+            %2. Compute Laplacian Matrix
+            degreeMat = sparse(1:size(similarityMat,1), 1:size(similarityMat,1), sum(similarityMat,1));
+            laplacianMat = degreeMat - similarityMat;
+            
+            %3.Compute Normalized Laplacian Matrix
+            if ~useNormSym
+                invDegreeMat = 1./max(eps, degreeMat);
+                normalizedLaplacianMat = laplacianMat * invDegreeMat ;
+                
+            else % Compute Normalized Symmetric Laplacian Matrix
+                sqrtInvDegreeMat = 1./max(eps, sqrt(degreeMat));
+                normalizedLaplacianMat = sqrtInvDegreeMat * laplacianMat * sqrtInvDegreeMat;
+            end
+            %4. Find the eigenvectors of the Normalized Symmetric Laplacian Matrix
+            
+            sv = randn(size(normalizedLaplacianMat,1),1); % pass random vector to eigs so that to get reproducible results (if using rng from Matlab)
+            
+            [V,~] = eigs(double(normalizedLaplacianMat),eigVectorsNum,1e-10,'StartVector',sv);
+            
+            if useNormSym
+                %Normalize V so that rows sum to 1
+                vnorm = vecnorm(V,2,2); % Use vecnorm for improved numerical precision
+                nonZeroVNorm = vnorm > 0;
+                vnorm(~nonZeroVNorm) = 0;
+                if any(nonZeroVNorm)
+                    V(nonZeroVNorm,:) = V(nonZeroVNorm,:)./vnorm(nonZeroVNorm);
+                end
+            end
+            
+            
+        
+        
+        x = V';
         [split,~] = kmeans(x,2);
         if any(split == 2)
             if sum(split == 1)>sum(split == 2)
@@ -91,12 +88,14 @@ function ret = recursivePartition(x, count, indices)
                 c1 = 2;
                 c2 = 1;
             end
-            ret.parts{c1}= recursivePartition(x(split == 1), count-1, indices(split==1));
-            ret.parts{c2} = recursivePartition(x(split==2), count-1, indices(split==2));
+            lab1 = find(split == 1);
+            lab2 = find(split == 2);
+            ret.parts{c1} = recursivePartition(similarityMat(lab1,lab1), count-1, indices(split==1), eigVectorsNum, useNormSym, eps);
+            ret.parts{c2} = recursivePartition(similarityMat(lab2,lab2), count-1, indices(split==2), eigVectorsNum, useNormSym, eps);
         end
     end
 end
-   
+
 
 
 function [L,C] = kmeans(X,k)
@@ -108,7 +107,7 @@ function [L,C] = kmeans(X,k)
 %   Authors: Laurent Sorber (Laurent.Sorber@cs.kuleuven.be)
 %
 %   References:
-%   [1] J. B. MacQueen, "Some Methods for Classification and Analysis of 
+%   [1] J. B. MacQueen, "Some Methods for Classification and Analysis of
 %       MultiVariate Observations", in Proc. of the fifth Berkeley
 %       Symposium on Mathematical Statistics and Probability, L. M. L. Cam
 %       and J. Neyman, eds., vol. 1, UC Press, 1967, pp. 281-297.
