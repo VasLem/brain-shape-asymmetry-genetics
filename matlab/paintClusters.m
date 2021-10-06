@@ -31,7 +31,7 @@ else
     newCenter = [0,0];
 end
 
-ret.handle= paintSingle(clustered.indices, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + newCenter), offsetR/4);
+ret.handle= paintSingle(clustered.rootIndices, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + newCenter), offsetR/4);
 if numel(clustered.parts)>0
     [ret.parts{1}, polarPoints]  = paintRecursive(pax, xl, yl, axpos, ydir, clustered.parts{1}, template,  polarPoints, newCenter,  offsetR, level+1);
     [ret.parts{2}, polarPoints]  = paintRecursive(pax, xl, yl, axpos, ydir, clustered.parts{2}, template,  polarPoints, newCenter,  offsetR, level+1);
@@ -54,7 +54,7 @@ end
 xycFigNorm = axpos(1:2) + axpos(3:4).*xycNorm; %normalized to figure
 end
 
-function shape =paintSingle(indices, template,  center, axisSize)
+function shape =paintSingle(rootIndices, template,  center, axisSize)
 ax(1) = axes('pos',[center(1) - axisSize,  center(2) - axisSize/2, axisSize, axisSize]);
 ax(2) = axes('pos',[center(1) ,  center(2) - axisSize/2, axisSize, axisSize]);
 view(ax(1), 90, 0);
@@ -65,7 +65,7 @@ for i=1:2
     shape =  shape3D;
     shape.Vertices = template.Vertices;
     shape.VertexRGB = 0.5 * ones(size(shape.Vertices));
-    shape.VertexRGB(indices, 2) = 1;
+    shape.VertexRGB(rootIndices, 2) = 1;
     shape.Faces = template.Faces;
     shape.Material = 'Dull';
     shape.ViewMode = 'solid';

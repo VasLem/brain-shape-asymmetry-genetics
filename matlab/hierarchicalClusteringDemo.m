@@ -235,8 +235,73 @@ mkdir(fullfile(figdir));
 % clear DATA;
 %%
 
-numLevels = 3;
+numLevels = 4;
 clustered = hierarchicalClustering(similarityMat,numLevels,true,3,seed);
+%%
 fig = paintClusters(clustered, preprocTemplate, numLevels);
 savefig(fig, [RESULTS_DIR 'clustering_' selection '.fig']);
 saveas(fig, [RESULTS_DIR 'clustering_' selection '.png']);
+
+%%
+clusterVec = getClustersAsVec(clustered);
+%%
+clusters = unique(clusterVec);
+features = zeros(length(clusters), 3, nSamples);
+centers = zeros(length(clusters),3);
+for i=1:length(clusters)
+    features(i, :, :) = mean(A(clusterVec == clusters(i), :, :), 1);
+    centers(i, :) = mean(template.Vertices(clusterVec==clusters(i), :), 1);
+end
+save([RESULTS_DIR 'Segmentation/', selection 'clusters_info.mat'], 'clusterVec','features','centers','-v7.3');
+%%
+%Try to show the behavior of clustered regions in 3D
+
+localBehaviors = zeros(length(clusters),3, 3);
+for i=1:length(clusters)
+    localBehaviors(i,:, :) = pca(squeeze(features(clusters(i), :, :))', 'NumComponents',3);
+end
+fig = figure;
+ax = gca;
+hold on
+quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 1), localBehaviors(:, 2, 1), localBehaviors(:,3,1), 'LineWidth', 3);
+quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 2), localBehaviors(:, 2, 2), localBehaviors(:,3,2), 'LineWidth', 3);
+quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 3), localBehaviors(:, 2, 3), localBehaviors(:,3,3), 'LineWidth', 3);
+legend('PC1', 'PC2', 'PC3');
+hold off
+brainShape = clone(template);
+brainShape.RenderAxes = gca;
+brainShape.Visible=true;
+brainShape.ViewMode = 'SolidWireframe';
+brainShape.Material = 'Dull';
+axis equal
+axis off
+set(fig, 'color', 'none');
+set(ax, 'color', 'none');
+view(90, 0)
+saveas(fig, [RESULTS_DIR 'clusterPCA_' selection '_interior.png']);
+view(-90, 0)
+saveas(fig, [RESULTS_DIR 'clusterPCA_' selection '_exterior.png']);
+
+
+
+%%
+feats = reshape(features, [], nSamples);
+if nRep == 1
+    phenoT = table(preprocPhenoIID, preprocPhenoIID, feats); %familyID,individualID,Phenotypes (to be controlled with mpheno argument)
+    writetable(phenoT,[RESULTS_DIR 'genomic/' selection '_pheno.txt'],'WriteVariableNames',false,'Delimiter',' ');
+end
+
+%%
+
+function clusterVec = getClustersAsVec(clustered)
+    clusterVec = ones(1,length(clustered.indices));
+    if ~isempty(clustered.parts)
+        part1 = getClustersAsVec(clustered.parts{1});
+        part2 = getClustersAsVec(clustered.parts{2}) + max(part1);
+        clusterVec(clustered.parts{1}.indices) = part1;
+        clusterVec(clustered.parts{2}.indices) = part2;
+    end
+end
+
+
+
