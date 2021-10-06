@@ -286,10 +286,8 @@ saveas(fig, [RESULTS_DIR 'clusterPCA_' selection '_exterior.png']);
 
 %%
 feats = reshape(features, [], nSamples);
-if nRep == 1
-    phenoT = table(preprocPhenoIID, preprocPhenoIID, feats); %familyID,individualID,Phenotypes (to be controlled with mpheno argument)
-    writetable(phenoT,[RESULTS_DIR  selection '_pheno.txt'],'WriteVariableNames',false,'Delimiter',' ');
-end
+phenoT = table(preprocPhenoIID, preprocPhenoIID, round(feats'*1000)/1000); %familyID,individualID,Phenotypes (to be controlled with mpheno argument)
+writetable(phenoT,[RESULTS_DIR  selection '_pheno.txt'],'WriteVariableNames',false,'Delimiter',' ');
 
 %%
 
