@@ -97,9 +97,10 @@ assert(all((1:length(phenoId)) == phenoIndex'));
 phenoWhole = horzcat(pheno.clusterPCAPhenoFeatures{:});
 
 [stats, intStats, intervals] = runCCA(phenoWhole, genoPruned, snpsPruned);
-pThres = 0.05/ size(intStats.ChiSqSignificance, 1);
+
 
 %%
+pThres = 0.05/ size(intStats.chiSqSignificance, 1);
 significantInts = intervals(intStats.chiSqSignificance<pThres, :);
 starts = significantInts(:,1);
 ends = significantInts(:,2);
@@ -119,12 +120,9 @@ for c=1:size(significantInts,1)
 end
 sigSnps.COEF = sigSnpsCoef;
 
-writetable(sigSnps, [RESULTS_DIR, 'significant_snps_chr17_slidwin_20k.csv']);
-writetable(intTable, [RESULTS_DIR, 'significant_intervals_chr17_slidwin_20k.csv']);
+writetable(sigSnps, [RESULTS_DIR, 'significant_snps_chr' num2str(chr) '_slidwin_20k.csv']);
 intTable = [stSnps, enSnps];
-
-
-%%
+writetable(intTable, [RESULTS_DIR, 'significant_intervals_chr' num2str(chr) '_slidwin_20k.csv']);
 
 
 %%
@@ -134,8 +132,8 @@ title(['Chromosome ' num2str(chr) ', ' num2str(sum(intStats.chiSqSignificance<pT
 ylabel('-log10p');
 yline(-log10(pThres));
 %%
-savefig(fig, [RESULTS_DIR 'chr17_all_segments.fig']);
-saveas(fig, [RESULTS_DIR 'chr17_all_segments.png']);
+savefig(fig, [RESULTS_DIR 'chr' num2str(chr) '_all_segments.fig']);
+saveas(fig, [RESULTS_DIR 'chr' num2str(chr) '_all_segments.png']);
 
 
 %%
