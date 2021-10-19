@@ -1,4 +1,4 @@
-function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = preprocessSymmetry(template, LH, RH, samplesIDs, reduction_rate, subsampling_rate)
+function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = preprocessSymmetry(template, LH, RH, samplesIDs, reduction_rate, subsampling_rate, gpaN)
 %PREPROCESSHEMISPHERES Preprocess LH and RH for symmetry analysis
 %1. Mirrors RH on LH by x axis reversion.
 %2. Reduces landmarks number provided LH and RH if reduction_rate is given using getDownsampledLandmarksIndices function.
@@ -7,6 +7,15 @@ function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = 
 %subsampling_rate is greater than 1, picks the first subsampling_rate
 %samples
 %Template is the shape3D object corresponding to LH
+arguments
+template shape3D
+LH single
+RH single
+samplesIDs cell
+reduction_rate double = 1
+subsampling_rate double = 1
+gpaN double = 3
+end
 
 disp("Mirroring RH to LH..");
 RH = RH(:, :, :);
@@ -30,13 +39,11 @@ reducedTemplate = shape3D;
 reducedTemplate.Vertices = template.Vertices(landmarksIndices, :) ;
 reducedTemplate.Faces = reducedFaces;
 
-% We are using only one iteration of Procrustes analysis, so that we can
-% compare different datasets, otherwise it would not be possible,
-% as we would then have different point of reference
+
 disp("Applying Procrustes Analysis..")
 
 
-[AlignedShapes,~,~] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate, 1,true,false,true,false);
+[AlignedShapes,~,~] = GeneralizedProcrustesAnalysis(cat(3, reducedLH, reducedRH), reducedTemplate, gpaN,true,false,true,false);
 reducedLH = AlignedShapes(:,:,1:size(reducedLH,3));
 reducedRH = AlignedShapes(:,:,size(reducedLH,3)+1:end);
 

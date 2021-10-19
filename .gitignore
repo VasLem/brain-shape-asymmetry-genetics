@@ -61,8 +61,8 @@ vignettes/*.pdf
 
 #others
 SAMPLE_DATA
-results/demo_asymmetry/**/*.fig
-results/demo_asymmetry/**/*.mat
+results/**/*.fig
+results/**/*.mat
 results/demo_asymmetry/fluctuatingAMMI.txt
 results/genomics
 iELVis

@@ -118,7 +118,13 @@ refTemplate = brainSurface.RefScan;
 
 
 %%
-[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample);
+% We are using only one iteration of Procrustes analysis, so that we can
+% compare different datasets, otherwise it would not be possible,
+% as we would then have different point of reference
+% TODO fix this
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample, 1);
+
+
 
 nLandmarks = length(preprocLandmarksIndices);
 

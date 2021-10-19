@@ -14,7 +14,9 @@ if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
 end
 DATA_DIR = '../SAMPLE_DATA/';
-RESULTS_DIR = '../results/demo_asymmetry/';
+RESULTS_DIR = '../results/hierarchicalClusteringDemo/';
+if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
+%%
 applyOnAtlas = false;
 % THREADS = 8;atlas
 nPicks = 5;
@@ -64,7 +66,7 @@ in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.ma
 
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
 genopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/'];
-covGenoPhenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/'];
+covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/COVDATA2USE.mat'];
 
 MASK = in.index;
 nVertices = length(MASK);
@@ -121,7 +123,7 @@ refTemplate = brainSurface.RefScan;
 
 
 %%
-[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, 1, subsample);
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, 1, subsample, 3);
 
 nLandmarks = length(preprocLandmarksIndices);
 %%
@@ -133,29 +135,37 @@ switch selection
         A =  (preprocLH + preprocRH)/2;
 end
 
-% 
-% meanConditionalOnLandmarks = mean(A, 3);
-% stdConditionalOnLandmarks = std(A, 0, 3);
-% 
-% B = (A - meanConditionalOnLandmarks)./max(eps, stdConditionalOnLandmarks);
-% resB = reshape(B,[size(A,1), size(A,2) * size(A,3)]);
-% similarityMat = abs(resB*resB');
-
 %% STEP 1:
 [nVertices,DIM,nSubj] = size(A);
 sym2DMatrix = permute(A,[2 1 3]);
 sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj);
+disp("Applying covariates effect subtraction (control) from phenotype..")
+% Align covariates with phenotype
+covariates = load(covGenoPath).COV;
+%%
+covAssignmentMatrix = (str2double(phenoIID) == str2double(covariates.IID)');
+[covPhenoIndex, covIndex] = find(covAssignmentMatrix);
+
+covData = covariates.DATA(covIndex, :);
+sym2DMatrix = sym2DMatrix(:, covPhenoIndex);
+phenoIID = phenoIID(covPhenoIndex);
 
 avgT = mean(sym2DMatrix,2);
-resT = sym2DMatrix';% getResiduals([COV.DATA Region.CentroidSizes(:)],Thickness2DMatrix');
+% Removing components that can be controlled from covariates, keeping only
+% the residuals from the corresponding PLS model
+%%
+disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
+resT = getResiduals(covData,sym2DMatrix');
 resT = repmat(avgT',size(resT,1),1)+resT;
-
+disp("Saving computed residuals..");
+save([RESULTS_DIR 'COV' selection],'resT','-v7.3');
 %% STEP 2: BUILDING RV MATRIX
-% similarityMat = buildRVmatrixDim(resT, 'cov', 3);
-% disp("Saving RV Matrix..")
-% save([RESULTS_DIR 'Segmentation/SimilarityMatrix' selection],'similarityMat','-v7.3');
+disp("Computing RV matrix..")
+similarityMat = buildRVmatrixDim(resT, 'cov', 3);
+disp("Saving RV Matrix..")
+save([RESULTS_DIR 'COVSimilarityMatrix' selection],'similarityMat','-v7.3');
 
-load([RESULTS_DIR 'Segmentation/SimilarityMatrix' selection]);
+% load([RESULTS_DIR 'Segmentation/SimilarityMatrix' selection]);
 %% STEP 3: RUNNING CLUSTERING
 n_levels = 9;
 type = 'weiss';%'symmetric laplacian'; %'ratiocute';%'ncute';%'weiss'; is not so 'symmetric laplacian'
@@ -164,7 +174,7 @@ type = 'weiss';%'symmetric laplacian'; %'ratiocute';%'ncute';%'weiss'; is not so
 minPercValue = 1;
 runs = 50;
 [LABELS,MASK] = HierarchicalFacialSegmentationv4(double(similarityMat),n_levels,type,runs,minPercValue);
-save([RESULTS_DIR 'Segmentation/WeissSegmentation' selection],'LABELS','MASK','-v7.3');
+save([RESULTS_DIR 'COVWeissSegmentation' selection],'LABELS','MASK','-v7.3');
 
 %% VISUALIZING THE SEGMENTATION
 % find the deepest still meaningfull level
@@ -184,7 +194,7 @@ VMASK = UMASK(1:VHI.nLC);
 disp(['Number of visualized clusters: ' num2str(length(find(VMASK)))]);  
 
 % make figdir
-figdir = [RESULTS_DIR 'Segmentation_' selection];
+figdir = [RESULTS_DIR 'Segmentation' selection];
 mkdir(fullfile(figdir));    
  
 % PATCHES VISUALISATION
@@ -239,22 +249,55 @@ numLevels = 4;
 clustered = hierarchicalClustering(similarityMat,numLevels,true,3,seed);
 %%
 fig = paintClusters(clustered, preprocTemplate, numLevels);
-savefig(fig, [RESULTS_DIR 'clustering_' selection '.fig']);
-saveas(fig, [RESULTS_DIR 'clustering_' selection '.png']);
+savefig(fig, [RESULTS_DIR 'summaryMySegmentation' selection '.fig']);
+saveas(fig, [RESULTS_DIR 'summaryMySegmentation' selection '.png']);
 
 %%
 clusterVec = getClustersAsVec(clustered);
 %%
 clusters = unique(clusterVec);
-features = zeros(length(clusters), 3, nSamples);
-centers = zeros(length(clusters),3);
-for i=1:length(clusters)
-    features(i, :, :) = mean(A(clusterVec == clusters(i), :, :), 1);
-    centers(i, :) = mean(template.Vertices(clusterVec==clusters(i), :), 1);
+
+
+%% Investigate the number of PCA components to keep for each segment based on the explained Variance
+% Get the partition of A that corresponds to the specific cluster with C
+% points and then transform it into a N*3 x C array
+
+explainedThresholds = 80:4:96;
+clusterExpComponentsNum = zeros(length(clusters), length(explainedThresholds));
+parfor i=1:length(clusters)
+    selectionMask = clusterVec==clusters(i);
+    ftA = reshape(permute(A(selectionMask, :, :), [2, 1, 3]), size(A,2) * sum(selectionMask), size(A, 3))';
+    [~, scores, ~, ~, explained] = pca(ftA, 'Centered', true);
+    explainedAccum = cumsum(explained);
+    clusterExpComponentsNum(i,:) = sum(explainedAccum < explainedThresholds, 1);
 end
-save([RESULTS_DIR 'Segmentation/', selection 'clusters_info.mat'], 'clusterVec','features','centers','-v7.3');
+fig = figure;
+bar(explainedThresholds, clusterExpComponentsNum');
+xlabel('Explained Variance Threshold');
+ylabel('Number of Components Required');
+title('Explained Variance~Number Of Components per Cluster');
+savefig(fig, [RESULTS_DIR 'explainedVariance_' selection '.fig']);
+saveas(fig, [RESULTS_DIR 'explainedVariance_' selection '.png']);
 %%
-%Try to show the behavior of clustered regions in 3D
+selectedVarianceThreshold = 88;
+maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds==selectedVarianceThreshold));
+means = zeros(length(clusters), 3, nSamples);
+templateCenters = zeros(length(clusters),3);
+parfor i=1:length(clusters)
+    selectionMask = clusterVec==clusters(i);
+    means(i, :, :) = mean(A(clusterVec == clusters(i), :, :), 1);
+    templateCenters(i, :) = mean(template.Vertices(clusterVec==clusters(i), :), 1);
+    ftA = reshape(permute(A(selectionMask, :, :), [2, 1, 3]), size(A,2) * sum(selectionMask), size(A, 3))';
+    [~, scores, ~, ~, explained] = pca(ftA, 'Centered', true, 'NumComponents', maxNumComponents);
+    explainedAccum = cumsum(explained);
+    clusterPCAPhenoFeatures{i} = scores(:, explainedAccum < selectedVarianceThreshold);
+end
+%%
+save([RESULTS_DIR, selection 'Phenotype.mat'], 'clusterVec','clusterPCAPhenoFeatures','templateCenters','means','selectedVarianceThreshold','phenoIID', '-v7.3');
+
+
+%%
+% Show the behavior of the means of the clustered regions in 3D
 
 localBehaviors = zeros(length(clusters),3, 3);
 for i=1:length(clusters)
