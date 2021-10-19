@@ -301,14 +301,14 @@ save([RESULTS_DIR, selection 'Phenotype.mat'], 'clusterVec','clusterPCAPhenoFeat
 
 localBehaviors = zeros(length(clusters),3, 3);
 for i=1:length(clusters)
-    localBehaviors(i,:, :) = pca(squeeze(features(clusters(i), :, :))', 'NumComponents',3);
+    localBehaviors(i,:, :) = pca(squeeze(means(clusters(i), :, :))', 'NumComponents',3);
 end
 fig = figure;
 ax = gca;
 hold on
-quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 1), localBehaviors(:, 2, 1), localBehaviors(:,3,1), 'LineWidth', 3);
-quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 2), localBehaviors(:, 2, 2), localBehaviors(:,3,2), 'LineWidth', 3);
-quiver3(ax, centers(:,1), centers(:,2), centers(:,3), localBehaviors(:, 1, 3), localBehaviors(:, 2, 3), localBehaviors(:,3,3), 'LineWidth', 3);
+quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 1), localBehaviors(:, 2, 1), localBehaviors(:,3,1), 'LineWidth', 3);
+quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 2), localBehaviors(:, 2, 2), localBehaviors(:,3,2), 'LineWidth', 3);
+quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 3), localBehaviors(:, 2, 3), localBehaviors(:,3,3), 'LineWidth', 3);
 legend('PC1', 'PC2', 'PC3');
 hold off
 brainShape = clone(template);
@@ -325,12 +325,6 @@ saveas(fig, [RESULTS_DIR 'clusterPCA_' selection '_interior.png']);
 view(-90, 0)
 saveas(fig, [RESULTS_DIR 'clusterPCA_' selection '_exterior.png']);
 
-
-
-%%
-feats = reshape(features, [], nSamples);
-phenoT = table(preprocPhenoIID, preprocPhenoIID, round(feats'*1000)/1000); %familyID,individualID,Phenotypes (to be controlled with mpheno argument)
-writetable(phenoT,[RESULTS_DIR  selection '_pheno.txt'],'WriteVariableNames',false,'Delimiter',' ');
 
 %%
 
