@@ -1,5 +1,5 @@
 function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = preprocessSymmetry(template, LH, RH, samplesIDs, reduction_rate, subsampling_rate, gpaN)
-%PREPROCESSHEMISPHERES Preprocess LH and RH for symmetry analysis
+%PREPROCESSSYMMETRY Preprocess LH and RH for symmetry analysis
 %1. Mirrors RH on LH by x axis reversion.
 %2. Reduces landmarks number provided LH and RH if reduction_rate is given using getDownsampledLandmarksIndices function.
 %3. Aligns them using Procrustes' Analysis GeneralizedProcrustesAnalysis function
@@ -14,7 +14,7 @@ RH single
 samplesIDs cell
 reduction_rate double = 1
 subsampling_rate double = 1
-gpaN double = 3
+gpaN uint8 = 3
 end
 
 disp("Mirroring RH to LH..");
