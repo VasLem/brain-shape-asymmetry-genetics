@@ -151,7 +151,7 @@ prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStat
 %%
 plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [RESULTS_DIR GWAS_ID '_PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
 %%
-save([RESULTS_DIR, GWAS_ID '_ccaResults_feats' num2str(MAX_NUM_FEATS) '.mat'], 'intervals', 'noPartitionStats', 'noPartitionIntStats', 'gTLIntStats', 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
+save([RESULTS_DIR, GWAS_ID '_ccaResults_feats' num2str(MAX_NUM_FEATS) '.mat'], 'intervals', 'noPartitionStats', 'noPartitionIntStats',  'gTLPartStats', 'gTLPartIntStats', '-v7.3');
 
 %%
 
