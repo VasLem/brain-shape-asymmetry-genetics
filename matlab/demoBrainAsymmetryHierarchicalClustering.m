@@ -226,12 +226,12 @@ clear A similarityMat
 % Get the partition of A that corresponds to the specific cluster with C
 % points and then transform it into a N*3 x C array
 partitions_num = 2^(NUM_LEVELS + 1) - 1;
-explainedThresholds = 80:4:96;
+explainedThresholds = 50:10:90;
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
 means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
 
-resT = reshape(resT, DIM, nVertices, nSubj);
+reshapedResT = reshape(resT', DIM, nVertices, nSubj);
 
 parfor c=1:partitions_num
     try
@@ -240,11 +240,11 @@ parfor c=1:partitions_num
         i = c - (2^(k-1) - 1); % cluster index
         selectionMask = clusterVec==i;
         if ~any(selectionMask), continue; end
-        ftResT = reshape(resT(:, selectionMask, :), DIM * sum(selectionMask), nSubj)';
+        ftResT = reshape(reshapedResT(:, selectionMask, :), DIM * sum(selectionMask), nSubj)';
         [~, pcaScores{c}, ~, ~, explained{c}] = pca(ftResT, 'Centered', true);
         explainedAccum = cumsum(explained{c});
         clusterExpComponentsNum(c,:) = sum(explainedAccum < explainedThresholds, 1);
-        means(c, :, :) = mean(resT(:, selectionMask, :), 2);
+        means(c, :, :) = mean(reshapedResT(:, selectionMask, :), 2);
         templateCenters(c, :) = mean(preprocTemplate.Vertices(selectionMask, :), 1);
     catch ME
         disp(c)
