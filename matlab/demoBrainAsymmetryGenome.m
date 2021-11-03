@@ -160,6 +160,7 @@ save([RESULTS_DIR, GWAS_ID '_ccaResults_feats' num2str(MAX_NUM_FEATS) '.mat'], '
 %%
 function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThres, path)
 fig = figure;
+fig.Position = [100 100 900 900];
 hold on
 pNum = size(intStats.chiSqSignificance, 1);
 for i=1:pNum
