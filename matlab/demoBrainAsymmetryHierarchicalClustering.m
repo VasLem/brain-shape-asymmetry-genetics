@@ -27,7 +27,7 @@ NUM_LEVELS = 4;
 SEGMENTATION_USED = 'mine';
 % SEGMENTATION_USED = 'labs';
 
-REDUCTION_RATE = 0.1;
+REDUCTION_RATE = 1;
 
 SELECTION_DIR   = [RESULTS_DIR SELECTION '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
 COV_REMOVAL_DIR = [SELECTION_DIR COV_REMOVAL '/'];
@@ -94,6 +94,7 @@ nLandmarks = length(preprocLandmarksIndices);
 [nVertices,DIM,nSubj] = size(A);
 sym2DMatrix = permute(A,[2 1 3]);
 sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj)';
+clear A
 % Align covariates with phenotype
 covariates = load(covGenoPath).COV;
 
@@ -108,6 +109,50 @@ preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
 avgT = mean(sym2DMatrix,1);
 % Removing components that can be controlled from covariates, keeping only
 % the residuals from the corresponding PLS model
+%% Apply covariates control analysis on DK partitions 
+% see how much of the variance of each partition set of landmarks is explained by covariates
+atlasName = 'Desikan_Killiany';
+atlas = loadAtlas(atlasName,'L');
+%%
+atlasIndices = atlas.index(preprocLandmarksIndices);
+atlas3DIndices = repmat(atlasIndices,1,3)';
+atlas3DIndices = atlas3DIndices(:);
+%%
+labels = unique(atlas3DIndices);
+explained3DCov = nan * zeros(length(atlas3DIndices),1);
+for k=1:length(labels)
+    i=labels(k);
+    atlasMask =  atlas3DIndices == i;
+    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizes(:)], sym2DMatrix(:, atlasMask));
+end
+%%
+explainedCov = explained3DCov(1:3:length(explained3DCov));
+f = figure;
+view(gca,-90,0);
+colormap(gca,'jet');
+light = camlight(gca,'headlight');
+set(light,'Position',get(gca,'CameraPosition'));
+drawnow;
+visualizeCovExp = clone(preprocTemplate);
+visualizeCovExp.VertexValue = explainedCov;
+
+visualizeCovExp.ColorMode = 'indexed';
+visualizeCovExp.Material = 'Dull';
+visualizeCovExp.ViewMode = 'solid';
+colorbar(gca,'SouthOutside');
+visualizeCovExp.RenderAxes = gca;
+visualizeCovExp.Visible = true;
+visualizeCovExp.PatchHandle.FaceColor = 'flat';
+axis(gca,'image');
+axis(gca,'off');
+drawnow;
+savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
+saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
+view(gca,90,0);
+set(light,'Position',get(gca,'CameraPosition'));
+savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
+saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
+
 %%
 diary([SEGMENTATION_DIR  datestr(now) ' log.txt']);
 try
@@ -115,10 +160,10 @@ try
     disp(['Loaded computed residuals from ' SELECTION_DIR  'residuals.mat']);
 catch
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-    resT = getResiduals([covData centroidSizes(:)], sym2DMatrix);
+    [resT, explainedCovWhole] = controlForCovariates([covData centroidSizes(:)], sym2DMatrix);
     resT = repmat(avgT,size(resT,1),1)+resT;
     disp("Saving computed residuals..");
-    save([SELECTION_DIR  'residuals.mat'],'resT','-v7.3');
+    save([SELECTION_DIR  'residuals.mat'],'resT', 'explainedCovWhole', '-v7.3');
 end
 %% STEP 2: BUILDING RV MATRIX
 try

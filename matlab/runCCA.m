@@ -7,8 +7,9 @@ arguments
 end
 intChiSqSignificance = zeros(size(intervals, 1),1);
 
-[~,~,~,~, Q2, T22, perm2, rankY] = vl_mycanoncorr( (1:size(phenoPart,1))', phenoPart);
-[path,ID] = setupParForProgress(length(intervals));
+[...%~,~,
+    ~,~, Q2, T22, perm2, rankY] = vl_mycanoncorr((1:size(phenoPart,1))', phenoPart);
+
 if nargin < 4
     intIdVec = zeros(intervals(end,2),1);
     intIdVec(intervals(:,1)) = 1;
@@ -18,21 +19,25 @@ if ~iscell(geno)
     geno = splitapply( @(x){x'}, geno', intIdVec );
 end
 
-parfor i=1:length(intervals)
+[path,ID] = setupParForProgress(length(intervals));
+for i=1:length(intervals)
+%     tic;
     genoPart = double(geno{i});
-    [A,~,~,st] = vl_mycanoncorr(genoPart, phenoPart, Q2, T22, perm2, rankY);
+    validSelection = ~any(isnan(genoPart), 2);
+    [...%A,~,
+        ~,st] = vl_mycanoncorr(genoPart(validSelection, :), phenoPart(validSelection, :), Q2(validSelection, :), T22, perm2, rankY);
 
     intChiSqSignificance(i) = st.pChisq(1);
-    intCoeffs{i} = A(:,1);
-
+%     intCoeffs{i} = A(:,1);
+%     toc;
     parfor_progress;
 end
 closeParForProgress(path,ID);
 intStats.chiSqSignificance = intChiSqSignificance;
-intStats.coeffs = intCoeffs;
+% intStats.coeffs = intCoeffs;
 
 chiSqSignificance = intChiSqSignificance(intIdVec);
-coeffs = intCoeffs{intIdVec};
+% coeffs = intCoeffs{intIdVec};
 stats.chiSqSignificance = chiSqSignificance;
-stats.coeffs = coeffs;
+% stats.coeffs = coeffs;
 end

@@ -1,4 +1,10 @@
-function fig= paintClusters(clustered, template, numLevels)
+function [fig, handles]= paintClusters(clustered, template, numLevels, isRecursive)
+arguments
+    clustered
+    template
+    numLevels
+    isRecursive=true
+end
 fig=figure();
 pax = gca();
 hold on;
@@ -11,11 +17,56 @@ for i =1:numLevels
     angle = 2*pi/2^i;
     polarPoints{i} = angle * (1:2^i) - angle / 2;
 end
-paintRecursive(pax, xl, yl, axpos, ydir, clustered, template, polarPoints, [0,0], 1 / (2 * numLevels), 0);
+
+
+if isRecursive
+    [handles, ~] = paintRecursive(pax, xl, yl, axpos, ydir, clustered, template, polarPoints, [0,0], 1 / (2 * numLevels), 0);
+else
+    handles = paintIterative(pax, xl, yl, axpos, ydir, clustered, template, polarPoints,  1 / (2 * numLevels));
+end
 pax.set('XLim',[-0.5, 0.5]);
 pax.set('YLim',[-0.5, 0.5]);
 end
 
+function ret=paintIterative(pax, xl, yl, axpos, ydir, clustered, template,polarPoints, offsetR)
+cnt = 1;
+for c=1:size(clustered,1)
+    cluster = clustered(c, :);
+    level = c-1;
+    if level == 0
+        center = [[0,0]];
+        ret{cnt}.handle = paintSingle(find( cluster == 1), template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4);
+        ret{cnt}.level = level;
+        ret{cnt}.id = 1;
+        ret{cnt}.parent = 0;
+        cnt = cnt + 1;
+    else
+        levelPolarPoints = polarPoints{level};
+        for k = 1:length(levelPolarPoints)
+            angle = levelPolarPoints(k);
+            if level == 1
+                prevAngle = 0;
+            else
+                prevAngle = polarPoints{level-1}(ceil(k/2));
+            end
+            selection = cluster == k;
+            if ~any(selection), cnt=cnt+1; continue; end
+            [prevX, prevY] = pol2cart(prevAngle, (level-1)*offsetR);
+            [x, y] = pol2cart(angle, level * offsetR);
+            line(pax, [prevX, x], [prevY, y],'Color','black');
+            set(pax,'xlim',[0,1]);
+            set(pax,'ylim',[0,1]);
+            center = [x,y];
+            ret{cnt}.handle = paintSingle(find(selection), template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4);
+            ret{cnt}.level = level;
+            ret{cnt}.id = k;
+            ret{cnt}.parent = 2 ^ (level-1) + ceil(k/2) - 1;
+            cnt = cnt + 1;
+        end
+    end
+    
+end
+end
 
 function [ret, polarPoints] = paintRecursive(pax, xl, yl, axpos, ydir, clustered, template,polarPoints, center,  offsetR, level)
 if level > 0
@@ -54,7 +105,7 @@ end
 xycFigNorm = axpos(1:2) + axpos(3:4).*xycNorm; %normalized to figure
 end
 
-function shape =paintSingle(rootIndices, template,  center, axisSize)
+function ax =paintSingle(rootIndices, template,  center, axisSize)
 ax(1) = axes('pos',[center(1) - axisSize,  center(2) - axisSize/2, axisSize, axisSize]);
 ax(2) = axes('pos',[center(1) ,  center(2) - axisSize/2, axisSize, axisSize]);
 view(ax(1), 90, 0);

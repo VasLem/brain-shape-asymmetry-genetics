@@ -1,4 +1,5 @@
-function [A,B,r, stats, Q2, T22, perm2, rankY] = vl_mycanoncorr(X,Y, Q2, T22, perm2, rankY)
+function [...%A,B,
+              r, stats, Q2, T22, perm2, rankY] = vl_mycanoncorr(X,Y, Q2, T22, perm2, rankY)
 % An expansion of canoncorr to reuse/return Y related information and not
 % recompute it if not needed. Also, it does not compute  U = (X - mean(X))*A and
 %      V = (Y - mean(Y))*B.
@@ -59,12 +60,12 @@ function [A,B,r, stats, Q2, T22, perm2, rankY] = vl_mycanoncorr(X,Y, Q2, T22, pe
 
 %   Copyright 1993-2014 The MathWorks, Inc.
 arguments
-X double
-Y double
-Q2 double=0
-T22 double=0
-perm2 double = 0
-rankY double=0
+X single
+Y single
+Q2 single=0
+T22 single=0
+perm2 single = 0
+rankY single=0
 end
 
 if nargin < 2
@@ -107,19 +108,20 @@ end
 % in D. For rankX < rankY, need to ignore extra columns in M and D
 % explicitly. Normalize A and B to give U and V unit variance.
 d = min(rankX,rankY);
-[L,D,M] = svd(Q1' * Q2,0);
-A = T11 \ L(:,1:d) * sqrt(n-1);
-B = T22 \ M(:,1:d) * sqrt(n-1);
+D = svd(Q1' * Q2,0);
+% [L,D,M] = svd(Q1' * Q2,0);
+% A = T11 \ L(:,1:d) * sqrt(n-1);
+% B = T22 \ M(:,1:d) * sqrt(n-1);
 r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
 
 % Put coefficients back to their full size and their correct order
-A(perm1,:) = [A; zeros(p1-rankX,d)];
-B(perm2,:) = [B; zeros(p2-rankY,d)];
+% A(perm1,:) = [A; zeros(p1-rankX,d)];
+% B(perm2,:) = [B; zeros(p2-rankY,d)];
 
 
 
 % Compute test statistics for H0k: rho_(k+1) == ... = rho_d == 0
-if nargout > 3
+% if nargout > 3
     % Wilks' lambda statistic
     k = 0:(d-1);
     d1k = (rankX-k);
@@ -127,7 +129,7 @@ if nargout > 3
     nondegen = find(r < 1);
     logLambda = -Inf( 1, d);
     logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
-    stats.Wilks = exp(logLambda);
+%     stats.Wilks = exp(logLambda);
     
     % The exponent for Rao's approximation to an F dist'n.  When one (or both) of d1k
     % and d2k is 1 or 2, the dist'n is exactly F.
@@ -139,14 +141,14 @@ if nargout > 3
     
     % The degrees of freedom for H0k
     stats.df1 = d1k .* d2k;
-    stats.df2 = (n - .5*(rankX+rankY+3)).*s - .5*d1k.*d2k + 1;
+%     stats.df2 = (n - .5*(rankX+rankY+3)).*s - .5*d1k.*d2k + 1;
     
     % Rao's F statistic
-    powLambda = stats.Wilks.^(1./s);
-    ratio = Inf( 1, d);
-    ratio(nondegen) = (1 - powLambda(nondegen)) ./ powLambda(nondegen);
-    stats.F = ratio .* stats.df2 ./ stats.df1;
-    stats.pF = fpval(stats.F, stats.df1, stats.df2);
+%     powLambda = stats.Wilks.^(1./s);
+%     ratio = Inf( 1, d);
+%     ratio(nondegen) = (1 - powLambda(nondegen)) ./ powLambda(nondegen);
+%     stats.F = ratio .* stats.df2 ./ stats.df1;
+%     stats.pF = fpval(stats.F, stats.df1, stats.df2);
 
     % Lawley's modification to Bartlett's chi-squared statistic
     stats.chisq = -(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda;
@@ -155,7 +157,7 @@ if nargout > 3
     % Legacy fields - these are deprecated
     stats.dfe = stats.df1;
     stats.p = stats.pChisq;
-end
+% end
 end
 
 function p = fpval(x,df1,df2)
