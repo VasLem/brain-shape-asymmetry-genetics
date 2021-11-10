@@ -14,20 +14,21 @@ PNG_DIR = [RESULTS_DIR 'png/'];
 if ~isfolder(PNG_DIR), mkdir(PNG_DIR); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
-
-for i=1:length(handles)
-
-f1 = figure('visible','off'); 
-s = copyobj(handles{i}.handle,f1);
-set(s(1),'position',[0.08 0.25 0.5 0.5]);
-set(s(2),'position',[0.42 0.25 0.5 0.5]);
-exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
-system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
-close(f1);
-end
+%% Uncomment to redraw partitions
+% for i=1:length(handles)
+% 
+% f1 = figure('visible','off'); 
+% s = copyobj(handles{i}.handle,f1);
+% set(s(1),'position',[0.08 0.25 0.5 0.5]);
+% set(s(2),'position',[0.42 0.25 0.5 0.5]);
+% exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
+% system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
+% close(f1);
+% end
 %%
-bCId ='Wout';
-
+bCIds = ["With", "Wout"];
+for i=1:2
+    bCId = char(bCIds(i));
 text = 'digraph G{';
 leg1 = '';
 leg2 = '';
@@ -78,19 +79,21 @@ legendText = ['digraph {\n'...
     leg3 '\n}\n}'];
     
 text = [text, '\n}\n'];
-fileID = fopen([GRAPHVIZ_DIR 'graph.gv'],'w');
+fileID = fopen([GRAPHVIZ_DIR  'graph' bCId 'BC.gv'],'w');
 fprintf(fileID,text);
 fclose(fileID);
-fileID = fopen([GRAPHVIZ_DIR 'legGraph.gv'],'w');
+fileID = fopen([GRAPHVIZ_DIR  'legGraph' bCId 'BC.gv'],'w');
 fprintf(fileID,legendText);
 fclose(fileID);
-%%
-system(['twopi -Tpng -o ' RESULTS_DIR 'significanceSNPPropagation.png ' GRAPHVIZ_DIR 'graph.gv -Granksep=2 -Gratio=auto -Gfontsize=15'])
-system(['dot -Tpng -o ' RESULTS_DIR 'legSignificanceSNPPropagation.png ' GRAPHVIZ_DIR 'legGraph.gv'])
-g = imread([RESULTS_DIR 'significanceSNPPropagation.png']);
+graph_png_path = [RESULTS_DIR 'significanceSNPPropagation' bCId 'BC.png'];
+leg_png_path = [RESULTS_DIR 'legSignificanceSNPPropagation' bCId 'BC.png'];
+system(['twopi -Tpng -o ' graph_png_path ' ' GRAPHVIZ_DIR 'graph' bCId 'BC.gv -Granksep=2 -Gratio=auto -Gfontsize=15'])
+system(['dot -Tpng -o ' leg_png_path ' ' GRAPHVIZ_DIR 'legGraph' bCId 'BC.gv'])
+g = imread( graph_png_path);
 figure;
 imshow(g);
 title([bCId 'Bonferonni Correction']);
-g = imread([RESULTS_DIR 'legSignificanceSNPPropagation.png ']);
+g = imread(leg_png_path);
 figure;
 imshow(g);
+end
