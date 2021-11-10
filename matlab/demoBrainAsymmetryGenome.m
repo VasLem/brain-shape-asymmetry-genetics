@@ -135,14 +135,14 @@ for CHR=1:22
         disp("Computing Intervals..")
         intervals = getIntervals(snpsPruned, GENE_SET_METHOD);
         disp("Splitting genome into groups, according to intervals information..")
-        gId = zeros(intervals(end,2),1);
-        gId(intervals(:, 1)) = 1;
-        gId = cumsum(gId);
+        
         genoInt = splitapply( @(x){x'}, genoPruned', gId );
         save([CHR_DIR 'intervals.mat'], 'genoInt', 'intervals', '-v7.3');
     end
     %%
-   
+    gId = zeros(intervals(end,2),1);
+    gId(intervals(:, 1)) = 1;
+    gId = cumsum(gId);
     try
         load([CHR_DIR 'controlled_geno.mat'], 'genoControlledInt');
         disp("Loaded controlled genome for covariates based on intervals.")
@@ -229,7 +229,7 @@ function [intSigSnps, sigSnps] = prepareSignificantTablesOnEachPartition(snps, c
 pNum = size(ccaIntStats.chiSqSignificance ,1);
 for i=1:pNum
     partIntStats.chiSqSignificance = ccaIntStats.chiSqSignificance(i, :);
-    partStats.coeffs = ccaStats.coeffs(i, :);
+%     partStats.coeffs = ccaStats.coeffs(i, :);
     [intRet, ret] =  prepareSignificantTables(snps, partStats, partIntStats, ccaIntervals, pThres);
     intRet.PARTITION = repmat(i,height(intRet),1);
     ret.PARTITION = repmat(i,height(ret),1);
@@ -265,16 +265,17 @@ stSnps.Properties.VariableNames = strcat(snps.Properties.VariableNames', '_ST')'
 enSnps = snps(ends,:);
 enSnps.Properties.VariableNames = strcat(snps.Properties.VariableNames', '_EN')';
 
-sigSnpsCoef = zeros(size(significantInts, 1),1);
+% sigSnpsCoef = zeros(size(significantInts, 1),1);
 sigSnps = table();
 for c=1:size(significantInts,1)
     intSnps = snps(starts(c):ends(c),:);
-    intCoeffs = ccaStats.coeffs(starts(c):ends(c));
-    [~, maxCoefArg] = max(abs(intCoeffs));
-    sigSnpsCoef(c) = intCoeffs(maxCoefArg);
-    sigSnps(c, :) = intSnps(maxCoefArg, :);
+%     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
+%     [~, maxCoefArg] = max(abs(intCoeffs));
+%     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
+%     sigSnps(c, :) = intSnps(maxCoefArg, :);
+    sigSnps(c, :) = intSnps(1, :);
 end
-sigSnps.COEF = sigSnpsCoef;
+% sigSnps.COEF = sigSnpsCoef;
 intSigSnps = [stSnps, enSnps];
 if ~strcmp(savePath, "")
     writetable(sigSnps, [savePath 'significant_snps.csv']);
