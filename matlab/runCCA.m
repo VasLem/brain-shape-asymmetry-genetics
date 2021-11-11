@@ -20,7 +20,7 @@ if ~iscell(geno)
 end
 
 [path,ID] = setupParForProgress(length(intervals));
-for i=1:length(intervals)
+parfor i=1:length(intervals)
 %     tic;
     genoPart = double(geno{i});
     validSelection = ~any(isnan(genoPart), 2);

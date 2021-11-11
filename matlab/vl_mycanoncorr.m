@@ -85,13 +85,15 @@ X = X - mean(X,1);
 Y = Y - mean(Y,1);
 
 % Factor the inputs, and find a full rank set of columns if necessary
-[Q1,T11,perm1] = qr(X,0);
+[Q1,T11...%,perm1
+    ] = qr(X,0);
 rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
 if rankX == 0
     error(message('stats:canoncorr:BadData', 'X'));
 elseif rankX < p1
     warning(message('stats:canoncorr:NotFullRank', 'X'));
-    Q1 = Q1(:,1:rankX); T11 = T11(1:rankX,1:rankX);
+    Q1 = Q1(:,1:rankX); 
+    T11 = T11(1:rankX,1:rankX);
 end
 if Q2==0
     [Q2,T22,perm2] = qr(Y,0);
@@ -108,8 +110,7 @@ end
 % in D. For rankX < rankY, need to ignore extra columns in M and D
 % explicitly. Normalize A and B to give U and V unit variance.
 d = min(rankX,rankY);
-D = svd(Q1' * Q2,0);
-% [L,D,M] = svd(Q1' * Q2,0);
+[~,D,~] = svd(Q1' * Q2,0);
 % A = T11 \ L(:,1:d) * sqrt(n-1);
 % B = T22 \ M(:,1:d) * sqrt(n-1);
 r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
@@ -133,11 +134,11 @@ r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
     
     % The exponent for Rao's approximation to an F dist'n.  When one (or both) of d1k
     % and d2k is 1 or 2, the dist'n is exactly F.
-    s = ones(1,d); % default value for cases where the exponent formula fails
-    okCases = find(d1k.*d2k > 2); % cases where (d1k,d2k) not one of (1,2), (2,1), or (2,2)
-    snumer = d1k.*d1k.*d2k.*d2k - 4;
-    sdenom = d1k.*d1k + d2k.*d2k - 5;
-    s(okCases) = sqrt(snumer(okCases) ./ sdenom(okCases));
+%     s = ones(1,d); % default value for cases where the exponent formula fails
+%     okCases = find(d1k.*d2k > 2); % cases where (d1k,d2k) not one of (1,2), (2,1), or (2,2)
+%     snumer = d1k.*d1k.*d2k.*d2k - 4;
+%     sdenom = d1k.*d1k + d2k.*d2k - 5;
+%     s(okCases) = sqrt(snumer(okCases) ./ sdenom(okCases));
     
     % The degrees of freedom for H0k
     stats.df1 = d1k .* d2k;

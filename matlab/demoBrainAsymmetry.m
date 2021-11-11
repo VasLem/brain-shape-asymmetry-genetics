@@ -122,8 +122,23 @@ refTemplate = brainSurface.RefScan;
 % compare different datasets, otherwise it would not be possible,
 % as we would then have different point of reference
 % TODO fix this
-[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, reduce, subsample, 1);
 
+sizeD = size(LH, 3);
+testRetestDataset = loadTestRetestDataset();
+tRShape = size(testRetestDataset.LH);
+tRLH = permute(reshape(permute(testRetestDataset.LH, [3,4, 1,2]), [tRShape(3) * tRShape(4), tRShape(1:2)]), [2, 3, 1]);
+tRRH = permute(reshape(permute(testRetestDataset.RH, [3,4, 1,2]), [tRShape(3) * tRShape(4), tRShape(1:2)]), [2, 3, 1]);
+
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] =...
+    preprocessSymmetry(refTemplate, cat(3, LH, tRLH), cat(3, RH, tRRH), [phenoIID;cell(40,1)], reduce, 1, 3);
+
+alignedTRLH = preprocLH(:, :, sizeD + 1: end);
+alignedTRRH = preprocRH(:, :, sizeD + 1: end);
+preprocLH = preprocLH(:, :, 1: sizeD);
+preprocRH = preprocRH(:, :, 1: sizeD);
+preprocPhenoIID = preprocPhenoIID{1:sizeD};
+%%
+testRetestVariance = testRetestComputeVariance(alignedTRLH, alignedTRRH, preprocTemplate, RESULTS_DIR, 2);
 
 
 nLandmarks = length(preprocLandmarksIndices);
@@ -148,9 +163,8 @@ repPreprocLH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocRH(:, :, :, 1) = single(preprocRH);
 repPreprocLH(:, :, :, 1) = single(preprocLH);
 if nRep > 1
-    variance = load('../results/test_retest_information.mat').variance;
-    mstdLH = sqrt(variance.LH(preprocLandmarksIndices, :));
-    mstdRH = sqrt(variance.RH(preprocLandmarksIndices, :));
+    mstdLH = sqrt(testRetestVariance.LH(preprocLandmarksIndices, :));
+    mstdRH = sqrt(testRetestVariance.RH(preprocLandmarksIndices, :));
     for i = 2: nRep + 1
         repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* mstdRH) ;
         repPreprocLH(:, :, :, i) = single(preprocLH + randn(size(preprocLH)) .* mstdLH);
@@ -220,4 +234,72 @@ message = ['AutoUpdate ' datestr(datetime('now'))];
 system(['git commit -m "' message '"']);
 system('git push origin');
 
+
+function variance = testRetestComputeVariance(alignedPLH, alignedPRH, template, resultsDir, nRep)
+arguments
+    alignedPLH
+    alignedPRH
+    template
+    resultsDir
+    nRep=2
+end
+    
+shape = size(alignedPLH);
+alignedLH = permute(reshape(permute(alignedPLH, [3, 1, 2]), [shape(3) / nRep, nRep, shape(1), shape(2)]), [3,4,1,2]);
+alignedRH = permute(reshape(permute(alignedPRH, [3, 1, 2]), [shape(3) / nRep, nRep, shape(1), shape(2)]), [3,4,1,2]);
+
+outLH = mean(var(alignedLH,0,4),3);
+outRH = mean(var(alignedRH,0,4),3);
+%The following is the reason why we decided to keep both variances and not
+%compute the mean out of them. For the test retest dataset, technical
+%measurement errors do not seem to be characterized by symmetry on the
+%midsaggital plane
+f = figure;
+hist(outLH - outRH);
+title('Difference between measurement variances of contralateral and symmetrical, as of the midsaggital plane, landmarks')
+saveas(f, [resultsDir 'testRetestVarDiff.png'])
+variance.LH = outLH;
+variance.RH = outRH;
+%%
+template = clone(template);
+f = figure;
+axes = subplot(2, 2, 1);
+renderBrainSurface(template, mean(variance.LH, 2), axes);
+view(axes,-90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Left');
+colorbar(axes, 'SouthOutside');
+
+
+axes = subplot(2, 2, 2);
+renderBrainSurface(template, mean(variance.LH, 2), axes);
+view(axes,90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Left');
+colorbar(axes,'SouthOutside');
+
+
+axes = subplot(2,2,[3,4]);
+title(axes,'Right');
+axes = subplot(2, 2, 3);
+renderBrainSurface(template, mean(variance.RH, 2), axes);
+view(axes,-90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Right');
+colorbar(axes,'SouthOutside');
+
+axes = subplot(2, 2, 4);
+renderBrainSurface(template, mean(variance.RH, 2), axes);
+view(axes,90,0);
+light = camlight(axes,'headlight');
+set(light,'Position',get(axes,'CameraPosition'));
+title('Right');
+colorbar(axes,'SouthOutside');
+
+saveas(f, [resultsDir 'test_retest_variance.png']);
+save([resultsDir 'test_retest_information.mat'], "variance","-v7");
+end
 

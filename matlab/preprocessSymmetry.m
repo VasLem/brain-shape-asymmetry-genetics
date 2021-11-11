@@ -11,7 +11,7 @@ arguments
 template shape3D
 LH single
 RH single
-samplesIDs cell
+samplesIDs
 reduction_rate double = 1
 subsampling_rate double = 1
 gpaN uint8 = 3

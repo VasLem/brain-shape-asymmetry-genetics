@@ -129,20 +129,21 @@ for CHR=1:22
     assert(all((1:length(phenoId)) == phenoIndex'));
     %% Partition SNPs
     try
-        load([CHR_DIR 'intervals.mat'], 'genoInt', 'intervals');
+        load([CHR_DIR 'intervals.mat'], 'genoInt', 'intervals', 'gId');
         disp("Loaded intervals..");
     catch
         disp("Computing Intervals..")
         intervals = getIntervals(snpsPruned, GENE_SET_METHOD);
         disp("Splitting genome into groups, according to intervals information..")
-        
+        gId = zeros(intervals(end,2),1);
+        gId(intervals(:, 1)) = 1;
+        gId = cumsum(gId);
         genoInt = splitapply( @(x){x'}, genoPruned', gId );
-        save([CHR_DIR 'intervals.mat'], 'genoInt', 'intervals', '-v7.3');
+        save([CHR_DIR 'intervals.mat'], 'genoInt', 'intervals', 'gId', '-v7.3');
     end
+    clear genoPruned
     %%
-    gId = zeros(intervals(end,2),1);
-    gId(intervals(:, 1)) = 1;
-    gId = cumsum(gId);
+    
     try
         load([CHR_DIR 'controlled_geno.mat'], 'genoControlledInt');
         disp("Loaded controlled genome for covariates based on intervals.")
@@ -166,6 +167,7 @@ for CHR=1:22
         end
         [noPartitionStats, noPartitionIntStats] = runCCA(noPartPheno, genoControlledInt, intervals, gId);
         save([CHR_DIR 'noPartCCA.mat'], 'noPartitionStats', 'noPartitionIntStats', '-v7.3');
+        clear noPartPheno;
     end
     %%
     noPartitionThres = 5*10^-8;
@@ -181,13 +183,13 @@ for CHR=1:22
         [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(pheno, genoControlledInt, intervals, gId, CHR_DIR, MAX_NUM_FEATS);
         gTLPartsPThres = noPartitionThres / length(pheno.clusterPCAPhenoFeatures);
         plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
-        save([CHR_DIR, 'withPartCCA.mat'], 'intervals', 'noPartitionStats', 'noPartitionIntStats',  'gTLPartStats', 'gTLPartIntStats', '-v7.3');
+        save([CHR_DIR, 'withPartCCA.mat'], 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
     end
     
     %% Significant SNPs tables extraction
     disp("Extracting significant SNPs tables..")
-%     prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
-%     prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, noPartitionThres, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, noPartitionThres, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
 %     
     
     %%
@@ -298,7 +300,7 @@ pnum = length(pheno.clusterPCAPhenoFeatures);
 gnum = intervals(end,2);
 inum = size(intervals, 1);
 chisq = zeros(pnum, gnum);
-coeffs = zeros(pnum, gnum);
+% coeffs = zeros(pnum, gnum);
 intChisSq = zeros(pnum, inum);
 for k=pnum:-1:1
     phenoPart = pheno.clusterPCAPhenoFeatures{k};
@@ -319,15 +321,15 @@ for k=pnum:-1:1
     end
         
     chisq(k, :) = s.chiSqSignificance;
-    coeffs(k, :) = s.coeffs;
+%     coeffs(k, :) = s.coeffs;
     intChisSq(k, :) = i.chiSqSignificance;
-    intCoeffs{k} = i.coeffs;
+%     intCoeffs{k} = i.coeffs;
 end
 
 intStats.chiSqSignificance = intChisSq;
-intStats.coeffs = intCoeffs;
+% intStats.coeffs = intCoeffs;
 stats.chiSqSignificance = chisq;
-stats.coeffs = coeffs;
+% stats.coeffs = coeffs;
 end
 
 
