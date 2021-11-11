@@ -147,24 +147,13 @@ nLandmarks = length(preprocLandmarksIndices);
 %%SAMPLE_DATA
 % clear DATA;
 %%
-symmetric = (preprocLH + preprocRH)/2;
-asymmetric = (preprocLH - preprocRH);
-%%
-arr = asymmetric;
-arr = reshape(arr, [size(arr,1) * size(arr,2) size(arr,3)])';
-[coeff, score, latent, tsquared, explained] = pca(arr, "NumComponents", 100);
-f = figure;
-plot(cumsum(explained));
-savefig(f, [RESULTS_DIR, 'asymmetricPCAExplained.fig']);
-
-
 repPreprocRH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocLH = zeros([size(preprocRH), nRep + 1], 'single');
 repPreprocRH(:, :, :, 1) = single(preprocRH);
 repPreprocLH(:, :, :, 1) = single(preprocLH);
 if nRep > 1
-    mstdLH = sqrt(testRetestVariance.LH(preprocLandmarksIndices, :));
-    mstdRH = sqrt(testRetestVariance.RH(preprocLandmarksIndices, :));
+    mstdLH = sqrt(testRetestVariance.LH);
+    mstdRH = sqrt(testRetestVariance.RH);
     for i = 2: nRep + 1
         repPreprocRH(:, :, :, i) = single(preprocRH + randn(size(preprocRH)) .* mstdRH) ;
         repPreprocLH(:, :, :, i) = single(preprocLH + randn(size(preprocLH)) .* mstdLH);
@@ -256,7 +245,7 @@ outRH = mean(var(alignedRH,0,4),3);
 %midsaggital plane
 f = figure;
 hist(outLH - outRH);
-title('Difference between measurement variances of contralateral and symmetrical, as of the midsaggital plane, landmarks')
+title({'Difference between measurement variances of contralateral and symmetrical,', 'as of the midsaggital plane, landmarks'})
 saveas(f, [resultsDir 'testRetestVarDiff.png'])
 variance.LH = outLH;
 variance.RH = outRH;
