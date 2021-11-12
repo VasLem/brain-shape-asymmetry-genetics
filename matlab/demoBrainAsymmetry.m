@@ -23,7 +23,7 @@ nRep = 3;
 nIter = 1000;
 THREADS = 8;
 reduce = 0.1;
-subsample = 1;
+subsample = 0.1;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
 %nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
@@ -105,7 +105,7 @@ for r=1:nR
     end
 end
 
-template = clone(DATA{1}.Region.AvgShape);
+template = clone(DATA{2}.Region.AvgShape);
 
 LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;

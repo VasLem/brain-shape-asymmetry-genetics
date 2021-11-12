@@ -86,7 +86,8 @@ catch
     regionName = Region.Name;
     save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizes', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
 end
-
+%%
+preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
 %%
 
 nLandmarks = length(preprocLandmarksIndices);

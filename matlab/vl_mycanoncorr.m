@@ -110,7 +110,7 @@ end
 % in D. For rankX < rankY, need to ignore extra columns in M and D
 % explicitly. Normalize A and B to give U and V unit variance.
 d = min(rankX,rankY);
-[~,D,~] = svd(Q1' * Q2,0);
+D = diag(svd(Q1' * Q2,0));
 % A = T11 \ L(:,1:d) * sqrt(n-1);
 % B = T22 \ M(:,1:d) * sqrt(n-1);
 r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
@@ -127,7 +127,7 @@ r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
     k = 0:(d-1);
     d1k = (rankX-k);
     d2k = (rankY-k);
-    nondegen = find(r < 1);
+    nondegen = r < 1;
     logLambda = -Inf( 1, d);
     logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
 %     stats.Wilks = exp(logLambda);

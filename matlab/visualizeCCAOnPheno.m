@@ -3,6 +3,7 @@ addpath(genpath('AIDFUNCTIONS'));
 clusterArray = load('../results/hierarchicalClusteringDemo/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat').clusterArray;
 template = load('/home/vlemon0/home/code/results/hierarchicalClusteringDemo/asymmetry_reduction10/input.mat').preprocTemplate;
 %%
+template.Vertices(:,1) = -template.Vertices(:,1);
 [fig, handles] = paintClusters(clusterArray, template, 5, false);
 %%
 RESULTS_DIR = '../results/visualizeCCAOnPheno/';
@@ -15,16 +16,16 @@ if ~isfolder(PNG_DIR), mkdir(PNG_DIR); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
 %% Uncomment to redraw partitions
-% for i=1:length(handles)
-% 
-% f1 = figure('visible','off'); 
-% s = copyobj(handles{i}.handle,f1);
-% set(s(1),'position',[0.08 0.25 0.5 0.5]);
-% set(s(2),'position',[0.42 0.25 0.5 0.5]);
-% exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
-% system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
-% close(f1);
-% end
+for i=1:length(handles)
+
+f1 = figure('visible','off'); 
+s = copyobj(handles{i}.handle,f1);
+set(s(1),'position',[0.08 0.25 0.5 0.5]);
+set(s(2),'position',[0.42 0.25 0.5 0.5]);
+exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
+system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
+close(f1);
+end
 %%
 bCIds = ["With", "Wout"];
 for i=1:2
