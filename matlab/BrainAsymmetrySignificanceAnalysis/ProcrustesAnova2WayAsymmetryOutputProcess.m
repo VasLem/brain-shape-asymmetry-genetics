@@ -1,9 +1,12 @@
-function data= ProcrustesAnova2WayAsymmetryOutputProcess(brainSurface, showstruct, nSamplesPerPick, showPerm, saveMatFileName)
-if nargin < 2
+function data= ProcrustesAnova2WayAsymmetryOutputProcess(brainSurface, showstruct, nSamplesPerPick, showPerm, saveMatFileName, smallestPvalue)
+if nargin < 4
     showPerm = true;
 end
-if nargin < 3
+if nargin < 5
     saveMatFileName = '';
+end
+if nargin < 6
+    smallestPvalue = 0.0001;
 end
 i=1;
 VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'I';
@@ -43,8 +46,9 @@ titlenames{i,3} = 'p-Value';
 catch
 end
 labels = ["Individual", "Directional", "Fluctuating"];
-thresholds = [0.05, 0.01, 0.005, 0.0001];
-
+thresholds = 10.^-(log10(1/smallestPvalue)-(2:-1:0));
+thresholds = [thresholds * 5; thresholds];
+thresholds = thresholds(:)';
 
             
 try
@@ -52,7 +56,7 @@ for i=1:3
     val = VertexValues{i,3};
     res = zeros(size(val));
     c = 1;
-    for t=thresholds
+    for t=thresholds(1:end-1)
         res(val<=t) = c;
         c = c+1;
     end
@@ -62,11 +66,10 @@ end
 catch
 end
 data.values = VertexValues;
-data.total = showstruct.Total;
 data.titleNames = titlenames;
 data.brainSurface = brainSurface;
 try
-data.totalStats = showstruct.Total;
+data.total = showstruct.Total; % no total for AMMI
 data.nSamplesPerPick = nSamplesPerPick;
 data.labels = labels;
 data.thresholds = thresholds;

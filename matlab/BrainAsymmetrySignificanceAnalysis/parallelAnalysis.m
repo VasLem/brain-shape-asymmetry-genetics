@@ -28,13 +28,18 @@ if ~exist('alpha', 'var')
 end
 [~,~,latent, ~] = pca(x, varargin{:});
 latentShuffle = zeros(length(latent), nShuffle);
+tic;
+ppb = ParforProgressbar(nShuffle);
 parfor iShuffle = 1:nShuffle
         xShuffle = x;
         for dim = 1:size(x,2)
                 xShuffle(:, dim) = x(randperm(size(x,1)), dim);
         end
         [~, ~ ,latentShuffle(:,iShuffle)] = pca(xShuffle, varargin{:});
+        ppb.increment();
 end
+toc;
+delete(ppb);
 latentHigh = quantile(latentShuffle', 1-alpha);
 latentLow = quantile(latentShuffle', alpha);
 if nargout == 0

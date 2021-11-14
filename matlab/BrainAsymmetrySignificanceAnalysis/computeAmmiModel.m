@@ -1,4 +1,8 @@
-function out = computeAmmiModel(Shapes, resultsDir)
+function [out, score] = computeAmmiModel(Shapes,  numComponents)
+arguments
+Shapes
+numComponents=0
+end
 inputShapes = Shapes;
 n = size(inputShapes,3)/2;
 LH = inputShapes(:,:,1:n);
@@ -14,26 +18,23 @@ indDif = avgShapes - avgShape ;
 I = mean(sqrt(sum(indDif.^2,2)),3);
 %%
 disp("Computing Fluctuating Asymmetry..")
-flucMat = LH - RH + avgShape;
-flucMat = squeeze(sqrt(sum((flucMat).^2,2)));
+flucMat = sideDif - mean(sideDif,3);
+flucMat = reshape( permute(flucMat, [2,1,3]), [],size(flucMat,3));
+if numComponents==0
 disp("..Selecting optimal number of Principal Components to retain (Parallel Analysis)..")
-[latent, ~, latentHigh] = parallelAnalysis(flucMat', 100,0.05);
+[latent, ~, latentHigh] = parallelAnalysis(flucMat, 100,0.05);
 numComponents = sum(latent > latentHigh');
+end
 disp(['..Selected number of components: ' num2str(numComponents)]);
 disp("..Applying PCA reconstruction..")
-[coeff, score, ~] =  pca(flucMat','Centered',false);
-rec = coeff(:, 1:numComponents) * score(:, 1:numComponents)' ;
-f = figure();
-scatter(rec(:,1), rec(:,2));
-xlab('PC1');
-ylab('PC2');
-title("AMMI Fluctuating Asymmetry Response");
-savefig(f, [resultsDir 'ammi_pc2.fig']);
-saveas(f, [resultsDir 'ammi_pc2.png']);
-F = mean(rec,2);
+[coeff, score, ~] =  pca(flucMat,'Centered',false, 'NumComponents', numComponents);
+rec = coeff * score';
+rec = mean(rec,1);
+rec = sqrt(sum(reshape(rec,3,[]).^2, 1)');
+score = squeeze(sqrt(sum(reshape(score, 3, [], numComponents).^2, 1)));
+F = rec;
 out.LM.I = I';
 out.LM.D = D';
 out.LM.F = F';
-out.Raw.F = rec;
 end
 
