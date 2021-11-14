@@ -18,21 +18,28 @@ end
 if ~iscell(geno)
     geno = splitapply( @(x){x'}, geno', intIdVec );
 end
+ppm = ParforProgressbar(length(intervals), 'showWorkerProgress', true);
 
-[path,ID] = setupParForProgress(length(intervals));
-parfor i=1:length(intervals)
-%     tic;
-    genoPart = double(geno{i});
-    validSelection = ~any(isnan(genoPart), 2);
-    [...%A,~,
-        ~,st] = vl_mycanoncorr(genoPart(validSelection, :), phenoPart(validSelection, :), Q2(validSelection, :), T22, perm2, rankY);
+ME = [];
+try
+  parfor i=1:length(intervals)
+    %     tic;
+        genoPart = double(geno{i});
+        validSelection = ~any(isnan(genoPart), 2);
+        [...%A,~,
+            ~,st] = vl_mycanoncorr(genoPart(validSelection, :), phenoPart(validSelection, :), Q2(validSelection, :), T22, perm2, rankY);
 
-    intChiSqSignificance(i) = st.pChisq(1);
-%     intCoeffs{i} = A(:,1);
-%     toc;
-    parfor_progress;
+        intChiSqSignificance(i) = st.pChisq(1);
+    %     intCoeffs{i} = A(:,1);
+    %     toc;
+        ppm.increment();
+    end
+catch ME 
 end
-closeParForProgress(path,ID);
+delete(ppm);
+if ~isempty(ME)
+   rethrow(ME);
+end
 intStats.chiSqSignificance = intChiSqSignificance;
 % intStats.coeffs = intCoeffs;
 

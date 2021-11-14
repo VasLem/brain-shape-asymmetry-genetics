@@ -60,12 +60,12 @@ function [...%A,B,
 
 %   Copyright 1993-2014 The MathWorks, Inc.
 arguments
-X single
+X
 Y single
-Q2 single=0
-T22 single=0
-perm2 single = 0
-rankY single=0
+Q2 single=nan
+T22 single=nan
+perm2 single =nan
+rankY single=nan
 end
 
 if nargin < 2
@@ -82,20 +82,27 @@ p2 = size(Y,2);
 
 % Center the variables
 X = X - mean(X,1);
-Y = Y - mean(Y,1);
 
+if size(X,2)==1
+%     T11 = sqrt(sum(X.^2));
+    Q1 = X ./ sqrt(sum(X.^2));
+    rankX = 1;
+else
 % Factor the inputs, and find a full rank set of columns if necessary
-[Q1,T11...%,perm1
-    ] = qr(X,0);
-rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
+    [Q1,T11...%,perm1
+        ] = qr(X,0);
+    rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
+end
+
 if rankX == 0
     error(message('stats:canoncorr:BadData', 'X'));
 elseif rankX < p1
     warning(message('stats:canoncorr:NotFullRank', 'X'));
     Q1 = Q1(:,1:rankX); 
-    T11 = T11(1:rankX,1:rankX);
+%     T11 = T11(1:rankX,1:rankX);
 end
-if Q2==0
+if nargin < 3
+    Y = Y - mean(Y,1);
     [Q2,T22,perm2] = qr(Y,0);
     rankY = sum(abs(diag(T22)) > eps(abs(T22(1)))*max(n,p2));
     if rankY == 0

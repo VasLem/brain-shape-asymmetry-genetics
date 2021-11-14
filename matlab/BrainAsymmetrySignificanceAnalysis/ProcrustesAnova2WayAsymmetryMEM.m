@@ -5,11 +5,15 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nIter,factor,nSplits, showP
 %
 %nSplits is supplied to split the computation into parts in case it is
 %memory intensive
+arguments
+X1
+X2
+nIter=0
+factor=10000;
+nSplits=1;
+showProgress=true;
+end
 [n,nrV,rep] = size(X1);
-if nargin < 3, nIter = 0; end
-if nargin < 4, factor=10000; end
-if nargin < 5, nSplits=1; end
-if nargin < 6, showProgress=true; end
 SSs = zeros(4,nrV);
 Means = zeros(2,nrV);
 pX1 = permute(X1, [3,2,1]);
@@ -17,7 +21,7 @@ pX2 = permute(X2, [3,2,1]);
 
 if showProgress
     tic;
-    [path,ID] = setupParForProgress(nrV);
+    ppb = ParforProgressbar(nrV);
 end
 parfor i=1:nrV
     Set1 = squeeze(single(pX1(:,i,:))/factor);
@@ -30,10 +34,10 @@ parfor i=1:nrV
     end
     SSs(:,i) =  ss(:);
     Means(:,i) = STATS.colmeans';
-    if showProgress, parfor_progress; end
+    if showProgress, ppb.increment(); end
 end
 if showProgress
-    closeParForProgress(path,ID)
+    delete(ppb)
     toc;
 end
 MeanX1 = reshape(Means(1,:),3,length(Means(1,:))/3);
@@ -67,7 +71,7 @@ pX2 = permute(pX2, [2,1,3]);
 splitSize = ceil(nrV / nSplits);
 if showProgress
 tic;
-[path,ID] = setupParForProgress(nIter);
+ppb = ParforProgressbar(nIter);    
 end
 parfor k=1:nIter
     asm = AsymmetryComponentsAnalysis(n,nrV, rep);
@@ -112,10 +116,10 @@ parfor k=1:nIter
     [~, ~, ~, ~, FF, TFF] = asm.interactionEffect(SS_E, SS_F);
     FFCount(k,:) = FF>=LM.FF;
     TFFCount(k) = TFF>=Total.FF;
-    if showProgress; parfor_progress; end
+    if showProgress; ppb.increment(); end
 end
 if showProgress
-    closeParForProgress(  path,ID);
+    delete(ppb);
     toc;
 end
 out.LM.permFF = (sum(FFCount,1)+1)/(nIter+1);

@@ -129,7 +129,7 @@ end
 %%
 explainedCov = explained3DCov(1:3:length(explained3DCov));
 f = figure;
-view(gca,-90,0);
+view(gca,90,0);
 colormap(gca,'jet');
 light = camlight(gca,'headlight');
 set(light,'Position',get(gca,'CameraPosition'));
@@ -149,7 +149,7 @@ axis(gca,'off');
 drawnow;
 savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
 saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
-view(gca,90,0);
+view(gca,-90,0);
 set(light,'Position',get(gca,'CameraPosition'));
 savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
 saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);

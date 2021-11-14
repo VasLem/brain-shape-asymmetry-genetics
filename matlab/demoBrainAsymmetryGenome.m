@@ -21,7 +21,11 @@ try
 catch
 end
 %%
-for CHR=1:22
+ST_CHR=1;
+EN_CHR=22;
+%%
+for CHR=ST_CHR:EN_CHR
+    %%
     disp(['CHR:' , num2str(CHR)]);
     GENE_SET_METHOD = 'perSNP';
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
@@ -173,6 +177,7 @@ for CHR=1:22
     noPartitionThres = 5*10^-8;
     plotSimpleGWAS(intervals, noPartitionIntStats, CHR, noPartitionThres,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
     %%
+    gTLPartsPThres = noPartitionThres / length(pheno.clusterPCAPhenoFeatures);
     try
         load([CHR_DIR 'withPartCCA.mat'],  'gTLPartStats', 'gTLPartIntStats');
         disp("Loaded Computed CCA with phenotypic partinioning");
@@ -181,15 +186,17 @@ for CHR=1:22
         % With Global-To-Local Partitioning Into Consideration
         disp("Computing CCA with phenotypic partitioning..")
         [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(pheno, genoControlledInt, intervals, gId, CHR_DIR, MAX_NUM_FEATS);
-        gTLPartsPThres = noPartitionThres / length(pheno.clusterPCAPhenoFeatures);
+        
         plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
         save([CHR_DIR, 'withPartCCA.mat'], 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
     end
     
     %% Significant SNPs tables extraction
     disp("Extracting significant SNPs tables..")
-    prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
-    prepareSignificantTablesOnEachPartition(snpsPruned, gTLPartStats, gTLPartIntStats , intervals, noPartitionThres, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
+    %%
+    prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
+    %%
+    prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, noPartitionThres, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
 %     
     
     %%
@@ -227,21 +234,27 @@ savefig(fig, [path '_logPlot.fig']);
 saveas(fig, [path '_logPlot.png']);
 end
 
-function [intSigSnps, sigSnps] = prepareSignificantTablesOnEachPartition(snps, ccaStats, ccaIntStats, ccaIntervals, pThres, save_path)
+function [intSigSnps, sigSnps] = prepareSignificantTablesOnEachPartition(snps, ccaIntStats, ccaIntervals, pThres, save_path)
 pNum = size(ccaIntStats.chiSqSignificance ,1);
+sigSnps= [];
 for i=1:pNum
     partIntStats.chiSqSignificance = ccaIntStats.chiSqSignificance(i, :);
 %     partStats.coeffs = ccaStats.coeffs(i, :);
-    [intRet, ret] =  prepareSignificantTables(snps, partStats, partIntStats, ccaIntervals, pThres);
+    [intRet, ret] =  prepareSignificantTables(snps, partIntStats, ccaIntervals, pThres);
+    if isempty(ret), continue; end
     intRet.PARTITION = repmat(i,height(intRet),1);
     ret.PARTITION = repmat(i,height(ret),1);
-    if i==1
+    if isempty(sigSnps)
         intSigSnps = intRet;
         sigSnps = ret;
     else
         if size(ret,1) ~= 0
             intSigSnps = [intSigSnps;intRet];
-            sigSnps = [sigSnps;ret];
+            try
+                sigSnps = [sigSnps;ret];
+            catch
+                disp('h');
+            end
         end
     end
 end
@@ -250,10 +263,9 @@ writetable(intSigSnps, [save_path 'significant_intervals.csv']);
 end
 
 
-function [intSigSnps, sigSnps] = prepareSignificantTables(snps, ccaStats, ccaIntStats, ccaIntervals, pThres, savePath)
+function [intSigSnps, sigSnps] = prepareSignificantTables(snps, ccaIntStats, ccaIntervals, pThres, savePath)
 arguments
     snps
-    ccaStats
     ccaIntStats
     ccaIntervals
     pThres
@@ -314,8 +326,9 @@ for k=pnum:-1:1
         load([PART_DIR 'data.mat'], 's', 'i');
         disp("Loaded from disk")
     catch
+        tic;
         [s, i] = runCCA(phenoPart, geno, intervals, intIdVec);
-
+        toc;
 
         save([PART_DIR 'data.mat'], 's', 'i', '-v7.3');
     end

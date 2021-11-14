@@ -3,6 +3,7 @@ close all;clear;
 restoredefaultpath;
 %%
 addpath(genpath('AIDFUNCTIONS'));
+addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
 %%
 loadWhileInLab = 1;
 
@@ -18,11 +19,11 @@ applyOnAtlas = false;
 nPicks = 5;
 nSamplesPerPick = 50;
 % nSamplesPerPick = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
-% reduce = 0.05;
+% REDUCE = 0.05;
 nRep = 3;
-nIter = 1000;
-THREADS = 8;
-reduce = 0.1;
+nIter = 10000;
+THREADS = 28;
+REDUCE = 0.1;
 subsample = 0.1;
 % Define following when nRep>1 -> no use of AMMI
 % nIter = 5000;
@@ -31,7 +32,7 @@ subsample = 0.1;
 performExperiments = 0;
 % addpath(genpath('/IMAGEN/AIDFUNCTIONS/'));
 
-Ns = floor(1/reduce);
+Ns = floor(1/REDUCE);
 if loadWhileInLab
     nSamples = 19644;
 else
@@ -117,11 +118,7 @@ refTemplate = brainSurface.RefScan;
 
 
 
-%%
-% We are using only one iteration of Procrustes analysis, so that we can
-% compare different datasets, otherwise it would not be possible,
-% as we would then have different point of reference
-% TODO fix this
+%% Preprocess dataset and the test/retest one
 
 sizeD = size(LH, 3);
 testRetestDataset = loadTestRetestDataset();
@@ -130,13 +127,14 @@ tRLH = permute(reshape(permute(testRetestDataset.LH, [3,4, 1,2]), [tRShape(3) * 
 tRRH = permute(reshape(permute(testRetestDataset.RH, [3,4, 1,2]), [tRShape(3) * tRShape(4), tRShape(1:2)]), [2, 3, 1]);
 
 [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] =...
-    preprocessSymmetry(refTemplate, cat(3, LH, tRLH), cat(3, RH, tRRH), [phenoIID;cell(40,1)], reduce, 1, 3);
+    preprocessSymmetry(refTemplate, cat(3, LH, tRLH), cat(3, RH, tRRH), [phenoIID;cell(40,1)], REDUCE, 1, 3);
 
 alignedTRLH = preprocLH(:, :, sizeD + 1: end);
 alignedTRRH = preprocRH(:, :, sizeD + 1: end);
 preprocLH = preprocLH(:, :, 1: sizeD);
 preprocRH = preprocRH(:, :, 1: sizeD);
 preprocPhenoIID = preprocPhenoIID{1:sizeD};
+
 %%
 testRetestVariance = testRetestComputeVariance(alignedTRLH, alignedTRRH, preprocTemplate, RESULTS_DIR, 2);
 
@@ -189,9 +187,9 @@ else
     disp(['Replication-Based Asymmetry Analysis, using ' num2str(nPicks) ' random ' num2str(nSamplesPerPick) ' samples selections out of the original dataset.'])
     if applyOnAtlas
         atlas = loadAtlas('Desikan_Killiany');
-        [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1,atlas.index(preprocLandmarksIndices));
+        [setOut, avgOut, stdOut] = AsymmetryAnalysisOnSubsets(X1,X2, nIter, nSamplesPerPick,nPicks, mult,1,atlas.index(preprocLandmarksIndices));
     else
-        [setOut, avgOut,stdOut] = AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick,nPicks, nIter,mult,1); %#ok<UNRCH>
+        [setOut, avgOut, stdOut] = AsymmetryAnalysisOnSubsets(X1,X2, nIter, nSamplesPerPick,nPicks, mult,1); %#ok<UNRCH>
     end
 
     out = avgOut;

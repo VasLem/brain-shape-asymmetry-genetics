@@ -16,16 +16,16 @@ if ~isfolder(PNG_DIR), mkdir(PNG_DIR); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
 %% Uncomment to redraw partitions
-for i=1:length(handles)
-
-f1 = figure('visible','off'); 
-s = copyobj(handles{i}.handle,f1);
-set(s(1),'position',[0.08 0.25 0.5 0.5]);
-set(s(2),'position',[0.42 0.25 0.5 0.5]);
-exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
-system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
-close(f1);
-end
+% for i=1:length(handles)
+% 
+% f1 = figure('visible','off'); 
+% s = copyobj(handles{i}.handle,f1);
+% set(s(1),'position',[0.08 0.25 0.5 0.5]);
+% set(s(2),'position',[0.42 0.25 0.5 0.5]);
+% exportgraphics(f1,[EPS_DIR num2str(i) '.eps'], 'ContentType', 'vector',  'BackgroundColor', 'none');
+% system(['gs -dSAFER -dEPSCrop -r600 -sDEVICE=pngalpha -o ' PNG_DIR num2str(i) '.png ' EPS_DIR num2str(i) '.eps']);
+% close(f1);
+% end
 %%
 bCIds = ["With", "Wout"];
 for i=1:2
@@ -36,7 +36,7 @@ leg2 = '';
 leg3 = '';
 cmap = jet(22);
 for chr=1:22
-    path = ['../results/genomeDemo/chr' num2str(chr) '/perSNP_PartitionedGTL' bCId 'BC_feats0significant_snps.csv'];
+    path = ['../results/genomeDemo/chr' num2str(chr) '/PartitionedGTL' bCId 'BC_feats0significant_snps.csv'];
     if ~isfile(path)
         disp(['Chromosome ' num2str(chr) ' snps file ' path ' not found. Skipping.']);
         continue
@@ -65,7 +65,6 @@ for chr=1:22
             text = [text, '\n\t', num2str(i) '->' num2str(i) '[label="' num2str(counts) '", color="' chrColor '", fontcolor="' chrColor '",arrowhead=none]' ];
         end
     end
-    break
 end
 legendText = ['digraph {\n'...
   'rankdir=LR\n'...

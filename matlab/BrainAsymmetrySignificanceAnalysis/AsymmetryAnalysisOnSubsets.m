@@ -1,11 +1,30 @@
-function varargout  =  AsymmetryAnalysisOnSubsets(X1,X2,nSamplesPerPick, nPicks, nIter,factor,nSplits,landmarksGroups)
-% nSamplesPerPick are the number of samples per subset
-% nPicks are the number of picks
+function varargout  =  AsymmetryAnalysisOnSubsets(X1,X2, nIter, nSamplesPerPick, nPicks, factor,nSplits,landmarksGroups, seed)
+% X1: n_individuals x 3 x n_rep matrix
+% X2: n_individuals x 3 x n_rep matrix
+% nIter: the number of iterations to apply for the permutation test. If
+% 0, no permutation test will be performed
+% nSamplesPerPick: the number of samples per random subset picked
+% nPicks: the number of random subsets picked
+% factor: factor to divide X1 and X2 if they are integers before 2-way
+% anova
+% nSplits: number of splits for computational efficiency
+% landmarksGroups: whether to group landmarks before applying 2-way anova
+% seed: non negative integer for reproducibility of random number generation
+arguments
+X1
+X2
+nIter=0
+nSamplesPerPick=size(X1,1)
+nPicks=1
+factor=10000
+nSplits=1
+landmarksGroups=[]
+seed=-1
+end
+if seed>=0, rng(seed); end
 nOutputs = nargout;
 varargout = cell(1,nOutputs);
 n = size(X1, 1);
-if nargin < 8, landmarksGroups = []; end
-if nargin < 4, nPicks=1; end
 if nargin < 3, nSamplesPerPick=n; end
 if ~isvector(nSamplesPerPick)
     if (nSamplesPerPick == 0)
@@ -38,21 +57,22 @@ end
 
 
 for s=1:length(nSamplesPerPick)
-    disp(['Handling pick ',num2str(s)])
+    if length(nSamplesPerPick) > 1, disp(['Handling sample size ', num2str(s)]); end
     samplePerPick=nSamplesPerPick(s);
     for iter=1:nPicks
+        disp(['Handling pick ',num2str(iter)])
         randIndex = randsample(n,samplePerPick);
         randX1 = X1(randIndex,:,:);
         randX2 = X2(randIndex,:,:);
         if ~isempty(landmarksGroups)
             gRet = cell(nGroups);
-            [path,ID] = setupParForProgress(length(nSamplesPerPick) * nPicks * nGroups);
+            ppb = ParforProgressbar(nGroups);
             for g=1:nGroups
                 repMask = repelem(gMasks{g}, 3);
                 gRet{g} = ProcrustesAnova2WayAsymmetryMEM(randX1(:, repMask,:),randX2(:, repMask,:),nIter,factor,nSplits, false);
-                parfor_progress;
+                ppb.increment();
             end
-            closeParForProgress(path,ID);
+            delete(ppb);
             gRet = [gRet{:}];
             fields = fieldnames(gRet(1).LM);
             gTret = struct;
