@@ -10,7 +10,7 @@ APPLY_ON_ATLAS = false;
 N_PICKS = 5;
 N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
-N_REP = 1;
+N_REP = 3; %N_REP=1 for AMMI, N_REP>1 for ANOVA
 N_ITER = 10000;
 THREADS = 28;
 REDUCE = 0.1;
@@ -104,14 +104,14 @@ catch
     preprocLH = preprocLH(:, :, 1: sizeD);
     preprocRH = preprocRH(:, :, 1: sizeD);
     preprocPhenoIID = preprocPhenoIID{1:sizeD};
-    templateAdjacency = template.Adjacency;
+    
     testRetestVariance = testRetestComputeVariance(alignedTRLH, alignedTRRH, preprocTemplate, PREPROC_DIR, 2);
     clear LH RH DATA brainSurface  
-    save([PREPROC_DIR, 'preproc_data.mat'], "preprocRH", "preprocLH", "preprocPhenoIID", "preprocTemplate", "templateAdjacency", "preprocLandmarksIndices", "testRetestVariance", '-v7.3');
+    save([PREPROC_DIR, 'preproc_data.mat'], "preprocRH", "preprocLH", "preprocPhenoIID", "preprocTemplate", "template", "preprocLandmarksIndices", "testRetestVariance", '-v7.3');
 end
 nLandmarks = length(preprocLandmarksIndices);
 nSamples = size(preprocLH,3);
-
+templateAdjacency = template.Adjacency;
 
 
 repPreprocRH = zeros([size(preprocRH), N_REP + 1], 'single');
@@ -166,6 +166,7 @@ if N_REP == 1
         set(light,'Position', get(ax2,'CameraPosition'));
         
         sgtitle(['PC' num2str(comp)]);
+        colorbar(axes, 'SouthOutside');
         savefig(f, [RESULTS_DIR 'ammi_pc' num2str(comp) '.fig']);
         saveas(f, [RESULTS_DIR 'ammi_pc' num2str(comp) '.png']);
     end
@@ -195,9 +196,9 @@ showstruct = outu;
 showPerm=1;
 %%
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
-    template, showstruct, N_SAMPLES_PER_PICK , showPerm, [RESULTS_DIR 'data_' experimentId '.mat'], 1/N_ITER);
+    template, showstruct, N_SAMPLES_PER_PICK , showPerm, [RESULTS_DIR 'data' experimentId '.mat'], 1/N_ITER);
 
-f = visualizeBrainAsymmetryData(data, [RESULTS_DIR 'results_' experimentId]);
+f = visualizeBrainAsymmetryData(data, [RESULTS_DIR 'results' experimentId]);
 
 %%
 system('git add *');

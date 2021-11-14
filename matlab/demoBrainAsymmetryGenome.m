@@ -258,8 +258,10 @@ for i=1:pNum
         end
     end
 end
-writetable(sigSnps, [save_path 'significant_snps.csv']);
-writetable(intSigSnps, [save_path 'significant_intervals.csv']);
+if ~isempty(sigSnps)
+    writetable(sigSnps, [save_path 'significant_snps.csv']);
+    writetable(intSigSnps, [save_path 'significant_intervals.csv']);
+end
 end
 
 
