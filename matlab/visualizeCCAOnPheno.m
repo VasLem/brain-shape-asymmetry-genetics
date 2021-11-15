@@ -42,6 +42,9 @@ for chr=1:22
         continue
     end
     snpsTable = readtable(path);
+    if isempty(snpsTable)
+        continue
+    end
     chrColor = ['#' convertStringsToChars(join(convertCharsToStrings(dec2hex(round(255 * cmap(chr,:))))))];
     for i=1:length(handles)
     text = [text, '\n\t', num2str(i) '[shape=plaintext, image="' PNG_DIR num2str(i) '.png",label="",fixedsize=true,width=2,fontcolor="' chrColor '"]' ];

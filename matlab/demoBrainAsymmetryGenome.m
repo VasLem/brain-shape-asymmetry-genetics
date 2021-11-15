@@ -9,7 +9,7 @@ addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
 DATA_DIR = '../SAMPLE_DATA/';
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/COVDATAINLIERS.mat'];
 RESULTS_DIR = '../results/genomeDemo/';
-THREADS= 28;
+THREADS= 12;
 MAX_NUM_FEATS = 0;
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 disp("Loading phenotype and covariates..")
@@ -357,15 +357,15 @@ arguments
     intervals int32
 end
 controlledGenoPart = genoInt;
-[path,ID] = setupParForProgress(length(intervals));
+ppb = ParforProgressbar(length(genoInt));
 parfor i=1:length(genoInt)
     controlledGenoPart{i} = single(nan * zeros(size(genoInt{i})));
     selection = ~any(genoInt{i} == 255,2);
     
     controlledGenoPart{i}(selection, :) = single(getResiduals(covariates(selection, :),  single(genoInt{i}(selection, :))));
-    parfor_progress;
+    ppb.increment();
 end
-closeParForProgress(path,ID);
+delete(ppb);
 end
 
 

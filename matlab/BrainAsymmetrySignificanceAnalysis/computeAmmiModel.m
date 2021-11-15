@@ -8,7 +8,7 @@ n = size(inputShapes,3)/2;
 LH = inputShapes(:,:,1:n);
 RH =  inputShapes(:,:,n+1:2*n);
 avgShapes = (LH + RH)/2;
-sideDif =LH  - RH ;
+sideDif = LH  - RH ;
 %%
 disp("Computing Directional Asymmetry..")
 D = sqrt(sum(mean(sideDif,3).^2,2));
@@ -18,8 +18,8 @@ indDif = avgShapes - avgShape ;
 I = mean(sqrt(sum(indDif.^2,2)),3);
 %%
 disp("Computing Fluctuating Asymmetry..")
-flucMat = sideDif - mean(sideDif,3);
-flucMat = reshape( permute(flucMat, [2,1,3]), [],size(flucMat,3));
+flucMat = sideDif - mean(sideDif,3) + avgShape;
+flucMat = reshape(permute(flucMat, [2,1,3]), [],size(flucMat,3));
 if numComponents==0
 disp("..Selecting optimal number of Principal Components to retain (Parallel Analysis)..")
 [latent, ~, latentHigh] = parallelAnalysis(flucMat, 100,0.05);

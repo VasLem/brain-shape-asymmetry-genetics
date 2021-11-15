@@ -12,7 +12,7 @@ N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 N_REP = 1; %N_REP=1 for AMMI, N_REP>1 for ANOVA
 N_ITER = 10000;
-THREADS = 28;
+THREADS = 12;
 REDUCE = 0.1;
 % REDUCE = 1;
 GPA_REPS = 3;
@@ -129,7 +129,9 @@ else
     repPreprocRH(:,:,:,2) = preprocRH;
     repPreprocLH(:,:,:,2) = preprocLH;
 end
+clear preprocRH preprocLH
 repPreprocShapes = cat(3, repPreprocRH, repPreprocLH);
+clear repPreprocRH repPreprocLH 
 repPreprocShapes = permute(repPreprocShapes,[2 1 3, 4]);
 repPreprocShapes = permute(reshape(repPreprocShapes, 3 * nLandmarks, (2 * nSamples) ,N_REP + 1), [2, 1, 3]) ;
 shapes = repPreprocShapes(:,:,1);
@@ -141,7 +143,7 @@ if N_REP > 1
     figure; histogram(reshape(repPreprocShapes - shapes, 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
 end
 shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
-
+clear repPreprocShapes
 X1 = RepShapesInt16(1:nSamples,:,:);
 X2 = RepShapesInt16(nSamples+1:end,:,:);
 
@@ -151,7 +153,7 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 atlas = loadAtlas('Desikan_Killiany');
 if N_REP == 1
     RESULTS_DIR = ANALYS_DIR;
-    [out, scores] = computeAmmiModel(shapes, 650); %650 provided for 0.1
+    [out, scores] = computeAmmiModel(shapes); %650 provided for 0.1
     for comp=1:2
         f=figure;
         ax1 = subplot(1,2,1);
