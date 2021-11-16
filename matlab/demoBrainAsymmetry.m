@@ -153,22 +153,26 @@ X2 = RepShapesInt16(nSamples+1:end,:,:);
 atlas = loadAtlas('Desikan_Killiany');
 if N_REP == 1
     RESULTS_DIR = ANALYS_DIR;
-    [out, scores] = computeAmmiModel(shapes); %650 provided for 0.1
+    [out, scores] = computeAmmiModel(shapes, 0, 3); %650 provided for 0.1
+    %%
     for comp=1:2
         f=figure;
         ax1 = subplot(1,2,1);
-        renderBrainSurface(clone(preprocTemplate), scores(:,comp), ax1);
         view(ax1, -90, 0);
         light = camlight(ax1, 'headlight');
         set(light,'Position', get(ax1,'CameraPosition'));
+        renderBrainSurface(clone(preprocTemplate), scores(:, comp), ax1);
+        colorbar(ax1, 'SouthOutside');
+        
         ax2 = subplot(1,2,2);
-        renderBrainSurface(clone(preprocTemplate), scores(:,comp), ax2);
+        renderBrainSurface(clone(preprocTemplate), scores(:, comp), ax2);
         view(ax2, 90, 0);
         light = camlight(ax2, 'headlight');
         set(light,'Position', get(ax2,'CameraPosition'));
+        colorbar(ax2, 'SouthOutside');
         
         sgtitle(['PC' num2str(comp)]);
-        colorbar(axes, 'SouthOutside');
+        
         savefig(f, [RESULTS_DIR 'ammi_pc' num2str(comp) '.fig']);
         saveas(f, [RESULTS_DIR 'ammi_pc' num2str(comp) '.png']);
     end

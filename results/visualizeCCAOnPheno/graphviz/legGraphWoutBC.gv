@@ -5,13 +5,19 @@ subgraph cluster_01 {rank=same; key1, key2
 label = "Legend";
  key1 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">[
 <tr><td align="right" port="i1" >Chr.1</td></tr>
+<tr><td align="right" port="i2" >Chr.2</td></tr>
+<tr><td align="right" port="i3" >Chr.3</td></tr>
 <tr><td align="right" port="i12" >Chr.12</td></tr>
 <tr><td align="right" port="i17" >Chr.17</td></tr></table>>]
  key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">[
 <tr><td port="i1">&nbsp;</td></tr>
+<tr><td port="i2">&nbsp;</td></tr>
+<tr><td port="i3">&nbsp;</td></tr>
 <tr><td port="i12">&nbsp;</td></tr>
 <tr><td port="i17">&nbsp;</td></tr></table>>]
 key1:i1:e -> key2:i1:w [color="#00A00A"]
+key1:i2:e -> key2:i2:w [color="#00D005"]
+key1:i3:e -> key2:i3:w [color="#00F00F"]
 key1:i12:e -> key2:i12:w [color="#8F80F0"]
 key1:i17:e -> key2:i17:w [color="#FA0FA0"]
 }

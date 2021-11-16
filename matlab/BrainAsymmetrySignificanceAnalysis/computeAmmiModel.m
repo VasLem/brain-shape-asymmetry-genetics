@@ -1,7 +1,8 @@
-function [out, score] = computeAmmiModel(Shapes,  numComponents)
+function [out, score] = computeAmmiModel(Shapes,  numComponents, minNumComponents)
 arguments
 Shapes
 numComponents=0
+minNumComponents=2
 end
 inputShapes = Shapes;
 n = size(inputShapes,3)/2;
@@ -18,14 +19,18 @@ indDif = avgShapes - avgShape ;
 I = mean(sqrt(sum(indDif.^2,2)),3);
 %%
 disp("Computing Fluctuating Asymmetry..")
-flucMat = sideDif - mean(sideDif,3) + avgShape;
+flucMat = double(sideDif  - mean(sideDif,3) + avgShape);
 flucMat = reshape(permute(flucMat, [2,1,3]), [],size(flucMat,3));
 if numComponents==0
 disp("..Selecting optimal number of Principal Components to retain (Parallel Analysis)..")
-[latent, ~, latentHigh] = parallelAnalysis(flucMat, 100,0.05);
+[latent, ~, latentHigh] = parallelAnalysis(flucMat, 100,0.05, 'Centered', false, 'Algorithm', 'svd');
 numComponents = sum(latent > latentHigh');
 end
 disp(['..Selected number of components: ' num2str(numComponents)]);
+if numComponents < minNumComponents
+    numComponents = minNumComponents;
+    disp(['Less than minimum, using ' num2str(numComponents) ' instead']);
+end
 disp("..Applying PCA reconstruction..")
 [coeff, score, ~] =  pca(flucMat,'Centered',false, 'NumComponents', numComponents);
 rec = coeff * score';
