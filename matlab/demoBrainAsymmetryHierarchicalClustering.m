@@ -17,8 +17,8 @@ THREADS = 16;
 
 
 
-SELECTION = 'asymmetry';
-% SELECTION = 'symmetry';
+% SELECTION = 'asymmetry';
+SELECTION = 'symmetry';
 
 COV_REMOVAL = 'ccPriorSegmentation';
 % COV_REMOVAL = 'ccPostSegmentation';

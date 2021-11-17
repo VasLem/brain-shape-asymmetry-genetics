@@ -6,11 +6,11 @@ addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
 %% MAIN PARAMETERS
 SEED = 42;
-APPLY_ON_ATLAS = false;
+APPLY_ON_ATLAS = true;
 N_PICKS = 5;
 N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
-N_REP = 1; %N_REP=1 for AMMI, N_REP>1 for ANOVA
+N_REP = 3; %N_REP=1 for AMMI, N_REP>1 for ANOVA
 N_ITER = 10000;
 THREADS = 12;
 REDUCE = 0.1;
