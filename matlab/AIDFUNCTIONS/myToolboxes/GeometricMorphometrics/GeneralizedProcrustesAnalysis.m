@@ -29,14 +29,14 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
         
          for i=1:iter
              if progress, disp([num2str(i) ' out of ' num2str(iter)]);end
-             if progress, [path,ID] = setupParForProgress(N);end
+             if progress, ppb=ParforProgressbar(N);end
              parfor n=1:N
 %               for n=1:1:N 
                 tmp = squeeze(AlignedLandmarks{n});
                  [~,AlignedLandmarks{n},~] = procrustes(AvgLandmarks,tmp,'Scaling',scale,'Reflection',reflect);
-                 if progress, parfor_progress;end
+                 if progress, ppb.increment();end
              end
-             if progress, closeParForProgress(path,ID);end
+             if progress, delete(ppb); end
              AvgLandmarks = AlignedLandmarks{1};
              for n=1:N
                 AvgLandmarks = AvgLandmarks + AlignedLandmarks{n};

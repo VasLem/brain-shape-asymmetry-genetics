@@ -14,7 +14,7 @@ function out=buildRVmatrixDim(data,type,nDim)
     data = permute(data,[3 1 2]); % m x nDim x nbpts
     RV = zeros(nbpts,nbpts);
     disp('BUILDING RV MATRIX');
-    [path,ID] = setupParForProgress(nbpts);
+    ppb = ParforProgressbar(nbpts);
     parfor i=1:nbpts
         % i = 1; j = 2;
         tmp = zeros(1,nbpts);
@@ -30,8 +30,8 @@ function out=buildRVmatrixDim(data,type,nDim)
             end
         end
         RV(i,:) = tmp;
-        parfor_progress;
+        ppb.increment();
     end
-    closeParForProgress(path,ID);
+    delete(ppb);
     out = triu(RV,1)'+ triu(RV);
 end

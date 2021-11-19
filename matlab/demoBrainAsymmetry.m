@@ -16,12 +16,24 @@ THREADS = 12;
 REDUCE = 0.1;
 % REDUCE = 1;
 GPA_REPS = 3;
+DATASET_INDEX = 2; %Which dataset to use
 PERFORM_EXPERIMENTS = false;
 %%
 
 rng(SEED); % For reproducible results
 DATA_DIR = '../SAMPLE_DATA/';
-OUTPUT_DIR = '../results/demo_asymmetry/';
+
+
+switch DATASET_INDEX
+    case 1
+        UKBIOBANK = 'UKBIOBANK';
+        DATASET_NAME = 'STAGE00DATA';
+    case 2
+        UKBIOBANK = 'MY_UKBIOBANK';
+        DATASET_NAME = 'BATCH2_2021_DATA';
+end
+disp(['Dataset Used: ',DATASET_NAME])
+OUTPUT_DIR = ['../results/demo_asymmetry/' DATASET_NAME '/'];
 
 Ns = floor(1/REDUCE);
 
@@ -52,8 +64,7 @@ end
 in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
-genopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/'];
-covGenoPhenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/'];
+datasetPhenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
 
 MASK = in.index;
 nVertices = length(MASK);
@@ -73,7 +84,7 @@ catch
     for r=1:nR
         regphenopath = [phenopath Regions{r} '/'];
         disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
-        DATA{r} = load([regphenopath 'STAGE00DATA']);
+        DATA{r} = load([datasetPhenopath Regions{r} '/' DATASET_NAME], '-mat');
     end
     
     template = clone(DATA{2}.Region.AvgShape);

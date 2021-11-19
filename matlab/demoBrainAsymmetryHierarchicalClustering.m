@@ -81,9 +81,10 @@ catch
         case 'symmetry'
             A =  (preprocLH + preprocRH)/2;
     end
-    clear preprocLH preprocRH LH RH
+    clear DATA preprocLH preprocRH LH RH
     centroidSizes = Region.CentroidSizes;
     regionName = Region.Name;
+    clear Region
     save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizes', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
 end
 %%
@@ -278,7 +279,9 @@ means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
 
 reshapedResT = reshape(resT', DIM, nVertices, nSubj);
-
+clear resT
+disp('Constructing graph showing the number of components/variance explained for each partition..')
+ppb = ParforProgressbar(partitions_num);
 parfor c=1:partitions_num
     try
         k = length(de2bi(c));
@@ -292,11 +295,13 @@ parfor c=1:partitions_num
         clusterExpComponentsNum(c,:) = sum(explainedAccum < explainedThresholds, 1);
         means(c, :, :) = mean(reshapedResT(:, selectionMask, :), 2);
         templateCenters(c, :) = mean(preprocTemplate.Vertices(selectionMask, :), 1);
+        ppb.increment();
     catch ME
         disp(c)
         rethrow(ME)
     end
 end
+delete(ppb);
 fig = figure;
 bar(explainedThresholds, clusterExpComponentsNum');
 xlabel('Explained Variance Threshold');
@@ -306,13 +311,16 @@ savefig(fig, [SEGMENTATION_DIR 'explainedVariance.fig']);
 saveas(fig, [SEGMENTATION_DIR 'explainedVariance.png']);
 %%
 selectedVarianceThreshold = 80;
-maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds==selectedVarianceThreshold));
+disp(['Computing PCA that explains ' num2str(selectedVarianceThreshold) '% of variance for each partition..'])
+maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds == selectedVarianceThreshold));
+ppb = ParforProgressbar(partitions_num);
 parfor k = 1:partitions_num
     scores = pcaScores{k};
     explainedAccum = cumsum(explained{k});
     clusterPCAPhenoFeatures{k} = scores(:, explainedAccum < selectedVarianceThreshold);
+    ppb.increment();
 end
-%%
+delete(ppb)
 save([SEGMENTATION_DIR, 'phenotype_varThres' num2str(selectedVarianceThreshold) '.mat'],'explained', 'clusterPCAPhenoFeatures','templateCenters','means','selectedVarianceThreshold','preprocPhenoIID', '-v7.3');
 
 
