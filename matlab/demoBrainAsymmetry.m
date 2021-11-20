@@ -6,7 +6,7 @@ addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
 %% MAIN PARAMETERS
 SEED = 42;
-APPLY_ON_ATLAS = true;
+APPLY_ON_ATLAS = false;
 N_PICKS = 5;
 N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
@@ -83,7 +83,7 @@ catch
     
     for r=1:nR
         regphenopath = [phenopath Regions{r} '/'];
-        disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
+        disp(['Loading region: ' Regions{r} '..']);
         DATA{r} = load([datasetPhenopath Regions{r} '/' DATASET_NAME], '-mat');
     end
     
@@ -214,11 +214,15 @@ showPerm=1;
 %%
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     template, showstruct, N_SAMPLES_PER_PICK , showPerm, [RESULTS_DIR 'data' experimentId '.mat'], 1/N_ITER);
-
+%%
+if APPLY_ON_ATLAS
+    processDKAtlasAsymmetryAggregates([RESULTS_DIR 'data' experimentId '.mat'], 1/N_ITER);                 
+end
+%%
 f = visualizeBrainAsymmetryData(data, [RESULTS_DIR 'results' experimentId]);
 
 %%
-system('git add *');
+system('git add ../*');
 message = ['AutoUpdate ' datestr(datetime('now'))];
 system(['git commit -m "' message '"']);
 system('git push origin');

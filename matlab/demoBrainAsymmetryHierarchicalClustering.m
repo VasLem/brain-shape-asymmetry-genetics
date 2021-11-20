@@ -3,6 +3,7 @@ close all;clear;
 restoredefaultpath;
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('FUNCTIONS'));
+addpath(genpath('.'));
 
 SEED = 42;
 rng(SEED); % For reproducible results

@@ -43,7 +43,7 @@ end
 if ~isempty(landmarksGroups)
     uniqueGroups = unique(landmarksGroups);
     nGroups = length(uniqueGroups);
-    gMasks = cell(nGroups);
+    gMasks = cell(nGroups, 1);
     for g=1:nGroups
         mask = landmarksGroups == uniqueGroups(g);
         gMasks{g} = mask;
@@ -67,7 +67,7 @@ for s=1:length(nSamplesPerPick)
         if ~isempty(landmarksGroups)
             gRet = cell(nGroups);
             ppb = ParforProgressbar(nGroups);
-            for g=1:nGroups
+            parfor g=1:nGroups
                 repMask = repelem(gMasks{g}, 3);
                 gRet{g} = ProcrustesAnova2WayAsymmetryMEM(randX1(:, repMask,:),randX2(:, repMask,:),nIter,factor,nSplits, false);
                 ppb.increment();

@@ -18,7 +18,7 @@ SSs = zeros(4,nrV);
 Means = zeros(2,nrV);
 pX1 = permute(X1, [3,2,1]);
 pX2 = permute(X2, [3,2,1]);
-
+ppb = nan;
 if showProgress
     tic;
     ppb = ParforProgressbar(nrV);
