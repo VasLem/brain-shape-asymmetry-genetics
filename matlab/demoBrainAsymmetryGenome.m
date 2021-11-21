@@ -7,13 +7,27 @@ rmpath('/opt/SNPLIB/mexfiles/');% to remove the functions that are causing matla
 addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
 %%
 DATA_DIR = '../SAMPLE_DATA/';
-covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/COVDATAINLIERS.mat'];
-RESULTS_DIR = '../results/genomeDemo/';
+
+
 THREADS= 12;
 MAX_NUM_FEATS = 0;
+DATASET_INDEX = 1;
+
+switch DATASET_INDEX
+    case 1
+        UKBIOBANK = 'UKBIOBANK';
+        DATASET_NAME = 'STAGE00DATA';
+        GENO_ID = 'sel19908';
+    case 2
+        UKBIOBANK = 'MY_UKBIOBANK';
+        DATASET_NAME = 'BATCH2_2021_DATA';
+        GENO_ID = 'sel16875_rmrel';
+end
+RESULTS_DIR = ['../results/genomeDemo/' DATASET_NAME '/'];
+covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 disp("Loading phenotype and covariates..")
-pheno = load('../results/hierarchicalClusteringDemo/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat');
+pheno = load(['../results/hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat']);
 covariates = load(covGenoPath).COV;
 disp("Initializing genomic analysis..")
 try
@@ -34,12 +48,10 @@ for CHR=ST_CHR:EN_CHR
         load([CHR_DIR 'plink_data.mat'])
         disp("Genomic Data loaded from disk")
     catch
-        %%
-        
         disp("Loading PLINK preprocessed data..")
         obj = SNPLIB();
         obj.nThreads = THREADS;
-        [snps, samples] = obj.importPLINKDATA(['../SAMPLE_DATA/IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_sel19908_chr' num2str(CHR)]);
+        [snps, samples] = obj.importPLINKDATA(['../SAMPLE_DATA/IMAGEN/BRAIN/' BIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)]);
         geno = obj.UnpackGeno();
         geno(geno==-1) = 255;
         geno = uint8(geno);
@@ -153,7 +165,7 @@ for CHR=ST_CHR:EN_CHR
         disp("Loaded controlled genome for covariates based on intervals.")
     catch
          disp("Controlling genome for covariates based on intervals..")
-        genoControlledInt = controlGenoCovariates(genoInt, covData, intervals);
+        genoControlledInt = controlGenoCovariates(genoInt, covData);
         save([CHR_DIR 'controlled_geno.mat'], 'genoControlledInt', '-v7.3');
     end
     clear genoInt
@@ -350,11 +362,10 @@ end
 
 
 
-function controlledGenoPart = controlGenoCovariates(genoInt, covariates, intervals)
+function controlledGenoPart = controlGenoCovariates(genoInt, covariates)
 arguments
     genoInt cell
     covariates double
-    intervals int32
 end
 controlledGenoPart = genoInt;
 ppb = ParforProgressbar(length(genoInt));

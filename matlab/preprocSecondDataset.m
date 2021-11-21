@@ -1,4 +1,6 @@
 close all; clear
+
+DATA_DIR = '../SAMPLE_DATA/';
 %% Phenotype
 THREADS = 12;
 try
@@ -7,7 +9,6 @@ try
 catch
 end
 GPA_N = 3;
-DATA_DIR = '../SAMPLE_DATA/';
 W_OUT_PHENO_DIR = [DATA_DIR, 'IMAGEN/BRAIN/MY_UKBIOBANK/PHENOTYPES/'];
 PHENO_DIR = '/usr/local/micapollo01/IMAGEN_DATA/UKbiobank/CIFTIFY/Batch2_2021/subjects/';
 subDirs = dir(PHENO_DIR);
@@ -46,9 +47,19 @@ for sideInd = 1:2
     save(outpath,'Region','-v7.3');
 end
 
-%%Genotype
+%% Genotype
 
-
+W_OUT_GENO_DIR = [DATA_DIR, '../SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK/GENOTYPES/PLINK/'];
+GENO_DIR = '/usr/local/micapollo01/IMAGEN_DATA/SHARED/sgoova5/UKB_batch2_genotypes/3_RMREL/';
+GENO_ID = 'ukb_img_maf0.01_geno0.5_hwe1e-6_sel16875_rmrel';
+GENO_FILE_SUFFIX = '_ALLchr';
+PLINK_PATH = '../bash/genomics/plink1';
+if ~isfolder(W_OUT_GENO_DIR), mkdir(W_OUT_GENO_DIR); end
+disp("Splitting chromosomes..")
+parfor chr=1:22
+    cmd = sprintf('%s --noweb --bfile %s%s%s --chr %s --make-bed --out %s%s_chr%s',PLINK_PATH, GENO_DIR, GENO_ID, GENO_FILE_SUFFIX, num2str(chr), W_OUT_GENO_DIR, GENO_ID,  num2str(chr));
+    system(cmd);
+end
 
 
 function ret = readSurface(path, mask, retShape)

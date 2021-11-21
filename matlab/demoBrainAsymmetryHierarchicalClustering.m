@@ -11,9 +11,19 @@ if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
 end
 DATA_DIR = '../SAMPLE_DATA/';
-RESULTS_DIR = '../results/hierarchicalClusteringDemo/';
+DATASET_INDEX = 1;
 
-
+switch DATASET_INDEX
+    case 1
+        UKBIOBANK = 'UKBIOBANK';
+        DATASET_NAME = 'STAGE00DATA';
+        GENO_ID = 'sel19908';
+    case 2
+        UKBIOBANK = 'MY_UKBIOBANK';
+        DATASET_NAME = 'BATCH2_2021_DATA';
+        GENO_ID = 'sel16875_rmrel';
+end
+RESULTS_DIR = ['../results/hierarchicalClusteringDemo/' DATASET_NAME '/'];
 THREADS = 16;
 
 
@@ -43,7 +53,7 @@ try
 catch
 end
 
-covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/COVARIATES/COVDATAINLIERS.mat'];
+covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
 try
     load([SELECTION_DIR, 'input.mat']);
@@ -52,8 +62,8 @@ catch
     
     in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
     
-    phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
-    genopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/'];
+    phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
+    genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
     
     Regions = {'LH' 'RH'};
     nR = length(Regions);
@@ -63,7 +73,7 @@ catch
     for r=1:nR
         regphenopath = [phenopath Regions{r} '/'];
         disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
-        DATA{r} = load([regphenopath 'STAGE00DATA']);
+        DATA{r} = load([regphenopath DATASET_NAME]);
     end
     LH = DATA{1}.Region.AlignedShapes;
     RH = DATA{2}.Region.AlignedShapes;
