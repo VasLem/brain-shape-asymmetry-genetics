@@ -1,5 +1,7 @@
-close all; clear
-
+close all;clear;
+restoredefaultpath;
+addpath /home/vlemon0/home/gifti
+addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 %% Phenotype
 THREADS = 12;
@@ -16,7 +18,9 @@ mask = load('/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/I
 sides = ["L", "R"];
 sidesRet = zeros(length(mask), 3, length(subDirs));
 Regions = {'LH' 'RH'};
+%%
 for sideInd = 1:2
+    
     disp(['Processing region ' Regions{sideInd} '..'])
     disp("Reading using gifti..")
     ppb = ParforProgressbar(length(subDirs));
@@ -30,6 +34,11 @@ for sideInd = 1:2
         sidesRet(:, :, subDirInd) = ret;
         ppb.increment();
     end
+    check = ~cellfun(@isempty, iids);
+    iids = iids(check);
+    iids = cellfun(@char, iids, 'UniformOutput', false);
+
+    sidesRet = sidesRet(:, :, check);
     delete(ppb);
     disp("Applying GPA..")
     subject = subDirs(10).name;
@@ -39,12 +48,21 @@ for sideInd = 1:2
     [Region.AlignedShapes,~,~] = GeneralizedProcrustesAnalysis(sidesRet, template, GPA_N,true,false,true,false);
     template.Vertices = mean(Region.AlignedShapes, 3);
     Region.AvgShape = template;
-    Region.IID = iids';
+
+    iids = iids';
+    if sideInd == 1
+        o = iids;
+    else
+        assert(o == iids);
+    end
+    Region.IID = iids;
     disp("Saving..")
     outdir = [W_OUT_PHENO_DIR Regions{sideInd} '/'];
     if ~isfolder(outdir), mkdir(outdir); end
     outpath = [outdir 'BATCH2_2021_DATA'];
     save(outpath,'Region','-v7.3');
+    save([W_OUT_PHENO_DIR, 'BATCH2_2021_DATA_IID'], 'iids', '-v7.3');
+    clear iids
 end
 
 %% Genotype
