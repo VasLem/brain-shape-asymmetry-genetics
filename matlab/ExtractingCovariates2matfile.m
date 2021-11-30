@@ -1,4 +1,4 @@
-%% 
+%%
 close all;clear all;
 restoredefaultpath;
 addpath(genpath('AIDFUNCTIONS'));
@@ -20,15 +20,38 @@ COVIDs = x.Var1;
 CovNames = x.Var2;
 nCOV = length(COVIDs);
 %%
-fid = fopen(fullfile(primarycovpath, 'ukb35648.csv'));
+
+ids = load(fullfile(PHENO_DIR, 'BATCH2_2021_DATA_IID')).iids;
+csvpath = fullfile(primarycovpath, 'ukb35648.csv');
+[parsedData1, ids1, cols1] = readcsv(csvpath, ids, COVIDs);
+
+csvpath = fullfile(secondarycovpath, 'ukb44263', 'ukb44263.csv');
+[parsedData2, ids2, cols2] = readcsv(csvpath, ids, COVIDs);
+%% TODO, adapt the following to connect the two datasets, check ids first!
+for c = 1:length(uniqueInds)
+    subset = data(:, colInds == c);
+    ret = zeros(length(mapped_to), 1);
+    ret(:) = nan;
+    ret = num2cell(ret);
+    for col = 1:size(subset,2)
+        mask = ~cellfun(@isempty, subset(:,col));
+        ret(mask) = subset(mask, col);
+    end
+    parsedData(:, c) = ret;
+end
+
+
+function [parsedData, filteredIds, filteredCols ]= readcsv(csvpath, ids, COVIDs)
+fid = fopen(csvpath);
 headers = strsplit(fgetl(fid), ',');
 fclose(fid);
 colIndices = arrayfun(@(x) find(startsWith(headers, ['"', num2str(x) '-'])), COVIDs , 'UniformOutput', false);
 found = ~cellfun(@isempty, colIndices);
 fCOVIDs = COVIDs(found);
+
+filteredCols = fCOVIDs;
 fCOVIDsInds = colIndices(found);
 %%
-ids = load(fullfile(PHENO_DIR, 'BATCH2_2021_DATA_IID')).iids;
 %%
 %%
 numCol = length(headers);
@@ -36,51 +59,50 @@ fmt_parts = repmat({'%*s'}, 1, numCol);
 fmt_parts(horzcat(fCOVIDsInds{:})) = {'%q'};
 fmt_parts(1) = {'%q'};
 fmt = strjoin(fmt_parts, '');
-fid = fopen(fullfile(primarycovpath, 'ukb25183.csv'));
+fid = fopen(csvpath);
 data = textscan(fid, fmt, 'Delimiter', ',', 'Headerlines', 1);
 data{1} = num2cell(str2double(data{1}));
 fclose(fid);
-lengths =  cellfun(@length, fCOVIDsInds);
 %%
- num = 1:length(fCOVIDsInds);
- colInds = cellfun(@(x, ind)(repmat(ind, length(x), 1)), fCOVIDsInds, num2cell(num + 1)', 'UniformOutput', false);
- colInds = [1; vertcat(colInds{:})];
+num = 1:length(fCOVIDsInds);
+colInds = cellfun(@(x, ind)(repmat(ind, length(x), 1)), fCOVIDsInds, num2cell(num + 1)', 'UniformOutput', false);
+colInds = [1; vertcat(colInds{:})];
 %%
 data = [data{:}];
 
 %%
 all_ids =[data{:, 1}];
 assignmentMatrix = ( str2double(ids) == all_ids);
- [to_keep, mapped_to] = find(assignmentMatrix);
- %%
- clear assignmentMatrix
- %%
- data = data(mapped_to, :);
- %%
+[to_keep, mapped_to] = find(assignmentMatrix);
+filteredIds = ids(to_keep);
+%%
+clear assignmentMatrix
+%%
+data = data(mapped_to, :);
+%%
 uniqueInds = unique(colInds);
-finalData = zeros(length(mapped_to), length(uniqueInds));
-finalData(:) = nan;
-finalData = num2cell(finalData);
- for c = 1:length(uniqueInds)
-     subset = data(:, colInds == c);
-     ret = zeros(length(mapped_to), 1);
-     ret(:) = nan;
-     ret = num2cell(ret);
-     for col = 1:size(subset,2)
-         mask = ~cellfun(@isempty, subset(:,col));
+parsedData = zeros(length(mapped_to), length(uniqueInds));
+parsedData(:) = nan;
+parsedData = num2cell(parsedData);
+for c = 1:length(uniqueInds)
+    subset = data(:, colInds == c);
+    ret = zeros(length(mapped_to), 1);
+    ret(:) = nan;
+    ret = num2cell(ret);
+    for col = 1:size(subset,2)
+        mask = ~cellfun(@isempty, subset(:,col));
         ret(mask) = subset(mask, col);
-     end
-    finalData(:, c) = ret;
- end
-
-
+    end
+    parsedData(:, c) = ret;
+end
+end
 %%
 
 
 
 %%
-% 
-% 
+%
+%
 
 % %% FIRST SMALLER CSV FILE
 % inD = importdata(fullfile(primarycovpath, 'ukb25183.csv'));
@@ -205,7 +227,7 @@ finalData = num2cell(finalData);
 % % does). But from Supplementary figure 22, this does not seem to be the
 % % case
 % %% IMPORTING GENETIC AXIS
-% in = load('UKB_EUR_19670_PCs'); 
+% in = load('UKB_EUR_19670_PCs');
 % nPC = size(in.AA,2);
 % COVDATA3.IID = in.IID;
 % COVDATA3.FID = in.FID;
@@ -214,7 +236,7 @@ finalData = num2cell(finalData);
 % for i=1:nPC
 %     COVDATA3.COVIDs{i} = ['00' num2str(i)];
 %     COVDATA3.COVNames{i} = ['KUL GENO PC ' num2str(i)];
-% end 
+% end
 % COVDATA3.DATA = num2cell(in.AA);
 % save('COVDATA3','COVDATA3','-v7.3');
 % %% ASSEMBLING EVERYTHING
@@ -318,7 +340,7 @@ finalData = num2cell(finalData);
 % disp(['Missing Data: ' num2str(length(find(isnan(Data))))]);
 % Data = CenterDataInMatrix(Data,true);
 % COV.DATA = [COV.DATA Data];
-% % 
+% %
 % COV.GENOIndex = 1:length(COV.Names);
 % %
 % % VOLUMETRIC SCALING
@@ -407,7 +429,7 @@ finalData = num2cell(finalData);
 % for i=1:length(COV.IDs)
 %     disp(num2str(i));
 %     disp(COV.Names{i});
-%     disp(num2str(COV.nrOutliers(i)));   
+%     disp(num2str(COV.nrOutliers(i)));
 % end
 % % I would only eliminate te weight people, but then again this has not the
 % % same effect on brain structure as it has on facial structure
@@ -422,4 +444,4 @@ finalData = num2cell(finalData);
 % COV = rmfield(COV,'nrOutliers');
 % COV = rmfield(COV,'IndexInliers');
 % %save('COVDATAINLIERS','COV','-v7.3');
-% 
+%
