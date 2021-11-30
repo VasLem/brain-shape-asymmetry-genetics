@@ -1,12 +1,16 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-clusterArray = load('../results/hierarchicalClusteringDemo/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat').clusterArray;
-template = load('/home/vlemon0/home/code/results/hierarchicalClusteringDemo/asymmetry_reduction10/input.mat').preprocTemplate;
+DATASET = 'STAGE00DATA';
+GENO_DIR = ['../results/genomeDemo/' DATASET '/'];
+CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
+
+clusterArray = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
+template = load([CLUSTER_DIR 'asymmetry_reduction10/input.mat']).preprocTemplate;
 %%
 template.Vertices(:,1) = -template.Vertices(:,1);
 [fig, handles] = paintClusters(clusterArray, template, 5, false);
 %%
-RESULTS_DIR = '../results/visualizeCCAOnPheno/';
+RESULTS_DIR = ['../results/visualizeCCAOnPheno/' DATASET '/'];
 %%
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 EPS_DIR = [RESULTS_DIR 'eps/'];
@@ -27,6 +31,7 @@ if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
 % close(f1);
 % end
 %%
+
 bCIds = ["With", "Wout"];
 for i=1:2
     bCId = char(bCIds(i));
@@ -36,7 +41,7 @@ leg2 = '';
 leg3 = '';
 cmap = jet(22);
 for chr=1:22
-    path = ['../results/genomeDemo/chr' num2str(chr) '/PartitionedGTL' bCId 'BC_feats0significant_snps.csv'];
+    path = [ GENO_DIR 'chr' num2str(chr) '/PartitionedGTL' bCId 'BC_feats0significant_snps.csv'];
     if ~isfile(path)
         disp(['Chromosome ' num2str(chr) ' snps file ' path ' not found. Skipping.']);
         continue

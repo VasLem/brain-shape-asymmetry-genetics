@@ -3,13 +3,16 @@ restoredefaultpath;
 addpath /home/vlemon0/home/gifti
 addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
-%% Phenotype
-THREADS = 12;
+THREADS =8;
 try
     parpool('local',THREADS);
     %parpool('local',8);
 catch
 end
+addpath(genpath('/opt/SNPLIB/'));
+rmpath('/opt/SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
+addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
+%% Phenotype
 GPA_N = 3;
 W_OUT_PHENO_DIR = [DATA_DIR, 'IMAGEN/BRAIN/MY_UKBIOBANK/PHENOTYPES/'];
 PHENO_DIR = '/usr/local/micapollo01/IMAGEN_DATA/UKbiobank/CIFTIFY/Batch2_2021/subjects/';
@@ -18,9 +21,7 @@ mask = load('/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/I
 sides = ["L", "R"];
 sidesRet = zeros(length(mask), 3, length(subDirs));
 Regions = {'LH' 'RH'};
-%%
 for sideInd = 1:2
-    
     disp(['Processing region ' Regions{sideInd} '..'])
     disp("Reading using gifti..")
     ppb = ParforProgressbar(length(subDirs));
@@ -66,18 +67,36 @@ for sideInd = 1:2
 end
 
 %% Genotype
-
+disp("Moving on to Genotype...")
 W_OUT_GENO_DIR = [DATA_DIR, '../SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK/GENOTYPES/PLINK/'];
 GENO_DIR = '/usr/local/micapollo01/IMAGEN_DATA/SHARED/sgoova5/UKB_batch2_genotypes/3_RMREL/';
 GENO_ID = 'ukb_img_maf0.01_geno0.5_hwe1e-6_sel16875_rmrel';
 GENO_FILE_SUFFIX = '_ALLchr';
 PLINK_PATH = '../bash/genomics/plink1';
+
+bfile = sprintf('%s%s%s',GENO_DIR, GENO_ID, GENO_FILE_SUFFIX );
 if ~isfolder(W_OUT_GENO_DIR), mkdir(W_OUT_GENO_DIR); end
+disp("Making PCA components file..")
+
+obj = SNPLIB();
+obj.nThreads = THREADS;
+[snps, samples] = obj.importPLINKDATA(bfile);
+geno = obj.UnpackGeno();
+% geno(geno==-1) = 255;
+% geno = uint8(geno);
+%%
+AA= pca(geno, 'Centered', true, 'NumComponents', 20);
+FID =samples.IID;
+IID = samples.IID;
+save('../SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK/GENOTYPES/UKB_EUR_16875_PCs_2.mat', 'AA', 'FID', 'IID', '-v7.3');
+
+%%
 disp("Splitting chromosomes..")
 parfor chr=1:22
-    cmd = sprintf('%s --noweb --bfile %s%s%s --chr %s --make-bed --out %s%s_chr%s',PLINK_PATH, GENO_DIR, GENO_ID, GENO_FILE_SUFFIX, num2str(chr), W_OUT_GENO_DIR, GENO_ID,  num2str(chr));
+    cmd = sprintf('%s --noweb --bfile %s --chr %s --make-bed --out %s%s_chr%s',PLINK_PATH,bfile , num2str(chr), W_OUT_GENO_DIR, GENO_ID,  num2str(chr));
     system(cmd);
 end
+
 
 
 function ret = readSurface(path, mask, retShape)
