@@ -72,16 +72,14 @@ W_OUT_GENO_DIR = [DATA_DIR, '../SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK/GENOTYPES/
 GENO_DIR = '/usr/local/micapollo01/IMAGEN_DATA/SHARED/sgoova5/UKB_batch2_genotypes/3_RMREL/';
 GENO_ID = 'ukb_img_maf0.01_geno0.5_hwe1e-6_sel16875_rmrel';
 GENO_FILE_SUFFIX = '_ALLchr';
-PLINK_PATH = '../bash/genomics/plink1';
+PLINK_PATH = '../bash/genomics/plink';
 
 bfile = sprintf('%s%s%s',GENO_DIR, GENO_ID, GENO_FILE_SUFFIX );
 if ~isfolder(W_OUT_GENO_DIR), mkdir(W_OUT_GENO_DIR); end
 disp("Making PCA components file..")
+cmd = sprintf('%s --noweb --bfile %s  --memory 32000 --threads 16 --pca --out %s%s%s',PLINK_PATH,bfile , W_OUT_GENO_DIR, GENO_ID,'_pca');
+system(cmd);
 
-obj = SNPLIB();
-obj.nThreads = THREADS;
-[snps, samples] = obj.importPLINKDATA(bfile);
-geno = obj.UnpackGeno();
 % geno(geno==-1) = 255;
 % geno = uint8(geno);
 %%
