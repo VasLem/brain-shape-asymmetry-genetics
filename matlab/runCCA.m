@@ -1,10 +1,4 @@
 function [stats, intStats] = runCCA(phenoPart, geno, intervals, intIdVec)
-arguments
-    phenoPart single
-    geno
-    intervals int32
-    intIdVec int32
-end
 intChiSqSignificance = zeros(size(intervals, 1),1);
 
 [...%~,~,

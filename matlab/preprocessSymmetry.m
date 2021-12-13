@@ -7,16 +7,15 @@ function [reducedTemplate, reducedLH,reducedRH, samplesIDs, landmarksIndices] = 
 %subsampling_rate is greater than 1, picks the first subsampling_rate
 %samples
 %Template is the shape3D object corresponding to LH
-arguments
-template shape3D
-LH single
-RH single
-samplesIDs
-reduction_rate double = 1
-subsampling_rate double = 1
-gpaN uint8 = 3
+if nargin < 5
+    reduction_rate = 1;
 end
-
+if nargin < 6
+    subsampling_rate = 1;
+end
+if nargin < 7
+    gpaN = 3;
+end
 disp("Mirroring RH to LH..");
 RH = RH(:, :, :);
 RH(:,1,:,:) = -1 * RH(:,1,:,:);

@@ -229,12 +229,8 @@ system('git push origin');
 
 
 function variance = testRetestComputeVariance(alignedPLH, alignedPRH, template, resultsDir, n_rep)
-arguments
-    alignedPLH
-    alignedPRH
-    template
-    resultsDir
-    n_rep=2
+if nargin < 5
+    n_rep = 2;
 end
 
 shape = size(alignedPLH);
