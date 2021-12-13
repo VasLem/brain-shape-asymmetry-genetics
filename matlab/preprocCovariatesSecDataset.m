@@ -1,5 +1,5 @@
 %%
-close all;clear all;
+close all;clear;
 restoredefaultpath;
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('/opt/SNPLIB/'));
@@ -61,23 +61,27 @@ COVDATA.COVNames = convertCharsToStrings(x(ismember(x.Var1, filteredCols), :).Va
 COVDATA.nSUB = length(finalIds);
 COVDATA.IMGID = vertcat(finalIds{:});
 COVDATA.DATA = finalData;
-T = array2table(finalData, "VariableNames", cellfun(@(x) x(1:min(30, length(x)) ),  convertCharsToStrings(x(ismember(x.Var1, filteredCols), :).Var2), 'UniformOutput', 0));
+%%
+T = array2table(str2double(finalData), "VariableNames", cellfun(@(x) x(1:min(30, length(x)) ),  convertCharsToStrings(x(ismember(x.Var1, filteredCols), :).Var2), 'UniformOutput', 0));
+
+%%
+for c=1:size(T,2)
+if all(isnan(T(:,c).Variables))
+    T = convertvars(T,  T.Properties.VariableNames(c), 'string');
+    T = convertvars(T,  T.Properties.VariableNames(c), 'datetime');
+    T(:, c) = cellstr(datetime(finalData(:, c), 'InputFormat','yyyy-MM-dd'));
+end
+end
 summary(T);
 
 %% IMPORTING PCs
 
-
- % Use small chr 21, to get iids from.
-
-obj = SNPLIB();
-obj.nThreads = THREADS;
-[snps, samples] = obj.importPLINKDATA([GENO_DIR, 'ukb_img_maf0.01_geno0.5_hwe1e-6_sel16875_rmrel_chr21']);
-pcIID = samples.IID;
-
 % Load eigen vectors (PCs)
 
 AA = load(fullfile(GENO_DIR, 'ukb_img_maf0.01_geno0.5_hwe1e-6_sel16875_rmrel_pca.eigenvec'));
-%%
+pcIID = cellstr(num2str(AA(:,1)));
+pcFID = cellstr(num2str(AA(:, 1)));
+AA = AA(:, 3:end);
 [genoIndIds, covIndIds] = find(str2double(pcIID) == str2double(COVDATA.IMGID)');
 nPC = size(AA,2);
 
@@ -91,12 +95,14 @@ COVDATA.COVNames = [pcCOVNames; COVDATA.COVNames ];
 COVDATA.COVIDs = [pcCOVIDs; COVDATA.COVIDs];
 COVDATA.DATA = [AA(genoIndIds, :) COVDATA.DATA(covIndIds, :)];
 COVDATA.IMGID = pcIID(genoIndIds) ;
+COVDATA.FID = pcFID(genoIndIds);
 
 %% Genetic PCs
 Index = 1:20;%index of genetic PCs
 COV.Names = COVDATA.COVNames(Index);
 COV.IDs = COVDATA.COVIDs(Index);
 COV.IID = COVDATA.IMGID;
+COV.FID = COVDATA.FID;
 Data = str2double(COVDATA.DATA(:,Index));
 Data = CenterDataInMatrix(Data,true);
 COV.DATA = Data;
@@ -233,7 +239,7 @@ COV.PHENOIndex = 1:length(COV.Names);
 %
 save(fullfile(COV_DIR,  'COVDATA2USE'),'COV','-v7.3');
 %% CHECK FOR OUTLIERS
-load('COVDATA2USE');
+load(fullfile(COV_DIR, 'COVDATA2USE'));
 [nSUB,nVAR] = size(COV.DATA);
 outliers = zeros(nSUB,nVAR);
 nrOutliers = zeros(1,nVAR);
@@ -253,7 +259,6 @@ COV.nrOutliers = nrOutliers;
 %% REMOVING OUTLIERS
 % first print
 for i=1:length(COV.IDs)
-    disp(num2str(i));
     disp(COV.Names{i});
     disp(num2str(COV.nrOutliers(i)));
 end
@@ -263,7 +268,6 @@ end
 OUT = sum(COV.outliers(:,25:33),2);
 INLIERS = find(OUT==0);
 COV.IndexInliers = INLIERS;
-%save('COVDATA2USE','COV','-v7.3');
 COV.IID = COV.IID(INLIERS);
 COV.DATA = COV.DATA(INLIERS,:);
 COV = rmfield(COV,'outliers');

@@ -11,7 +11,7 @@ if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
 end
 DATA_DIR = '../SAMPLE_DATA/';
-DATASET_INDEX = 1;
+DATASET_INDEX = 2;
 
 switch DATASET_INDEX
     case 1
@@ -24,7 +24,7 @@ switch DATASET_INDEX
         GENO_ID = 'sel16875_rmrel';
 end
 RESULTS_DIR = ['../results/hierarchicalClusteringDemo/' DATASET_NAME '/'];
-THREADS = 16;
+THREADS = 8;
 
 
 
@@ -79,6 +79,8 @@ catch
     RH = DATA{2}.Region.AlignedShapes;
     phenoIID = DATA{1}.Region.IID(1:size(LH,3));
     Region =  DATA{1}.Region;
+    
+    %%
     brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
     refTemplate = brainSurface.RefScan;
     
@@ -92,11 +94,11 @@ catch
         case 'symmetry'
             A =  (preprocLH + preprocRH)/2;
     end
-    clear DATA preprocLH preprocRH LH RH
-    centroidSizes = Region.CentroidSizes;
+    centroidSizesLH = DATA{1}.Region.CentroidSizes;
+    centroidSizesRH = DATA{2}.Region.CentroidSizes;
     regionName = Region.Name;
-    clear Region
-    save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizes', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
+    clear DATA preprocLH preprocRH LH RH Region
+    save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
 end
 %%
 preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
@@ -118,7 +120,9 @@ covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)
 covData = covariates.DATA(covIndex, :);
 sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
 preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
-
+centroidSizesLH = centroidSizesLH(covPhenoIndex);
+centroidSizesRH = centroidSizesRH(covPhenoIndex);
+nSubj = size(sym2DMatrix, 1);
 avgT = mean(sym2DMatrix,1);
 % Removing components that can be controlled from covariates, keeping only
 % the residuals from the corresponding PLS model
@@ -136,7 +140,7 @@ explained3DCov = nan * zeros(length(atlas3DIndices),1);
 for k=1:length(labels)
     i=labels(k);
     atlasMask =  atlas3DIndices == i;
-    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizes(:)], sym2DMatrix(:, atlasMask));
+    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH, centroidSizesRH], sym2DMatrix(:, atlasMask));
 end
 %%
 explainedCov = explained3DCov(1:3:length(explained3DCov));
@@ -173,7 +177,7 @@ try
     disp(['Loaded computed residuals from ' SELECTION_DIR  'residuals.mat']);
 catch
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-    [resT, explainedCovWhole] = controlForCovariates([covData centroidSizes(:)], sym2DMatrix);
+    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH, centroidSizesRH], sym2DMatrix);
     resT = repmat(avgT,size(resT,1),1)+resT;
     disp("Saving computed residuals..");
     save([SELECTION_DIR  'residuals.mat'],'resT', 'explainedCovWhole', '-v7.3');
@@ -288,7 +292,6 @@ explainedThresholds = 50:10:90;
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
 means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
-
 reshapedResT = reshape(resT', DIM, nVertices, nSubj);
 clear resT
 disp('Constructing graph showing the number of components/variance explained for each partition..')

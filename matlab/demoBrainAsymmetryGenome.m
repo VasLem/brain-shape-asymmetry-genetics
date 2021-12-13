@@ -2,8 +2,8 @@ close all;clear;
 restoredefaultpath;
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-addpath(genpath('/opt/SNPLIB/'));
-rmpath('/opt/SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
+addpath(genpath('../SNPLIB/'));
+rmpath('../SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
 addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
 %%
 DATA_DIR = '../SAMPLE_DATA/';
