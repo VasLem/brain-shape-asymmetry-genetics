@@ -5,7 +5,7 @@
 #PBS -A default_project
 
 module purge
-module load matlab/R2019a
+module load matlab
 
 cd $VSC_HOME/imagen/deployed
 
