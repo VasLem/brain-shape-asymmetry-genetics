@@ -7,12 +7,12 @@
 module purge
 module load matlab/R2019a
 
-cd deployed
+cd $VSC_HOME/imagen/deployed
 
 export DATA_ROOT=$VSC_DATA/Thesis/SAMPLE_DATA
 export DATASET_INDEX=2
 export RESULTS_ROOT=$VSC_DATA/Thesis/results
 export SCRATCH_ROOT=$VSC_SCRATCH/Thesis
 installation="$(dirname $(dirname $(which matlab)))"
-./usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code.bak/deployed/run_demoBrainAsymmetryHierarchicalClustering.sh $installation > hierarchical.log
+./run_demoBrainAsymmetryHierarchicalClustering.sh $installation > hierarchical.log
 
