@@ -95,7 +95,8 @@ covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.m
 
 disp("Loading phenotype and covariates..")
 pheno = load([RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat']);
-covariates = load(covGenoPath).COV;
+load(covGenoPath, 'COV');
+covariates = COV;
 disp("Initializing genomic analysis..")
 try
     parpool(THREADS);

@@ -27,7 +27,7 @@ toc;
 adjacencyIsPrecomputed = false;
 adjacencyFileName = '../results/demo_asymmetry/facesAdjancency.mat';
 if isfile(adjacencyFileName)
-    adjacency = load(adjacencyFileName).adjacency;
+    load(adjacencyFileName, 'adjacency');
     if all(size(adjacency) == [size(bs.faces, 1), size(bs.faces,1)])
         adjacencyIsPrecomputed = true;
     end

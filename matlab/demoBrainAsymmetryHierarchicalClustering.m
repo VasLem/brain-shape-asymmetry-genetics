@@ -165,7 +165,8 @@ sym2DMatrix = permute(A,[2 1 3]);
 sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj)';
 clear A
 % Align covariates with phenotype
-covariates = load(covGenoPath).COV;
+load(covGenoPath, "COV");
+covariates = COV;
 
 %%
 covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
