@@ -5,7 +5,7 @@
 %RESULTS_ROOT: the directory of the results (../results)
 %SCRATCH_ROOT: the directory to use for the intermediate files (../results)
 %THREADS: Number of threads to use (max set by local)
-%CHROMOSOME: Chomosome to analyze (17)
+%CHROMOSOME: Chomosome to analyze (21)
 %%%%%%%%%%%%
 close all;clear;
 if ~isdeployed
@@ -37,7 +37,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHR = getenv("CHROMOSOME");
 if(isempty(CHR))
-    CHR = 17;
+    CHR = 21;
 else
     if ~isnumeric(CHR)
         CHR=str2double(CHR);

@@ -126,7 +126,7 @@ catch
     for r=1:nR
         regphenopath = [phenopath Regions{r} '/'];
         disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
-        DATA{r} = load([regphenopath DATASET_NAME]);
+        DATA{r} = load([regphenopath DATASET_NAME '.mat']);
     end
     LH = DATA{1}.Region.AlignedShapes;
     RH = DATA{2}.Region.AlignedShapes;
@@ -193,7 +193,7 @@ explained3DCov = nan * zeros(length(atlas3DIndices),1);
 for k=1:length(labels)
     i=labels(k);
     atlasMask =  atlas3DIndices == i;
-    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH, centroidSizesRH], sym2DMatrix(:, atlasMask));
+    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
 end
 %%
 explainedCov = explained3DCov(1:3:length(explained3DCov));
@@ -230,7 +230,7 @@ try
     disp(['Loaded computed residuals from ' SELECTION_DIR  'residuals.mat']);
 catch
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH, centroidSizesRH], sym2DMatrix);
+    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
     resT = repmat(avgT,size(resT,1),1)+resT;
     disp("Saving computed residuals..");
     save([SELECTION_DIR  'residuals.mat'],'resT', 'explainedCovWhole', '-v7.3');
