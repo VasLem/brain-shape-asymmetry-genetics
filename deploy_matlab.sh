@@ -3,8 +3,7 @@
 module purge
 module load matlab/R2019a
 mkdir -p deployed
-cd deployed
-
+cd matlab
 echo 1
 mcc -mv demoBrainAsymmetryGenome.m -d ../deployed/
 echo 2
