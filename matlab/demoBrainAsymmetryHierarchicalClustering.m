@@ -9,10 +9,10 @@
 %% Applying Hierarchical Clustering to Brain Symmetry Related information
 close all;clear;
 if ~isdeployed
-restoredefaultpath;
-addpath(genpath('AIDFUNCTIONS'));
-addpath(genpath('FUNCTIONS'));
-addpath(genpath('.'));
+    restoredefaultpath;
+    addpath(genpath('AIDFUNCTIONS'));
+    addpath(genpath('FUNCTIONS'));
+    addpath(genpath('.'));
 end
 
 
@@ -440,6 +440,3 @@ if ~isempty(clustered.parts) && level~=0
     clusterVec(clustered.parts{2}.indices) = part2;
 end
 end
-
-
-
