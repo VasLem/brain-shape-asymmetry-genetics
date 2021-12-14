@@ -1,2 +1,0 @@
-LIBRARY	ImprovedFastGaussTransformChooseTruncationNumber.dll
-EXPORTS mexFunction          
