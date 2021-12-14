@@ -15,4 +15,4 @@ export RESULTS_ROOT=$VSC_DATA/Thesis/results
 export SCRATCH_ROOT=$VSC_SCRATCH/Thesis
 export CHROMOSOME=${PBS_ARRAYID}
 installation="$(dirname $(dirname $(which matlab)))"
-./usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code.bak/deployed/run_demoBrainAsymmetryGenome.sh $installation
+./usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code.bak/deployed/run_demoBrainAsymmetryGenome.sh $installation > genome${PBS_ARRAYID}.log
