@@ -1,7 +1,7 @@
 #!/bin/bash
 
 module purge
-module load matlab
+module load matlab/R2019a
 mkdir -p deployed
 cd matlab
 echo 1

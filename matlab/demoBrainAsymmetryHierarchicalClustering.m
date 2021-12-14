@@ -71,7 +71,8 @@ disp(['Location of intermediate files: ', SCRATCH_DIR]);
 
 THREADS = getenv('THREADS');
 if(isempty(THREADS))
-    THREADS = parcluster('local').NumWorkers;
+    THREADS = parcluster('local');
+    THREADS = THREADS.NumWorkers;
 else
     if ~isnumeric(THREADS)
         THREADS=str2double(THREADS);
