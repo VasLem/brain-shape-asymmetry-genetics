@@ -5,12 +5,16 @@ function out = ProcrustesAnova2WayAsymmetryMEM(X1,X2,nIter,factor,nSplits, showP
 %
 %nSplits is supplied to split the computation into parts in case it is
 %memory intensive
-arguments
-X1
-X2
-nIter=0
+if nargin < 3
+    nIter=0;
+end
+if nargin < 4
 factor=10000;
+end
+if nargin < 5
 nSplits=1;
+end
+if nargin < 6
 showProgress=true;
 end
 [n,nrV,rep] = size(X1);

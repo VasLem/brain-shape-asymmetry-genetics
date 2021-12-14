@@ -1,8 +1,9 @@
 function [out, score] = computeAmmiModel(Shapes,  numComponents, minNumComponents)
-arguments
-Shapes
-numComponents=0
-minNumComponents=2
+if nargin < 2
+numComponents=0;
+end
+if nargin < 3
+    minNumComponents=2;
 end
 inputShapes = Shapes;
 n = size(inputShapes,3)/2;

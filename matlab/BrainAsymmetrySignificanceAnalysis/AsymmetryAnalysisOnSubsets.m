@@ -10,16 +10,26 @@ function varargout  =  AsymmetryAnalysisOnSubsets(X1,X2, nIter, nSamplesPerPick,
 % nSplits: number of splits for computational efficiency
 % landmarksGroups: whether to group landmarks before applying 2-way anova
 % seed: non negative integer for reproducibility of random number generation
-arguments
-X1
-X2
-nIter=0
-nSamplesPerPick=size(X1,1)
-nPicks=1
-factor=10000
-nSplits=1
-landmarksGroups=[]
-seed=-1
+if argin<3
+    nIter=0;
+end
+if nargin <4
+    nSamplesPerPick=size(X1,1);
+end
+if nargin <5
+    nPicks=1;
+end
+if nargin < 6
+    factor=10000;
+end
+if nargin < 7
+    nSplits=1;
+end
+if nargin < 7
+landmarksGroups=[];
+end
+if nargin < 7
+seed=-1;
 end
 if seed>=0, rng(seed); end
 nOutputs = nargout;
