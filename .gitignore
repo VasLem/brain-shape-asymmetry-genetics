@@ -66,6 +66,9 @@ results/**/*.mat
 results/demo_asymmetry/fluctuatingAMMI.txt
 results/genomics
 iELVis
+matlab/AIDFUNCTIONS/ToolBoxes
+deployed
+
 metaphat
 SNPLIB-master
 * log.txt
