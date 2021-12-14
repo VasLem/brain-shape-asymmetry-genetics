@@ -29,9 +29,9 @@ end
 disp(['Location of data: ', DATA_DIR]);
 
 
-DATASET_INDEX = getenv("DATASET_INDEX");
+DATASET_INDEX = getenv('DATASET_INDEX');
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 1;
+    DATASET_INDEX = 2;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
