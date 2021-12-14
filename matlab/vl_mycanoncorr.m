@@ -59,15 +59,12 @@ function [...%A,B,
 %     [2] Seber, G.A.F., Multivariate Observations, Wiley, New York, 1984.
 
 %   Copyright 1993-2014 The MathWorks, Inc.
-arguments
-X
-Y single
-Q2 single=nan
-T22 single=nan
-perm2 single =nan
-rankY single=nan
+if nargin < 3
+    Q2 =nan;
+    T22 =nan;
+    perm2  =nan;
+    rankY =nan;
 end
-
 if nargin < 2
     error(message('stats:canoncorr:TooFewInputs'));
 end

@@ -1,9 +1,6 @@
 function [fig, handles]= paintClusters(clustered, template, numLevels, isRecursive)
-arguments
-    clustered
-    template
-    numLevels
-    isRecursive=true
+if nargin < 4
+    isRecursive=true;
 end
 fig=figure();
 pax = gca();

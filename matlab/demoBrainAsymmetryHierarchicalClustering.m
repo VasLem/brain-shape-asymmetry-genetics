@@ -1,17 +1,43 @@
+%ENV TO SET:
+%%%%%%%%%%%%
+%DATA_ROOT: the directory of the DATA (../SAMPLE_DATA)
+%DATASET_INDEX: dataset to use, 1 or 2 (1)
+%RESULTS_ROOT: the directory of the results (../results)
+%THREADS: Number of threads to use (auto set by local)
+%%%%%%%%%%%%
 %% Applying Hierarchical Clustering to Brain Symmetry Related information
 close all;clear;
+if ~isdeployed
 restoredefaultpath;
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('FUNCTIONS'));
 addpath(genpath('.'));
+end
+
 
 SEED = 42;
 rng(SEED); % For reproducible results
 if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
 end
-DATA_DIR = '../SAMPLE_DATA/';
-DATASET_INDEX = 1;
+
+DATA_DIR = getenv('DATA_ROOT');
+if(isempty(DATA_DIR))
+    DATA_DIR = '../SAMPLE_DATA/';
+end
+disp(['Location of data: ', DATA_DIR]);
+
+
+DATASET_INDEX = getenv("DATASET_INDEX");
+if (isempty(DATASET_INDEX))
+    DATASET_INDEX = 1;
+else
+    disp(DATASET_INDEX)
+    if ~isnumeric(DATASET_INDEX)
+        DATASET_INDEX = str2double(DATASET_INDEX);
+    end
+end
+disp(['Using dataset:', num2str(DATASET_INDEX)])
 
 switch DATASET_INDEX
     case 1
@@ -23,9 +49,23 @@ switch DATASET_INDEX
         DATASET_NAME = 'BATCH2_2021_DATA';
         GENO_ID = 'sel16875_rmrel';
 end
-RESULTS_DIR = ['../results/hierarchicalClusteringDemo/' DATASET_NAME '/'];
-THREADS = 16;
+RESULTS_ROOT = getenv('RESULTS_ROOT');
+if(isempty(RESULTS_ROOT))
+    RESULTS_ROOT = '../results';
+end
 
+RESULTS_DIR = [RESULTS_ROOT, '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+disp(['Location of results: ', RESULTS_DIR]);
+
+
+THREADS = getenv('THREADS');
+if(isempty(THREADS))
+    THREADS = parcluster('local').NumWorkers;
+else
+    if ~isnumeric(THREADS)
+        THREADS=str2double(THREADS);
+    end
+end
 
 
 % SELECTION = 'asymmetry';
@@ -49,7 +89,7 @@ if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
 
 %% SETTING UP COMPUTATION POWER
 try
-    parpool('local',THREADS);
+    parpool(THREADS);
 catch
 end
 
@@ -58,18 +98,18 @@ covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.m
 try
     load([SELECTION_DIR, 'input.mat']);
 catch
-    
-    
+
+
     in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
-    
+
     phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
     genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
-    
+
     Regions = {'LH' 'RH'};
     nR = length(Regions);
-    
+
     DATA = cell(1,2);
-    
+
     for r=1:nR
         regphenopath = [phenopath Regions{r} '/'];
         disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
@@ -79,24 +119,26 @@ catch
     RH = DATA{2}.Region.AlignedShapes;
     phenoIID = DATA{1}.Region.IID(1:size(LH,3));
     Region =  DATA{1}.Region;
+
+    %%
     brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
     refTemplate = brainSurface.RefScan;
-    
+
     % GPA
     [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
-    
-    
+
+
     switch SELECTION
         case 'asymmetry'
             A = (preprocLH - preprocRH);
         case 'symmetry'
             A =  (preprocLH + preprocRH)/2;
     end
-    clear DATA preprocLH preprocRH LH RH
-    centroidSizes = Region.CentroidSizes;
+    centroidSizesLH = DATA{1}.Region.CentroidSizes;
+    centroidSizesRH = DATA{2}.Region.CentroidSizes;
     regionName = Region.Name;
-    clear Region
-    save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizes', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
+    clear DATA preprocLH preprocRH LH RH Region
+    save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
 end
 %%
 preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
@@ -118,11 +160,13 @@ covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)
 covData = covariates.DATA(covIndex, :);
 sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
 preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
-
+centroidSizesLH = centroidSizesLH(covPhenoIndex);
+centroidSizesRH = centroidSizesRH(covPhenoIndex);
+nSubj = size(sym2DMatrix, 1);
 avgT = mean(sym2DMatrix,1);
 % Removing components that can be controlled from covariates, keeping only
 % the residuals from the corresponding PLS model
-%% Apply covariates control analysis on DK partitions 
+%% Apply covariates control analysis on DK partitions
 % see how much of the variance of each partition set of landmarks is explained by covariates
 atlasName = 'Desikan_Killiany';
 atlas = loadAtlas(atlasName,'L');
@@ -136,7 +180,7 @@ explained3DCov = nan * zeros(length(atlas3DIndices),1);
 for k=1:length(labels)
     i=labels(k);
     atlasMask =  atlas3DIndices == i;
-    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizes(:)], sym2DMatrix(:, atlasMask));
+    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH, centroidSizesRH], sym2DMatrix(:, atlasMask));
 end
 %%
 explainedCov = explained3DCov(1:3:length(explained3DCov));
@@ -173,7 +217,7 @@ try
     disp(['Loaded computed residuals from ' SELECTION_DIR  'residuals.mat']);
 catch
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-    [resT, explainedCovWhole] = controlForCovariates([covData centroidSizes(:)], sym2DMatrix);
+    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH, centroidSizesRH], sym2DMatrix);
     resT = repmat(avgT,size(resT,1),1)+resT;
     disp("Saving computed residuals..");
     save([SELECTION_DIR  'residuals.mat'],'resT', 'explainedCovWhole', '-v7.3');
@@ -204,7 +248,7 @@ if strcmp(SEGMENTATION_USED, 'labs')
     runs = 50;
     [LABELS,MASK] = HierarchicalFacialSegmentationv4(double(similarityMat),NUM_LEVELS,type,runs,minPercValue);
     save([SEGMENTATION_DIR 'segmentation.mat'],'LABELS','MASK','-v7.3');
-    
+
     % VISUALIZING THE SEGMENTATION
     % find the deepest still meaningfull level
     levels = nansum(LABELS,2);
@@ -221,16 +265,16 @@ if strcmp(SEGMENTATION_USED, 'labs')
     VHI.nL = v_levels;
     VMASK = UMASK(1:VHI.nLC);
     disp(['Number of visualized clusters: ' num2str(length(find(VMASK)))]);
-    
+
     % make figdir
-    
+
     % PATCHES VISUALISATION
     for lev=1:1:u_levels
         PLABELS = ULABELS(1:lev,:);
         [nLevels,nVertices] = size(PLABELS);
         PHI = HierarchicalInterface;
         PHI.nL = nLevels;
-        
+
         % convert from clusterindex to listindex
         newLABELS = zeros(size(PLABELS));
         for l=1:size(PLABELS,1)
@@ -246,7 +290,7 @@ if strcmp(SEGMENTATION_USED, 'labs')
             VertexLabels(i) = newLABELS(index(end),i);
         end
         [UV,~,VertexLabels] = unique(VertexLabels);
-        
+
         RefScan = clone(preprocTemplate);
         RefScan.VertexValue = VertexLabels;
         RefScan.ColorMode = "Indexed";
@@ -269,7 +313,7 @@ if strcmp(SEGMENTATION_USED, 'labs')
     end
     clusterArray = LABELS;
 else
-    
+
     clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
     fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS);
     savefig(fig, [SEGMENTATION_DIR  'segmentation.fig']);
@@ -288,7 +332,6 @@ explainedThresholds = 50:10:90;
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
 means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
-
 reshapedResT = reshape(resT', DIM, nVertices, nSubj);
 clear resT
 disp('Constructing graph showing the number of components/variance explained for each partition..')
@@ -364,6 +407,10 @@ saveas(fig, [SEGMENTATION_DIR 'clusterPCA_interior.png']);
 view(-90, 0)
 saveas(fig, [SEGMENTATION_DIR 'clusterPCA_exterior.png']);
 diary off;
+
+if ~isdeployed
+    close all
+end
 
 function clusterArray = getClustersAsArray(clustered, depth)
 clusterArray = ones(depth, length(clustered.indices));
