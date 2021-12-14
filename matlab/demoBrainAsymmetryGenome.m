@@ -3,6 +3,7 @@
 %DATA_ROOT: the directory of the DATA (../SAMPLE_DATA)
 %DATASET_INDEX: dataset to use, 1 or 2 (1)
 %RESULTS_ROOT: the directory of the results (../results)
+%SCRATCH_ROOT: the directory to use for the intermediate files (../results)
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (17)
 %%%%%%%%%%%%
@@ -78,9 +79,19 @@ if(isempty(RESULTS_ROOT))
 end
 RESULTS_DIR = [RESULTS_ROOT, '/genomeDemo/' DATASET_NAME '/'];
 disp(['Location of results: ', RESULTS_DIR]);
+if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
+
+SCRATCH_ROOT = getenv('SCRATCH_ROOT');
+if(isempty(SCRATCH_ROOT))
+    SCRATCH_ROOT = '../results';
+end
+
+disp(['Location of intermediate files: ', SCRATCH_ROOT]);
+SCRATCH_DIR = [SCRATCH_ROOT, '/genomeDemo/' DATASET_NAME '/'];
+if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
 
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
-if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
+
 disp("Loading phenotype and covariates..")
 pheno = load(['../results/hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat']);
 covariates = load(covGenoPath).COV;
@@ -93,9 +104,12 @@ end
 disp(['CHR:' , num2str(CHR)]);
 GENE_SET_METHOD = 'perSNP';
 CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-INT_GENO_OUT = [CHR_DIR 'intervals.mat'];
+SCRATCH_CHR_DIR = [SCRATCH_DIR 'chr' num2str(CHR) '/'];
+INT_GENO_OUT = [SCRATCH_CHR_DIR 'intervals_geno.mat'];
 INT_GENO_PROC = ~isfile(INT_GENO_OUT);
-CNT_GENO_OUT = [CHR_DIR 'controlled_geno.mat'];
+META_INT_GENO_OUT = [CHR_DIR 'intervals_info.mat'];
+META_INT_GENO_PROC = ~isfile(META_INT_GENO_OUT);
+CNT_GENO_OUT = [SCRATCH_CHR_DIR 'controlled_geno.mat'];
 CNT_GENO_PROC = ~isfile(CNT_GENO_OUT);
 NO_PART_CCA_OUT = [CHR_DIR 'noPartCCA.mat'];
 NO_PART_CCA_PROC = ~isfile(NO_PART_CCA_OUT);
@@ -103,12 +117,13 @@ WITH_PART_CCA_OUT = [CHR_DIR 'withPartCCA.mat'];
 WITH_PART_CCA_PROC = ~isfile(WITH_PART_CCA_OUT);
 
 if ~isfolder(CHR_DIR), mkdir(CHR_DIR); end
+if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
 try
     lastwarn('', '');
-    if ~INT_GENO_PROC
-        load([CHR_DIR 'plink_data.mat'], "snps", "samples");
-    else
-        load([CHR_DIR 'plink_data.mat'], "af", "ld", "geno", "snps", "samples");
+    load([CHR_DIR 'plink_data_info.mat'], "af", "ld", "iid");
+    samples.IID = iid;
+    if META_INT_GENO_PROC
+        load([SCRATCH_CHR_DIR 'plink_data.mat'], "geno", "snps", "samples");
     end
     [warnMsg, warnId] = lastwarn();
     if ~isempty(warnId)
@@ -129,7 +144,8 @@ catch
     af = obj.CalcAlleleFrequency();
     disp("Saving to disk..")
     clear obj;
-    save([CHR_DIR 'plink_data.mat'], 'af', 'ld', 'geno', 'snps', 'samples', '-v7.3')
+    save([SCRATCH_CHR_DIR 'plink_data.mat'], 'geno', 'snps', 'samples', '-v7.3')
+    save([CHR_DIR 'plink_data_info.mat'], 'af', 'ld',"iid", '-v7.3')
     INT_GENO_PROC = 1;
     CNT_GENO_PROC = 1;
     NO_PART_CCA_PROC = 1;
@@ -142,10 +158,10 @@ covAssignmentMatrix = (str2double(samples.IID) == str2double(covariates.IID)');
 [covGenoIndex, covIndex] = find(covAssignmentMatrix);
 clear covAssignmentMatrix
 covData = covariates.DATA(covIndex, :);
-if INT_GENO_PROC
+if META_INT_GENO_PROC
     geno =geno(covGenoIndex, :);
+    samples = samples(covGenoIndex, :);
 end
-samples = samples(covGenoIndex, :);
 
 
 %%
@@ -157,11 +173,11 @@ phenoId = str2double(pheno.preprocPhenoIID);
 disp("Aligning genotype to phenotype..");
 assignmentMatrix = (phenoId == genoId');
 [phenoIndex, genoIndex] = find(assignmentMatrix);
-if INT_GENO_PROC
+if META_INT_GENO_PROC
     geno = geno(genoIndex, :);
+    samples = samples(genoIndex, :);
 end
 covData = covData(genoIndex,:);
-samples = samples(genoIndex, :);
 assert(all(phenoIndex'==1:length(phenoIndex)));
 clear assignmentMatrix
 
@@ -206,12 +222,13 @@ clear assignmentMatrix
 %% Remove indels.
 disp("Removing SNPs containing InDels..");
 indelFilter = strlength(snps.(4))==1 & strlength(snps.(5))==1;
-if INT_GENO_PROC
+if META_INT_GENO_PROC
     genoPruned = geno(:, indelFilter);
     clear geno
+    snpsPruned = snps(indelFilter, :);
+    clear snps
 end
-snpsPruned = snps(indelFilter, :);
-clear snps
+
 
 %% Identify the genetic indices for genes with more than one allele
 [rsids , ~, ic] = unique(snpsPruned.('RSID'));
@@ -224,16 +241,17 @@ assert(all((1:length(phenoId)) == phenoIndex'));
 %% Partition SNPs
 
 
-if ~INT_GENO_PROC
+if ~META_INT_GENO_PROC
     if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
         if CNT_GENO_PROC
-            load(INT_GENO_OUT, 'genoInt', 'intervals', 'gId');
+            load(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId');
+            load(INT_GENO_OUT, 'genoInt');
         else
-            load(INT_GENO_OUT, 'intervals', 'gId');
+            load(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId');
         end
 
     else
-        load(INT_GENO_OUT, 'intervals', 'gId');
+        load(META_INT_GENO_OUT, 'intervals', 'gId');
     end
     disp("Loaded intervals.");
 else
@@ -244,7 +262,8 @@ else
     gId(intervals(:, 1)) = 1;
     gId = cumsum(gId);
     genoInt = splitapply( @(x){x'}, genoPruned', gId );
-    save(INT_GENO_OUT, 'genoInt', 'intervals', 'gId', '-v7.3');
+    save(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId', '-v7.3');
+    save(INT_GENO_OUT, 'genoInt', '-v7.3');
     clear genoPruned;
 end
 
@@ -257,7 +276,7 @@ if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
     else
         disp("Controlling genome for covariates based on intervals..")
         genoControlledInt = controlGenoCovariates(genoInt, covData);
-        save([CHR_DIR 'controlled_geno.mat'], 'genoControlledInt', '-v7.3');
+        save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
         clear genoInt
     end
 
@@ -276,8 +295,9 @@ else
         noPartPheno = noPartPheno(:,1:MAX_NUM_FEATS);
     end
     [noPartitionStats, noPartitionIntStats] = runCCA(noPartPheno, genoControlledInt, intervals, gId);
-    save([CHR_DIR 'noPartCCA.mat'], 'noPartitionStats', 'noPartitionIntStats', '-v7.3');
+    save(NO_PART_CCA_OUT, 'noPartitionStats', 'noPartitionIntStats', '-v7.3');
     clear noPartPheno;
+    NO_PART_CCA_PROC = False;
 end
 
 plotSimpleGWAS(intervals, noPartitionIntStats, CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
@@ -290,10 +310,14 @@ else
 
     % With Global-To-Local Partitioning Into Consideration
     disp("Computing CCA with phenotypic partitioning..")
-    [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(pheno, genoControlledInt, intervals, gId, CHR_DIR, MAX_NUM_FEATS);
+    [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(pheno, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
 
 
-    save([CHR_DIR, 'withPartCCA.mat'], 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
+    save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
+    WITH_PART_CCA_PROC = False;
+end
+if ~NO_PART_CCA_PROC && ~WITH_PART_CCA_PROC
+    delete(CNT_GENO_OUT);
 end
 %%
 plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
@@ -312,7 +336,6 @@ disp("End of computation.")
 if ~isdeployed
     close all
 end
-close all;
 
 
 %%
@@ -333,7 +356,6 @@ lgd = legend;
 set(lgd,'Location','BestOutside');
 
 %%
-savefig(fig, [path '_logPlot.fig']);
 saveas(fig, [path '_logPlot.png']);
 end
 
@@ -348,7 +370,6 @@ title(['Chromosome ' num2str(chromosome) ', ' num2str(sum(intStats.chiSqSignific
 ylabel('-log10p');
 
 %%
-savefig(fig, [path '_logPlot.fig']);
 saveas(fig, [path '_logPlot.png']);
 end
 
@@ -410,7 +431,7 @@ if ~strcmp(savePath, "")
 end
 end
 
-function [stats, intStats, intervals] = runCCAOnEachPartition(pheno, geno, intervals, intIdVec, chr_dir, maxNumPhenoFeats)
+function [stats, intStats, intervals] = runCCAOnEachPartition(pheno, geno, intervals, intIdVec, scratch_dir, maxNumPhenoFeats)
 if nargin < 6
     maxNumPhenoFeats = 0;
 end
@@ -426,7 +447,7 @@ for k=pnum:-1:1
         phenoPart = phenoPart(:,1:min(size(phenoPart,2),maxNumPhenoFeats));
     end
     disp(['Partition ', num2str(k), ', number of components: ', num2str(size(phenoPart,2))]);
-    PART_DIR = [chr_dir 'par' num2str(k) '/'];
+    PART_DIR = [scratch_dir 'par' num2str(k) '/'];
     if ~isfolder(PART_DIR), mkdir(PART_DIR); end
     try
         load([PART_DIR 'data.mat'], 's', 'i');

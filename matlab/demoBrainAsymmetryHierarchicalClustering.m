@@ -3,6 +3,7 @@
 %DATA_ROOT: the directory of the DATA (../SAMPLE_DATA)
 %DATASET_INDEX: dataset to use, 1 or 2 (1)
 %RESULTS_ROOT: the directory of the results (../results)
+%SCRATCH_ROOT: the directory to use for the intermediate files (../results)
 %THREADS: Number of threads to use (auto set by local)
 %%%%%%%%%%%%
 %% Applying Hierarchical Clustering to Brain Symmetry Related information
@@ -55,7 +56,17 @@ if(isempty(RESULTS_ROOT))
 end
 
 RESULTS_DIR = [RESULTS_ROOT, '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+
+
 disp(['Location of results: ', RESULTS_DIR]);
+
+SCRATCH_ROOT = getenv('SCRATCH_ROOT');
+if(isempty(SCRATCH_ROOT))
+    SCRATCH_ROOT = '../results';
+end
+
+SCRATCH_DIR = [SCRATCH_ROOT, '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+disp(['Location of intermediate files: ', SCRATCH_DIR]);
 
 
 THREADS = getenv('THREADS');
@@ -81,12 +92,14 @@ SEGMENTATION_USED = 'mine';
 REDUCTION_RATE = 1;
 
 SELECTION_DIR   = [RESULTS_DIR SELECTION '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
+SELECTION_SCRATCH_DIR   = [SCRATCH_DIR SELECTION '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
 COV_REMOVAL_DIR = [SELECTION_DIR COV_REMOVAL '/'];
+COV_REMOVAL_SCRATCH_DIR   =  [SELECTION_SCRATCH_DIR COV_REMOVAL '/'];
 SEGMENTATION_DIR = [COV_REMOVAL_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
-
+SEGMENTATION_SCRATCH_DIR = [COV_REMOVAL_SCRATCH_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
 
 if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
-
+if ~isfolder(SEGMENTATION_SCRATCH_DIR), mkdir(SEGMENTATION_SCRATCH_DIR); end
 %% SETTING UP COMPUTATION POWER
 try
     parpool(THREADS);
@@ -96,7 +109,7 @@ end
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
 try
-    load([SELECTION_DIR, 'input.mat']);
+    load([SEGMENTATION_SCRATCH_DIR, 'input.mat']);
 catch
 
 
@@ -138,7 +151,7 @@ catch
     centroidSizesRH = DATA{2}.Region.CentroidSizes;
     regionName = Region.Name;
     clear DATA preprocLH preprocRH LH RH Region
-    save([SELECTION_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
+    save([SEGMENTATION_SCRATCH_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
 end
 %%
 preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
@@ -316,7 +329,6 @@ else
 
     clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
     fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS);
-    savefig(fig, [SEGMENTATION_DIR  'segmentation.fig']);
     saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
     clusterArray = getClustersAsArray(clustered, NUM_LEVELS);
     save([SEGMENTATION_DIR 'segmentation.mat'],'clusterArray','-v7.3');
