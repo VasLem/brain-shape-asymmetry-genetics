@@ -9,10 +9,10 @@ module load matlab/R2019a
 
 cd $VSC_HOME/imagen/deployed
 
-export DATA_ROOT=$VSC_DATA/Thesis/SAMPLE_DATA
+export DATA_ROOT=$VSC_DATA/Thesis/SAMPLE_DATA/
 export DATASET_INDEX=2
-export RESULTS_ROOT=$VSC_DATA/Thesis/results
-export SCRATCH_ROOT=$VSC_SCRATCH/Thesis
+export RESULTS_ROOT=$VSC_DATA/Thesis/results/
+export SCRATCH_ROOT=$VSC_SCRATCH/Thesis/
 export CHROMOSOME=${PBS_ARRAYID}
 installation="$(dirname $(dirname $(which matlab)))"
 ./run_demoBrainAsymmetryGenome.sh $installation > genome${PBS_ARRAYID}.log

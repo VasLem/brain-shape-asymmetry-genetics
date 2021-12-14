@@ -1,9 +1,9 @@
 %ENV TO SET:
 %%%%%%%%%%%%
-%DATA_ROOT: the directory of the DATA (../SAMPLE_DATA)
+%DATA_ROOT: the directory of the DATA (../SAMPLE_DATA/)
 %DATASET_INDEX: dataset to use, 1 or 2 (1)
-%RESULTS_ROOT: the directory of the results (../results)
-%SCRATCH_ROOT: the directory to use for the intermediate files (../results)
+%RESULTS_ROOT: the directory of the results (../results/)
+%SCRATCH_ROOT: the directory to use for the intermediate files (../results/)
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (21)
 %%%%%%%%%%%%
@@ -50,7 +50,7 @@ MAX_NUM_FEATS = 0;
 
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 1;
+    DATASET_INDEX = 2;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -76,15 +76,15 @@ end
 
 RESULTS_ROOT = getenv('RESULTS_ROOT');
 if(isempty(RESULTS_ROOT))
-    RESULTS_ROOT = '../results';
+    RESULTS_ROOT = '../results/';
 end
-RESULTS_DIR = [RESULTS_ROOT, '/genomeDemo/' DATASET_NAME '/'];
+RESULTS_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/'];
 disp(['Location of results: ', RESULTS_DIR]);
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 
 SCRATCH_ROOT = getenv('SCRATCH_ROOT');
 if(isempty(SCRATCH_ROOT))
-    SCRATCH_ROOT = '../results';
+    SCRATCH_ROOT = '../results/';
 end
 
 disp(['Location of intermediate files: ', SCRATCH_ROOT]);

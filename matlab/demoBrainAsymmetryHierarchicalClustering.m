@@ -52,20 +52,20 @@ switch DATASET_INDEX
 end
 RESULTS_ROOT = getenv('RESULTS_ROOT');
 if(isempty(RESULTS_ROOT))
-    RESULTS_ROOT = '../results';
+    RESULTS_ROOT = '../results/';
 end
 
-RESULTS_DIR = [RESULTS_ROOT, '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+RESULTS_DIR = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
 
 
 disp(['Location of results: ', RESULTS_DIR]);
 
 SCRATCH_ROOT = getenv('SCRATCH_ROOT');
 if(isempty(SCRATCH_ROOT))
-    SCRATCH_ROOT = '../results';
+    SCRATCH_ROOT = '../results/';
 end
 
-SCRATCH_DIR = [SCRATCH_ROOT, '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+SCRATCH_DIR = [SCRATCH_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
 disp(['Location of intermediate files: ', SCRATCH_DIR]);
 
 
@@ -80,8 +80,8 @@ else
 end
 
 
-% SELECTION = 'asymmetry';
-SELECTION = 'symmetry';
+SELECTION = 'asymmetry';
+% SELECTION = 'symmetry';
 
 COV_REMOVAL = 'ccPriorSegmentation';
 % COV_REMOVAL = 'ccPostSegmentation';
