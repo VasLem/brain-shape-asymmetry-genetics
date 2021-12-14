@@ -101,7 +101,7 @@ parfor c=1:size(rbs.centers, 1)
     rbs_vertices_inds_mapped_on_bs(c,:) = all_faces_corrsepondence_on_bs_vertices_inds(vertices_correspondence_inds);
     ppb.increment();
 end
-closeParForProgress(path,ID)
+delete(ppb);
 toc;
 disp("..Computing Required Transformation..")
 tic;
