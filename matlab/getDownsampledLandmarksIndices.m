@@ -42,15 +42,15 @@ if ~adjacencyIsPrecomputed
     tic;
     adjacency = false(size(bs.faces,1), size(bs.faces,1));
     adjInd = cell(size(bs.vertices,1));
-    [path,ID] = setupParForProgress(size(bs.vertices, 1));
+    ppb = ParforProgressbar(size(bs.vertices, 1));
     parfor c=1:size(bs.vertices, 1)
         neighbors = find(sum(bs.faces == c,2) > 0);
         [R, C] = meshgrid(neighbors, neighbors);
         ind = sub2ind(size(adjacency), R, C);
         adjInd{c} = ind;
-        parfor_progress;
+        ppb.increment();
     end
-    closeParForProgress(path,ID);
+    delete(ppb);
 
     for c=1:size(bs.vertices, 1)
        adjacency(adjInd{c}) = true;
@@ -89,7 +89,7 @@ tic;
 % Combine the path matrix with the  last result, keeping only euclidian neighbors of the face X of bs closest to the i-th face of rbs
 % that do exist in the path matrix X-th row. After, retrieve the vertices in rbs that are closest to the vertices of the filtered faces.
 rbs_vertices_inds_mapped_on_bs = zeros(size(rbs.centers));
-[path,ID] = setupParForProgress(size(rbs.centers, 1));
+ppb = ParforProgressbar(size(rbs.centers, 1));
 parfor c=1:size(rbs.centers, 1)
     indicesToFilter = faces_bs2rbs_inds(:,c);
     gdists = connectivity(indicesToFilter(1), indicesToFilter(2:end));
@@ -99,7 +99,7 @@ parfor c=1:size(rbs.centers, 1)
     to_match = rbs.vertices(rbs.faces(c,:),:);
     [~, vertices_correspondence_inds] = pdist2(all_faces_corrsepondence_on_bs_vertices, to_match,"Euclidean",'Smallest', 1);
     rbs_vertices_inds_mapped_on_bs(c,:) = all_faces_corrsepondence_on_bs_vertices_inds(vertices_correspondence_inds);
-    parfor_progress;
+    ppb.increment();
 end
 closeParForProgress(path,ID)
 toc;
