@@ -69,7 +69,7 @@ if t == 0, return; end
     for i=1:1:nA
         list = sort(BootAngles1(i,:));
         lowerci= list(0.025*t+1);
-        out.
+        out.LowerCi = lowerci;
     end
     
     % get P-Value 

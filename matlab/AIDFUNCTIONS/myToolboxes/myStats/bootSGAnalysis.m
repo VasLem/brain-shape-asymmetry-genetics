@@ -31,10 +31,6 @@ function [out] = bootSGAnalysis(A,B,Model,t)
          out.sampley = sampley;
 end
 
-figure;hold on;
-for i=1:1:1000;
-    plot(samplex(:,i),sampley(:,i));
-end
 
 % parfor b=1:t
 %             ind = randsample((1:n),n,true);

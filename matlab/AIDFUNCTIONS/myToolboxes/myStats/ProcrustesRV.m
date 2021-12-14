@@ -14,10 +14,6 @@ function out = ProcrustesRV(X1,X2,t)
          CCount = false(t,1);
          tic;
          nc = size(X1,1);
-         TmpX1 = zeros(nc/3,nc/3,3);
-         for k=1:1:nc/3
-             TmpX1(k,:,1) = X1((k-1)+1
-                   
          parfor i=1:t
                 index = randperm(n);
                 X1for = X1;

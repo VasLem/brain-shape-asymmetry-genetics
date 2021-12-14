@@ -62,7 +62,6 @@ classdef SexDemiModel < superClass
              if strcmp(obj.Balance,'none');out = 1;return; end
              out = obj.BalanceRuns;
          end
-         function 
     end
     methods % General Interface Functions
         function eliminateNAN(obj)
