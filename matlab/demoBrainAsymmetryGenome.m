@@ -122,7 +122,7 @@ if ~isfolder(CHR_DIR), mkdir(CHR_DIR); end
 if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
 try
     lastwarn('', '');
-    load([CHR_DIR 'plink_data_info.mat'], "af", "ld", "iid");
+    load([CHR_DIR 'plink_data_info.mat'], "iid");
     samples.IID = iid;
     if META_INT_GENO_PROC
         load([SCRATCH_CHR_DIR 'plink_data.mat'], "geno", "snps", "samples");
@@ -135,19 +135,25 @@ try
 catch
     disp("Loading PLINK preprocessed data..")
     obj = SNPLIB();
-    obj.nThreads = THREADS;
+    if ~isdeployed
+        obj.nThreads = THREADS;
+    end
     [snps, samples] = obj.importPLINKDATA([DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)]);
     geno = obj.UnpackGeno();
     geno(geno==-1) = 255;
     geno = uint8(geno);
-    disp("Computing LD scores..")
-    ld = obj.CalcLDScores(snps);
-    disp("Computing Allele Frequencies..")
-    af = obj.CalcAlleleFrequency();
+    if ~isdeployed
+        disp("Computing LD scores..")
+        ld = obj.CalcLDScores(snps);
+        disp("Computing Allele Frequencies..")
+        af = obj.CalcAlleleFrequency();
+        save([CHR_DIR 'plink_data_info.mat'], 'af', 'ld',"iid", '-v7.3')
+    else
+     save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
+    end
     disp("Saving to disk..")
     clear obj;
     save([SCRATCH_CHR_DIR 'plink_data.mat'], 'geno', 'snps', 'samples', '-v7.3')
-    save([CHR_DIR 'plink_data_info.mat'], 'af', 'ld',"iid", '-v7.3')
     INT_GENO_PROC = 1;
     CNT_GENO_PROC = 1;
     NO_PART_CCA_PROC = 1;
