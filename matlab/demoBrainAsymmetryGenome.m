@@ -136,7 +136,7 @@ catch
     disp("Loading PLINK preprocessed data..")
     obj = SNPLIB();
     obj.nThreads = THREADS;
-    [snps, samples] = obj.importPLINKDATA(['../SAMPLE_DATA/IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)]);
+    [snps, samples] = obj.importPLINKDATA([DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)]);
     geno = obj.UnpackGeno();
     geno(geno==-1) = 255;
     geno = uint8(geno);
