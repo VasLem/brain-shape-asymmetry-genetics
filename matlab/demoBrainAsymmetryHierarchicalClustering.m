@@ -350,6 +350,8 @@ reshapedResT = reshape(resT', DIM, nVertices, nSubj);
 clear resT
 disp('Constructing graph showing the number of components/variance explained for each partition..')
 ppb = ParforProgressbar(partitions_num);
+explained = cell(partitions_num,1);
+pcaScores = cell(partitions_num, 1);
 parfor c=1:partitions_num
     try
         k = length(de2bi(c));
