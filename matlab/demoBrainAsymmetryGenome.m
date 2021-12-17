@@ -142,6 +142,7 @@ catch
     geno = obj.UnpackGeno();
     geno(geno==-1) = 255;
     geno = uint8(geno);
+    iid = samples.IID;
     if ~isdeployed
         disp("Computing LD scores..")
         ld = obj.CalcLDScores(snps);
