@@ -306,7 +306,7 @@ else
     [noPartitionStats, noPartitionIntStats] = runCCA(noPartPheno, genoControlledInt, intervals, gId);
     save(NO_PART_CCA_OUT, 'noPartitionStats', 'noPartitionIntStats', '-v7.3');
     clear noPartPheno;
-    NO_PART_CCA_PROC = False;
+    NO_PART_CCA_PROC = false;
 end
 
 plotSimpleGWAS(intervals, noPartitionIntStats, CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
@@ -323,7 +323,7 @@ else
 
 
     save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
-    WITH_PART_CCA_PROC = False;
+    WITH_PART_CCA_PROC = false;
 end
 if ~NO_PART_CCA_PROC && ~WITH_PART_CCA_PROC
     delete(CNT_GENO_OUT);
