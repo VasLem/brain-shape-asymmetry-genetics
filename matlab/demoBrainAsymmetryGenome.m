@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHR = getenv("CHROMOSOME");
 if(isempty(CHR))
-    CHR = 21;
+    CHR = 20;
 else
     if ~isnumeric(CHR)
         CHR=str2double(CHR);
@@ -143,15 +143,15 @@ catch
     geno(geno==-1) = 255;
     geno = uint8(geno);
     iid = samples.IID;
-    if ~isdeployed
-        disp("Computing LD scores..")
-        ld = obj.CalcLDScores(snps);
-        disp("Computing Allele Frequencies..")
-        af = obj.CalcAlleleFrequency();
-        save([CHR_DIR 'plink_data_info.mat'], 'af', 'ld',"iid", '-v7.3')
-    else
-     save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
-    end
+    %     if ~isdeployed
+    %         disp("Computing LD scores..")
+    %         ld = obj.CalcLDScores(snps);
+    %         disp("Computing Allele Frequencies..")
+    %         af = obj.CalcAlleleFrequency();
+    %         save([CHR_DIR 'plink_data_info.mat'], 'af', 'ld',"iid", '-v7.3')
+    %     else
+    save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
+    %     end
     disp("Saving to disk..")
     clear obj;
     save([SCRATCH_CHR_DIR 'plink_data.mat'], 'geno', 'snps', 'samples', '-v7.3')
@@ -163,18 +163,19 @@ end
 %%
 %% Align covariates with genotype
 disp("Aligning covariates to genotype..");
-covAssignmentMatrix = (str2double(samples.IID) == str2double(covariates.IID)');
+samplesIId = samples.IID;
+covAssignmentMatrix = (str2double(samplesIId) == str2double(covariates.IID)');
 [covGenoIndex, covIndex] = find(covAssignmentMatrix);
 clear covAssignmentMatrix
-covData = covariates.DATA(covIndex, :);
 if META_INT_GENO_PROC
     geno =geno(covGenoIndex, :);
     samples = samples(covGenoIndex, :);
 end
-
+covData = covariates.DATA(covIndex, :);
+samplesIId = samplesIId(covGenoIndex);
 
 %%
-genoId = str2double(samples.IID);
+genoId = str2double(samplesIId);
 phenoId = str2double(pheno.preprocPhenoIID);
 
 
@@ -186,6 +187,7 @@ if META_INT_GENO_PROC
     geno = geno(genoIndex, :);
     samples = samples(genoIndex, :);
 end
+samplesIId = samplesIId(genoIndex);
 covData = covData(genoIndex,:);
 assert(all(phenoIndex'==1:length(phenoIndex)));
 clear assignmentMatrix
@@ -250,20 +252,7 @@ assert(all((1:length(phenoId)) == phenoIndex'));
 %% Partition SNPs
 
 
-if ~META_INT_GENO_PROC
-    if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
-        if CNT_GENO_PROC
-            load(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId');
-            load(INT_GENO_OUT, 'genoInt');
-        else
-            load(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId');
-        end
-
-    else
-        load(META_INT_GENO_OUT, 'intervals', 'gId');
-    end
-    disp("Loaded intervals.");
-else
+if META_INT_GENO_PROC
     disp("Computing Intervals..")
     intervals = getIntervals(snpsPruned, GENE_SET_METHOD);
     disp("Splitting genome into groups, according to intervals information..")
@@ -279,6 +268,9 @@ end
 %%
 
 if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
+    if ~exist('genoInt', 'var')
+        load(INT_GENO_OUT, 'genoInt');
+    end
     if ~CNT_GENO_PROC
         load(CNT_GENO_OUT, 'genoControlledInt');
         disp("Loaded controlled genome for covariates based on intervals.")
@@ -292,7 +284,9 @@ if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
 end
 
 %%
-
+if ~exist('intervals', 'var')
+    load(META_INT_GENO_OUT,  'intervals', 'gId');
+end
 if ~NO_PART_CCA_PROC
     load(NO_PART_CCA_OUT, 'noPartitionStats', 'noPartitionIntStats');
     disp("Loaded Computed CCA without phenotypic partitioning");
@@ -329,6 +323,7 @@ if ~NO_PART_CCA_PROC && ~WITH_PART_CCA_PROC
     delete(CNT_GENO_OUT);
 end
 %%
+
 plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
 plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_NOBF_feats' num2str(MAX_NUM_FEATS)]);
 
@@ -336,8 +331,8 @@ plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, NO_PARTITION_THRES, [CHR_DIR
 %% Significant SNPs tables extraction
 disp("Extracting significant SNPs tables..")
 %%
+load(META_INT_GENO_OUT, 'snpsPruned');
 prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
-%%
 prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, NO_PARTITION_THRES, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
 %
 disp("End of computation.")
@@ -387,7 +382,7 @@ pNum = size(ccaIntStats.chiSqSignificance ,1);
 sigSnps= [];
 intSigSnps = [];
 parfor i=1:pNum
-    partIntStats = struct('chiSqSignificance',ccaIntStats.chiSqSignificance(i, :));
+    partIntStats = struct('chiSqSignificance', ccaIntStats.chiSqSignificance(i, :));
     %     partStats.coeffs = ccaStats.coeffs(i, :);
     [intRet, ret] =  prepareSignificantTables(snps, partIntStats, ccaIntervals, pThres);
     if isempty(ret), continue; end
@@ -401,7 +396,7 @@ parfor i=1:pNum
             disp('h');
         end
     end
-    
+
 end
 if ~isempty(sigSnps)
     writetable(sigSnps, [save_path 'significant_snps.csv']);
@@ -531,15 +526,3 @@ switch geneSetMethod
         intervals(:, 2) = [ia(2:end)-1;length(snps.POS)];
 end
 end
-
-
-
-
-
-
-
-
-
-
-
-
