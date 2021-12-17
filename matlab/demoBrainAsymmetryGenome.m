@@ -391,8 +391,8 @@ parfor i=1:pNum
     %     partStats.coeffs = ccaStats.coeffs(i, :);
     [intRet, ret] =  prepareSignificantTables(snps, partIntStats, ccaIntervals, pThres);
     if isempty(ret), continue; end
-    intRet.PARTITION = repmat(i,height(intRet),1);
-    ret.PARTITION = repmat(i,height(ret),1);
+    intRet.PARTITION = repmat(i,size(intRet, 1),1);
+    ret.PARTITION = repmat(i,size(ret, 1),1);
     if size(ret,1) ~= 0
         intSigSnps = [intSigSnps;intRet];
         try
@@ -512,12 +512,12 @@ switch geneSetMethod
     case 'slidingWindow'
         snpCnt = 1;
         cnt = 1;
-        intSlidWindow = zeros(height(snps),2);
-        while snpCnt<height(snps)
+        intSlidWindow = zeros(size(snps, 1),2);
+        while snpCnt<size(snps, 1)
             startInd = snpCnt;
             startPos = snps.POS(snpCnt);
             offset = find(snps.POS(snpCnt:end) > startPos + namedArgs.windowSize, 1,  'first');
-            if size(offset)==0, offset = height(snps) + 1; end
+            if size(offset)==0, offset = size(snps, 1) + 1; end
             endInd = snpCnt + offset - 1;
             snpCnt = endInd + 1;
             intSlidWindow(cnt, :) = [startInd, endInd];
@@ -528,7 +528,7 @@ switch geneSetMethod
         [uniquePos, ia, ~] = unique(snps.POS);
         intervals = zeros(length(uniquePos), 2);
         intervals(:, 1) = ia(1:end);
-        intervals(:, 2) = [ia(2:end)-1;height(snps.POS)];
+        intervals(:, 2) = [ia(2:end)-1;length(snps.POS)];
 end
 end
 
