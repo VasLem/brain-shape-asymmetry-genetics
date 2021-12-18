@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHR = getenv("CHROMOSOME");
 if(isempty(CHR))
-    CHR = 20;
+    CHR = 21;
 else
     if ~isnumeric(CHR)
         CHR=str2double(CHR);
@@ -123,10 +123,7 @@ if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
 try
     lastwarn('', '');
     load([CHR_DIR 'plink_data_info.mat'], "iid");
-    samples.IID = iid;
-    if META_INT_GENO_PROC
-        load([SCRATCH_CHR_DIR 'plink_data.mat'], "geno", "snps", "samples");
-    end
+    
     [warnMsg, warnId] = lastwarn();
     if ~isempty(warnId)
         error(warnMsg, warnId);
@@ -152,25 +149,17 @@ catch
     %     else
     save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
     %     end
-    disp("Saving to disk..")
     clear obj;
-    save([SCRATCH_CHR_DIR 'plink_data.mat'], 'geno', 'snps', 'samples', '-v7.3')
-    INT_GENO_PROC = 1;
-    CNT_GENO_PROC = 1;
-    NO_PART_CCA_PROC = 1;
-    WITH_PART_CCA_PROC = 1;
+    save([SCRATCH_CHR_DIR 'plink_data.mat'], 'geno', 'snps', '-v7.3')
 end
 %%
 %% Align covariates with genotype
 disp("Aligning covariates to genotype..");
-samplesIId = samples.IID;
+samplesIId = iid;
 covAssignmentMatrix = (str2double(samplesIId) == str2double(covariates.IID)');
 [covGenoIndex, covIndex] = find(covAssignmentMatrix);
 clear covAssignmentMatrix
-if META_INT_GENO_PROC
-    geno =geno(covGenoIndex, :);
-    samples = samples(covGenoIndex, :);
-end
+
 covData = covariates.DATA(covIndex, :);
 samplesIId = samplesIId(covGenoIndex);
 
@@ -183,10 +172,6 @@ phenoId = str2double(pheno.preprocPhenoIID);
 disp("Aligning genotype to phenotype..");
 assignmentMatrix = (phenoId == genoId');
 [phenoIndex, genoIndex] = find(assignmentMatrix);
-if META_INT_GENO_PROC
-    geno = geno(genoIndex, :);
-    samples = samples(genoIndex, :);
-end
 samplesIId = samplesIId(genoIndex);
 covData = covData(genoIndex,:);
 assert(all(phenoIndex'==1:length(phenoIndex)));
@@ -231,28 +216,33 @@ clear assignmentMatrix
 %
 % clear sortedSnps
 %% Remove indels.
-disp("Removing SNPs containing InDels..");
-indelFilter = strlength(snps.(4))==1 & strlength(snps.(5))==1;
+
+
 if META_INT_GENO_PROC
+    if ~exist('geno', 'var')
+        load([SCRATCH_CHR_DIR 'plink_data.mat'], "geno", "snps");
+    end
+    geno =geno(covGenoIndex, :);
+    geno = geno(genoIndex, :);
+    disp("Removing SNPs containing InDels..");
+    indelFilter = strlength(snps.(4))==1 & strlength(snps.(5))==1;
     genoPruned = geno(:, indelFilter);
-    clear geno
     snpsPruned = snps(indelFilter, :);
+    clear geno
     clear snps
-end
+
+    %% Identify the genetic indices for genes with more than one allele
+    [rsids , ~, ic] = unique(snpsPruned.('RSID'));
+    alleleCounts = accumarray(ic,1);
+    %% Some checks
+    %regarding the fact that positions need to be sorted
+    assert(all(sort(snpsPruned.POS) == snpsPruned.POS));
+    % and that all phenotype ids  correspond to genotype ones
+    assert(all((1:length(phenoId)) == phenoIndex'));
+    %% Partition SNPs
 
 
-%% Identify the genetic indices for genes with more than one allele
-[rsids , ~, ic] = unique(snpsPruned.('RSID'));
-alleleCounts = accumarray(ic,1);
-%% Some checks
-%regarding the fact that positions need to be sorted
-assert(all(sort(snpsPruned.POS) == snpsPruned.POS));
-% and that all phenotype ids  correspond to genotype ones
-assert(all((1:length(phenoId)) == phenoIndex'));
-%% Partition SNPs
 
-
-if META_INT_GENO_PROC
     disp("Computing Intervals..")
     intervals = getIntervals(snpsPruned, GENE_SET_METHOD);
     disp("Splitting genome into groups, according to intervals information..")
@@ -268,13 +258,10 @@ end
 %%
 
 if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
-    if ~exist('genoInt', 'var')
-        load(INT_GENO_OUT, 'genoInt');
-    end
-    if ~CNT_GENO_PROC
-        load(CNT_GENO_OUT, 'genoControlledInt');
-        disp("Loaded controlled genome for covariates based on intervals.")
-    else
+    if CNT_GENO_PROC
+        if ~exist('genoInt', 'var')
+          load(INT_GENO_OUT, 'genoInt');
+        end
         disp("Controlling genome for covariates based on intervals..")
         genoControlledInt = controlGenoCovariates(genoInt, covData);
         save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
@@ -291,6 +278,9 @@ if ~NO_PART_CCA_PROC
     load(NO_PART_CCA_OUT, 'noPartitionStats', 'noPartitionIntStats');
     disp("Loaded Computed CCA without phenotypic partitioning");
 else
+    if ~exist('genoControlledInt', 'var')
+          load(CNT_GENO_OUT, 'genoControlledInt');
+    end
     disp("Computing CCA without phenotypic partitioning..")
     % Without Taking Partitioning Into Consideration
     noPartPheno = pheno.clusterPCAPhenoFeatures{1};
@@ -310,7 +300,9 @@ if ~WITH_PART_CCA_PROC
     load(WITH_PART_CCA_OUT,  'gTLPartStats', 'gTLPartIntStats');
     disp("Loaded Computed CCA with phenotypic partinioning");
 else
-
+    if ~exist('genoControlledInt', 'var')
+          load(CNT_GENO_OUT, 'genoControlledInt');
+    end
     % With Global-To-Local Partitioning Into Consideration
     disp("Computing CCA with phenotypic partitioning..")
     [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(pheno, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
