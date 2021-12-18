@@ -14,6 +14,6 @@ export DATASET_INDEX=2
 export RESULTS_ROOT=$VSC_DATA/Thesis/results/
 export SCRATCH_ROOT=$VSC_SCRATCH/Thesis/
 export CHROMOSOME=${PBS_ARRAYID}
-export THREADS=1
+export THREADS=2
 installation="$(dirname $(dirname $(which matlab)))"
 ./run_demoBrainAsymmetryGenome.sh $installation > genome${PBS_ARRAYID}.log
