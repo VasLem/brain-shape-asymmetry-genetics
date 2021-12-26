@@ -10,7 +10,7 @@ function varargout  =  AsymmetryAnalysisOnSubsets(X1,X2, nIter, nSamplesPerPick,
 % nSplits: number of splits for computational efficiency
 % landmarksGroups: whether to group landmarks before applying 2-way anova
 % seed: non negative integer for reproducibility of random number generation
-if argin<3
+if nargin<3
     nIter=0;
 end
 if nargin <4
@@ -25,11 +25,11 @@ end
 if nargin < 7
     nSplits=1;
 end
-if nargin < 7
-landmarksGroups=[];
+if nargin < 8
+    landmarksGroups=[];
 end
-if nargin < 7
-seed=-1;
+if nargin < 9
+    seed=-1;
 end
 if seed>=0, rng(seed); end
 nOutputs = nargout;
@@ -57,7 +57,7 @@ if ~isempty(landmarksGroups)
     for g=1:nGroups
         mask = landmarksGroups == uniqueGroups(g);
         gMasks{g} = mask;
-        
+
     end
 else
     gMasks = cell(1);
@@ -112,9 +112,9 @@ for s=1:length(nSamplesPerPick)
             out(s,iter) = gTret;
         else
             out(s, iter) = ProcrustesAnova2WayAsymmetryMEM(randX1,randX2,nIter,factor,nSplits, true);
-           
+
         end
-       
+
     end
 end
 varargout{1} = out;

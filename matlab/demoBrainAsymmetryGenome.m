@@ -311,9 +311,6 @@ else
     save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
     WITH_PART_CCA_PROC = false;
 end
-if ~NO_PART_CCA_PROC && ~WITH_PART_CCA_PROC
-    delete(CNT_GENO_OUT);
-end
 %%
 
 plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);

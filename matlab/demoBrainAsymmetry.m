@@ -12,11 +12,11 @@ N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 N_REP = 3; %N_REP=1 for AMMI, N_REP>1 for ANOVA
 N_ITER = 10000;
-THREADS = 12;
-REDUCE = 0.1;
+THREADS = 8;
+REDUCE = 1;
 % REDUCE = 1;
 GPA_REPS = 3;
-DATASET_INDEX = 2; %Which dataset to use
+DATASET_INDEX = 1; %Which dataset to use
 PERFORM_EXPERIMENTS = false;
 %%
 
@@ -146,18 +146,21 @@ clear repPreprocRH repPreprocLH
 repPreprocShapes = permute(repPreprocShapes,[2 1 3, 4]);
 repPreprocShapes = permute(reshape(repPreprocShapes, 3 * nLandmarks, (2 * nSamples) ,N_REP + 1), [2, 1, 3]) ;
 shapes = repPreprocShapes(:,:,1);
-repPreprocShapes = repPreprocShapes(:,:,2:end);
-mult = double(intmax('int16') - 1) / (max(abs(repPreprocShapes),[],'all'));
-RepShapesInt16 = int16(repPreprocShapes .* mult);
+
 if N_REP > 1
+    repPreprocShapes = repPreprocShapes(:,:,2:end);
+    mult = double(intmax('int16') - 1) / (max(abs(repPreprocShapes),[],'all'));
+    RepShapesInt16 = int16(repPreprocShapes .* mult);
     figure; histogram(reshape(RepShapesInt16 - int16(mult * shapes), 1,[])); title({'Integer Landmark Coordinate dislocation','for generated replications'});
     figure; histogram(reshape(repPreprocShapes - shapes, 1,[])); title({'Landmark Coordinate dislocation','for generated replications'});
+    X1 = RepShapesInt16(1:nSamples,:,:);
+    X2 = RepShapesInt16(nSamples+1:end,:,:);
+    clear shapes
+else
+    shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 end
-shapes = permute(reshape(shapes', 3, nLandmarks, 2*nSamples), [2,1,3]);
 clear repPreprocShapes
-X1 = RepShapesInt16(1:nSamples,:,:);
-X2 = RepShapesInt16(nSamples+1:end,:,:);
-
+clear RepShapesInt16
 
 %% TWO WAY PROCRUSTES ANOVA ON RANDOM SUBSETS OF THE DATA
 
