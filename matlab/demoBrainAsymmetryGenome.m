@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
-    CHRS = 1:21;
+    CHRS = 6:21;
 else
     if ~isnumeric(CHRS)
         CHRS=str2double( strsplit(CHRS,','));
@@ -381,9 +381,9 @@ end
 function output = saveLDRegressionTablesOnEachPartition(snpsPruned, sample_sizes, partSignificances, intervals, save_dir)
 pNum = size(partSignificances ,1);
 output = removevars(renamevars(snpsPruned,["ALT", "REF"],["A2", "A1"]), ["POS", "CHR"]);
-output.N = sample_sizes;
-output.SIGN = ones(height(snpsPruned),1);
 idx  =intervalsToVector(intervals);
+output.N = sample_sizes(idx);
+output.SIGN = ones(height(snpsPruned),1);
 for i=1:pNum
     output.(['P_PAR', num2str(i)]) = partSignificances(i, idx)';
 end

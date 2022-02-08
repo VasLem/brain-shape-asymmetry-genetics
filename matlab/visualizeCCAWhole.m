@@ -7,7 +7,7 @@ DATA_DIR = '../SAMPLE_DATA/';
 
 THREADS= 8;
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 1;
+DATASET_INDEX = 2;
 
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
@@ -29,29 +29,40 @@ try
     parpool('local',THREADS);
 catch
 end
-
+%%
+AVAILABLE_CHRS = [];
 for CHR=1:22
     disp(['CHR:' , num2str(CHR)]);
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-    noPart{CHR} = load([CHR_DIR 'noPartCCA.mat']);
-    part{CHR} = load([CHR_DIR 'withPartCCA.mat']);
+    try
+        load([CHR_DIR 'withPartCCA.mat'],'gTLPartStats');
+        part{CHR} = gTLPartStats.chiSqSignificance;
+        noPart{CHR} = gTLPartStats.chiSqSignificance(1,:);
+        AVAILABLE_CHRS(end+1) = CHR;
+    catch
+    end
 end
 %%
 f = figure;
 f.Position = [100 100 1200 600];
 hold on
 cnt = 0;
-
+xticks_pos = [];
+st_edges = [];
+en_edges = [];
 for CHR=1:22
-    intStats = noPart{CHR}.noPartitionIntStats;
-    scatter(cnt + (1:length(intStats.chiSqSignificance)), -log10(intStats.chiSqSignificance),'.');
-    xticks_pos(CHR) = cnt + length(intStats.chiSqSignificance) / 2;
-    st_edges(CHR) = cnt;
-    cnt = cnt + length(intStats.chiSqSignificance);
-    en_edges(CHR) = cnt;
+    if ~ismember(CHR, AVAILABLE_CHRS)
+        continue
+    end
+    intStats = noPart{CHR};
+    scatter(cnt + (1:length(intStats)), -log10(intStats),'.');
+    xticks_pos(end + 1) = cnt + length(intStats) / 2;
+    st_edges(end + 1) = cnt;
+    cnt = cnt + length(intStats);
+    en_edges(end + 1) = cnt;
 end
 xticks(xticks_pos)
-xticklabels(arrayfun(@num2str, 1:22 , 'UniformOutput', 0))
+xticklabels(arrayfun(@num2str, AVAILABLE_CHRS , 'UniformOutput', 0))
 yline(-log10(NO_PARTITION_THRES));
 ylabel('-log10p');
 xlim([0, cnt]);
@@ -64,28 +75,34 @@ fig = figure;
 fig.Position = [100 100 1200 600];
 hold on
 cnt = 0;
+xticks_pos = [];
+st_edges = [];
+en_edges = [];
 for CHR=1:22
-    intStats = part{CHR}.gTLPartStats;
-    pNum = size(intStats.chiSqSignificance, 1);
+     if ~ismember(CHR, AVAILABLE_CHRS)
+        continue
+    end
+    intStats = part{CHR};
+    pNum = size(intStats, 1);
     for i=1:pNum
-        signum = sum(intStats.chiSqSignificance(i, :)<pThres);
+        signum = sum(intStats(i, :)<pThres);
         if signum > 0
-            scatter(cnt + (1:length(intStats.chiSqSignificance(i, :))), -log10(intStats.chiSqSignificance(i, :)),'.', ...
+            scatter(cnt + (1:length(intStats(i, :))), -log10(intStats(i, :)),'.', ...
                 'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', # significant:', ...
                 num2str(signum)]);
         end
     end
-    xticks_pos(CHR) = cnt + length(intStats.chiSqSignificance(i, :)) / 2;
-    st_edges(CHR) = cnt;
-    cnt = cnt + length(intStats.chiSqSignificance(i, :));
-    en_edges(CHR) = cnt;
+    xticks_pos(end + 1) = cnt + length(intStats(i, :)) / 2;
+    st_edges(end + 1) = cnt;
+    cnt = cnt + length(intStats(i, :));
+    en_edges(end + 1) = cnt;
 end
 
 yline(-log10(pThres), 'DisplayName', 'Threshold');
 
 ylabel('-log10p');
 xticks(xticks_pos)
-xticklabels(arrayfun(@num2str, 1:22 , 'UniformOutput', 0))
+xticklabels(arrayfun(@num2str, AVAILABLE_CHRS, 'UniformOutput', 0))
 lgd = legend;
 lgd.NumColumns = 4;
 set(lgd, 'LimitMaxLegendEntries', false);
@@ -103,28 +120,34 @@ fig = figure;
 fig.Position = [100 100 1200 600];
 hold on
 cnt = 0;
+xticks_pos = [];
+st_edges = [];
+en_edges = [];
 for CHR=1:22
-    intStats = part{CHR}.gTLPartStats;
-    pNum = size(intStats.chiSqSignificance, 1);
+     if ~ismember(CHR, AVAILABLE_CHRS)
+        continue
+    end
+    intStats = part{CHR};
+    pNum = size(intStats, 1);
     for i=1:pNum
-        signum = sum(intStats.chiSqSignificance(i, :)<pThres);
+        signum = sum(intStats(i, :)<pThres);
         if signum > 0
-            scatter(cnt + (1:length(intStats.chiSqSignificance(i, :))), -log10(intStats.chiSqSignificance(i, :)),'.', ...
+            scatter(cnt + (1:length(intStats(i, :))), -log10(intStats(i, :)),'.', ...
                 'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', # significant:', ...
                 num2str(signum)]);
         end
     end
-    xticks_pos(CHR) = cnt + length(intStats.chiSqSignificance(i, :)) / 2;
-    st_edges(CHR) = cnt;
-    cnt = cnt + length(intStats.chiSqSignificance(i, :));
-    en_edges(CHR) = cnt;
+    xticks_pos(end + 1) = cnt + length(intStats(i, :)) / 2;
+    st_edges(end + 1) = cnt;
+    cnt = cnt + length(intStats(i, :));
+    en_edges(end + 1) = cnt;
 end
 
 yline(-log10(pThres), 'DisplayName', 'Threshold');
 
 ylabel('-log10p');
 xticks(xticks_pos)
-xticklabels(arrayfun(@num2str, 1:22 , 'UniformOutput', 0))
+xticklabels(arrayfun(@num2str, AVAILABLE_CHRS , 'UniformOutput', 0))
 lgd = legend;
 lgd.NumColumns = 4;
 set(lgd, 'LimitMaxLegendEntries', false);
