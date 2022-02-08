@@ -31,7 +31,7 @@ disp(['Location of data: ', DATA_DIR]);
 
 DATASET_INDEX = getenv('DATASET_INDEX');
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 2;
+    DATASET_INDEX = 1;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -330,12 +330,12 @@ if strcmp(SEGMENTATION_USED, 'labs')
 else
 
     clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
-    fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS);
+    fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS, SEGMENTATION_DIR, true);
     saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
     clusterArray = getClustersAsArray(clustered, NUM_LEVELS);
     save([SEGMENTATION_DIR 'segmentation.mat'],'clusterArray','-v7.3');
 end
-
+%%
 clear A similarityMat
 %% Compute the PCA Components
 % Investigate the number of PCA components to keep for each segment based on the explained Variance

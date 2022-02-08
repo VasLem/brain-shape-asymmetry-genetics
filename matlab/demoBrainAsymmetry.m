@@ -271,7 +271,7 @@ light = camlight(axes,'headlight');
 set(light,'Position',get(axes,'CameraPosition'));
 title('Left');
 colorbar(axes,'SouthOutside');
-
+xlim(axes, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
 
 axes = subplot(2,2,[3,4]);
 title(axes,'Right');
@@ -290,6 +290,9 @@ light = camlight(axes,'headlight');
 set(light,'Position',get(axes,'CameraPosition'));
 title('Right');
 colorbar(axes,'SouthOutside');
+maxlims = max(template.Vertices);
+minlims = min(template.Vertices);
+xlim(axes, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
 
 saveas(f, [resultsDir 'test_retest_variance.png']);
 save([resultsDir 'test_retest_information.mat'], "variance","-v7");

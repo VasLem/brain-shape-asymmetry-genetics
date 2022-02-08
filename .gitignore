@@ -63,6 +63,7 @@ vignettes/*.pdf
 SAMPLE_DATA
 results/**/*.fig
 results/**/*.mat
+chisq_stats.csv
 results/demo_asymmetry/fluctuatingAMMI.txt
 results/genomics
 iELVis

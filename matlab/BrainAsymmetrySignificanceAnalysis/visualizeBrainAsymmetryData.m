@@ -60,6 +60,9 @@ for k=1:nPicks
             counter = counter+1;
             fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
             renderBrainSurface(rend,sVertexValues,fout.ax2{i,j});
+            maxlims = max(rend.Vertices);
+            minlims = min(rend.Vertices);
+            xlim(fout.ax2{i,j}, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
             view(fout.ax2{i,j},90,0);
             colorbar(fout.ax2{i,j},'SouthOutside');
             if j<4

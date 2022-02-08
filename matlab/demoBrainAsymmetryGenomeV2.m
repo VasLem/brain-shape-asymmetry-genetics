@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
-    CHRS = 1:21;
+    CHRS = 8:21;
 else
     if ~isnumeric(CHRS)
         CHRS=str2double( strsplit(CHRS,','));
@@ -121,17 +121,15 @@ for CHR_IND=1:length(CHRS)
     NO_PART_CCA_PROC = ~isfile(NO_PART_CCA_OUT);
     WITH_PART_CCA_OUT = [CHR_DIR 'withPartCCA.mat'];
     WITH_PART_CCA_PROC = ~isfile(WITH_PART_CCA_OUT);
-    SAMPLE_SIZES_OUT = [CHR_DIR 'sampleSizes.mat'];
-    SAMPLE_SIZES_PROC = ~isfile(SAMPLE_SIZES_OUT);
 
     if ~isfolder(CHR_DIR), mkdir(CHR_DIR); end
     if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
-    
+
     if ~PLINK_DATA_PROC
         try
             lastwarn('', '');
             load([CHR_DIR 'plink_data_info.mat'], "iid");
-            
+
             [warnMsg, warnId] = lastwarn();
             if ~isempty(warnId)
                 error(warnMsg, warnId);
@@ -290,25 +288,32 @@ for CHR_IND=1:length(CHRS)
             end
             disp("Controlling genome for COV based on intervals..")
             tic;
-            genoControlledInt = controlGenoCovariates(genoInt, covData);
-            toc;
-            disp("Saving controlled genome..")
-            tic;
-            save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
-            toc;
+            BLOCK_SIZE = 10000;
+            flag = (genoSizes == s) & ~flagWithNans;
+
+
+            total = sum(flag);
+            part = geno(flag);
+            blocksN = ceil(total/blockSize);
+            fdir = [CNT_GENO_OUT, 'genoControlledInt/'];
+            if ~isfolder(fdir), mkdir(CHR_DIR); end
+
+            for blockCnt=1: blocksN
+                fpath = [fdir num2str(blockCnt) '_' num2str(BLOCK_SIZE)];
+                if ~isfile(fpath)
+                    minInd = (1 + (blockCnt - 1) * blockSize);
+                    maxInd = min(total, (blockCnt * blockSize));
+                    genoControlledInt = controlGenoCovariates(genoInt(minInd:maxInd), covData);
+                    toc;
+                    disp("Saving controlled genome..")
+                    tic;
+                    save(fpath, 'genoControlledInt', 'minInd', 'maxInd', '-v7.3');
+                    toc;
+                end
+            end
             clear genoInt
         end
-    
-    end
-    if SAMPLE_SIZES_PROC
-        if ~exist('genoInt', 'var')
-                disp("Loading genoInt..")
-                tic;
-                load(INT_GENO_OUT, 'genoInt');
-                toc;
-        end
-        sampleSizes = getSampleSizes(genoInt);
-        save(SAMPLE_SIZES_OUT,'sampleSizes', '-v7.3')
+
     end
     %%
     if ~exist('intervals', 'var')
@@ -322,21 +327,29 @@ for CHR_IND=1:length(CHRS)
         load(WITH_PART_CCA_OUT,  'gTLPartStats', 'gTLPartIntStats');
         disp("Loaded Computed CCA with phenotypic partinioning");
     else
-        if ~exist('genoControlledInt', 'var')
+        f = waitbar(0,'1','Name',['Running CCA ' num2str(s)]);
+        clk = clock;
+        gTLPartIntStats = double(length(PHENO.clusterPCAPhenoFeatures), length(intervals));
+        for blockCnt=1:blocksN
             disp("Loading genoControlledInt..")
             tic;
-            load(CNT_GENO_OUT, 'genoControlledInt');
+            load(cnt_geno_outs(blockCnt));
             toc;
+            disp("Computing CCA with phenotypic partitioning..")
+            tic;
+            gTLPartIntStats(:, min_index:max_index) = runCCAOnEachPartition(PHENO, genoControlledInt, intervals(min_index:max_index), gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
+            toc;
+            disp("Saving CCA results..")
+            tic;
+            save(WITH_PART_CCA_OUT, gTLPartIntStats, '-v7.3');
+            WITH_PART_CCA_PROC = false;
+            toc;
+            if blockCnt ==1
+                is = etime(clock,clk);
+                esttime = is * blocksN;
+            end
+            waitbar(blockCnt/blocksN,f,[num2str(blockCnt),'/',num2str(blocksN),', remaining time =',num2str(esttime-etime(clock,clk),'%4.1f'),'sec' ])
         end
-        disp("Computing CCA with phenotypic partitioning..")
-        tic;
-        [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(PHENO, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
-        toc;
-        disp("Saving CCA results..")
-        tic;
-        save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
-        WITH_PART_CCA_PROC = false;
-        toc;
     end
     %%
     disp("Plotting results..")
@@ -346,7 +359,7 @@ for CHR_IND=1:length(CHRS)
     plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_NOBF_feats' num2str(MAX_NUM_FEATS)]);
     toc;
     %% Significant SNPs tables extraction
-    
+
     %%
     if ~exist('snpsPruned', 'var')
         disp("Loading snpsPruned..")
@@ -361,14 +374,8 @@ for CHR_IND=1:length(CHRS)
     toc;
     %% LD regression csv
     disp("Extracting partition specific signigicant SNPs tables..")
-    if ~exist('sampleSizes', 'var')
-        disp("Loading snpsPruned..")
-        tic;
-        load(SAMPLE_SIZES_OUT);
-        toc;
-    end
     tic;
-    saveLDRegressionTablesOnEachPartition(snpsPruned,sampleSizes, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
+    saveLDRegressionTablesOnEachPartition(snpsPruned,length(samplesIId), gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
     tic;
     %
     disp("End of computation.")
@@ -378,22 +385,26 @@ for CHR_IND=1:length(CHRS)
     end
     toc;
 end
-function output = saveLDRegressionTablesOnEachPartition(snpsPruned, sample_sizes, partSignificances, intervals, save_dir)
+function output = saveLDRegressionTablesOnEachPartition(snpsPruned, sample_size, partSignificances, intervals, save_dir)
 pNum = size(partSignificances ,1);
 output = removevars(renamevars(snpsPruned,["ALT", "REF"],["A2", "A1"]), ["POS", "CHR"]);
-output.N = sample_sizes;
+output.N = sample_size * ones(height(snpsPruned),1);
 output.SIGN = ones(height(snpsPruned),1);
+output.P = ones(height(snpsPruned), 1);
 idx  =intervalsToVector(intervals);
-for i=1:pNum
-    output.(['P_PAR', num2str(i)]) = partSignificances(i, idx)';
+parfor i=1:pNum
+    s = output;
+    s.P =  partSignificances(i, idx)';
+    pdir = [save_dir  '/par' num2str(i)];
+    if ~isfolder(pdir), mkdir(pdir); end
+    writetable(s, [pdir  '/chisq_stats.csv']);
 end
-writetable(output, [save_dir  '/chisq_stats.csv'])
 end
 
 function idx = intervalsToVector(intervals)
-    idx = zeros(intervals(end,2),1);
-    idx(intervals(:,1)) = 1;
-    idx = cumsum(idx);
+idx = zeros(intervals(end,2),1);
+idx(intervals(:,1)) = 1;
+idx = cumsum(idx);
 end
 
 %%
@@ -488,10 +499,10 @@ else
 end
 % for c=1:size(significantInts,1)
 %     intSnps = snps(starts(c):ends(c),:);
-    %     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
-    %     [~, maxCoefArg] = max(abs(intCoeffs));
-    %     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
-    %     sigSnps(c, :) = intSnps(maxCoefArg, :);
+%     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
+%     [~, maxCoefArg] = max(abs(intCoeffs));
+%     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
+%     sigSnps(c, :) = intSnps(maxCoefArg, :);
 % end
 % sigSnps.COEF = sigSnpsCoef;
 intSigSnps = [stSnps, enSnps];
@@ -590,8 +601,4 @@ switch geneSetMethod
         intervals(:, 1) = ia(1:end);
         intervals(:, 2) = [ia(2:end)-1;length(snps.POS)];
 end
-end
-
-function sampleSizes = getSampleSizes(geno)
-    sampleSizes = cellfun(@(x)(min(sum(isfinite(x)))), geno);
 end
