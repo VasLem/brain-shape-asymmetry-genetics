@@ -1,2 +1,6 @@
 #!/bin/bash
-qsub run_hierarchical.pbs
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+fi
+qsub run_hierarchical.pbs $1

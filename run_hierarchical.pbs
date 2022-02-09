@@ -10,7 +10,7 @@ module load matlab/R2019a
 cd $VSC_HOME/imagen/deployed
 
 export DATA_ROOT=$VSC_DATA/Thesis/SAMPLE_DATA/
-export DATASET_INDEX=2
+export DATASET_INDEX=$1
 export RESULTS_ROOT=$VSC_DATA/Thesis/results/
 export SCRATCH_ROOT=$VSC_SCRATCH/Thesis/
 export THREADS=4
