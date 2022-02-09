@@ -1,4 +1,4 @@
-function [pChisq, Q2, T22, rankY] = vl_ccachisq1(Xs,Y, Q2, T22, rankY)
+function [chisq, pChisq, Q2, T22, rankY] = vl_ccachisq1(Xs,Y, Q2, T22, rankY)
 % An expansion of canoncorr to reuse/return Y related information and not
 % recompute it if not needed. Also, it does not compute  U = (X - mean(X))*A and
 %      V = (Y - mean(Y))*B.
@@ -168,9 +168,10 @@ parfor i=1:size(Ds,3)
     %     stats.pF = fpval(stats.F, stats.df1, stats.df2);
 
     % Lawley's modification to Bartlett's chi-squared statistic
-    chisq = (-(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda)';
-    ret = chi2pval(chisq', df1);
+    chi = (-(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda)';
+    ret = chi2pval(chi', df1);
     pChisq(i) = ret(1);
+    chisq(i) = ret(1);
 
 
 end

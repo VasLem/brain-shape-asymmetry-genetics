@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
-    CHRS = [19:22 15 17 14 16 12 13 18];
+    CHRS = 1:22;
 else
     if ~isnumeric(CHRS)
         CHRS=str2double( strsplit(CHRS,','));
@@ -50,7 +50,7 @@ MAX_NUM_FEATS = 0;
 
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 2;
+    DATASET_INDEX = 1;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -110,13 +110,13 @@ for CHR_IND=1:length(CHRS)
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
     SCRATCH_CHR_DIR = [SCRATCH_DIR 'chr' num2str(CHR) '/'];
     PLINK_DATA_OUT = [SCRATCH_CHR_DIR 'plink_data.mat'];
-    PLINK_DATA_PROC = ~isfile(PLINK_DATA_OUT);
+    PLINK_DATA_PROC = ~isdeployed && ~isfile(PLINK_DATA_OUT);
     INT_GENO_OUT = [SCRATCH_CHR_DIR 'intervals_geno.mat'];
-    INT_GENO_PROC = ~isfile(INT_GENO_OUT);
+    INT_GENO_PROC = ~isdeployed && ~isfile(INT_GENO_OUT);
     META_INT_GENO_OUT = [CHR_DIR 'intervals_info.mat'];
     META_INT_GENO_PROC = ~isfile(META_INT_GENO_OUT);
     CNT_GENO_OUT = [SCRATCH_CHR_DIR 'controlled_geno.mat'];
-    CNT_GENO_PROC = ~isfile(CNT_GENO_OUT);
+    CNT_GENO_PROC = ~isdeployed && ~isfile(CNT_GENO_OUT);
     WITH_PART_CCA_OUT = [CHR_DIR 'withPartCCA.mat'];
     WITH_PART_CCA_PROC = ~isfile(WITH_PART_CCA_OUT);
     SAMPLE_SIZES_OUT = [CHR_DIR 'sampleSizes.mat'];
@@ -157,10 +157,12 @@ for CHR_IND=1:length(CHRS)
         save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
         clear obj;
         toc;
-        disp("Saving loaded geno..")
-        tic;
-        save(PLINK_DATA_OUT, 'geno', 'snps', '-v7.3')
-        toc;
+        if ~isdeployed
+            disp("Saving loaded geno..")
+            tic;
+            save(PLINK_DATA_OUT, 'geno', 'snps', '-v7.3')
+            toc;
+        end
     end
     %%
     %% Align COV with genotype
@@ -271,7 +273,9 @@ for CHR_IND=1:length(CHRS)
         disp("Saving splitted genome and pruned SNPs...")
         tic;
         save(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId', '-v7.3');
-        save(INT_GENO_OUT, 'genoInt', '-v7.3');
+        if ~isdeployed
+            save(INT_GENO_OUT, 'genoInt', '-v7.3');
+        end
         toc;
         clear genoPruned;
     end
@@ -290,11 +294,15 @@ for CHR_IND=1:length(CHRS)
             tic;
             genoControlledInt = controlGenoCovariates(genoInt, covData);
             toc;
-            disp("Saving controlled genome..")
-            tic;
-            save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
-            toc;
-            clear genoInt
+            if ~isdeployed
+                disp("Saving controlled genome..")
+                tic;
+                save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
+                toc;
+            end
+            if ~SAMPLE_SIZES_PROC
+                clear genoInt
+            end
         end
     
     end
@@ -507,8 +515,9 @@ pnum = length(PHENO.clusterPCAPhenoFeatures);
 gnum = intervals(end,2);
 inum = size(intervals, 1);
 chisq = zeros(pnum, gnum);
-% coeffs = zeros(pnum, gnum);
-intChisSq = zeros(pnum, inum);
+chisqSig = zeros(pnum, gnum);
+intChisqSig = zeros(pnum, inum);
+intChisq = zeros(pnum, inum);
 for k=pnum:-1:1
     phenoPart = PHENO.clusterPCAPhenoFeatures{k};
     if maxNumPhenoFeats ~= 0
@@ -528,17 +537,18 @@ for k=pnum:-1:1
         save([PART_DIR 'data.mat'], 's', 'i', '-v7.3');
     end
 
-    chisq(k, :) = s.chiSqSignificance;
-    %     coeffs(k, :) = s.coeffs;
-    intChisSq(k, :) = i.chiSqSignificance;
-    %     intCoeffs{k} = i.coeffs;
+    chisqSig(k, :) = s.chiSqSignificance;
+    chisq(k, :) = s.chisq;
+    intChisqSig(k, :) = i.chiSqSignificance;
+    intChisq(k, :) = i.chisq;
 end
 
 intStats.chiSqSignificance = intChisSq;
-% intStats.coeffs = intCoeffs;
+intStats.chisq = intChisq;
 stats.chiSqSignificance = chisq;
-% stats.coeffs = coeffs;
+stats.chisq = chisq;
 end
+
 
 
 

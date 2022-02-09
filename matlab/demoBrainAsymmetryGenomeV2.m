@@ -448,7 +448,6 @@ sigSnps= [];
 intSigSnps = [];
 for i=1:pNum
     partIntStats = struct('chiSqSignificance', ccaIntStats.chiSqSignificance(i, :));
-    %     partStats.coeffs = ccaStats.coeffs(i, :);
     [intRet, ret] =  prepareSignificantTables(snps, partIntStats, ccaIntervals, pThres);
     if isempty(ret), continue; end
     intRet.PARTITION = repmat(i,size(intRet, 1),1);
@@ -482,8 +481,6 @@ stSnps.Properties.VariableNames = strcat(snps.Properties.VariableNames', '_ST')'
 enSnps = snps(ends,:);
 enSnps.Properties.VariableNames = strcat(snps.Properties.VariableNames', '_EN')';
 
-% sigSnpsCoef = zeros(size(significantInts, 1),1);
-% sigSnps = table();
 if isempty(significantInts)
     sigSnps = table();
 else
@@ -497,14 +494,6 @@ else
     idx = cumsum(idx);
     sigSnps =  snps(idx, :);
 end
-% for c=1:size(significantInts,1)
-%     intSnps = snps(starts(c):ends(c),:);
-%     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
-%     [~, maxCoefArg] = max(abs(intCoeffs));
-%     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
-%     sigSnps(c, :) = intSnps(maxCoefArg, :);
-% end
-% sigSnps.COEF = sigSnpsCoef;
 intSigSnps = [stSnps, enSnps];
 if ~strcmp(savePath, "")
     writetable(sigSnps, [savePath 'significant_snps.csv']);
@@ -520,8 +509,9 @@ pnum = length(PHENO.clusterPCAPhenoFeatures);
 gnum = intervals(end,2);
 inum = size(intervals, 1);
 chisq = zeros(pnum, gnum);
-% coeffs = zeros(pnum, gnum);
-intChisSq = zeros(pnum, inum);
+chisqSig = zeros(pnum, gnum);
+intChisqSig = zeros(pnum, inum);
+intChisq = zeros(pnum, inum);
 for k=pnum:-1:1
     phenoPart = PHENO.clusterPCAPhenoFeatures{k};
     if maxNumPhenoFeats ~= 0
@@ -541,16 +531,16 @@ for k=pnum:-1:1
         save([PART_DIR 'data.mat'], 's', 'i', '-v7.3');
     end
 
-    chisq(k, :) = s.chiSqSignificance;
-    %     coeffs(k, :) = s.coeffs;
-    intChisSq(k, :) = i.chiSqSignificance;
-    %     intCoeffs{k} = i.coeffs;
+    chisqSig(k, :) = s.chiSqSignificance;
+    chisq(k, :) = s.chisq;
+    intChisqSig(k, :) = i.chiSqSignificance;
+    intChisq(k, :) = i.chisq;
 end
 
 intStats.chiSqSignificance = intChisSq;
-% intStats.coeffs = intCoeffs;
+intStats.chisq = intChisq;
 stats.chiSqSignificance = chisq;
-% stats.coeffs = coeffs;
+stats.chisq = chisq;
 end
 
 
