@@ -64,6 +64,7 @@ SAMPLE_DATA
 results/**/*.fig
 results/**/*.mat
 chisq_stats.csv
+noPartWholeCCA.csv
 results/demo_asymmetry/fluctuatingAMMI.txt
 results/genomics
 iELVis

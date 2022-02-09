@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
-    CHRS = 6:21;
+    CHRS = [19:22 15 17 14 16 12 13 18];
 else
     if ~isnumeric(CHRS)
         CHRS=str2double( strsplit(CHRS,','));
@@ -117,8 +117,6 @@ for CHR_IND=1:length(CHRS)
     META_INT_GENO_PROC = ~isfile(META_INT_GENO_OUT);
     CNT_GENO_OUT = [SCRATCH_CHR_DIR 'controlled_geno.mat'];
     CNT_GENO_PROC = ~isfile(CNT_GENO_OUT);
-    NO_PART_CCA_OUT = [CHR_DIR 'noPartCCA.mat'];
-    NO_PART_CCA_PROC = ~isfile(NO_PART_CCA_OUT);
     WITH_PART_CCA_OUT = [CHR_DIR 'withPartCCA.mat'];
     WITH_PART_CCA_PROC = ~isfile(WITH_PART_CCA_OUT);
     SAMPLE_SIZES_OUT = [CHR_DIR 'sampleSizes.mat'];
@@ -280,7 +278,7 @@ for CHR_IND=1:length(CHRS)
 
     %%
 
-    if NO_PART_CCA_PROC || WITH_PART_CCA_PROC
+    if WITH_PART_CCA_PROC
         if CNT_GENO_PROC
             if ~exist('genoInt', 'var')
                 disp("Loading genoInt..")
