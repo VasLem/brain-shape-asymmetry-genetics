@@ -3,7 +3,7 @@
 #PBS -l walltime=00:30:00
 #PBS -l pmem=20gb
 #PBS -A default_project
-#PBS -m b -M vasileios.lemonidis@student.kuleuven.be
+#PBS -m abe -M vasileios.lemonidis@student.kuleuven.be
 
 module purge
 module load matlab/R2019a
