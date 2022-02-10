@@ -193,9 +193,9 @@ end
 %% STEP 1:
 
 if  PERFORM_STEPS_12
-    [nVertices,DIM,nSubj] = size(A);
+    [nVertices,~,nSubj] = size(A);
     sym2DMatrix = permute(A,[2 1 3]);
-    sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj)';
+    sym2DMatrix = reshape(sym2DMatrix,nVertices*3,nSubj)';
     clear A
     % Align covariates with phenotype
     load(covGenoPath, "COV");
@@ -324,6 +324,8 @@ saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
 % Investigate the number of PCA components to keep for each segment based on the explained Variance
 % Get the partition of A that corresponds to the specific cluster with C
 % points and then transform it into a N*3 x C array
+nSubj = length(preprocPhenoIID);
+nVertices = size(clusterArray, 2);
 partitions_num = 2^(NUM_LEVELS + 1) - 1;
 explainedThresholds = 50:10:90;
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
@@ -332,7 +334,7 @@ templateCenters = zeros(partitions_num,3);
 if ~exist('resT', 'var')
     load(RESIDUALS_OUT)
 end
-reshapedResT = reshape(resT', DIM, nVertices, nSubj);
+reshapedResT = reshape(resT', 3, nVertices, nSubj);
 clear resT
 disp('Constructing graph showing the number of components/variance explained for each partition..')
 ppb = ParforProgressbar(partitions_num);
@@ -345,7 +347,7 @@ parfor c=1:partitions_num
         i = c - (2^(k-1) - 1); % cluster index
         selectionMask = clusterVec==i;
         if ~any(selectionMask), continue; end
-        ftResT = reshape(reshapedResT(:, selectionMask, :), DIM * sum(selectionMask), nSubj)';
+        ftResT = reshape(reshapedResT(:, selectionMask, :), 3 * sum(selectionMask), nSubj)';
         [~, pcaScores{c}, ~, ~, explained{c}] = pca(ftResT, 'Centered', true);
         explainedAccum = cumsum(explained{c});
         clusterExpComponentsNum(c,:) = sum(explainedAccum < explainedThresholds, 1);
