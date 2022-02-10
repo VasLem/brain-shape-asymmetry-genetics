@@ -72,8 +72,8 @@ function [intChiSq, intChiSqSignificance] = fallbackFunc(geno, phenoPart, Q2, T2
 ppm = ParforProgressbar(length(geno), 'showWorkerProgress', true);
 ME = [];
 try
-    intChiSq = double(length(geno),1);
-    intChiSqSignificance =  double(length(geno),1);
+    intChiSq = ones(length(geno),1);
+    intChiSqSignificance =  ones(length(geno),1);
     parfor i=1:length(geno)
 
         genoPart = single(geno);

@@ -548,9 +548,9 @@ for k=pnum:-1:1
     intChisq(k, :) = i.chisq;
 end
 
-intStats.chiSqSignificance = intChisSq;
+intStats.chiSqSignificance = intChisqSig;
 intStats.chisq = intChisq;
-stats.chiSqSignificance = chisq;
+stats.chiSqSignificance = chisqSig;
 stats.chisq = chisq;
 end
 
