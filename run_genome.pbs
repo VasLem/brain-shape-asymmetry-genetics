@@ -3,6 +3,7 @@
 #PBS -l walltime=6:00:00
 #PBS -l pmem=30gb
 #PBS -A default_project
+#PBS -m abe
 
 module purge 
 module load matlab/R2019a

@@ -1,2 +1,2 @@
 #!/bin/bash
-qsub -v $1 run_hierarchical.pbs
+qsub run_hierarchical.pbs
