@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #PBS -l nodes=1:ppn=2
 #PBS -l walltime=6:00:00
-#PBS -l pmem=30gb
+#PBS -l pmem=60gb
 #PBS -A default_project
-#PBS -m abe -M vasileios.lemonidis@student.kuleuven.be
+#PBS -m ae -M vasileios.lemonidis@student.kuleuven.be
 
 module purge
 module load matlab/R2019a
@@ -15,6 +15,15 @@ export DATASET_INDEX=2
 export RESULTS_ROOT=$VSC_DATA/Thesis/results/
 export SCRATCH_ROOT=$VSC_SCRATCH/Thesis/
 export CHROMOSOME=${PBS_ARRAYID}
-export THREADS=2
+
+# use temporary directory (not $HOME) for (mostly useless) MATLAB log files
+# subdir in $TMPDIR (if defined, or /tmp otherwise)
+export MATLAB_LOG_DIR=$(mktemp -d -p ${TMPDIR:-/tmp})
+
+# configure MATLAB Compiler Runtime cache location & size (1GB)
+# use a temporary directory in /dev/shm (i.e. in memory) for performance reasons
+export MCR_CACHE_ROOT=$(mktemp -d -p /dev/shm)
+export MCR_CACHE_SIZE=1024MB
+
 installation="$(dirname $(dirname $(which matlab)))"
 ./run_demoBrainAsymmetryGenome.sh $installation > genome${PBS_ARRAYID}.log
