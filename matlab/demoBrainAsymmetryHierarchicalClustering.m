@@ -80,12 +80,14 @@ else
 end
 
 
+
 SELECTION = 'asymmetry';
 % SELECTION = 'symmetry';
 
 COV_REMOVAL = 'ccPriorSegmentation';
 % COV_REMOVAL = 'ccPostSegmentation';
 
+SELECTED_VARIANCE_THRESHOLD = 80;
 NUM_LEVELS = 4;
 SEGMENTATION_USED = 'mine';
 % SEGMENTATION_USED = 'labs';
@@ -98,6 +100,32 @@ COV_REMOVAL_DIR = [SELECTION_DIR COV_REMOVAL '/'];
 COV_REMOVAL_SCRATCH_DIR   =  [SELECTION_SCRATCH_DIR COV_REMOVAL '/'];
 SEGMENTATION_DIR = [COV_REMOVAL_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
 SEGMENTATION_SCRATCH_DIR = [COV_REMOVAL_SCRATCH_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
+SEGMENTATION_SCRATCH_INPUT_OUT = [SEGMENTATION_SCRATCH_DIR, 'input.mat'];
+SEGMENTATION_INPUT_OUT = [SEGMENTATION_DIR, 'input_info.mat'];
+SEGMENTATION_INPUT_INFO_PROC = ~isfile(SEGMENTATION_INPUT_OUT);
+EXPLAINED_COV_OUT = [SELECTION_DIR  'explained_by_cov_dk.mat'];
+EXPLAINED_COV_PROC = ~isfile(EXPLAINED_COV_OUT);
+RESIDUALS_OUT = [SELECTION_DIR  'residuals.mat'];
+RESIDUALS_PROC = ~isfile(RESIDUALS_OUT);
+RV_MATRIX_OUT = [COV_REMOVAL_DIR 'similarityMatrix.mat'];
+RV_MATRIX_PROC = ~isfile(RV_MATRIX_OUT);
+SEGMENTATION_OUT = [SEGMENTATION_DIR 'segmentation.mat'];
+SEGMENTATION_PROC = ~isfile(SEGMENTATION_OUT);
+FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
+FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
+
+
+RV_MATRIX_PROC = RV_MATRIX_PROC && ~SEGMENTATION_PROC;
+
+SEGMENTATION_SCRATCH_INPUT_PROC = isdeployed || ~isfile(SEGMENTATION_SCRATCH_INPUT_OUT);
+
+
+PERFORM_STEPS_12 =  RV_MATRIX_PROC || RESIDUALS_PROC || EXPLAINED_COV_PROC;
+
+SEGMENTATION_INPUT_PROC = SEGMENTATION_SCRATCH_INPUT_PROC && PERFORM_STEPS_12;
+SEGMENTATION_INPUT_PROC = SEGMENTATION_INPUT_PROC || SEGMENTATION_INPUT_INFO_PROC;
+
+
 
 if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
 if ~isfolder(SEGMENTATION_SCRATCH_DIR), mkdir(SEGMENTATION_SCRATCH_DIR); end
@@ -109,11 +137,10 @@ end
 
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
-try
-    load([SEGMENTATION_SCRATCH_DIR, 'input.mat']);
-catch
 
 
+
+if SEGMENTATION_INPUT_PROC
     in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
     phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
@@ -151,54 +178,69 @@ catch
     centroidSizesLH = DATA{1}.Region.CentroidSizes;
     centroidSizesRH = DATA{2}.Region.CentroidSizes;
     regionName = Region.Name;
+    preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
     clear DATA preprocLH preprocRH LH RH Region
-    save([SEGMENTATION_SCRATCH_DIR, 'input.mat'], 'A', 'preprocTemplate', 'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocPhenoIID', 'preprocLandmarksIndices', '-v7.3');
+    save(SEGMENTATION_INPUT_OUT, "preprocTemplate","preprocPhenoIID", '-v7.3');
+    if ~isdeployed
+        save(SEGMENTATION_SCRATCH_INPUT_OUT, 'A',  'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocLandmarksIndices', '-v7.3');
+    end
 end
 %%
-preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
-%%
+if ~exist('preprocTemplate', 'var')
+    load(SEGMENTATION_INPUT_OUT);
+end
 
-nLandmarks = length(preprocLandmarksIndices);
 %% STEP 1:
-[nVertices,DIM,nSubj] = size(A);
-sym2DMatrix = permute(A,[2 1 3]);
-sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj)';
-clear A
-% Align covariates with phenotype
-load(covGenoPath, "COV");
-covariates = COV;
 
-%%
-covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
-[covPhenoIndex, covIndex] = find(covAssignmentMatrix);
+if  PERFORM_STEPS_12
+    [nVertices,DIM,nSubj] = size(A);
+    sym2DMatrix = permute(A,[2 1 3]);
+    sym2DMatrix = reshape(sym2DMatrix,nVertices*DIM,nSubj)';
+    clear A
+    % Align covariates with phenotype
+    load(covGenoPath, "COV");
+    covariates = COV;
 
-covData = covariates.DATA(covIndex, :);
-sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
-preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
-centroidSizesLH = centroidSizesLH(covPhenoIndex);
-centroidSizesRH = centroidSizesRH(covPhenoIndex);
-nSubj = size(sym2DMatrix, 1);
-avgT = mean(sym2DMatrix,1);
-% Removing components that can be controlled from covariates, keeping only
-% the residuals from the corresponding PLS model
-%% Apply covariates control analysis on DK partitions
-% see how much of the variance of each partition set of landmarks is explained by covariates
-atlasName = 'Desikan_Killiany';
-atlas = loadAtlas(atlasName,'L');
-%%
-atlasIndices = atlas.index(preprocLandmarksIndices);
-atlas3DIndices = repmat(atlasIndices,1,3)';
-atlas3DIndices = atlas3DIndices(:);
-%%
-labels = unique(atlas3DIndices);
-explained3DCov = nan * zeros(length(atlas3DIndices),1);
-for k=1:length(labels)
-    i=labels(k);
-    atlasMask =  atlas3DIndices == i;
-    [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
+    %%
+    covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
+    [covPhenoIndex, covIndex] = find(covAssignmentMatrix);
+
+    covData = covariates.DATA(covIndex, :);
+    sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
+    preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
+    centroidSizesLH = centroidSizesLH(covPhenoIndex);
+    centroidSizesRH = centroidSizesRH(covPhenoIndex);
+    nSubj = size(sym2DMatrix, 1);
+    avgT = mean(sym2DMatrix,1);
+    % Removing components that can be controlled from covariates, keeping only
+    % the residuals from the corresponding PLS model
+end
+
+if EXPLAINED_COV_PROC
+    %% Apply covariates control analysis on DK partitions
+    % see how much of the variance of each partition set of landmarks is explained by covariates
+    atlasName = 'Desikan_Killiany';
+    atlas = loadAtlas(atlasName,'L');
+    %%
+    atlasIndices = atlas.index(preprocLandmarksIndices);
+    atlas3DIndices = repmat(atlasIndices,1,3)';
+    atlas3DIndices = atlas3DIndices(:);
+    %%
+    labels = unique(atlas3DIndices);
+    explained3DCov = nan * zeros(length(atlas3DIndices),1);
+    for k=1:length(labels)
+        i=labels(k);
+        atlasMask =  atlas3DIndices == i;
+        [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
+    end
+    explainedCov = explained3DCov(1:3:length(explained3DCov));
+    save(EXPLAINED_COV_OUT, 'explainedCov', '-v7.3');
 end
 %%
-explainedCov = explained3DCov(1:3:length(explained3DCov));
+
+if ~exist('explainedCov', 'var')
+    load(EXPLAINED_COV_OUT)
+end
 f = figure;
 view(gca,90,0);
 colormap(gca,'jet');
@@ -215,35 +257,42 @@ colorbar(gca,'SouthOutside');
 visualizeCovExp.RenderAxes = gca;
 visualizeCovExp.Visible = true;
 visualizeCovExp.PatchHandle.FaceColor = 'flat';
+maxlims = max(visualizeCovExp.Vertices);
+minlims = min(visualizeCovExp.Vertices);
 axis(gca,'image');
 axis(gca,'off');
+xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
 drawnow;
+
 savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
 saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
 view(gca,-90,0);
 set(light,'Position',get(gca,'CameraPosition'));
+xlim(gca, [ minlims(1), maxlims(1)]);
 savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
 saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
 
 %%
 diary([SEGMENTATION_DIR  datestr(now) ' log.txt']);
-try
-    load([SELECTION_DIR  'residuals.mat']);
-    disp(['Loaded computed residuals from ' SELECTION_DIR  'residuals.mat']);
-catch
+
+if RESIDUALS_PROC
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
     [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
     resT = repmat(avgT,size(resT,1),1)+resT;
     disp("Saving computed residuals..");
-    save([SELECTION_DIR  'residuals.mat'],'resT', 'explainedCovWhole', '-v7.3');
+    save(RESIDUALS_OUT,'resT', 'explainedCovWhole', '-v7.3');
 end
+
+
 %% STEP 2: BUILDING RV MATRIX
-try
-    load([COV_REMOVAL_DIR 'similarityMatrix.mat']);
-    disp(['Loaded RV matrix from ' COV_REMOVAL_DIR 'similarityMatrix.mat'])
-catch
+if RV_MATRIX_PROC
     disp("Computing RV matrix..")
     if strcmp(COV_REMOVAL, 'ccPriorSegmentation')
+        if ~exist('resT', 'var')
+            load(RESIDUALS_OUT);
+            disp(['Loaded computed residuals from ' RESIDUALS_OUT]);
+        end
+
         disp("Using covariates controlled phenotype for segmentation..")
         similarityMat = buildRVmatrixDim(resT, 'cov', 3);
     else
@@ -251,92 +300,26 @@ catch
         similarityMat = buildRVmatrixDim(sym2DMatrix, 'cov', 3);
     end
     disp(['Saving RV Matrix to ' COV_REMOVAL_DIR 'similarityMatrix.mat ..'])
-    save([COV_REMOVAL_DIR 'similarityMatrix.mat'],'similarityMat','-v7.3');
+    save(RV_MATRIX_OUT,'similarityMat','-v7.3');
 end
+
 %% STEP 3: RUNNING CLUSTERING
-
-if strcmp(SEGMENTATION_USED, 'labs')
-    type = 'weiss';%'symmetric laplacian'; %'ratiocute';%'ncute';%'weiss'; is not so 'symmetric laplacian'
-    %nice for RH and SH;
-    %type = 'weiss';%'ratiocute';%'ncute';%'weiss';
-    minPercValue = 1;
-    runs = 50;
-    [LABELS,MASK] = HierarchicalFacialSegmentationv4(double(similarityMat),NUM_LEVELS,type,runs,minPercValue);
-    save([SEGMENTATION_DIR 'segmentation.mat'],'LABELS','MASK','-v7.3');
-
-    % VISUALIZING THE SEGMENTATION
-    % find the deepest still meaningfull level
-    levels = nansum(LABELS,2);
-    index = find(levels);
-    u_levels = index(end);% levels to analyze
-    ULABELS = LABELS(index,:);
-    UHI = HierarchicalInterface;
-    UHI.nL = u_levels;
-    UMASK = MASK(1:UHI.nLC);
-    disp(['Number of total clusters: ' num2str(length(find(UMASK)))]);
-    v_levels = NUM_LEVELS;% ter visualisatie
-    VLABELS = ULABELS(1:v_levels,:);
-    VHI = HierarchicalInterface;
-    VHI.nL = v_levels;
-    VMASK = UMASK(1:VHI.nLC);
-    disp(['Number of visualized clusters: ' num2str(length(find(VMASK)))]);
-
-    % make figdir
-
-    % PATCHES VISUALISATION
-    for lev=1:1:u_levels
-        PLABELS = ULABELS(1:lev,:);
-        [nLevels,nVertices] = size(PLABELS);
-        PHI = HierarchicalInterface;
-        PHI.nL = nLevels;
-
-        % convert from clusterindex to listindex
-        newLABELS = zeros(size(PLABELS));
-        for l=1:size(PLABELS,1)
-            for lm = 1:size(PLABELS,2)
-                cl = PLABELS(l,lm);
-                newLABELS(l,lm) = LC2Ind(PHI,l,cl);
-            end
-        end
-        % For each point find the non-nan listindex
-        VertexLabels = zeros(1,nVertices);
-        for i=1:nVertices
-            index = find(~isnan(PLABELS(:,i)));
-            VertexLabels(i) = newLABELS(index(end),i);
-        end
-        [UV,~,VertexLabels] = unique(VertexLabels);
-
-        RefScan = clone(preprocTemplate);
-        RefScan.VertexValue = VertexLabels;
-        RefScan.ColorMode = "Indexed";
-        v = viewer(RefScan);
-        v.Tag = 'All segments on Template';
-        RefScan.ViewMode = "Solid";
-        RefScan.Material = "Dull";
-        colorbar(v.RenderAxes,'color',[1,1,1]);
-        switch regionName
-            case {'LH' 'SH'}
-                view(-90,0)
-            case 'RH'
-                view(90,0)
-        end
-        v.SceneLightVisible = 1;
-        v.SceneLightLinked = true;
-        colormap(v.RenderAxes,'colorcube') % colorcube
-        RefScan.PatchHandle.FaceColor = 'flat';
-        print(v.Figure,'-dpng','-r300',[RESULTS_DIR  'segmentation_nL' num2str(nLevels)]);
+if SEGMENTATION_PROC
+    if ~exist('similarityMat', 'var')
+        load(RV_MATRIX_OUT);
+        disp(['Loaded RV matrix from ' RV_MATRIX_OUT])
     end
-    clusterArray = LABELS;
-else
-
     clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
-    fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS, SEGMENTATION_DIR, true);
-    saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
     clusterArray = getClustersAsArray(clustered, NUM_LEVELS);
-    save([SEGMENTATION_DIR 'segmentation.mat'],'clusterArray','-v7.3');
+    save(SEGMENTATION_OUT,'clusterArray','clustered','-v7.3');
+    clear similarityMat
+else
+    load(SEGMENTATION_OUT);
 end
-%%
-clear A similarityMat
+fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS, SEGMENTATION_DIR, true);
+saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
+
+
 %% Compute the PCA Components
 % Investigate the number of PCA components to keep for each segment based on the explained Variance
 % Get the partition of A that corresponds to the specific cluster with C
@@ -346,6 +329,9 @@ explainedThresholds = 50:10:90;
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
 means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
+if ~exist('resT', 'var')
+    load(RESIDUALS_OUT)
+end
 reshapedResT = reshape(resT', DIM, nVertices, nSubj);
 clear resT
 disp('Constructing graph showing the number of components/variance explained for each partition..')
@@ -380,48 +366,68 @@ title('Explained Variance~Number Of Components per Cluster');
 savefig(fig, [SEGMENTATION_DIR 'explainedVariance.fig']);
 saveas(fig, [SEGMENTATION_DIR 'explainedVariance.png']);
 %%
-selectedVarianceThreshold = 80;
-disp(['Computing PCA that explains ' num2str(selectedVarianceThreshold) '% of variance for each partition..'])
-maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds == selectedVarianceThreshold));
-ppb = ParforProgressbar(partitions_num);
-parfor k = 1:partitions_num
-    scores = pcaScores{k};
-    explainedAccum = cumsum(explained{k});
-    clusterPCAPhenoFeatures{k} = scores(:, explainedAccum < selectedVarianceThreshold);
-    ppb.increment();
+if FINAL_RET_PROC
+    disp(['Computing PCA that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition..'])
+    maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds == SELECTED_VARIANCE_THRESHOLD));
+    ppb = ParforProgressbar(partitions_num);
+    parfor k = 1:partitions_num
+        scores = pcaScores{k};
+        explainedAccum = cumsum(explained{k});
+        clusterPCAPhenoFeatures{k} = scores(:, explainedAccum < SELECTED_VARIANCE_THRESHOLD);
+        ppb.increment();
+    end
+    delete(ppb)
+    save(FINAL_RET_PATH,'explained', 'clusterPCAPhenoFeatures','templateCenters','means','SELECTED_VARIANCE_THRESHOLD','preprocPhenoIID', '-v7.3');
 end
-delete(ppb)
-save([SEGMENTATION_DIR, 'phenotype_varThres' num2str(selectedVarianceThreshold) '.mat'],'explained', 'clusterPCAPhenoFeatures','templateCenters','means','selectedVarianceThreshold','preprocPhenoIID', '-v7.3');
 
 
 %%
 % Show the behavior of the means of the clustered regions in 3D
-
+if ~exist('templateCenters', 'var')
+    load(FINAL_RET_PATH)
+end
 localBehaviors = zeros(partitions_num,3, 3);
 for i=1:partitions_num
     localBehaviors(i,:, :) = pca(squeeze(means(i, :, :))', 'NumComponents',3);
 end
+
+maxlims = max(preprocTemplate.Vertices);
+minlims = min(preprocTemplate.Vertices);
+
 fig = figure;
-ax = gca;
-hold on
-quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 1), localBehaviors(:, 2, 1), localBehaviors(:,3,1), 'LineWidth', 3);
-quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 2), localBehaviors(:, 2, 2), localBehaviors(:,3,2), 'LineWidth', 3);
-quiver3(ax, templateCenters(:,1), templateCenters(:,2), templateCenters(:,3), localBehaviors(:, 1, 3), localBehaviors(:, 2, 3), localBehaviors(:,3,3), 'LineWidth', 3);
-legend('PC1', 'PC2', 'PC3');
-hold off
-brainShape = clone(preprocTemplate);
-brainShape.RenderAxes = gca;
-brainShape.Visible=true;
-brainShape.ViewMode = 'SolidWireframe';
-brainShape.Material = 'Dull';
-axis equal
-axis off
-set(fig, 'color', 'none');
-set(ax, 'color', 'none');
-view(90, 0)
-saveas(fig, [SEGMENTATION_DIR 'clusterPCA_interior.png']);
-view(-90, 0)
-saveas(fig, [SEGMENTATION_DIR 'clusterPCA_exterior.png']);
+for i=1:2
+    ax=subplot(1,2,i);
+    ax.Visible = false;
+    hold on
+
+    if i == 1
+        xlim_min = 1.3 * (maxlims(1) + minlims(1)) / 3;
+    else
+        xlim_min =minlims(1);
+    end
+    flag = templateCenters(:,1) >= xlim_min;
+    quiver3(ax, templateCenters(flag,1), templateCenters(flag,2), templateCenters(flag,3), localBehaviors(flag, 1, 1), localBehaviors(flag, 2, 1), localBehaviors(flag,3,1), 'LineWidth', 3);
+    quiver3(ax, templateCenters(flag,1), templateCenters(flag,2), templateCenters(flag,3), localBehaviors(flag, 1, 2), localBehaviors(flag, 2, 2), localBehaviors(flag,3,2), 'LineWidth', 3);
+    quiver3(ax, templateCenters(flag,1), templateCenters(flag,2), templateCenters(flag,3), localBehaviors(flag, 1, 3), localBehaviors(flag, 2, 3), localBehaviors(flag,3,3), 'LineWidth', 3);
+    legend('PC1', 'PC2', 'PC3');
+    hold off
+    brainShape = clone(preprocTemplate);
+    brainShape.RenderAxes = gca;
+    brainShape.Visible=true;
+    % brainShape.ViewMode = 'SolidWireframe';
+    brainShape.Material = 'Dull';
+    if i == 1
+        view(90, 0)
+    else
+        view(-90,0)
+    end
+    light = camlight(ax,'headlight');
+    set(light,'Position',get(ax,'CameraPosition'));
+    xlim(ax, [xlim_min, maxlims(1)]);
+    daspect(ax(1), [1 1 1]);
+end
+saveas(fig, [SEGMENTATION_DIR 'clusterPCA.png']);
+
 diary off;
 
 if ~isdeployed

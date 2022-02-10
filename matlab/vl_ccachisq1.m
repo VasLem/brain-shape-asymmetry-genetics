@@ -91,7 +91,7 @@ else
         [Q, T11] = qr(Xs(:,:,i),0);
         rankXs(i) = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
         Q = Q(:, 1:rankXs(i));
-        Q1(1:size(Q,1),1:size(Q,2),1) = Q;
+        Q1(1:size(Q,1),1:size(Q,2),i) = Q;
     end
 end
 
