@@ -3,9 +3,9 @@
 #PBS -l walltime=6:00:00
 #PBS -l pmem=30gb
 #PBS -A default_project
-#PBS -m abe
+#PBS -m b -M vasileios.lemonidis@student.kuleuven.be
 
-module purge 
+module purge
 module load matlab/R2019a
 
 cd $VSC_HOME/imagen/deployed

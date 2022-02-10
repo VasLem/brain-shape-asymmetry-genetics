@@ -386,7 +386,12 @@ for CHR_IND=1:length(CHRS)
 end
 function output = saveLDRegressionTablesOnEachPartition(snpsPruned, sample_sizes, partSignificances, intervals, save_dir)
 pNum = size(partSignificances ,1);
-output = removevars(renamevars(snpsPruned,["ALT", "REF"],["A2", "A1"]), ["POS", "CHR"]);
+names = snpsPruned.Properties.VariableNames;
+new_names = strrep(names,'ALT', 'A2');
+new_names = strrep(new_names,'REF', 'A1');
+output = snpsPruned;
+output.Properties.VariableNames = new_names;
+output = output(:,~(strcmp(new_names,'POS') | strcmp(new_names,'CHR')));
 idx  =intervalsToVector(intervals);
 output.N = sample_sizes(idx);
 output.SIGN = ones(height(snpsPruned),1);
