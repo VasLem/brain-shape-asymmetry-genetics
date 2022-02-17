@@ -133,7 +133,7 @@ parfor i=1:size(Ds,3)
     ret = chi2pval(chi', df1);
     pChisq(i) = ret(1);
     chisq(i) = chi(1);
-    dfs(i) = df1;
+    dfs(i) = df1(1);
 end
 end
 

@@ -13,8 +13,8 @@ if ~isdeployed
     addpath(genpath('.'));
     addpath(genpath('AIDFUNCTIONS'));
     addpath(genpath('../SNPLIB/'));
-    rmpath('../SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
-    addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
+%     rmpath('../SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
+%     addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
 end
 %%
 DATA_DIR = getenv('DATA_ROOT');
@@ -50,7 +50,7 @@ MAX_NUM_FEATS = 0;
 
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 2;
+    DATASET_INDEX = 1;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -227,11 +227,10 @@ for CHR_IND=1:length(CHRS)
         
         save(SAMPLE_SIZES_OUT,'sampleSizes', '-v7.3')
 
-        disp("Controlling genome for covariates based on intervals..")
-        tic;
-        genoControlledInt = controlGenoCovariates(genoInt, covData);
-        clear genoInt
-        toc;
+%         disp("Controlling genome for covariates based on intervals..")
+%         tic;
+%         genoInt = controlGenoCovariates(genoInt, covData);
+%         toc;
     end
     %%
     if ~exist('intervals', 'var')
@@ -247,7 +246,7 @@ for CHR_IND=1:length(CHRS)
     else
         disp("Computing CCA with phenotypic partitioning..")
         tic;
-        [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(PHENO, phenoIndex, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
+        [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(PHENO, phenoIndex, genoInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
         toc;
         disp("Saving CCA results..")
         tic;
@@ -475,13 +474,12 @@ end
 
 
 
-function controlledGenoPart = controlGenoCovariates(genoInt, COV)
-controlledGenoPart = genoInt;
+function genoInt = controlGenoCovariates(genoInt, COV)
 ppb = ParforProgressbar(length(genoInt));
 parfor i=1:length(genoInt)
-    controlledGenoPart{i} = single(nan * zeros(size(genoInt{i})));
+    genoInt{i} = single(nan * zeros(size(genoInt{i})));
     selection = ~any(genoInt{i} == 255,2);
-    controlledGenoPart{i}(selection, :) = single(getResiduals(COV(selection, :),  single(genoInt{i}(selection, :))));
+    genoInt{i}(selection, :) = single(getResiduals(COV(selection, :),  single(genoInt{i}(selection, :))));
     ppb.increment();
 end
 delete(ppb);
