@@ -7,7 +7,7 @@ DATA_DIR = '../SAMPLE_DATA/';
 
 THREADS= 8;
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
@@ -23,22 +23,31 @@ switch DATASET_INDEX
 end
 RESULTS_DIR = ['../results/genomeDemo/' DATASET_NAME '/'];
 AVAILABLE_CHRS = [];
-wholeTab = nan;
+N_PARTITIONS = 31;
+wholeTabs = cell(N_PARTITIONS,1);
 for CHR=1:22
     disp(['CHR:' , num2str(CHR)]);
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-    
     try
-        tab = readtable([CHR_DIR 'chisq_stats.csv']);
-        tab = tab(:,{'RSID', 'N', 'P_PAR1'});
-        tab = renamevars(tab,{'RSID','P_PAR1'},{'rsID','P-value'});
-        tab.chromosome = CHR * ones(height(tab),1);
-        if ~isa(wholeTab, 'table')
-            wholeTab = tab;
-        else
-            wholeTab = cat(1,wholeTab, tab);
+        ftab = readtable([CHR_DIR 'chisq_stats.csv']);
+        for partition=1:N_PARTITIONS
+            tab = ftab(:,{'RSID', 'N', ['P_PAR', num2str(partition)], ['CHI_PAR',num2str(partition)]});
+            tab = renamevars(tab,{'RSID',['P_PAR' num2str(partition)], ['CHI_PAR', num2str(partition)]},{'rsID','P-value','ChiScore'});
+            tab.chromosome = CHR * ones(height(tab),1);
+            if ~isa(wholeTabs{partition}, 'table')
+                wholeTabs{partition} = tab;
+            else
+                wholeTabs{partition} = cat(1,wholeTabs{partition}, tab);
+            end
         end
     catch
     end
 end
-writetable(wholeTab, [RESULTS_DIR 'noPartWholeCCA.csv']);
+for partition=1:N_PARTITIONS
+    fname =  [RESULTS_DIR sprintf('CCAPart%02d.csv',partition)];
+    writetable(wholeTabs{partition},fname);
+    gzip(fname);
+    delete(fname);
+end
+
+

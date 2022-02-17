@@ -1,0 +1,36 @@
+digraph {
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 {rank=same; key1, key2 
+label = "Legend";
+ key1 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">[
+<tr><td align="right" port="i1" >Chr.1</td></tr>
+<tr><td align="right" port="i2" >Chr.2</td></tr>
+<tr><td align="right" port="i9" >Chr.9</td></tr>
+<tr><td align="right" port="i10" >Chr.10</td></tr>
+<tr><td align="right" port="i12" >Chr.12</td></tr>
+<tr><td align="right" port="i14" >Chr.14</td></tr>
+<tr><td align="right" port="i15" >Chr.15</td></tr>
+<tr><td align="right" port="i16" >Chr.16</td></tr>
+<tr><td align="right" port="i17" >Chr.17</td></tr></table>>]
+ key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">[
+<tr><td port="i1">&nbsp;</td></tr>
+<tr><td port="i2">&nbsp;</td></tr>
+<tr><td port="i9">&nbsp;</td></tr>
+<tr><td port="i10">&nbsp;</td></tr>
+<tr><td port="i12">&nbsp;</td></tr>
+<tr><td port="i14">&nbsp;</td></tr>
+<tr><td port="i15">&nbsp;</td></tr>
+<tr><td port="i16">&nbsp;</td></tr>
+<tr><td port="i17">&nbsp;</td></tr></table>>]
+key1:i1:e -> key2:i1:w [color="#9E0142"]
+key1:i2:e -> key2:i2:w [color="#BA254B"]
+key1:i9:e -> key2:i9:w [color="#FED883"]
+key1:i10:e -> key2:i10:w [color="#FFEA98"]
+key1:i12:e -> key2:i12:w [color="#FCFEB1"]
+key1:i14:e -> key2:i14:w [color="#DEF297"]
+key1:i15:e -> key2:i15:w [color="#C1E69F"]
+key1:i16:e -> key2:i16:w [color="#A2D9A5"]
+key1:i17:e -> key2:i17:w [color="#82CEA4"]
+}
+}

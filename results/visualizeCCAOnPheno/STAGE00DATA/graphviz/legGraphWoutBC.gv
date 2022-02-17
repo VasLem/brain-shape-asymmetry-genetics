@@ -25,15 +25,15 @@ label = "Legend";
 <tr><td port="i15">&nbsp;</td></tr>
 <tr><td port="i16">&nbsp;</td></tr>
 <tr><td port="i17">&nbsp;</td></tr></table>>]
-key1:i1:e -> key2:i1:w [color="#00A00A"]
-key1:i2:e -> key2:i2:w [color="#00D005"]
-key1:i3:e -> key2:i3:w [color="#00F00F"]
-key1:i9:e -> key2:i9:w [color="#0FF0FF"]
-key1:i10:e -> key2:i10:w [color="#2FDBF5"]
-key1:i12:e -> key2:i12:w [color="#8F80F0"]
-key1:i14:e -> key2:i14:w [color="#DF25FB"]
-key1:i15:e -> key2:i15:w [color="#FF0FF0"]
-key1:i16:e -> key2:i16:w [color="#FD0F50"]
-key1:i17:e -> key2:i17:w [color="#FA0FA0"]
+key1:i1:e -> key2:i1:w [color="#9E0142"]
+key1:i2:e -> key2:i2:w [color="#BA254B"]
+key1:i3:e -> key2:i3:w [color="#D33C4F"]
+key1:i9:e -> key2:i9:w [color="#FED883"]
+key1:i10:e -> key2:i10:w [color="#FFEA98"]
+key1:i12:e -> key2:i12:w [color="#FCFEB1"]
+key1:i14:e -> key2:i14:w [color="#DEF297"]
+key1:i15:e -> key2:i15:w [color="#C1E69F"]
+key1:i16:e -> key2:i16:w [color="#A2D9A5"]
+key1:i17:e -> key2:i17:w [color="#82CEA4"]
 }
 }

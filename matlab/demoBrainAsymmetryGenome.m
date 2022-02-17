@@ -23,7 +23,7 @@ if(isempty(DATA_DIR))
 end
 disp(['Location of data: ', DATA_DIR]);
 
-
+UPDATE_FIGS = 1;
 
 THREADS = getenv('THREADS');
 if(isempty(THREADS))
@@ -50,7 +50,7 @@ MAX_NUM_FEATS = 0;
 
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 1;
+    DATASET_INDEX = 2;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -91,11 +91,13 @@ disp(['Location of intermediate files: ', SCRATCH_ROOT]);
 SCRATCH_DIR = [SCRATCH_ROOT, '/genomeDemo/' DATASET_NAME '/'];
 if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
 
-covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
-
-disp("Loading phenotype and covariates..")
-PHENO = load([RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat']);
-load(covGenoPath, 'COV');
+COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
+disp("Loading phenotype..")
+PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
+PHENO = load(PHENO_PATH);
+%%
+disp("Loading covariates..")
+load(COV_GENO_PATH, 'COV');
 disp("Initializing genomic analysis..")
 try
     parpool(THREADS);
@@ -109,27 +111,27 @@ for CHR_IND=1:length(CHRS)
     GENE_SET_METHOD = 'perSNP';
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
     SCRATCH_CHR_DIR = [SCRATCH_DIR 'chr' num2str(CHR) '/'];
-    PLINK_DATA_OUT = [SCRATCH_CHR_DIR 'plink_data.mat'];
-    PLINK_DATA_PROC = isdeployed || ~isfile(PLINK_DATA_OUT);
-    INT_GENO_OUT = [SCRATCH_CHR_DIR 'intervals_geno.mat'];
-    INT_GENO_PROC = isdeployed || ~isfile(INT_GENO_OUT);
+
+    PLINK_DATA_INFO_OUT = [CHR_DIR 'plink_data_info.mat'];
+    PLINK_DATA_PROC = isdeployed || ~isfile(PLINK_DATA_INFO_OUT);
     META_INT_GENO_OUT = [CHR_DIR 'intervals_info.mat'];
     META_INT_GENO_PROC = ~isfile(META_INT_GENO_OUT);
-    CNT_GENO_OUT = [SCRATCH_CHR_DIR 'controlled_geno.mat'];
-    CNT_GENO_PROC = isdeployed || ~isfile(CNT_GENO_OUT);
     WITH_PART_CCA_OUT = [CHR_DIR 'withPartCCA.mat'];
     WITH_PART_CCA_PROC = ~isfile(WITH_PART_CCA_OUT);
     SAMPLE_SIZES_OUT = [CHR_DIR 'sampleSizes.mat'];
-    SAMPLE_SIZES_PROC = ~isfile(SAMPLE_SIZES_OUT);
 
     if ~isfolder(CHR_DIR), mkdir(CHR_DIR); end
     if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
-    
+    PLINK_DATA_PROC = PLINK_DATA_PROC || META_INT_GENO_PROC || WITH_PART_CCA_PROC;
+    META_INT_GENO_PROC =  META_INT_GENO_PROC || ~isfile(PLINK_DATA_INFO_OUT);
+    WITH_PART_CCA_PROC = WITH_PART_CCA_PROC || META_INT_GENO_PROC || ~isfile(PLINK_DATA_INFO_OUT);
+
+
     if ~PLINK_DATA_PROC
         try
             lastwarn('', '');
-            load([CHR_DIR 'plink_data_info.mat'], "iid");
-            
+            load([CHR_DIR 'plink_data_info.mat'], "iid", 'phenoIndex');
+
             [warnMsg, warnId] = lastwarn();
             if ~isempty(warnId)
                 error(warnMsg, warnId);
@@ -146,101 +148,27 @@ for CHR_IND=1:length(CHRS)
         if ~isdeployed
             obj.nThreads = THREADS;
         end
-        [snps, samples] = obj.importPLINKDATA([DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)]);
+        GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)];
+        [snps, samples] = obj.importPLINKDATA(GENO_PATH);
         geno = obj.UnpackGeno();
         geno(geno==-1) = 255;
         geno = uint8(geno);
-        iid = samples.IID;
         toc;
-        disp("Saving iids..")
+        % Align phenotype with genotype
+        disp("Aligning genotype to phenotype..");
         tic;
-        save([CHR_DIR 'plink_data_info.mat'], "iid", '-v7.3')
-        clear obj;
-        toc;
-        if ~isdeployed
-            disp("Saving loaded geno..")
-            tic;
-            save(PLINK_DATA_OUT, 'geno', 'snps', '-v7.3')
-            toc;
-        end
-    end
-    %%
-    %% Align COV with genotype
-    disp("Aligning COV to genotype..");
-    tic;
-    samplesIId = iid;
-    covAssignmentMatrix = (str2double(samplesIId) == str2double(COV.IID)');
-    [covGenoIndex, covIndex] = find(covAssignmentMatrix);
-    clear covAssignmentMatrix
-
-    covData = COV.DATA(covIndex, :);
-    samplesIId = samplesIId(covGenoIndex);
-
-    %%
-    genoId = str2double(samplesIId);
-    phenoId = str2double(PHENO.preprocPhenoIID);
-
-    toc;
-    %% Align phenotype with genotype
-    disp("Aligning genotype to phenotype..");
-    tic;
-    assignmentMatrix = (phenoId == genoId');
-    [phenoIndex, genoIndex] = find(assignmentMatrix);
-    samplesIId = samplesIId(genoIndex);
-    covData = covData(genoIndex,:);
-    assert(all(phenoIndex'==1:length(phenoIndex)));
-    clear assignmentMatrix
-    toc;
-    %% Represent SNPs that are not really SNPs (one replaced by many, or many replaced by one)
-    % [sortedAf, sortedAfArg] = sort(af);
-    % sortedSnps = snps(sortedAfArg, :);
-    % fig = figure("Name", "Occurences of InDel including Alleles");
-    % hold on
-    % yyaxis left
-    % lHandle = plot(sortedAf);
-    % set(lHandle, {'DisplayName'}, {'Ordered Frequency'});
-    %
-    % oneToMany = strlength(sortedSnps.(4))>1 & strlength(sortedSnps.(5)) == 1;
-    % manyToMany = strlength(sortedSnps.(4))>1 & strlength(sortedSnps.(5)) > 1;
-    % manyToOne = strlength(sortedSnps.(4))==1 & strlength(sortedSnps.(5)) > 1;
-    % edges = linspace(0, size(manyToOne ,1), 50);
-    % oTMH = histcounts(find(oneToMany),edges);
-    % mTOH = histcounts(find(manyToOne),edges);
-    %
-    %
-    % sHandle = scatter(find(manyToMany), 0.95 * ones(1, sum(manyToMany))', 'x');
-    % sHandle.DisplayName = ['N->N: ', num2str(sum(manyToMany))];
-    %
-    % yyaxis right
-    % bHandle = bar( 0.5*(edges(2:end) + edges(1:end-1)), [oTMH', mTOH'], 1);
-    % bHandle(1).FaceColor = 'blue';
-    % bHandle(1).DisplayName = ['1->N:  '  num2str(sum(oneToMany))];
-    % bHandle(1).EdgeColor = 'k';
-    % bHandle(2).FaceColor = 'red';
-    % bHandle(2).DisplayName = ['N->1 :', num2str(sum(manyToOne))];
-    % bHandle(2).EdgeColor = 'k';
-    % xlabel("Sorted Snps")
-    % ax = gca;
-    % ax.YAxis(2).Color = 'k';
-    %
-    % legend;
-    % hold off
-    % savefig(fig, [RESULTS_DIR 'multi_characters_alleles.fig']);
-    % saveas(fig, [RESULTS_DIR 'multi_characters_alleles.png']);
-    %
-    % clear sortedSnps
-    %% Remove indels.
-
-
-    if META_INT_GENO_PROC || INT_GENO_PROC
-        if ~exist('geno', 'var')
-            disp("Loading geno..")
-            tic;
-            load([SCRATCH_CHR_DIR 'plink_data.mat'], "geno", "snps");
-            toc;
-        end
-        geno =geno(covGenoIndex, :);
+        iid = samples.IID;
+        genoId = str2double(iid);
+        phenoId = str2double(PHENO.preprocPhenoIID);
+        assignmentMatrix = (phenoId == genoId');
+        [phenoIndex, genoIndex] = find(assignmentMatrix);
+        iid = iid(genoIndex);
         geno = geno(genoIndex, :);
+        assert(all(phenoIndex'==1:length(phenoIndex)));
+        clear assignmentMatrix
+        toc;
+
+        % Remove indels.        
         disp("Removing SNPs containing InDels..");
         tic;
         indelFilter = strlength(snps.(4))==1 & strlength(snps.(5))==1;
@@ -249,72 +177,61 @@ for CHR_IND=1:length(CHRS)
         clear geno
         clear snps
 
-        %% Identify the genetic indices for genes with more than one allele
-        [rsids , ~, ic] = unique(snpsPruned.('RSID'));
-        alleleCounts = accumarray(ic,1);
-        %% Some checks
+        % Some checks
         %regarding the fact that positions need to be sorted
         assert(all(sort(snpsPruned.POS) == snpsPruned.POS));
         % and that all phenotype ids  correspond to genotype ones
         assert(all((1:length(phenoId)) == phenoIndex'));
         toc;
-        %% Partition SNPs
+
+        % Partition SNPs
         disp("Computing Intervals..")
         tic;
         intervals = getIntervals(snpsPruned, GENE_SET_METHOD);
         toc;
+         %Align COV with genotype
+        disp("Aligning COV to genotype and phenotype..");
+        tic;
+        samplesIId = iid;
+        covAssignmentMatrix = (str2double(samplesIId) == str2double(COV.IID)');
+        [covGenoIndex, covIndex] = find(covAssignmentMatrix);
+        clear covAssignmentMatrix
+        iid = samplesIId(covGenoIndex);
+        phenoIndex = phenoIndex(covGenoIndex);
+       
+        genoPruned = genoPruned(covGenoIndex, :);
+        covData = COV.DATA(covIndex);
+        toc;
+        disp("Saving aligned iids..")
+        tic;
+        save(PLINK_DATA_INFO_OUT, "iid", "phenoIndex", '-v7.3')
+        clear obj;
+        toc;
+
         disp("Splitting genome into groups, according to intervals information..")
         tic;
         gId = zeros(intervals(end,2),1);
         gId(intervals(:, 1)) = 1;
         gId = cumsum(gId);
         genoInt = splitapply( @(x){x'}, genoPruned', gId );
+        clear genoPruned;
         toc;
+
         disp("Saving splitted genome and pruned SNPs...")
         tic;
         save(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId', '-v7.3');
-        if ~isdeployed
-            save(INT_GENO_OUT, 'genoInt', '-v7.3');
-        end
         toc;
-        clear genoPruned;
-    end
 
-    %%
-
-    if WITH_PART_CCA_PROC
-        if CNT_GENO_PROC
-            if ~exist('genoInt', 'var')
-                disp("Loading genoInt..")
-                tic;
-                load(INT_GENO_OUT, 'genoInt');
-                toc;
-            end
-            disp("Controlling genome for COV based on intervals..")
-            tic;
-            genoControlledInt = controlGenoCovariates(genoInt, covData);
-            toc;
-            if ~isdeployed
-                disp("Saving controlled genome..")
-                tic;
-                save(CNT_GENO_OUT, 'genoControlledInt', '-v7.3');
-                toc;
-            end
-            if ~SAMPLE_SIZES_PROC
-                clear genoInt
-            end
-        end
-    
-    end
-    if SAMPLE_SIZES_PROC
-        if ~exist('genoInt', 'var')
-                disp("Loading genoInt..")
-                tic;
-                load(INT_GENO_OUT, 'genoInt');
-                toc;
-        end
+        disp("Computing sample sizes per SNP..")
         sampleSizes = getSampleSizes(genoInt);
+        
         save(SAMPLE_SIZES_OUT,'sampleSizes', '-v7.3')
+
+        disp("Controlling genome for covariates based on intervals..")
+        tic;
+        genoControlledInt = controlGenoCovariates(genoInt, covData);
+        clear genoInt
+        toc;
     end
     %%
     if ~exist('intervals', 'var')
@@ -328,32 +245,27 @@ for CHR_IND=1:length(CHRS)
         load(WITH_PART_CCA_OUT,  'gTLPartStats', 'gTLPartIntStats');
         disp("Loaded Computed CCA with phenotypic partinioning");
     else
-        if ~exist('genoControlledInt', 'var')
-            disp("Loading genoControlledInt..")
-            tic;
-            load(CNT_GENO_OUT, 'genoControlledInt');
-            toc;
-        end
         disp("Computing CCA with phenotypic partitioning..")
         tic;
-        [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(PHENO, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
+        [gTLPartStats, gTLPartIntStats] = runCCAOnEachPartition(PHENO, phenoIndex, genoControlledInt, intervals, gId, SCRATCH_CHR_DIR, MAX_NUM_FEATS);
         toc;
         disp("Saving CCA results..")
         tic;
         save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
         WITH_PART_CCA_PROC = false;
         toc;
+        clear genoControlledInt
     end
+
     %%
-    disp("Plotting results..")
-    tic;
-    plotSimpleGWAS(intervals, gTLPartIntStats.chiSqSignificance(1, :), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
-    plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
-    plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_NOBF_feats' num2str(MAX_NUM_FEATS)]);
-    toc;
+    if UPDATE_FIGS
+        disp("Plotting results..")
+        tic;
+        plotSimpleGWAS(intervals, gTLPartIntStats.chiSqSignificance(1, :), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
+        plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
+        toc;
+    end
     %% Significant SNPs tables extraction
-    
-    %%
     if ~exist('snpsPruned', 'var')
         disp("Loading snpsPruned..")
         tic;
@@ -368,13 +280,13 @@ for CHR_IND=1:length(CHRS)
     %% LD regression csv
     disp("Extracting partition specific signigicant SNPs tables..")
     if ~exist('sampleSizes', 'var')
-        disp("Loading snpsPruned..")
+        disp("Loading sampleSizes..")
         tic;
         load(SAMPLE_SIZES_OUT);
         toc;
     end
     tic;
-    saveLDRegressionTablesOnEachPartition(snpsPruned,sampleSizes, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
+    saveLDRegressionTablesOnEachPartition(snpsPruned, PHENO, sampleSizes, gTLPartIntStats.chisq, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
     tic;
     %
     disp("End of computation.")
@@ -384,7 +296,8 @@ for CHR_IND=1:length(CHRS)
     end
     toc;
 end
-function output = saveLDRegressionTablesOnEachPartition(snpsPruned, sample_sizes, partSignificances, intervals, save_dir)
+
+function output = saveLDRegressionTablesOnEachPartition(snpsPruned,  PHENO, sample_sizes, partScores, partSignificances, intervals, save_dir)
 pNum = size(partSignificances ,1);
 names = snpsPruned.Properties.VariableNames;
 new_names = strrep(names,'ALT', 'A2');
@@ -397,27 +310,30 @@ output.N = sample_sizes(idx);
 output.SIGN = ones(height(snpsPruned),1);
 for i=1:pNum
     output.(['P_PAR', num2str(i)]) = partSignificances(i, idx)';
+    output.(['CHI_PAR',num2str(i)]) = partScores(i, idx)'./(size(PHENO.clusterPCAPhenoFeatures{i},2) .* (1 + partScores(i, idx)'./output.N))  ;
 end
 writetable(output, [save_dir  '/chisq_stats.csv'])
 end
 
 function idx = intervalsToVector(intervals)
-    idx = zeros(intervals(end,2),1);
-    idx(intervals(:,1)) = 1;
-    idx = cumsum(idx);
+idx = zeros(intervals(end,2),1);
+idx(intervals(:,1)) = 1;
+idx = cumsum(idx);
 end
 
 %%
-function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThres, path)
-fig = figure;
+function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThresB, pThres, path)
+fig = figure('visible','off');
 fig.Position = [100 100 900 900];
 hold on
 pNum = size(intStats.chiSqSignificance, 1);
 for i=1:pNum
-    scatter(intervals(:, 1), -log10(intStats.chiSqSignificance(i, :)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', num2str(sum(intStats.chiSqSignificance(i, :)<pThres))]);
+    sig1 = num2str(sum(intStats.chiSqSignificance(i, :)<pThresB));
+    sig2 = num2str(sum(intStats.chiSqSignificance(i, :)<pThres));
+    scatter(intervals(:, 1), -log10(intStats.chiSqSignificance(i, :)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
 end
-yline(-log10(pThres), 'DisplayName', 'Threshold');
-
+yline(-log10(pThresB), 'DisplayName', 'Bonferroni Threshold');
+yline(-log10(pThres), '--', 'DisplayName', '(No correction Threshold)');
 title(['Chromosome ' num2str(chromosome) ', Partitions: ' num2str(pNum)])
 ylabel('-log10p');
 
@@ -499,10 +415,10 @@ else
 end
 % for c=1:size(significantInts,1)
 %     intSnps = snps(starts(c):ends(c),:);
-    %     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
-    %     [~, maxCoefArg] = max(abs(intCoeffs));
-    %     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
-    %     sigSnps(c, :) = intSnps(maxCoefArg, :);
+%     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
+%     [~, maxCoefArg] = max(abs(intCoeffs));
+%     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
+%     sigSnps(c, :) = intSnps(maxCoefArg, :);
 % end
 % sigSnps.COEF = sigSnpsCoef;
 intSigSnps = [stSnps, enSnps];
@@ -512,7 +428,7 @@ if ~strcmp(savePath, "")
 end
 end
 
-function [stats, intStats, intervals] = runCCAOnEachPartition(PHENO, geno, intervals, intIdVec, scratch_dir, maxNumPhenoFeats)
+function [stats, intStats, intervals] = runCCAOnEachPartition(PHENO, phenoIndex, geno, intervals, intIdVec, scratch_dir, maxNumPhenoFeats)
 if nargin < 6
     maxNumPhenoFeats = 0;
 end
@@ -525,6 +441,7 @@ intChisqSig = zeros(pnum, inum);
 intChisq = zeros(pnum, inum);
 for k=pnum:-1:1
     phenoPart = PHENO.clusterPCAPhenoFeatures{k};
+    phenoPart = phenoPart(phenoIndex, :);
     if maxNumPhenoFeats ~= 0
         phenoPart = phenoPart(:,1:min(size(phenoPart,2),maxNumPhenoFeats));
     end
@@ -606,5 +523,5 @@ end
 end
 
 function sampleSizes = getSampleSizes(geno)
-    sampleSizes = cellfun(@(x)(min(sum(isfinite(x)))), geno);
+sampleSizes = cellfun(@(x)(min(sum(isfinite(x)))), geno);
 end

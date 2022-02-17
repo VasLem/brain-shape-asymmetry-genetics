@@ -1,0 +1,16 @@
+#! /bin/bash
+
+cd /usr/local/avalok/tmp/hhoske1/sumstats/
+export OMP_NUM_THREADS=1
+
+for i in {1..62}; do
+echo $i
+l=$(($i + 1))
+
+for j in $(seq $l 63); do
+echo $j
+./ldsc/ldsc.py --rg CCA/META/MUNGED${i}.txt,CCA/META/MUNGED${j}.txt --ref-ld-chr ldsc/eur_w_ld_chr/ --w-ld-chr ldsc/eur_w_ld_chr/ --out CCA/META/results/face/GC_${i}_${j}
+
+done
+
+done

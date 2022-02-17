@@ -1,0 +1,65 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ldsc/eur_w_ld_chr/ \
+--out GC_1_2 \
+--rg MUNGE_OUTPUT1.txt,MUNGE_OUTPUT2.txt \
+--w-ld-chr ldsc/eur_w_ld_chr/ 
+
+Beginning analysis at Sun Mar 29 19:55:01 2020
+Reading summary statistics from MUNGE_OUTPUT1.txt ...
+Read summary statistics for 1136896 SNPs.
+Reading reference panel LD Score from ldsc/eur_w_ld_chr/[1-22] ...
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ldsc/eur_w_ld_chr/[1-22] ...
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1134332 SNPs remain.
+After merging with regression SNP LD, 1134332 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from MUNGE_OUTPUT2.txt ...
+Read summary statistics for 1215001 SNPs.
+After merging with summary statistics, 1134332 SNPs remain.
+1134332 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 2.2821 (0.1988)
+Lambda GC: 1.3964
+Mean Chi^2: 1.2471
+Intercept: 0.8717 (0.0143)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/2
+-----------------------------
+Total Observed scale h2: 1.9428 (0.1906)
+Lambda GC: 1.3203
+Mean Chi^2: 1.2222
+Intercept: 0.9028 (0.0137)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 1.8766 (0.1514)
+Mean z1*z2: 1.0445
+Intercept: 0.7353 (0.0108)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8912 (0.0141)
+Z-score: 63.017
+P: 0.
+
+
+Summary of Genetic Correlation Results
+                p1                 p2      rg      se       z  p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ MUNGE_OUTPUT1.txt  MUNGE_OUTPUT2.txt  0.8912  0.0141  63.017  0  1.9428     0.1906  0.9028     0.0137    0.7353       0.0108
+
+Analysis finished at Sun Mar 29 19:55:17 2020
+Total time elapsed: 15.89s

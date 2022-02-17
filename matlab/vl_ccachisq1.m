@@ -1,4 +1,4 @@
-function [chisq, pChisq, Q2, T22, rankY] = vl_ccachisq1(Xs,Y, Q2, T22, rankY)
+function [chisq, pChisq, dfs, Q2, T22, rankY] = vl_ccachisq1(Xs,Y, Q2, T22, rankY)
 % An expansion of canoncorr to reuse/return Y related information and not
 % recompute it if not needed. Also, it does not compute  U = (X - mean(X))*A and
 %      V = (Y - mean(Y))*B.
@@ -80,7 +80,6 @@ Xs = double(Xs);
 Xs = Xs - mean(Xs,1);
 
 if size(Xs,2)==1
-    %     T11 = sqrt(sum(X.^2));
     Q1 = Xs ./ sqrt(sum(Xs.^2));
     rankXs = ones(size(Xs, 3),1);
 else
@@ -99,7 +98,6 @@ if any(rankXs == 0)
     error(message('stats:canoncorr:BadData', 'X'));
 elseif any(rankXs < p1)
     warning(message('stats:canoncorr:NotFullRank', 'X'));
-    %     Q1 = Q1(:,1:rankX);
 end
 
 
@@ -115,65 +113,27 @@ if nargin < 3
         Q2 = Q2(:,1:rankY); T22 = T22(1:rankY,1:rankY);
     end
 end
-% Compute canonical coefficients and canonical correlations.  For rankX >
-% rankY, the economy-size version ignores the extra columns in L and rows
-% in D. For rankX < rankY, need to ignore extra columns in M and D
-% explicitly. Normalize A and B to give U and V unit variance.
-% d = min(rankX,rankY);
-% D = diag(svd(Q1' * Q2,0));
+
 ds = min(rankXs,rankY);
 Ds = pagesvd(pagemtimes(permute(Q1, [2,1,3]), reshape(Q2, [size(Q2), 1])),'econ');
-% A = T11 \ L(:,1:d) * sqrt(n-1);
-% B = T22 \ M(:,1:d) * sqrt(n-1);
 rs = min(max(Ds, 0), 1); % remove roundoff errs
 parfor i=1:size(Ds,3)
     r = rs(:,:,i)';
     d = ds(i);
     r = r(1:d);
     rankX = rankXs(i);
-    % Put coefficients back to their full size and their correct order
-    % A(perm1,:) = [A; zeros(p1-rankX,d)];
-    % B(perm2,:) = [B; zeros(p2-rankY,d)];
-
-
-
-    % Compute test statistics for H0k: rho_(k+1) == ... = rho_d == 0
-    % if nargout > 3
-    % Wilks' lambda statistic
     k = 0:(d-1);
     d1k = (rankX-k);
     d2k = (rankY-k);
     nondegen = r < 1;
     logLambda = -Inf( 1, d);
     logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
-    %     stats.Wilks = exp(logLambda);
-
-    % The exponent for Rao's approximation to an F dist'n.  When one (or both) of d1k
-    % and d2k is 1 or 2, the dist'n is exactly F.
-    %     s = ones(1,d); % default value for cases where the exponent formula fails
-    %     okCases = find(d1k.*d2k > 2); % cases where (d1k,d2k) not one of (1,2), (2,1), or (2,2)
-    %     snumer = d1k.*d1k.*d2k.*d2k - 4;
-    %     sdenom = d1k.*d1k + d2k.*d2k - 5;
-    %     s(okCases) = sqrt(snumer(okCases) ./ sdenom(okCases));
-
-    % The degrees of freedom for H0k
     df1 = d1k .* d2k;
-    %     stats.df2 = (n - .5*(rankX+rankY+3)).*s - .5*d1k.*d2k + 1;
-
-    % Rao's F statistic
-    %     powLambda = stats.Wilks.^(1./s);
-    %     ratio = Inf( 1, d);
-    %     ratio(nondegen) = (1 - powLambda(nondegen)) ./ powLambda(nondegen);
-    %     stats.F = ratio .* stats.df2 ./ stats.df1;
-    %     stats.pF = fpval(stats.F, stats.df1, stats.df2);
-
-    % Lawley's modification to Bartlett's chi-squared statistic
     chi = (-(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda)';
     ret = chi2pval(chi', df1);
     pChisq(i) = ret(1);
-    chisq(i) = ret(1);
-
-
+    chisq(i) = chi(1);
+    dfs(i) = df1;
 end
 end
 

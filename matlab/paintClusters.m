@@ -27,11 +27,11 @@ hold off;
 f = figure;
 for i =1:numLevels
     shape = levelShapes{i};    
-    ax = showPainted(f, shape, nan, nan, [subplot(4,2,2*i-1),subplot(4,2,2*i)]);
+    ax = showPainted(f, shape, nan, nan, [subplot(numLevels,2,2*i-1),subplot(numLevels,2,2*i)]);
     daspect(ax(1), [1 1 1]);
     daspect(ax(2), [1 1 1]);
-    print(f,'-dpng','-r300',[saveDir '/level' num2str(i-1)]);
 end
+print(f,'-dpng','-r300',[saveDir '/level' num2str(i-1)]);
 end
 
 function [ret, levelShapes]=paintIterative(fig, pax, xl, yl, axpos, ydir, clustered, template,polarPoints, offsetR, levelShapes)
@@ -43,8 +43,6 @@ for c=1:size(clustered,1)
         center = [[0,0]];
         pInds = find( cluster == 1);
         ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4);
-        levelShapes{c} = paintSingle(nan, pInds, template, nan, nan, levelShapes{c});
-        levelShapes{c} = paintSingle(nan, find(cluster == 0), template, nan, nan, levelShapes{c});
         ret{cnt}.level = level;
         ret{cnt}.id = 1;
         ret{cnt}.parent = 0;
@@ -68,7 +66,7 @@ for c=1:size(clustered,1)
             center = [x,y];
             pInds = find(selection);
             ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4);
-            levelShapes{c} = paintSingle(nan, pInds, template, nan, nan, levelShapes{c});
+            levelShapes{level} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level});
             ret{cnt}.level = level;
             ret{cnt}.id = k;
             ret{cnt}.parent = 2 ^ (level-1) + ceil(k/2) - 1;

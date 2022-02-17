@@ -70,7 +70,8 @@ results/genomics
 iELVis
 matlab/AIDFUNCTIONS/ToolBoxes
 deployed
-
+*.bak
+*.gz
 metaphat
 SNPLIB-master
 SNPLIB

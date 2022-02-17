@@ -1,6 +1,7 @@
 function [stats, intStats] = runCCA(phenoPart, geno, intervals, intIdVec)
 intChiSqSignificance = zeros(size(intervals, 1),1);
 intChiSq = zeros(size(intervals, 1),1);
+intDf = zeros(size(intervals,1),1);
 [~,~, Q2, T22, rankY] = vl_mycanoncorr((1:size(phenoPart,1))', phenoPart);
 if nargin < 4
     disp("Computing intIdVec (expanded version of intervals)..")
@@ -14,7 +15,7 @@ if ~iscell(geno)
 end
 
 if ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin')
-    [intChiSq,  intChiSqSignificance] = fallbackFunc(geno, phenoPart,Q2, T22, rankY);
+    [intChiSq,  intChiSqSignificance, intDf] = fallbackFunc(geno, phenoPart,Q2, T22, rankY);
 else
     genoSizes = intervals(:,2) - intervals(:,1) + 1;
     flagWithNans = cellfun(@(x)any(any(isnan(x))), geno) == 1;
@@ -33,12 +34,13 @@ else
     
         intChiSqSignificanceSize = cell(blocksN,1);
         intChiSqSize =  cell(blocksN,1);
+        dfsSize =  cell(blocksN,1);
         for blockCnt=1: blocksN
             minInd = (1 + (blockCnt - 1) * blockSize);
             maxInd = min(total, (blockCnt * blockSize));
             block = part(minInd:maxInd);
             Xs = cat(3,block{:});            
-            [intChiSqSize{blockCnt},  intChiSqSignificanceSize{blockCnt}] = vl_ccachisq1(Xs, phenoPart,Q2, T22, rankY);
+            [intChiSqSize{blockCnt},  intChiSqSignificanceSize{blockCnt}, dfsSize{blockCnt}] = vl_ccachisq1(Xs, phenoPart,Q2, T22, rankY);
             if blockCnt ==1
                 is = etime(clock,clk);
                 esttime = is * blocksN;
@@ -48,27 +50,29 @@ else
         delete(f);
         intChiSqSignificance(flag) = cat(2, intChiSqSignificanceSize{:});
         intChiSq(flag) = cat(2, intChiSqSize{:});
+        intDf(flag) = cat(2, dfsSize{:});
     end
     
     % For cases with nans
     if any(flagWithNans)
         inds = find(flagWithNans);
-        [intChiSq(inds), intChiSqSignificance(inds) ] = fallbackFunc(geno(inds));
-        intChiSqSignificance(inds) = tmpSig;
+        [intChiSq(inds), intChiSqSignificance(inds), intDf(inds)] = fallbackFunc(geno(inds));
     end
 end
 
 intStats.chiSqSignificance = intChiSqSignificance;
 intStats.chisq = intChiSq;
-
+intStats.df = intDf;
 chiSqSignificance = intChiSqSignificance(intIdVec);
 chisq = intChiSq(intIdVec);
+df= intDf(intIdVec);
 stats.chiSqSignificance = chiSqSignificance;
 stats.chisq = chisq;
+stats.df = df;
 end
 
 
-function [intChiSq, intChiSqSignificance] = fallbackFunc(geno, phenoPart, Q2, T22, rankY)
+function [intChiSq, intChiSqSignificance, dfs] = fallbackFunc(geno, phenoPart, Q2, T22, rankY)
 ppm = ParforProgressbar(length(geno), 'showWorkerProgress', true);
 ME = [];
 try
@@ -81,6 +85,7 @@ try
         [~,st] = vl_mycanoncorr(genoPart(validSelection, :), phenoPart(validSelection, :), Q2(validSelection, :), T22, rankY);
         intChiSq(i) =  st.pChisq(1);
         intChiSqSignificance(i) = st.chisq(1);
+        dfs(i) = st.df1;
         ppm.increment();
     end
 catch ME

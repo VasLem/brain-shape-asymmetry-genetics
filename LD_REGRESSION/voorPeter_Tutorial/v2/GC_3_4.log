@@ -1,0 +1,65 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ldsc/eur_w_ld_chr/ \
+--out v2/GC_3_4 \
+--rg v2/INPUT3.txt,v2/INPUT4.txt \
+--w-ld-chr ldsc/eur_w_ld_chr/ 
+
+Beginning analysis at Sun Mar 29 20:20:49 2020
+Reading summary statistics from v2/INPUT3.txt ...
+Read summary statistics for 1136896 SNPs.
+Reading reference panel LD Score from ldsc/eur_w_ld_chr/[1-22] ...
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ldsc/eur_w_ld_chr/[1-22] ...
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1134332 SNPs remain.
+After merging with regression SNP LD, 1134332 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from v2/INPUT4.txt ...
+Read summary statistics for 1136896 SNPs.
+After merging with summary statistics, 1134332 SNPs remain.
+1134332 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 1.834 (0.1802)
+Lambda GC: 1.3606
+Mean Chi^2: 1.1776
+Intercept: 0.8762 (0.0129)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/2
+-----------------------------
+Total Observed scale h2: 1.3243 (0.1177)
+Lambda GC: 1.2366
+Mean Chi^2: 1.1142
+Intercept: 0.8981 (0.0092)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 1.2861 (0.0949)
+Mean z1*z2: 0.8845
+Intercept: 0.6738 (0.0071)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8252 (0.0149)
+Z-score: 55.3436
+P: 0.
+
+
+Summary of Genetic Correlation Results
+            p1             p2      rg      se        z  p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ v2/INPUT3.txt  v2/INPUT4.txt  0.8252  0.0149  55.3436  0  1.3243     0.1177  0.8981     0.0092    0.6738       0.0071
+
+Analysis finished at Sun Mar 29 20:21:04 2020
+Total time elapsed: 14.99s

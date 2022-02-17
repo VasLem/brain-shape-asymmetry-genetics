@@ -1,0 +1,17 @@
+#! /bin/bash
+
+export OMP_NUM_THREADS=1
+
+for i in {1..63}; do
+echo $i
+
+cd /usr/local/avalok/tmp/hhoske1/sumstats/tmprg/pub
+for files in *.txt; do
+
+cd /usr/local/avalok/tmp/hhoske1/sumstats/
+
+./ldsc/ldsc.py --rg CCA/META/MUNGED${i}.txt,tmprg/pub/$files --ref-ld-chr ldsc/eur_w_ld_chr/ --w-ld-chr ldsc/eur_w_ld_chr/ --out CCA/META/results/public/GC_${i}_$files
+
+done
+
+done
