@@ -38,7 +38,7 @@ disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
-    CHRS = 1:22;
+    CHRS = 4:22;
 else
     if ~isnumeric(CHRS)
         CHRS=str2double( strsplit(CHRS,','));
@@ -253,7 +253,7 @@ for CHR_IND=1:length(CHRS)
         save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
         WITH_PART_CCA_PROC = false;
         toc;
-        clear genoControlledInt
+        clear genoInt
     end
 
     %%
