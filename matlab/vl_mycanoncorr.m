@@ -1,5 +1,4 @@
-function [...%A,B,
-              r, stats, Q2, T22, rankY] = vl_mycanoncorr(X,Y, Q2, T22, rankY)
+function [stats, Q2, T22, rankY] = vl_mycanoncorr(X,Y, Q2, T22, rankY)
 % An expansion of canoncorr to reuse/return Y related information and not
 % recompute it if not needed. Also, it does not compute  U = (X - mean(X))*A and
 %      V = (Y - mean(Y))*B.
@@ -62,43 +61,42 @@ function [...%A,B,
 if nargin < 3
     Q2 =nan;
     T22 =nan;
-    perm2  =nan;
     rankY =nan;
 end
-if nargin < 2
-    error(message('stats:canoncorr:TooFewInputs'));
-end
-
-[n,p1] = size(X);
-if size(Y,1) ~= n
-    error(message('stats:canoncorr:InputSizeMismatch'));
-elseif n == 1
-    error(message('stats:canoncorr:NotEnoughData'));
-end
-p2 = size(Y,2);
-
-% Center the variables
-X = X - mean(X,1);
-
-if size(X,2)==1
-%     T11 = sqrt(sum(X.^2));
-    Q1 = X ./ sqrt(sum(X.^2));
-    rankX = 1;
-else
-% Factor the inputs, and find a full rank set of columns if necessary
-    [Q1,T11...%,perm1
-        ] = qr(X,0);
-    rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
-end
-
-if rankX == 0
-    error(message('stats:canoncorr:BadData', 'X'));
-elseif rankX < p1
-    warning(message('stats:canoncorr:NotFullRank', 'X'));
-    Q1 = Q1(:,1:rankX); 
-%     T11 = T11(1:rankX,1:rankX);
+if ~isempty(X)
+    if nargin < 2
+        error(message('stats:canoncorr:TooFewInputs'));
+    end
+    
+    [n,p1] = size(X);
+    if size(Y,1) ~= n
+        error(message('stats:canoncorr:InputSizeMismatch'));
+    elseif n == 1
+        error(message('stats:canoncorr:NotEnoughData'));
+    end
+    
+    % Center the variables
+    X = X - mean(X,1);
+    
+    if size(X,2)==1
+        Q1 = X ./ sqrt(sum(X.^2));
+        rankX = 1;
+    else
+        % Factor the inputs, and find a full rank set of columns if necessary
+        [Q1,T11 ] = qr(X,0);
+        rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
+    end
+    
+    if rankX == 0
+        error(message('stats:canoncorr:BadData', 'X'));
+    elseif rankX < p1
+        warning(message('stats:canoncorr:NotFullRank', 'X'));
+        Q1 = Q1(:,1:rankX);
+    end
 end
 if nargin < 3
+    n = size(Y,1) ;
+    p2 = size(Y,2);
     Y = Y - mean(Y,1);
     [Q2,T22] = qr(Y,0);
     rankY = sum(abs(diag(T22)) > eps(abs(T22(1)))*max(n,p2));
@@ -109,59 +107,32 @@ if nargin < 3
         Q2 = Q2(:,1:rankY); T22 = T22(1:rankY,1:rankY);
     end
 end
+if isempty(X)
+    stats = nan;
+    r = nan;
+    return
+end
+
 % Compute canonical coefficients and canonical correlations.  For rankX >
 % rankY, the economy-size version ignores the extra columns in L and rows
 % in D. For rankX < rankY, need to ignore extra columns in M and D
 % explicitly. Normalize A and B to give U and V unit variance.
 d = min(rankX,rankY);
 D = diag(svd(Q1' * Q2,0));
-% A = T11 \ L(:,1:d) * sqrt(n-1);
-% B = T22 \ M(:,1:d) * sqrt(n-1);
 r = min(max(diag(D(:,1:d))', 0), 1); % remove roundoff errs
+k = 0:(d-1);
+d1k = (rankX-k);
+d2k = (rankY-k);
+nondegen = r < 1;
+logLambda = -Inf( 1, d);
+logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
 
-% Put coefficients back to their full size and their correct order
-% A(perm1,:) = [A; zeros(p1-rankX,d)];
-% B(perm2,:) = [B; zeros(p2-rankY,d)];
+% The degrees of freedom for H0k
+stats.df1 = d1k .* d2k;
 
-
-
-% Compute test statistics for H0k: rho_(k+1) == ... = rho_d == 0
-% if nargout > 3
-    % Wilks' lambda statistic
-    k = 0:(d-1);
-    d1k = (rankX-k);
-    d2k = (rankY-k);
-    nondegen = r < 1;
-    logLambda = -Inf( 1, d);
-    logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
-%     stats.Wilks = exp(logLambda);
-    
-    % The exponent for Rao's approximation to an F dist'n.  When one (or both) of d1k
-    % and d2k is 1 or 2, the dist'n is exactly F.
-%     s = ones(1,d); % default value for cases where the exponent formula fails
-%     okCases = find(d1k.*d2k > 2); % cases where (d1k,d2k) not one of (1,2), (2,1), or (2,2)
-%     snumer = d1k.*d1k.*d2k.*d2k - 4;
-%     sdenom = d1k.*d1k + d2k.*d2k - 5;
-%     s(okCases) = sqrt(snumer(okCases) ./ sdenom(okCases));
-    
-    % The degrees of freedom for H0k
-    stats.df1 = d1k .* d2k;
-%     stats.df2 = (n - .5*(rankX+rankY+3)).*s - .5*d1k.*d2k + 1;
-    
-    % Rao's F statistic
-%     powLambda = stats.Wilks.^(1./s);
-%     ratio = Inf( 1, d);
-%     ratio(nondegen) = (1 - powLambda(nondegen)) ./ powLambda(nondegen);
-%     stats.F = ratio .* stats.df2 ./ stats.df1;
-%     stats.pF = fpval(stats.F, stats.df1, stats.df2);
-
-    % Lawley's modification to Bartlett's chi-squared statistic
-    stats.chisq = -(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda;
-    stats.pChisq = chi2pval(stats.chisq, stats.df1);
-
-    % Legacy fields - these are deprecated
-    stats.dfe = stats.df1;
-    stats.p = stats.pChisq;
+% Lawley's modification to Bartlett's chi-squared statistic
+stats.chisq = -(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda;
+stats.pChisq = chi2pval(stats.chisq, stats.df1);
 % end
 end
 
@@ -171,8 +142,8 @@ function p = fpval(x,df1,df2)
 %   function with V1 and V2 degrees of freedom at the values in X.  If X is
 %   the observed value of an F test statistic, then P is its p-value.
 %
-%   The size of P is the common size of the input arguments.  A scalar input  
-%   functions as a constant matrix of the same size as the other inputs.    
+%   The size of P is the common size of the input arguments.  A scalar input
+%   functions as a constant matrix of the same size as the other inputs.
 %
 %   See also FCDF, FINV.
 
@@ -180,11 +151,11 @@ function p = fpval(x,df1,df2)
 %      [1]  M. Abramowitz and I. A. Stegun, "Handbook of Mathematical
 %      Functions", Government Printing Office, 1964, 26.6.
 
-%   Copyright 2010 The MathWorks, Inc. 
+%   Copyright 2010 The MathWorks, Inc.
 
 
-if nargin < 3, 
-    error(message('stats:fpval:TooFewInputs')); 
+if nargin < 3,
+    error(message('stats:fpval:TooFewInputs'));
 end
 
 xunder = 1./max(0,x);
@@ -199,8 +170,8 @@ function p = chi2pval(x,v)
 %   is the observed value of a chi-square test statistic, then P is its
 %   p-value.
 %
-%   The size of P is the common size of the input arguments.  A scalar input  
-%   functions as a constant matrix of the same size as the other inputs.    
+%   The size of P is the common size of the input arguments.  A scalar input
+%   functions as a constant matrix of the same size as the other inputs.
 %
 %   See also CHI2CDF, CHI2INV.
 
@@ -208,7 +179,7 @@ function p = chi2pval(x,v)
 %      [1]  M. Abramowitz and I. A. Stegun, "Handbook of Mathematical
 %      Functions", Government Printing Office, 1964, 26.4.
 
-%   Copyright 2009 The MathWorks, Inc. 
+%   Copyright 2009 The MathWorks, Inc.
 
 
 if nargin < 2
