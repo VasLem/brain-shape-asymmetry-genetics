@@ -13,16 +13,14 @@ if ~isdeployed
     addpath(genpath('.'));
     addpath(genpath('AIDFUNCTIONS'));
     addpath(genpath('../SNPLIB/'));
-    %     rmpath('../SNPLIB/mexfiles/');% to remove the functions that are causing matlab to crash
-    %     addpath(genpath('SNPLIB-master/mexfiles/'))% where I stored the re-mexed files
 end
 %%
 UPDATE_FIGS = 1;
 MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
-DEFAULT_CHRS = 1:22;
+DEFAULT_CHRS = 2:22;
 DEFAULT_DATASET_INDEX = 1;
-
+MEDIAN_IMPUTE = 1;
 DATA_DIR = getenv('DATA_ROOT');
 if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
@@ -154,6 +152,8 @@ for CHR_IND=1:length(CHRS)
         GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)];
         [snps, samples] = obj.importPLINKDATA(GENO_PATH);
         geno = obj.UnpackGeno();
+       
+
         clear obj;
 
         f = figure();
@@ -216,12 +216,26 @@ for CHR_IND=1:length(CHRS)
             save(PLINK_DATA_INFO_OUT, "iid", "phenoIndex", '-v7.3')
         end
         toc;
+        if MEDIAN_IMPUTE
+            disp("Imputing missing using median..")
+            tic;
+            parfor i=1:size(genoPruned,2)
+                s = genoPruned(:, i);
+                m =s~=255;
+                medians(i) = round(median(s(m)));
+                s(~m) = medians(i);
+                genoPruned(:, i) = s;
+            end
+            toc;
+        end
+
         disp("Splitting genome into groups, according to intervals information..")
         tic;
         gId = zeros(intervals(end,2),1);
         gId(intervals(:, 1)) = 1;
         gId = cumsum(gId);
         genoPruned = splitapply( @(x){x'}, genoPruned', gId );
+
         toc;
         if ~isdeployed
             disp("Saving pruned SNPs...")
@@ -247,17 +261,18 @@ for CHR_IND=1:length(CHRS)
         load(META_INT_GENO_OUT,  'intervals', 'gId');
         toc;
     end
-    PHENO = getPheno(PHENO, phenoIndex);
-    gTLPartsPThres = NO_PARTITION_THRES / length(PHENO);
+    pheno = getPheno(PHENO, phenoIndex);
+    gTLPartsPThres = NO_PARTITION_THRES / length(pheno);
+    %%
     if ~WITH_PART_CCA_PROC
         load(WITH_PART_CCA_OUT,  'gTLPartStats', 'gTLPartIntStats');
         disp("Loaded Computed CCA with phenotypic partinioning");
     else
+         %%
         disp("Computing CCA with phenotypic partitioning..")
         tic;
-        %%
-        %%
-        [gTLPartStats, gTLPartIntStats] = runCCA(PHENO,  genoPruned, intervals, gId);
+       
+        [gTLPartStats, gTLPartIntStats] = runCCA(pheno,  genoPruned, intervals, gId);
         toc;
         disp("Saving CCA results..")
         tic;
@@ -296,7 +311,7 @@ for CHR_IND=1:length(CHRS)
         toc;
     end
     tic;
-    saveLDRegressionTablesOnEachPartition(snpsPruned, PHENO, sampleSizes, gTLPartIntStats.chisq, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
+    saveLDRegressionTablesOnEachPartition(snpsPruned, pheno, sampleSizes, gTLPartIntStats.chisq, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
     tic;
     %
     disp("End of computation.")
@@ -319,8 +334,8 @@ idx  =intervalsToVector(intervals);
 output.N = sample_sizes(idx);
 output.SIGN = ones(height(snpsPruned),1);
 for i=1:pNum
-    output.(['P_PAR', num2str(i)]) = partSignificances(idx, i)';
-    output.(['CHI_PAR',num2str(i)]) = partScores(idx, i)'./(size(PHENO{i},2) .* (1 + partScores(idx, i)'./output.N))  ;
+    output.(['P_PAR', num2str(i)]) = partSignificances(idx, i);
+    output.(['CHI_PAR',num2str(i)]) = partScores(idx, i)./(size(PHENO{i},2) .* (1 + partScores(idx, i)./output.N))  ;
 end
 writetable(output, [save_dir  '/chisq_stats.csv'])
 end
@@ -340,7 +355,7 @@ pNum = size(intStats.chiSqSignificance, 2);
 for i=1:pNum
     sig1 = num2str(sum(intStats.chiSqSignificance(:,i)<pThresB));
     sig2 = num2str(sum(intStats.chiSqSignificance(:, i)<pThres));
-    scatter(intervals(:, 1), -log10(intStats.chiSqSignificance(:, i)),18,'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
+    scatter(intervals(:, 1), -log10(intStats.chiSqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
 end
 yline(-log10(pThresB), 'DisplayName', 'Bonferroni Threshold');
 yline(-log10(pThres), '--', 'DisplayName', '(No correction Threshold)');
@@ -354,7 +369,7 @@ end
 
 function fig = plotSimpleGWAS(intervals, chiSqSignificance, chromosome, pThres, path)
 fig = figure;
-scatter(intervals(:, 1), -log10(chiSqSignificance), 18,'.','filled','MarkerSize');
+scatter(intervals(:, 1), -log10(chiSqSignificance), 18, '.');
 yline(-log10(pThres));
 
 title(['Chromosome ' num2str(chromosome) ', ' num2str(sum(chiSqSignificance<pThres)) ' significant intervals out of ' num2str(length(chiSqSignificance))])

@@ -61,7 +61,6 @@ function [chisq, pChisq, dfs, Q2, T22, rankY] = vl_ccachisq1(Xs,Y, Q2, T22, rank
 if nargin < 3
     Q2 =nan;
     T22 =nan;
-    perm2  =nan;
     rankY =nan;
 end
 if nargin < 2
