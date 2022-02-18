@@ -1,5 +1,4 @@
-function [stats, intStats] = runCCA(pheno, geno, intervals, intIdVec)
-blockSize = 2000;
+function [stats, intStats] = runCCA(pheno, geno, intervals, intIdVec, blockSize)
 intChiSqSignificance = zeros(size(intervals, 1),1);
 intChiSq = zeros(size(intervals, 1),1);
 intDf = zeros(size(intervals,1),1);

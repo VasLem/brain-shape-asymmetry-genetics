@@ -6,6 +6,8 @@
 %SCRATCH_ROOT: the directory to use for the intermediate files (../results/)
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (21)
+%BLOCK_SIZE: Block Size for CCA (2000 when MEDIAN_IMPUTE is on else 20000)
+%MEDIAN_IMPUTE: Whether to perform median imputation (very fast) or not (very slow) (0)
 %%%%%%%%%%%%
 close all;clear;
 if ~isdeployed
@@ -18,14 +20,31 @@ end
 UPDATE_FIGS = 1;
 MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
-DEFAULT_CHRS = 2:22;
+DEFAULT_CHRS = 1:22;
 DEFAULT_DATASET_INDEX = 1;
-MEDIAN_IMPUTE = 1;
+DEFAULT_MEDIAN_IMPUTE = 1;
+
+MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
+if(isempty(MEDIAN_IMPUTE))
+    MEDIAN_IMPUTE = DEFAULT_MEDIAN_IMPUTE;
+end
+
+if MEDIAN_IMPUTE == 0
+    DEFAULT_BLOCK_SIZE= 20000;
+else
+    DEFAULT_BLOCK_SIZE = 2000;
+end
+
+BLOCK_SIZE = getenv('BLOCK_SIZE');
+if(isempty(BLOCK_SIZE))
+    BLOCK_SIZE = DEFAULT_BLOCK_SIZE;
+end
+
+
 DATA_DIR = getenv('DATA_ROOT');
 if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
 end
-disp(['Location of data: ', DATA_DIR]);
 
 
 THREADS = getenv('THREADS');
@@ -37,7 +56,6 @@ else
         THREADS=str2double(THREADS);
     end
 end
-disp(['Number of threads:', num2str(THREADS)])
 
 CHRS = getenv("CHROMOSOME");
 if(isempty(CHRS))
@@ -47,7 +65,8 @@ else
         CHRS=str2double( strsplit(CHRS,','));
     end
 end
-disp(['Chromosome analyzed:', num2str(CHRS)])
+
+
 
 
 
@@ -60,9 +79,13 @@ else
         DATASET_INDEX = str2double(DATASET_INDEX);
     end
 end
+
+disp(['Number of threads:', num2str(THREADS)])
+disp(['Location of data: ', DATA_DIR])
+disp(['Median Imputation: ', num2str(MEDIAN_IMPUTE)])
+disp(['Block Size: ', num2str(BLOCK_SIZE)]);
 disp(['Using dataset:', num2str(DATASET_INDEX)])
-
-
+disp(['Chromosome analyzed:', num2str(CHRS)])
 
 switch DATASET_INDEX
     case 1
