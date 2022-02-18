@@ -54,12 +54,15 @@ try
                 phenoPart = pheno{phenoPartInd};
                 phenoPart = phenoPart(pattern, :);
 
-                genoPattern =cellfun(@(x)x(pattern), genoBlock(patternFlag), 'UniformOutput', false);
+                genoPattern =cellfun(@(x)x(pattern,:), genoBlock(patternFlag), 'UniformOutput', false);
                 if patternNSnps==1
+                        if size(genoPattern{1},1) ~= size(phenoPart,1)
+                        disp('Error')
+                        end
                         st = vl_mycanoncorr(double(genoPattern{1}), phenoPart);
-                        intChiSqPattern(patternFlag, phenoPartInd)=  st.chisq;
-                        intChiSqSignificancePattern(patternFlag, phenoPartInd) = st.pChisq;
-                        intDfPattern(patternFlag, phenoPartInd) = st.df1;
+                        intChiSqPattern(patternFlag, phenoPartInd)=  st.chisq(1);
+                        intChiSqSignificancePattern(patternFlag, phenoPartInd) = st.pChisq(1);
+                        intDfPattern(patternFlag, phenoPartInd) = st.df1(1);
                     continue
                 end
                 
