@@ -295,7 +295,7 @@ for CHR_IND=1:length(CHRS)
         disp("Computing CCA with phenotypic partitioning..")
         tic;
        
-        [gTLPartStats, gTLPartIntStats] = runCCA(pheno,  genoPruned, intervals, gId);
+        [gTLPartStats, gTLPartIntStats] = runCCA(pheno,  genoPruned, intervals, gId, BLOCK_SIZE);
         toc;
         disp("Saving CCA results..")
         tic;
