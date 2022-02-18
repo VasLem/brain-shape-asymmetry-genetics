@@ -69,12 +69,7 @@ if nargin < 2
 end
 
 [n,p1,~] = size(Xs);
-if size(Y,1) ~= n
-    error(message('stats:canoncorr:InputSizeMismatch'));
-elseif n == 1
-    error(message('stats:canoncorr:NotEnoughData'));
-end
-p2 = size(Y,2);
+
 Xs = double(Xs);
 % Center the variables
 Xs = Xs - mean(Xs,1);
@@ -102,6 +97,7 @@ end
 
 
 if nargin < 3
+    p2 = size(Y,2);
     Y = double(Y);
     Y = Y - mean(Y,1);
     [Q2,T22] = qr(Y,0);
