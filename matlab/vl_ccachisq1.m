@@ -112,23 +112,42 @@ end
 ds = min(rankXs,rankY);
 Ds = pagesvd(pagemtimes(permute(Q1, [2,1,3]), reshape(Q2, [size(Q2), 1])),'econ');
 rs = min(max(Ds, 0), 1); % remove roundoff errs
-parfor i=1:size(Ds,3)
-    r = rs(:,:,i)';
-    d = ds(i);
-    r = r(1:d);
-    rankX = rankXs(i);
+if (size(rs,2) == 1) && all(rs<1)
+    rs =rs(:);
+    d = 1;
+    rankX =  1;
     k = 0:(d-1);
     d1k = (rankX-k);
     d2k = (rankY-k);
-    nondegen = r < 1;
-    logLambda = -Inf( 1, d);
-    logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
+    logLambda = cumsum(log(1 - rs.^2),2, 'reverse');
     df1 = d1k .* d2k;
-    chi = (-(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda)';
-    ret = chi2pval(chi', df1);
-    pChisq(i) = ret(1);
-    chisq(i) = chi(1);
-    dfs(i) = df1(1);
+    chi = -(n - k - .5*(rankX+rankY+3)) .* logLambda;
+    ret = chi2pval(chi, df1);
+    pChisq = ret;
+    chisq= chi;
+    dfs = df1 .* ones(size(ret), 'int32');
+else
+    pChisq= ones(size(Ds, 3));
+    chisq = zeros(size(Ds, 3));
+    dfs = zeros(size(Ds,3));
+    for i=1:size(Ds,3)
+        r = rs(:,:,i)';
+        d = ds(i);
+        r = r(1:d);
+        rankX = rankXs(i);
+        k = 0:(d-1);
+        d1k = (rankX-k);
+        d2k = (rankY-k);
+        nondegen = r < 1;
+        logLambda = -Inf( 1, d);
+        logLambda(nondegen) = cumsum(log(1 - r(nondegen).^2), 'reverse');
+        df1 = d1k .* d2k;
+        chi = -(n - k - .5*(rankX+rankY+3) + cumsum([0 1./r(1:(d-1))].^2)) .* logLambda;
+        ret = chi2pval(chi, df1);
+        pChisq(i) = ret(1);
+        chisq(i) = chi(1);
+        dfs(i) = df1(1);
+    end
 end
 end
 
