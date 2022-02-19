@@ -130,7 +130,7 @@ else
     pChisq= ones(size(Ds, 3));
     chisq = zeros(size(Ds, 3));
     dfs = zeros(size(Ds,3));
-    for i=1:size(Ds,3)
+    parfor i=1:size(Ds,3)
         r = rs(:,:,i)';
         d = ds(i);
         r = r(1:d);
