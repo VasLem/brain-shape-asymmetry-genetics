@@ -22,9 +22,9 @@ if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 
 %%
 
-PNG_DIR_1 = [RESULTS_DIR 'png1/'];
+PNG_DIR_1 = [RESULTS_DIR 'png_raw/'];
 if ~isfolder(PNG_DIR_1), mkdir(PNG_DIR_1); end
-PNG_DIR_2 = [RESULTS_DIR 'png2/'];
+PNG_DIR_2 = [RESULTS_DIR 'png/'];
 if ~isfolder(PNG_DIR_2), mkdir(PNG_DIR_2); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
