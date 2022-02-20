@@ -7,7 +7,7 @@ DATA_DIR = '../SAMPLE_DATA/';
 
 THREADS= 8;
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
@@ -31,13 +31,16 @@ catch
 end
 %%
 AVAILABLE_CHRS = [];
+PNUM = 31;
+part = cell(2, 1);
+
 for CHR=1:22
     disp(['CHR:' , num2str(CHR)]);
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
     try
         load([CHR_DIR 'withPartCCA.mat'],'gTLPartStats');
         part{CHR} = gTLPartStats.chiSqSignificance;
-        noPart{CHR} = gTLPartStats.chiSqSignificance(1,:);
+        noPart{CHR} = gTLPartStats.chiSqSignificance(:,1);
         AVAILABLE_CHRS(end+1) = CHR;
     catch
     end
@@ -67,10 +70,11 @@ yline(-log10(NO_PARTITION_THRES));
 ylabel('-log10p');
 xlim([0, cnt]);
 set(gca,'TickDir','out');
-saveas(f, [RESULTS_DIR 'noPartWholeCCA_logPlot.png']);
+saveas(f, [RESULTS_DIR 'noPartWholeCCA_logPlot.svg']);
 close(f);
 %%
 pThres = NO_PARTITION_THRES;
+bpThres = NO_PARTITION_THRES / 31;
 fig = figure;
 fig.Position = [100 100 1200 600];
 hold on
@@ -83,22 +87,25 @@ for CHR=1:22
         continue
     end
     intStats = part{CHR};
-    pNum = size(intStats, 1);
+    pNum = size(intStats, 2);
     for i=1:pNum
-        signum = sum(intStats(i, :)<pThres);
+        signum = sum(intStats(:, i)<pThres);
+        bsignum = sum(intStats(:, i)<bpThres);
         if signum > 0
-            scatter(cnt + (1:length(intStats(i, :))), -log10(intStats(i, :)),'.', ...
+            scatter(cnt + (1:length(intStats(:, i))), -log10(intStats(:, i)),'.', ...
                 'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', # significant:', ...
-                num2str(signum)]);
+                num2str(signum), ' (',num2str(bsignum),')']);
         end
     end
-    xticks_pos(end + 1) = cnt + length(intStats(i, :)) / 2;
+    xticks_pos(end + 1) = cnt + length(intStats(:, i)) / 2;
     st_edges(end + 1) = cnt;
-    cnt = cnt + length(intStats(i, :));
+    cnt = cnt + length(intStats(:, i));
     en_edges(end + 1) = cnt;
 end
 
-yline(-log10(pThres), 'DisplayName', 'Threshold');
+yline(-log10(pThres), 'b', 'DisplayName', 'Threshold');
+yline(-log10(bpThres), 'b', '--', 'DisplayName', '(Bonferroni Threshold)');
+
 
 ylabel('-log10p');
 xticks(xticks_pos)
@@ -111,54 +118,7 @@ ylabel('-log10p');
 xlim([0, cnt]);
 set(gca,'TickDir','out');
 hold off;
-saveas(fig, [RESULTS_DIR 'gTLPartWholeCCA_logPlot.png']);
+saveas(fig, [RESULTS_DIR 'gTLPartWholeCCA_logPlot.svg']);
+
 close(fig);
-
-%%
-pThres = NO_PARTITION_THRES / 31;
-fig = figure;
-fig.Position = [100 100 1200 600];
-hold on
-cnt = 0;
-xticks_pos = [];
-st_edges = [];
-en_edges = [];
-for CHR=1:22
-     if ~ismember(CHR, AVAILABLE_CHRS)
-        continue
-    end
-    intStats = part{CHR};
-    pNum = size(intStats, 1);
-    for i=1:pNum
-        signum = sum(intStats(i, :)<pThres);
-        if signum > 0
-            scatter(cnt + (1:length(intStats(i, :))), -log10(intStats(i, :)),'.', ...
-                'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', # significant:', ...
-                num2str(signum)]);
-        end
-    end
-    xticks_pos(end + 1) = cnt + length(intStats(i, :)) / 2;
-    st_edges(end + 1) = cnt;
-    cnt = cnt + length(intStats(i, :));
-    en_edges(end + 1) = cnt;
-end
-
-yline(-log10(pThres), 'DisplayName', 'Threshold');
-
-ylabel('-log10p');
-xticks(xticks_pos)
-xticklabels(arrayfun(@num2str, AVAILABLE_CHRS , 'UniformOutput', 0))
-lgd = legend;
-lgd.NumColumns = 4;
-set(lgd, 'LimitMaxLegendEntries', false);
-set(lgd,'Location','BestOutside');
-ylabel('-log10p');
-xlim([0, cnt]);
-set(gca,'TickDir','out');
-hold off;
-saveas(fig, [RESULTS_DIR 'gTLPartWholeCCABonf_logPlot.png']);
-close(fig);
-
-
-
 

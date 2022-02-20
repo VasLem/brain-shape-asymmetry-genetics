@@ -20,8 +20,8 @@ end
 UPDATE_FIGS = 1;
 MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
-DEFAULT_CHRS = 1:22;
-DEFAULT_DATASET_INDEX = 1;
+DEFAULT_CHRS = 6:22;
+DEFAULT_DATASET_INDEX = 2;
 DEFAULT_MEDIAN_IMPUTE = 1;
 
 MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
@@ -211,6 +211,8 @@ for CHR_IND=1:length(CHRS)
         % Some checks
         %regarding the fact that positions need to be sorted
         assert(all(sort(snpsPruned.POS) == snpsPruned.POS));
+        %regarding the fact that all snps need to be unique
+        assert(length(unique(snpsPruned.RSID)) == height(snpsPruned));
         % and that all phenotype ids  correspond to genotype ones
         assert(all((1:length(phenoId)) == phenoIndex'));
         toc;

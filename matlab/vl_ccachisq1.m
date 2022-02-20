@@ -110,9 +110,9 @@ if nargin < 3
 end
 
 ds = min(rankXs,rankY);
-Ds = pagesvd(pagemtimes(permute(Q1, [2,1,3]), reshape(Q2, [size(Q2), 1])),'econ');
+Ds = pagesvd(pagemtimes( Q1, 'transpose', Q2, 'none'), 'econ');
 rs = min(max(Ds, 0), 1); % remove roundoff errs
-if (size(rs,2) == 1) && all(rs<1)
+if (size(rs,1) == 1) && all(rs<1)
     rs =rs(:);
     d = 1;
     rankX =  1;
@@ -127,9 +127,9 @@ if (size(rs,2) == 1) && all(rs<1)
     chisq= chi;
     dfs = df1 .* ones(size(ret), 'int32');
 else
-    pChisq= ones(size(Ds, 3));
-    chisq = zeros(size(Ds, 3));
-    dfs = zeros(size(Ds,3));
+    pChisq= ones(size(Ds, 3), 1);
+    chisq = zeros(size(Ds, 3), 1);
+    dfs = zeros(size(Ds,3), 1);
     parfor i=1:size(Ds,3)
         r = rs(:,:,i)';
         d = ds(i);

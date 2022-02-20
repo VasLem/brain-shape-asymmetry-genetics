@@ -1,6 +1,6 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 switch DATASET_INDEX
     case 1
         UKBIOBANK = 'UKBIOBANK';
@@ -29,21 +29,17 @@ if ~isfolder(PNG_DIR_2), mkdir(PNG_DIR_2); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
 %% Uncomment to redraw partitions
-for i=1:length(handles)
-
-    f1 = figure('visible','off');
-    s = copyobj(handles{i}.handle,f1);
-    set(s(1),'position',[0.0 0.25 0.5 0.5]);
-    set(s(2),'position',[0.5 0.25 0.5 0.5]);
-    set(f1, 'color', 'none');
-    set(s, 'color', 'none');
-    %     exportgraphics(f1,[PNG_DIR_1 num2str(i) '.emf'],...   % since R2020a
-    %         'ContentType','vector',...
-    %         'BackgroundColor','none')
-    print(f1, '-dpng', [PNG_DIR_1 num2str(i) '.png'])
-    %     system(['gs -dSAFER -dpng1Crop -r600 -sDEVICE=pngalpha -o ' PNG_DIR_2 num2str(i) '.png ' PNG_DIR_1 num2str(i) '.svg']);
-    close(f1);
-end
+% for i=1:length(handles)
+% 
+%     f1 = figure('visible','off');
+%     s = copyobj(handles{i}.handle,f1);
+%     set(s(1),'position',[0.0 0.25 0.5 0.5]);
+%     set(s(2),'position',[0.5 0.25 0.5 0.5]);
+%     set(f1, 'color', 'none');
+%     set(s, 'color', 'none');
+%     print(f1, '-dpng', '-r300', [PNG_DIR_1 num2str(i) '.png'])
+%     close(f1);
+% end
 %%
 
 bCIds = ["With", "Wout"];
@@ -76,11 +72,15 @@ end
 for j=1:length(handles)
     p = [fullfile(pwd, [PNG_DIR_1 num2str(j)]) '.png'];
     im = imread(p);
-    im = im(ceil(0.25*size(im,1)):size(im,1),:,:);
+    im = im(ceil(0.15*size(im,1)):size(im,1),:,:);
     for i =1:2
         bCId = char(bCIds(i));
         f = figure('Visible','off');
         imshow(im);
+        annotation(f, "textbox", 'Position', [0.1, 0.75, 0.8, 0.15], 'String', num2str(j), ...
+                FontUnits='Normalized', FontSize=0.1, ...
+                    FontWeight='bold', ...
+                    HorizontalAlignment='center', VerticalAlignment='middle', LineStyle='none');
         msk = countsMat(i, j, :) >0;
         if any(msk)
             inds = find(msk);
@@ -127,7 +127,7 @@ for i=1:2
             pCounts =  pCountsMat(i, j, chr);
             if counts
                 if parP ~= 0
-                    text = [text, '\n\t', num2str(parP) '->' num2str(j) '[label="' num2str(counts-pCounts) '", color="' chrColor '",fontsize=15, fontcolor="' chrColor '", splines="true"]' ];
+%                     text = [text, '\n\t', num2str(parP) '->' num2str(j) '[label="' num2str(counts-pCounts) '", color="' chrColor '",fontsize=15, fontcolor="' chrColor '", splines="true"]' ];
                 else
                     leg1 = [leg1 '\n<tr><td align="right" port="i' num2str(chr) '" >Chr.' num2str(chr) '</td></tr>'];
                     leg2 = [leg2 '\n<tr><td port="i' num2str(chr) '">&nbsp;</td></tr>'];

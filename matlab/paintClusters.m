@@ -10,6 +10,7 @@ xl = xlim();
 yl = ylim();
 axpos = get(pax,'position');
 ydir = get(pax, 'ydir');
+polarPoints = cell(numLevels,1);
 for i =1:numLevels
     angle = 2*pi/2^i;
     polarPoints{i} = angle * (1:2^i) - angle / 2;
@@ -25,17 +26,23 @@ pax.set('XLim',[-0.5, 0.5]);
 pax.set('YLim',[-0.5, 0.5]);
 hold off;
 f = figure;
+f.Units = 'normalized';
+f.Position = [0.1,0.1, 0.8*(1/numLevels), 0.8];
+t = tiledlayout(numLevels,2);
+t.TileSpacing = 'none';
+t.Padding = 'tight';
 for i =1:numLevels
     shape = levelShapes{i};    
-    ax = showPainted(f, shape, nan, nan, [subplot(numLevels,2,2*i-1),subplot(numLevels,2,2*i)]);
+    ax = showPainted(f, shape, nan, nan, [nexttile(t), nexttile(t)]);
     daspect(ax(1), [1 1 1]);
     daspect(ax(2), [1 1 1]);
 end
-print(f,'-dpng','-r300',[saveDir '/level' num2str(i-1)]);
+print(f,'-dsvg','-r300',[saveDir '/level' num2str(i-1)]);
 end
 
 function [ret, levelShapes]=paintIterative(fig, pax, xl, yl, axpos, ydir, clustered, template,polarPoints, offsetR, levelShapes)
 cnt = 1;
+ret = cell(2 ^ size(clustered,1)-1,1);
 for c=1:size(clustered,1)
     cluster = clustered(c, :);
     level = c-1;

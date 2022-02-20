@@ -98,7 +98,11 @@ try
                     end
                     part = genoPattern(sizeFlag);
                     Xs = double(cat(3,part{:}));
-                    [intChiSqSize(sizeFlag),  intChiSqSignificanceSize(sizeFlag), dfsSize(sizeFlag)] = vl_ccachisq1(Xs, nan,Q2, T22, rankY);
+                    try
+                        [intChiSqSize(sizeFlag),  intChiSqSignificanceSize(sizeFlag), dfsSize(sizeFlag)] = vl_ccachisq1(Xs, nan,Q2, T22, rankY);
+                    catch Exception
+                        disp(Exception);
+                    end
                 end
                 intChiSqSignificancePattern(patternFlag, phenoPartInd) = intChiSqSignificanceSize;
                 intChiSqPattern(patternFlag, phenoPartInd) = intChiSqSize;

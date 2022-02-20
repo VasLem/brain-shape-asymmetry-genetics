@@ -31,13 +31,14 @@ for CHR=1:22
     try
         ftab = readtable([CHR_DIR 'chisq_stats.csv']);
         for partition=1:N_PARTITIONS
-            tab = ftab(:,{'RSID', 'N', ['P_PAR', num2str(partition)], ['CHI_PAR',num2str(partition)]});
+            tab = ftab(:,{'RSID', 'N', 'A2', 'A1', ['P_PAR', num2str(partition)], ['CHI_PAR',num2str(partition)]});
             tab = renamevars(tab,{'RSID',['P_PAR' num2str(partition)], ['CHI_PAR', num2str(partition)]},{'rsID','P-value','ChiScore'});
             tab.chromosome = CHR * ones(height(tab),1);
-            if ~isa(wholeTabs{partition}, 'table')
-                wholeTabs{partition} = tab;
+            fname =  [RESULTS_DIR sprintf('CCAPart%02d.csv',partition)];
+            if CHR ~= 1
+                writetable(tab,fname,"WriteRowNames",CHR == 1, "WriteMode","append");
             else
-                wholeTabs{partition} = cat(1,wholeTabs{partition}, tab);
+                writetable(tab,fname);
             end
         end
     catch
@@ -45,7 +46,6 @@ for CHR=1:22
 end
 for partition=1:N_PARTITIONS
     fname =  [RESULTS_DIR sprintf('CCAPart%02d.csv',partition)];
-    writetable(wholeTabs{partition},fname);
     gzip(fname);
     delete(fname);
 end
