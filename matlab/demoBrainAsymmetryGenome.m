@@ -20,7 +20,7 @@ end
 UPDATE_FIGS = 1;
 MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
-DEFAULT_CHRS = 6:22;
+DEFAULT_CHRS = 1:22;
 DEFAULT_DATASET_INDEX = 2;
 DEFAULT_MEDIAN_IMPUTE = 1;
 
@@ -117,7 +117,8 @@ if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
 
 COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 disp("Loading phenotype..")
-PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
+% Use STAGE00DATA phenotypic partitions for both datasets
+PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
 PHENO = load(PHENO_PATH);
 %%
 disp("Loading covariates..")

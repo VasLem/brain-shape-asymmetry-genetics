@@ -81,8 +81,15 @@ if count > 0
         end
     end
     split = s_opt;
-    lab1 = find(split == 1);
-    lab2 = find(split == 2);
+    s1 = find(split == 1);
+    s2 = find(split == 2);
+    if length(s1) >= length(s2)
+        lab1 = s1;
+        lab2 = s2;
+    else
+        lab1 = s2;
+        lab2 = s1;
+    end
     ret.parts{1} = recursivePartition(similarityMat(lab1,lab1), count-1, lab1, rootIndices(lab1), eigVectorsNum, useNormSym, eps, runs);
     ret.parts{2} = recursivePartition(similarityMat(lab2,lab2), count-1, lab2, rootIndices(lab2), eigVectorsNum, useNormSym, eps, runs);
 end

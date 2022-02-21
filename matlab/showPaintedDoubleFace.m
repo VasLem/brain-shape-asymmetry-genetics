@@ -37,6 +37,9 @@ for i=1:2
     set(light,'Position',get(ax(i),'CameraPosition'));    
     if ~jetcmap
         colormap(ax(i),'colorcube');
+        if length(unique(s.VertexValue))==1
+            caxis(ax(i), [0,1]);
+        end
     else
         colormap(ax(i), 'jet');
         caxis(ax(i), clims);

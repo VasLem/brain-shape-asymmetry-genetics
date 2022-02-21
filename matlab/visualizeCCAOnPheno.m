@@ -1,7 +1,7 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-RECOMPUTE_PARTS = false;
-DATASET_INDEX = 1;
+RECOMPUTE_PARTS = true;
+DATASET_INDEX = 2;
 switch DATASET_INDEX
     case 1
         UKBIOBANK = 'UKBIOBANK';
@@ -48,7 +48,7 @@ end
 
 bCIds = ["With", "Wout"];
 
-cmap = brewermap(22, 'Spectral');
+
 countsMat = zeros(2, length(handles), 22);
 pCountsMat = zeros(2, length(handles), 22);
 for j=1:length(handles)
@@ -72,9 +72,43 @@ for j=1:length(handles)
         end
     end
 end
+mask = squeeze(any(countsMat, 2));
+chromosomes = find(any(mask, 1));
+cmap = brewermap(length(chromosomes), 'Spectral');
+%%
+for i=1:2
+    bCId = char(bCIds(i));
+    tmask_chrs = find(mask(i,:));
+    [~, j] = find(chromosomes==tmask_chrs');
+    cols = cmap(j, :);
+    tags = tmask_chrs;
+    f = figure('Visible',false);
+    strtags = cellstr(strcat('Chr', string(tags)));
+    legend(strtags(:));
+    ax=gca;
+    h = pie(ax, 1:length(j), tags');
+    lh = legend(strtags(:));
+    % Delete non-patch objects
+    hPatch = h(strcmp(get(h,'type'),'patch')); 
+    hNotPatch = h(~strcmp(get(h,'type'),'patch')); 
+    delete(hNotPatch)
+    ax.Colormap = cols;
+    % Remove Faces of patches
+    set(hPatch,'Faces', NaN)
+    lhPos = get(lh,'Position');
+    lh.Units='normalized';
+    f.Units ='normalized';
+    fPos = get(f,'Position');
+    fPos(3:4)=lhPos(3:4);
+    set(gcf, 'Position',fPos);
+    set(lh,'Position',[0 0 1 1])
+    saveas(gcf,[RESULTS_DIR 'legend' bCId 'BC.svg'])
+    close(f);
+end
+
 %%
 for j=1:length(handles)
-    p = [fullfile(pwd, [PNG_DIR_1 num2str(j)]) '.png'];
+    p = [PNG_DIR_1 num2str(j) '.png'];
     im = [];
     for i =1:2
         bCId = char(bCIds(i));
@@ -95,8 +129,9 @@ for j=1:length(handles)
         msk = countsMat(i, j, :) >0;
         if any(msk)
             inds = find(msk);
-            cols = cmap(msk,:);
-            annot_pos = linspace(0.1,0.9,sum(msk)+1);
+            [~, cinds] = find(chromosomes==inds);
+            cols = cmap(cinds,:);
+            annot_pos = linspace(0,1,sum(msk)+1);
             for s=1:length(annot_pos) - 1
                 annotation(f,'textbox', 'Position', [annot_pos(s) 0.1 annot_pos(s+1) - annot_pos(s) .15], ...
                     'String', num2str(countsMat(i,j, inds(s))), 'BackgroundColor', cols(s,:), ...
@@ -117,10 +152,7 @@ old_path = pwd;
 cd(RESULTS_DIR)
 for i=1:2
     bCId = char(bCIds(i));
-    text = 'digraph G{';
-    leg1 = '';
-    leg2 = '';
-    leg3 = '';
+    text = 'digraph G{\nbgcolor="#ffffffff" # RGBA (with alpha)';
     for j=1:length(handles)
             parP = handles{j}.parent;
             if parP ~= 0
@@ -128,8 +160,9 @@ for i=1:2
             end
     end
 
-    for chr=1:22
-        chrColor = ['#' sprintf('%02X',round(255 * cmap(chr,:)))];
+    for chrCnt=1:length(chromosomes)
+        chr = chromosomes(chrCnt);
+        chrColor = ['#' sprintf('%02X',round(255 * cmap(chrCnt,:)))];
         for j=1:length(handles)
             p = ['png/' bCId '/' num2str(j)]; % path relative to the svg file location
             text = [text, '\n\t', num2str(j) '[shape=plaintext, image="' ...
@@ -142,35 +175,15 @@ for i=1:2
             if counts
                 if parP ~= 0
 %                     text = [text, '\n\t', num2str(parP) '->' num2str(j) '[label="' num2str(counts-pCounts) '", color="' chrColor '",fontsize=15, fontcolor="' chrColor '", splines="true"]' ];
-                else
-                    leg1 = [leg1 '\n<tr><td align="right" port="i' num2str(chr) '" >Chr.' num2str(chr) '</td></tr>'];
-                    leg2 = [leg2 '\n<tr><td port="i' num2str(chr) '">&nbsp;</td></tr>'];
-                    leg3 = [leg3 '\nkey1:i' num2str(chr) ':e -> key2:i' num2str(chr) ':w [color="' chrColor '"]'];
                 end
             end
         end
     end
-    legendText = ['digraph {\n'...
-        'rankdir=LR\n'...
-        'node [shape=plaintext]\n'...
-        'subgraph cluster_01 {rank=same; key1, key2 \nlabel = "Legend";'...
-        '\n key1 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">['...
-        leg1...
-        '</table>>]'...
-        '\n key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">['...
-        leg2...
-        '</table>>]'...
-        leg3 '\n}\n}'];
     text = [text, '\n}\n'];
     fileID = fopen([GRAPHVIZ_DIR  'graph' bCId 'BC.gv'],'w');
     fprintf(fileID,text);
     fclose(fileID);
-    fileID = fopen([GRAPHVIZ_DIR  'legGraph' bCId 'BC.gv'],'w');
-    fprintf(fileID,legendText);
-    fclose(fileID);
-    graph_png_path = [RESULTS_DIR 'significanceSNPPropagation' bCId 'BC.svg'];
-    leg_png_path = [RESULTS_DIR 'legSignificanceSNPPropagation' bCId 'BC.svg'];
+    graph_png_path = [RESULTS_DIR 'CcaCircular' bCId 'BC.svg'];
     system(['twopi -Tsvg -o ' graph_png_path ' ' GRAPHVIZ_DIR 'graph' bCId 'BC.gv -Granksep=2 -Gratio=0.5 -Gfontsize=20'])
-    system(['dot -Tsvg -o ' leg_png_path ' ' GRAPHVIZ_DIR 'legGraph' bCId 'BC.gv'])
 end
 cd(old_path)
