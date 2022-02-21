@@ -26,7 +26,6 @@ DATA_DIR = getenv('DATA_ROOT');
 if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
 end
-disp(['Location of data: ', DATA_DIR]);
 
 
 DATASET_INDEX = getenv('DATASET_INDEX');
@@ -38,7 +37,6 @@ else
         DATASET_INDEX = str2double(DATASET_INDEX);
     end
 end
-disp(['Using dataset:', num2str(DATASET_INDEX)])
 
 switch DATASET_INDEX
     case 1
@@ -54,11 +52,9 @@ RESULTS_ROOT = getenv('RESULTS_ROOT');
 if(isempty(RESULTS_ROOT))
     RESULTS_ROOT = '../results/';
 end
-
 RESULTS_DIR = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
 
 
-disp(['Location of results: ', RESULTS_DIR]);
 
 SCRATCH_ROOT = getenv('SCRATCH_ROOT');
 if(isempty(SCRATCH_ROOT))
@@ -66,7 +62,7 @@ if(isempty(SCRATCH_ROOT))
 end
 
 SCRATCH_DIR = [SCRATCH_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
-disp(['Location of intermediate files: ', SCRATCH_DIR]);
+
 
 
 THREADS = getenv('THREADS');
@@ -78,7 +74,11 @@ else
         THREADS=str2double(THREADS);
     end
 end
-
+%% SETTING UP COMPUTATION POWER
+try
+    parpool(THREADS);
+catch
+end
 
 
 SELECTION = 'asymmetry';
@@ -110,10 +110,10 @@ RESIDUALS_PROC = ~isfile(RESIDUALS_OUT);
 RV_MATRIX_OUT = [COV_REMOVAL_DIR 'similarityMatrix.mat'];
 RV_MATRIX_PROC = ~isfile(RV_MATRIX_OUT);
 SEGMENTATION_OUT = [SEGMENTATION_DIR 'segmentation.mat'];
+SEGMENTATION_ORI_OUT = strrep(SEGMENTATION_OUT, 'BATCH2_2021_DATA', 'STAGE00DATA');
 SEGMENTATION_PROC = ~isfile(SEGMENTATION_OUT);
 FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
-
 
 RV_MATRIX_PROC = RV_MATRIX_PROC && ~SEGMENTATION_PROC;
 
@@ -125,202 +125,201 @@ PERFORM_STEPS_12 =  RV_MATRIX_PROC || RESIDUALS_PROC || EXPLAINED_COV_PROC;
 SEGMENTATION_INPUT_PROC = SEGMENTATION_SCRATCH_INPUT_PROC && PERFORM_STEPS_12;
 SEGMENTATION_INPUT_PROC = SEGMENTATION_INPUT_PROC || SEGMENTATION_INPUT_INFO_PROC;
 
-
+diary([SEGMENTATION_DIR  datestr(now) ' log.txt']);
+disp(['Location of data: ', DATA_DIR]);
+disp(['Using dataset:', num2str(DATASET_INDEX)])
+disp(['Location of results: ', RESULTS_DIR]);
+disp(['Location of intermediate files: ', SCRATCH_DIR]);
 
 if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
 if ~isfolder(SEGMENTATION_SCRATCH_DIR), mkdir(SEGMENTATION_SCRATCH_DIR); end
-%% SETTING UP COMPUTATION POWER
-try
-    parpool(THREADS);
-catch
-end
+
 
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
 
 
 
-if SEGMENTATION_INPUT_PROC
-    in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
+    if SEGMENTATION_INPUT_PROC
+        in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
-    phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
-    genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
+        phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
+        genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
 
-    Regions = {'LH' 'RH'};
-    nR = length(Regions);
+        Regions = {'LH' 'RH'};
+        nR = length(Regions);
 
-    DATA = cell(1,2);
+        DATA = cell(1,2);
 
-    for r=1:nR
-        regphenopath = [phenopath Regions{r} '/'];
-        disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
-        DATA{r} = load([regphenopath DATASET_NAME '.mat']);
+        for r=1:nR
+            regphenopath = [phenopath Regions{r} '/'];
+            disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
+            DATA{r} = load([regphenopath DATASET_NAME '.mat']);
+        end
+        LH = DATA{1}.Region.AlignedShapes;
+        RH = DATA{2}.Region.AlignedShapes;
+        phenoIID = DATA{1}.Region.IID(1:size(LH,3));
+        Region =  DATA{1}.Region;
+
+        %%
+        brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
+        refTemplate = brainSurface.RefScan;
+
+        % GPA
+        [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
+
+
+        switch SELECTION
+            case 'asymmetry'
+                A = (preprocLH - preprocRH);
+            case 'symmetry'
+                A =  (preprocLH + preprocRH)/2;
+        end
+        centroidSizesLH = DATA{1}.Region.CentroidSizes;
+        centroidSizesRH = DATA{2}.Region.CentroidSizes;
+        regionName = Region.Name;
+        preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
+        clear DATA preprocLH preprocRH LH RH Region
+        save(SEGMENTATION_INPUT_OUT, "preprocTemplate","preprocPhenoIID", '-v7.3');
+        if ~isdeployed
+            save(SEGMENTATION_SCRATCH_INPUT_OUT, 'A',  'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocLandmarksIndices', '-v7.3');
+        end
     end
-    LH = DATA{1}.Region.AlignedShapes;
-    RH = DATA{2}.Region.AlignedShapes;
-    phenoIID = DATA{1}.Region.IID(1:size(LH,3));
-    Region =  DATA{1}.Region;
-
     %%
-    brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
-    refTemplate = brainSurface.RefScan;
-
-    % GPA
-    [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
-
-
-    switch SELECTION
-        case 'asymmetry'
-            A = (preprocLH - preprocRH);
-        case 'symmetry'
-            A =  (preprocLH + preprocRH)/2;
+    if ~exist('preprocTemplate', 'var')
+        load(SEGMENTATION_INPUT_OUT);
     end
-    centroidSizesLH = DATA{1}.Region.CentroidSizes;
-    centroidSizesRH = DATA{2}.Region.CentroidSizes;
-    regionName = Region.Name;
-    preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
-    clear DATA preprocLH preprocRH LH RH Region
-    save(SEGMENTATION_INPUT_OUT, "preprocTemplate","preprocPhenoIID", '-v7.3');
-    if ~isdeployed
-        save(SEGMENTATION_SCRATCH_INPUT_OUT, 'A',  'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocLandmarksIndices', '-v7.3');
-    end
-end
-%%
-if ~exist('preprocTemplate', 'var')
-    load(SEGMENTATION_INPUT_OUT);
-end
 
-%% STEP 1:
 
-if  PERFORM_STEPS_12
-    [nVertices,~,nSubj] = size(A);
-    sym2DMatrix = permute(A,[2 1 3]);
-    sym2DMatrix = reshape(sym2DMatrix,nVertices*3,nSubj)';
-    clear A
+
+    %% STEP 1:
     % Align covariates with phenotype
     load(covGenoPath, "COV");
     covariates = COV;
-
-    %%
     covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
     [covPhenoIndex, covIndex] = find(covAssignmentMatrix);
-
-    covData = covariates.DATA(covIndex, :);
-    sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
+    clear covAssignmentMatrix
     preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
-    centroidSizesLH = centroidSizesLH(covPhenoIndex);
-    centroidSizesRH = centroidSizesRH(covPhenoIndex);
-    nSubj = size(sym2DMatrix, 1);
-    avgT = mean(sym2DMatrix,1);
-    % Removing components that can be controlled from covariates, keeping only
-    % the residuals from the corresponding PLS model
-end
-
-if EXPLAINED_COV_PROC
-    %% Apply covariates control analysis on DK partitions
-    % see how much of the variance of each partition set of landmarks is explained by covariates
-    atlasName = 'Desikan_Killiany';
-    atlas = loadAtlas(atlasName,'L');
-    %%
-    atlasIndices = atlas.index(preprocLandmarksIndices);
-    atlas3DIndices = repmat(atlasIndices,1,3)';
-    atlas3DIndices = atlas3DIndices(:);
-    %%
-    labels = unique(atlas3DIndices);
-    explained3DCov = nan * zeros(length(atlas3DIndices),1);
-    for k=1:length(labels)
-        i=labels(k);
-        atlasMask =  atlas3DIndices == i;
-        [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
+    if  PERFORM_STEPS_12
+        [nVertices,~,nSubj] = size(A);
+        sym2DMatrix = permute(A,[2 1 3]);
+        sym2DMatrix = reshape(sym2DMatrix,nVertices*3,nSubj)';
+        clear A
+        covData = covariates.DATA(covIndex, :);
+        sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
+        centroidSizesLH = centroidSizesLH(covPhenoIndex);
+        centroidSizesRH = centroidSizesRH(covPhenoIndex);
+        nSubj = size(sym2DMatrix, 1);
+        avgT = mean(sym2DMatrix,1);
+        % Removing components that can be controlled from covariates, keeping only
+        % the residuals from the corresponding PLS model
     end
-    explainedCov = explained3DCov(1:3:length(explained3DCov));
-    save(EXPLAINED_COV_OUT, 'explainedCov', '-v7.3');
-end
-%%
 
-if ~exist('explainedCov', 'var')
-    load(EXPLAINED_COV_OUT)
-end
-f = figure;
-view(gca,90,0);
-colormap(gca,'jet');
-light = camlight(gca,'headlight');
-set(light,'Position',get(gca,'CameraPosition'));
-drawnow;
-visualizeCovExp = clone(preprocTemplate);
-visualizeCovExp.VertexValue = explainedCov;
-
-visualizeCovExp.ColorMode = 'indexed';
-visualizeCovExp.Material = 'Dull';
-visualizeCovExp.ViewMode = 'solid';
-colorbar(gca,'SouthOutside');
-visualizeCovExp.RenderAxes = gca;
-visualizeCovExp.Visible = true;
-visualizeCovExp.PatchHandle.FaceColor = 'flat';
-maxlims = max(visualizeCovExp.Vertices);
-minlims = min(visualizeCovExp.Vertices);
-axis(gca,'image');
-axis(gca,'off');
-xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
-drawnow;
-
-savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
-saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
-view(gca,-90,0);
-set(light,'Position',get(gca,'CameraPosition'));
-xlim(gca, [ minlims(1), maxlims(1)]);
-savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
-saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
-
-%%
-diary([SEGMENTATION_DIR  datestr(now) ' log.txt']);
-
-if RESIDUALS_PROC
-    disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
-    resT = repmat(avgT,size(resT,1),1)+resT;
-    disp("Saving computed residuals..");
-    save(RESIDUALS_OUT,'resT', 'explainedCovWhole', '-v7.3');
-end
-
-
-%% STEP 2: BUILDING RV MATRIX
-if RV_MATRIX_PROC
-    disp("Computing RV matrix..")
-    if strcmp(COV_REMOVAL, 'ccPriorSegmentation')
-        if ~exist('resT', 'var')
-            load(RESIDUALS_OUT);
-            disp(['Loaded computed residuals from ' RESIDUALS_OUT]);
+    if EXPLAINED_COV_PROC
+        %% Apply covariates control analysis on DK partitions
+        % see how much of the variance of each partition set of landmarks is explained by covariates
+        atlasName = 'Desikan_Killiany';
+        atlas = loadAtlas(atlasName,'L');
+        %%
+        atlasIndices = atlas.index(preprocLandmarksIndices);
+        atlas3DIndices = repmat(atlasIndices,1,3)';
+        atlas3DIndices = atlas3DIndices(:);
+        %%
+        labels = unique(atlas3DIndices);
+        explained3DCov = nan * zeros(length(atlas3DIndices),1);
+        for k=1:length(labels)
+            i=labels(k);
+            atlasMask =  atlas3DIndices == i;
+            [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
         end
+        explainedCov = explained3DCov(1:3:length(explained3DCov));
+        save(EXPLAINED_COV_OUT, 'explainedCov', '-v7.3');
+    end
+    %%
 
-        disp("Using covariates controlled phenotype for segmentation..")
-        similarityMat = buildRVmatrixDim(resT, 'cov', 3);
+    if ~exist('explainedCov', 'var')
+        load(EXPLAINED_COV_OUT)
+    end
+    f = figure;
+    view(gca,90,0);
+    colormap(gca,'jet');
+    light = camlight(gca,'headlight');
+    set(light,'Position',get(gca,'CameraPosition'));
+    drawnow;
+    visualizeCovExp = clone(preprocTemplate);
+    visualizeCovExp.VertexValue = explainedCov;
+
+    visualizeCovExp.ColorMode = 'indexed';
+    visualizeCovExp.Material = 'Dull';
+    visualizeCovExp.ViewMode = 'solid';
+    colorbar(gca,'SouthOutside');
+    visualizeCovExp.RenderAxes = gca;
+    visualizeCovExp.Visible = true;
+    visualizeCovExp.PatchHandle.FaceColor = 'flat';
+    maxlims = max(visualizeCovExp.Vertices);
+    minlims = min(visualizeCovExp.Vertices);
+    axis(gca,'image');
+    axis(gca,'off');
+    xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
+    drawnow;
+
+    savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
+    saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
+    view(gca,-90,0);
+    set(light,'Position',get(gca,'CameraPosition'));
+    xlim(gca, [ minlims(1), maxlims(1)]);
+    savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
+    saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
+
+
+    if RESIDUALS_PROC
+        disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
+        [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
+        resT = repmat(avgT,size(resT,1),1)+resT;
+        disp("Saving computed residuals..");
+        save(RESIDUALS_OUT,'resT', 'explainedCovWhole', '-v7.3');
+    end
+
+if DATASET_INDEX == 1
+    %% STEP 2: BUILDING RV MATRIX
+    if RV_MATRIX_PROC
+        disp("Computing RV matrix..")
+        if strcmp(COV_REMOVAL, 'ccPriorSegmentation')
+            if ~exist('resT', 'var')
+                load(RESIDUALS_OUT);
+                disp(['Loaded computed residuals from ' RESIDUALS_OUT]);
+            end
+
+            disp("Using covariates controlled phenotype for segmentation..")
+            similarityMat = buildRVmatrixDim(resT, 'cov', 3);
+        else
+            disp("Using covariates uncontrolled phenotype for segmentation..")
+            similarityMat = buildRVmatrixDim(sym2DMatrix, 'cov', 3);
+        end
+        disp(['Saving RV Matrix to ' COV_REMOVAL_DIR 'similarityMatrix.mat ..'])
+        save(RV_MATRIX_OUT,'similarityMat','-v7.3');
+    end
+
+    %% STEP 3: RUNNING CLUSTERING
+    if SEGMENTATION_PROC
+        if ~exist('similarityMat', 'var')
+            load(RV_MATRIX_OUT);
+            disp(['Loaded RV matrix from ' RV_MATRIX_OUT])
+        end
+        clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
+        clusterArray = getClustersAsArray(clustered, NUM_LEVELS);
+        save(SEGMENTATION_OUT,'clusterArray','clustered','-v7.3');
+        clear similarityMat
     else
-        disp("Using covariates uncontrolled phenotype for segmentation..")
-        similarityMat = buildRVmatrixDim(sym2DMatrix, 'cov', 3);
+        load(SEGMENTATION_OUT);
     end
-    disp(['Saving RV Matrix to ' COV_REMOVAL_DIR 'similarityMatrix.mat ..'])
-    save(RV_MATRIX_OUT,'similarityMat','-v7.3');
-end
-
-%% STEP 3: RUNNING CLUSTERING
-if SEGMENTATION_PROC
-    if ~exist('similarityMat', 'var')
-        load(RV_MATRIX_OUT);
-        disp(['Loaded RV matrix from ' RV_MATRIX_OUT])
-    end
-    clustered = hierarchicalClustering(similarityMat,NUM_LEVELS,true,3,SEED);
-    clusterArray = getClustersAsArray(clustered, NUM_LEVELS);
-    save(SEGMENTATION_OUT,'clusterArray','clustered','-v7.3');
-    clear similarityMat
+    [fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true);
+    saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.png']);
+    print(fig2,'-dsvg','-r300',[SEGMENTATION_DIR 'segmentation.svg']);
 else
-    load(SEGMENTATION_OUT);
+    disp("Loading STAGE00DATA partitions..")
+    load(SEGMENTATION_ORI_OUT);
 end
-[fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true);
-saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.png']);
-print(fig2,'-dsvg','-r300',[SEGMENTATION_DIR 'segmentation.svg']);
-
-
 %% Compute the PCA Components
 % Investigate the number of PCA components to keep for each segment based on the explained Variance
 % Get the partition of A that corresponds to the specific cluster with C

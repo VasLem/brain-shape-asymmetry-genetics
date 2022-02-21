@@ -117,8 +117,7 @@ if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
 
 COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 disp("Loading phenotype..")
-% Use STAGE00DATA phenotypic partitions for both datasets
-PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
+PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
 PHENO = load(PHENO_PATH);
 %%
 disp("Loading covariates..")
