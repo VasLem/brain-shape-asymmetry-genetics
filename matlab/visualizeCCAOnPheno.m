@@ -1,5 +1,6 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
+RECOMPUTE_PARTS = false;
 DATASET_INDEX = 1;
 switch DATASET_INDEX
     case 1
@@ -13,7 +14,7 @@ switch DATASET_INDEX
 end
 GENO_DIR = ['../results/genomeDemo/' DATASET '/'];
 CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
-RESULTS_DIR = ['../results/visualizeCCAOnPheno/' DATASET '/'];
+RESULTS_DIR = fullfile(pwd, ['../results/visualizeCCAOnPheno/' DATASET '/']);
 clusterArray = load([CLUSTER_DIR  'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
 template = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/input_info.mat']).preprocTemplate;
 %%
@@ -29,17 +30,20 @@ if ~isfolder(PNG_DIR_2), mkdir(PNG_DIR_2); end
 GRAPHVIZ_DIR = [RESULTS_DIR 'graphviz/'];
 if ~isfolder(GRAPHVIZ_DIR), mkdir(GRAPHVIZ_DIR); end
 %% Uncomment to redraw partitions
-% for i=1:length(handles)
-% 
-%     f1 = figure('visible','off');
-%     s = copyobj(handles{i}.handle,f1);
-%     set(s(1),'position',[0.0 0.25 0.5 0.5]);
-%     set(s(2),'position',[0.5 0.25 0.5 0.5]);
-%     set(f1, 'color', 'none');
-%     set(s, 'color', 'none');
-%     print(f1, '-dpng', '-r300', [PNG_DIR_1 num2str(i) '.png'])
-%     close(f1);
-% end
+for i=1:length(handles)
+    ret_path = [PNG_DIR_1 num2str(i) '.png'];
+    if ~RECOMPUTE_PARTS && isfile(ret_path)
+        continue
+    end
+    f1 = figure('visible','off');
+    s = copyobj(handles{i}.handle,f1);
+    set(s(1),'position',[0.0 0.25 0.5 0.5]);
+    set(s(2),'position',[0.5 0.25 0.5 0.5]);
+    set(f1, 'color', 'none');
+    set(s, 'color', 'none');
+    print(f1, '-dpng', '-r300', ret_path);
+    close(f1);
+end
 %%
 
 bCIds = ["With", "Wout"];
@@ -71,10 +75,17 @@ end
 %%
 for j=1:length(handles)
     p = [fullfile(pwd, [PNG_DIR_1 num2str(j)]) '.png'];
-    im = imread(p);
-    im = im(ceil(0.15*size(im,1)):size(im,1),:,:);
+    im = [];
     for i =1:2
         bCId = char(bCIds(i));
+        ret_path = [PNG_DIR_2 bCId '/' num2str(j) '.png'];
+        if ~RECOMPUTE_PARTS && isfile(ret_path)
+            continue
+        end
+        if isempty(im)
+            im = imread(p);
+            im = im(ceil(0.15*size(im,1)):size(im,1),:,:);
+        end
         f = figure('Visible','off');
         imshow(im);
         annotation(f, "textbox", 'Position', [0.1, 0.75, 0.8, 0.15], 'String', num2str(j), ...
@@ -96,12 +107,14 @@ for j=1:length(handles)
         end
         
         if ~isfolder([PNG_DIR_2 bCId]), mkdir([PNG_DIR_2 bCId]); end
-        saveas(f, [PNG_DIR_2 bCId '/' num2str(j) '.png'])
+        saveas(f, ret_path)
 
     close(f)
     end
 end
 %%
+old_path = pwd;
+cd(RESULTS_DIR)
 for i=1:2
     bCId = char(bCIds(i));
     text = 'digraph G{';
@@ -118,8 +131,9 @@ for i=1:2
     for chr=1:22
         chrColor = ['#' sprintf('%02X',round(255 * cmap(chr,:)))];
         for j=1:length(handles)
-            p = fullfile(pwd, [PNG_DIR_2 bCId '/' num2str(j) ]);
-            text = [text, '\n\t', num2str(j) '[shape=plaintext, image="'  p '.png",label="",fixedsize=true,width=4,height=2,fontcolor="' chrColor '"]' ];
+            p = ['png/' bCId '/' num2str(j)]; % path relative to the svg file location
+            text = [text, '\n\t', num2str(j) '[shape=plaintext, image="' ...
+                p '.png",label="",fixedsize=true,width=4,height=2,fontcolor="' chrColor '"]' ];
         end
         for j=1:length(handles)
             parP = handles{j}.parent;
@@ -159,3 +173,4 @@ for i=1:2
     system(['twopi -Tsvg -o ' graph_png_path ' ' GRAPHVIZ_DIR 'graph' bCId 'BC.gv -Granksep=2 -Gratio=0.5 -Gfontsize=20'])
     system(['dot -Tsvg -o ' leg_png_path ' ' GRAPHVIZ_DIR 'legGraph' bCId 'BC.gv'])
 end
+cd(old_path)
