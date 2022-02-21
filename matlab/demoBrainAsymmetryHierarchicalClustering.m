@@ -316,8 +316,9 @@ if SEGMENTATION_PROC
 else
     load(SEGMENTATION_OUT);
 end
-fig = paintClusters(clustered, preprocTemplate, NUM_LEVELS, SEGMENTATION_DIR, true);
-saveas(fig, [SEGMENTATION_DIR 'segmentation.png']);
+[fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true);
+saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.png']);
+print(fig2,'-dsvg','-r300',[SEGMENTATION_DIR 'segmentation.svg']);
 
 
 %% Compute the PCA Components

@@ -1,0 +1,32 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2 ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT22.sumstats.gz \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/ldsc/BATCH2_2021_DATA/v2/MUNGE_OUTPUT22 \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Mon Feb 21 18:09:41 2022
+Reading summary statistics from ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT22.sumstats.gz ...
+Read summary statistics for 7011343 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1169612 SNPs remain.
+After merging with regression SNP LD, 1169612 SNPs remain.
+Using two-step estimator with cutoff at 30.
+Total Observed scale h2: 0.1192 (0.0275)
+Lambda GC: 1.0466
+Mean Chi^2: 1.0393
+Intercept: 1.0018 (0.006)
+Ratio: 0.0461 (0.1537)
+Analysis finished at Mon Feb 21 18:10:21 2022
+Total time elapsed: 40.16s

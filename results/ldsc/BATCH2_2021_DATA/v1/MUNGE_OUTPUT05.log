@@ -9,8 +9,8 @@ Call:
 ./munge_sumstats.py \
 --signed-sumstats ChiScore,1 \
 --delim , \
---out v1/MUNGE_OUTPUT01 \
---n-min 19644.0 \
+--out ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT05 \
+--n-min 1000.0 \
 --a1 A1 \
 --a2 A2 \
 --snp rsID \
@@ -26,23 +26,24 @@ A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
 ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
-Read 8337864 SNPs from --sumstats file.
+Read 8305363 SNPs from --sumstats file.
 Removed 0 SNPs with missing values.
 Removed 0 SNPs with INFO <= 0.9.
 Removed 0 SNPs with MAF <= 0.01.
 Removed 0 SNPs with out-of-bounds p-values.
-Removed 1302479 variants that were not SNPs or were strand-ambiguous.
-7035385 SNPs remain.
-Removed 1710 SNPs with duplicated rs numbers (7033675 SNPs remain).
-Removed 0 SNPs with N < 19644.0 (7033675 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.970530827164, which seems sensible.
-Writing summary statistics for 7033675 SNPs (7033675 with nonmissing beta) to v1/MUNGE_OUTPUT01.sumstats.gz.
+Removed 1294020 variants that were not SNPs or were strand-ambiguous.
+7011343 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (7011343 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (7011343 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.983023827195, which seems sensible.
+Writing summary statistics for 7011343 SNPs (7011343 with nonmissing beta) to ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT05.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.101
-Lambda GC = 1.082
-Max chi^2 = 162.051
-2733 Genome-wide significant SNPs (some may have been removed by filtering).
+Mean chi^2 = 1.016
+WARNING: mean chi^2 may be too small.
+Lambda GC = 1.008
+Max chi^2 = 94.219
+20 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Sun Feb 20 00:21:50 2022
-Total time elapsed: 2.0m:47.52s
+Conversion finished at Mon Feb 21 16:46:56 2022
+Total time elapsed: 1.0m:28.34s

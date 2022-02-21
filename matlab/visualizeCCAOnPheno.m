@@ -18,7 +18,7 @@ clusterArray = load([CLUSTER_DIR  'asymmetry_reduction10/ccPriorSegmentation/lev
 template = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/input_info.mat']).preprocTemplate;
 %%
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
-[fig, handles] = paintClusters(clusterArray, template, 4, RESULTS_DIR, false);
+[fig, fig2, handles] = paintClusters(clusterArray, template, 4, false);
 
 %%
 
