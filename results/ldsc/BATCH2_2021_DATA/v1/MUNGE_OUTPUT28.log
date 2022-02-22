@@ -35,15 +35,15 @@ Removed 1294020 variants that were not SNPs or were strand-ambiguous.
 7011343 SNPs remain.
 Removed 0 SNPs with duplicated rs numbers (7011343 SNPs remain).
 Removed 0 SNPs with N < 1000.0 (7011343 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.985010509732, which seems sensible.
+Median value of SIGNED_SUMSTATS was 0.983157890793, which seems sensible.
 Writing summary statistics for 7011343 SNPs (7011343 with nonmissing beta) to ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT28.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.02
+Mean chi^2 = 1.001
 WARNING: mean chi^2 may be too small.
-Lambda GC = 1.02
-Max chi^2 = 31.269
-56 Genome-wide significant SNPs (some may have been removed by filtering).
+Lambda GC = 0.991
+Max chi^2 = 27.503
+0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Mon Feb 21 18:23:38 2022
-Total time elapsed: 1.0m:36.16s
+Conversion finished at Tue Feb 22 16:51:28 2022
+Total time elapsed: 1.0m:30.86s

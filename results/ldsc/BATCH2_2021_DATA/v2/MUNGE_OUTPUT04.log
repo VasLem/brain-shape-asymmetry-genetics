@@ -12,7 +12,7 @@ Call:
 --out ../results/ldsc/BATCH2_2021_DATA/v2/MUNGE_OUTPUT04 \
 --w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
 
-Beginning analysis at Mon Feb 21 16:44:54 2022
+Beginning analysis at Tue Feb 22 16:01:08 2022
 Reading summary statistics from ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT04.sumstats.gz ...
 Read summary statistics for 7011343 SNPs.
 Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
@@ -23,10 +23,10 @@ Read regression weight LD Scores for 1290028 SNPs.
 After merging with reference panel LD, 1169612 SNPs remain.
 After merging with regression SNP LD, 1169612 SNPs remain.
 Using two-step estimator with cutoff at 30.
-Total Observed scale h2: 0.1995 (0.0312)
-Lambda GC: 1.0988
-Mean Chi^2: 1.0723
-Intercept: 1.0097 (0.0063)
-Ratio: 0.1334 (0.0874)
-Analysis finished at Mon Feb 21 16:45:23 2022
-Total time elapsed: 29.08s
+Total Observed scale h2: 0.1969 (0.0318)
+Lambda GC: 1.105
+Mean Chi^2: 1.0735
+Intercept: 1.0116 (0.0066)
+Ratio: 0.1583 (0.0897)
+Analysis finished at Tue Feb 22 16:01:41 2022
+Total time elapsed: 32.78s

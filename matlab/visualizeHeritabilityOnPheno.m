@@ -1,6 +1,6 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 switch DATASET_INDEX
     case 1
         UKBIOBANK = 'UKBIOBANK';

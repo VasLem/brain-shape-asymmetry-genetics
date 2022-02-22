@@ -24,7 +24,7 @@ for i =1:numLevels
     polarPoints{i} = angle * (1:2^i) - angle / 2;
 end
 
-levelShapes = cell(numLevels, 1);
+levelShapes = cell(numLevels + 1, 1);
 if isRecursive
     [handles, ~, levelShapes] = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered, template, polarPoints, [0,0], 1 / (2 * numLevels), 0, levelShapes);
 else
@@ -36,16 +36,21 @@ hold off;
 fig2 = figure;
 fig2.Units = 'normalized';
 fig2.Position = [0.1,0.1, 0.8*(1/numLevels), 0.8];
-t = tiledlayout(numLevels,2);
+if ~isempty(values)
+    % give space to colorbar
+    t = tiledlayout(numLevels + 2,2);
+else
+    t = tiledlayout(numLevels + 1,2);
+end
 t.TileSpacing = 'none';
 t.Padding = 'tight';
 minValue = 0;
 maxValue = 1;
 if ~isempty(values)
-minValue = min(values(2:end));
-maxValue = max(values(2:end));
+minValue = min(values);
+maxValue = max(values);
 end
-for i =1:numLevels
+for i =1:(numLevels + 1)
     shape = levelShapes{i};    
     ax = showPaintedDoubleFace(fig2, shape, nan, nan, [nexttile(t), nexttile(t)], ~isempty(values),[minValue,maxValue]);
     daspect(ax(1), [1 1 1]);
@@ -79,6 +84,7 @@ for c=1:size(clustered,1)
         pInds = find( cluster == 1);
         ret{cnt}.handle = paintSingle(fig, pInds, template, ...
             convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4, nan, value);
+        levelShapes{level + 1} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level + 1},value);
         ret{cnt}.level = level;
         ret{cnt}.id = 1;
         ret{cnt}.parent = 0;
@@ -107,7 +113,7 @@ for c=1:size(clustered,1)
             center = [x,y];
             pInds = find(selection);
             ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4, nan, value);
-            levelShapes{level} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level},value);
+            levelShapes{level + 1} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level + 1},value);
             ret{cnt}.level = level;
             ret{cnt}.id = k;
             ret{cnt}.parent = 2 ^ (level-1) + ceil(k/2) - 1;
@@ -133,9 +139,7 @@ else
 end
 
 ret.handle= paintSingle(fig, clustered.rootIndices, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + newCenter), offsetR/4, nan);
-if level >= 1
-    levelShapes{level} = paintSingle(nan, clustered.rootIndices, template, nan, nan, levelShapes{level});
-end
+levelShapes{level + 1} = paintSingle(nan, clustered.rootIndices, template, nan, nan, levelShapes{level + 1});
 if numel(clustered.parts)>0
     [ret.parts{1}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{1}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);
     [ret.parts{2}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{2}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);

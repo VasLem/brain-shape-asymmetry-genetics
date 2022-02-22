@@ -103,8 +103,8 @@ for CHR=1:22
     en_edges(end + 1) = cnt;
 end
 
-yline(-log10(pThres), 'b', 'DisplayName', 'Threshold');
-yline(-log10(bpThres), 'b', '--', 'DisplayName', '(Bonferroni Threshold)');
+yline(-log10(pThres), '-k', 'DisplayName', 'Threshold');
+yline(-log10(bpThres), '--k', 'DisplayName', '(Bonferroni Threshold)');
 
 
 ylabel('-log10p');

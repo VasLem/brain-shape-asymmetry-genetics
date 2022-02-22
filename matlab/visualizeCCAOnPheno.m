@@ -15,7 +15,7 @@ end
 GENO_DIR = ['../results/genomeDemo/' DATASET '/'];
 CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
 RESULTS_DIR = fullfile(pwd, ['../results/visualizeCCAOnPheno/' DATASET '/']);
-clusterArray = load([CLUSTER_DIR  'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
+clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
 template = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/input_info.mat']).preprocTemplate;
 %%
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
