@@ -27,7 +27,7 @@ i=$(printf "%02.f" $i)
 if [[ "$i" = "01" ]]; then
 cat ../results/ldsc/$dataset/v2/MUNGE_OUTPUT$i.log | sed -nr  's/^(.*):\s+([0-9\.]+).*$/\1\t\2/p'| head -n4  | sed "1s/^/\t$i\n/">  ret.csv
 else
-paste ret.csv <(cat v2/MUNGE_OUTPUT$i.log | sed -nr  's/^.*:\s+([0-9\.]+).*$/\1/p'| head -n4 | sed "1s/^/$i\n/") -d '\t'  > temp && mv temp ret.csv
+paste ret.csv <(cat ../results/ldsc/$dataset/v2/MUNGE_OUTPUT$i.log | sed -nr  's/^.*:\s+([0-9\.]+).*$/\1/p'| head -n4 | sed "1s/^/$i\n/") -d '\t'  > temp && mv temp ret.csv
 fi
 done
 mv ret.csv ../results/ldsc/$dataset/ldsc_heritability_results.csv
