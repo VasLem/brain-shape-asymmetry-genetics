@@ -19,7 +19,7 @@ echo "Processing partition" $partition
 
 echo "Processing GREAT"
 path=../results/GREAT/$dataset/par$partition.txt
-great=$(cat $path | awk 'NR>1{print $1}')
+great=`cat $path | awk 'NR>1{print $1}'`
 
 echo "Processing FUMA"
 path=../results/FUMA/$dataset/par$partition/genes.txt
@@ -27,4 +27,4 @@ fuma=$(cat $path | awk 'NR>1{print $2}')
 mkdir -p ../results/genes/$dataset
 out=../results/genes/$dataset/par$partition.txt
 echo "Extracting unique genes list to $out"
-printf "$great\n$fuma"|sort -n|uniq -u > $out
+printf "$great\n$fuma"|sort -n|uniq > $out

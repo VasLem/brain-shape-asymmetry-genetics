@@ -1,6 +1,4 @@
-results/hierarchicalClusteringDemo/BATCH2_2021_DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat
-SAMPLE_DATA/IMAGEN/HumanConnectomeProject
-SAMPLE_DATA/atlasses
-SAMPLE_DATA/test_retest_dataset.mat
-SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK
+/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/results/hierarchicalClusteringDemo/BATCH2_2021_DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat
+/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/test_retest_dataset.mat
+/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/SAMPLE_DATA/IMAGEN/BRAIN/MY_UKBIOBANK
 

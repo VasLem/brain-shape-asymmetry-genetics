@@ -114,7 +114,8 @@ SEGMENTATION_ORI_OUT = strrep(SEGMENTATION_OUT, 'BATCH2_2021_DATA', 'STAGE00DATA
 SEGMENTATION_PROC = ~isfile(SEGMENTATION_OUT);
 FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
-
+FINAL_PARTITIONS_INFO_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '_part_info.mat'];
+FINAL_PARTITIONS_INFO_ORIG_PATH = strrep(FINAL_PARTITIONS_INFO_PATH, 'BATCH2_2021_DATA', 'STAGE00DATA');
 RV_MATRIX_PROC = RV_MATRIX_PROC && ~SEGMENTATION_PROC;
 
 SEGMENTATION_SCRATCH_INPUT_PROC = isdeployed || ~isfile(SEGMENTATION_SCRATCH_INPUT_OUT);
@@ -209,7 +210,6 @@ covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.m
         sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
         centroidSizesLH = centroidSizesLH(covPhenoIndex);
         centroidSizesRH = centroidSizesRH(covPhenoIndex);
-        nSubj = size(sym2DMatrix, 1);
         avgT = mean(sym2DMatrix,1);
         % Removing components that can be controlled from covariates, keeping only
         % the residuals from the corresponding PLS model
@@ -369,13 +369,26 @@ savefig(fig, [SEGMENTATION_DIR 'explainedVariance.fig']);
 saveas(fig, [SEGMENTATION_DIR 'explainedVariance.png']);
 %%
 if FINAL_RET_PROC
-    disp(['Computing PCA that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition..'])
+    if DATASET_INDEX == 1
+        disp(['Computing PCA that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition..'])
+   
+        partitionsSizes = zeros(partitions_num, 1);
+        parfor k = 1:partitions_num
+            explainedAccum = cumsum(explained{k});
+            partitionsSizes(k) =  find(explainedAccum >= SELECTED_VARIANCE_THRESHOLD, 1 ,'first');
+        end
+        save(FINAL_PARTITIONS_INFO_PATH, 'partitionsSizes', '-v7');
+    else
+        disp(['Loading PCA number that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition of STAGE00DATA..'])
+    
+        load(FINAL_PARTITIONS_INFO_ORIG_PATH);
+    end
+
     maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds == SELECTED_VARIANCE_THRESHOLD));
     ppb = ParforProgressbar(partitions_num);
     parfor k = 1:partitions_num
         scores = pcaScores{k};
-        explainedAccum = cumsum(explained{k});
-        clusterPCAPhenoFeatures{k} = scores(:, explainedAccum < SELECTED_VARIANCE_THRESHOLD);
+        clusterPCAPhenoFeatures{k} = scores(:, 1:partitionsSizes(k));
         ppb.increment();
     end
     delete(ppb)

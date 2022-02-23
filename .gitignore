@@ -78,4 +78,5 @@ SNPLIB
 python/data.csv
 * log.txt
 **/.*
-png_raw/
+*_raw
+*.raw

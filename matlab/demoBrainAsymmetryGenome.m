@@ -3,11 +3,11 @@
 %DATA_ROOT: the directory of the DATA (../SAMPLE_DATA/)
 %DATASET_INDEX: dataset to use, 1 or 2 (1)
 %RESULTS_ROOT: the directory of the results (../results/)
-%SCRATCH_ROOT: the directory to use for the intermediate files (../results/)
 %THREADS: Number of threads to use (max set by local)
-%CHROMOSOME: Chomosome to analyze (21)
+%CHROMOSOME: Chomosome to analyze (1:22)
 %BLOCK_SIZE: Block Size for CCA (2000 when MEDIAN_IMPUTE is on else 20000)
 %MEDIAN_IMPUTE: Whether to perform median imputation (very fast) or not (very slow) (0)
+%PHENO_PATH: Whether to use a specific path for the mat file of the phenotype (defaults to the path where hierarchical clustering algorithm places it)
 %%%%%%%%%%%%
 close all;clear;
 if ~isdeployed
@@ -21,8 +21,8 @@ UPDATE_FIGS = 1;
 MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
-DEFAULT_DATASET_INDEX = 2;
-DEFAULT_MEDIAN_IMPUTE = 1;
+DEFAULT_DATASET_INDEX = 1;
+DEFAULT_MEDIAN_IMPUTE = 0;
 
 MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
 if(isempty(MEDIAN_IMPUTE))
@@ -67,9 +67,6 @@ else
 end
 
 
-
-
-
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
     DATASET_INDEX = DEFAULT_DATASET_INDEX;
@@ -80,12 +77,12 @@ else
     end
 end
 
-disp(['Number of threads:', num2str(THREADS)])
+disp(['Number of threads: ', num2str(THREADS)])
 disp(['Location of data: ', DATA_DIR])
 disp(['Median Imputation: ', num2str(MEDIAN_IMPUTE)])
 disp(['Block Size: ', num2str(BLOCK_SIZE)]);
-disp(['Using dataset:', num2str(DATASET_INDEX)])
-disp(['Chromosome analyzed:', num2str(CHRS)])
+disp(['Using dataset: ', num2str(DATASET_INDEX)])
+disp(['Chromosome analyzed: ', num2str(CHRS)])
 
 switch DATASET_INDEX
     case 1
@@ -104,20 +101,19 @@ if(isempty(RESULTS_ROOT))
 end
 RESULTS_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/'];
 disp(['Location of results: ', RESULTS_DIR]);
+
+
+
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 
-SCRATCH_ROOT = getenv('SCRATCH_ROOT');
-if(isempty(SCRATCH_ROOT))
-    SCRATCH_ROOT = '../results/';
+COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
+PHENO_PATH = getenv('PHENO_PATH');
+if(isempty(PHENO_PATH))
+    PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
 end
 
-disp(['Location of intermediate files: ', SCRATCH_ROOT]);
-SCRATCH_DIR = [SCRATCH_ROOT, '/genomeDemo/' DATASET_NAME '/'];
-if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
+disp(["Loading phenotype from: ", PHENO_PATH])
 
-COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
-disp("Loading phenotype..")
-PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
 PHENO = load(PHENO_PATH);
 %%
 disp("Loading covariates..")
@@ -134,7 +130,6 @@ for CHR_IND=1:length(CHRS)
     disp(['CHR:' , num2str(CHR)]);
     GENE_SET_METHOD = 'perSNP';
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-    SCRATCH_CHR_DIR = [SCRATCH_DIR 'chr' num2str(CHR) '/'];
 
     PLINK_DATA_INFO_OUT = [CHR_DIR 'plink_data_info.mat'];
     PLINK_DATA_PROC = isdeployed || ~isfile(PLINK_DATA_INFO_OUT);
@@ -145,7 +140,6 @@ for CHR_IND=1:length(CHRS)
     SAMPLE_SIZES_OUT = [CHR_DIR 'sampleSizes.mat'];
 
     if ~isfolder(CHR_DIR), mkdir(CHR_DIR); end
-    if ~isfolder(SCRATCH_CHR_DIR), mkdir(SCRATCH_CHR_DIR); end
     PLINK_DATA_PROC = PLINK_DATA_PROC || META_INT_GENO_PROC || WITH_PART_CCA_PROC;
     META_INT_GENO_PROC =  META_INT_GENO_PROC || ~isfile(PLINK_DATA_INFO_OUT);
     WITH_PART_CCA_PROC = WITH_PART_CCA_PROC || META_INT_GENO_PROC || ~isfile(PLINK_DATA_INFO_OUT);
