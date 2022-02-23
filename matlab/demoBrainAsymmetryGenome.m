@@ -456,14 +456,6 @@ else
     idx = cumsum(idx);
     sigSnps =  snps(idx, :);
 end
-% for c=1:size(significantInts,1)
-%     intSnps = snps(starts(c):ends(c),:);
-%     intCoeffs = ccaStats.coeffs(starts(c):ends(c));
-%     [~, maxCoefArg] = max(abs(intCoeffs));
-%     sigSnpsCoef(c) = intCoeffs(maxCoefArg);
-%     sigSnps(c, :) = intSnps(maxCoefArg, :);
-% end
-% sigSnps.COEF = sigSnpsCoef;
 intSigSnps = [stSnps, enSnps];
 if ~strcmp(savePath, "")
     writetable(sigSnps, [savePath 'significant_snps.csv']);

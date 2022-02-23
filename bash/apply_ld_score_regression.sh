@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e 
+cd ../python
 if [[ $1 == 1 ]]; then
 dataset=STAGE00DATA
 elif [[ $1 == 2 ]]; then
@@ -31,3 +32,4 @@ paste ret.csv <(cat ../results/ldsc/$dataset/v2/MUNGE_OUTPUT$i.log | sed -nr  's
 fi
 done
 mv ret.csv ../results/ldsc/$dataset/ldsc_heritability_results.csv
+cd -
