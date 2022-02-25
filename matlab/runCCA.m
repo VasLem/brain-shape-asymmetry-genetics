@@ -1,53 +1,34 @@
-function [stats, intStats] = runCCA(pheno, geno, intervals, intIdVec, blockSize)
-intChiSqSignificance = zeros(size(intervals, 1),1);
-intChiSq = zeros(size(intervals, 1),1);
-intDf = zeros(size(intervals,1),1);
+function runCCA(pheno, blocksFiles, outFiles, incMem)
+% incMem : increase memory usage for the sake of speed
 phenoPartNum = length(pheno);
-if nargin < 4
-    disp("Computing intIdVec (expanded version of intervals)..")
-    intIdVec = zeros(intervals(end,2),1);
-    intIdVec(intervals(:,1)) = 1;
-    intIdVec = cumsum(intIdVec);
-end
-if ~iscell(geno)
-    disp("Converting geno to cell array..")
-    geno = splitapply( @(x){x'}, geno', intIdVec );
-end
-
-genoSizes = intervals(:,2) - intervals(:,1) + 1;
-
-total = size(geno,1);
-blocksN = ceil(total/blockSize);
-intChiSqSignificanceBlock = cell(blocksN,1);
-intChiSqBlock =  cell(blocksN,1);
-intDfBlock =  cell(blocksN,1);
-genoBlocks = cell(blocksN, 1);
-minInds = zeros(blockSize,1);
-maxInds = zeros(blockSize,1);
-for blockCnt=1: blocksN
-    minInds(blockCnt) = (1 + (blockCnt - 1) * blockSize);
-    maxInds(blockCnt) = min(total, (blockCnt * blockSize));
-    genoBlocks{blockCnt} = geno(minInds(blockCnt):maxInds(blockCnt));
-end
-Q2Full = cell(length(pheno),1);
-T22Full = cell(length(pheno),1);
-rankYFull = cell(length(pheno),1);
-parfor i=1:length(pheno)
-    [~, Q2Full{i}, T22Full{i}, rankYFull{i}] = vl_mycanoncorr([], pheno{i});
+Q2Full = nan;
+T22Full = nan;
+rankYFull = nan;
+if incMem
+    Q2Full = cell(length(pheno),1);
+    T22Full = cell(length(pheno),1);
+    rankYFull = cell(length(pheno),1);
+    parfor i=1:length(pheno)
+        [~, Q2Full{i}, T22Full{i}, rankYFull{i}] = vl_mycanoncorr([], pheno{i});
+    end
 end
 ME = [];
 try
-    %%
-    h = waitbar(0,'Computing CCA...');
-    clk = clock;
-    for blockCnt=1: blocksN
-        currBlockSize = maxInds(blockCnt) - minInds(blockCnt) + 1;
-        genoBlock = genoBlocks{blockCnt};
+    ppb = ParforProgressbar(length(blocksFiles),  'showWorkerProgress', true);
+    parfor blockCnt=1: length(blocksFiles)
+        inp = load(blocksFiles{blockCnt});
+        genoBlock = inp.genoBlock;
+        blockIntervals = inp.blockIntervals;
+        blockSizes = blockIntervals(:,2) - blockIntervals(:,1) + 1;
+        gId =  zeros(sum(blockSizes),1);
+        gId(blockIntervals(:, 1) - blockIntervals(1,2) + 1) = 1;
+        gId = cumsum(gId);
+        genoBlock = splitapply( @(x){x'}, genoBlock', gId );
+        currBlockSize = size(genoBlock,1);
         finite_mask = cellfun(@(x)all(x~=255,2), genoBlock,'UniformOutput',false);
         finite_mask = cat(2,finite_mask{:})';
         [patterns, ~, patternsInds] = unique(finite_mask,'rows');
         fallback = ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin');
-        blockSizes = genoSizes(minInds(blockCnt):maxInds(blockCnt));
         intChiSqSignificancePattern = ones(currBlockSize, phenoPartNum);
         intChiSqPattern = zeros(currBlockSize,phenoPartNum);
         intDfPattern = zeros(currBlockSize,phenoPartNum);
@@ -62,7 +43,7 @@ try
             else
                 genoPattern = genoBlock;
             end
-            parfor phenoPartInd=1:length(pheno)
+            for phenoPartInd=1:length(pheno)
                 phenoPart = pheno{phenoPartInd};
                 phenoPart = phenoPart(pattern, :);
                 if patternNSnps==1
@@ -75,7 +56,7 @@ try
                     intDfPattern(patternFlag, phenoPartInd) = st.df1(1);
                     continue
                 end
-                if ~nomissing
+                if ~nomissing || ~incMem
                     [~, Q2, T22, rankY] = vl_mycanoncorr([], phenoPart);
                 else
                     Q2 = Q2Full{phenoPartInd};
@@ -109,34 +90,18 @@ try
                 intDfPattern(patternFlag, phenoPartInd) = dfsSize;
             end
         end
-        intChiSqSignificanceBlock{blockCnt} = intChiSqSignificancePattern;
-        intChiSqBlock{blockCnt} = intChiSqPattern;
-        intDfBlock{blockCnt} = intDfPattern;
-        if blockCnt ==1
-            is = etime(clock,clk);
-            esttime = is * blocksN;
-        end
-        h = waitbar(blockCnt/blocksN,h,...
-            ['remaining time =',num2str(esttime-etime(clock,clk),'%4.1f'),'sec' ]);
+        saveBlockFunc(outFiles{blockCnt}, intChiSqSignificancePattern, intChiSqPattern, intDfPattern);
+        ppb.increment();
     end
-    intChiSqSignificance = cat(1, intChiSqSignificanceBlock{:});
-    intChiSq = cat(1, intChiSqBlock{:});
-    intDf = cat(1, intDfBlock{:});
 catch ME
 end
-close(h)
+delete(ppb);
 if ~isempty(ME)
     rethrow(ME);
 end
-intStats.chiSqSignificance = intChiSqSignificance;
-intStats.chisq = intChiSq;
-intStats.df = intDf;
-chiSqSignificance = intChiSqSignificance(intIdVec,:);
-chisq = intChiSq(intIdVec,:);
-df= intDf(intIdVec,:);
-stats.chiSqSignificance = chiSqSignificance;
-stats.chisq = chisq;
-stats.df = df;
+end
+function saveBlockFunc(outfile, chisqSignificance, chisq,df)
+save(outfile, 'chisqSignificance','chisq','df')
 end
 
 

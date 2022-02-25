@@ -1,0 +1,11 @@
+mkdir -p vlThesis
+cd vlThesis
+
+mkdir -p $VSC_DATA/vlThesis/SAMPLE_DATA
+mkdir -p $VSC_DATA/vlThesis/results
+mkdir -p $VSC_SCRATCH/vlThesis
+
+ln -s $VSC_DATA/vlThesis/SAMPLE_DATA SAMPLE_DATA
+ln -s $VSC_DATA/vlThesis/results results
+ln -s $VSC_SCRATCH/vlThesis tmp
+

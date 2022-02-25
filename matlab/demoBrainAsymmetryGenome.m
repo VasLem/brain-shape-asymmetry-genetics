@@ -3,9 +3,10 @@
 %DATA_ROOT: the directory of the DATA (../SAMPLE_DATA/)
 %DATASET_INDEX: dataset to use, 1 or 2 (1)
 %RESULTS_ROOT: the directory of the results (../results/)
+%SCRATCH_ROOT: the directory  of the temporary results (../results/)
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (1:22)
-%BLOCK_SIZE: Block Size for CCA (2000 when MEDIAN_IMPUTE is on else 20000)
+%BLOCK_SIZE: Block Size for CCA (2000)
 %MEDIAN_IMPUTE: Whether to perform median imputation (very fast) or not (very slow) (0)
 %PHENO_PATH: Whether to use a specific path for the mat file of the phenotype (defaults to the path where hierarchical clustering algorithm places it)
 %%%%%%%%%%%%
@@ -23,16 +24,11 @@ NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_DATASET_INDEX = 1;
 DEFAULT_MEDIAN_IMPUTE = 0;
+DEFAULT_BLOCK_SIZE =2000;
 
 MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
 if(isempty(MEDIAN_IMPUTE))
     MEDIAN_IMPUTE = DEFAULT_MEDIAN_IMPUTE;
-end
-
-if MEDIAN_IMPUTE == 0
-    DEFAULT_BLOCK_SIZE= 20000;
-else
-    DEFAULT_BLOCK_SIZE = 2000;
 end
 
 BLOCK_SIZE = getenv('BLOCK_SIZE');
@@ -44,6 +40,11 @@ end
 DATA_DIR = getenv('DATA_ROOT');
 if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
+end
+
+SCRATCH_ROOT = getenv('SCRATCH_ROOT');
+if(isempty(SCRATCH_ROOT))
+    SCRATCH_ROOT = '../results/';
 end
 
 
@@ -79,6 +80,7 @@ end
 
 disp(['Number of threads: ', num2str(THREADS)])
 disp(['Location of data: ', DATA_DIR])
+disp(['Location of temporary data:', SCRATCH_ROOT])
 disp(['Median Imputation: ', num2str(MEDIAN_IMPUTE)])
 disp(['Block Size: ', num2str(BLOCK_SIZE)]);
 disp(['Using dataset: ', num2str(DATASET_INDEX)])
@@ -105,6 +107,8 @@ disp(['Location of results: ', RESULTS_DIR]);
 
 
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
+SCRATCH_GENO_DIR = [SCRATCH_ROOT 'tmpGeno/'];
+
 
 COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 PHENO_PATH = getenv('PHENO_PATH');
@@ -112,7 +116,7 @@ if(isempty(PHENO_PATH))
     PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
 end
 
-disp(["Loading phenotype from: ", PHENO_PATH])
+disp(['Loading phenotype from: ', PHENO_PATH])
 
 PHENO = load(PHENO_PATH);
 %%
@@ -123,11 +127,16 @@ try
     parpool(THREADS);
 catch
 end
-for CHR_IND=1:length(CHRS)
+for CHR_IND=1:length(CHRS) 
     tic;
     clearvars -except -regexp ^[A-Z|_]+$
     CHR = CHRS(CHR_IND);
+    
     disp(['CHR:' , num2str(CHR)]);
+    SCRATCH_GENE_DIR = [SCRATCH_GENO_DIR num2str(CHR) '/'];
+    if isfolder(SCRATCH_GENE_DIR), rmdir(SCRATCH_GENE_DIR, 's'); end
+    mkdir(SCRATCH_GENE_DIR)
+
     GENE_SET_METHOD = 'perSNP';
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
 
@@ -163,13 +172,11 @@ for CHR_IND=1:length(CHRS)
         disp("Loading PLINK preprocessed data..")
         tic;
         obj = SNPLIB();
-        if ~isdeployed
-            obj.nThreads = THREADS;
-        end
+        obj.nThreads = THREADS;
         GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)];
         [snps, samples] = obj.importPLINKDATA(GENO_PATH);
         geno = obj.UnpackGeno();
-       
+
 
         clear obj;
 
@@ -201,12 +208,10 @@ for CHR_IND=1:length(CHRS)
         snpsPruned = snps(indelFilter, :);
         clear geno
         clear snps
-
+    
         % Some checks
         %regarding the fact that positions need to be sorted
         assert(all(sort(snpsPruned.POS) == snpsPruned.POS));
-        %regarding the fact that all snps need to be unique
-        assert(length(unique(snpsPruned.RSID)) == height(snpsPruned));
         % and that all phenotype ids  correspond to genotype ones
         assert(all((1:length(phenoId)) == phenoIndex'));
         toc;
@@ -247,66 +252,100 @@ for CHR_IND=1:length(CHRS)
             end
             toc;
         end
-
-        disp("Splitting genome into groups, according to intervals information..")
-        tic;
-        gId = zeros(intervals(end,2),1);
-        gId(intervals(:, 1)) = 1;
-        gId = cumsum(gId);
-        genoPruned = splitapply( @(x){x'}, genoPruned', gId );
-
-        toc;
+%%
         if ~isdeployed
             disp("Saving pruned SNPs...")
             tic;
-            save(META_INT_GENO_OUT, 'snpsPruned', 'intervals', 'gId', '-v7.3');
+            save(META_INT_GENO_OUT, 'snpsPruned', 'intervals',  '-v7.3');
             toc;
         end
-        disp("Computing sample sizes per SNP..")
-        sampleSizes = getSampleSizes(genoPruned);
-        if ~isdeployed
-            save(SAMPLE_SIZES_OUT,'sampleSizes', '-v7.3')
-        end
+        %%
+
 
         %         disp("Controlling genome for covariates based on intervals..")
         %         tic;
         %         genoInt = controlGenoCovariates(genoInt, covData);
         %         toc;
+            sampleSizes = getSampleSizes(genoPruned, intervals);
+            save(SAMPLE_SIZES_OUT,'sampleSizes', '-v7.3')
     end
     %%
     if ~exist('intervals', 'var')
         disp("Loading intervals from memory..")
         tic;
-        load(META_INT_GENO_OUT,  'intervals', 'gId');
+        load(META_INT_GENO_OUT,  'intervals');
         toc;
     end
+         disp("Computing sample sizes per SNP..")
+
+       
+    %%
     pheno = getPheno(PHENO, phenoIndex);
     gTLPartsPThres = NO_PARTITION_THRES / length(pheno);
     %%
     if ~WITH_PART_CCA_PROC
-        load(WITH_PART_CCA_OUT,  'gTLPartStats', 'gTLPartIntStats');
+        load(WITH_PART_CCA_OUT,  'stats', 'intstats');
         disp("Loaded Computed CCA with phenotypic partinioning");
     else
-         %%
         disp("Computing CCA with phenotypic partitioning..")
         tic;
-       
-        [gTLPartStats, gTLPartIntStats] = runCCA(pheno,  genoPruned, intervals, gId, BLOCK_SIZE);
+        total = size(intervals, 1);
+        blocksN = ceil(total/BLOCK_SIZE);
+        intchisqSignificanceBlock = cell(blocksN,1);
+        intChiSqBlock =  cell(blocksN,1);
+        intDfBlock =  cell(blocksN,1);
+        files = cell(blocksN,1);
+        outFiles = cell(blocksN,1);
+        %%
+        disp("Splitting SNPs into blocks..")
+        tic;
+        for blockCnt=1: blocksN
+            minInd = (1 + (blockCnt - 1) * BLOCK_SIZE);
+            maxInd= min(total, (blockCnt * BLOCK_SIZE));
+            blockIntervals = intervals(minInd:maxInd,:);
+            genoBlock = genoPruned(:, blockIntervals(1,1):blockIntervals(end,2));
+            files{blockCnt} = [SCRATCH_GENE_DIR num2str(blockCnt) '.mat'];
+            outFiles{blockCnt} = [SCRATCH_GENE_DIR num2str(blockCnt) '_out.mat'];
+            save(files{blockCnt}, 'genoBlock', 'blockIntervals', '-v6');
+        end
+        clear genoPruned
+        toc;
+        %%
+        disp("Running CCA..")
+        tic;
+        runCCA(pheno,  files, outFiles, ~isdeployed);
+        toc;
+        disp("Collecting results..")
+        tic;
+        for blockCnt=1:blocksN
+            load(outFiles{blockCnt});
+            intchisqSignificanceBlock{blockCnt} = chisqSignificance;
+            intChiSqBlock{blockCnt} = chisq;
+            intDfBlock{blockCnt} = df;
+        end
+        intStats.chisqSignificance = cat(1, intchisqSignificanceBlock{:});
+        intStats.chisq = cat(1, intChiSqBlock{:});
+        intStats.df = cat(1, intDfBlock{:});
+        intIdVec = zeros(intervals(end,2),1);
+        intIdVec(intervals(:,1)) = 1;
+        intIdVec = cumsum(intIdVec);
+        stats.chisqSignificance = intchisqSignificance(intIdVec,:);
+        stats.chisq = intChiSq(intIdVec,:);
+        stats.df= intDf(intIdVec,:);
         toc;
         disp("Saving CCA results..")
         tic;
-        save(WITH_PART_CCA_OUT, 'gTLPartStats', 'gTLPartIntStats', '-v7.3');
+        save(WITH_PART_CCA_OUT, 'stats', 'intStats', '-v7.3');
         WITH_PART_CCA_PROC = false;
         toc;
-        clear genoPruned
     end
 
     %%
     if UPDATE_FIGS
         disp("Plotting results..")
         tic;
-        plotSimpleGWAS(intervals, gTLPartIntStats.chiSqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
-        plotPartitionsGWAS(intervals, gTLPartIntStats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
+        plotSimpleGWAS(intervals, intstats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
+        plotPartitionsGWAS(intervals, intstats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
         toc;
     end
     %% Significant SNPs tables extraction
@@ -318,8 +357,8 @@ for CHR_IND=1:length(CHRS)
     end
     disp("Extracting significant SNPs tables..")
     tic;
-    prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
-    prepareSignificantTablesOnEachPartition(snpsPruned,  gTLPartIntStats , intervals, NO_PARTITION_THRES, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned,  intstats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned,  intstats , intervals, NO_PARTITION_THRES, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
     toc;
     %% LD regression csv
     disp("Extracting partition specific signigicant SNPs tables..")
@@ -330,7 +369,7 @@ for CHR_IND=1:length(CHRS)
         toc;
     end
     tic;
-    saveLDRegressionTablesOnEachPartition(snpsPruned, pheno, sampleSizes, gTLPartIntStats.chisq, gTLPartIntStats.chiSqSignificance, intervals, CHR_DIR);
+    saveLDRegressionTablesOnEachPartition(snpsPruned, pheno, sampleSizes, intstats.chisq, intstats.chisqSignificance, intervals, CHR_DIR);
     tic;
     %
     disp("End of computation.")
@@ -370,11 +409,11 @@ function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThresB, pThr
 fig = figure('visible','off');
 fig.Position = [100 100 900 900];
 hold on
-pNum = size(intStats.chiSqSignificance, 2);
+pNum = size(intStats.chisqSignificance, 2);
 for i=1:pNum
-    sig1 = num2str(sum(intStats.chiSqSignificance(:,i)<pThresB));
-    sig2 = num2str(sum(intStats.chiSqSignificance(:, i)<pThres));
-    scatter(intervals(:, 1), -log10(intStats.chiSqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
+    sig1 = num2str(sum(intStats.chisqSignificance(:,i)<pThresB));
+    sig2 = num2str(sum(intStats.chisqSignificance(:, i)<pThres));
+    scatter(intervals(:, 1), -log10(intStats.chisqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
 end
 yline(-log10(pThresB), 'DisplayName', 'Bonferroni Threshold');
 yline(-log10(pThres), '--', 'DisplayName', '(No correction Threshold)');
@@ -386,22 +425,22 @@ saveas(fig, [path '_logPlot.svg']);
 end
 
 
-function fig = plotSimpleGWAS(intervals, chiSqSignificance, chromosome, pThres, path)
+function fig = plotSimpleGWAS(intervals, chisqSignificance, chromosome, pThres, path)
 fig = figure;
-scatter(intervals(:, 1), -log10(chiSqSignificance), 18, '.');
+scatter(intervals(:, 1), -log10(chisqSignificance), 18, '.');
 yline(-log10(pThres));
 
-title(['Chromosome ' num2str(chromosome) ', ' num2str(sum(chiSqSignificance<pThres)) ' significant intervals out of ' num2str(length(chiSqSignificance))])
+title(['Chromosome ' num2str(chromosome) ', ' num2str(sum(chisqSignificance<pThres)) ' significant intervals out of ' num2str(length(chisqSignificance))])
 ylabel('-log10p');
 saveas(fig, [path '_logPlot.svg']);
 end
 
 function [intSigSnps, sigSnps] = prepareSignificantTablesOnEachPartition(snps, ccaIntStats, ccaIntervals, pThres, save_path)
-pNum = size(ccaIntStats.chiSqSignificance ,2);
+pNum = size(ccaIntStats.chisqSignificance ,2);
 sigSnps= [];
 intSigSnps = [];
 for i=1:pNum
-    partIntStats = struct('chiSqSignificance', ccaIntStats.chiSqSignificance(:, i));
+    partIntStats = struct('chisqSignificance', ccaIntStats.chisqSignificance(:, i));
     [intRet, ret] =  prepareSignificantTables(snps, partIntStats, ccaIntervals, pThres);
     if isempty(ret), continue; end
     intRet.PARTITION = repmat(i,size(intRet, 1),1);
@@ -427,7 +466,7 @@ function [intSigSnps, sigSnps] = prepareSignificantTables(snps, ccaIntStats, cca
 if nargin < 5
     savePath = "";
 end
-significantInts = ccaIntervals(ccaIntStats.chiSqSignificance<pThres, :);
+significantInts = ccaIntervals(ccaIntStats.chisqSignificance<pThres, :);
 starts = significantInts(:,1);
 ends = significantInts(:,2);
 stSnps = snps(starts,:);
@@ -458,13 +497,13 @@ end
 end
 
 function ret = getPheno(PHENO, phenoIndex)
-    pnum = length(PHENO.clusterPCAPhenoFeatures);
-    ret = cell(length(pnum),1);
-    for k=1:pnum
-        phenoPart = PHENO.clusterPCAPhenoFeatures{k};
-        phenoPart = phenoPart(phenoIndex, :);
-        ret{k} = phenoPart;
-    end
+pnum = length(PHENO.clusterPCAPhenoFeatures);
+ret = cell(length(pnum),1);
+for k=1:pnum
+    phenoPart = PHENO.clusterPCAPhenoFeatures{k};
+    phenoPart = phenoPart(phenoIndex, :);
+    ret{k} = phenoPart;
+end
 end
 
 
@@ -512,6 +551,9 @@ switch geneSetMethod
 end
 end
 
-function sampleSizes = getSampleSizes(geno)
-sampleSizes = cellfun(@(x)(min(sum(x~=255))), geno);
+function sampleSizes = getSampleSizes(geno, intervals)
+ t = sum(geno~=255);
+parfor i=1:size(intervals,1)
+    sampleSizes(i) = min(t(intervals(i,1): intervals(i,2)))
+end
 end

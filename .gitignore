@@ -67,9 +67,10 @@ chisq_stats.csv
 noPartWholeCCA.csv
 results/demo_asymmetry/fluctuatingAMMI.txt
 results/genomics
+demoBrainAsymmetryGenome
+demoBrainAsymmetryHierarchicalClustering
 iELVis
 matlab/AIDFUNCTIONS/ToolBoxes
-deployed
 *.bak
 *.gz
 metaphat
