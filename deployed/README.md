@@ -9,6 +9,7 @@ The following is an example for my case, I am user vsc33862, that saves the data
 a folder named vlThesis (keep this folder as is, so that the pbs script does not need to change), 
 using hpc as SSH_URL (I have made an SSH hook).
 The allocation to VSC_DATA or VSC_HOME is done automatically, all the large files are saved in VSC_DATA.
+> :warning: **Files of both datasets cannot exist at the same time in the data folder due to the 75GB limitation!**
 ```
 ./send_data_to_hpc.sh 1 hpc vlThesis
 ```
