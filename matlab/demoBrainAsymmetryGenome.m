@@ -329,9 +329,9 @@ for CHR_IND=1:length(CHRS)
         intIdVec = zeros(intervals(end,2),1);
         intIdVec(intervals(:,1)) = 1;
         intIdVec = cumsum(intIdVec);
-        stats.chisqSignificance = intchisqSignificance(intIdVec,:);
-        stats.chisq = intChiSq(intIdVec,:);
-        stats.df= intDf(intIdVec,:);
+        stats.chisqSignificance = intStats.chisqSignificance(intIdVec,:);
+        stats.chisq = intStats.chisq(intIdVec,:);
+        stats.df= intStats.df(intIdVec,:);
         toc;
         disp("Saving CCA results..")
         tic;
@@ -344,8 +344,8 @@ for CHR_IND=1:length(CHRS)
     if UPDATE_FIGS
         disp("Plotting results..")
         tic;
-        plotSimpleGWAS(intervals, intstats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
-        plotPartitionsGWAS(intervals, intstats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
+        plotSimpleGWAS(intervals, intStats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
+        plotPartitionsGWAS(intervals, intStats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
         toc;
     end
     %% Significant SNPs tables extraction
@@ -357,8 +357,8 @@ for CHR_IND=1:length(CHRS)
     end
     disp("Extracting significant SNPs tables..")
     tic;
-    prepareSignificantTablesOnEachPartition(snpsPruned,  intstats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
-    prepareSignificantTablesOnEachPartition(snpsPruned,  intstats , intervals, NO_PARTITION_THRES, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned,  intStats , intervals, gTLPartsPThres, [CHR_DIR, 'PartitionedGTLWithBC_feats' num2str(MAX_NUM_FEATS)]);
+    prepareSignificantTablesOnEachPartition(snpsPruned,  intStats , intervals, NO_PARTITION_THRES, [CHR_DIR, 'PartitionedGTLWoutBC_feats' num2str(MAX_NUM_FEATS)]);
     toc;
     %% LD regression csv
     disp("Extracting partition specific signigicant SNPs tables..")
@@ -369,7 +369,7 @@ for CHR_IND=1:length(CHRS)
         toc;
     end
     tic;
-    saveLDRegressionTablesOnEachPartition(snpsPruned, pheno, sampleSizes, intstats.chisq, intstats.chisqSignificance, intervals, CHR_DIR);
+    saveLDRegressionTablesOnEachPartition(snpsPruned, pheno, sampleSizes, intStats.chisq, intStats.chisqSignificance, intervals, CHR_DIR);
     tic;
     %
     disp("End of computation.")
