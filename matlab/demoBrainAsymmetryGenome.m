@@ -284,7 +284,7 @@ for CHR_IND=1:length(CHRS)
     gTLPartsPThres = NO_PARTITION_THRES / length(pheno);
     %%
     if ~WITH_PART_CCA_PROC
-        load(WITH_PART_CCA_OUT,  'stats', 'intstats');
+        load(WITH_PART_CCA_OUT,  'stats', 'intStats');
         disp("Loaded Computed CCA with phenotypic partinioning");
     else
         disp("Computing CCA with phenotypic partitioning..")
