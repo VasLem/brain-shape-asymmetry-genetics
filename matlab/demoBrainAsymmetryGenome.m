@@ -345,7 +345,7 @@ for CHR_IND=1:length(CHRS)
         disp("Plotting results..")
         tic;
         plotSimpleGWAS(intervals, intStats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition_feats' num2str(MAX_NUM_FEATS)]);
-        plotPartitionsGWAS(intervals, intStats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
+        plotPartitionsGWAS(intgit commit -m 'ervals, intStats, CHR, gTLPartsPThres, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL_feats' num2str(MAX_NUM_FEATS)]);
         toc;
     end
     %% Significant SNPs tables extraction
