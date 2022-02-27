@@ -374,9 +374,7 @@ for CHR_IND=1:length(CHRS)
     %
     disp("End of computation.")
     %%
-    if ~isdeployed
-        close all
-    end
+    close all
     toc;
 end
 
@@ -389,8 +387,7 @@ output = snpsPruned;
 output.Properties.VariableNames = new_names;
 output = output(:,~(strcmp(new_names,'POS') | strcmp(new_names,'CHR')));
 idx  =intervalsToVector(intervals);
-output.N = sample_sizes(idx);
-output.SIGN = ones(height(snpsPruned),1);
+output.N = reshape(sample_sizes(idx), height(output),1);
 for i=1:pNum
     output.(['P_PAR', num2str(i)]) = partSignificances(idx, i);
     output.(['CHI_PAR',num2str(i)]) = partScores(idx, i)./(size(PHENO{i},2) .* (1 + partScores(idx, i)./output.N))  ;
