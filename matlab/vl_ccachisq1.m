@@ -81,7 +81,7 @@ else
     rankXs = zeros(size(Xs, 3),1);
     Q1 = zeros([size(Xs,1),  size(Xs,2), size(Xs,3)]);
     for i=1:size(Xs, 3)
-        [Q, T11] = qr(Xs(:,:,i),0);
+        [Q, T11,~] = qr(Xs(:,:,i),0);
         rankXs(i) = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
         Q = Q(:, 1:rankXs(i));
         Q1(1:size(Q,1),1:size(Q,2),i) = Q;
@@ -99,7 +99,7 @@ if nargin < 3
     p2 = size(Y,2);
     Y = double(Y);
     Y = Y - mean(Y,1);
-    [Q2,T22] = qr(Y,0);
+    [Q2,T22, ~] = qr(Y,0);
     rankY = sum(abs(diag(T22)) > eps(abs(T22(1)))*max(n,p2));
     if rankY == 0
         error(message('stats:canoncorr:BadData', 'Y'));

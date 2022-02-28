@@ -119,6 +119,9 @@ end
 disp(['Loading phenotype from: ', PHENO_PATH])
 
 PHENO = load(PHENO_PATH);
+
+disp(['Computing phenotype correlation...']);
+
 %%
 disp("Loading covariates..")
 load(COV_GENO_PATH, 'COV');

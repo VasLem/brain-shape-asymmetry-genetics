@@ -83,7 +83,7 @@ if ~isempty(X)
         rankX = 1;
     else
         % Factor the inputs, and find a full rank set of columns if necessary
-        [Q1,T11 ] = qr(X,0);
+        [Q1,T11,~] = qr(X,0);
         rankX = sum(abs(diag(T11)) > eps(abs(T11(1)))*max(n,p1));
     end
     
@@ -98,7 +98,7 @@ if nargin < 3
     n = size(Y,1) ;
     p2 = size(Y,2);
     Y = Y - mean(Y,1);
-    [Q2,T22] = qr(Y,0);
+    [Q2,T22,~] = qr(Y,0);
     rankY = sum(abs(diag(T22)) > eps(abs(T22(1)))*max(n,p2));
     if rankY == 0
         error(message('stats:canoncorr:BadData', 'Y'));
