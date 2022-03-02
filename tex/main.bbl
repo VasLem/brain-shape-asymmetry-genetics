@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{Claes2018}
+P.~Claes, J.~Roosenboom, J.~D. White, T.~Swigut, D.~Sero, J.~Li, M.~K. Lee,
+  A.~Zaidi, B.~C. Mattern, C.~Liebowitz, L.~Pearson, T.~Gonz{\'{a}}lez, E.~J.
+  Leslie, J.~C. Carlson, E.~Orlova, P.~Suetens, D.~Vandermeulen, E.~Feingold,
+  M.~L. Marazita, J.~R. Shaffer, J.~Wysocka, M.~D. Shriver, and S.~M. Weinberg.
+\newblock {Genome-wide mapping of global-to-local genetic effects on human
+  facial shape}.
+\newblock {\em Nature Genetics}, 50(3):414--423, 2018.
+
+\bibitem{klingenberg2002}
+C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
+\newblock Shape analysis of symmetric structures: Quantifying variation among
+  individuals and asymmetry.
+\newblock {\em Evolution}, 56(10):1909--1920, 2002.
+
+\bibitem{Naqvi2021}
+S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
+  A.~Radwan, R.~J. Eller, S.~Richmond, M.~D. Shriver, J.~R. Shaffer, S.~M.
+  Weinberg, S.~Walsh, J.~Thompson, J.~K. Pritchard, S.~Sunaert, H.~Peeters,
+  J.~Wysocka, and P.~Claes.
+\newblock {Shared heritability of human face and brain shape}.
+\newblock {\em Nature Genetics}, 53(6):830--839, 2021.
+
+\bibitem{Ng2002}
+A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
+\newblock {On spectral clustering: Analysis and an algorithm}.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2002.
+
+\end{thebibliography}
