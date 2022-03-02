@@ -112,7 +112,8 @@ for c=1:size(clustered,1)
             set(pax,'ylim',[0,1]);
             center = [x,y];
             pInds = find(selection);
-            ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR/4, nan, value);
+            ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), ...
+                offsetR/4, nan, value);
             levelShapes{level + 1} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level + 1},value);
             ret{cnt}.level = level;
             ret{cnt}.id = k;
@@ -138,8 +139,9 @@ else
     newCenter = [0,0];
 end
 
-ret.handle= paintSingle(fig, clustered.rootIndices, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + newCenter), offsetR/4, nan);
-levelShapes{level + 1} = paintSingle(nan, clustered.rootIndices, template, nan, nan, levelShapes{level + 1});
+ret.handle= paintSingle(fig, clustered.rootIndices, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + newCenter), ...
+    offsetR/4, nan, nan);
+levelShapes{level + 1} = paintSingle(nan, clustered.rootIndices, template, nan, nan, levelShapes{level + 1},nan);
 if numel(clustered.parts)>0
     [ret.parts{1}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{1}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);
     [ret.parts{2}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{2}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);

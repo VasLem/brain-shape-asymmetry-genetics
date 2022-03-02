@@ -7,13 +7,13 @@
 *********************************************************************
 Call: 
 ./ldsc.py \
---h2 v1/MUNGE_OUTPUT21.sumstats.gz \
+--h2 v1/MUNGE_OUTPUT19.sumstats.gz \
 --ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
---out v2/MUNGE_OUTPUT21 \
+--out v2/MUNGE_OUTPUT19 \
 --w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
 
-Beginning analysis at Sun Feb 20 01:10:23 2022
-Reading summary statistics from v1/MUNGE_OUTPUT21.sumstats.gz ...
+Beginning analysis at Sun Feb 20 01:05:50 2022
+Reading summary statistics from v1/MUNGE_OUTPUT19.sumstats.gz ...
 Read summary statistics for 7033675 SNPs.
 Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
 Read reference panel LD Scores for 1290028 SNPs.
@@ -23,10 +23,10 @@ Read regression weight LD Scores for 1290028 SNPs.
 After merging with reference panel LD, 1174774 SNPs remain.
 After merging with regression SNP LD, 1174774 SNPs remain.
 Using two-step estimator with cutoff at 30.
-Total Observed scale h2: 0.0822 (0.0219)
-Lambda GC: 1.0315
-Mean Chi^2: 1.0278
-Intercept: 0.9969 (0.0057)
-Ratio < 0 (usually indicates GC correction).
-Analysis finished at Sun Feb 20 01:10:57 2022
-Total time elapsed: 34.42s
+Total Observed scale h2: 0.1448 (0.0273)
+Lambda GC: 1.0649
+Mean Chi^2: 1.0584
+Intercept: 1.0034 (0.0064)
+Ratio: 0.0577 (0.1092)
+Analysis finished at Sun Feb 20 01:06:26 2022
+Total time elapsed: 36.11s

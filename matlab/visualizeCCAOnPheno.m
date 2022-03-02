@@ -1,22 +1,18 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = true;
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 switch DATASET_INDEX
     case 1
-        UKBIOBANK = 'UKBIOBANK';
         DATASET = 'STAGE00DATA';
-        GENO_ID = 'sel19908';
     case 2
-        UKBIOBANK = 'MY_UKBIOBANK';
         DATASET = 'BATCH2_2021_DATA';
-        GENO_ID = 'sel16875_rmrel';
 end
 GENO_DIR = ['../results/genomeDemo/' DATASET '/'];
 CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
 RESULTS_DIR = fullfile(pwd, ['../results/visualizeCCAOnPheno/' DATASET '/']);
-clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
-template = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/input_info.mat']).preprocTemplate;
+clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/levels4/segmentation.mat']).clusterArray;
+template = load([CLUSTER_DIR 'asymmetry_reduction10/levels4/input_info.mat']).preprocTemplate;
 %%
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 [fig, fig2, handles] = paintClusters(clusterArray, template, 4, false);

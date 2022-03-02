@@ -14,9 +14,13 @@ if ~isdeployed
     addpath(genpath('FUNCTIONS'));
     addpath(genpath('.'));
 end
+NUM_LEVELS = 4;
 
-
+DEFAULT_DATASET_INDEX = 1;
+REDUCTION_RATE = 1;
+DEFAULT_COMPONENT = 'asymmetry'; %symmetry
 SEED = 42;
+
 rng(SEED); % For reproducible results
 if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
@@ -27,10 +31,9 @@ if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
 end
 
-
 DATASET_INDEX = getenv('DATASET_INDEX');
 if (isempty(DATASET_INDEX))
-    DATASET_INDEX = 2;
+    DATASET_INDEX = DEFAULT_DATASET_INDEX;
 else
     disp(DATASET_INDEX)
     if ~isnumeric(DATASET_INDEX)
@@ -80,26 +83,18 @@ try
 catch
 end
 
-
-SELECTION = 'asymmetry';
-% SELECTION = 'symmetry';
-
-COV_REMOVAL = 'ccPriorSegmentation';
-% COV_REMOVAL = 'ccPostSegmentation';
+COMPONENT=getenv('SYM_COMPONENT');
+if isempty(COMPONENT)
+    COMPONENT = DEFAULT_COMPONENT;
+end
 
 SELECTED_VARIANCE_THRESHOLD = 80;
-NUM_LEVELS = 4;
-SEGMENTATION_USED = 'mine';
-% SEGMENTATION_USED = 'labs';
 
-REDUCTION_RATE = 0.1;
 
-SELECTION_DIR   = [RESULTS_DIR SELECTION '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
-SELECTION_SCRATCH_DIR   = [SCRATCH_DIR SELECTION '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
-COV_REMOVAL_DIR = [SELECTION_DIR COV_REMOVAL '/'];
-COV_REMOVAL_SCRATCH_DIR   =  [SELECTION_SCRATCH_DIR COV_REMOVAL '/'];
-SEGMENTATION_DIR = [COV_REMOVAL_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
-SEGMENTATION_SCRATCH_DIR = [COV_REMOVAL_SCRATCH_DIR 'levels' num2str(NUM_LEVELS) '_' SEGMENTATION_USED '/'];
+SELECTION_DIR   = [RESULTS_DIR COMPONENT '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
+SELECTION_SCRATCH_DIR   = [SCRATCH_DIR COMPONENT '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
+SEGMENTATION_DIR = [SELECTION_DIR 'levels' num2str(NUM_LEVELS) '/'];
+SEGMENTATION_SCRATCH_DIR = [SELECTION_SCRATCH_DIR 'levels' num2str(NUM_LEVELS) '/'];
 SEGMENTATION_SCRATCH_INPUT_OUT = [SEGMENTATION_SCRATCH_DIR, 'input.mat'];
 SEGMENTATION_INPUT_OUT = [SEGMENTATION_DIR, 'input_info.mat'];
 SEGMENTATION_INPUT_INFO_PROC = ~isfile(SEGMENTATION_INPUT_OUT);
@@ -107,7 +102,7 @@ EXPLAINED_COV_OUT = [SELECTION_DIR  'explained_by_cov_dk.mat'];
 EXPLAINED_COV_PROC = ~isfile(EXPLAINED_COV_OUT);
 RESIDUALS_OUT = [SELECTION_DIR  'residuals.mat'];
 RESIDUALS_PROC = ~isfile(RESIDUALS_OUT);
-RV_MATRIX_OUT = [COV_REMOVAL_DIR 'similarityMatrix.mat'];
+RV_MATRIX_OUT = [SEGMENTATION_DIR 'similarityMatrix.mat'];
 RV_MATRIX_PROC = ~isfile(RV_MATRIX_OUT);
 SEGMENTATION_OUT = [SEGMENTATION_DIR 'segmentation.mat'];
 SEGMENTATION_ORI_OUT = strrep(SEGMENTATION_OUT, 'BATCH2_2021_DATA', 'STAGE00DATA');
@@ -116,7 +111,6 @@ FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIAN
 FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
 FINAL_PARTITIONS_INFO_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '_part_info.mat'];
 FINAL_PARTITIONS_INFO_ORIG_PATH = strrep(FINAL_PARTITIONS_INFO_PATH, 'BATCH2_2021_DATA', 'STAGE00DATA');
-RV_MATRIX_PROC = RV_MATRIX_PROC && ~SEGMENTATION_PROC;
 
 SEGMENTATION_SCRATCH_INPUT_PROC = isdeployed || ~isfile(SEGMENTATION_SCRATCH_INPUT_OUT);
 
@@ -126,177 +120,177 @@ PERFORM_STEPS_12 =  RV_MATRIX_PROC || RESIDUALS_PROC || EXPLAINED_COV_PROC;
 SEGMENTATION_INPUT_PROC = SEGMENTATION_SCRATCH_INPUT_PROC && PERFORM_STEPS_12;
 SEGMENTATION_INPUT_PROC = SEGMENTATION_INPUT_PROC || SEGMENTATION_INPUT_INFO_PROC;
 
+
+
+if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
+if ~isfolder(SEGMENTATION_SCRATCH_DIR), mkdir(SEGMENTATION_SCRATCH_DIR); end
 diary([SEGMENTATION_DIR  datestr(now) ' log.txt']);
 disp(['Location of data: ', DATA_DIR]);
 disp(['Using dataset:', num2str(DATASET_INDEX)])
 disp(['Location of results: ', RESULTS_DIR]);
 disp(['Location of intermediate files: ', SCRATCH_DIR]);
 
-if ~isfolder(SEGMENTATION_DIR), mkdir(SEGMENTATION_DIR); end
-if ~isfolder(SEGMENTATION_SCRATCH_DIR), mkdir(SEGMENTATION_SCRATCH_DIR); end
-
-
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
 
 
 
-    if SEGMENTATION_INPUT_PROC
-        in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
+if SEGMENTATION_INPUT_PROC
+    in = load([DATA_DIR, 'HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
-        phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
-        genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
+    phenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
+    genopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/'];
 
-        Regions = {'LH' 'RH'};
-        nR = length(Regions);
+    Regions = {'LH' 'RH'};
+    nR = length(Regions);
 
-        DATA = cell(1,2);
+    DATA = cell(1,2);
 
-        for r=1:nR
-            regphenopath = [phenopath Regions{r} '/'];
-            disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
-            DATA{r} = load([regphenopath DATASET_NAME '.mat']);
-        end
-        LH = DATA{1}.Region.AlignedShapes;
-        RH = DATA{2}.Region.AlignedShapes;
-        phenoIID = DATA{1}.Region.IID(1:size(LH,3));
-        Region =  DATA{1}.Region;
-
-        %%
-        brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
-        refTemplate = brainSurface.RefScan;
-
-        % GPA
-        [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
-
-
-        switch SELECTION
-            case 'asymmetry'
-                A = (preprocLH - preprocRH);
-            case 'symmetry'
-                A =  (preprocLH + preprocRH)/2;
-        end
-        centroidSizesLH = DATA{1}.Region.CentroidSizes;
-        centroidSizesRH = DATA{2}.Region.CentroidSizes;
-        regionName = Region.Name;
-        preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
-        clear DATA preprocLH preprocRH LH RH Region
-        save(SEGMENTATION_INPUT_OUT, "preprocTemplate","preprocPhenoIID", '-v7.3');
-        if ~isdeployed
-            save(SEGMENTATION_SCRATCH_INPUT_OUT, 'A',  'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocLandmarksIndices', '-v7.3');
-        end
+    for r=1:nR
+        regphenopath = [phenopath Regions{r} '/'];
+        disp(['PROCESSING BRAIN REGION: ' Regions{r}]);
+        DATA{r} = load([regphenopath DATASET_NAME '.mat']);
     end
+    LH = DATA{1}.Region.AlignedShapes;
+    RH = DATA{2}.Region.AlignedShapes;
+    phenoIID = DATA{1}.Region.IID(1:size(LH,3));
+    Region =  DATA{1}.Region;
+
     %%
-    if ~exist('preprocTemplate', 'var')
-        load(SEGMENTATION_INPUT_OUT);
+    brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
+    refTemplate = brainSurface.RefScan;
+
+    % GPA
+    [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
+
+
+    switch COMPONENT
+        case 'asymmetry'
+            A = (preprocLH - preprocRH);
+        case 'symmetry'
+            A =  (preprocLH + preprocRH)/2;
     end
-
-
-
-    %% STEP 1:
-    % Align covariates with phenotype
-    load(covGenoPath, "COV");
-    covariates = COV;
-    covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
-    [covPhenoIndex, covIndex] = find(covAssignmentMatrix);
-    clear covAssignmentMatrix
-    preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
-    if  PERFORM_STEPS_12
-        [nVertices,~,nSubj] = size(A);
-        sym2DMatrix = permute(A,[2 1 3]);
-        sym2DMatrix = reshape(sym2DMatrix,nVertices*3,nSubj)';
-        clear A
-        covData = covariates.DATA(covIndex, :);
-        sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
-        centroidSizesLH = centroidSizesLH(covPhenoIndex);
-        centroidSizesRH = centroidSizesRH(covPhenoIndex);
-        avgT = mean(sym2DMatrix,1);
-        % Removing components that can be controlled from covariates, keeping only
-        % the residuals from the corresponding PLS model
+    centroidSizesLH = DATA{1}.Region.CentroidSizes;
+    centroidSizesRH = DATA{2}.Region.CentroidSizes;
+    regionName = Region.Name;
+    preprocTemplate.Vertices(:,1) = -preprocTemplate.Vertices(:,1);
+    clear DATA preprocLH preprocRH LH RH Region
+    save(SEGMENTATION_INPUT_OUT, "preprocTemplate","preprocPhenoIID", '-v7.3');
+    if ~isdeployed
+        save(SEGMENTATION_SCRATCH_INPUT_OUT, 'A',  'centroidSizesLH', 'centroidSizesRH', 'regionName', 'preprocLandmarksIndices', '-v7.3');
     end
+end
+%%
+if ~exist('preprocTemplate', 'var')
+    load(SEGMENTATION_INPUT_OUT);
+end
 
-    if EXPLAINED_COV_PROC
-        %% Apply covariates control analysis on DK partitions
-        % see how much of the variance of each partition set of landmarks is explained by covariates
-        atlasName = 'Desikan_Killiany';
-        atlas = loadAtlas(atlasName,'L');
-        %%
-        atlasIndices = atlas.index(preprocLandmarksIndices);
-        atlas3DIndices = repmat(atlasIndices,1,3)';
-        atlas3DIndices = atlas3DIndices(:);
-        %%
-        labels = unique(atlas3DIndices);
-        explained3DCov = nan * zeros(length(atlas3DIndices),1);
-        for k=1:length(labels)
-            i=labels(k);
-            atlasMask =  atlas3DIndices == i;
-            [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
-        end
-        explainedCov = explained3DCov(1:3:length(explained3DCov));
-        save(EXPLAINED_COV_OUT, 'explainedCov', '-v7.3');
+
+
+
+%% STEP 1:
+% Align covariates with phenotype
+load(covGenoPath, "COV");
+covariates = COV;
+covAssignmentMatrix = (str2double(preprocPhenoIID) == str2double(covariates.IID)');
+[covPhenoIndex, covIndex] = find(covAssignmentMatrix);
+clear covAssignmentMatrix
+preprocPhenoIID = preprocPhenoIID(covPhenoIndex);
+if  PERFORM_STEPS_12
+    if ~exist('A','var')
+        load(SEGMENTATION_SCRATCH_INPUT_OUT)
     end
+    [nVertices,~,nSubj] = size(A);
+    sym2DMatrix = permute(A,[2 1 3]);
+    sym2DMatrix = reshape(sym2DMatrix,nVertices*3,nSubj)';
+    clear A
+    covData = covariates.DATA(covIndex, :);
+    sym2DMatrix = sym2DMatrix(covPhenoIndex, :);
+    centroidSizesLH = centroidSizesLH(covPhenoIndex);
+    centroidSizesRH = centroidSizesRH(covPhenoIndex);
+    avgT = mean(sym2DMatrix,1);
+    % Removing components that can be controlled from covariates, keeping only
+    % the residuals from the corresponding PLS model
+end
+
+if EXPLAINED_COV_PROC
+    %% Apply covariates control analysis on DK partitions
+    % see how much of the variance of each partition set of landmarks is explained by covariates
+    atlasName = 'Desikan_Killiany';
+    atlas = loadAtlas(atlasName,'L');
     %%
-
-    if ~exist('explainedCov', 'var')
-        load(EXPLAINED_COV_OUT)
+    atlasIndices = atlas.index(preprocLandmarksIndices);
+    atlas3DIndices = repmat(atlasIndices,1,3)';
+    atlas3DIndices = atlas3DIndices(:);
+    %%
+    labels = unique(atlas3DIndices);
+    explained3DCov = nan * zeros(length(atlas3DIndices),1);
+    for k=1:length(labels)
+        i=labels(k);
+        atlasMask =  atlas3DIndices == i;
+        [~, explained3DCov(atlasMask)] = controlForCovariates([covData, centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix(:, atlasMask));
     end
-    f = figure;
-    view(gca,90,0);
-    colormap(gca,'jet');
-    light = camlight(gca,'headlight');
-    set(light,'Position',get(gca,'CameraPosition'));
-    drawnow;
-    visualizeCovExp = clone(preprocTemplate);
-    visualizeCovExp.VertexValue = explainedCov;
+    explainedCov = explained3DCov(1:3:length(explained3DCov));
+    save(EXPLAINED_COV_OUT, 'explainedCov', '-v7.3');
+end
+%%
 
-    visualizeCovExp.ColorMode = 'indexed';
-    visualizeCovExp.Material = 'Dull';
-    visualizeCovExp.ViewMode = 'solid';
-    colorbar(gca,'SouthOutside');
-    visualizeCovExp.RenderAxes = gca;
-    visualizeCovExp.Visible = true;
-    visualizeCovExp.PatchHandle.FaceColor = 'flat';
-    maxlims = max(visualizeCovExp.Vertices);
-    minlims = min(visualizeCovExp.Vertices);
-    axis(gca,'image');
-    axis(gca,'off');
-    xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
-    drawnow;
+if ~exist('explainedCov', 'var')
+    load(EXPLAINED_COV_OUT)
+end
+f = figure;
+view(gca,90,0);
+colormap(gca,'jet');
+light = camlight(gca,'headlight');
+set(light,'Position',get(gca,'CameraPosition'));
+drawnow;
+visualizeCovExp = clone(preprocTemplate);
+visualizeCovExp.VertexValue = explainedCov;
 
-    savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
-    saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
-    view(gca,-90,0);
-    set(light,'Position',get(gca,'CameraPosition'));
-    xlim(gca, [ minlims(1), maxlims(1)]);
-    savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
-    saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
+visualizeCovExp.ColorMode = 'indexed';
+visualizeCovExp.Material = 'Dull';
+visualizeCovExp.ViewMode = 'solid';
+colorbar(gca,'SouthOutside');
+visualizeCovExp.RenderAxes = gca;
+visualizeCovExp.Visible = true;
+visualizeCovExp.PatchHandle.FaceColor = 'flat';
+maxlims = max(visualizeCovExp.Vertices);
+minlims = min(visualizeCovExp.Vertices);
+axis(gca,'image');
+axis(gca,'off');
+xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
+drawnow;
+
+savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
+saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
+view(gca,-90,0);
+set(light,'Position',get(gca,'CameraPosition'));
+xlim(gca, [ minlims(1), maxlims(1)]);
+savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
+saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
 
 
-    if RESIDUALS_PROC
-        disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
-        [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
-        resT = repmat(avgT,size(resT,1),1)+resT;
-        disp("Saving computed residuals..");
-        save(RESIDUALS_OUT,'resT', 'explainedCovWhole', '-v7.3');
-    end
+if RESIDUALS_PROC
+    disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
+    [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
+    resT = repmat(avgT,size(resT,1),1)+resT;
+    disp("Saving computed residuals..");
+    save(RESIDUALS_OUT,'resT', 'explainedCovWhole', '-v7.3');
+end
 
 if DATASET_INDEX == 1
     %% STEP 2: BUILDING RV MATRIX
     if RV_MATRIX_PROC
         disp("Computing RV matrix..")
-        if strcmp(COV_REMOVAL, 'ccPriorSegmentation')
-            if ~exist('resT', 'var')
-                load(RESIDUALS_OUT);
-                disp(['Loaded computed residuals from ' RESIDUALS_OUT]);
-            end
-
-            disp("Using covariates controlled phenotype for segmentation..")
-            similarityMat = buildRVmatrixDim(resT, 'cov', 3);
-        else
-            disp("Using covariates uncontrolled phenotype for segmentation..")
-            similarityMat = buildRVmatrixDim(sym2DMatrix, 'cov', 3);
+        if ~exist('resT', 'var')
+            load(RESIDUALS_OUT);
+            disp(['Loaded computed residuals from ' RESIDUALS_OUT]);
         end
-        disp(['Saving RV Matrix to ' COV_REMOVAL_DIR 'similarityMatrix.mat ..'])
+
+        disp("Using covariates controlled phenotype for segmentation..")
+        similarityMat = buildRVmatrixDim(resT, 'cov', 3);
+
+        disp(['Saving RV Matrix to ' SEGMENTATION_DIR 'similarityMatrix.mat ..'])
         save(RV_MATRIX_OUT,'similarityMat','-v7.3');
     end
 
@@ -371,7 +365,7 @@ saveas(fig, [SEGMENTATION_DIR 'explainedVariance.png']);
 if FINAL_RET_PROC
     if DATASET_INDEX == 1
         disp(['Computing PCA that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition..'])
-   
+
         partitionsSizes = zeros(partitions_num, 1);
         parfor k = 1:partitions_num
             explainedAccum = cumsum(explained{k});
@@ -380,7 +374,7 @@ if FINAL_RET_PROC
         save(FINAL_PARTITIONS_INFO_PATH, 'partitionsSizes', '-v7');
     else
         disp(['Loading PCA number that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition of STAGE00DATA..'])
-    
+
         load(FINAL_PARTITIONS_INFO_ORIG_PATH);
     end
 

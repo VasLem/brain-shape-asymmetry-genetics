@@ -23,7 +23,7 @@ MAX_NUM_FEATS = 0;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_DATASET_INDEX = 1;
-DEFAULT_MEDIAN_IMPUTE = 0;
+DEFAULT_MEDIAN_IMPUTE = 1;
 DEFAULT_BLOCK_SIZE =2000;
 
 MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
@@ -113,7 +113,7 @@ SCRATCH_GENO_DIR = [SCRATCH_ROOT 'tmpGeno/'];
 COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 PHENO_PATH = getenv('PHENO_PATH');
 if(isempty(PHENO_PATH))
-    PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/ccPriorSegmentation/levels4_mine/phenotype_varThres80.mat'];
+    PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction10/levels4/phenotype_varThres80.mat'];
 end
 
 disp(['Loading phenotype from: ', PHENO_PATH])
@@ -140,7 +140,7 @@ for CHR_IND=1:length(CHRS)
 
     GENE_SET_METHOD = 'perSNP';
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-
+    IMPUTE_INFO_OUT = [CHR_DIR 'imputed_freq.csv'];
     PLINK_DATA_INFO_OUT = [CHR_DIR 'plink_data_info.mat'];
     PLINK_DATA_PROC = isdeployed || ~isfile(PLINK_DATA_INFO_OUT);
     META_INT_GENO_OUT = [CHR_DIR 'intervals_info.mat'];
@@ -251,6 +251,10 @@ for CHR_IND=1:length(CHRS)
                 s(~m) = medians(i);
                 genoPruned(:, i) = s;
             end
+            [cnt_unique, unique_a] = hist(medians,single(unique(medians)));
+            imputes = array2table(cnt_unique);
+            imputes.Properties.VariableNames=strsplit(num2str(unique_a));
+            writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
             toc;
         end
 %%
