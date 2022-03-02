@@ -13,6 +13,7 @@ if incMem
     end
 end
 ME = [];
+fallback = ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin');
 try
     ppb = ParforProgressbar(length(blocksFiles),  'showWorkerProgress', true);
     parfor blockCnt=1: length(blocksFiles)
@@ -28,7 +29,6 @@ try
         finite_mask = cellfun(@(x)all(x~=255,2), genoBlock,'UniformOutput',false);
         finite_mask = cat(2,finite_mask{:})';
         [patterns, ~, patternsInds] = unique(finite_mask,'rows');
-        fallback = ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin');
         intChiSqSignificancePattern = ones(currBlockSize, phenoPartNum);
         intChiSqPattern = zeros(currBlockSize,phenoPartNum);
         intDfPattern = zeros(currBlockSize,phenoPartNum);
@@ -100,6 +100,8 @@ if ~isempty(ME)
     rethrow(ME);
 end
 end
+
+
 function saveBlockFunc(outfile, chisqSignificance, chisq,df)
 save(outfile, 'chisqSignificance','chisq','df')
 end
