@@ -8,11 +8,26 @@ switch DATASET_INDEX
     case 2
         DATASET = 'BATCH2_2021_DATA';
 end
-GENO_DIR = ['../results/genomeDemo/' DATASET '/'];
+
+if MEDIAN_IMPUTED
+    IMPUTE_ID = 'median_imputed';
+else
+    IMPUTE_ID = 'not_imputed';
+end
+
+if SUBSAMPLED
+    REDUCTION_ID='subsampled';
+    REDUCTION=10;
+else
+    REDUCTION_ID='not_subsampled';
+    REDUCTION=1;
+end
+RESULTS_ROOT = '../results/';
+GENO_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/'];
 CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
-RESULTS_DIR = fullfile(pwd, ['../results/visualizeCCAOnPheno/' DATASET '/']);
-clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction10/levels4/segmentation.mat']).clusterArray;
-template = load([CLUSTER_DIR 'asymmetry_reduction10/levels4/input_info.mat']).preprocTemplate;
+RESULTS_DIR = fullfile(pwd, ['../results/visualizeCCAOnPheno/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/']);
+clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction' num2str(REDUCTION) '/levels4/segmentation.mat']).clusterArray;
+template = load([CLUSTER_DIR 'asymmetry_reduction' num2str(REDUCTION) '/levels4/input_info.mat']).preprocTemplate;
 %%
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 [fig, fig2, handles] = paintClusters(clusterArray, template, 4, false);
@@ -53,7 +68,7 @@ for j=1:length(handles)
     for i=1:2
         bCId = char(bCIds(i));
         for chr=1:22
-            path = [ GENO_DIR 'chr' num2str(chr) '/PartitionedGTL' bCId 'BC_feats0significant_snps.csv'];
+            path = [ GENO_DIR 'chr' num2str(chr) '/PartitionedGTL' bCId 'BCsignificant_snps.csv'];
             if ~isfile(path)
 %                 disp(['Chromosome ' num2str(chr) ' snps file ' path ' not found. Skipping.']);
                 continue

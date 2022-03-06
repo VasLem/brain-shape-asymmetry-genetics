@@ -18,7 +18,7 @@ NUM_LEVELS = 4;
 
 DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'asymmetry'; %symmetry
+DEFAULT_COMPONENT = 'symmetry'; %symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -107,10 +107,11 @@ RV_MATRIX_PROC = ~isfile(RV_MATRIX_OUT);
 SEGMENTATION_OUT = [SEGMENTATION_DIR 'segmentation.mat'];
 SEGMENTATION_ORI_OUT = strrep(SEGMENTATION_OUT, 'BATCH2_2021_DATA', 'STAGE00DATA');
 SEGMENTATION_PROC = ~isfile(SEGMENTATION_OUT);
+FINAL_RET_INFO_PATH =  [SEGMENTATION_DIR, 'phenotype_info_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
-FINAL_PARTITIONS_INFO_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '_part_info.mat'];
-FINAL_PARTITIONS_INFO_ORIG_PATH = strrep(FINAL_PARTITIONS_INFO_PATH, 'BATCH2_2021_DATA', 'STAGE00DATA');
+FINAL_PARTITIONS_SIZES_PATH = [SEGMENTATION_DIR, 'phenotype_part_sizes_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
+FINAL_PARTITIONS_INFO_ORIG_PATH = strrep(FINAL_PARTITIONS_SIZES_PATH, 'BATCH2_2021_DATA', 'STAGE00DATA');
 
 SEGMENTATION_SCRATCH_INPUT_PROC = isdeployed || ~isfile(SEGMENTATION_SCRATCH_INPUT_OUT);
 
@@ -330,7 +331,7 @@ if ~exist('resT', 'var')
 end
 reshapedResT = reshape(resT', 3, nVertices, nSubj);
 clear resT
-disp('Constructing graph showing the number of components/variance explained for each partition..')
+disp('Constructing histogram showing the number of components/variance explained for each partition..')
 ppb = ParforProgressbar(partitions_num);
 explained = cell(partitions_num,1);
 pcaScores = cell(partitions_num, 1);
@@ -371,7 +372,7 @@ if FINAL_RET_PROC
             explainedAccum = cumsum(explained{k});
             partitionsSizes(k) =  find(explainedAccum >= SELECTED_VARIANCE_THRESHOLD, 1 ,'first');
         end
-        save(FINAL_PARTITIONS_INFO_PATH, 'partitionsSizes', '-v7');
+        save(FINAL_PARTITIONS_SIZES_PATH, 'partitionsSizes', '-v7');
     else
         disp(['Loading PCA number that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition of STAGE00DATA..'])
 
@@ -386,7 +387,11 @@ if FINAL_RET_PROC
         ppb.increment();
     end
     delete(ppb)
-    save(FINAL_RET_PATH,'explained', 'clusterPCAPhenoFeatures','templateCenters','means','SELECTED_VARIANCE_THRESHOLD','preprocPhenoIID', '-v7.3');
+    PHENO=clusterPCAPhenoFeatures;
+    PHENO_IID = preprocPhenoIID;
+    save(FINAL_RET_INFO_PATH,'explained', 'templateCenters','means','SELECTED_VARIANCE_THRESHOLD', '-v7.3');
+    save(FINAL_RET_PATH, 'PHENO', 'PHENO_IID', '-v7.3');
+    
 end
 
 

@@ -5,10 +5,11 @@ addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 
 
-THREADS= 8;
-MAX_NUM_FEATS = 0;
-DATASET_INDEX = 1;
 
+MAX_NUM_FEATS = 0;
+DATASET_INDEX = 2;
+SUBSAMPLED = 0;
+MEDIAN_IMPUTED = 1;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
 switch DATASET_INDEX
@@ -21,30 +22,39 @@ switch DATASET_INDEX
         DATASET_NAME = 'BATCH2_2021_DATA';
         GENO_ID = 'sel16875_rmrel';
 end
-RESULTS_DIR = ['../results/genomeDemo/' DATASET_NAME '/'];
+if MEDIAN_IMPUTED
+    IMPUTE_ID = 'median_imputed';
+else
+    IMPUTE_ID = 'not_imputed';
+end
+
+if SUBSAMPLED
+    REDUCTION_ID='subsampled';
+else
+    REDUCTION_ID='not_subsampled';
+end
+RESULTS_ROOT = '../results/';
+RESULTS_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
 covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
-disp("Initializing genomic analysis..")
-try
-    parpool('local',THREADS);
-catch
-end
 %%
 AVAILABLE_CHRS = [];
 PNUM = 31;
-part = cell(2, 1);
+part = cell(22, 1);
+noPart = cell(22,1);
 
 for CHR=1:22
     disp(['CHR:' , num2str(CHR)]);
     CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
     try
-        load([CHR_DIR 'withPartCCA.mat'],'gTLPartStats');
-        part{CHR} = gTLPartStats.chiSqSignificance;
-        noPart{CHR} = gTLPartStats.chiSqSignificance(:,1);
+        load([CHR_DIR 'withPartCCA.mat'],'stats');
+        part{CHR} = stats.chisqSignificance;
+        noPart{CHR} = stats.chisqSignificance(:,1);
         AVAILABLE_CHRS(end+1) = CHR;
     catch
     end
 end
+disp(['Chromosomes correctly parsed:', num2str(AVAILABLE_CHRS)])
 %%
 f = figure;
 f.Position = [100 100 1200 600];
@@ -70,7 +80,7 @@ yline(-log10(NO_PARTITION_THRES));
 ylabel('-log10p');
 xlim([0, cnt]);
 set(gca,'TickDir','out');
-saveas(f, [RESULTS_DIR 'noPartWholeCCA_logPlot.svg']);
+saveas(f, [RESULTS_DIR 'gwas.svg']);
 close(f);
 %%
 pThres = NO_PARTITION_THRES;
@@ -118,7 +128,7 @@ ylabel('-log10p');
 xlim([0, cnt]);
 set(gca,'TickDir','out');
 hold off;
-saveas(fig, [RESULTS_DIR 'gTLPartWholeCCA_logPlot.svg']);
+saveas(fig, [RESULTS_DIR 'partitions_gwas.svg']);
 
 close(fig);
 

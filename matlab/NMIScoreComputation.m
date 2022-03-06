@@ -2,7 +2,7 @@
 DATASET='STAGE00DATA';
 VAR_THRES=80;
 LEVELS=4;
-REDUCTION=0.1;
+REDUCTION=1;
 cluster_path = @(component)sprintf('../results/hierarchicalClusteringDemo/%s/%s_reduction%d/levels%d/segmentation.mat', ...
     DATASET,component,1/REDUCTION,LEVELS);
 asymmetry_cluster=load(cluster_path('asymmetry')).clusterArray;

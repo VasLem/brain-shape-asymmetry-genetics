@@ -1,0 +1,25 @@
+PLINK v1.90b6.24 64-bit (6 Jun 2021)
+Options in effect:
+  --bfile ../SAMPLE_DATA/IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_sel19908_chr1
+  --out /tmp/RtmpmzIVKS/file2baf6fbb0dac
+  --recode vcf bgz
+  --threads 2
+
+Hostname: micsd01
+Working directory: /usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/R
+Start time: Sat Mar  5 15:43:17 2022
+
+Random number seed: 1646491397
+644910 MB RAM detected; reserving 322455 MB for main workspace.
+727315 variants loaded from .bim file.
+19908 people (0 males, 0 females, 19908 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to /tmp/RtmpmzIVKS/file2baf6fbb0dac.nosex .
+Using up to 2 threads (change this with --threads).
+Before main variant filters, 19908 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.98056.
+727315 variants and 19908 people pass filters and QC.
+Note: No phenotypes present.
+--recode vcf bgz to /tmp/RtmpmzIVKS/file2baf6fbb0dac.vcf.gz ... done.
+
+End time: Sat Mar  5 16:10:45 2022
