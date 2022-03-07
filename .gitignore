@@ -63,6 +63,7 @@ vignettes/*.pdf
 SAMPLE_DATA
 results/**/*.fig
 results/**/*.mat
+tex/svg-inkscape
 chisq_stats.csv
 noPartWholeCCA.csv
 results/demo_asymmetry/fluctuatingAMMI.txt
