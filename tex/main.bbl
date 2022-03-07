@@ -1,4 +1,18 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Bailly2013}
+X.~Bailly, H.~Reichert, and V.~Hartenstein.
+\newblock {THE URBILATERIAN BRAIN REVISITED: NOVEL INSIGHTS INTO OLD QUESTIONS
+  FROM NEW FLATWORM CLADES}.
+\newblock {\em Development genes and evolution}, 223(3):149--157, may 2013.
+
+\bibitem{Cichonska2016}
+A.~Cichonska, J.~Rousu, P.~Marttinen, A.~J. Kangas, P.~Soininen,
+  T.~Lehtim{\"{a}}ki, O.~T. Raitakari, M.~R. J{\"{a}}rvelin, V.~Salomaa,
+  M.~Ala-Korpela, S.~Ripatti, and M.~Pirinen.
+\newblock {metaCCA: summary statistics-based multivariate meta-analysis of
+  genome-wide association studies using canonical correlation analysis}.
+\newblock {\em Bioinformatics}, 32(13):1981--1989, jul 2016.
 
 \bibitem{Claes2018}
 P.~Claes, J.~Roosenboom, J.~D. White, T.~Swigut, D.~Sero, J.~Li, M.~K. Lee,
@@ -9,11 +23,58 @@ P.~Claes, J.~Roosenboom, J.~D. White, T.~Swigut, D.~Sero, J.~Li, M.~K. Lee,
   facial shape}.
 \newblock {\em Nature Genetics}, 50(3):414--423, 2018.
 
+\bibitem{Corballis2009}
+M.~C. Corballis.
+\newblock {The evolution and genetics of cerebral asymmetry}.
+\newblock {\em Philosophical Transactions of the Royal Society B: Biological
+  Sciences}, 364(1519):867, 2009.
+
+\bibitem{Fernandes2021}
+S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
+\newblock {How Well Can Multivariate and Univariate GWAS Distinguish Between
+  True and Spurious Pleiotropy?}
+\newblock {\em Frontiers in Genetics}, 11:1747, jan 2021.
+
+\bibitem{Galesloot2014}
+T.~E. Galesloot, K.~{Van Steen}, L.~A. Kiemeney, L.~L. Janss, and S.~H.
+  Vermeulen.
+\newblock {A comparison of multivariate genome-wide association methods}.
+\newblock {\em PLoS ONE}, 9(4), apr 2014.
+
+\bibitem{Herbert2005}
+M.~R. Herbert, D.~A. Ziegler, C.~K. Deutsch, L.~M. O'Brien, D.~N. Kennedy,
+  P.~A. Filipek, A.~I. Bakardjiev, J.~Hodgson, M.~Takeoka, N.~Makris, and V.~S.
+  {Caviness Jr}.
+\newblock {Brain asymmetries in autism and developmental language disorder: a
+  nested whole-brain analysis}.
+\newblock {\em Brain}, 128(1):213--226, jan 2005.
+
+\bibitem{Jackson2011}
+D.~Jackson, R.~Riley, and I.~R. White.
+\newblock {Multivariate meta-analysis: Potential and promise}.
+\newblock {\em Statistics in Medicine}, 30(20):2481, sep 2011.
+
 \bibitem{klingenberg2002}
 C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
 \newblock Shape analysis of symmetric structures: Quantifying variation among
   individuals and asymmetry.
 \newblock {\em Evolution}, 56(10):1909--1920, 2002.
+
+\bibitem{Kong2022}
+X.-Z. Kong, M.~C. Postema, T.~Guadalupe, C.~de~Kovel, P.~S.~W. Boedhoe,
+  M.~Hoogman, S.~R. Mathias, D.~van Rooij, D.~Schijven, D.~C. Glahn, S.~E.
+  Medland, N.~Jahanshad, S.~I. Thomopoulos, J.~A. Turner, J.~Buitelaar,
+  T.~G.~M. van Erp, B.~Franke, S.~E. Fisher, O.~A. van~den Heuvel, L.~Schmaal,
+  P.~M. Thompson, and C.~Francks.
+\newblock {Mapping brain asymmetry in health and disease through the ENIGMA
+  consortium}.
+\newblock {\em Human Brain Mapping}, 43(1):167--181, jan 2022.
+
+\bibitem{LeMay1976}
+M.~LeMay.
+\newblock {Morphological cerebral asymmetries of modern man, fossil man, and
+  nonhuman primate.}
+\newblock {\em Annals of the New York Academy of Sciences}, 280:349--366, 1976.
 
 \bibitem{Naqvi2021}
 S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
@@ -27,5 +88,27 @@ S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
 A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
 \newblock In {\em Advances in Neural Information Processing Systems}, 2002.
+
+\bibitem{Ribolsi2014}
+M.~Ribolsi, Z.~J. Daskalakis, A.~Siracusano, and G.~Koch.
+\newblock {Abnormal Asymmetry of Brain Connectivity in Schizophrenia }, 2014.
+
+\bibitem{Sheng2021}
+J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
+\newblock {Strategies for multivariate analyses of imaging genetics study in
+  Alzheimer's disease}.
+\newblock {\em Neuroscience Letters}, 762:136147, sep 2021.
+
+\bibitem{Vijayakumar2016}
+N.~Vijayakumar, N.~B. Allen, G.~Youssef, M.~Dennison, M.~Y{\"{u}}cel, J.~G.
+  Simmons, and S.~Whittle.
+\newblock {Brain development during adolescence: A mixed-longitudinal
+  investigation of cortical thickness, surface area, and volume}.
+\newblock {\em Human Brain Mapping}, 37(6):2027--2038, jun 2016.
+
+\bibitem{VonLuxburg2007}
+U.~{Von Luxburg}.
+\newblock {A tutorial on spectral clustering}.
+\newblock {\em Statistics and Computing 2007 17:4}, 17(4):395--416, aug 2007.
 
 \end{thebibliography}

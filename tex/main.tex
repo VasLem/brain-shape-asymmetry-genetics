@@ -1,11 +1,26 @@
-\documentclass[master=ebin]{kulemt}
+\documentclass[master=ebin,english]{kulemt}
+\setup{title={Global-To-Local Segmentation and Genotypic Analysis Of Brain Shape Asymmetry},author={Vasileios Lemonidis},promoter={Prof. Peter Claes \and Prof. Isabelle Cleynen}, assessor=,assistant={MSc. Meng Yuan \and MSc. Seppe Goovaerts},acyear=2022,bind=3mm,inputenc=utf8}
+\setup{font=lm}
+
+
+\usepackage{svg}
+\usepackage[pdfusetitle,hidelinks,plainpages=false]{hyperref}
+
+
+\graphicspath{
+	{../results}
+}
 \include{abbreviations}
-\setup{title={Global-To-Local Segmentation and Genotypic Analysis Of Brain Shape Asymmetry},author={Vasileios Lemonidis},promotor={Peter Claes\and Isabelle Cleynen}, assessor=,assistant={Meng Yuan},acyear=2022,bind=3mm,inputenc=utf8}
+\makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
+
 \begin{document}
 	\begin{preface}[The Author\\ \textup{1 January 2010}]
 		The text of the preface. A few paragraphs should follow.
 	\end{preface}
 \tableofcontents*
+\cleardoublepage
+\listoffigures
+\listoftables
 \cleardoublepage
 \addcontentsline{toc}{section}{List of Abbreviations}
 \printacronyms[name=Abbreviations]
@@ -13,20 +28,15 @@
 	Overall purpose of this thesis is to complement the existing bibliography on the detection and examination of the genetic associations of brain shape asymmetry. Asymmetry components  are computed based on the  brain MRI dataset provided by UK Biobank database. A data-driven approach is followed, where the brain surface is partitioned in an unsupervised manner, through Hierarchical Spectral Clustering, a technique that allows for  a coarse-to-fine segmentation. Aggregated asymmetry measurements are retrieved from the segments, whose genetic correlation is examined through a \ac{mvgwas} statistical analysis. Recognized significant \acp{snp} are then analyzed individually or in groups, through comparison with existing results and databases.  The genetic overlap with neurodevelopmental disorders and traits, that have been reported to exhibit phenotypic associations with brain structure asymmetry, such as Autism, Alzheimer’s Disease or intelligence, are examined. Functional annotations of variants associated with the genes where significant SNPs were detected are constructed, offering an insight into the functional reasoning behind the brain shape asymmetry existence. Further comparisons with other past human phenotypic characteristics studies are lastly applied.
 \end{abstract}
 \mainmatter
-\chapter{Introduction}
-
-\ac{gwas} have shed light on the correlation between phenotypic traits and genetic content. With the advent of technology capable to collect and process genomes from different individuals in relatively high speed, vast databases have been constructed. One of the main players in the data collection has been UK Biobank; a large-scale database from a randomized consortium of 500,000 individuals, whose genome has been collected, from whom  43,000 subjects had also participated in brain \ac{mri} collection process, as of December 2020. In this thesis, we exploit this newly acquired dataset to identify the key loci that are related to the brain surface symmetry. 
-
-Symmetry is a recognized quality of the mammals brain. Shape deviations between the two hemispheres are attributed to brain lateralization, the experimentally supported theory that different, although overlapping, subsets of tasks are being undertaken by each hemisphere, as well to developmental and environmental reasons. These deviations, which form the notion of asymmetry in the brain shape, can be statistically discriminated as products of two factors, the hemisphere side studied and the individual specimen analyzed, as well as their interaction\cite{klingenberg2002}. Of primary interest in this work is \ac{da}, the asymmetric component that arises by comparing a single individual's hemispherical surfaces landmarks differences, computed through a process of alignment, reflection and subtraction of the landmarks pairs. \ac{da} captures the overall torque, named "Yakovlevian torque", that is observed between the right and left hemisphere, with the left  Past studies have shown that abnormal \ac{da} may be an indication of certain diseases. The lack of it may Schizophrenia \cite{Ribolsi2014},  
-
-
-
+\include{introduction}
+\include{dataset_description}
+\include{preprocessing}
+\include{asymmetry}
+\include{gwas}
+\include{discussion}
 
 
 
- Hierarchical clustering is applied on the extracted asymmetric component.
-
-Hierarchical spectral clustering is an unsupervised method of iterative partitioning, that makes use of the distance matrix eigenvectors \cite{Ng2002}. It results into a binary tree structure, where each parent shape is partitioned into two children. The technique has been used in a number of different related studies \cite{Claes2018}\cite{Naqvi2021}, yielding results that are in concordance with the underlying anatomical features. In the current study, a level-4 partitioning is performed, resulting into 31 partitions. Subsequently they are transformed to the corresponding principal components that explain 80\% of the variance, for reasons of further dimensionality reduction.
 
 
 
