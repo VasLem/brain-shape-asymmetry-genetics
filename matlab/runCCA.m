@@ -1,5 +1,44 @@
-function runCCA(pheno, blocksFiles, outFiles, incMem)
-% incMem : increase memory usage for the sake of speed
+function outFiles=runCCA(pheno, jobsFiles, outFiles, incMem)
+%pheno: path to the phenotype
+% jobsFiles: a list of input jobs files, or their directory
+% outFiles: if provided, a list of output files or the output directory
+% incMem : increase memory usage for the sake of speed, defaults to false,
+% as it does not work well when the dataset is not imputed
+if nargin<4
+    incMem=0;
+end
+if isa(pheno,"char")
+    pheno=load(pheno).PHENO;
+end
+if isa(jobsFiles,'char')
+    jobsFiles = dir(jobsFiles);
+    inpfolder = jobsFiles(1).folder;
+    numFiles =sum(cellfun(@(x)(endsWith(x,'.mat')), {jobsFiles.name}));
+    names = strcat(strsplit(num2str(1:numFiles)) ,'.mat');
+    jobsFiles =   strcat([inpfolder '/'], names);
+else
+    parts = strsplit(jobsFiles{1}, filesep);
+    inpfolder = strjoin(parts(1:end-1), filesep);
+    names = cell(length(jobsFiles));
+    for i=1:length(jobsFiles)
+        path = strsplit(jobsFiles{i}, filesep);
+        names{i} = path(end);
+    end
+end
+
+if nargin < 3
+    outfolder = [inpfolder '_out/'];
+else
+    if isa(outFiles, 'char')
+        outfolder = outFiles;
+    end
+end
+
+if nargin <3 || isa(outFiles,'char')
+    if ~isfolder(outfolder), mkdir(outfolder); end
+    outFiles = strcat(outfolder, names);
+end
+
 phenoPartNum = length(pheno);
 Q2Full = nan;
 T22Full = nan;
@@ -15,9 +54,9 @@ end
 ME = [];
 fallback = ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin');
 try
-    ppb = ParforProgressbar(length(blocksFiles),  'showWorkerProgress', true);
-    parfor blockCnt=1: length(blocksFiles)
-        inp = load(blocksFiles{blockCnt});
+    ppb = ParforProgressbar(length(jobsFiles),  'showWorkerProgress', true);
+    parfor blockCnt=1: length(jobsFiles)
+        inp = load(jobsFiles{blockCnt});
         genoBlock = inp.genoBlock;
         blockIntervals = inp.blockIntervals;
         blockSizes = blockIntervals(:,2) - blockIntervals(:,1) + 1;

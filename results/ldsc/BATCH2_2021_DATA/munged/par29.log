@@ -9,7 +9,7 @@ Call:
 ./munge_sumstats.py \
 --signed-sumstats ChiScore,1 \
 --delim , \
---out ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT29 \
+--out ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT28 \
 --n-min 1000.0 \
 --a1 A1 \
 --a2 A2 \
@@ -35,15 +35,15 @@ Removed 1294020 variants that were not SNPs or were strand-ambiguous.
 7011343 SNPs remain.
 Removed 0 SNPs with duplicated rs numbers (7011343 SNPs remain).
 Removed 0 SNPs with N < 1000.0 (7011343 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.980878023468, which seems sensible.
-Writing summary statistics for 7011343 SNPs (7011343 with nonmissing beta) to ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT29.sumstats.gz.
+Median value of SIGNED_SUMSTATS was 0.983157890793, which seems sensible.
+Writing summary statistics for 7011343 SNPs (7011343 with nonmissing beta) to ../results/ldsc/BATCH2_2021_DATA/v1/MUNGE_OUTPUT28.sumstats.gz.
 
 Metadata:
 Mean chi^2 = 1.001
 WARNING: mean chi^2 may be too small.
-Lambda GC = 0.983
-Max chi^2 = 34.155
-2 Genome-wide significant SNPs (some may have been removed by filtering).
+Lambda GC = 0.991
+Max chi^2 = 27.503
+0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Tue Feb 22 16:53:35 2022
-Total time elapsed: 1.0m:26.9s
+Conversion finished at Tue Feb 22 16:51:28 2022
+Total time elapsed: 1.0m:30.86s

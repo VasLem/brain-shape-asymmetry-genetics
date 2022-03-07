@@ -9,7 +9,7 @@ Call:
 ./munge_sumstats.py \
 --signed-sumstats ChiScore,1 \
 --delim , \
---out v1/MUNGE_OUTPUT31 \
+--out v1/MUNGE_OUTPUT30 \
 --n-min 19644.0 \
 --a1 A1 \
 --a2 A2 \
@@ -35,15 +35,15 @@ Removed 1302479 variants that were not SNPs or were strand-ambiguous.
 7035385 SNPs remain.
 Removed 1710 SNPs with duplicated rs numbers (7033675 SNPs remain).
 Removed 0 SNPs with N < 19644.0 (7033675 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.980718434952, which seems sensible.
-Writing summary statistics for 7033675 SNPs (7033675 with nonmissing beta) to v1/MUNGE_OUTPUT31.sumstats.gz.
+Median value of SIGNED_SUMSTATS was 0.973733843575, which seems sensible.
+Writing summary statistics for 7033675 SNPs (7033675 with nonmissing beta) to v1/MUNGE_OUTPUT30.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.018
+Mean chi^2 = 1.013
 WARNING: mean chi^2 may be too small.
-Lambda GC = 1.013
-Max chi^2 = 26.672
-0 Genome-wide significant SNPs (some may have been removed by filtering).
+Lambda GC = 1.008
+Max chi^2 = 29.902
+4 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Sun Feb 20 01:32:57 2022
-Total time elapsed: 1.0m:34.05s
+Conversion finished at Sun Feb 20 01:30:42 2022
+Total time elapsed: 1.0m:33.03s
