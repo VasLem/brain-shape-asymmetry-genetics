@@ -5,17 +5,18 @@ system_verbose <- function(..., verbose) {
   system(..., ignore.stdout = !verbose, ignore.stderr = !verbose)
 }
 
-snp_beagleImpute <- function (beagle.path, plink.path, bedfile.in, bedfile.out = NULL, 
-                              memory.max = 3, ncores = 1, extra.options = "", plink.options = "", 
-                              verbose = TRUE) 
+mySnp_beagleImpute <- function (beagle.path, plink.path, bedfile.in, bedfile.out = NULL, 
+                                memory.max = 3, ncores = 1, extra.options = "", plink.options = "", 
+                                verbose = TRUE) 
 {
   prefix.in <- sub_bed(bedfile.in)
   if (is.null(bedfile.out)) 
     bedfile.out <- paste0(prefix.in, "_impute.bed")
   assert_noexist(bedfile.out)
   prefix.out <- sub_bed(bedfile.out)
-  tmpfile1 <- tempfile()
-  tmpfile2 <- tempfile()
+  dir.create('temp',showWarnings = F)
+  tmpfile1 <- 'temp/1'
+  tmpfile2 <- 'temp/2'
   system_verbose(paste(plink.path, "--bfile", prefix.in, "--recode vcf bgz", 
                        "--out", tmpfile1, "--threads", ncores, plink.options), 
                  verbose = verbose)
@@ -49,13 +50,13 @@ for (DATASET in 1:2)
     output.dir <- sprintf('../SAMPLE_DATA/IMAGEN/BRAIN/IMPUTED_GENOTYPES/%s',DATASET_ID)
     dir.create(output.dir,showWarnings = FALSE,recursive=T)
     output.file <- sprintf('%s/ukb_img_maf0.01_geno0.5_hwe1e-6_%s_beagle_chr%d.bed',output.dir, GENOME_ID,CHR)
-    
-    snp_beagleImpute(beagle.path='../binaries/beagle.08Feb22.fa4.jar',
-                              plink.path='../binaries/plink/plink', 
-                              bedfile.in=input.file,
-                              bedfile.out=output.file,
-                              ncores=8,
-                              memory.max=16, extra.options = sprintf('window=20 map=../SAMPLE_DATA/genetic_map/plink.chr%d.GRCh37.map ref=../SAMPLE_DATA/1000GenomeProject/euro/chr%d.1kg.phase3.v5a.b37.euro.bref3',CHR, CHR)
+    extra.options <- sprintf('impute=false window=30 iterations=6 map=../SAMPLE_DATA/genetic_map/plink.chr%d.GRCh37.map ref=../SAMPLE_DATA/1000GenomeProject/euro/chr%d.1kg.phase3.v5a.b37.euro.bref3',CHR, CHR)
+    mySnp_beagleImpute(beagle.path='../binaries/beagle.08Feb22.fa4.jar',
+                       plink.path='../binaries/plink/plink', 
+                       bedfile.in=input.file,
+                       bedfile.out=output.file,
+                       ncores=8,
+                       memory.max=128, extra.options=extra.options
     )
   }
 }

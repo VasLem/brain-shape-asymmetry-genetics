@@ -2,16 +2,15 @@ close all;clear;
 restoredefaultpath;
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-DATA_DIR = '../SAMPLE_DATA/';
 
-
-THREADS= 8;
-MAX_NUM_FEATS = 0;
+% TO CHANGE
 DATASET_INDEX = 2;
 SUBSAMPLED_ID='not_subsampled';
 IMPUTE_ID='median_imputed';
 
-
+% CONSTANTS
+DATA_DIR = '../SAMPLE_DATA/';
+N_PARTITIONS = 31;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
 switch DATASET_INDEX
@@ -24,13 +23,11 @@ switch DATASET_INDEX
         DATASET_NAME = 'BATCH2_2021_DATA';
         GENO_ID = 'sel16875_rmrel';
 end
-DATASET_ID = spritnf('%s/%s/%s', IMPUTE_ID, SUBSAMPLED_ID, DATASET_NAME);
+DATASET_ID = sprintf('%s/%s/%s', DATASET_NAME, IMPUTE_ID, SUBSAMPLED_ID);
 LOADING_DIR = ['../results/genomeDemo/' DATASET_ID '/'];
 RESULTS_DIR = ['../results/meta_analysis/' DATASET_ID '/'];
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 AVAILABLE_CHRS = [];
-N_PARTITIONS = 31;
-wholeTabs = cell(N_PARTITIONS,1);
 for CHR=1:22
     disp(['CHR:' , num2str(CHR)]);
     CHR_DIR = [LOADING_DIR 'chr' num2str(CHR) '/'];

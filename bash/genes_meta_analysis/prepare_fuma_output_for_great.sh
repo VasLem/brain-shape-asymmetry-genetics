@@ -1,5 +1,5 @@
 set -e 
-source ../get_input_args $1 $2 $3
+source ../get_input_args.sh $1 $2 $3
 cd ../../python
 
 if [ "$#" -gt 3 ]; then

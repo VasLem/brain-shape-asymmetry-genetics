@@ -20,4 +20,4 @@ fi
 echo "DATASET:$dataset"
 echo "IMPUTE_ID:$impute_id"
 echo "SUBSAMPLED_ID:$subsampled_id"
-DATASET_ID=$dataset/$impute_id$/$subsampled_id
+DATASET_ID=$dataset/$impute_id/$subsampled_id

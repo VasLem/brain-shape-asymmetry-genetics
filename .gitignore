@@ -81,3 +81,5 @@ python/data.csv
 **/.*
 *_raw
 *.raw
+matlab/resources
+**/temp
