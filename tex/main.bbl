@@ -2,9 +2,15 @@
 
 \bibitem{Bailly2013}
 X.~Bailly, H.~Reichert, and V.~Hartenstein.
-\newblock {THE URBILATERIAN BRAIN REVISITED: NOVEL INSIGHTS INTO OLD QUESTIONS
-  FROM NEW FLATWORM CLADES}.
+\newblock {The urbilaterian brain revisited: novel insights into oldquestions
+  from new flatworm clades}.
 \newblock {\em Development genes and evolution}, 223(3):149--157, may 2013.
+
+\bibitem{Balzeau2012}
+A.~Balzeau, E.~Gilissen, and D.~Grimaud-Herv{\'{e}}.
+\newblock {Shared Pattern of Endocranial Shape Asymmetries among Great Apes,
+  Anatomically Modern Humans, and Fossil Hominins}.
+\newblock {\em PLoS ONE}, 7(1):e29581, jan 2012.
 
 \bibitem{Cichonska2016}
 A.~Cichonska, J.~Rousu, P.~Marttinen, A.~J. Kangas, P.~Soininen,
@@ -28,6 +34,12 @@ M.~C. Corballis.
 \newblock {The evolution and genetics of cerebral asymmetry}.
 \newblock {\em Philosophical Transactions of the Royal Society B: Biological
   Sciences}, 364(1519):867, 2009.
+
+\bibitem{F.Bear2016}
+M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\newblock {Special Features of the Human CNS}.
+\newblock In {\em Exploring the brain}, chapter~7, pages 205--207. Wolters
+  Kluwer, 4th edition, 2016.
 
 \bibitem{Fernandes2021}
 S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
@@ -60,6 +72,12 @@ C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
   individuals and asymmetry.
 \newblock {\em Evolution}, 56(10):1909--1920, 2002.
 
+\bibitem{Koch2021}
+E.~M. Koch and S.~R. Sunyaev.
+\newblock {Maintenance of Complex Trait Variation: Classic Theory and Modern
+  Data}.
+\newblock {\em Frontiers in Genetics}, 12:2198, nov 2021.
+
 \bibitem{Kong2022}
 X.-Z. Kong, M.~C. Postema, T.~Guadalupe, C.~de~Kovel, P.~S.~W. Boedhoe,
   M.~Hoogman, S.~R. Mathias, D.~van Rooij, D.~Schijven, D.~C. Glahn, S.~E.
@@ -84,14 +102,32 @@ S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
 \newblock {Shared heritability of human face and brain shape}.
 \newblock {\em Nature Genetics}, 53(6):830--839, 2021.
 
+\bibitem{Neubauer2020}
+S.~Neubauer, P.~Gunz, N.~A. Scott, J.~J. Hublin, and P.~Mitteroecker.
+\newblock {Evolution of brain lateralization: A shared hominid pattern of
+  endocranial asymmetry is much more variable in humans than in great apes}.
+\newblock {\em Science Advances}, 6(7):9935--9949, 2020.
+
 \bibitem{Ng2002}
 A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
 \newblock In {\em Advances in Neural Information Processing Systems}, 2002.
 
+\bibitem{Purnell2018}
+M.~A. Purnell, P.~J. Donoghue, S.~E. Gabbott, M.~E. McNamara, D.~J. Murdock,
+  and R.~S. Sansom.
+\newblock {Experimental analysis of soft-tissue fossilization: opening the
+  black box}.
+\newblock {\em Palaeontology}, 61(3):317--323, may 2018.
+
 \bibitem{Ribolsi2014}
 M.~Ribolsi, Z.~J. Daskalakis, A.~Siracusano, and G.~Koch.
 \newblock {Abnormal Asymmetry of Brain Connectivity in Schizophrenia }, 2014.
+
+\bibitem{Schmitz2019}
+J.~Schmitz, O.~G{\"{u}}nt{\"{u}}rk{\"{u}}n, and S.~Ocklenburg.
+\newblock {Building an asymmetrical brain: The molecular perspective}.
+\newblock {\em Frontiers in Psychology}, 10(APR):982, 2019.
 
 \bibitem{Sheng2021}
 J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
@@ -99,12 +135,24 @@ J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
   Alzheimer's disease}.
 \newblock {\em Neuroscience Letters}, 762:136147, sep 2021.
 
+\bibitem{VanDongen1999}
+S.~{Van Dongen}, G.~Molenberghs, and E.~Matthysen.
+\newblock {The statistical analysis of fluctuating asymmetry: REML estimation
+  of a mixed regression model}.
+\newblock {\em Journal of Evolutionary Biology}, 12(1):94--102, jan 1999.
+
 \bibitem{Vijayakumar2016}
 N.~Vijayakumar, N.~B. Allen, G.~Youssef, M.~Dennison, M.~Y{\"{u}}cel, J.~G.
   Simmons, and S.~Whittle.
 \newblock {Brain development during adolescence: A mixed-longitudinal
   investigation of cortical thickness, surface area, and volume}.
 \newblock {\em Human Brain Mapping}, 37(6):2027--2038, jun 2016.
+
+\bibitem{Vingerhoets2021}
+G.~Vingerhoets, R.~Gerrits, and H.~Verhelst.
+\newblock {Atypical Brain Asymmetry in Human Situs Inversus: Gut Feeling or
+  Real Evidence?}
+\newblock {\em Symmetry 2021, Vol. 13, Page 695}, 13(4):695, apr 2021.
 
 \bibitem{VonLuxburg2007}
 U.~{Von Luxburg}.
