@@ -6,8 +6,20 @@ addpath(genpath('AIDFUNCTIONS'));
 % TO CHANGE
 DATASET_INDEX = 2;
 SUBSAMPLED_ID='not_subsampled';
-IMPUTE_ID='median_imputed';
+IMPUTE_STRATEGY = 'median';
 
+switch IMPUTE_STRATEGY
+    case 'no'
+        IMPUTE_ID = 'not_imputed';
+    case 'zero'
+        IMPUTE_ID = 'zero_imputed';
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'beagle'
+        IMPUTE_ID = 'beagle_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
+end
 % CONSTANTS
 DATA_DIR = '../SAMPLE_DATA/';
 N_PARTITIONS = 31;

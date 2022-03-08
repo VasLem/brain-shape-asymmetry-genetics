@@ -24,22 +24,26 @@ snpsPruned = snps(indelFilter, :);
 clear geno
 clear snps
 
-if MEDIAN_IMPUTE
-    disp("Imputing missing using median..")
-    tic;
-    parfor i=1:size(genoPruned,2)
-        s = genoPruned(:, i);
-        m =s~=255;
-        medians(i) = round(median(s(m)));
-        s(~m) = medians(i);
-        genoPruned(:, i) = s;
-    end
-    [cnt_unique, unique_a] = hist(medians,single(unique(medians))); %#ok<HIST>
-    imputes = array2table(cnt_unique);
-    imputes.Properties.VariableNames=strsplit(num2str(unique_a));
-    writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
-    toc;
+switch MEDIAN_IMPUTE
+    case 'median'
+        disp("Imputing missing using median..")
+        tic;
+        parfor i=1:size(genoPruned,2)
+            s = genoPruned(:, i);
+            m =s~=255;
+            medians(i) = round(median(s(m)));
+            s(~m) = medians(i);
+            genoPruned(:, i) = s;
+        end
+        [cnt_unique, unique_a] = hist(medians,single(unique(medians))); %#ok<HIST>
+        imputes = array2table(cnt_unique);
+        imputes.Properties.VariableNames=strsplit(num2str(unique_a));
+        writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+    case 'zero'
+        disp("Imputing missing using zeros..")
+        genoPruned(genoPruned==255) = 0;
 end
+toc;
 if isfile(PLINK_DATA_INFO_OUT)
     load(PLINK_DATA_INFO_OUT, 'intervals', 'genoIndex')
     genoPruned = genoPruned(genoIndex, :);

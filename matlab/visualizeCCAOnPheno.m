@@ -9,10 +9,19 @@ switch DATASET_INDEX
         DATASET = 'BATCH2_2021_DATA';
 end
 
-if MEDIAN_IMPUTED
-    IMPUTE_ID = 'median_imputed';
-else
-    IMPUTE_ID = 'not_imputed';
+IMPUTE_STRATEGY = 'median';
+
+switch IMPUTE_STRATEGY
+    case 'no'
+        IMPUTE_ID = 'not_imputed';
+    case 'zero'
+        IMPUTE_ID = 'zero_imputed';
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'beagle'
+        IMPUTE_ID = 'beagle_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
 end
 
 if SUBSAMPLED

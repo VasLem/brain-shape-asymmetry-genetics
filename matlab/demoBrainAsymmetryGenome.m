@@ -7,7 +7,7 @@
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (1:22)
 %BLOCK_SIZE: Block Size for CCA (2000)
-%MEDIAN_IMPUTE: Whether to perform median imputation (very fast) or not (very slow) (0)
+%IMPUTE_STRATEGY: Whether to perform imputation (zero,median or beagle) or not (no). No imputation is quite slow. (no)
 %SUBSAMPLED: Whether to use the subsampled phenotype, if no PHENO_PATH is
 %provided. It modifies the saving and scratch directories (defaults to 0)
 %PHENO_PATH: Whether to use a specific path for the mat file of the phenotype (defaults to the path where hierarchical clustering algorithm places it)
@@ -25,7 +25,7 @@ NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_SUBSAMPLED = 0;
 DEFAULT_DATASET_INDEX = 1;
-DEFAULT_MEDIAN_IMPUTE = 1;
+DEFAULT_MEDIAN_IMPUTE = 'zero';
 DEFAULT_BLOCK_SIZE =2000;
 
 SUBSAMPLED = getenv('SUBSAMPLED');
@@ -38,14 +38,21 @@ else
     REDUCTION_ID='not_subsampled';
 end
 
-MEDIAN_IMPUTE = getenv('MEDIAN_IMPUTE');
-if(isempty(MEDIAN_IMPUTE))
-    MEDIAN_IMPUTE = DEFAULT_MEDIAN_IMPUTE;
+IMPUTE_STRATEGY = getenv('IMPUTE_STRATEGY');
+if(isempty(IMPUTE_STRATEGY))
+    IMPUTE_STRATEGY = DEFAULT_MEDIAN_IMPUTE;
 end
-if MEDIAN_IMPUTE
-    IMPUTE_ID = 'median_imputed';
-else
-    IMPUTE_ID ='not_imputed';
+switch IMPUTE_STRATEGY
+    case 'no'
+        IMPUTE_ID = 'not_imputed';
+    case 'zero'
+        IMPUTE_ID = 'zero_imputed';
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'beagle'
+        IMPUTE_ID = 'beagle_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
 end
 
 BLOCK_SIZE = getenv('BLOCK_SIZE');
@@ -98,7 +105,7 @@ end
 disp(['Number of threads: ', num2str(THREADS)])
 disp(['Location of data: ', DATA_DIR])
 disp(['Location of temporary data:', SCRATCH_ROOT])
-disp(['Median Imputation: ', num2str(MEDIAN_IMPUTE)])
+disp(['Median Imputation: ', num2str(IMPUTE_STRATEGY)])
 disp(['Block Size: ', num2str(BLOCK_SIZE)]);
 disp(['Using dataset: ', num2str(DATASET_INDEX)])
 disp(['Chromosome analyzed: ', num2str(CHRS)])
@@ -151,9 +158,12 @@ for CHR_IND=1:length(CHRS)
     if WITH_PART_CCA_PROC
 
         display(['Preprocessing chromosome ', num2str(CHR)])
-        
-        GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)];
-        preprocessGenome(PHENO_IID, CHR, GENO_PATH, MEDIAN_IMPUTE, BLOCK_SIZE, RESULTS_DIR, SCRATCH_GENE_DIR, THREADS, SCRATCH_DIR);
+        if strcmp(IMPUTE_STRATEGY,'beagle')
+            GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/IMPUTED_GENOTYPES/' DATASET_NAME '/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_beagle_chr' num2str(CHR)];
+        else
+            GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/' UKBIOBANK '/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_' GENO_ID '_chr' num2str(CHR)];
+        end
+        preprocessGenome(PHENO_IID, CHR, GENO_PATH, IMPUTE_STRATEGY, BLOCK_SIZE, RESULTS_DIR, SCRATCH_GENE_DIR, THREADS, SCRATCH_DIR);
         clear genoPruned
         toc;
     end
@@ -167,7 +177,7 @@ for CHR_IND=1:length(CHRS)
         disp(['Running CCA on chromosome ' , num2str(CHR)]);
         tic;
         fileDir = SCRATCH_GENE_DIR;
-        outFiles = runCCA(PHENO,  SCRATCH_GENE_DIR, SCRATCH_OUTPUT_GENE_DIR, MEDIAN_IMPUTE);
+        outFiles = runCCA(PHENO,  SCRATCH_GENE_DIR, SCRATCH_OUTPUT_GENE_DIR, ~strcmp(IMPUTE_STRATEGY, 'no'));
         rmdir(SCRATCH_GENE_DIR);
         toc;
     end

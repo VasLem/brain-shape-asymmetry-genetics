@@ -1,4 +1,5 @@
 #remotes::install_github("privefl/bigsnpr")
+setwd("/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/R")
 library(bigsnpr)
 library(bigassertr)
 system_verbose <- function(..., verbose) {
@@ -50,12 +51,12 @@ for (DATASET in 1:2)
     output.dir <- sprintf('../SAMPLE_DATA/IMAGEN/BRAIN/IMPUTED_GENOTYPES/%s',DATASET_ID)
     dir.create(output.dir,showWarnings = FALSE,recursive=T)
     output.file <- sprintf('%s/ukb_img_maf0.01_geno0.5_hwe1e-6_%s_beagle_chr%d.bed',output.dir, GENOME_ID,CHR)
-    extra.options <- sprintf('impute=false window=30 iterations=6 map=../SAMPLE_DATA/genetic_map/plink.chr%d.GRCh37.map ref=../SAMPLE_DATA/1000GenomeProject/euro/chr%d.1kg.phase3.v5a.b37.euro.bref3',CHR, CHR)
+    extra.options <- sprintf('impute=false iterations=3 map=../SAMPLE_DATA/genetic_map/plink.chr%d.GRCh37.map ref=../SAMPLE_DATA/1000GenomeProject/euro/chr%d.1kg.phase3.v5a.b37.euro.bref3',CHR, CHR)
     mySnp_beagleImpute(beagle.path='../binaries/beagle.08Feb22.fa4.jar',
                        plink.path='../binaries/plink/plink', 
                        bedfile.in=input.file,
                        bedfile.out=output.file,
-                       ncores=8,
+                       ncores=16,
                        memory.max=128, extra.options=extra.options
     )
   }
