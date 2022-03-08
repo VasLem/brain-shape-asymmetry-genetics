@@ -18,11 +18,11 @@ end
 RESULTS_ROOT = '../results/';
 
 INPUT_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
-OUT_PATH = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/median_values.csv'];
+OUT_PATH = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/median_values'];
 whole_table = [];
 for CHR=1:22
     load(populateCCAWorkspace(INPUT_DIR, INPUT_DIR, CHR));
-    tab = readtable(IMPUTE_INFO_OUT,'Delimiter',' ');
+    tab = readtable(IMPUTE_INFO_OUT,'Delimiter',' ','ReadVariableNames',true, 'VariableNamingRule', 'preserve');
     tab.CHR = zeros(height(tab),1) + CHR;
     if isempty(whole_table)
         whole_table = tab;
@@ -30,4 +30,11 @@ for CHR=1:22
         whole_table = [whole_table; tab];
     end
 end
-writetable(whole_table, OUT_PATH, 'Delimiter', ' ');
+writetable(whole_table, [OUT_PATH,'.csv'], 'Delimiter', ' ');
+f=figure;
+bar(table2array(whole_table(:,1:end-1)))
+legend({'Median=1', 'Median=2'})
+xlabel('Chromosome')
+ylabel("# of SNPs");
+saveas(f,[OUT_PATH,'.svg'])
+close;
