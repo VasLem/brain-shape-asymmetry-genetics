@@ -178,7 +178,7 @@ for CHR_IND=1:length(CHRS)
         tic;
         fileDir = SCRATCH_GENE_DIR;
         outFiles = runCCA(PHENO,  SCRATCH_GENE_DIR, SCRATCH_OUTPUT_GENE_DIR, ~strcmp(IMPUTE_STRATEGY, 'no'));
-        rmdir(SCRATCH_GENE_DIR);
+        rmdir(SCRATCH_GENE_DIR , 's');
         toc;
     end
 end

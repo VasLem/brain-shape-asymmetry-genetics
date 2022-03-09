@@ -7,9 +7,9 @@ DATA_DIR = '../SAMPLE_DATA/';
 
 
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 SUBSAMPLED = 0;
-MEDIAN_IMPUTED = 1;
+IMPUTE_STRATEGY = 'zero';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
 switch DATASET_INDEX
@@ -22,10 +22,17 @@ switch DATASET_INDEX
         DATASET_NAME = 'BATCH2_2021_DATA';
         GENO_ID = 'sel16875_rmrel';
 end
-if MEDIAN_IMPUTED
-    IMPUTE_ID = 'median_imputed';
-else
-    IMPUTE_ID = 'not_imputed';
+switch IMPUTE_STRATEGY
+    case 'no'
+        IMPUTE_ID = 'not_imputed';
+    case 'zero'
+        IMPUTE_ID = 'zero_imputed';
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'beagle'
+        IMPUTE_ID = 'beagle_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
 end
 
 if SUBSAMPLED
