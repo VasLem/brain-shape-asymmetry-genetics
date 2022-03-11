@@ -29,11 +29,28 @@ P.~Claes, J.~Roosenboom, J.~D. White, T.~Swigut, D.~Sero, J.~Li, M.~K. Lee,
   facial shape}.
 \newblock {\em Nature Genetics}, 50(3):414--423, 2018.
 
+\bibitem{Concha2012}
+M.~L. Concha, I.~H. Bianco, and S.~W. Wilson.
+\newblock {Encoding asymmetry within neural circuits}.
+\newblock {\em Nature Reviews Neuroscience 2012 13:12}, 13(12):832--843, nov
+  2012.
+
 \bibitem{Corballis2009}
 M.~C. Corballis.
 \newblock {The evolution and genetics of cerebral asymmetry}.
 \newblock {\em Philosophical Transactions of the Royal Society B: Biological
   Sciences}, 364(1519):867, 2009.
+
+\bibitem{Ernst2015}
+A.~Ernst and J.~Fris{\'{e}}n.
+\newblock {Adult Neurogenesis in Humans- Common and Unique Traits in Mammals}.
+\newblock {\em PLoS Biology}, 13(1), 2015.
+
+\bibitem{F.Bear2016a}
+M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\newblock {Formation of the Neural Tube}.
+\newblock In {\em Exploring the brain}, chapter~7, pages 193--195. Wolters
+  Kluwer, 4th edition, 2016.
 
 \bibitem{F.Bear2016}
 M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
@@ -47,11 +64,41 @@ S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
   True and Spurious Pleiotropy?}
 \newblock {\em Frontiers in Genetics}, 11:1747, jan 2021.
 
+\bibitem{Finnerty2003}
+J.~R. Finnerty.
+\newblock {The origins of axial patterning in the metazoa: how old is bilateral
+  symmetry?}
+\newblock {\em International Journal of Developmental Biology},
+  47(7-8):523--529, dec 2003.
+
 \bibitem{Galesloot2014}
 T.~E. Galesloot, K.~{Van Steen}, L.~A. Kiemeney, L.~L. Janss, and S.~H.
   Vermeulen.
 \newblock {A comparison of multivariate genome-wide association methods}.
 \newblock {\em PLoS ONE}, 9(4), apr 2014.
+
+\bibitem{Gotz2005}
+M.~G{\"{o}}tz and W.~B. Huttner.
+\newblock {The cell biology of Neurogenesis}.
+\newblock {\em Nat Rev Mol Cell Biol}, 6:777--788, 2005.
+
+\bibitem{Grimes2017}
+D.~T. Grimes and R.~D. Burdine.
+\newblock {Left-right patterning: breaking symmetry to asymmetric
+  morphogenesis}.
+\newblock {\em Trends in genetics : TIG}, 33(9):616, sep 2017.
+
+\bibitem{Heger2020}
+P.~Heger, W.~Zheng, A.~Rottmann, K.~A. {Pan Lio}, and T.~Wiehe.
+\newblock {The genetic factors of bilaterian evolution}.
+\newblock {\em eLife}, 9:1--45, jul 2020.
+
+\bibitem{Hejnol2016}
+A.~Hejnol and K.~Pang.
+\newblock {Xenacoelomorpha's significance for understanding bilaterian
+  evolution}.
+\newblock {\em Current Opinion in Genetics And Development}, 39:48--54, aug
+  2016.
 
 \bibitem{Herbert2005}
 M.~R. Herbert, D.~A. Ziegler, C.~K. Deutsch, L.~M. O'Brien, D.~N. Kennedy,
@@ -65,6 +112,12 @@ M.~R. Herbert, D.~A. Ziegler, C.~K. Deutsch, L.~M. O'Brien, D.~N. Kennedy,
 D.~Jackson, R.~Riley, and I.~R. White.
 \newblock {Multivariate meta-analysis: Potential and promise}.
 \newblock {\em Statistics in Medicine}, 30(20):2481, sep 2011.
+
+\bibitem{Klingenberg2020}
+C.~P. Klingenberg.
+\newblock {Walking on Kendall's Shape Space: Understanding Shape Spaces and
+  Their Coordinate Systems}.
+\newblock {\em Evolutionary Biology}, 47(4):334--352, dec 2020.
 
 \bibitem{klingenberg2002}
 C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
@@ -93,6 +146,16 @@ M.~LeMay.
 \newblock {Morphological cerebral asymmetries of modern man, fossil man, and
   nonhuman primate.}
 \newblock {\em Annals of the New York Academy of Sciences}, 280:349--366, 1976.
+
+\bibitem{Littlejohns2020}
+T.~J. Littlejohns, J.~Holliday, L.~M. Gibson, S.~Garratt, N.~Oesingmann,
+  F.~Alfaro-Almagro, J.~D. Bell, C.~Boultwood, R.~Collins, M.~C. Conroy,
+  N.~Crabtree, N.~Doherty, A.~F. Frangi, N.~C. Harvey, P.~Leeson, K.~L. Miller,
+  S.~Neubauer, S.~E. Petersen, J.~Sellors, S.~Sheard, S.~M. Smith, C.~L.
+  Sudlow, P.~M. Matthews, and N.~E. Allen.
+\newblock {The UK Biobank imaging enhancement of 100,000 participants:
+  rationale, data collection, management and future directions}.
+\newblock {\em Nature Communications 2020 11:1}, 11(1):1--12, may 2020.
 
 \bibitem{Naqvi2021}
 S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
