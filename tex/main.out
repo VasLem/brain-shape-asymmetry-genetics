@@ -1,24 +1,27 @@
-\BOOKMARK [0][-]{chapter*.1}{Preface}{}% 1
-\BOOKMARK [0][-]{section*.3}{List of Figures}{}% 2
-\BOOKMARK [0][-]{section*.4}{List of Tables}{}% 3
-\BOOKMARK [1][-]{section*.5}{List of Abbreviations}{section*.4}% 4
-\BOOKMARK [0][-]{chapter*.7}{Abstract}{}% 5
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 6
-\BOOKMARK [1][-]{section.1.1}{The notion of brain symmetry}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.2}{Data description}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.3}{Breaking the complexity into parts}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.4}{Searching for the origin}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.5}{Novelties based on related literature}{chapter.1}% 11
-\BOOKMARK [0][-]{chapter.2}{Dataset Description}{}% 12
-\BOOKMARK [1][-]{section.2.1}{General}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.2}{Phenotype}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Genome}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Data Preprocessing}{}% 16
-\BOOKMARK [0][-]{chapter.4}{Asymmetry Phenotypic Analysis}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Statistical analysis of asymmetry components}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Phenotypic partitioning}{chapter.4}% 19
-\BOOKMARK [0][-]{chapter.5}{Asymmetry Genetic Analysis}{}% 20
-\BOOKMARK [1][-]{section.5.1}{Post-Processing}{chapter.5}% 21
-\BOOKMARK [1][-]{section.5.2}{Meta-Analysis}{chapter.5}% 22
-\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 23
-\BOOKMARK [0][-]{chapter*.8}{Bibliography}{}% 24
+\BOOKMARK [0][-]{chapter*.1}{\376\377\000P\000r\000e\000f\000a\000c\000e}{}% 1
+\BOOKMARK [0][-]{section*.3}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000F\000i\000g\000u\000r\000e\000s}{}% 2
+\BOOKMARK [0][-]{section*.4}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000T\000a\000b\000l\000e\000s}{}% 3
+\BOOKMARK [0][-]{section*.4}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000A\000b\000b\000r\000e\000v\000i\000a\000t\000i\000o\000n\000s}{}% 4
+\BOOKMARK [0][-]{chapter*.6}{\376\377\000A\000b\000s\000t\000r\000a\000c\000t}{}% 5
+\BOOKMARK [0][-]{chapter.1}{\376\377\000I\000n\000t\000r\000o\000d\000u\000c\000t\000i\000o\000n}{}% 6
+\BOOKMARK [1][-]{section.1.1}{\376\377\000B\000i\000l\000a\000t\000e\000r\000i\000a\000\040\000l\000i\000n\000e\000a\000g\000e}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{\376\377\000S\000y\000m\000m\000e\000t\000r\000y\000\040\000d\000u\000r\000i\000n\000g\000\040\000C\000N\000S\000\040\000f\000o\000r\000m\000a\000t\000i\000o\000n}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{\376\377\000N\000e\000u\000r\000o\000g\000e\000n\000e\000s\000i\000s\000\040\000a\000n\000d\000\040\000N\000e\000u\000r\000o\000n\000a\000l\000\040\000M\000i\000g\000r\000a\000t\000i\000o\000n}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.4}{\376\377\000T\000h\000e\000\040\000a\000d\000u\000l\000t\000\040\000h\000u\000m\000a\000n\000\040\000c\000e\000r\000e\000b\000r\000u\000m\000\040\000a\000n\000a\000t\000o\000m\000i\000c\000\040\000a\000n\000d\000\040\000f\000u\000n\000c\000t\000i\000o\000n\000a\000l\000\040\000a\000t\000l\000a\000s}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.5}{\376\377\000G\000e\000n\000e\000t\000i\000c\000\040\000s\000t\000u\000d\000i\000e\000s\000\040\000o\000n\000\040\000c\000e\000r\000e\000b\000r\000a\000l\000\040\000s\000y\000m\000m\000e\000t\000r\000y}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.6}{\376\377\000P\000h\000e\000n\000o\000t\000y\000p\000i\000c\000\040\000t\000r\000a\000i\000t\000\040\000a\000n\000a\000l\000y\000s\000i\000s}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.7}{\376\377\000B\000r\000e\000a\000k\000i\000n\000g\000\040\000t\000h\000e\000\040\000c\000o\000m\000p\000l\000e\000x\000i\000t\000y\000\040\000i\000n\000t\000o\000\040\000p\000a\000r\000t\000s}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.8}{\376\377\000S\000e\000a\000r\000c\000h\000i\000n\000g\000\040\000f\000o\000r\000\040\000t\000h\000e\000\040\000o\000r\000i\000g\000i\000n}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.9}{\376\377\000D\000a\000t\000a\000\040\000d\000e\000s\000c\000r\000i\000p\000t\000i\000o\000n}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.10}{\376\377\000N\000o\000v\000e\000l\000t\000i\000e\000s\000\040\000b\000a\000s\000e\000d\000\040\000o\000n\000\040\000r\000e\000l\000a\000t\000e\000d\000\040\000l\000i\000t\000e\000r\000a\000t\000u\000r\000e}{chapter.1}% 16
+\BOOKMARK [0][-]{chapter.2}{\376\377\000D\000a\000t\000a\000s\000e\000t\000\040\000D\000e\000s\000c\000r\000i\000p\000t\000i\000o\000n}{}% 17
+\BOOKMARK [1][-]{section.2.1}{\376\377\000G\000e\000n\000e\000r\000a\000l}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.2}{\376\377\000P\000h\000e\000n\000o\000t\000y\000p\000e}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.3}{\376\377\000G\000e\000n\000o\000m\000e}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{\376\377\000D\000a\000t\000a\000\040\000P\000r\000e\000p\000r\000o\000c\000e\000s\000s\000i\000n\000g}{}% 21
+\BOOKMARK [0][-]{chapter.4}{\376\377\000A\000s\000y\000m\000m\000e\000t\000r\000y\000\040\000P\000h\000e\000n\000o\000t\000y\000p\000i\000c\000\040\000A\000n\000a\000l\000y\000s\000i\000s}{}% 22
+\BOOKMARK [0][-]{chapter.5}{\376\377\000A\000s\000y\000m\000m\000e\000t\000r\000y\000\040\000G\000e\000n\000e\000t\000i\000c\000\040\000A\000n\000a\000l\000y\000s\000i\000s}{}% 23
+\BOOKMARK [1][-]{section.5.1}{\376\377\000P\000o\000s\000t\000-\000P\000r\000o\000c\000e\000s\000s\000i\000n\000g}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.2}{\376\377\000M\000e\000t\000a\000-\000A\000n\000a\000l\000y\000s\000i\000s}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.6}{\376\377\000D\000i\000s\000c\000u\000s\000s\000i\000o\000n}{}% 26
+\BOOKMARK [0][-]{chapter*.13}{\376\377\000B\000i\000b\000l\000i\000o\000g\000r\000a\000p\000h\000y}{}% 27
