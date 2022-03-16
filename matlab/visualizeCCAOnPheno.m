@@ -2,6 +2,8 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = true;
 DATASET_INDEX = 1;
+IMPUTE_STRATEGY = 'beagle';
+
 switch DATASET_INDEX
     case 1
         DATASET = 'STAGE00DATA';
@@ -9,7 +11,6 @@ switch DATASET_INDEX
         DATASET = 'BATCH2_2021_DATA';
 end
 
-IMPUTE_STRATEGY = 'median';
 
 switch IMPUTE_STRATEGY
     case 'no'
@@ -18,6 +19,8 @@ switch IMPUTE_STRATEGY
         IMPUTE_ID = 'zero_imputed';
     case 'median'
         IMPUTE_ID = 'median_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean';
     case 'beagle'
         IMPUTE_ID = 'beagle_imputed';
     otherwise

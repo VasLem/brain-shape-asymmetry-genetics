@@ -18,7 +18,7 @@ NUM_LEVELS = 4;
 
 DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'symmetry'; %symmetry
+DEFAULT_COMPONENT = 'asymmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -156,8 +156,6 @@ if SEGMENTATION_INPUT_PROC
     RH = DATA{2}.Region.AlignedShapes;
     phenoIID = DATA{1}.Region.IID(1:size(LH,3));
     Region =  DATA{1}.Region;
-
-    %%
     brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
     refTemplate = brainSurface.RefScan;
 
@@ -169,7 +167,7 @@ if SEGMENTATION_INPUT_PROC
         case 'asymmetry'
             A = (preprocLH - preprocRH);
         case 'symmetry'
-            A =  (preprocLH + preprocRH)/2;
+            A =  (preprocLH + preprocRH) / 2;
     end
     centroidSizesLH = DATA{1}.Region.CentroidSizes;
     centroidSizesRH = DATA{2}.Region.CentroidSizes;

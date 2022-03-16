@@ -39,6 +39,20 @@ switch MEDIAN_IMPUTE
         imputes = array2table(cnt_unique);
         imputes.Properties.VariableNames=strsplit(num2str(unique_a));
         writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+    case 'mean'
+        disp('Imputing missing using mean..')
+        tic;
+        parfor i=1:size(genoPruned,2)
+            s = genoPruned(:, i);
+            m =s~=255;
+            means(i) = round(mean(s(m)));
+            s(~m) = means(i);
+            genoPruned(:, i) = s;
+        end
+        [cnt_unique, unique_a] = hist(means,single(unique(means))); %#ok<HIST>
+        imputes = array2table(cnt_unique);
+        imputes.Properties.VariableNames=strsplit(num2str(unique_a));
+        writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
     case 'zero'
         disp("Imputing missing using zeros..")
         genoPruned(genoPruned==255) = 0;

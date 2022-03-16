@@ -7,7 +7,7 @@
 %THREADS: Number of threads to use (max set by local)
 %CHROMOSOME: Chomosome to analyze (1:22)
 %BLOCK_SIZE: Block Size for CCA (2000)
-%IMPUTE_STRATEGY: Whether to perform imputation (zero,median or beagle) or not (no). No imputation is quite slow. (no)
+%IMPUTE_STRATEGY: Whether to perform imputation (zero,mean,median or beagle) or not (no). No imputation is quite slow. (no)
 %SUBSAMPLED: Whether to use the subsampled phenotype, if no PHENO_PATH is
 %provided. It modifies the saving and scratch directories (defaults to 0)
 %PHENO_PATH: Whether to use a specific path for the mat file of the phenotype (defaults to the path where hierarchical clustering algorithm places it)
@@ -25,7 +25,7 @@ NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_SUBSAMPLED = 0;
 DEFAULT_DATASET_INDEX = 1;
-DEFAULT_MEDIAN_IMPUTE = 'zero';
+DEFAULT_MEDIAN_IMPUTE = 'mean';
 DEFAULT_BLOCK_SIZE =2000;
 
 SUBSAMPLED = getenv('SUBSAMPLED');
@@ -47,12 +47,14 @@ switch IMPUTE_STRATEGY
         IMPUTE_ID = 'not_imputed';
     case 'zero'
         IMPUTE_ID = 'zero_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean_imputed';    
     case 'median'
         IMPUTE_ID = 'median_imputed';
     case 'beagle'
         IMPUTE_ID = 'beagle_imputed';
     otherwise
-        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
+        error("IMPUTE_STRATEGY not understood, available options: no zero mean median beagle")
 end
 
 BLOCK_SIZE = getenv('BLOCK_SIZE');
@@ -105,7 +107,7 @@ end
 disp(['Number of threads: ', num2str(THREADS)])
 disp(['Location of data: ', DATA_DIR])
 disp(['Location of temporary data:', SCRATCH_ROOT])
-disp(['Median Imputation: ', num2str(IMPUTE_STRATEGY)])
+disp(['Imputation: ', num2str(IMPUTE_STRATEGY)])
 disp(['Block Size: ', num2str(BLOCK_SIZE)]);
 disp(['Using dataset: ', num2str(DATASET_INDEX)])
 disp(['Chromosome analyzed: ', num2str(CHRS)])
