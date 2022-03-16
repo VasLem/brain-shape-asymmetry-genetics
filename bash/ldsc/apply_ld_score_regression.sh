@@ -11,13 +11,9 @@ mkdir -p $H2_DIR
 for i in {1..31}; do
     i=$(printf "%02.f" $i)
     echo Handling Partition $i
-    gunzip <$ROOT_DIR/results/genomeDemo/$DATASET_ID/CCAPart$i.csv.gz >data.csv
-    ./ldsc/munge_sumstats.py --sumstats data.csv \
-        --n-min 1000 --snp "rsID" --p P-value --a1 "A1" --a2 "A2" \
-        --signed-sumstats ChiScore,1 --delim , --out $MUNGED_DIR/par$i
     ./ldsc/ldsc.py --h2 $MUNGED_DIR/par$i.sumstats.gz \
         --ref-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ \
-        -w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $H2_DIR/par$i
+        --w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $H2_DIR/par$i
 done
 
 echo "Collecting stats"

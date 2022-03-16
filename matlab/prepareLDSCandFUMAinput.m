@@ -4,9 +4,9 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 
 % TO CHANGE
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 SUBSAMPLED_ID='not_subsampled';
-IMPUTE_STRATEGY = 'median';
+IMPUTE_STRATEGY = 'mean';
 
 switch IMPUTE_STRATEGY
     case 'no'
@@ -17,6 +17,8 @@ switch IMPUTE_STRATEGY
         IMPUTE_ID = 'median_imputed';
     case 'beagle'
         IMPUTE_ID = 'beagle_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean_imputed';
     otherwise
         error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
 end

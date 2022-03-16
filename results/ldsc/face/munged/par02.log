@@ -7,7 +7,7 @@
 *********************************************************************
 Call: 
 ./munge_sumstats.py \
---signed-sumstats ChiScore,74.8 \
+--signed-sumstats ChiScore,1 \
 --delim , \
 --out ../results/ldsc/face/munged/par02 \
 --n-min 1000.0 \
@@ -36,16 +36,15 @@ Removed 377 variants that were not SNPs or were strand-ambiguous.
 1394 SNPs remain.
 Removed 0 SNPs with duplicated rs numbers (1394 SNPs remain).
 Removed 0 SNPs with N < 1000.0 (1394 SNPs remain).
+Median value of SIGNED_SUMSTATS was 1.0, which seems sensible.
+Writing summary statistics for 1394 SNPs (1394 with nonmissing beta) to ../results/ldsc/face/munged/par02.sumstats.gz.
 
-ERROR converting summary statistics:
+Metadata:
+Mean chi^2 = 0.409
+WARNING: mean chi^2 may be too small.
+Lambda GC = 0.477
+Max chi^2 = 4.022
+0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Traceback (most recent call last):
-  File "./ldsc/munge_sumstats.py", line 703, in munge_sumstats
-    check_median(dat.SIGNED_SUMSTAT, signed_sumstat_null, 0.1, sign_cname))
-  File "./ldsc/munge_sumstats.py", line 373, in check_median
-    raise ValueError(msg.format(F=name, M=expected_median, V=round(m, 2)))
-ValueError: WARNING: median value of SIGNED_SUMSTATS is 91.03 (should be close to 74.8). This column may be mislabeled.
-
-
-Conversion finished at Mon Mar 14 18:08:42 2022
-Total time elapsed: 0.08s
+Conversion finished at Wed Mar 16 18:10:39 2022
+Total time elapsed: 0.21s

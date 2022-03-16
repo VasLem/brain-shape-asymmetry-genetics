@@ -7,7 +7,7 @@
 *********************************************************************
 Call: 
 ./munge_sumstats.py \
---signed-sumstats ChiScore,74.8 \
+--signed-sumstats ChiScore,1 \
 --delim , \
 --out ../results/ldsc/face/munged/par01 \
 --n-min 1000.0 \
@@ -36,7 +36,7 @@ Removed 117 variants that were not SNPs or were strand-ambiguous.
 411 SNPs remain.
 Removed 0 SNPs with duplicated rs numbers (411 SNPs remain).
 Removed 0 SNPs with N < 1000.0 (411 SNPs remain).
-Median value of SIGNED_SUMSTATS was 74.77584, which seems sensible.
+Median value of SIGNED_SUMSTATS was 1.0, which seems sensible.
 Writing summary statistics for 411 SNPs (411 with nonmissing beta) to ../results/ldsc/face/munged/par01.sumstats.gz.
 
 Metadata:
@@ -46,5 +46,5 @@ Lambda GC = 0.236
 Max chi^2 = 2.117
 0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Mon Mar 14 18:08:31 2022
-Total time elapsed: 0.13s
+Conversion finished at Wed Mar 16 18:10:38 2022
+Total time elapsed: 0.25s

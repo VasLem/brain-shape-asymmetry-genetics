@@ -1,6 +1,16 @@
 DATASET_INDEX = 1;
 
-IMPUTE_ID = 'median_imputed';
+
+IMPUTE_STRATEGY = 'mean';
+switch IMPUTE_STRATEGY
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood,stats are only colelcted for: median mean")
+end
+
 SUBSAMPLED = 0;
 
 if SUBSAMPLED
@@ -18,7 +28,7 @@ end
 RESULTS_ROOT = '../results/';
 
 INPUT_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
-OUT_PATH = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/median_values'];
+OUT_PATH = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/' IMPUTE_STRATEGY '_values'];
 whole_table = [];
 for CHR=1:22
     load(populateCCAWorkspace(INPUT_DIR, INPUT_DIR, CHR));
@@ -33,7 +43,10 @@ end
 writetable(whole_table, [OUT_PATH,'.csv'], 'Delimiter', ' ');
 f=figure;
 bar(table2array(whole_table(:,1:end-1)))
-legend({'Median=1', 'Median=2'})
+expression = '(^|\.)\s*.';
+replace = '${upper($0)}';
+tit = regexprep(IMPUTE_STRATEGY,expression,replace);
+legend({[tit '=1'], [tit '=2']})
 xlabel('Chromosome')
 ylabel("# of SNPs");
 saveas(f,[OUT_PATH,'.svg'])

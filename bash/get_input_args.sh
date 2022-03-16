@@ -9,7 +9,7 @@ fi
 
 impute_id=$2
 if [[ -z $impute_id ]]; then
-impute_id='median_imputed'
+impute_id='mean_imputed'
 fi
 
 subsampled_id=$3

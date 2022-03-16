@@ -15,23 +15,17 @@ for c=1:2
         N_PARTITIONS = 285;
         struct = brain.BRAINSUG;
     end
-    RESULTS_DIR = ['../results/other_traits_gwas/' TRAIT_ID '/'];
+    RESULTS_DIR = ['../results/ldsc/' TRAIT_ID '/munged'];
     if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
     for partition=1:N_PARTITIONS
         ftab = table;
-        ftab.rsID = struct.RS;
+        ftab.SNP = struct.RS;
         ftab.N = struct.N;
         ftab.A1 = struct.A1;
         ftab.A2 = struct.A2;
-        ftab.chromosome = struct.CHR;
-        ftab.('P-value') = struct.P(:, partition);
-        if c == 1
-            ftab.ChiScore = struct.CHI(:, 1 + 2*(partition-1));
-        else
-            ftab.ChiScore = struct.CHI(:, partition);
-        end
-        fname =  [RESULTS_DIR '/' sprintf('CCAPart%02d.csv',partition)];
-        writetable(ftab,fname);
+        ftab.Z = struct.CHI(:, partition);
+        fname =  [RESULTS_DIR '/' sprintf('par%02d.sumstats',partition)];
+        writetable(ftab,fname,FileType='text', Delimiter='\t');
         gzip(fname);
         delete(fname);
     end

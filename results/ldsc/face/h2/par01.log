@@ -12,7 +12,7 @@ Call:
 --out ../results/ldsc/face/h2/par01 \
 --w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
 
-Beginning analysis at Mon Mar 14 18:08:31 2022
+Beginning analysis at Wed Mar 16 18:08:43 2022
 Reading summary statistics from ../results/ldsc/face/munged/par01.sumstats.gz ...
 Read summary statistics for 411 SNPs.
 Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
@@ -29,5 +29,5 @@ Lambda GC: 0.3896
 Mean Chi^2: 0.2945
 Intercept: 0.4141 (0.0877)
 Ratio: NA (mean chi^2 < 1)
-Analysis finished at Mon Mar 14 18:08:41 2022
-Total time elapsed: 9.58s
+Analysis finished at Wed Mar 16 18:08:56 2022
+Total time elapsed: 13.57s

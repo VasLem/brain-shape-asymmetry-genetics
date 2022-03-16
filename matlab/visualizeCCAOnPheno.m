@@ -1,8 +1,9 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = true;
+SUBSAMPLED = 0;
 DATASET_INDEX = 1;
-IMPUTE_STRATEGY = 'beagle';
+IMPUTE_STRATEGY = 'mean';
 
 switch DATASET_INDEX
     case 1
@@ -20,7 +21,7 @@ switch IMPUTE_STRATEGY
     case 'median'
         IMPUTE_ID = 'median_imputed';
     case 'mean'
-        IMPUTE_ID = 'mean';
+        IMPUTE_ID = 'mean_imputed';
     case 'beagle'
         IMPUTE_ID = 'beagle_imputed';
     otherwise
@@ -98,7 +99,7 @@ end
 mask = squeeze(any(countsMat, 2));
 chromosomes = find(any(mask, 1));
 cmap = brewermap(length(chromosomes), 'Spectral');
-%%
+
 for i=1:2
     bCId = char(bCIds(i));
     tmask_chrs = find(mask(i,:));
@@ -129,7 +130,7 @@ for i=1:2
     close(f);
 end
 
-%%
+
 for j=1:length(handles)
     p = [PNG_DIR_1 num2str(j) '.png'];
     im = [];
@@ -170,7 +171,7 @@ for j=1:length(handles)
     close(f)
     end
 end
-%%
+
 old_path = pwd;
 cd(RESULTS_DIR)
 for i=1:2

@@ -9,7 +9,7 @@ DATA_DIR = '../SAMPLE_DATA/';
 MAX_NUM_FEATS = 0;
 DATASET_INDEX = 1;
 SUBSAMPLED = 0;
-IMPUTE_STRATEGY = 'beagle';
+IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
 switch DATASET_INDEX
@@ -31,6 +31,8 @@ switch IMPUTE_STRATEGY
         IMPUTE_ID = 'median_imputed';
     case 'beagle'
         IMPUTE_ID = 'beagle_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean_imputed';
     otherwise
         error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
 end
