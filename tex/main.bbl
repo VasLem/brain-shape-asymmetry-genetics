@@ -1,16 +1,39 @@
 \begin{thebibliography}{10}
 
-\bibitem{Bailly2013}
-X.~Bailly, H.~Reichert, and V.~Hartenstein.
-\newblock {The urbilaterian brain revisited: novel insights into oldquestions
-  from new flatworm clades}.
-\newblock {\em Development genes and evolution}, 223(3):149--157, may 2013.
+\bibitem{Aaku-Saraste1997}
+E.~Aaku-Saraste, B.~Oback, A.~Hellwig, and W.~B. Huttner.
+\newblock {Neuroepithelial cells downregulate their plasma membrane polarity
+  prior to neural tube closure and neurogenesis}.
+\newblock {\em Mechanisms of Development}, 69(1-2):71--81, dec 1997.
+
+\bibitem{Abu-Rustum2013}
+R.~S. Abu-Rustum, M.~F. Ziade, and S.~E. Abu-Rustum.
+\newblock {Reference Values for the Right and Left Fetal Choroid Plexus at 11
+  to 13 Weeks}.
+\newblock {\em Journal of Ultrasound in Medicine}, 32(9):1623--1629, sep 2013.
+
+\bibitem{Aw2008}
+S.~Aw, D.~S. Adams, D.~Qiu, and M.~Levin.
+\newblock {H,K-ATPase protein localization and Kir4.1 function reveal
+  concordance of three axes during early determination of left–right
+  asymmetry}.
+\newblock {\em Mechanisms of Development}, 125(3-4):353--372, mar 2008.
+
+\bibitem{Aw2009}
+S.~Aw and M.~Levin.
+\newblock {Is left-right asymmetry a form of planar cell polarity?}
+\newblock {\em Development}, 136(3):355--366, feb 2009.
 
 \bibitem{Balzeau2012}
 A.~Balzeau, E.~Gilissen, and D.~Grimaud-Herv{\'{e}}.
 \newblock {Shared Pattern of Endocranial Shape Asymmetries among Great Apes,
   Anatomically Modern Humans, and Fossil Hominins}.
 \newblock {\em PLoS ONE}, 7(1):e29581, jan 2012.
+
+\bibitem{Cara2022}
+M.~L. Cara, I.~Streata, A.~M. Buga, and D.~G. Iliescu.
+\newblock {Developmental Brain Asymmetry. The Good and the Bad Sides}.
+\newblock {\em Symmetry 2022, Vol. 14, Page 128}, 14(1):128, jan 2022.
 
 \bibitem{Cichonska2016}
 A.~Cichonska, J.~Rousu, P.~Marttinen, A.~J. Kangas, P.~Soininen,
@@ -41,15 +64,34 @@ M.~C. Corballis.
 \newblock {\em Philosophical Transactions of the Royal Society B: Biological
   Sciences}, 364(1519):867, 2009.
 
+\bibitem{Desikan2006}
+R.~S. Desikan, F.~S{\'{e}}gonne, B.~Fischl, B.~T. Quinn, B.~C. Dickerson,
+  D.~Blacker, R.~L. Buckner, A.~M. Dale, R.~P. Maguire, B.~T. Hyman, M.~S.
+  Albert, and R.~J. Killiany.
+\newblock {An automated labeling system for subdividing the human cerebral
+  cortex on MRI scans into gyral based regions of interest}.
+\newblock {\em NeuroImage}, 31(3):968--980, jul 2006.
+
+\bibitem{Dyck2017}
+L.~I. Dyck and E.~M. Morrow.
+\newblock {Genetic control of postnatal human brain growth}.
+\newblock {\em Current opinion in neurology}, 30(1):114, 2017.
+
 \bibitem{Ernst2015}
 A.~Ernst and J.~Fris{\'{e}}n.
 \newblock {Adult Neurogenesis in Humans- Common and Unique Traits in Mammals}.
 \newblock {\em PLoS Biology}, 13(1), 2015.
 
+\bibitem{F.Bear2016b}
+M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\newblock {Differentiation of the Forebrain}.
+\newblock In {\em Exploring the brain}, chapter~7, pages 196--199. Wolters
+  Kluwer, 4th edition, 2016.
+
 \bibitem{F.Bear2016a}
 M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
-\newblock {Formation of the Neural Tube}.
-\newblock In {\em Exploring the brain}, chapter~7, pages 193--195. Wolters
+\newblock {Formation of the Neural Tube-Three Primary Brain Vesicles}.
+\newblock In {\em Exploring the brain}, chapter~7, pages 193--196. Wolters
   Kluwer, 4th edition, 2016.
 
 \bibitem{F.Bear2016}
@@ -157,6 +199,21 @@ T.~J. Littlejohns, J.~Holliday, L.~M. Gibson, S.~Garratt, N.~Oesingmann,
   rationale, data collection, management and future directions}.
 \newblock {\em Nature Communications 2020 11:1}, 11(1):1--12, may 2020.
 
+\bibitem{Malik2013}
+S.~Malik, G.~Vinukonda, L.~R. Vose, D.~Diamond, B.~B. Bhimavarapu, F.~Hu, M.~T.
+  Zia, R.~Hevner, N.~Zecevic, and P.~Ballabh.
+\newblock {Neurogenesis continues in the third trimester of pregnancy and is
+  suppressed by premature birth}.
+\newblock {\em The Journal of neuroscience : the official journal of the
+  Society for Neuroscience}, 33(2):411--423, jan 2013.
+
+\bibitem{Molnar2019}
+Z.~Moln{\'{a}}r, G.~J. Clowry, N.~{\v{S}}estan, A.~Alzu'bi, T.~Bakken, R.~F.
+  Hevner, P.~S. H{\"{u}}ppi, I.~Kostovi{\'{c}}, P.~Rakic, E.~S. Anton,
+  D.~Edwards, P.~Garcez, A.~Hoerder-Suabedissen, and A.~Kriegstein.
+\newblock {New insights into the development of the human cerebral cortex}.
+\newblock {\em Journal of Anatomy}, 235(3):432, 2019.
+
 \bibitem{Naqvi2021}
 S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
   A.~Radwan, R.~J. Eller, S.~Richmond, M.~D. Shriver, J.~R. Shaffer, S.~M.
@@ -176,12 +233,30 @@ A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
 \newblock In {\em Advances in Neural Information Processing Systems}, 2002.
 
+\bibitem{Nowakowski2016}
+T.~J. Nowakowski, A.~A. Pollen, C.~Sandoval-Espinosa, and A.~R. Kriegstein.
+\newblock {Transformation of the Radial Glia Scaffold Demarcates Two Stages of
+  Human Cerebral Cortex Development}.
+\newblock {\em Neuron}, 91(6):1219--1227, sep 2016.
+
+\bibitem{Okada2005}
+Y.~Okada, S.~Takeda, Y.~Tanaka, J.~C.~I. Belmonte, and N.~Hirokawa.
+\newblock {Mechanism of Nodal Flow: A Conserved Symmetry Breaking Event in
+  Left-Right Axis Determination}.
+\newblock {\em Cell}, 121(4):633--644, may 2005.
+
 \bibitem{Purnell2018}
 M.~A. Purnell, P.~J. Donoghue, S.~E. Gabbott, M.~E. McNamara, D.~J. Murdock,
   and R.~S. Sansom.
 \newblock {Experimental analysis of soft-tissue fossilization: opening the
   black box}.
 \newblock {\em Palaeontology}, 61(3):317--323, may 2018.
+
+\bibitem{Rakic2009}
+P.~Rakic.
+\newblock {Radial glial cells: Brain functions}.
+\newblock In {\em Encyclopedia of Neuroscience}, volume~R, pages 15--21.
+  Elsevier Ltd, 2009.
 
 \bibitem{Ribolsi2014}
 M.~Ribolsi, Z.~J. Daskalakis, A.~Siracusano, and G.~Koch.
@@ -197,6 +272,11 @@ J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
 \newblock {Strategies for multivariate analyses of imaging genetics study in
   Alzheimer's disease}.
 \newblock {\em Neuroscience Letters}, 762:136147, sep 2021.
+
+\bibitem{Telano2021}
+L.~N. Telano and S.~Baker.
+\newblock {Physiology, Cerebral Spinal Fluid}.
+\newblock {\em StatPearls}, jul 2021.
 
 \bibitem{VanDongen1999}
 S.~{Van Dongen}, G.~Molenberghs, and E.~Matthysen.

@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: introduction.aux
@@ -9,44 +9,49 @@ A level-1 auxiliary file: gwas.aux
 A level-1 auxiliary file: discussion.aux
 The style file: abbrv.bst
 Database file #1: references.bib
-You've used 35 entries,
+Repeated entry---line 1557 of file references.bib
+ : @article{Ernst2015
+ :                   ,
+I'm skipping whatever remains of this entry
+You've used 48 entries,
             2118 wiz_defined-function locations,
-            769 strings with 12764 characters,
-and the built_in function-call counts, 15332 in all, are:
-= -- 1407
-> -- 1105
-< -- 4
-+ -- 437
-- -- 402
-* -- 1408
-:= -- 2662
-add.period$ -- 106
-call.type$ -- 35
-change.case$ -- 308
+            861 strings with 15840 characters,
+and the built_in function-call counts, 20983 in all, are:
+= -- 1941
+> -- 1478
+< -- 8
++ -- 584
+- -- 536
+* -- 1915
+:= -- 3619
+add.period$ -- 147
+call.type$ -- 48
+change.case$ -- 415
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 410
-empty$ -- 921
-format.name$ -- 402
-if$ -- 2978
+cite$ -- 48
+duplicate$ -- 577
+empty$ -- 1279
+format.name$ -- 536
+if$ -- 4102
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 34
-newline$ -- 177
-num.names$ -- 70
-pop$ -- 257
+int.to.str$ -- 48
+missing$ -- 47
+newline$ -- 242
+num.names$ -- 96
+pop$ -- 347
 preamble$ -- 1
-purify$ -- 271
+purify$ -- 364
 quote$ -- 0
-skip$ -- 274
+skip$ -- 388
 stack$ -- 0
-substring$ -- 844
-swap$ -- 56
-text.length$ -- 4
+substring$ -- 1173
+swap$ -- 87
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 140
+type$ -- 192
 warning$ -- 0
-while$ -- 125
-width$ -- 37
-write$ -- 387
+while$ -- 174
+width$ -- 50
+write$ -- 533
+(There was 1 error message)

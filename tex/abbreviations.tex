@@ -1,5 +1,9 @@
 \usepackage{acro}
-
+\acsetup{
+	make-links = true , % boolean
+	list/display=all,
+	subsequent-style =short
+	}
 \DeclareAcronym{gwas}{
 short=GWAS,
 long=genome wide association studies
@@ -43,6 +47,10 @@ long=degrees of freedom}
 \DeclareAcronym{dna}{
 	short=DNA,
 long=deoxyribonucleic acid}
+\DeclareAcronym{rna}{
+	short=RNA,
+	long=ribonucleic acid}
+
 \DeclareAcronym{cns}{
 short=CNS,
 long=central neural network
@@ -53,6 +61,21 @@ long=rostral-caudal}
 \DeclareAcronym{dv}{
 short=D-V,
 long=dorsal-ventral}
-\DeclareAcronym{rg}{
-short=RG,
-long=radial glial}
+\DeclareAcronym{lr}{
+	short=L-R,
+long=left-right}
+\DeclareAcronym{rgc}{
+short=RGC,
+long=radial glial cell,
+short-plural=s,
+long-plural=s
+}
+\DeclareAcronym{npc}{
+short=NPC,
+long=neuroepithelial cell,
+short-plural=s,
+long-plural=s}
+\DeclareAcronym{3d}{
+short=3D,
+long=three-dimensional}
+\DeclareAcronym{dk}{short=DK,long=Desikan-Killiany}
