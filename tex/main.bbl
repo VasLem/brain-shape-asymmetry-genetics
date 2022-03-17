@@ -30,10 +30,22 @@ A.~Balzeau, E.~Gilissen, and D.~Grimaud-Herv{\'{e}}.
   Anatomically Modern Humans, and Fossil Hominins}.
 \newblock {\em PLoS ONE}, 7(1):e29581, jan 2012.
 
+\bibitem{Brodmann1909}
+K.~Brodmann.
+\newblock {\em {Vergleichende Lokalisationslehre der Grosshirnrinde in ihren
+  Prinzipien dargestellt auf Grund des Zellenbaues}}.
+\newblock Johann Ambrosius Barth, Leipzig, 1909.
+
 \bibitem{Cara2022}
 M.~L. Cara, I.~Streata, A.~M. Buga, and D.~G. Iliescu.
 \newblock {Developmental Brain Asymmetry. The Good and the Bad Sides}.
 \newblock {\em Symmetry 2022, Vol. 14, Page 128}, 14(1):128, jan 2022.
+
+\bibitem{Chini2021}
+M.~Chini and I.~L. Hanganu-Opatz.
+\newblock {Prefrontal Cortex Development in Health and Disease: Lessons from
+  Rodents and Humans}.
+\newblock {\em Trends in Neurosciences}, 44(3):227--240, mar 2021.
 
 \bibitem{Cichonska2016}
 A.~Cichonska, J.~Rousu, P.~Marttinen, A.~J. Kangas, P.~Soininen,
@@ -82,6 +94,12 @@ A.~Ernst and J.~Fris{\'{e}}n.
 \newblock {Adult Neurogenesis in Humans- Common and Unique Traits in Mammals}.
 \newblock {\em PLoS Biology}, 13(1), 2015.
 
+\bibitem{Bear2016chapter7app}
+M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\newblock {Appendix: An illustrated guide to human neuroanatomy}.
+\newblock In {\em Exploring the brain}, chapter~7, pages 205--262. Wolters
+  Kluwer, 4th edition, 2016.
+
 \bibitem{F.Bear2016b}
 M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
 \newblock {Differentiation of the Forebrain}.
@@ -92,12 +110,6 @@ M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
 M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
 \newblock {Formation of the Neural Tube-Three Primary Brain Vesicles}.
 \newblock In {\em Exploring the brain}, chapter~7, pages 193--196. Wolters
-  Kluwer, 4th edition, 2016.
-
-\bibitem{F.Bear2016}
-M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
-\newblock {Special Features of the Human CNS}.
-\newblock In {\em Exploring the brain}, chapter~7, pages 205--207. Wolters
   Kluwer, 4th edition, 2016.
 
 \bibitem{Fernandes2021}
