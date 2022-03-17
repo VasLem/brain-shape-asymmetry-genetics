@@ -1,0 +1,1008 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/ldsc/face/STAGE00DATA/mean_imputed/not_subsampled/rg/par12 \
+--rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz,../results/ldsc/face/munged/par13.sumstats.gz,../results/ldsc/face/munged/par14.sumstats.gz,../results/ldsc/face/munged/par15.sumstats.gz,../results/ldsc/face/munged/par16.sumstats.gz,../results/ldsc/face/munged/par17.sumstats.gz,../results/ldsc/face/munged/par18.sumstats.gz,../results/ldsc/face/munged/par19.sumstats.gz,../results/ldsc/face/munged/par20.sumstats.gz,../results/ldsc/face/munged/par21.sumstats.gz,../results/ldsc/face/munged/par22.sumstats.gz,../results/ldsc/face/munged/par23.sumstats.gz,../results/ldsc/face/munged/par24.sumstats.gz,../results/ldsc/face/munged/par25.sumstats.gz,../results/ldsc/face/munged/par26.sumstats.gz,../results/ldsc/face/munged/par27.sumstats.gz,../results/ldsc/face/munged/par28.sumstats.gz,../results/ldsc/face/munged/par29.sumstats.gz,../results/ldsc/face/munged/par30.sumstats.gz,../results/ldsc/face/munged/par31.sumstats.gz,../results/ldsc/face/munged/par32.sumstats.gz,../results/ldsc/face/munged/par33.sumstats.gz,../results/ldsc/face/munged/par34.sumstats.gz,../results/ldsc/face/munged/par35.sumstats.gz,../results/ldsc/face/munged/par36.sumstats.gz,../results/ldsc/face/munged/par37.sumstats.gz,../results/ldsc/face/munged/par38.sumstats.gz,../results/ldsc/face/munged/par39.sumstats.gz,../results/ldsc/face/munged/par40.sumstats.gz,../results/ldsc/face/munged/par41.sumstats.gz,../results/ldsc/face/munged/par42.sumstats.gz,../results/ldsc/face/munged/par43.sumstats.gz,../results/ldsc/face/munged/par44.sumstats.gz,../results/ldsc/face/munged/par45.sumstats.gz,../results/ldsc/face/munged/par46.sumstats.gz,../results/ldsc/face/munged/par47.sumstats.gz,../results/ldsc/face/munged/par48.sumstats.gz,../results/ldsc/face/munged/par49.sumstats.gz,../results/ldsc/face/munged/par50.sumstats.gz,../results/ldsc/face/munged/par51.sumstats.gz,../results/ldsc/face/munged/par52.sumstats.gz,../results/ldsc/face/munged/par53.sumstats.gz,../results/ldsc/face/munged/par54.sumstats.gz,../results/ldsc/face/munged/par55.sumstats.gz,../results/ldsc/face/munged/par56.sumstats.gz,../results/ldsc/face/munged/par57.sumstats.gz,../results/ldsc/face/munged/par58.sumstats.gz,../results/ldsc/face/munged/par59.sumstats.gz,../results/ldsc/face/munged/par60.sumstats.gz,../results/ldsc/face/munged/par61.sumstats.gz,../results/ldsc/face/munged/par62.sumstats.gz,../results/ldsc/face/munged/par63.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Wed Mar 16 21:37:46 2022
+Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz ...
+Read summary statistics for 7033675 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174774 SNPs remain.
+After merging with regression SNP LD, 1174774 SNPs remain.
+Computing rg for phenotype 2/52
+Reading summary statistics from ../results/ldsc/face/munged/par13.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 2/52, from file ../results/ldsc/face/munged/par13.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 3/52
+Reading summary statistics from ../results/ldsc/face/munged/par14.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 3/52, from file ../results/ldsc/face/munged/par14.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 4/52
+Reading summary statistics from ../results/ldsc/face/munged/par15.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 4/52, from file ../results/ldsc/face/munged/par15.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 5/52
+Reading summary statistics from ../results/ldsc/face/munged/par16.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 5/52
+------------------------------
+Total Observed scale h2: -65.749 (90.365)
+Lambda GC: 233.1779
+Mean Chi^2: 171.7591
+Intercept: 193.8111 (39.1773)
+Ratio: 1.1291 (0.2294)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1531 (1.8943)
+Mean z1*z2: -5.4981
+Intercept: -5.5783 (0.8868)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 6/52
+Reading summary statistics from ../results/ldsc/face/munged/par17.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 6/52, from file ../results/ldsc/face/munged/par17.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 7/52
+Reading summary statistics from ../results/ldsc/face/munged/par18.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 7/52, from file ../results/ldsc/face/munged/par18.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 8/52
+Reading summary statistics from ../results/ldsc/face/munged/par19.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 8/52, from file ../results/ldsc/face/munged/par19.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 9/52
+Reading summary statistics from ../results/ldsc/face/munged/par20.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 9/52, from file ../results/ldsc/face/munged/par20.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 10/52
+Reading summary statistics from ../results/ldsc/face/munged/par21.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 10/52, from file ../results/ldsc/face/munged/par21.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 11/52
+Reading summary statistics from ../results/ldsc/face/munged/par22.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 11/52
+-------------------------------
+Total Observed scale h2: -826.8614 (629.1133)
+Lambda GC: 3246.6051
+Mean Chi^2: 2411.435
+Intercept: 2684.0978 (256.1112)
+Ratio: 1.1131 (0.1063)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 11.8011 (5.4284)
+Mean z1*z2: -17.8865
+Intercept: -23.9334 (3.2311)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 12/52
+Reading summary statistics from ../results/ldsc/face/munged/par23.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 12/52, from file ../results/ldsc/face/munged/par23.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 13/52
+Reading summary statistics from ../results/ldsc/face/munged/par24.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 13/52, from file ../results/ldsc/face/munged/par24.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 14/52
+Reading summary statistics from ../results/ldsc/face/munged/par25.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 14/52, from file ../results/ldsc/face/munged/par25.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 15/52
+Reading summary statistics from ../results/ldsc/face/munged/par26.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 15/52, from file ../results/ldsc/face/munged/par26.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 16/52
+Reading summary statistics from ../results/ldsc/face/munged/par27.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 16/52, from file ../results/ldsc/face/munged/par27.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 17/52
+Reading summary statistics from ../results/ldsc/face/munged/par28.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 17/52, from file ../results/ldsc/face/munged/par28.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 18/52
+Reading summary statistics from ../results/ldsc/face/munged/par29.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 18/52, from file ../results/ldsc/face/munged/par29.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 19/52
+Reading summary statistics from ../results/ldsc/face/munged/par30.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 19/52, from file ../results/ldsc/face/munged/par30.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 20/52
+Reading summary statistics from ../results/ldsc/face/munged/par31.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 20/52, from file ../results/ldsc/face/munged/par31.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 21/52
+Reading summary statistics from ../results/ldsc/face/munged/par32.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 21/52
+-------------------------------
+Total Observed scale h2: -132.9276 (150.9723)
+Lambda GC: 232.4382
+Mean Chi^2: 183.7454
+Intercept: 228.0025 (64.8922)
+Ratio: 1.2422 (0.3551)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.4175 (2.1793)
+Mean z1*z2: -5.3668
+Intercept: -5.5779 (0.9578)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 22/52
+Reading summary statistics from ../results/ldsc/face/munged/par33.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 22/52, from file ../results/ldsc/face/munged/par33.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 23/52
+Reading summary statistics from ../results/ldsc/face/munged/par34.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 23/52, from file ../results/ldsc/face/munged/par34.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 24/52
+Reading summary statistics from ../results/ldsc/face/munged/par35.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 24/52, from file ../results/ldsc/face/munged/par35.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 25/52
+Reading summary statistics from ../results/ldsc/face/munged/par36.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 25/52, from file ../results/ldsc/face/munged/par36.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 26/52
+Reading summary statistics from ../results/ldsc/face/munged/par37.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 26/52, from file ../results/ldsc/face/munged/par37.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 27/52
+Reading summary statistics from ../results/ldsc/face/munged/par38.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 27/52, from file ../results/ldsc/face/munged/par38.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 28/52
+Reading summary statistics from ../results/ldsc/face/munged/par39.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 28/52
+-------------------------------
+Total Observed scale h2: -44.5454 (88.1562)
+Lambda GC: 440.4853
+Mean Chi^2: 296.4733
+Intercept: 311.0885 (37.1111)
+Ratio: 1.0495 (0.1256)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 1.8654 (2.2227)
+Mean z1*z2: -7.1337
+Intercept: -8.0779 (1.1274)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 29/52
+Reading summary statistics from ../results/ldsc/face/munged/par40.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 29/52, from file ../results/ldsc/face/munged/par40.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 30/52
+Reading summary statistics from ../results/ldsc/face/munged/par41.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 30/52, from file ../results/ldsc/face/munged/par41.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 31/52
+Reading summary statistics from ../results/ldsc/face/munged/par42.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 31/52, from file ../results/ldsc/face/munged/par42.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 32/52
+Reading summary statistics from ../results/ldsc/face/munged/par43.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 32/52, from file ../results/ldsc/face/munged/par43.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 33/52
+Reading summary statistics from ../results/ldsc/face/munged/par44.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 33/52
+-------------------------------
+Total Observed scale h2: -407.181 (342.9761)
+Lambda GC: 1437.5461
+Mean Chi^2: 1216.7137
+Intercept: 1350.3777 (145.1623)
+Ratio: 1.1099 (0.1194)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 8.0123 (3.654)
+Mean z1*z2: -11.5652
+Intercept: -15.668 (2.1453)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 34/52
+Reading summary statistics from ../results/ldsc/face/munged/par45.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 34/52, from file ../results/ldsc/face/munged/par45.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 35/52
+Reading summary statistics from ../results/ldsc/face/munged/par46.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 35/52, from file ../results/ldsc/face/munged/par46.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 36/52
+Reading summary statistics from ../results/ldsc/face/munged/par47.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 36/52, from file ../results/ldsc/face/munged/par47.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 37/52
+Reading summary statistics from ../results/ldsc/face/munged/par48.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 37/52, from file ../results/ldsc/face/munged/par48.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 38/52
+Reading summary statistics from ../results/ldsc/face/munged/par49.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 38/52, from file ../results/ldsc/face/munged/par49.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 39/52
+Reading summary statistics from ../results/ldsc/face/munged/par50.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 39/52, from file ../results/ldsc/face/munged/par50.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 40/52
+Reading summary statistics from ../results/ldsc/face/munged/par51.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 40/52, from file ../results/ldsc/face/munged/par51.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 41/52
+Reading summary statistics from ../results/ldsc/face/munged/par52.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 41/52, from file ../results/ldsc/face/munged/par52.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 42/52
+Reading summary statistics from ../results/ldsc/face/munged/par53.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 42/52, from file ../results/ldsc/face/munged/par53.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 43/52
+Reading summary statistics from ../results/ldsc/face/munged/par54.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 43/52, from file ../results/ldsc/face/munged/par54.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 44/52
+Reading summary statistics from ../results/ldsc/face/munged/par55.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 44/52, from file ../results/ldsc/face/munged/par55.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 45/52
+Reading summary statistics from ../results/ldsc/face/munged/par56.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 45/52, from file ../results/ldsc/face/munged/par56.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 46/52
+Reading summary statistics from ../results/ldsc/face/munged/par57.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 46/52, from file ../results/ldsc/face/munged/par57.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 47/52
+Reading summary statistics from ../results/ldsc/face/munged/par58.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 47/52, from file ../results/ldsc/face/munged/par58.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 48/52
+Reading summary statistics from ../results/ldsc/face/munged/par59.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 48/52, from file ../results/ldsc/face/munged/par59.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 49/52
+Reading summary statistics from ../results/ldsc/face/munged/par60.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 49/52, from file ../results/ldsc/face/munged/par60.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 50/52
+Reading summary statistics from ../results/ldsc/face/munged/par61.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 50/52, from file ../results/ldsc/face/munged/par61.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 51/52
+Reading summary statistics from ../results/ldsc/face/munged/par62.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 51/52, from file ../results/ldsc/face/munged/par62.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 52/52
+Reading summary statistics from ../results/ldsc/face/munged/par63.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 52/52, from file ../results/ldsc/face/munged/par63.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+
+Summary of Genetic Correlation Results
+                                                                               p1                                             p2  rg  se   z   p h2_obs h2_obs_se h2_int h2_int_se gcov_int gcov_int_se
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par13.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par14.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par15.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par16.sumstats.gz  NA  NA  NA  NA -65.75     90.36  193.8     39.18   -5.578      0.8868
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par17.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par18.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par19.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par20.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par21.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par22.sumstats.gz  NA  NA  NA  NA -826.9     629.1   2684     256.1   -23.93       3.231
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par23.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par24.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par25.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par26.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par27.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par28.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par29.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par30.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par31.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par32.sumstats.gz  NA  NA  NA  NA -132.9       151    228     64.89   -5.578      0.9578
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par33.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par34.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par35.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par36.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par37.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par38.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par39.sumstats.gz  NA  NA  NA  NA -44.55     88.16  311.1     37.11   -8.078       1.127
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par40.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par41.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par42.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par43.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par44.sumstats.gz  NA  NA  NA  NA -407.2       343   1350     145.2   -15.67       2.145
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par45.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par46.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par47.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par48.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par49.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par50.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par51.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par52.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par53.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par54.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par55.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par56.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par57.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par58.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par59.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par60.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par61.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par62.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par12.sumstats.gz  ../results/ldsc/face/munged/par63.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+
+Analysis finished at Wed Mar 16 21:38:57 2022
+Total time elapsed: 1.0m:11.09s

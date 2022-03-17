@@ -1,0 +1,1354 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/ldsc/face/STAGE00DATA/mean_imputed/not_subsampled/rg/par16 \
+--rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz,../results/ldsc/face/munged/par17.sumstats.gz,../results/ldsc/face/munged/par18.sumstats.gz,../results/ldsc/face/munged/par19.sumstats.gz,../results/ldsc/face/munged/par20.sumstats.gz,../results/ldsc/face/munged/par21.sumstats.gz,../results/ldsc/face/munged/par22.sumstats.gz,../results/ldsc/face/munged/par23.sumstats.gz,../results/ldsc/face/munged/par24.sumstats.gz,../results/ldsc/face/munged/par25.sumstats.gz,../results/ldsc/face/munged/par26.sumstats.gz,../results/ldsc/face/munged/par27.sumstats.gz,../results/ldsc/face/munged/par28.sumstats.gz,../results/ldsc/face/munged/par29.sumstats.gz,../results/ldsc/face/munged/par30.sumstats.gz,../results/ldsc/face/munged/par31.sumstats.gz,../results/ldsc/face/munged/par32.sumstats.gz,../results/ldsc/face/munged/par33.sumstats.gz,../results/ldsc/face/munged/par34.sumstats.gz,../results/ldsc/face/munged/par35.sumstats.gz,../results/ldsc/face/munged/par36.sumstats.gz,../results/ldsc/face/munged/par37.sumstats.gz,../results/ldsc/face/munged/par38.sumstats.gz,../results/ldsc/face/munged/par39.sumstats.gz,../results/ldsc/face/munged/par40.sumstats.gz,../results/ldsc/face/munged/par41.sumstats.gz,../results/ldsc/face/munged/par42.sumstats.gz,../results/ldsc/face/munged/par43.sumstats.gz,../results/ldsc/face/munged/par44.sumstats.gz,../results/ldsc/face/munged/par45.sumstats.gz,../results/ldsc/face/munged/par46.sumstats.gz,../results/ldsc/face/munged/par47.sumstats.gz,../results/ldsc/face/munged/par48.sumstats.gz,../results/ldsc/face/munged/par49.sumstats.gz,../results/ldsc/face/munged/par50.sumstats.gz,../results/ldsc/face/munged/par51.sumstats.gz,../results/ldsc/face/munged/par52.sumstats.gz,../results/ldsc/face/munged/par53.sumstats.gz,../results/ldsc/face/munged/par54.sumstats.gz,../results/ldsc/face/munged/par55.sumstats.gz,../results/ldsc/face/munged/par56.sumstats.gz,../results/ldsc/face/munged/par57.sumstats.gz,../results/ldsc/face/munged/par58.sumstats.gz,../results/ldsc/face/munged/par59.sumstats.gz,../results/ldsc/face/munged/par60.sumstats.gz,../results/ldsc/face/munged/par61.sumstats.gz,../results/ldsc/face/munged/par62.sumstats.gz,../results/ldsc/face/munged/par63.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Wed Mar 16 21:42:27 2022
+Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz ...
+Read summary statistics for 7033675 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174774 SNPs remain.
+After merging with regression SNP LD, 1174774 SNPs remain.
+Computing rg for phenotype 2/48
+Reading summary statistics from ../results/ldsc/face/munged/par17.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.3279 (0.2184)
+Lambda GC: 1.4691
+Mean Chi^2: 1.3108
+Intercept: 1.0945 (0.1176)
+Ratio: 0.304 (0.3785)
+
+Heritability of phenotype 2/48
+------------------------------
+Total Observed scale h2: 246.6958 (182.3666)
+Lambda GC: 594.235
+Mean Chi^2: 495.6557
+Intercept: 414.7438 (53.7096)
+Ratio: 0.8364 (0.1086)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -13.5786 (4.2183)
+Mean z1*z2: -12.9126
+Intercept: -6.3964 (1.2427)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 3/48
+Reading summary statistics from ../results/ldsc/face/munged/par18.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 3/48
+------------------------------
+Total Observed scale h2: 662.2909 (343.2149)
+Lambda GC: 942.1249
+Mean Chi^2: 814.7267
+Intercept: 597.0616 (68.1948)
+Ratio: 0.7325 (0.0838)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -15.3072 (4.8532)
+Mean z1*z2: -15.9996
+Intercept: -8.5829 (1.4761)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.0388 (0.3206)
+Z-score: -3.2403
+P: 0.0012
+
+Computing rg for phenotype 4/48
+Reading summary statistics from ../results/ldsc/face/munged/par19.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 4/48
+------------------------------
+Total Observed scale h2: 308.3425 (162.17)
+Lambda GC: 1000.7241
+Mean Chi^2: 717.1949
+Intercept: 614.279 (50.8065)
+Ratio: 0.8563 (0.0709)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.3494 (3.37)
+Mean z1*z2: -14.1637
+Intercept: -9.5307 (1.2768)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.9299 (0.3298)
+Z-score: -2.8196
+P: 0.0048
+
+Computing rg for phenotype 5/48
+Reading summary statistics from ../results/ldsc/face/munged/par20.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 5/48
+------------------------------
+Total Observed scale h2: 733.7271 (218.4007)
+Lambda GC: 544.8532
+Mean Chi^2: 510.7502
+Intercept: 268.7327 (43.056)
+Ratio: 0.5252 (0.0845)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.792 (3.4329)
+Mean z1*z2: -11.3088
+Intercept: -6.3411 (1.217)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.6313 (0.2073)
+Z-score: -3.045
+P: 0.0023
+
+Computing rg for phenotype 6/48
+Reading summary statistics from ../results/ldsc/face/munged/par21.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 6/48
+------------------------------
+Total Observed scale h2: 444.8274 (241.3115)
+Lambda GC: 1131.616
+Mean Chi^2: 794.2396
+Intercept: 648.6425 (92.9031)
+Ratio: 0.8165 (0.1171)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -14.7396 (4.3636)
+Mean z1*z2: -16.4465
+Intercept: -8.9498 (1.6123)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 7/48
+Reading summary statistics from ../results/ldsc/face/munged/par22.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 7/48
+------------------------------
+Total Observed scale h2: -826.8614 (629.1133)
+Lambda GC: 3246.6051
+Mean Chi^2: 2411.435
+Intercept: 2684.0978 (256.1112)
+Ratio: 1.1131 (0.1063)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -14.5387 (7.0992)
+Mean z1*z2: -26.3896
+Intercept: -19.2714 (2.8964)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 8/48
+Reading summary statistics from ../results/ldsc/face/munged/par23.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 8/48
+------------------------------
+Total Observed scale h2: 1151.8796 (506.0417)
+Lambda GC: 848.7958
+Mean Chi^2: 962.5942
+Intercept: 582.7422 (88.6723)
+Ratio: 0.605 (0.0922)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.9119 (4.9782)
+Mean z1*z2: -14.8893
+Intercept: -9.0378 (1.62)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.613 (0.1922)
+Z-score: -3.1888
+P: 0.0014
+
+Computing rg for phenotype 9/48
+Reading summary statistics from ../results/ldsc/face/munged/par24.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 9/48
+------------------------------
+Total Observed scale h2: 994.0827 (271.9749)
+Lambda GC: 2048.6617
+Mean Chi^2: 1183.2827
+Intercept: 856.8808 (64.0079)
+Ratio: 0.7239 (0.0541)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -14.7802 (5.0524)
+Mean z1*z2: -19.5571
+Intercept: -12.2266 (1.8407)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.8187 (0.2352)
+Z-score: -3.4812
+P: 0.0005
+
+Computing rg for phenotype 10/48
+Reading summary statistics from ../results/ldsc/face/munged/par25.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 10/48
+-------------------------------
+Total Observed scale h2: 1220.427 (401.4288)
+Lambda GC: 1633.7639
+Mean Chi^2: 1135.0371
+Intercept: 732.9049 (75.7544)
+Ratio: 0.6454 (0.0668)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.4474 (4.6787)
+Mean z1*z2: -18.002
+Intercept: -11.9766 (1.6946)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.6223 (0.1854)
+Z-score: -3.3565
+P: 0.0008
+
+Computing rg for phenotype 11/48
+Reading summary statistics from ../results/ldsc/face/munged/par26.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 11/48
+-------------------------------
+Total Observed scale h2: 4354.4284 (1279.7852)
+Lambda GC: 2366.9794
+Mean Chi^2: 2138.0847
+Intercept: 704.0707 (180.0066)
+Ratio: 0.329 (0.0842)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -20.7631 (6.0425)
+Mean z1*z2: -22.9984
+Intercept: -12.5098 (2.1651)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.5495 (0.1724)
+Z-score: -3.1875
+P: 0.0014
+
+Computing rg for phenotype 12/48
+Reading summary statistics from ../results/ldsc/face/munged/par27.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 12/48
+-------------------------------
+Total Observed scale h2: 2068.0583 (868.0033)
+Lambda GC: 1551.1887
+Mean Chi^2: 1423.6224
+Intercept: 744.1247 (148.4681)
+Ratio: 0.5224 (0.1044)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.8915 (5.0787)
+Mean z1*z2: -18.1235
+Intercept: -12.3168 (1.8847)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.4567 (0.1618)
+Z-score: -2.8223
+P: 0.0048
+
+Computing rg for phenotype 13/48
+Reading summary statistics from ../results/ldsc/face/munged/par28.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 13/48
+-------------------------------
+Total Observed scale h2: 299.6879 (201.3091)
+Lambda GC: 1655.9128
+Mean Chi^2: 1068.7339
+Intercept: 970.5004 (94.9007)
+Ratio: 0.908 (0.0889)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -10.3051 (4.0654)
+Mean z1*z2: -17.9592
+Intercept: -12.7882 (1.9228)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.0396 (0.3641)
+Z-score: -2.8551
+P: 0.0043
+
+Computing rg for phenotype 14/48
+Reading summary statistics from ../results/ldsc/face/munged/par29.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 14/48
+-------------------------------
+Total Observed scale h2: 671.6717 (229.7232)
+Lambda GC: 1818.2769
+Mean Chi^2: 1121.4462
+Intercept: 901.698 (61.4245)
+Ratio: 0.8039 (0.0548)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.264 (4.4877)
+Mean z1*z2: -18.349
+Intercept: -12.8653 (2.0322)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.759 (0.2427)
+Z-score: -3.1278
+P: 0.0018
+
+Computing rg for phenotype 15/48
+Reading summary statistics from ../results/ldsc/face/munged/par30.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 15/48
+-------------------------------
+Total Observed scale h2: 1490.134 (420.5297)
+Lambda GC: 4215.8537
+Mean Chi^2: 2406.3902
+Intercept: 1916.9861 (129.7182)
+Ratio: 0.7965 (0.0539)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -20.7611 (7.1557)
+Mean z1*z2: -28.4986
+Intercept: -18.2165 (2.7265)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.9393 (0.2607)
+Z-score: -3.6026
+P: 0.0003
+
+Computing rg for phenotype 16/48
+Reading summary statistics from ../results/ldsc/face/munged/par31.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 16/48
+-------------------------------
+Total Observed scale h2: 341.1526 (271.0225)
+Lambda GC: 2135.0902
+Mean Chi^2: 1317.5964
+Intercept: 1206.2459 (79.3791)
+Ratio: 0.9154 (0.0603)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -8.9055 (5.503)
+Mean z1*z2: -19.7826
+Intercept: -15.6013 (2.4036)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.8421 (0.3975)
+Z-score: -2.1186
+P: 0.0341
+
+Computing rg for phenotype 17/48
+Reading summary statistics from ../results/ldsc/face/munged/par32.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 17/48
+-------------------------------
+Total Observed scale h2: -132.9276 (150.9723)
+Lambda GC: 232.4382
+Mean Chi^2: 183.7454
+Intercept: 228.0025 (64.8922)
+Ratio: 1.2422 (0.3551)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -5.6739 (1.9594)
+Mean z1*z2: -7.1644
+Intercept: -4.276 (0.7377)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 18/48
+Reading summary statistics from ../results/ldsc/face/munged/par33.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 18/48, from file ../results/ldsc/face/munged/par33.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 19/48
+Reading summary statistics from ../results/ldsc/face/munged/par34.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 19/48
+-------------------------------
+Total Observed scale h2: 250.1877 (179.1948)
+Lambda GC: 595.2999
+Mean Chi^2: 494.6211
+Intercept: 412.5015 (49.1215)
+Ratio: 0.8336 (0.0995)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -13.6066 (4.3103)
+Mean z1*z2: -12.9817
+Intercept: -6.4876 (1.2693)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 20/48
+Reading summary statistics from ../results/ldsc/face/munged/par35.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 20/48
+-------------------------------
+Total Observed scale h2: 43.6295 (61.2086)
+Lambda GC: 256.0601
+Mean Chi^2: 191.4652
+Intercept: 177.2331 (18.8755)
+Ratio: 0.9253 (0.0991)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -6.5043 (2.4838)
+Mean z1*z2: -7.6259
+Intercept: -4.4509 (0.8052)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 21/48
+Reading summary statistics from ../results/ldsc/face/munged/par36.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 21/48
+-------------------------------
+Total Observed scale h2: 207.9108 (213.7603)
+Lambda GC: 378.5827
+Mean Chi^2: 417.5526
+Intercept: 349.9741 (60.0091)
+Ratio: 0.8378 (0.1441)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -10.4547 (3.5501)
+Mean z1*z2: -10.582
+Intercept: -5.5637 (1.0458)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 22/48
+Reading summary statistics from ../results/ldsc/face/munged/par37.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 22/48
+-------------------------------
+Total Observed scale h2: 639.8179 (268.84)
+Lambda GC: 688.5103
+Mean Chi^2: 587.7147
+Intercept: 377.477 (39.2361)
+Ratio: 0.6417 (0.0669)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -15.7676 (4.1582)
+Mean z1*z2: -13.8972
+Intercept: -6.2146 (1.1786)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.0887 (0.3285)
+Z-score: -3.3144
+P: 0.0009
+
+Computing rg for phenotype 23/48
+Reading summary statistics from ../results/ldsc/face/munged/par38.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 23/48
+-------------------------------
+Total Observed scale h2: 313.1445 (142.6201)
+Lambda GC: 613.3596
+Mean Chi^2: 497.897
+Intercept: 393.1703 (33.8729)
+Ratio: 0.7892 (0.0682)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -7.8017 (2.9078)
+Mean z1*z2: -11.9211
+Intercept: -8.0936 (1.1103)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.77 (0.2492)
+Z-score: -3.0902
+P: 0.002
+
+Computing rg for phenotype 24/48
+Reading summary statistics from ../results/ldsc/face/munged/par39.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 24/48
+-------------------------------
+Total Observed scale h2: -44.5454 (88.1562)
+Lambda GC: 440.4853
+Mean Chi^2: 296.4733
+Intercept: 311.0885 (37.1111)
+Ratio: 1.0495 (0.1256)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -5.247 (2.3278)
+Mean z1*z2: -9.0957
+Intercept: -6.5196 (0.9007)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 25/48
+Reading summary statistics from ../results/ldsc/face/munged/par40.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 25/48
+-------------------------------
+Total Observed scale h2: 419.1778 (149.9029)
+Lambda GC: 192.7874
+Mean Chi^2: 273.2123
+Intercept: 135.7977 (33.8777)
+Ratio: 0.4952 (0.1245)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -6.1286 (2.6524)
+Mean z1*z2: -7.5494
+Intercept: -4.4676 (0.934)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.5228 (0.2078)
+Z-score: -2.5163
+P: 0.0119
+
+Computing rg for phenotype 26/48
+Reading summary statistics from ../results/ldsc/face/munged/par41.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 26/48
+-------------------------------
+Total Observed scale h2: 250.8132 (102.9214)
+Lambda GC: 225.0113
+Mean Chi^2: 237.2534
+Intercept: 154.5146 (20.7803)
+Ratio: 0.6498 (0.088)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -6.6804 (2.8465)
+Mean z1*z2: -8.3515
+Intercept: -4.9788 (1.0007)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.7367 (0.2452)
+Z-score: -3.0042
+P: 0.0027
+
+Computing rg for phenotype 27/48
+Reading summary statistics from ../results/ldsc/face/munged/par42.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 27/48
+-------------------------------
+Total Observed scale h2: 472.8453 (107.5695)
+Lambda GC: 498.35
+Mean Chi^2: 370.1824
+Intercept: 214.5643 (31.4315)
+Ratio: 0.5785 (0.0851)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.3184 (3.2665)
+Mean z1*z2: -11.6525
+Intercept: -5.8444 (1.1572)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.909 (0.243)
+Z-score: -3.7416
+P: 0.0002
+
+Computing rg for phenotype 28/48
+Reading summary statistics from ../results/ldsc/face/munged/par43.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 28/48
+-------------------------------
+Total Observed scale h2: 292.2558 (109.8534)
+Lambda GC: 484.5873
+Mean Chi^2: 387.3434
+Intercept: 291.4761 (31.8212)
+Ratio: 0.7519 (0.0824)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.6634 (3.3537)
+Mean z1*z2: -11.4168
+Intercept: -5.6185 (1.1778)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.1915 (0.3667)
+Z-score: -3.2496
+P: 0.0012
+
+Computing rg for phenotype 29/48
+Reading summary statistics from ../results/ldsc/face/munged/par44.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 29/48
+-------------------------------
+Total Observed scale h2: -407.181 (342.9761)
+Lambda GC: 1437.5461
+Mean Chi^2: 1216.7137
+Intercept: 1350.3777 (145.1623)
+Ratio: 1.1099 (0.1194)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -7.6849 (4.8817)
+Mean z1*z2: -17.2332
+Intercept: -13.4565 (2.0662)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 30/48
+Reading summary statistics from ../results/ldsc/face/munged/par45.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+ERROR computing rg for phenotype 30/48, from file ../results/ldsc/face/munged/par45.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 705, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+Computing rg for phenotype 31/48
+Reading summary statistics from ../results/ldsc/face/munged/par46.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 31/48
+-------------------------------
+Total Observed scale h2: 782.6201 (249.7989)
+Lambda GC: 242.6292
+Mean Chi^2: 379.3345
+Intercept: 121.932 (40.7408)
+Ratio: 0.3196 (0.1077)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.2671 (3.3954)
+Mean z1*z2: -8.6092
+Intercept: -3.9501 (1.0072)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.5785 (0.2191)
+Z-score: -2.6399
+P: 0.0083
+
+Computing rg for phenotype 32/48
+Reading summary statistics from ../results/ldsc/face/munged/par47.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 32/48
+-------------------------------
+Total Observed scale h2: 244.8136 (159.459)
+Lambda GC: 411.5578
+Mean Chi^2: 428.6027
+Intercept: 347.459 (40.9504)
+Ratio: 0.8102 (0.0958)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.2833 (3.8992)
+Mean z1*z2: -11.4201
+Intercept: -6.8925 (1.3461)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.0362 (0.2883)
+Z-score: -3.5945
+P: 0.0003
+
+Computing rg for phenotype 33/48
+Reading summary statistics from ../results/ldsc/face/munged/par48.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 33/48
+-------------------------------
+Total Observed scale h2: 585.034 (201.9058)
+Lambda GC: 1095.9332
+Mean Chi^2: 699.6663
+Intercept: 508.0267 (43.8345)
+Ratio: 0.7257 (0.0627)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.9036 (4.226)
+Mean z1*z2: -15.3344
+Intercept: -9.0328 (1.3937)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.9317 (0.2697)
+Z-score: -3.4543
+P: 0.0006
+
+Computing rg for phenotype 34/48
+Reading summary statistics from ../results/ldsc/face/munged/par49.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 34/48
+-------------------------------
+Total Observed scale h2: 436.7001 (85.005)
+Lambda GC: 750.9567
+Mean Chi^2: 469.6141
+Intercept: 325.8699 (25.4643)
+Ratio: 0.6933 (0.0543)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.5545 (3.0356)
+Mean z1*z2: -12.0868
+Intercept: -7.1882 (1.2422)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.7985 (0.2376)
+Z-score: -3.361
+P: 0.0008
+
+Computing rg for phenotype 35/48
+Reading summary statistics from ../results/ldsc/face/munged/par50.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 35/48
+-------------------------------
+Total Observed scale h2: 515.2379 (139.9075)
+Lambda GC: 990.2006
+Mean Chi^2: 666.7886
+Intercept: 497.0753 (32.2982)
+Ratio: 0.7451 (0.0485)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -10.3146 (3.6239)
+Mean z1*z2: -14.2616
+Intercept: -9.2416 (1.3713)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.7936 (0.2315)
+Z-score: -3.4286
+P: 0.0006
+
+Computing rg for phenotype 36/48
+Reading summary statistics from ../results/ldsc/face/munged/par51.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 36/48
+-------------------------------
+Total Observed scale h2: 1075.8787 (444.015)
+Lambda GC: 1037.4832
+Mean Chi^2: 883.6059
+Intercept: 529.5034 (71.6465)
+Ratio: 0.5988 (0.0812)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -8.7937 (4.0422)
+Mean z1*z2: -14.5098
+Intercept: -10.2863 (1.4451)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.4682 (0.1629)
+Z-score: -2.8739
+P: 0.0041
+
+Computing rg for phenotype 37/48
+Reading summary statistics from ../results/ldsc/face/munged/par52.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 37/48
+-------------------------------
+Total Observed scale h2: 593.0693 (80.9802)
+Lambda GC: 561.6712
+Mean Chi^2: 396.7229
+Intercept: 201.0372 (16.7887)
+Ratio: 0.5055 (0.0424)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -8.3267 (2.4117)
+Mean z1*z2: -10.4205
+Intercept: -6.1406 (0.9414)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.5971 (0.1765)
+Z-score: -3.3842
+P: 0.0007
+
+Computing rg for phenotype 38/48
+Reading summary statistics from ../results/ldsc/face/munged/par53.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 38/48
+-------------------------------
+Total Observed scale h2: 3403.0963 (1391.5985)
+Lambda GC: 1058.6511
+Mean Chi^2: 1617.8467
+Intercept: 498.2963 (208.5673)
+Ratio: 0.3076 (0.129)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -15.3947 (5.3402)
+Mean z1*z2: -17.6817
+Intercept: -10.0362 (1.9624)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.4609 (0.1706)
+Z-score: -2.7023
+P: 0.0069
+
+Computing rg for phenotype 39/48
+Reading summary statistics from ../results/ldsc/face/munged/par54.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 39/48
+-------------------------------
+Total Observed scale h2: 1845.5246 (770.4374)
+Lambda GC: 1358.7829
+Mean Chi^2: 1315.2603
+Intercept: 708.7227 (148.4221)
+Ratio: 0.5385 (0.1129)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.6987 (4.8448)
+Mean z1*z2: -17.6622
+Intercept: -11.4087 (1.864)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.5162 (0.1737)
+Z-score: -2.9719
+P: 0.003
+
+Computing rg for phenotype 40/48
+Reading summary statistics from ../results/ldsc/face/munged/par55.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 40/48
+-------------------------------
+Total Observed scale h2: 516.4168 (193.29)
+Lambda GC: 613.8569
+Mean Chi^2: 487.0666
+Intercept: 317.3395 (38.5529)
+Ratio: 0.6508 (0.0793)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -5.7117 (2.6299)
+Mean z1*z2: -10.6008
+Intercept: -7.7807 (1.0844)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.439 (0.1807)
+Z-score: -2.4288
+P: 0.0151
+
+Computing rg for phenotype 41/48
+Reading summary statistics from ../results/ldsc/face/munged/par56.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 41/48
+-------------------------------
+Total Observed scale h2: 196.4431 (168.3646)
+Lambda GC: 755.9374
+Mean Chi^2: 545.6178
+Intercept: 481.5726 (73.5289)
+Ratio: 0.8824 (0.135)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -9.1461 (2.9013)
+Mean z1*z2: -13.156
+Intercept: -8.5284 (1.4122)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -1.1397 (0.4505)
+Z-score: -2.5296
+P: 0.0114
+
+Computing rg for phenotype 42/48
+Reading summary statistics from ../results/ldsc/face/munged/par57.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 42/48
+-------------------------------
+Total Observed scale h2: 436.5734 (149.017)
+Lambda GC: 1191.8378
+Mean Chi^2: 820.8143
+Intercept: 677.4032 (64.1943)
+Ratio: 0.8251 (0.0783)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -10.2278 (3.7362)
+Mean z1*z2: -16.0297
+Intercept: -10.9001 (1.7314)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.8549 (0.235)
+Z-score: -3.6374
+P: 0.0003
+
+Computing rg for phenotype 43/48
+Reading summary statistics from ../results/ldsc/face/munged/par58.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 43/48
+-------------------------------
+Total Observed scale h2: 172.7402 (89.5384)
+Lambda GC: 523.7046
+Mean Chi^2: 350.9299
+Intercept: 294.5414 (32.8869)
+Ratio: 0.8389 (0.094)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -5.2923 (2.8907)
+Mean z1*z2: -10.0076
+Intercept: -7.4167 (1.4557)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.7032 (0.2848)
+Z-score: -2.469
+P: 0.0135
+
+Computing rg for phenotype 44/48
+Reading summary statistics from ../results/ldsc/face/munged/par59.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 44/48
+-------------------------------
+Total Observed scale h2: 344.4194 (109.5642)
+Lambda GC: 596.9792
+Mean Chi^2: 465.8806
+Intercept: 352.9483 (35.2752)
+Ratio: 0.7571 (0.0759)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -7.6507 (2.8311)
+Mean z1*z2: -11.5562
+Intercept: -7.753 (1.2611)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.72 (0.203)
+Z-score: -3.5467
+P: 0.0004
+
+Computing rg for phenotype 45/48
+Reading summary statistics from ../results/ldsc/face/munged/par60.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 45/48
+-------------------------------
+Total Observed scale h2: 930.724 (265.6653)
+Lambda GC: 2554.3797
+Mean Chi^2: 1498.6522
+Intercept: 1192.1584 (79.1636)
+Ratio: 0.7954 (0.0529)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -16.7177 (5.5882)
+Mean z1*z2: -22.3649
+Intercept: -14.1381 (2.2058)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.957 (0.2417)
+Z-score: -3.9592
+P: 7.5199e-05
+
+Computing rg for phenotype 46/48
+Reading summary statistics from ../results/ldsc/face/munged/par61.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 46/48
+-------------------------------
+Total Observed scale h2: 799.0379 (238.1486)
+Lambda GC: 1645.5726
+Mean Chi^2: 1012.6904
+Intercept: 749.8808 (57.7849)
+Ratio: 0.7402 (0.0571)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -13.8535 (5.083)
+Mean z1*z2: -18.5765
+Intercept: -11.8175 (1.8828)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.8559 (0.243)
+Z-score: -3.5227
+P: 0.0004
+
+Computing rg for phenotype 47/48
+Reading summary statistics from ../results/ldsc/face/munged/par62.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 47/48
+-------------------------------
+Total Observed scale h2: 88.9275 (181.0243)
+Lambda GC: 1394.423
+Mean Chi^2: 856.3814
+Intercept: 827.6596 (56.506)
+Ratio: 0.9664 (0.0661)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -7.3493 (4.4917)
+Mean z1*z2: -16.1592
+Intercept: -12.7842 (2.0402)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 48/48
+Reading summary statistics from ../results/ldsc/face/munged/par63.sumstats.gz ...
+Read summary statistics for 23709 SNPs.
+After merging with summary statistics, 4516 SNPs remain.
+4516 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 48/48
+-------------------------------
+Total Observed scale h2: 192.4694 (222.6075)
+Lambda GC: 1823.7689
+Mean Chi^2: 1100.1692
+Intercept: 1037.3745 (62.9951)
+Ratio: 0.9429 (0.0573)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -7.0464 (4.6721)
+Mean z1*z2: -17.9506
+Intercept: -14.5948 (2.1456)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.887 (0.7377)
+Z-score: -1.2024
+P: 0.2292
+
+
+Summary of Genetic Correlation Results
+                                                                               p1                                             p2      rg      se      z          p h2_obs h2_obs_se h2_int h2_int_se gcov_int gcov_int_se
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par17.sumstats.gz   -1.51   0.568 -2.658   0.007856  246.7     182.4  414.7     53.71   -6.396       1.243
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par18.sumstats.gz  -1.039  0.3206  -3.24   0.001194  662.3     343.2  597.1     68.19   -8.583       1.476
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par19.sumstats.gz -0.9299  0.3298  -2.82   0.004809  308.3     162.2  614.3     50.81   -9.531       1.277
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par20.sumstats.gz -0.6313  0.2073 -3.045   0.002327  733.7     218.4  268.7     43.06   -6.341       1.217
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par21.sumstats.gz  -1.221  0.3771 -3.237   0.001209  444.8     241.3  648.6      92.9    -8.95       1.612
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par22.sumstats.gz      NA      NA     NA         NA -826.9     629.1   2684     256.1   -19.27       2.896
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par23.sumstats.gz  -0.613  0.1922 -3.189   0.001429   1152       506  582.7     88.67   -9.038        1.62
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par24.sumstats.gz -0.8187  0.2352 -3.481  0.0004991  994.1       272  856.9     64.01   -12.23       1.841
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par25.sumstats.gz -0.6223  0.1854 -3.357  0.0007893   1220     401.4  732.9     75.75   -11.98       1.695
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par26.sumstats.gz -0.5495  0.1724 -3.188   0.001435   4354      1280  704.1       180   -12.51       2.165
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par27.sumstats.gz -0.4567  0.1618 -2.822   0.004768   2068       868  744.1     148.5   -12.32       1.885
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par28.sumstats.gz   -1.04  0.3641 -2.855   0.004303  299.7     201.3  970.5      94.9   -12.79       1.923
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par29.sumstats.gz  -0.759  0.2427 -3.128   0.001761  671.7     229.7  901.7     61.42   -12.87       2.032
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par30.sumstats.gz -0.9393  0.2607 -3.603   0.000315   1490     420.5   1917     129.7   -18.22       2.727
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par31.sumstats.gz -0.8421  0.3975 -2.119    0.03412  341.2       271   1206     79.38    -15.6       2.404
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par32.sumstats.gz      NA      NA     NA         NA -132.9       151    228     64.89   -4.276      0.7377
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par33.sumstats.gz      NA      NA     NA         NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par34.sumstats.gz  -1.502  0.5592 -2.687   0.007218  250.2     179.2  412.5     49.12   -6.488       1.269
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par35.sumstats.gz   -1.72   1.274  -1.35     0.1771  43.63     61.21  177.2     18.88   -4.451      0.8052
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par36.sumstats.gz  -1.266  0.6183 -2.048    0.04056  207.9     213.8    350     60.01   -5.564       1.046
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par37.sumstats.gz  -1.089  0.3285 -3.314  0.0009184  639.8     268.8  377.5     39.24   -6.215       1.179
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par38.sumstats.gz   -0.77  0.2492  -3.09      0.002  313.1     142.6  393.2     33.87   -8.094        1.11
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par39.sumstats.gz      NA      NA     NA         NA -44.55     88.16  311.1     37.11    -6.52      0.9007
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par40.sumstats.gz -0.5228  0.2078 -2.516    0.01186  419.2     149.9  135.8     33.88   -4.468       0.934
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par41.sumstats.gz -0.7367  0.2452 -3.004   0.002663  250.8     102.9  154.5     20.78   -4.979       1.001
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par42.sumstats.gz  -0.909   0.243 -3.742  0.0001828  472.8     107.6  214.6     31.43   -5.844       1.157
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par43.sumstats.gz  -1.192  0.3667  -3.25   0.001155  292.3     109.9  291.5     31.82   -5.619       1.178
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par44.sumstats.gz      NA      NA     NA         NA -407.2       343   1350     145.2   -13.46       2.066
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par45.sumstats.gz      NA      NA     NA         NA     NA        NA     NA        NA       NA          NA
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par46.sumstats.gz -0.5785  0.2191  -2.64   0.008293  782.6     249.8  121.9     40.74    -3.95       1.007
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par47.sumstats.gz  -1.036  0.2883 -3.595   0.000325  244.8     159.5  347.5     40.95   -6.892       1.346
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par48.sumstats.gz -0.9317  0.2697 -3.454  0.0005516    585     201.9    508     43.83   -9.033       1.394
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par49.sumstats.gz -0.7985  0.2376 -3.361  0.0007765  436.7        85  325.9     25.46   -7.188       1.242
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par50.sumstats.gz -0.7936  0.2315 -3.429  0.0006068  515.2     139.9  497.1      32.3   -9.242       1.371
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par51.sumstats.gz -0.4682  0.1629 -2.874   0.004055   1076       444  529.5     71.65   -10.29       1.445
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par52.sumstats.gz -0.5971  0.1765 -3.384  0.0007139  593.1     80.98    201     16.79   -6.141      0.9414
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par53.sumstats.gz -0.4609  0.1706 -2.702   0.006887   3403      1392  498.3     208.6   -10.04       1.962
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par54.sumstats.gz -0.5162  0.1737 -2.972    0.00296   1846     770.4  708.7     148.4   -11.41       1.864
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par55.sumstats.gz  -0.439  0.1807 -2.429    0.01515  516.4     193.3  317.3     38.55   -7.781       1.084
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par56.sumstats.gz   -1.14  0.4505  -2.53    0.01142  196.4     168.4  481.6     73.53   -8.528       1.412
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par57.sumstats.gz -0.8549   0.235 -3.637  0.0002754  436.6       149  677.4     64.19    -10.9       1.731
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par58.sumstats.gz -0.7032  0.2848 -2.469    0.01355  172.7     89.54  294.5     32.89   -7.417       1.456
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par59.sumstats.gz   -0.72   0.203 -3.547  0.0003901  344.4     109.6  352.9     35.28   -7.753       1.261
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par60.sumstats.gz  -0.957  0.2417 -3.959   7.52e-05  930.7     265.7   1192     79.16   -14.14       2.206
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par61.sumstats.gz -0.8559   0.243 -3.523  0.0004272    799     238.1  749.9     57.78   -11.82       1.883
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par62.sumstats.gz  -1.361    1.67 -0.815     0.4151  88.93       181  827.7     56.51   -12.78        2.04
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz  ../results/ldsc/face/munged/par63.sumstats.gz  -0.887  0.7377 -1.202     0.2292  192.5     222.6   1037        63   -14.59       2.146
+
+Analysis finished at Wed Mar 16 21:43:34 2022
+Total time elapsed: 1.0m:7.24s

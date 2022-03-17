@@ -1,0 +1,804 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/ldsc/brain_shape/STAGE00DATA/mean_imputed/not_subsampled/rg/par15 \
+--rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par15.sumstats.gz,../results/ldsc/brain_shape/munged/par16.sumstats.gz,../results/ldsc/brain_shape/munged/par17.sumstats.gz,../results/ldsc/brain_shape/munged/par18.sumstats.gz,../results/ldsc/brain_shape/munged/par19.sumstats.gz,../results/ldsc/brain_shape/munged/par20.sumstats.gz,../results/ldsc/brain_shape/munged/par21.sumstats.gz,../results/ldsc/brain_shape/munged/par22.sumstats.gz,../results/ldsc/brain_shape/munged/par23.sumstats.gz,../results/ldsc/brain_shape/munged/par24.sumstats.gz,../results/ldsc/brain_shape/munged/par25.sumstats.gz,../results/ldsc/brain_shape/munged/par26.sumstats.gz,../results/ldsc/brain_shape/munged/par27.sumstats.gz,../results/ldsc/brain_shape/munged/par28.sumstats.gz,../results/ldsc/brain_shape/munged/par29.sumstats.gz,../results/ldsc/brain_shape/munged/par30.sumstats.gz,../results/ldsc/brain_shape/munged/par31.sumstats.gz,../results/ldsc/brain_shape/munged/par32.sumstats.gz,../results/ldsc/brain_shape/munged/par33.sumstats.gz,../results/ldsc/brain_shape/munged/par34.sumstats.gz,../results/ldsc/brain_shape/munged/par35.sumstats.gz,../results/ldsc/brain_shape/munged/par36.sumstats.gz,../results/ldsc/brain_shape/munged/par37.sumstats.gz,../results/ldsc/brain_shape/munged/par38.sumstats.gz,../results/ldsc/brain_shape/munged/par39.sumstats.gz,../results/ldsc/brain_shape/munged/par40.sumstats.gz,../results/ldsc/brain_shape/munged/par41.sumstats.gz,../results/ldsc/brain_shape/munged/par42.sumstats.gz,../results/ldsc/brain_shape/munged/par43.sumstats.gz,../results/ldsc/brain_shape/munged/par44.sumstats.gz,../results/ldsc/brain_shape/munged/par45.sumstats.gz,../results/ldsc/brain_shape/munged/par46.sumstats.gz,../results/ldsc/brain_shape/munged/par47.sumstats.gz,../results/ldsc/brain_shape/munged/par48.sumstats.gz,../results/ldsc/brain_shape/munged/par49.sumstats.gz,../results/ldsc/brain_shape/munged/par50.sumstats.gz,../results/ldsc/brain_shape/munged/par51.sumstats.gz,../results/ldsc/brain_shape/munged/par52.sumstats.gz,../results/ldsc/brain_shape/munged/par53.sumstats.gz,../results/ldsc/brain_shape/munged/par54.sumstats.gz,../results/ldsc/brain_shape/munged/par55.sumstats.gz,../results/ldsc/brain_shape/munged/par56.sumstats.gz,../results/ldsc/brain_shape/munged/par57.sumstats.gz,../results/ldsc/brain_shape/munged/par58.sumstats.gz,../results/ldsc/brain_shape/munged/par59.sumstats.gz,../results/ldsc/brain_shape/munged/par60.sumstats.gz,../results/ldsc/brain_shape/munged/par61.sumstats.gz,../results/ldsc/brain_shape/munged/par62.sumstats.gz,../results/ldsc/brain_shape/munged/par63.sumstats.gz,../results/ldsc/brain_shape/munged/par64.sumstats.gz,../results/ldsc/brain_shape/munged/par65.sumstats.gz,../results/ldsc/brain_shape/munged/par66.sumstats.gz,../results/ldsc/brain_shape/munged/par67.sumstats.gz,../results/ldsc/brain_shape/munged/par68.sumstats.gz,../results/ldsc/brain_shape/munged/par69.sumstats.gz,../results/ldsc/brain_shape/munged/par70.sumstats.gz,../results/ldsc/brain_shape/munged/par71.sumstats.gz,../results/ldsc/brain_shape/munged/par72.sumstats.gz,../results/ldsc/brain_shape/munged/par73.sumstats.gz,../results/ldsc/brain_shape/munged/par74.sumstats.gz,../results/ldsc/brain_shape/munged/par75.sumstats.gz,../results/ldsc/brain_shape/munged/par76.sumstats.gz,../results/ldsc/brain_shape/munged/par77.sumstats.gz,../results/ldsc/brain_shape/munged/par78.sumstats.gz,../results/ldsc/brain_shape/munged/par79.sumstats.gz,../results/ldsc/brain_shape/munged/par80.sumstats.gz,../results/ldsc/brain_shape/munged/par81.sumstats.gz,../results/ldsc/brain_shape/munged/par82.sumstats.gz,../results/ldsc/brain_shape/munged/par83.sumstats.gz,../results/ldsc/brain_shape/munged/par84.sumstats.gz,../results/ldsc/brain_shape/munged/par85.sumstats.gz,../results/ldsc/brain_shape/munged/par86.sumstats.gz,../results/ldsc/brain_shape/munged/par87.sumstats.gz,../results/ldsc/brain_shape/munged/par88.sumstats.gz,../results/ldsc/brain_shape/munged/par89.sumstats.gz,../results/ldsc/brain_shape/munged/par90.sumstats.gz,../results/ldsc/brain_shape/munged/par91.sumstats.gz,../results/ldsc/brain_shape/munged/par92.sumstats.gz,../results/ldsc/brain_shape/munged/par93.sumstats.gz,../results/ldsc/brain_shape/munged/par94.sumstats.gz,../results/ldsc/brain_shape/munged/par95.sumstats.gz,../results/ldsc/brain_shape/munged/par96.sumstats.gz,../results/ldsc/brain_shape/munged/par97.sumstats.gz,../results/ldsc/brain_shape/munged/par98.sumstats.gz,../results/ldsc/brain_shape/munged/par99.sumstats.gz,../results/ldsc/brain_shape/munged/par100.sumstats.gz,../results/ldsc/brain_shape/munged/par101.sumstats.gz,../results/ldsc/brain_shape/munged/par102.sumstats.gz,../results/ldsc/brain_shape/munged/par103.sumstats.gz,../results/ldsc/brain_shape/munged/par104.sumstats.gz,../results/ldsc/brain_shape/munged/par105.sumstats.gz,../results/ldsc/brain_shape/munged/par106.sumstats.gz,../results/ldsc/brain_shape/munged/par107.sumstats.gz,../results/ldsc/brain_shape/munged/par108.sumstats.gz,../results/ldsc/brain_shape/munged/par109.sumstats.gz,../results/ldsc/brain_shape/munged/par110.sumstats.gz,../results/ldsc/brain_shape/munged/par111.sumstats.gz,../results/ldsc/brain_shape/munged/par112.sumstats.gz,../results/ldsc/brain_shape/munged/par113.sumstats.gz,../results/ldsc/brain_shape/munged/par114.sumstats.gz,../results/ldsc/brain_shape/munged/par115.sumstats.gz,../results/ldsc/brain_shape/munged/par116.sumstats.gz,../results/ldsc/brain_shape/munged/par117.sumstats.gz,../results/ldsc/brain_shape/munged/par118.sumstats.gz,../results/ldsc/brain_shape/munged/par119.sumstats.gz,../results/ldsc/brain_shape/munged/par120.sumstats.gz,../results/ldsc/brain_shape/munged/par121.sumstats.gz,../results/ldsc/brain_shape/munged/par122.sumstats.gz,../results/ldsc/brain_shape/munged/par123.sumstats.gz,../results/ldsc/brain_shape/munged/par124.sumstats.gz,../results/ldsc/brain_shape/munged/par125.sumstats.gz,../results/ldsc/brain_shape/munged/par126.sumstats.gz,../results/ldsc/brain_shape/munged/par127.sumstats.gz,../results/ldsc/brain_shape/munged/par128.sumstats.gz,../results/ldsc/brain_shape/munged/par129.sumstats.gz,../results/ldsc/brain_shape/munged/par130.sumstats.gz,../results/ldsc/brain_shape/munged/par131.sumstats.gz,../results/ldsc/brain_shape/munged/par132.sumstats.gz,../results/ldsc/brain_shape/munged/par133.sumstats.gz,../results/ldsc/brain_shape/munged/par134.sumstats.gz,../results/ldsc/brain_shape/munged/par135.sumstats.gz,../results/ldsc/brain_shape/munged/par136.sumstats.gz,../results/ldsc/brain_shape/munged/par137.sumstats.gz,../results/ldsc/brain_shape/munged/par138.sumstats.gz,../results/ldsc/brain_shape/munged/par139.sumstats.gz,../results/ldsc/brain_shape/munged/par140.sumstats.gz,../results/ldsc/brain_shape/munged/par141.sumstats.gz,../results/ldsc/brain_shape/munged/par142.sumstats.gz,../results/ldsc/brain_shape/munged/par143.sumstats.gz,../results/ldsc/brain_shape/munged/par144.sumstats.gz,../results/ldsc/brain_shape/munged/par145.sumstats.gz,../results/ldsc/brain_shape/munged/par146.sumstats.gz,../results/ldsc/brain_shape/munged/par147.sumstats.gz,../results/ldsc/brain_shape/munged/par148.sumstats.gz,../results/ldsc/brain_shape/munged/par149.sumstats.gz,../results/ldsc/brain_shape/munged/par150.sumstats.gz,../results/ldsc/brain_shape/munged/par151.sumstats.gz,../results/ldsc/brain_shape/munged/par152.sumstats.gz,../results/ldsc/brain_shape/munged/par153.sumstats.gz,../results/ldsc/brain_shape/munged/par154.sumstats.gz,../results/ldsc/brain_shape/munged/par155.sumstats.gz,../results/ldsc/brain_shape/munged/par156.sumstats.gz,../results/ldsc/brain_shape/munged/par157.sumstats.gz,../results/ldsc/brain_shape/munged/par158.sumstats.gz,../results/ldsc/brain_shape/munged/par159.sumstats.gz,../results/ldsc/brain_shape/munged/par160.sumstats.gz,../results/ldsc/brain_shape/munged/par161.sumstats.gz,../results/ldsc/brain_shape/munged/par162.sumstats.gz,../results/ldsc/brain_shape/munged/par163.sumstats.gz,../results/ldsc/brain_shape/munged/par164.sumstats.gz,../results/ldsc/brain_shape/munged/par165.sumstats.gz,../results/ldsc/brain_shape/munged/par166.sumstats.gz,../results/ldsc/brain_shape/munged/par167.sumstats.gz,../results/ldsc/brain_shape/munged/par168.sumstats.gz,../results/ldsc/brain_shape/munged/par169.sumstats.gz,../results/ldsc/brain_shape/munged/par170.sumstats.gz,../results/ldsc/brain_shape/munged/par171.sumstats.gz,../results/ldsc/brain_shape/munged/par172.sumstats.gz,../results/ldsc/brain_shape/munged/par173.sumstats.gz,../results/ldsc/brain_shape/munged/par174.sumstats.gz,../results/ldsc/brain_shape/munged/par175.sumstats.gz,../results/ldsc/brain_shape/munged/par176.sumstats.gz,../results/ldsc/brain_shape/munged/par177.sumstats.gz,../results/ldsc/brain_shape/munged/par178.sumstats.gz,../results/ldsc/brain_shape/munged/par179.sumstats.gz,../results/ldsc/brain_shape/munged/par180.sumstats.gz,../results/ldsc/brain_shape/munged/par181.sumstats.gz,../results/ldsc/brain_shape/munged/par182.sumstats.gz,../results/ldsc/brain_shape/munged/par183.sumstats.gz,../results/ldsc/brain_shape/munged/par184.sumstats.gz,../results/ldsc/brain_shape/munged/par185.sumstats.gz,../results/ldsc/brain_shape/munged/par186.sumstats.gz,../results/ldsc/brain_shape/munged/par187.sumstats.gz,../results/ldsc/brain_shape/munged/par188.sumstats.gz,../results/ldsc/brain_shape/munged/par189.sumstats.gz,../results/ldsc/brain_shape/munged/par190.sumstats.gz,../results/ldsc/brain_shape/munged/par191.sumstats.gz,../results/ldsc/brain_shape/munged/par192.sumstats.gz,../results/ldsc/brain_shape/munged/par193.sumstats.gz,../results/ldsc/brain_shape/munged/par194.sumstats.gz,../results/ldsc/brain_shape/munged/par195.sumstats.gz,../results/ldsc/brain_shape/munged/par196.sumstats.gz,../results/ldsc/brain_shape/munged/par197.sumstats.gz,../results/ldsc/brain_shape/munged/par198.sumstats.gz,../results/ldsc/brain_shape/munged/par199.sumstats.gz,../results/ldsc/brain_shape/munged/par200.sumstats.gz,../results/ldsc/brain_shape/munged/par201.sumstats.gz,../results/ldsc/brain_shape/munged/par202.sumstats.gz,../results/ldsc/brain_shape/munged/par203.sumstats.gz,../results/ldsc/brain_shape/munged/par204.sumstats.gz,../results/ldsc/brain_shape/munged/par205.sumstats.gz,../results/ldsc/brain_shape/munged/par206.sumstats.gz,../results/ldsc/brain_shape/munged/par207.sumstats.gz,../results/ldsc/brain_shape/munged/par208.sumstats.gz,../results/ldsc/brain_shape/munged/par209.sumstats.gz,../results/ldsc/brain_shape/munged/par210.sumstats.gz,../results/ldsc/brain_shape/munged/par211.sumstats.gz,../results/ldsc/brain_shape/munged/par212.sumstats.gz,../results/ldsc/brain_shape/munged/par213.sumstats.gz,../results/ldsc/brain_shape/munged/par214.sumstats.gz,../results/ldsc/brain_shape/munged/par215.sumstats.gz,../results/ldsc/brain_shape/munged/par216.sumstats.gz,../results/ldsc/brain_shape/munged/par217.sumstats.gz,../results/ldsc/brain_shape/munged/par218.sumstats.gz,../results/ldsc/brain_shape/munged/par219.sumstats.gz,../results/ldsc/brain_shape/munged/par220.sumstats.gz,../results/ldsc/brain_shape/munged/par221.sumstats.gz,../results/ldsc/brain_shape/munged/par222.sumstats.gz,../results/ldsc/brain_shape/munged/par223.sumstats.gz,../results/ldsc/brain_shape/munged/par224.sumstats.gz,../results/ldsc/brain_shape/munged/par225.sumstats.gz,../results/ldsc/brain_shape/munged/par226.sumstats.gz,../results/ldsc/brain_shape/munged/par227.sumstats.gz,../results/ldsc/brain_shape/munged/par228.sumstats.gz,../results/ldsc/brain_shape/munged/par229.sumstats.gz,../results/ldsc/brain_shape/munged/par230.sumstats.gz,../results/ldsc/brain_shape/munged/par231.sumstats.gz,../results/ldsc/brain_shape/munged/par232.sumstats.gz,../results/ldsc/brain_shape/munged/par233.sumstats.gz,../results/ldsc/brain_shape/munged/par234.sumstats.gz,../results/ldsc/brain_shape/munged/par235.sumstats.gz,../results/ldsc/brain_shape/munged/par236.sumstats.gz,../results/ldsc/brain_shape/munged/par237.sumstats.gz,../results/ldsc/brain_shape/munged/par238.sumstats.gz,../results/ldsc/brain_shape/munged/par239.sumstats.gz,../results/ldsc/brain_shape/munged/par240.sumstats.gz,../results/ldsc/brain_shape/munged/par241.sumstats.gz,../results/ldsc/brain_shape/munged/par242.sumstats.gz,../results/ldsc/brain_shape/munged/par243.sumstats.gz,../results/ldsc/brain_shape/munged/par244.sumstats.gz,../results/ldsc/brain_shape/munged/par245.sumstats.gz,../results/ldsc/brain_shape/munged/par246.sumstats.gz,../results/ldsc/brain_shape/munged/par247.sumstats.gz,../results/ldsc/brain_shape/munged/par248.sumstats.gz,../results/ldsc/brain_shape/munged/par249.sumstats.gz,../results/ldsc/brain_shape/munged/par250.sumstats.gz,../results/ldsc/brain_shape/munged/par251.sumstats.gz,../results/ldsc/brain_shape/munged/par252.sumstats.gz,../results/ldsc/brain_shape/munged/par253.sumstats.gz,../results/ldsc/brain_shape/munged/par254.sumstats.gz,../results/ldsc/brain_shape/munged/par255.sumstats.gz,../results/ldsc/brain_shape/munged/par256.sumstats.gz,../results/ldsc/brain_shape/munged/par257.sumstats.gz,../results/ldsc/brain_shape/munged/par258.sumstats.gz,../results/ldsc/brain_shape/munged/par259.sumstats.gz,../results/ldsc/brain_shape/munged/par260.sumstats.gz,../results/ldsc/brain_shape/munged/par261.sumstats.gz,../results/ldsc/brain_shape/munged/par262.sumstats.gz,../results/ldsc/brain_shape/munged/par263.sumstats.gz,../results/ldsc/brain_shape/munged/par264.sumstats.gz,../results/ldsc/brain_shape/munged/par265.sumstats.gz,../results/ldsc/brain_shape/munged/par266.sumstats.gz,../results/ldsc/brain_shape/munged/par267.sumstats.gz,../results/ldsc/brain_shape/munged/par268.sumstats.gz,../results/ldsc/brain_shape/munged/par269.sumstats.gz,../results/ldsc/brain_shape/munged/par270.sumstats.gz,../results/ldsc/brain_shape/munged/par271.sumstats.gz,../results/ldsc/brain_shape/munged/par272.sumstats.gz,../results/ldsc/brain_shape/munged/par273.sumstats.gz,../results/ldsc/brain_shape/munged/par274.sumstats.gz,../results/ldsc/brain_shape/munged/par275.sumstats.gz,../results/ldsc/brain_shape/munged/par276.sumstats.gz,../results/ldsc/brain_shape/munged/par277.sumstats.gz,../results/ldsc/brain_shape/munged/par278.sumstats.gz,../results/ldsc/brain_shape/munged/par279.sumstats.gz,../results/ldsc/brain_shape/munged/par280.sumstats.gz,../results/ldsc/brain_shape/munged/par281.sumstats.gz,../results/ldsc/brain_shape/munged/par282.sumstats.gz,../results/ldsc/brain_shape/munged/par283.sumstats.gz,../results/ldsc/brain_shape/munged/par284.sumstats.gz,../results/ldsc/brain_shape/munged/par285.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Thu Mar 17 01:38:53 2022
+Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par15.sumstats.gz ...
+Read summary statistics for 7033675 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174774 SNPs remain.
+After merging with regression SNP LD, 1174774 SNPs remain.
+Computing rg for phenotype 2/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par16.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: -0.3802 (0.3234)
+Lambda GC: 1.641
+Mean Chi^2: 1.5597
+Intercept: 1.8574 (0.2979)
+Ratio: 1.5319 (0.5323)
+
+Heritability of phenotype 2/271
+-------------------------------
+Total Observed scale h2: -190.6732 (299.8358)
+Lambda GC: 2963.371
+Mean Chi^2: 1664.4757
+Intercept: 1813.5617 (306.0726)
+Ratio: 1.0896 (0.184)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.3583 (9.4337)
+Mean z1*z2: 29.0858
+Intercept: 37.9667 (9.2153)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 3/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par17.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 3/271
+-------------------------------
+Total Observed scale h2: -271.6313 (324.9098)
+Lambda GC: 1020.1892
+Mean Chi^2: 730.2609
+Intercept: 942.5295 (332.8639)
+Ratio: 1.2911 (0.4564)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.9374 (9.4553)
+Mean z1*z2: 19.0442
+Intercept: 29.1708 (9.5625)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 4/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par18.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 4/271
+-------------------------------
+Total Observed scale h2: -24.755 (448.1692)
+Lambda GC: 4627.8649
+Mean Chi^2: 2592.9932
+Intercept: 2613.5392 (447.3135)
+Ratio: 1.0079 (0.1726)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.1815 (11.689)
+Mean z1*z2: 35.9506
+Intercept: 45.4787 (11.3822)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 5/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par19.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 5/271
+-------------------------------
+Total Observed scale h2: 456.8432 (170.3693)
+Lambda GC: 8252.3592
+Mean Chi^2: 4072.1592
+Intercept: 3716.1756 (108.4041)
+Ratio: 0.9126 (0.0266)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -6.0763 (5.9098)
+Mean z1*z2: 42.5774
+Intercept: 47.3114 (4.2073)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 6/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par20.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 6/271
+-------------------------------
+Total Observed scale h2: 1718.8759 (927.6016)
+Lambda GC: 22603.9302
+Mean Chi^2: 12385.9085
+Intercept: 11048.7658 (797.2445)
+Ratio: 0.892 (0.0644)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -16.1734 (16.0921)
+Mean z1*z2: 77.5534
+Intercept: 90.1861 (14.1518)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 7/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par21.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 7/271
+-------------------------------
+Total Observed scale h2: 3358.1476 (1073.4436)
+Lambda GC: 32347.8756
+Mean Chi^2: 17286.502
+Intercept: 14670.1066 (829.7443)
+Ratio: 0.8486 (0.048)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 1.0142 (12.9117)
+Mean z1*z2: 89.5735
+Intercept: 88.8126 (8.1343)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 8/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par22.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 8/271
+-------------------------------
+Total Observed scale h2: 6256.3202 (2302.937)
+Lambda GC: 65111.2297
+Mean Chi^2: 34600.5506
+Intercept: 29726.2006 (2035.2012)
+Ratio: 0.8591 (0.0588)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -12.6857 (18.9027)
+Mean z1*z2: 126.6704
+Intercept: 136.5835 (13.7244)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 9/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par23.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 9/271
+-------------------------------
+Total Observed scale h2: -11221.42 (11052.9193)
+Lambda GC: 12421.4054
+Mean Chi^2: 10323.5556
+Intercept: 19089.5587 (11232.9773)
+Ratio: 1.8492 (1.0882)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -68.9004 (55.2638)
+Mean z1*z2: 72.6056
+Intercept: 126.5142 (55.9238)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 10/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par24.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 10/271
+--------------------------------
+Total Observed scale h2: -1082.6893 (806.4903)
+Lambda GC: 3179.3582
+Mean Chi^2: 2046.9046
+Intercept: 2890.8291 (823.873)
+Ratio: 1.4125 (0.4027)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -22.3064 (15.049)
+Mean z1*z2: 33.1722
+Intercept: 50.6178 (15.1889)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 11/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par25.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 11/271
+--------------------------------
+Total Observed scale h2: -1024.9511 (713.4901)
+Lambda GC: 4545.2788
+Mean Chi^2: 2769.0411
+Intercept: 3568.7476 (734.7537)
+Ratio: 1.2889 (0.2654)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -19.7895 (14.3222)
+Mean z1*z2: 37.2984
+Intercept: 52.7689 (14.3714)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 12/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par26.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 12/271
+--------------------------------
+Total Observed scale h2: -6947.6475 (6126.3614)
+Lambda GC: 4598.8297
+Mean Chi^2: 4432.1146
+Intercept: 9855.7777 (6244.1014)
+Ratio: 2.224 (1.4091)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -52.7413 (40.9976)
+Mean z1*z2: 47.7672
+Intercept: 89.0307 (41.6685)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 13/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par27.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 13/271
+--------------------------------
+Total Observed scale h2: 326.5517 (642.8701)
+Lambda GC: 14596.3226
+Mean Chi^2: 7925.8188
+Intercept: 7672.6991 (579.6738)
+Ratio: 0.9681 (0.0731)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -20.6822 (13.5675)
+Mean z1*z2: 61.9044
+Intercept: 78.0637 (12.7052)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 14/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par28.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 14/271
+--------------------------------
+Total Observed scale h2: 326.4383 (795.8356)
+Lambda GC: 17370.6966
+Mean Chi^2: 10087.6964
+Intercept: 9834.2468 (595.1201)
+Ratio: 0.9749 (0.059)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -17.0329 (9.7709)
+Mean z1*z2: 65.8715
+Intercept: 79.1598 (7.8737)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 15/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par29.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 15/271
+--------------------------------
+Total Observed scale h2: -380.582 (343.0514)
+Lambda GC: 6205.7779
+Mean Chi^2: 3711.0042
+Intercept: 4008.0131 (372.7179)
+Ratio: 1.0801 (0.1005)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -14.4719 (9.4927)
+Mean z1*z2: 39.6685
+Intercept: 50.9703 (9.199)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 16/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par30.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 16/271
+--------------------------------
+Total Observed scale h2: 1961.7879 (488.1462)
+Lambda GC: 14222.3862
+Mean Chi^2: 7932.0553
+Intercept: 6400.8979 (355.346)
+Ratio: 0.8069 (0.0448)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -2.8595 (7.5237)
+Mean z1*z2: 55.8312
+Intercept: 58.0455 (4.9376)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 17/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par31.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 17/271
+--------------------------------
+Total Observed scale h2: 2288.2219 (1886.2881)
+Lambda GC: 39060.3871
+Mean Chi^2: 22355.2446
+Intercept: 20566.5462 (1472.3003)
+Ratio: 0.92 (0.0659)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -13.0743 (11.5981)
+Mean z1*z2: 93.7088
+Intercept: 103.8944 (7.829)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 18/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par32.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 18/271
+--------------------------------
+Total Observed scale h2: -130.0086 (157.1164)
+Lambda GC: 877.5845
+Mean Chi^2: 595.3184
+Intercept: 696.7613 (157.0169)
+Ratio: 1.1707 (0.2642)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -8.7806 (6.4649)
+Mean z1*z2: 17.0041
+Intercept: 23.8725 (6.4175)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 19/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par33.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 19/271
+--------------------------------
+Total Observed scale h2: 45.5271 (47.2173)
+Lambda GC: 1324.4221
+Mean Chi^2: 742.3576
+Intercept: 707.1384 (37.6645)
+Ratio: 0.9525 (0.0508)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -3.8994 (3.5523)
+Mean z1*z2: 18.469
+Intercept: 21.5109 (3.0165)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 20/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par34.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 20/271
+--------------------------------
+Total Observed scale h2: -590.6272 (537.143)
+Lambda GC: 753.5617
+Mean Chi^2: 611.714
+Intercept: 1072.8104 (554.1733)
+Ratio: 1.755 (0.9074)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -16.1415 (12.0571)
+Mean z1*z2: 17.0442
+Intercept: 29.6854 (12.3023)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 21/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par35.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 21/271
+--------------------------------
+Total Observed scale h2: -79.9453 (113.5703)
+Lambda GC: 632.6606
+Mean Chi^2: 411.9372
+Intercept: 474.3988 (115.3143)
+Ratio: 1.152 (0.2806)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -8.0741 (5.5977)
+Mean z1*z2: 13.9266
+Intercept: 20.243 (5.6243)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 22/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par36.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 22/271
+--------------------------------
+Total Observed scale h2: 226.1828 (121.8549)
+Lambda GC: 2396.7018
+Mean Chi^2: 1355.1441
+Intercept: 1179.2681 (107.4562)
+Ratio: 0.8701 (0.0794)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -5.1497 (6.0907)
+Mean z1*z2: 25.2954
+Intercept: 29.3171 (5.542)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 23/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par37.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 23/271
+--------------------------------
+Total Observed scale h2: -182.2495 (302.8618)
+Lambda GC: 1976.9825
+Mean Chi^2: 1200.5584
+Intercept: 1343.2776 (305.1974)
+Ratio: 1.119 (0.2544)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -11.1882 (9.2542)
+Mean z1*z2: 23.7319
+Intercept: 32.4853 (9.26)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 24/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par38.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 24/271
+--------------------------------
+Total Observed scale h2: 144.2882 (105.9263)
+Lambda GC: 3975.0975
+Mean Chi^2: 2119.155
+Intercept: 2006.7145 (64.9247)
+Ratio: 0.9469 (0.0307)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -4.1785 (4.1354)
+Mean z1*z2: 30.9806
+Intercept: 34.2285 (2.8764)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 25/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par39.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 25/271
+--------------------------------
+Total Observed scale h2: 108.1853 (62.6932)
+Lambda GC: 2234.8042
+Mean Chi^2: 1207.1162
+Intercept: 1122.7625 (43.4772)
+Ratio: 0.9301 (0.036)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -3.7516 (3.275)
+Mean z1*z2: 22.5071
+Intercept: 25.4262 (2.2818)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 26/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par40.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 26/271
+--------------------------------
+Total Observed scale h2: 1361.1815 (444.0414)
+Lambda GC: 11150.6347
+Mean Chi^2: 6248.0523
+Intercept: 5187.4474 (323.4449)
+Ratio: 0.8302 (0.0518)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -3.076 (8.1157)
+Mean z1*z2: 53.7353
+Intercept: 56.1164 (5.4752)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 27/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par41.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 27/271
+--------------------------------
+Total Observed scale h2: 52.6978 (510.0873)
+Lambda GC: 7168.0646
+Mean Chi^2: 4227.0826
+Intercept: 4186.9749 (486.6667)
+Ratio: 0.9905 (0.1152)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -16.9224 (12.079)
+Mean z1*z2: 45.1994
+Intercept: 58.4203 (11.4853)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (h2  out of bounds) 
+Z-score: nan (nan) (h2  out of bounds)
+P: nan (nan) (h2  out of bounds)
+WARNING: One of the h2's was out of bounds.
+This usually indicates a data-munging error or that h2 or N is low.
+
+Computing rg for phenotype 28/271
+Reading summary statistics from ../results/ldsc/brain_shape/munged/par42.sumstats.gz ...
+Read summary statistics for 54609 SNPs.
+After merging with summary statistics, 8559 SNPs remain.
+8559 SNPs with valid alleles.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+
+Heritability of phenotype 28/271
+--------------------------------
+Total Observed scale h2: 1404.1093 (347.1016)
+Lambda GC: 7746.724
+Mean Chi^2: 4694.6725
+Intercept: 3600.2436 (243.4906)
+Ratio: 0.7668 (0.0519)
+
+Genetic Covariance
+------------------
+Total Observed sc
