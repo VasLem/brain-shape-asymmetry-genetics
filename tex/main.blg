@@ -9,49 +9,44 @@ A level-1 auxiliary file: gwas.aux
 A level-1 auxiliary file: discussion.aux
 The style file: abbrv.bst
 Database file #1: references.bib
-Repeated entry---line 1557 of file references.bib
- : @article{Ernst2015
- :                   ,
-I'm skipping whatever remains of this entry
-You've used 48 entries,
+You've used 50 entries,
             2118 wiz_defined-function locations,
-            861 strings with 15840 characters,
-and the built_in function-call counts, 20983 in all, are:
-= -- 1941
-> -- 1478
+            875 strings with 16235 characters,
+and the built_in function-call counts, 21537 in all, are:
+= -- 1996
+> -- 1498
 < -- 8
-+ -- 584
-- -- 536
-* -- 1915
-:= -- 3619
-add.period$ -- 147
-call.type$ -- 48
-change.case$ -- 415
++ -- 592
+- -- 542
+* -- 1952
+:= -- 3713
+add.period$ -- 153
+call.type$ -- 50
+change.case$ -- 423
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 577
-empty$ -- 1279
-format.name$ -- 536
-if$ -- 4102
+cite$ -- 50
+duplicate$ -- 600
+empty$ -- 1328
+format.name$ -- 542
+if$ -- 4217
 int.to.chr$ -- 0
-int.to.str$ -- 48
-missing$ -- 47
-newline$ -- 242
-num.names$ -- 96
-pop$ -- 347
+int.to.str$ -- 50
+missing$ -- 50
+newline$ -- 252
+num.names$ -- 100
+pop$ -- 357
 preamble$ -- 1
-purify$ -- 364
+purify$ -- 371
 quote$ -- 0
-skip$ -- 388
+skip$ -- 402
 stack$ -- 0
-substring$ -- 1173
-swap$ -- 87
+substring$ -- 1208
+swap$ -- 89
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 198
 warning$ -- 0
-while$ -- 174
-width$ -- 50
-write$ -- 533
-(There was 1 error message)
+while$ -- 180
+width$ -- 52
+write$ -- 555
