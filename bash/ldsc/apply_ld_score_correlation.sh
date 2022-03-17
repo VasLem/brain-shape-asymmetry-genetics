@@ -19,7 +19,6 @@ for i in {1..30}; do
     done
     ./ldsc/ldsc.py --rg $files --ref-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $RG_DIR/par$par_i
 done
-cd -
 
 ret="$ROOT_DIR/results/ldsc/$DATASET_ID/rg/correlation.csv"
 rm -f $ret

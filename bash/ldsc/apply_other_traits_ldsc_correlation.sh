@@ -26,7 +26,6 @@ for trait in face brain_shape; do
         done
         ./ldsc/ldsc.py --rg $as_file$tr_files --ref-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $RG_DIR/par$par_i
     done
-    cd -
 
     ret="$ROOT_DIR/results/ldsc/$DATASET_ID/rg/${trait}_correlation.csv"
     rm -f $ret

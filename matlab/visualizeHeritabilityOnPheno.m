@@ -1,6 +1,26 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-DATASET_INDEX =2;
+
+DATASET_INDEX = 1;
+SUBSAMPLED=0;
+IMPUTE_STRATEGY = 'mean';
+
+switch IMPUTE_STRATEGY
+    case 'no'
+        IMPUTE_ID = 'not_imputed';
+    case 'zero'
+        IMPUTE_ID = 'zero_imputed';
+    case 'median'
+        IMPUTE_ID = 'median_imputed';
+    case 'beagle'
+        IMPUTE_ID = 'beagle_imputed';
+    case 'mean'
+        IMPUTE_ID = 'mean_imputed';
+    otherwise
+        error("IMPUTE_STRATEGY not understood, available options: no zero median beagle")
+end
+
+
 switch DATASET_INDEX
     case 1
         UKBIOBANK = 'UKBIOBANK';
@@ -11,21 +31,31 @@ switch DATASET_INDEX
         DATASET = 'BATCH2_2021_DATA';
         GENO_ID = 'sel16875_rmrel';
 end
-LDSC_DIR = ['../results/ldsc/' DATASET '/'];
+if SUBSAMPLED    
+    SUBSAMPLED_ID = 'subsampled';
+    REDUCTION=10;
+else
+    SUBSAMPLED_ID='not_subsampled';
+    REDUCTION = 1;
+end
+
+DATASET_ID = sprintf('%s/%s/%s', DATASET_NAME, IMPUTE_ID, SUBSAMPLED_ID);
+
+LDSC_DIR = ['../results/ldsc/' DATASET_ID '/h2/'];
 CLUSTER_DIR = ['../results/hierarchicalClusteringDemo/' DATASET '/'];
-RESULTS_DIR = ['../results/visualizeHeritabilityOnPheno/' DATASET '/'];
-clusterArray = load([CLUSTER_DIR  'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/segmentation.mat']).clusterArray;
-template = load([CLUSTER_DIR 'asymmetry_reduction10/ccPriorSegmentation/levels4_mine/input_info.mat']).preprocTemplate;
+RESULTS_DIR = ['../results/visualizeHeritabilityOnPheno/' DATASET_ID '/'];
+load([CLUSTER_DIR  'asymmetry_reduction' num2str(REDUCTION) '/levels4/segmentation.mat'], 'clusterArray');
+load([CLUSTER_DIR 'asymmetry_reduction' num2str(REDUCTION)  '/levels4/input_info.mat'], 'preprocTemplate');
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 %%
-heritabilility_file = [LDSC_DIR 'ldsc_heritability_results.csv'];
+heritabilility_file = [LDSC_DIR 'h2_results.csv'];
 table = readtable(heritabilility_file,"ReadRowNames",   true,Delimiter='\t',ReadVariableNames=true);
 %%
 rows = table.Row;
 for rowCnt=1:length(rows)
     row = rows{rowCnt};
     values = table2array(table(row,:));
-    [fig, fig2, handles] = paintClusters(clusterArray, template, 4, false, values);
+    [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values);
     close(fig)
     print(fig2, '-dpng', '-r300', [RESULTS_DIR, row, '.png'])
     height = fig2.Position(4);
