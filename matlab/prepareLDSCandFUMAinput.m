@@ -6,7 +6,7 @@ addpath(genpath('AIDFUNCTIONS'));
 % TO CHANGE
 DATASET_INDEX = 1;
 SUBSAMPLED_ID='not_subsampled';
-IMPUTE_STRATEGY = 'mean';
+IMPUTE_STRATEGY = 'beagle';
 
 switch IMPUTE_STRATEGY
     case 'no'
