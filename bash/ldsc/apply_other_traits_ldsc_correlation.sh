@@ -20,7 +20,7 @@ for trait in face brain_shape; do
         tr_num=`ls $MUNGED_TRAIT_DIR|grep sumstats|wc|awk {'print $1'}`
         echo $tr_num
         tr_files=
-        for ((j = $i + 1; j <= $tr_num; j++)); do
+        for ((j = 1; j <= $tr_num; j++)); do
             par_j=$(printf "%02.f" $j)
             tr_files="$tr_files,$MUNGED_TRAIT_DIR/par$par_j.sumstats.gz"
         done
