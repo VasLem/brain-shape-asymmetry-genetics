@@ -57,6 +57,7 @@ for rowCnt=1:length(rows)
     values = table2array(table(row,:));
     [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values);
     close(fig)
+    saveas(fig2, [RESULTS_DIR, row, '.svg'])
     print(fig2, '-dpng', '-r300', [RESULTS_DIR, row, '.png'])
     height = fig2.Position(4);
     width = fig2.Position(3);
