@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.12)  17 MAR 2022 01:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.12)  18 MAR 2022 13:24
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1524,18 +1524,6 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 [2 <./graphics/bilateria_phylum.jpg>]
-Package svg Info: Calling Inkscape on input line 22.
-runsystem(inkscape "../results//da_visualization.svg" -D --export-latex \relax 
---without-gui --export-pdf="da_visualization_svg-tex.pdf")...executed.
-
-runsystem(mkdir -p "./svg-inkscape/")...executed.
-
-runsystem(mv "da_visualization_svg-tex.pdf" "./svg-inkscape/da_visualization_sv
-g-tex.pdf")...executed.
-
-runsystem(mv "da_visualization_svg-tex.pdf_tex" "./svg-inkscape/da_visualizatio
-n_svg-tex.pdf_tex")...executed.
-
 Package svg Info: Last page of `./svg-inkscape/da_visualization_svg-tex.pdf' is
  1 on input line 22.
 
@@ -1675,21 +1663,15 @@ bibitemlist
  (./main.aux (./introduction.aux)
 (./dataset_description.aux) (./preprocessing.aux) (./asymmetry.aux) (./gwas.aux
 ) (./discussion.aux))
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 15356FA9ADDC007B0F716DE6C4A7DD79;4224
-(rerunfilecheck)             After:  8EC21F37A17CF3697F5394F8AF03A955;4249.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 8EC21F37A17CF3697F5394F8AF03A955;4249.
  ) 
 Here is how much of TeX's memory you used:
- 26068 strings out of 478276
- 540280 string characters out of 5846504
+ 26070 strings out of 478276
+ 540260 string characters out of 5846504
  880776 words of memory out of 5000000
- 43491 multiletter control sequences out of 15000+600000
- 553930 words of font info for 186 fonts, out of 8000000 for 9000
+ 43489 multiletter control sequences out of 15000+600000
+ 554118 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,92p,3765b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
@@ -1707,7 +1689,7 @@ m/lmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/loc
 al/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
 ive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (37 pages, 4977957 bytes).
+Output written on main.pdf (37 pages, 4977924 bytes).
 PDF statistics:
  781 PDF objects out of 1000 (max. 8388607)
  646 compressed objects within 7 object streams
