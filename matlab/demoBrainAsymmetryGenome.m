@@ -8,8 +8,7 @@
 %CHROMOSOME: Chomosome to analyze (1:22)
 %BLOCK_SIZE: Block Size for CCA (2000)
 %IMPUTE_STRATEGY: Whether to perform imputation (zero,mean,median or beagle) or not (no). No imputation is quite slow. (no)
-%SUBSAMPLED: Whether to use the subsampled phenotype, if no PHENO_PATH is
-%provided. It modifies the saving and scratch directories (defaults to 0)
+%SUBSAMPLED: Whether to use the subsampled phenotype, if no PHENO_PATH is provided. It modifies the saving and scratch directories (defaults to 0)
 %PHENO_PATH: Whether to use a specific path for the mat file of the phenotype (defaults to the path where hierarchical clustering algorithm places it)
 %%%%%%%%%%%%
 close all;clear;
@@ -31,6 +30,10 @@ DEFAULT_BLOCK_SIZE =2000;
 SUBSAMPLED = getenv('SUBSAMPLED');
 if(isempty(SUBSAMPLED))
     SUBSAMPLED = DEFAULT_SUBSAMPLED;
+else
+    if ~isnumeric(SUBSAMPLED)
+        SUBSAMPLED=str2double(SUBSAMPLED);
+    end
 end
 if SUBSAMPLED
     REDUCTION_ID='subsampled';
@@ -60,6 +63,10 @@ end
 BLOCK_SIZE = getenv('BLOCK_SIZE');
 if(isempty(BLOCK_SIZE))
     BLOCK_SIZE = DEFAULT_BLOCK_SIZE;
+else
+    if ~isnumeric(BLOCK_SIZE)
+        BLOCK_SIZE=str2double(BLOCK_SIZE);
+    end
 end
 
 

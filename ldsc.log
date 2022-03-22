@@ -1,0 +1,64 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--no-check-alleles  \
+--ref-ld-chr SAMPLE_DATA/eur_w_ld_chr/ \
+--rg results/ldsc/STAGE00DATA/munged/par01.sumstats.gz,SAMPLE_DATA/GWASCatalog/Intelligence/munged.sumstats.gz \
+--w-ld-chr SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Mon Mar 21 14:43:57 2022
+Reading summary statistics from results/ldsc/STAGE00DATA/munged/par01.sumstats.gz ...
+Read summary statistics for 7033675 SNPs.
+Reading reference panel LD Score from SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174774 SNPs remain.
+After merging with regression SNP LD, 1174774 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from SAMPLE_DATA/GWASCatalog/Intelligence/munged.sumstats.gz ...
+Read summary statistics for 7019142 SNPs.
+After merging with summary statistics, 1165968 SNPs remain.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.3208 (0.0312)
+Lambda GC: 1.1428
+Mean Chi^2: 1.1223
+Intercept: 0.9991 (0.0064)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/2
+-----------------------------
+Total Observed scale h2: 1.5206 (0.0827)
+Lambda GC: 1.2597
+Mean Chi^2: 1.3011
+Intercept: 1.0094 (0.0082)
+Ratio: 0.0314 (0.0273)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -0.0046 (0.0101)
+Mean z1*z2: -0.0002
+Intercept: 0.0008 (0.0026)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.0066 (0.0145)
+Z-score: -0.4555
+P: 0.6487
+
+
+Summary of Genetic Correlation Results
+                                                p1                                                       p2      rg      se       z       p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ results/ldsc/STAGE00DATA/munged/par01.sumstats.gz  SAMPLE_DATA/GWASCatalog/Intelligence/munged.sumstats.gz -0.0066  0.0145 -0.4555  0.6487  1.5206     0.0827  1.0094     0.0082    0.0008       0.0026
+
+Analysis finished at Mon Mar 21 14:44:46 2022
+Total time elapsed: 49.36s

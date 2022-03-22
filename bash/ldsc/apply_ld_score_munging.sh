@@ -14,5 +14,6 @@ for i in {1..31}; do
     gunzip <$ROOT_DIR/results/meta_analysis/$DATASET_ID/CCAPart$i.csv.gz >data.csv
     ./ldsc/munge_sumstats.py --sumstats data.csv \
         --n-min 1000 --snp "rsID" --p P-value --a1 "A1" --a2 "A2" \
-        --signed-sumstats ChiScore,1 --delim , --out $MUNGED_DIR/par$i
+        --signed-sumstats ChiScore,1 --delim , --merge-alleles $ROOT_DIR/SAMPLE_DATA/w_hm3.snplist --out $MUNGED_DIR/par$i
+        
 done

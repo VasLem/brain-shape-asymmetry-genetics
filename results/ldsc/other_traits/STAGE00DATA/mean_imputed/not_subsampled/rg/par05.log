@@ -1,0 +1,254 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/ldsc/other_traits/STAGE00DATA/mean_imputed/not_subsampled/rg/par05 \
+--rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/ADHD/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/ASD/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/BipolarDisorderAll/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/Handedness/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/Intelligence/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/LanguageFunctionalConnectivity/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/OCD/munged.sumstats.gz,../SAMPLE_DATA/OTHER_TRAITS_GWAS/Schizophrenia/munged.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Mon Mar 21 17:39:16 2022
+Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz ...
+Read summary statistics for 1180716 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174407 SNPs remain.
+After merging with regression SNP LD, 1174407 SNPs remain.
+Computing rg for phenotype 2/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/ADHD/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1061587 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.2186 (0.0371)
+Lambda GC: 1.105
+Mean Chi^2: 1.086
+Intercept: 0.9973 (0.0088)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/9
+-----------------------------
+Total Observed scale h2: 0.2373 (0.0156)
+Lambda GC: 1.2531
+Mean Chi^2: 1.2966
+Intercept: 1.0318 (0.0105)
+Ratio: 0.1071 (0.0354)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0155 (0.0099)
+Mean z1*z2: -0.0174
+Intercept: -0.0276 (0.0045)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0681 (0.0437)
+Z-score: 1.5563
+P: 0.1196
+
+Computing rg for phenotype 3/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/ASD/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1043390 SNPs with valid alleles.
+
+Heritability of phenotype 3/9
+-----------------------------
+Total Observed scale h2: 0.1938 (0.0167)
+Lambda GC: 1.1715
+Mean Chi^2: 1.2
+Intercept: 1.0088 (0.0096)
+Ratio: 0.0439 (0.0478)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0215 (0.0114)
+Mean z1*z2: -0.0148
+Intercept: -0.0284 (0.0052)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.1052 (0.0564)
+Z-score: 1.8663
+P: 0.062
+
+Computing rg for phenotype 4/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/BipolarDisorderAll/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1117777 SNPs with valid alleles.
+
+Heritability of phenotype 4/9
+-----------------------------
+Total Observed scale h2: 0.07 (0.0029)
+Lambda GC: 1.4673
+Mean Chi^2: 1.6107
+Intercept: 1.0323 (0.0112)
+Ratio: 0.053 (0.0183)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0094 (0.0038)
+Mean z1*z2: -0.0185
+Intercept: -0.0309 (0.0047)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0775 (0.032)
+Z-score: 2.425
+P: 0.0153
+
+Computing rg for phenotype 5/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Handedness/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1170261 SNPs with valid alleles.
+
+Heritability of phenotype 5/9
+-----------------------------
+Total Observed scale h2: 0.0126 (0.0016)
+Lambda GC: 1.105
+Mean Chi^2: 1.1139
+Intercept: 1.0322 (0.0072)
+Ratio: 0.2824 (0.0632)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0007 (0.0034)
+Mean z1*z2: 0.0038
+Intercept: 0.0025 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0131 (0.0654)
+Z-score: 0.2001
+P: 0.8414
+
+Computing rg for phenotype 6/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Intelligence/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1165940 SNPs with valid alleles.
+
+Heritability of phenotype 6/9
+-----------------------------
+Total Observed scale h2: 1.5206 (0.0828)
+Lambda GC: 1.2597
+Mean Chi^2: 1.3011
+Intercept: 1.0095 (0.0082)
+Ratio: 0.0314 (0.0273)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: -0.006 (0.0218)
+Mean z1*z2: 0.0039
+Intercept: 0.0046 (0.004)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: -0.0106 (0.0386)
+Z-score: -0.2746
+P: 0.7836
+
+Computing rg for phenotype 7/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/LanguageFunctionalConnectivity/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1173908 SNPs with valid alleles.
+
+Heritability of phenotype 7/9
+-----------------------------
+Total Observed scale h2: 0.3859 (0.0265)
+Lambda GC: 1.3169
+Mean Chi^2: 1.2591
+Intercept: 1.011 (0.0078)
+Ratio: 0.0423 (0.0301)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.017 (0.0126)
+Mean z1*z2: -0.0946
+Intercept: -0.1015 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0586 (0.0483)
+Z-score: 1.215
+P: 0.2243
+
+Computing rg for phenotype 8/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/OCD/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1097407 SNPs with valid alleles.
+
+Heritability of phenotype 8/9
+-----------------------------
+Total Observed scale h2: 0.3121 (0.0494)
+Lambda GC: 1.0527
+Mean Chi^2: 1.0568
+Intercept: 0.9951 (0.0067)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0147 (0.0197)
+Mean z1*z2: -0.0095
+Intercept: -0.0133 (0.0041)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0575 (0.0778)
+Z-score: 0.7395
+P: 0.4596
+
+Computing rg for phenotype 9/9
+Reading summary statistics from ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Schizophrenia/munged.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1111346 SNPs with valid alleles.
+
+Heritability of phenotype 9/9
+-----------------------------
+Total Observed scale h2: 0.4422 (0.018)
+Lambda GC: 1.5957
+Mean Chi^2: 1.7861
+Intercept: 1.0398 (0.0124)
+Ratio: 0.0507 (0.0157)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0156 (0.0094)
+Mean z1*z2: -0.0204
+Intercept: -0.0286 (0.0047)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.0515 (0.0316)
+Z-score: 1.6291
+P: 0.1033
+
+
+Summary of Genetic Correlation Results
+                                                                               p1                                                                                  p2      rg      se       z       p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                            ../SAMPLE_DATA/OTHER_TRAITS_GWAS/ADHD/munged.sumstats.gz  0.0681  0.0437  1.5563  0.1196  0.2373     0.0156  1.0318     0.0105   -0.0276       0.0045
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                             ../SAMPLE_DATA/OTHER_TRAITS_GWAS/ASD/munged.sumstats.gz  0.1052  0.0564  1.8663  0.0620  0.1938     0.0167  1.0088     0.0096   -0.0284       0.0052
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz              ../SAMPLE_DATA/OTHER_TRAITS_GWAS/BipolarDisorderAll/munged.sumstats.gz  0.0775  0.0320  2.4250  0.0153  0.0700     0.0029  1.0323     0.0112   -0.0309       0.0047
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                      ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Handedness/munged.sumstats.gz  0.0131  0.0654  0.2001  0.8414  0.0126     0.0016  1.0322     0.0072    0.0025       0.0037
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                    ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Intelligence/munged.sumstats.gz -0.0106  0.0386 -0.2746  0.7836  1.5206     0.0828  1.0095     0.0082    0.0046       0.0040
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../SAMPLE_DATA/OTHER_TRAITS_GWAS/LanguageFunctionalConnectivity/munged.sumstats.gz  0.0586  0.0483  1.2150  0.2243  0.3859     0.0265  1.0110     0.0078   -0.1015       0.0037
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                             ../SAMPLE_DATA/OTHER_TRAITS_GWAS/OCD/munged.sumstats.gz  0.0575  0.0778  0.7395  0.4596  0.3121     0.0494  0.9951     0.0067   -0.0133       0.0041
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par05.sumstats.gz                   ../SAMPLE_DATA/OTHER_TRAITS_GWAS/Schizophrenia/munged.sumstats.gz  0.0515  0.0316  1.6291  0.1033  0.4422     0.0180  1.0398     0.0124   -0.0286       0.0047
+
+Analysis finished at Mon Mar 21 17:40:07 2022
+Total time elapsed: 51.02s

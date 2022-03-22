@@ -1,0 +1,49 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./munge_sumstats.py \
+--delim tab \
+--out munged \
+--n-min 1000.0 \
+--N 150064.0 \
+--a1 A1 \
+--a2 A2 \
+--snp SNP \
+--info INFO \
+--sumstats SAMPLE_DATA/GWASCatalog/Schizophrenia/input \
+--p P 
+
+Interpreting column names as follows:
+INFO:	INFO score (imputation quality; higher --> better imputation)
+A1:	Allele 1, interpreted as ref allele for signed sumstat.
+P:	p-Value
+A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
+SNP:	Variant ID (e.g., rs number)
+OR:	Odds ratio (1 --> no effect; above 1 --> A1 is risk increasing)
+
+Reading sumstats from SAMPLE_DATA/GWASCatalog/Schizophrenia/input into memory 5000000 SNPs at a time.
+Read 10172956 SNPs from --sumstats file.
+Removed 0 SNPs with missing values.
+Removed 3217897 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 0 SNPs with out-of-bounds p-values.
+Removed 1509282 variants that were not SNPs or were strand-ambiguous.
+5445777 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (5445777 SNPs remain).
+Using N = 150064.0
+Median value of OR was 1.0001, which seems sensible.
+Writing summary statistics for 5445777 SNPs (5445777 with nonmissing beta) to munged.sumstats.gz.
+
+Metadata:
+Mean chi^2 = 1.729
+Lambda GC = 1.541
+Max chi^2 = 130.549
+7028 Genome-wide significant SNPs (some may have been removed by filtering).
+
+Conversion finished at Mon Mar 21 11:40:41 2022
+Total time elapsed: 1.0m:13.87s

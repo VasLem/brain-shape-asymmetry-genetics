@@ -15,10 +15,10 @@ if ~isdeployed
     addpath(genpath('.'));
 end
 NUM_LEVELS = 4;
-
+MAX_NUM_PCS = 500;
 DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'asymmetry'; %asymmetry,symmetry
+DEFAULT_COMPONENT = 'symmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -110,6 +110,7 @@ SEGMENTATION_PROC = ~isfile(SEGMENTATION_OUT);
 FINAL_RET_INFO_PATH =  [SEGMENTATION_DIR, 'phenotype_info_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PATH = [SEGMENTATION_DIR, 'phenotype_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_RET_PROC = ~isfile(FINAL_RET_PATH);
+FINAL_RET_PROC = 1;
 FINAL_PARTITIONS_SIZES_PATH = [SEGMENTATION_DIR, 'phenotype_part_sizes_varThres' num2str(SELECTED_VARIANCE_THRESHOLD) '.mat'];
 FINAL_PARTITIONS_INFO_ORIG_PATH = strrep(FINAL_PARTITIONS_SIZES_PATH, 'BATCH2_2021_DATA', 'STAGE00DATA');
 
@@ -364,13 +365,18 @@ saveas(fig, [SEGMENTATION_DIR 'explainedVariance.png']);
 if FINAL_RET_PROC
     if DATASET_INDEX == 1
         disp(['Computing PCA that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition..'])
-
+        
         partitionsSizes = zeros(partitions_num, 1);
+        explainedVariance = zeros(partitions_num,1) + SELECTED_VARIANCE_THRESHOLD;
         parfor k = 1:partitions_num
             explainedAccum = cumsum(explained{k});
             partitionsSizes(k) =  find(explainedAccum >= SELECTED_VARIANCE_THRESHOLD, 1 ,'first');
+            if MAX_NUM_PCS < partitionsSizes(k)
+                explainedVariance(k) = explainedAccum(MAX_NUM_PCS);
+                partitionsSizes(k) = MAX_NUM_PCS;
+            end
         end
-        save(FINAL_PARTITIONS_SIZES_PATH, 'partitionsSizes', '-v7');
+        save(FINAL_PARTITIONS_SIZES_PATH, 'partitionsSizes', 'explainedVariance', '-v7');
     else
         disp(['Loading PCA number that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition of STAGE00DATA..'])
 
