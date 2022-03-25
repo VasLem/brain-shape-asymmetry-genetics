@@ -36,9 +36,11 @@ switch MEDIAN_IMPUTE
             genoPruned(:, i) = s;
         end
         [cnt_unique, unique_a] = hist(medians,single(unique(medians))); %#ok<HIST>
-        imputes = array2table(cnt_unique);
-        imputes.Properties.VariableNames=strsplit(num2str(unique_a));
-        writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+        if ~isdeployed
+            imputes = array2table(cnt_unique);
+            imputes.Properties.VariableNames=strsplit(num2str(unique_a));
+            writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+        end
     case 'mean'
         disp('Imputing missing using mean..')
         tic;
@@ -50,9 +52,11 @@ switch MEDIAN_IMPUTE
             genoPruned(:, i) = s;
         end
         [cnt_unique, unique_a] = hist(means,single(unique(means))); %#ok<HIST>
-        imputes = array2table(cnt_unique);
-        imputes.Properties.VariableNames=strsplit(num2str(unique_a));
-        writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+        if ~isdeployed
+            imputes = array2table(cnt_unique);
+            imputes.Properties.VariableNames=strsplit(num2str(unique_a));
+            writetable(imputes,IMPUTE_INFO_OUT,'Delimiter',' ');
+        end
     case 'zero'
         disp("Imputing missing using zeros..")
         genoPruned(genoPruned==255) = 0;

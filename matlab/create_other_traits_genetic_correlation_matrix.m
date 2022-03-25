@@ -36,7 +36,9 @@ end
 clrLim = [min(min(ret)),max(max(ret))]; 
 diamLim = [0.3, 1];
 fig=figure();
-imagesc(ret)
+[nr,nc] = size(ret);
+pcolor([ret nan(nr,1); nan(1,nc+1)]);
+% imagesc(ret)
 colormap(gca,'jet');
 colorbar();
 caxis(clrLim);
@@ -48,4 +50,4 @@ featMats{1} = round(100 * ret)/100;
 featMatsIds{1} = 'otherTraits';
 featsClassesNames = traits;
 datasetName = DATASET;
-drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, datasetName, out_dir, REDUCTION, 0)
+drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, datasetName, out_dir, REDUCTION, 1)

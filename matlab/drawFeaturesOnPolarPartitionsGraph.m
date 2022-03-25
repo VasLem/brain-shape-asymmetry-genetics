@@ -1,9 +1,12 @@
-function drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, datasetName, resultsDir, reduction, recomputeParts)
-if nargin<5
+function drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, datasetName, resultsDir, reduction, recomputeParts, recomputeBaseParts)
+if nargin<6
     reduction=1;
 end
-if nargin<6
+if nargin<7
     recomputeParts=0;
+end
+if nargin<8
+    recomputeBaseParts=0;
 end
 clusterDir = ['../results/hierarchicalClusteringDemo/' datasetName '/'];
 clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction' num2str(reduction) '/levels4/segmentation.mat']).clusterArray;
@@ -13,7 +16,7 @@ rawDir = [resultsDir 'props/'];
 if ~isfolder(rawDir), mkdir(rawDir); end
 for i=1:length(handles)
     ret_path = [rawDir num2str(i) '.png'];
-    if ~recomputeParts && isfile(ret_path)
+    if ~recomputeBaseParts && isfile(ret_path)
         continue
     end
     f1 = figure('visible','off');
@@ -41,7 +44,7 @@ for i=1:length(featMats)
     f = figure('Visible',false);
     ax=gca;
     h = pie(ax, 1:length(anyOccsPerPart), anyOccsPerPart');
-    lh = legend(featsClassesNames(:));
+    lh = legend(featsClassesNames(anyOccsPerPart));
     % Delete non-patch objects
     hPatch = h(strcmp(get(h,'type'),'patch'));
     hNotPatch = h(~strcmp(get(h,'type'),'patch'));

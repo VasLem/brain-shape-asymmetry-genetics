@@ -12,42 +12,42 @@ Call:
 --rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz,../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz \
 --w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
 
-Beginning analysis at Thu Mar 17 03:52:55 2022
+Beginning analysis at Tue Mar 22 13:23:54 2022
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
+Read summary statistics for 1180716 SNPs.
 Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
 Read reference panel LD Scores for 1290028 SNPs.
 Removing partitioned LD Scores with zero variance.
 Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
 Read regression weight LD Scores for 1290028 SNPs.
-After merging with reference panel LD, 1174774 SNPs remain.
-After merging with regression SNP LD, 1174774 SNPs remain.
+After merging with reference panel LD, 1174407 SNPs remain.
+After merging with regression SNP LD, 1174407 SNPs remain.
 Computing rg for phenotype 2/2
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
-After merging with summary statistics, 1174774 SNPs remain.
-1174774 SNPs with valid alleles.
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1174407 SNPs with valid alleles.
 
 Heritability of phenotype 1
 ---------------------------
 Total Observed scale h2: 0.0181 (0.0224)
 Lambda GC: 1.0046
 Mean Chi^2: 1.0046
-Intercept: 0.9977 (0.0061)
+Intercept: 0.9977 (0.006)
 Ratio < 0 (usually indicates GC correction).
 
 Heritability of phenotype 2/2
 -----------------------------
-Total Observed scale h2: 0.0251 (0.0203)
+Total Observed scale h2: 0.0248 (0.0204)
 Lambda GC: 1.0195
 Mean Chi^2: 1.0223
-Intercept: 1.0129 (0.0061)
-Ratio: 0.5777 (0.272)
+Intercept: 1.013 (0.0061)
+Ratio: 0.5825 (0.2723)
 
 Genetic Covariance
 ------------------
-Total Observed scale gencov: 0.0305 (0.0138)
-Mean z1*z2: 0.3006
+Total Observed scale gencov: 0.0304 (0.0138)
+Mean z1*z2: 0.3005
 Intercept: 0.2888 (0.0043)
 
 Genetic Correlation
@@ -60,8 +60,8 @@ This often means that h2 is not significantly different from zero.
 
 
 Summary of Genetic Correlation Results
-                                                                               p1                                                                                p2      rg      se       z      p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
- ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz  1.4288  0.7537  1.8958  0.058  0.0251     0.0203  1.0129     0.0061    0.2888       0.0043
+                                                                               p1                                                                                p2      rg      se       z     p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz  1.4353  0.7632  1.8806  0.06  0.0248     0.0204   1.013     0.0061    0.2888       0.0043
 
-Analysis finished at Thu Mar 17 03:53:49 2022
-Total time elapsed: 54.25s
+Analysis finished at Tue Mar 22 13:24:11 2022
+Total time elapsed: 16.23s

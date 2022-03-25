@@ -43,7 +43,7 @@ for trait_ind=1:3
         inp.p = cellfun(@(x)(str2double(x)), inp.p);
     end
     for row=1:height(inp)
-        if isnan(inp.p) | (inp.p(row)>0.05)
+        if isnan(inp.p(row)) || (inp.p(row)>0.05)
             continue
         end
         [~,fname1] = fileparts(inp.p1(row));
@@ -66,4 +66,15 @@ for trait_ind=1:3
     axis equal
     axis tight
     saveas(fig, [out_dir labels{trait_ind} '_heatmap.svg'])
+    if trait_ind == 1
+        featMat = ret;
+        featMat(abs(featMat) < 0.7) = nan;
+        featMat(abs(featMat)>1.25) = nan;
+        featMat = round(10 * featMat) / 10;
+        featMat(featMat == eye(31)) = nan;
+        featMats{1} = featMat;
+        featMatsIds{1} = 'auto';
+        featsClassesNames = strcat('Par',1:31);
+        drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, DATASET, out_dir, REDUCTION, 1)
+    end
 end

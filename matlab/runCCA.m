@@ -8,7 +8,8 @@ if nargin<4
     incMem=0;
 end
 if isa(pheno,"char")
-    pheno=load(pheno).PHENO;
+    pheno = load(pheno);
+    pheno = pheno.PHENO;
 end
 if isa(jobsFiles,'char')
     jobsFiles = dir(jobsFiles);
@@ -55,6 +56,8 @@ ME = [];
 fallback = ~exist('pagesvd','builtin') || ~exist('pagemtimes', 'builtin');
 try
     ppb = ParforProgressbar(length(jobsFiles),  'showWorkerProgress', true);
+    fprintf('Progress:\n');
+    fprintf(['\n' repmat('.',1,length(jobsFiles)), '\n\n']);
     parfor blockCnt=1: length(jobsFiles)
         inp = load(jobsFiles{blockCnt});
         genoBlock = inp.genoBlock;
@@ -131,6 +134,7 @@ try
         end
         saveBlockFunc(outFiles{blockCnt}, intChiSqSignificancePattern, intChiSqPattern, intDfPattern);
         ppb.increment();
+        fprintf('\b|\n');
     end
 catch ME
 end

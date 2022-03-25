@@ -1,7 +1,7 @@
 #!/bin/bash -l
-#PBS -l nodes=1:ppn=60
+#PBS -l nodes=1:ppn=32
 #PBS -l pmem=3GB
-#PBS -l walltime=24:00:00
+#PBS -l walltime=3:00:00
 #PBS -A default_project
 #PBS -m ae -M vasileios.lemonidis@student.kuleuven.be
 
@@ -27,6 +27,7 @@ MAIN_DIR=vlThesis
 
 export DATA_ROOT=$VSC_DATA/$MAIN_DIR/SAMPLE_DATA/
 export DATASET_INDEX=1 # Use discover dataset
+export IMPUTE_STRATEGY=no
 export RESULTS_ROOT=$VSC_DATA/$MAIN_DIR/results/
 export SCRATCH_ROOT=$VSC_SCRATCH/$MAIN_DIR/
 if [[ ! -f $SCRATCH_ROOT ]]; then

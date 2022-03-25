@@ -12,108 +12,108 @@ Call:
 --rg ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz,../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par29.sumstats.gz,../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz,../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz \
 --w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
 
-Beginning analysis at Thu Mar 17 03:50:00 2022
+Beginning analysis at Tue Mar 22 13:23:05 2022
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
+Read summary statistics for 1180716 SNPs.
 Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
 Read reference panel LD Scores for 1290028 SNPs.
 Removing partitioned LD Scores with zero variance.
 Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
 Read regression weight LD Scores for 1290028 SNPs.
-After merging with reference panel LD, 1174774 SNPs remain.
-After merging with regression SNP LD, 1174774 SNPs remain.
+After merging with reference panel LD, 1174407 SNPs remain.
+After merging with regression SNP LD, 1174407 SNPs remain.
 Computing rg for phenotype 2/4
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par29.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
-After merging with summary statistics, 1174774 SNPs remain.
-1174774 SNPs with valid alleles.
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1174407 SNPs with valid alleles.
 
 Heritability of phenotype 1
 ---------------------------
-Total Observed scale h2: 0.0995 (0.0247)
+Total Observed scale h2: 0.0992 (0.0248)
 Lambda GC: 1.0405
 Mean Chi^2: 1.0331
-Intercept: 0.9945 (0.0064)
+Intercept: 0.9946 (0.0064)
 Ratio < 0 (usually indicates GC correction).
 
 Heritability of phenotype 2/4
 -----------------------------
-Total Observed scale h2: 0.0652 (0.0233)
+Total Observed scale h2: 0.065 (0.0232)
 Lambda GC: 1.0315
 Mean Chi^2: 1.0267
-Intercept: 1.0019 (0.0065)
-Ratio: 0.0728 (0.2444)
+Intercept: 1.002 (0.0065)
+Ratio: 0.0763 (0.2432)
 
 Genetic Covariance
 ------------------
-Total Observed scale gencov: 0.0731 (0.0153)
-Mean z1*z2: 0.3101
-Intercept: 0.2817 (0.0046)
+Total Observed scale gencov: 0.073 (0.0153)
+Mean z1*z2: 0.31
+Intercept: 0.2816 (0.0046)
 
 Genetic Correlation
 -------------------
-Genetic Correlation: 0.908 (0.1428)
-Z-score: 6.3582
-P: 2.0409e-10
+Genetic Correlation: 0.9083 (0.1434)
+Z-score: 6.336
+P: 2.3573e-10
 
 Computing rg for phenotype 3/4
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
-After merging with summary statistics, 1174774 SNPs remain.
-1174774 SNPs with valid alleles.
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1174407 SNPs with valid alleles.
 
 Heritability of phenotype 3/4
 -----------------------------
 Total Observed scale h2: 0.0181 (0.0224)
 Lambda GC: 1.0046
 Mean Chi^2: 1.0046
-Intercept: 0.9977 (0.0061)
+Intercept: 0.9977 (0.006)
 Ratio < 0 (usually indicates GC correction).
 
 Genetic Covariance
 ------------------
-Total Observed scale gencov: 0.0389 (0.0141)
-Mean z1*z2: 0.2394
-Intercept: 0.2243 (0.0037)
+Total Observed scale gencov: 0.0388 (0.0141)
+Mean z1*z2: 0.2393
+Intercept: 0.2242 (0.0036)
 
 Genetic Correlation
 -------------------
-Genetic Correlation: 0.9166 (0.4494)
-Z-score: 2.0396
-P: 0.0414
+Genetic Correlation: 0.9171 (0.4519)
+Z-score: 2.0295
+P: 0.0424
 
 Computing rg for phenotype 4/4
 Reading summary statistics from ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz ...
-Read summary statistics for 7033675 SNPs.
-After merging with summary statistics, 1174774 SNPs remain.
-1174774 SNPs with valid alleles.
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1174407 SNPs with valid alleles.
 
 Heritability of phenotype 4/4
 -----------------------------
-Total Observed scale h2: 0.0251 (0.0203)
+Total Observed scale h2: 0.0248 (0.0204)
 Lambda GC: 1.0195
 Mean Chi^2: 1.0223
-Intercept: 1.0129 (0.0061)
-Ratio: 0.5777 (0.272)
+Intercept: 1.013 (0.0061)
+Ratio: 0.5825 (0.2723)
 
 Genetic Covariance
 ------------------
-Total Observed scale gencov: 0.0354 (0.0131)
-Mean z1*z2: 0.2044
-Intercept: 0.1909 (0.0039)
+Total Observed scale gencov: 0.0353 (0.0131)
+Mean z1*z2: 0.2043
+Intercept: 0.1908 (0.0039)
 
 Genetic Correlation
 -------------------
-Genetic Correlation: 0.7077 (0.2557)
-Z-score: 2.7683
-P: 0.0056
+Genetic Correlation: 0.711 (0.2591)
+Z-score: 2.7442
+P: 0.0061
 
 
 Summary of Genetic Correlation Results
                                                                                p1                                                                                p2      rg      se       z           p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
- ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par29.sumstats.gz  0.9080  0.1428  6.3582  2.0409e-10  0.0652     0.0233  1.0019     0.0065    0.2817       0.0046
- ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz  0.9166  0.4494  2.0396  4.1394e-02  0.0181     0.0224  0.9977     0.0061    0.2243       0.0037
- ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz  0.7077  0.2557  2.7683  5.6347e-03  0.0251     0.0203  1.0129     0.0061    0.1909       0.0039
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par29.sumstats.gz  0.9083  0.1434  6.3360  2.3573e-10  0.0650     0.0232  1.0020     0.0065    0.2816       0.0046
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par30.sumstats.gz  0.9171  0.4519  2.0295  4.2408e-02  0.0181     0.0224  0.9977     0.0060    0.2242       0.0036
+ ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par31.sumstats.gz  0.7110  0.2591  2.7442  6.0663e-03  0.0248     0.0204  1.0130     0.0061    0.1908       0.0039
 
-Analysis finished at Thu Mar 17 03:51:32 2022
-Total time elapsed: 1.0m:32.06s
+Analysis finished at Tue Mar 22 13:23:32 2022
+Total time elapsed: 27.24s
