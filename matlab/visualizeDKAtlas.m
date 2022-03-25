@@ -56,6 +56,6 @@ t = tiledlayout(1,2);
 t.TileSpacing = 'none';
 t.Padding = 'tight';
 ax = showPaintedDoubleFace(fig, lTemplate,nan, nan,[nexttile(t), nexttile(t)] , cmap);
-%%
+
 saveas(fig, '../results/dk_left.svg')
 %%
