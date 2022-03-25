@@ -50,8 +50,8 @@ for i=1:2
     end
 end
 xlim(ax(1), [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
-ylim(ax(1), [min(s.Vertices(:,2)) - 0.2, max(s.Vertices(:,2)) + 0.1]);
-ylim(ax(2), [min(s.Vertices(:,2)) - 0.2, max(s.Vertices(:,2)) + 0.1]);
+ylim(ax(1), [min(s.Vertices(:,2)), max(s.Vertices(:,2)) + 0.1]);
+ylim(ax(2), [min(s.Vertices(:,2)), max(s.Vertices(:,2)) + 0.1]);
 daspect(ax(1), [0.5 1 1]);
 daspect(ax(2), [0.5 1 1]);
 end
