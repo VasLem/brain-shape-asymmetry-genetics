@@ -35,16 +35,24 @@ for i=1:2
     s.PatchHandle.FaceColor = 'flat';
     light = camlight(ax(i),'headlight');
     set(light,'Position',get(ax(i),'CameraPosition'));    
-    if ~jetcmap
-        colormap(ax(i),'colorcube');
-        if length(unique(s.VertexValue))==1
-            caxis(ax(i), [0,1]);
+    if numel(jetcmap)==1
+        if ~jetcmap
+            colormap(ax(i),'colorcube');
+            if length(unique(s.VertexValue))==1
+                caxis(ax(i), [0,1]);
+            end
+        else
+            colormap(ax(i), 'jet');
+            caxis(ax(i), clims);
         end
     else
-        colormap(ax(i), 'jet');
-        caxis(ax(i), clims);
+        s.ColorMode = 'texture';
     end
 end
 xlim(ax(1), [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
+ylim(ax(1), [min(s.Vertices(:,2)), max(s.Vertices(:,2))] + 0.1);
+ylim(ax(2), [min(s.Vertices(:,2)), max(s.Vertices(:,2))] - 0.1);
+daspect(ax(1), [0.5 1 1]);
+daspect(ax(2), [0.5 1 1]);
 end
 
