@@ -32,8 +32,7 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
              if progress, ppb=ParforProgressbar(N);end
              parfor n=1:N
 %               for n=1:1:N 
-                tmp = squeeze(AlignedLandmarks{n});
-                 [~,AlignedLandmarks{n},~] = procrustes(AvgLandmarks,tmp,'Scaling',scale,'Reflection',reflect);
+                 [~,AlignedLandmarks{n},~] = procrustes(AvgLandmarks,squeeze(AlignedLandmarks{n}),'Scaling',scale,'Reflection',reflect);
                  if progress, ppb.increment();end
              end
              if progress, delete(ppb); end
@@ -43,7 +42,6 @@ function [AlignedLandmarks,AvgLandmarks,CentroidSizes,v] = GeneralizedProcrustes
              end
              AvgLandmarks = AvgLandmarks/N;
              if scale
-                tmp = shape3D;tmp.Vertices = AvgLandmarks;
                 AvgLandmarks = AvgLandmarks./sqrt(sum(AvgLandmarks.^2,'all'));
              end
          end

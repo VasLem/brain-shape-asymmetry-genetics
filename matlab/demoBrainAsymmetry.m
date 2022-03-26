@@ -12,8 +12,8 @@ N_SAMPLES_PER_PICK = 50;
 % N_SAMPLES_PER_PICK = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600];
 N_REP = 3; %N_REP=1 for AMMI, N_REP>1 for ANOVA
 N_ITER = 10000;
-THREADS = 8;
-REDUCE = 1;
+THREADS = 4;
+REDUCE = 0.1;
 % REDUCE = 1;
 GPA_REPS = 3;
 DATASET_INDEX = 1; %Which dataset to use
@@ -61,7 +61,7 @@ end
 %% GETTING SOME INFO ON THE BRAIN TEMPLATE
 
 
-in = load([DATA_DIR, 'IMAGEN/BRAIN/HumanConnectomeProject/SubcorticalMask_HCP.mat']);
+in = load([DATA_DIR, 'HumanConnectomeProject/SubcorticalMask_HCP.mat']);
 
 phenopath = [DATA_DIR, 'IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/'];
 datasetPhenopath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/PHENOTYPES/'];
@@ -94,7 +94,7 @@ catch
     phenoIID = DATA{1}.Region.IID(1:size(LH,3));
     
     %%
-    brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
+    brainSurface = load([phenopath 'LH/RENDERMATERIAL.mat']);
     refTemplate = brainSurface.RefScan;
     
     
@@ -115,11 +115,12 @@ catch
     preprocLH = preprocLH(:, :, 1: sizeD);
     preprocRH = preprocRH(:, :, 1: sizeD);
     preprocPhenoIID = preprocPhenoIID{1:sizeD};
-    
+    %%
     testRetestVariance = testRetestComputeVariance(alignedTRLH, alignedTRRH, preprocTemplate, PREPROC_DIR, 2);
     clear LH RH DATA brainSurface  
     save([PREPROC_DIR, 'preproc_data.mat'], "preprocRH", "preprocLH", "preprocPhenoIID", "preprocTemplate", "template", "preprocLandmarksIndices", "testRetestVariance", '-v7.3');
 end
+%%
 nLandmarks = length(preprocLandmarksIndices);
 nSamples = size(preprocLH,3);
 templateAdjacency = template.Adjacency;
@@ -271,6 +272,8 @@ light = camlight(axes,'headlight');
 set(light,'Position',get(axes,'CameraPosition'));
 title('Left');
 colorbar(axes,'SouthOutside');
+maxlims = max(template.Vertices);
+minlims = min(template.Vertices);
 xlim(axes, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
 
 axes = subplot(2,2,[3,4]);

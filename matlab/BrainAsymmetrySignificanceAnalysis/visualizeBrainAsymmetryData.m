@@ -46,6 +46,8 @@ for k=1:nPicks
             
             if ~isempty(clim), set(fout.ax1{i,j},'clim',clim);end
             renderBrainSurface(rend,sVertexValues,fout.ax1{i,j});
+            maxlims = max(rend.Vertices);
+            minlims = min(rend.Vertices);
             colorbar(fout.ax1{i,j},'SouthOutside');
             if j<4
                 set(fout.ax1{i,j},'clim',[0 max(sVertexValues)]);
@@ -53,6 +55,7 @@ for k=1:nPicks
             if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
                 cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
             view(fout.ax1{i,j},-90,0);
+            xlim(fout.ax1{i,j}, [0, 1.3 * (maxlims(1) + minlims(1)) / 3])
             light = camlight(fout.ax1{i,j},'headlight');
             set(light,'Position',get(fout.ax1{i,j},'CameraPosition'));
             drawnow;
@@ -60,9 +63,7 @@ for k=1:nPicks
             counter = counter+1;
             fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
             renderBrainSurface(rend,sVertexValues,fout.ax2{i,j});
-            maxlims = max(rend.Vertices);
-            minlims = min(rend.Vertices);
-            xlim(fout.ax2{i,j}, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
+
             view(fout.ax2{i,j},90,0);
             colorbar(fout.ax2{i,j},'SouthOutside');
             if j<4

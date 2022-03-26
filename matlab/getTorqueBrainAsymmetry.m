@@ -1,5 +1,6 @@
 clear
 close all
+addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = getenv('DATA_ROOT');
 if(isempty(DATA_DIR))
     DATA_DIR = '../SAMPLE_DATA/';
@@ -42,27 +43,61 @@ LH = DATA{1}.Region.AlignedShapes;
 RH = DATA{2}.Region.AlignedShapes;
 phenoIID = DATA{1}.Region.IID(1:size(LH,3));
 Region =  DATA{1}.Region;
-brainSurface = load([regphenopath 'RENDERMATERIAL.mat']);
+brainSurface = load([phenopath 'LH/RENDERMATERIAL.mat']);
 refTemplate = brainSurface.RefScan;
-[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, 1, 1, 3);
+%%
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, ~] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, 1, 1,3);
+%% Rerun once to allign to the template
+preprocRH(:,1,:) = -preprocRH(:,1,:);
+[preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, 1, 1, 1);
 
 %% Get torque
-avgLH = mean(LH,3);
-avgRH = mean(RH,3);
+close all
+angles = zeros(size(preprocLH,3),1);
+for ind=1:length(angles)
+indLH = preprocLH(:,:,ind);
+indRH = preprocRH(:,:,ind);
+indRH(:,1) = -indRH(:,1);
+xyRH_hull = convhull(double(indRH(:,1:2)));
+xyLH_hull = convhull(double(indLH(:,1:2)));
+xyRH_hull_points = indRH(xyRH_hull,:);
+xyLH_hull_points = indLH(xyLH_hull, :);
+rhPoints = xyRH_hull_points(xyRH_hull_points(:,1)<0.08,:);
+lhPoints = xyLH_hull_points(xyLH_hull_points(:,1)>-0.08,:);
+rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
+lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
+[~, rhInd] = max(rhDists);
+[~, lhInd] = max(lhDists);
+rhAngleVec = [diff(rhPoints(rhInd:rhInd+1,1)), diff(rhPoints(rhInd:rhInd+1,2))];
+lhAngleVec = [diff(lhPoints(lhInd:lhInd+1,1)), diff(lhPoints(lhInd:lhInd+1,2))];
+rhAngleVec = rhAngleVec./norm(rhAngleVec);
+lhAngleVec = lhAngleVec./norm(lhAngleVec);
+sumAngleVec = lhAngleVec + rhAngleVec;
+avgAngle = angle(sumAngleVec(1) + 1i * sumAngleVec(2));
+if avgAngle > 0.9*pi
+    avgAngle = avgAngle - pi/2;
+end
+if avgAngle < -0.9*pi
+    avgAngle = avgAngle + pi/2;
+end
+angles(ind) = avgAngle;
+end
 %%
+avgLH = mean(preprocLH,3);
+avgRH = mean(preprocRH,3);
 templateLH = clone(preprocTemplate);
 templateRH = clone(preprocTemplate);
-%%
+
 templateLH.Vertices = avgLH;
 templateRH.Vertices = avgRH;
-%%
 v1=templateLH.viewer;
 templateRH.viewer(v1);
 v1.BackgroundColor = 'white';
 v1.SceneLightVisible = 1;
+
 xyRH_hull = convhull(double(avgRH(:,1:2)));
 xyLH_hull = convhull(double(avgLH(:,1:2)));
-z_c = repmat(mean([avgRH(:,3); avgLH(:,3)]),size(avgRH,1),1);
+
 
 % plot3(avgRH(xyRH_hull,1), avgRH(xyRH_hull,2),z_c(xyRH_hull),'r')
 % plot3(avgLH(xyLH_hull,1), avgLH(xyLH_hull,2),z_c(xyLH_hull),'r')
@@ -71,29 +106,23 @@ xyRH_hull_points = avgRH(xyRH_hull,:);
 xyLH_hull_points = avgLH(xyLH_hull, :);
 rhPoints = xyRH_hull_points(xyRH_hull_points(:,1)<0.08,:);
 lhPoints = xyLH_hull_points(xyLH_hull_points(:,1)>-0.08,:);
+rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
+lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
+[~, rhInd] = max(rhDists);
+[~, lhInd] = max(lhDists);
+z_c = repmat(mean([avgRH(:,3); avgLH(:,3)]),size(avgRH,1),1);
 scatter3(rhPoints(:,1), rhPoints(:,2), z_c(1:length(rhPoints)), 'b', '.');
 scatter3(lhPoints(:,1), lhPoints(:,2), z_c(1:length(lhPoints)), 'b', '.');
 
-rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
-lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
-
-[~, rhInd] = max(rhDists);
-[~, lhInd] = max(lhDists);
-
 plot3(rhPoints(rhInd:rhInd+1,1), rhPoints(rhInd:rhInd+1,2), z_c(1:2), 'b');
 plot3(lhPoints(lhInd:lhInd+1,1), lhPoints(lhInd:lhInd+1,2), z_c(1:2), 'b');
-
-rhAngle = atan(diff(rhPoints(rhInd:rhInd+1,2)) / diff(rhPoints(rhInd:rhInd+1,1)));
-lhAngle = atan(diff(lhPoints(lhInd:lhInd+1,2)) / diff(lhPoints(lhInd:lhInd+1,1)));
-avgAngle = mean([rhAngle, lhAngle]);
-
+avgAngle = mean(angles);
+x1 = 0 - (L/2 * cos(avgAngle));
+x2 = 0 + (L/2*cos(avgAngle));
 ymin = min([xyRH_hull_points(:,2); xyLH_hull_points(:,2)]);
 ymax = max([xyRH_hull_points(:,2); xyLH_hull_points(:,2)]);
 ymid = (ymin + ymax)/2;
 L = ymax - ymin;
-
-x1 = 0 - (L/2 * cos(avgAngle));
-x2 = 0 + (L/2*cos(avgAngle));
 y1=ymid - (L/2*sin(avgAngle));
 y2=ymid+(L/2*sin(avgAngle));
 plot3(linspace(x1,x2, 1000),linspace(y1,y2, 1000),z_c(1:1000), 'r', "LineWidth",4);
