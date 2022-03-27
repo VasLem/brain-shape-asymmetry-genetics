@@ -120,7 +120,7 @@ if ~isfile(COMPUTED_ANGLES_PATH)
     avgRH(:,1) = -avgRH(:,1);
     save(COMPUTED_ANGLES_PATH, "angles", "preprocTemplate", 'avgRH', 'avgLH')
 else
-    load(COMPUTED_ANGLES_PATH)
+    load(COMPUTED_ANGLES_PATH, '-mat')
 end
 %%
 avgAngle = mean(angles);
