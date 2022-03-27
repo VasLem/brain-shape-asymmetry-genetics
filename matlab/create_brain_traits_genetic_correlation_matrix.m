@@ -75,6 +75,6 @@ for trait_ind=1:3
         featMats{1} = featMat;
         featMatsIds{1} = 'auto';
         featsClassesNames = strcat('Par',1:31);
-        drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, DATASET, out_dir, REDUCTION, 1)
+        drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, out_dir, REDUCTION, 1)
     end
 end

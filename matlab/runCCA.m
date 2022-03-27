@@ -59,6 +59,11 @@ try
     fprintf('Progress:\n');
     fprintf(['\n' repmat('.',1,length(jobsFiles)), '\n\n']);
     parfor blockCnt=1: length(jobsFiles)
+        if isfile(outFiles{blockCnt})
+            ppb.increment();
+            fprintf('\b|\n');
+            continue
+        end
         inp = load(jobsFiles{blockCnt});
         genoBlock = inp.genoBlock;
         blockIntervals = inp.blockIntervals;

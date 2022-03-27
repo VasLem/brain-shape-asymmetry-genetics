@@ -5,8 +5,10 @@
 \usepackage{float}
 \usepackage{svg}
 \usepackage[pdfusetitle,hidelinks,plainpages=false]{hyperref}
-\usepackage{subcaption}
 
+\usepackage{subcaption}
+\usepackage[numbers]{natbib}
+\bibliographystyle{plainnat}
 \graphicspath{
 	{../results},
 	 {graphics}
@@ -31,7 +33,7 @@
 \acresetall
 \mainmatter
 \include{introduction}
-\include{dataset_description}
+\include{mat_and_methods}
 \include{preprocessing}
 \include{asymmetry}
 \include{gwas}

@@ -1,0 +1,53 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./munge_sumstats.py \
+--signed-sumstats ChiScore,1 \
+--delim , \
+--out ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par03 \
+--merge-alleles ../SAMPLE_DATA/w_hm3.snplist \
+--n-min 1000.0 \
+--a1 A1 \
+--a2 A2 \
+--snp rsID \
+--sumstats data.csv \
+--p P-value 
+
+Interpreting column names as follows:
+P-value:	p-Value
+N:	Sample size
+A1:	Allele 1, interpreted as ref allele for signed sumstat.
+rsID:	Variant ID (e.g., rs number)
+A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
+ChiScore:	Directional summary statistic as specified by --signed-sumstats.
+
+Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
+Read 1217311 SNPs for allele merge.
+Reading sumstats from data.csv into memory 5000000 SNPs at a time.
+Read 8307450 SNPs from --sumstats file.
+Removed 7130403 SNPs not in --merge-alleles.
+Removed 0 SNPs with missing values.
+Removed 0 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 0 SNPs with out-of-bounds p-values.
+Removed 247 variants that were not SNPs or were strand-ambiguous.
+1176800 SNPs remain.
+Removed 242 SNPs with duplicated rs numbers (1176558 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1176558 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.98164388482, which seems sensible.
+Removed 122 SNPs whose alleles did not match --merge-alleles (1176436 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1176436 with nonmissing beta) to ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par03.sumstats.gz.
+
+Metadata:
+Mean chi^2 = 1.055
+Lambda GC = 1.068
+Max chi^2 = 80.531
+30 Genome-wide significant SNPs (some may have been removed by filtering).
+
+Conversion finished at Fri Apr  1 15:40:48 2022
+Total time elapsed: 28.08s

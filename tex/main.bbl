@@ -1,317 +1,932 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{69}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{Aaku-Saraste1997}
-E.~Aaku-Saraste, B.~Oback, A.~Hellwig, and W.~B. Huttner.
+\bibitem[Aaku-Saraste et~al.(1997)Aaku-Saraste, Oback, Hellwig, and
+  Huttner]{Aaku-Saraste1997}
+Eeva Aaku-Saraste, Bj{\"{o}}rn Oback, Andrea Hellwig, and Wieland~B. Huttner.
 \newblock {Neuroepithelial cells downregulate their plasma membrane polarity
   prior to neural tube closure and neurogenesis}.
-\newblock {\em Mechanisms of Development}, 69(1-2):71--81, dec 1997.
+\newblock \emph{Mechanisms of Development}, 69\penalty0 (1-2):\penalty0 71--81,
+  dec 1997.
+\newblock ISSN 0925-4773.
+\newblock \doi{10.1016/S0925-4773(97)00156-1}.
 
-\bibitem{Abu-Rustum2013}
-R.~S. Abu-Rustum, M.~F. Ziade, and S.~E. Abu-Rustum.
+\bibitem[Abu-Rustum et~al.(2013)Abu-Rustum, Ziade, and
+  Abu-Rustum]{Abu-Rustum2013}
+Reem~S. Abu-Rustum, M.~Fouad Ziade, and Sameer~E. Abu-Rustum.
 \newblock {Reference Values for the Right and Left Fetal Choroid Plexus at 11
   to 13 Weeks}.
-\newblock {\em Journal of Ultrasound in Medicine}, 32(9):1623--1629, sep 2013.
+\newblock \emph{Journal of Ultrasound in Medicine}, 32\penalty0 (9):\penalty0
+  1623--1629, sep 2013.
+\newblock ISSN 1550-9613.
+\newblock \doi{10.7863/ULTRA.32.9.1623}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/full/10.7863/ultra.32.9.1623
+  https://onlinelibrary.wiley.com/doi/abs/10.7863/ultra.32.9.1623
+  https://onlinelibrary.wiley.com/doi/10.7863/ultra.32.9.1623}.
 
-\bibitem{Aw2008}
-S.~Aw, D.~S. Adams, D.~Qiu, and M.~Levin.
+\bibitem[{Alejandro Gonzalez-Chica} et~al.(2015){Alejandro Gonzalez-Chica},
+  {Luiz Bastos}, {Pereira Duquia}, {Rangel Bonamigo}, and
+  Mart{\'{i}}nez-Mesa]{AlejandroGonzalez-Chica2015}
+David {Alejandro Gonzalez-Chica}, Jo{\~{a}}o {Luiz Bastos}, Rodrigo {Pereira
+  Duquia}, Renan {Rangel Bonamigo}, and Jeovany Mart{\'{i}}nez-Mesa.
+\newblock {EPIDEMIOLOGY AND BIOSTATISTICS APPLIED TO DERMATOLOGY}.
+\newblock \emph{An Bras Dermatol}, 90\penalty0 (4):\penalty0 523--531, 2015.
+\newblock \doi{10.1590/abd1806-4841.20154289}.
+\newblock URL \url{http://dx.doi.org/10.1590/abd1806-4841.20154289}.
+
+\bibitem[Aw and Levin(2009)]{Aw2009}
+Sherry Aw and Michael Levin.
+\newblock {Is left-right asymmetry a form of planar cell polarity?}
+\newblock \emph{Development}, 136\penalty0 (3):\penalty0 355--366, feb 2009.
+\newblock ISSN 0950-1991.
+\newblock \doi{10.1242/DEV.015974}.
+\newblock URL
+  \url{https://journals.biologists.com/dev/article/136/3/355/65515/Is-left-right-asymmetry-a-form-of-planar-cell}.
+
+\bibitem[Aw et~al.(2008)Aw, Adams, Qiu, and Levin]{Aw2008}
+Sherry Aw, Dany~S. Adams, Dayong Qiu, and Michael Levin.
 \newblock {H,K-ATPase protein localization and Kir4.1 function reveal
   concordance of three axes during early determination of left–right
   asymmetry}.
-\newblock {\em Mechanisms of Development}, 125(3-4):353--372, mar 2008.
+\newblock \emph{Mechanisms of Development}, 125\penalty0 (3-4):\penalty0
+  353--372, mar 2008.
+\newblock ISSN 0925-4773.
+\newblock \doi{10.1016/J.MOD.2007.10.011}.
 
-\bibitem{Aw2009}
-S.~Aw and M.~Levin.
-\newblock {Is left-right asymmetry a form of planar cell polarity?}
-\newblock {\em Development}, 136(3):355--366, feb 2009.
-
-\bibitem{Balzeau2012}
-A.~Balzeau, E.~Gilissen, and D.~Grimaud-Herv{\'{e}}.
+\bibitem[Balzeau et~al.(2012)Balzeau, Gilissen, and
+  Grimaud-Herv{\'{e}}]{Balzeau2012}
+Antoine Balzeau, Emmanuel Gilissen, and Dominique Grimaud-Herv{\'{e}}.
 \newblock {Shared Pattern of Endocranial Shape Asymmetries among Great Apes,
   Anatomically Modern Humans, and Fossil Hominins}.
-\newblock {\em PLoS ONE}, 7(1):e29581, jan 2012.
+\newblock \emph{PLoS ONE}, 7\penalty0 (1):\penalty0 e29581, jan 2012.
+\newblock ISSN 1932-6203.
+\newblock \doi{10.1371/JOURNAL.PONE.0029581}.
+\newblock URL
+  \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0029581}.
 
-\bibitem{Brodmann1909}
-K.~Brodmann.
-\newblock {\em {Vergleichende Lokalisationslehre der Grosshirnrinde in ihren
+\bibitem[Belmont et~al.(2003)Belmont, Hardenbol, Willis, Yu, Yang, Ch'Ang,
+  Huang, Liu, Shen, Tam, Tsui, Waye, Wong, Zeng, Zhang, Chee, Galver, Kruglyak,
+  Murray, Oliphant, Montpetit, Chagnon, Ferretti, Leboeuf, Phillips, Verner,
+  Duan, Lind, Miller, Rice, Saccone, Taillon-Miller, Xiao, Sekine, Sorimachi,
+  Tanaka, Tsunoda, Yoshino, Bentley, Hunt, Powell, Zhang, Matsuda, Fukushima,
+  Macer, Suda, Rotimi, Adebamowo, Aniagwu, Marshall, Matthew, Nkwodimmah,
+  Royal, Leppert, Dixon, Cunningham, Kanani, Thorisson, Chen, Cutler, Kashuk,
+  Donnelly, Marchini, McVean, Myers, Cardon, Morris, Weir, Mullikin, Feolo,
+  Daly, Qiu, Kent, Dunston, Kato, Niikawa, Watkin, Gibbs, Sodergren, Weinstock,
+  Wilson, Fulton, Rogers, Birren, Han, Wang, Godbout, Wallenburg,
+  L'Archev{\^{e}}que, Bellemare, Todani, Fujita, Tanaka, Holden, Collins,
+  Brooks, McEwen, Guyer, Jordan, Peterson, Spiegel, Sung, Zacharia, Kennedy,
+  Dunn, Seabrook, Shillito, Skene, Stewart, Valle, Clayton, Jorde, Chakravarti,
+  Cho, Duster, Foster, Jasperse, Knoppers, Kwok, Licinio, Long, Ossorio, Wang,
+  Rotimi, Spallone, Terry, Lander, Lai, Nickerson, Abecasis, Altshuler,
+  Boehnke, Deloukas, Douglas, Gabriel, Hudson, Hudson, Kruglyak, Nakamura,
+  Nussbaum, Schaffner, Sherry, Stein, and Tanaka]{Belmont2003}
+John~W. Belmont, Paul Hardenbol, Thomas~D. Willis, Fuli Yu, Huanming Yang,
+  Lan~Yang Ch'Ang, Wei Huang, Bin Liu, Yan Shen, Paul Kwong~Hang Tam, Lap~Chee
+  Tsui, Mary Miu~Yee Waye, Jeffrey Tze~Fei Wong, Changqing Zeng, Qingrun Zhang,
+  Mark~S. Chee, Luana~M. Galver, Semyon Kruglyak, Sarah~S. Murray, Arnold~R.
+  Oliphant, Alexandre Montpetit, Fanny Chagnon, Vincent Ferretti, Martin
+  Leboeuf, Michael~S. Phillips, Andrei Verner, Shenghui Duan, Denise~L. Lind,
+  Raymond~D. Miller, John Rice, Nancy~L. Saccone, Patricia Taillon-Miller, Ming
+  Xiao, Akihiro Sekine, Koki Sorimachi, Yoichi Tanaka, Tatsuhiko Tsunoda, Eiji
+  Yoshino, David~R. Bentley, Sarah Hunt, Don Powell, Houcan Zhang, Ichiro
+  Matsuda, Yoshimitsu Fukushima, Darryl~R. Macer, Eiko Suda, Charles Rotimi,
+  Clement~A. Adebamowo, Toyin Aniagwu, Patricia~A. Marshall, Olayemi Matthew,
+  Chibuzor Nkwodimmah, Charmaine~D.M. Royal, Mark~F. Leppert, Missy Dixon,
+  Fiona Cunningham, Ardavan Kanani, Gudmundur~A. Thorisson, Peter~E. Chen,
+  David~J. Cutler, Carl~S. Kashuk, Peter Donnelly, Jonathan Marchini,
+  Gilean~A.T. McVean, Simon~R. Myers, Lon~R. Cardon, Andrew Morris, Bruce~S.
+  Weir, James~C. Mullikin, Michael Feolo, Mark~J. Daly, Renzong Qiu, Alastair
+  Kent, Georgia~M. Dunston, Kazuto Kato, Norio Niikawa, Jessica Watkin,
+  Richard~A. Gibbs, Erica Sodergren, George~M. Weinstock, Richard~K. Wilson,
+  Lucinda~L. Fulton, Jane Rogers, Bruce~W. Birren, Hua Han, Hongguang Wang,
+  Martin Godbout, John~C. Wallenburg, Paul L'Archev{\^{e}}que, Guy Bellemare,
+  Kazuo Todani, Takashi Fujita, Satoshi Tanaka, Arthur~L. Holden, Francis~S.
+  Collins, Lisa~D. Brooks, Jean~E. McEwen, Mark~S. Guyer, Elke Jordan, Jane~L.
+  Peterson, Jack Spiegel, Lawrence~M. Sung, Lynn~F. Zacharia, Karen Kennedy,
+  Michael~G. Dunn, Richard Seabrook, Mark Shillito, Barbara Skene, John~G.
+  Stewart, David~L. Valle, Ellen~Wright Clayton, Lynn~B. Jorde, Aravinda
+  Chakravarti, Mildred~K. Cho, Troy Duster, Morris~W. Foster, Maria Jasperse,
+  Bartha~M. Knoppers, Pui~Yan Kwok, Julio Licinio, Jeffrey~C. Long, Pilar
+  Ossorio, Vivian~Ota Wang, Charles~N. Rotimi, Patricia Spallone, Sharon~F.
+  Terry, Eric~S. Lander, Eric~H. Lai, Deborah~A. Nickerson, Gon{\c{c}}alo~R.
+  Abecasis, David Altshuler, Michael Boehnke, Panos Deloukas, Julie~A. Douglas,
+  Stacey~B. Gabriel, Richard~R. Hudson, Thomas~J. Hudson, Leonid Kruglyak,
+  Yusuke Nakamura, Robert~L. Nussbaum, Stephen~F. Schaffner, Stephen~T. Sherry,
+  Lincoln~D. Stein, and Toshihiro Tanaka.
+\newblock {The International HapMap Project}.
+\newblock \emph{Nature 2004 426:6968}, 426\penalty0 (6968):\penalty0 789--796,
+  dec 2003.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature02168}.
+\newblock URL \url{https://www.nature.com/articles/nature02168}.
+
+\bibitem[Brodmann(1909)]{Brodmann1909}
+K~Brodmann.
+\newblock \emph{{Vergleichende Lokalisationslehre der Grosshirnrinde in ihren
   Prinzipien dargestellt auf Grund des Zellenbaues}}.
 \newblock Johann Ambrosius Barth, Leipzig, 1909.
 
-\bibitem{Cara2022}
-M.~L. Cara, I.~Streata, A.~M. Buga, and D.~G. Iliescu.
+\bibitem[Cara et~al.(2022)Cara, Streata, Buga, and Iliescu]{Cara2022}
+Monica~Laura Cara, Ioana Streata, Ana~Maria Buga, and Dominic~Gabriel Iliescu.
 \newblock {Developmental Brain Asymmetry. The Good and the Bad Sides}.
-\newblock {\em Symmetry 2022, Vol. 14, Page 128}, 14(1):128, jan 2022.
+\newblock \emph{Symmetry 2022, Vol. 14, Page 128}, 14\penalty0 (1):\penalty0
+  128, jan 2022.
+\newblock ISSN 2073-8994.
+\newblock \doi{10.3390/SYM14010128}.
+\newblock URL \url{https://www.mdpi.com/2073-8994/14/1/128/htm
+  https://www.mdpi.com/2073-8994/14/1/128}.
 
-\bibitem{Chini2021}
-M.~Chini and I.~L. Hanganu-Opatz.
+\bibitem[Chini and Hanganu-Opatz(2021)]{Chini2021}
+Mattia Chini and Ileana~L. Hanganu-Opatz.
 \newblock {Prefrontal Cortex Development in Health and Disease: Lessons from
   Rodents and Humans}.
-\newblock {\em Trends in Neurosciences}, 44(3):227--240, mar 2021.
+\newblock \emph{Trends in Neurosciences}, 44\penalty0 (3):\penalty0 227--240,
+  mar 2021.
+\newblock ISSN 0166-2236.
+\newblock \doi{10.1016/J.TINS.2020.10.017}.
 
-\bibitem{Cichonska2016}
-A.~Cichonska, J.~Rousu, P.~Marttinen, A.~J. Kangas, P.~Soininen,
-  T.~Lehtim{\"{a}}ki, O.~T. Raitakari, M.~R. J{\"{a}}rvelin, V.~Salomaa,
-  M.~Ala-Korpela, S.~Ripatti, and M.~Pirinen.
+\bibitem[Cichonska et~al.(2016)Cichonska, Rousu, Marttinen, Kangas, Soininen,
+  Lehtim{\"{a}}ki, Raitakari, J{\"{a}}rvelin, Salomaa, Ala-Korpela, Ripatti,
+  and Pirinen]{Cichonska2016}
+Anna Cichonska, Juho Rousu, Pekka Marttinen, Antti~J. Kangas, Pasi Soininen,
+  Terho Lehtim{\"{a}}ki, Olli~T. Raitakari, Marjo~Riitta J{\"{a}}rvelin, Veikko
+  Salomaa, Mika Ala-Korpela, Samuli Ripatti, and Matti Pirinen.
 \newblock {metaCCA: summary statistics-based multivariate meta-analysis of
   genome-wide association studies using canonical correlation analysis}.
-\newblock {\em Bioinformatics}, 32(13):1981--1989, jul 2016.
+\newblock \emph{Bioinformatics}, 32\penalty0 (13):\penalty0 1981--1989, jul
+  2016.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/BIOINFORMATICS/BTW052}.
+\newblock URL
+  \url{https://academic.oup.com/bioinformatics/article/32/13/1981/1742730}.
 
-\bibitem{Claes2018}
-P.~Claes, J.~Roosenboom, J.~D. White, T.~Swigut, D.~Sero, J.~Li, M.~K. Lee,
-  A.~Zaidi, B.~C. Mattern, C.~Liebowitz, L.~Pearson, T.~Gonz{\'{a}}lez, E.~J.
-  Leslie, J.~C. Carlson, E.~Orlova, P.~Suetens, D.~Vandermeulen, E.~Feingold,
-  M.~L. Marazita, J.~R. Shaffer, J.~Wysocka, M.~D. Shriver, and S.~M. Weinberg.
+\bibitem[Claes et~al.(2018)Claes, Roosenboom, White, Swigut, Sero, Li, Lee,
+  Zaidi, Mattern, Liebowitz, Pearson, Gonz{\'{a}}lez, Leslie, Carlson, Orlova,
+  Suetens, Vandermeulen, Feingold, Marazita, Shaffer, Wysocka, Shriver, and
+  Weinberg]{Claes2018}
+Peter Claes, Jasmien Roosenboom, Julie~D White, Tomek Swigut, Dzemila Sero,
+  Jiarui Li, Myoung~Keun Lee, Arslan Zaidi, Brooke~C Mattern, Corey Liebowitz,
+  Laurel Pearson, Tom{\'{a}}s Gonz{\'{a}}lez, Elizabeth~J Leslie, Jenna~C
+  Carlson, Ekaterina Orlova, Paul Suetens, Dirk Vandermeulen, Eleanor Feingold,
+  Mary~L Marazita, John~R Shaffer, Joanna Wysocka, Mark~D Shriver, and Seth~M
+  Weinberg.
 \newblock {Genome-wide mapping of global-to-local genetic effects on human
   facial shape}.
-\newblock {\em Nature Genetics}, 50(3):414--423, 2018.
+\newblock \emph{Nature Genetics}, 50\penalty0 (3):\penalty0 414--423, 2018.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/s41588-018-0057-4}.
+\newblock URL \url{https://doi.org/10.1038/s41588-018-0057-4}.
 
-\bibitem{Concha2012}
-M.~L. Concha, I.~H. Bianco, and S.~W. Wilson.
+\bibitem[Concha et~al.(2012)Concha, Bianco, and Wilson]{Concha2012}
+Miguel~L. Concha, Isaac~H. Bianco, and Stephen~W. Wilson.
 \newblock {Encoding asymmetry within neural circuits}.
-\newblock {\em Nature Reviews Neuroscience 2012 13:12}, 13(12):832--843, nov
-  2012.
+\newblock \emph{Nature Reviews Neuroscience 2012 13:12}, 13\penalty0
+  (12):\penalty0 832--843, nov 2012.
+\newblock ISSN 1471-0048.
+\newblock \doi{10.1038/nrn3371}.
+\newblock URL \url{https://www.nature.com/articles/nrn3371}.
 
-\bibitem{Corballis2009}
-M.~C. Corballis.
+\bibitem[Corballis(2009)]{Corballis2009}
+Michael~C. Corballis.
 \newblock {The evolution and genetics of cerebral asymmetry}.
-\newblock {\em Philosophical Transactions of the Royal Society B: Biological
-  Sciences}, 364(1519):867, 2009.
+\newblock \emph{Philosophical Transactions of the Royal Society B: Biological
+  Sciences}, 364\penalty0 (1519):\penalty0 867, 2009.
+\newblock ISSN 14712970.
+\newblock \doi{10.1098/RSTB.2008.0232}.
+\newblock URL \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2666079/}.
 
-\bibitem{Desikan2006}
-R.~S. Desikan, F.~S{\'{e}}gonne, B.~Fischl, B.~T. Quinn, B.~C. Dickerson,
-  D.~Blacker, R.~L. Buckner, A.~M. Dale, R.~P. Maguire, B.~T. Hyman, M.~S.
-  Albert, and R.~J. Killiany.
+\bibitem[de~Manzano and Ull{\'{e}}n(2018)]{Manzano2018}
+{\"{O}}rjan de~Manzano and Fredrik Ull{\'{e}}n.
+\newblock {Same Genes, Different Brains: Neuroanatomical Differences Between
+  Monozygotic Twins Discordant for Musical Training}.
+\newblock \emph{Cerebral Cortex}, 28\penalty0 (1):\penalty0 387--394, jan 2018.
+\newblock ISSN 1047-3211.
+\newblock \doi{10.1093/CERCOR/BHX299}.
+\newblock URL \url{https://academic.oup.com/cercor/article/28/1/387/4608057}.
+
+\bibitem[Desikan et~al.(2006)Desikan, S{\'{e}}gonne, Fischl, Quinn, Dickerson,
+  Blacker, Buckner, Dale, Maguire, Hyman, Albert, and Killiany]{Desikan2006}
+Rahul~S. Desikan, Florent S{\'{e}}gonne, Bruce Fischl, Brian~T. Quinn,
+  Bradford~C. Dickerson, Deborah Blacker, Randy~L. Buckner, Anders~M. Dale,
+  R.~Paul Maguire, Bradley~T. Hyman, Marilyn~S. Albert, and Ronald~J. Killiany.
 \newblock {An automated labeling system for subdividing the human cerebral
   cortex on MRI scans into gyral based regions of interest}.
-\newblock {\em NeuroImage}, 31(3):968--980, jul 2006.
+\newblock \emph{NeuroImage}, 31\penalty0 (3):\penalty0 968--980, jul 2006.
+\newblock ISSN 1053-8119.
+\newblock \doi{10.1016/J.NEUROIMAGE.2006.01.021}.
 
-\bibitem{Dyck2017}
-L.~I. Dyck and E.~M. Morrow.
+\bibitem[Dickie et~al.(2019)Dickie, Anticevic, Smith, Coalson, Manogaran,
+  Calarco, Viviano, Glasser, {Van Essen}, and Voineskos]{Dickie2019}
+Erin~W. Dickie, Alan Anticevic, Dawn~E. Smith, Timothy~S. Coalson, Mathuvanthi
+  Manogaran, Navona Calarco, Joseph~D. Viviano, Matthew~F. Glasser, David~C.
+  {Van Essen}, and Aristotle~N. Voineskos.
+\newblock {ciftify: A framework for surface-based analysis of legacy MR
+  acquisitions}.
+\newblock \emph{NeuroImage}, 197:\penalty0 818, aug 2019.
+\newblock ISSN 10959572.
+\newblock \doi{10.1016/J.NEUROIMAGE.2019.04.078}.
+\newblock URL \url{/pmc/articles/PMC6675413/
+  /pmc/articles/PMC6675413/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6675413/}.
+
+\bibitem[Dunham et~al.(2012)Dunham, Kundaje, Aldred, Collins, Davis, Doyle,
+  Epstein, Frietze, Harrow, Kaul, Khatun, Lajoie, Landt, Lee, Pauli,
+  Rosenbloom, Sabo, Safi, Sanyal, Shoresh, Simon, Song, Trinklein, Altshuler,
+  Birney, Brown, Cheng, Djebali, Dong, Ernst, Furey, Gerstein, Giardine,
+  Greven, Hardison, Harris, Herrero, Hoffman, Iyer, Kellis, Kheradpour,
+  Lassmann, Li, Lin, Marinov, Merkel, Mortazavi, Parker, Reddy, Rozowsky,
+  Schlesinger, Thurman, Wang, Ward, Whitfield, Wilder, Wu, Xi, Yip, Zhuang,
+  Bernstein, Green, Gunter, Snyder, Pazin, Lowdon, Dillon, Adams, Kelly, Zhang,
+  Wexler, Good, Feingold, Crawford, Dekker, Elnitski, Farnham, Giddings,
+  Gingeras, Guig{\'{o}}, Hubbard, Kent, Lieb, Margulies, Myers,
+  Stamatoyannopoulos, Tenenbaum, Weng, White, Wold, Yu, Wrobel, Risk,
+  Gunawardena, Kuiper, Maier, Xie, Chen, Mikkelsen, Gillespie, Goren, Ram,
+  Zhang, Wang, Issner, Coyne, Durham, Ku, Truong, Eaton, Dobin, Tanzer,
+  Lagarde, Lin, Xue, Williams, Zaleski, R{\"{o}}der, Kokocinski, Abdelhamid,
+  Alioto, Antoshechkin, Baer, Batut, Bell, Bell, Chakrabortty, Chrast, Curado,
+  Derrien, Drenkow, Dumais, Dumais, Duttagupta, Fastuca, Fejes-Toth, Ferreira,
+  Foissac, Fullwood, Gao, Gonzalez, Gordon, Howald, Jha, Johnson, Kapranov,
+  King, Kingswood, Li, Luo, Park, Preall, Presaud, Ribeca, Robyr, Ruan,
+  Sammeth, Sandhu, Schaeffer, See, Shahab, Skancke, Suzuki, Takahashi, Tilgner,
+  Trout, Walters, Wang, Hayashizaki, Reymond, Antonarakis, Hannon, Ruan,
+  Carninci, Sloan, Learned, Malladi, Wong, Barber, Cline, Dreszer, Heitner,
+  Karolchik, Kirkup, Meyer, Long, Maddren, Raney, Grasfeder, Giresi,
+  Battenhouse, Sheffield, Showers, London, Bhinge, Shestak, Schaner, Kim,
+  Zhang, Mieczkowski, Mieczkowska, Liu, McDaniell, Ni, Rashid, Kim, Adar,
+  Zhang, Wang, Winter, Keefe, Iyer, Zheng, Wang, Gertz, Vielmetter, Partridge,
+  Varley, Gasper, Bansal, Pepke, Jain, Amrhein, Bowling, Anaya, Cross, Muratet,
+  Newberry, McCue, Nesmith, Fisher-Aylor, Pusey, DeSalvo, Parker,
+  Balasubramanian, Davis, Meadows, Eggleston, Newberry, Levy, Absher, Wong,
+  Blow, Visel, Pennachio, Petrykowska, Abyzov, Aken, Barrell, Barson, Berry,
+  Bignell, Boychenko, Bussotti, Davidson, Despacio-Reyes, Diekhans, Ezkurdia,
+  Frankish, Gilbert, Gonzalez, Griffiths, Harte, Hendrix, Hunt, Jungreis, Kay,
+  Khurana, Leng, Lin, Loveland, Lu, Manthravadi, Mariotti, Mudge, Mukherjee,
+  Notredame, Pei, Rodriguez, Saunders, Sboner, Searle, Sisu, Snow, Steward,
+  Tapanari, Tress, {Van Baren}, Washietl, Wilming, Zadissa, Zhang, Brent,
+  Haussler, Valencia, Addleman, Alexander, Auerbach, Balasubramanian,
+  Bettinger, Bhardwaj, Boyle, Cao, Cayting, Charos, Cheng, Eastman, Euskirchen,
+  Fleming, Grubert, Habegger, Hariharan, Harmanci, Iyengar, Jin, Karczewski,
+  Kasowski, Lacroute, Lam, Lamarre-Vincent, Lian, Lindahl-Allen, Min, Miotto,
+  Monahan, Moqtaderi, Mu, O'Geen, Ouyang, Patacsil, Raha, Ramirez, Reed, Shi,
+  Slifer, Witt, Wu, Xu, Yan, Yang, Struhl, Weissman, Penalva, Karmakar,
+  Bhanvadia, Choudhury, Domanus, Ma, Moran, Victorsen, Auer, Centanin,
+  Eichenlaub, Gruhl, Heermann, Hoeckendorf, Inoue, Kellner, Kirchmaier,
+  Mueller, Reinhardt, Schertel, Schneider, Sinn, Wittbrodt, Wittbrodt, Jain,
+  Balasundaram, Bates, Byron, Canfield, Diegel, Dunn, Ebersol, Frum, Garg,
+  Gist, Hansen, Boatman, Haugen, Humbert, Johnson, Johnson, Kutyavin, Lee,
+  Lotakis, Maurano, Neph, Neri, Nguyen, Qu, Reynolds, Roach, Rynes, Sanchez,
+  Sandstrom, Shafer, Stergachis, Thomas, Vernot, Vierstra, Vong, Wang, Weaver,
+  Yan, Zhang, Akey, Bender, Dorschner, Groudine, MacCoss, Navas,
+  Stamatoyannopoulos, Beal, Brazma, Flicek, Johnson, Lukk, Luscombe, Sobral,
+  Vaquerizas, Batzoglou, Sidow, Hussami, Kyriazopoulou-Panagiotopoulou,
+  Libbrecht, Schaub, Miller, Bickel, Banfai, Boley, Huang, Li, Noble, Bilmes,
+  Buske, Sahu, Kharchenko, Park, Baker, Taylor, and Lochovsky]{Dunham2012}
+Ian Dunham, Anshul Kundaje, Shelley~F. Aldred, Patrick~J. Collins, Carrie~A.
+  Davis, Francis Doyle, Charles~B. Epstein, Seth Frietze, Jennifer Harrow,
+  Rajinder Kaul, Jainab Khatun, Bryan~R. Lajoie, Stephen~G. Landt, Bum~Kyu Lee,
+  Florencia Pauli, Kate~R. Rosenbloom, Peter Sabo, Alexias Safi, Amartya
+  Sanyal, Noam Shoresh, Jeremy~M. Simon, Lingyun Song, Nathan~D. Trinklein,
+  Robert~C. Altshuler, Ewan Birney, James~B. Brown, Chao Cheng, Sarah Djebali,
+  Xianjun Dong, Jason Ernst, Terrence~S. Furey, Mark Gerstein, Belinda
+  Giardine, Melissa Greven, Ross~C. Hardison, Robert~S. Harris, Javier Herrero,
+  Michael~M. Hoffman, Sowmya Iyer, Manolis Kellis, Pouya Kheradpour, Timo
+  Lassmann, Qunhua Li, Xinying Lin, Georgi~K. Marinov, Angelika Merkel, Ali
+  Mortazavi, Stephen~C.J. Parker, Timothy~E. Reddy, Joel Rozowsky, Felix
+  Schlesinger, Robert~E. Thurman, Jie Wang, Lucas~D. Ward, Troy~W. Whitfield,
+  Steven~P. Wilder, Weisheng Wu, Hualin~S. Xi, Kevin~Y. Yip, Jiali Zhuang,
+  Bradley~E. Bernstein, Eric~D. Green, Chris Gunter, Michael Snyder, Michael~J.
+  Pazin, Rebecca~F. Lowdon, Laura~A.L. Dillon, Leslie~B. Adams, Caroline~J.
+  Kelly, Julia Zhang, Judith~R. Wexler, Peter~J. Good, Elise~A. Feingold,
+  Gregory~E. Crawford, Job Dekker, Laura Elnitski, Peggy~J. Farnham, Morgan~C.
+  Giddings, Thomas~R. Gingeras, Roderic Guig{\'{o}}, Timothy~J. Hubbard,
+  W.~James Kent, Jason~D. Lieb, Elliott~H. Margulies, Richard~M. Myers, John~A.
+  Stamatoyannopoulos, Scott~A. Tenenbaum, Zhiping Weng, Kevin~P. White, Barbara
+  Wold, Yanbao Yu, John Wrobel, Brian~A. Risk, Harsha~P. Gunawardena,
+  Heather~C. Kuiper, Christopher~W. Maier, Ling Xie, Xian Chen, Tarjei~S.
+  Mikkelsen, Shawn Gillespie, Alon Goren, Oren Ram, Xiaolan Zhang, Li~Wang,
+  Robbyn Issner, Michael~J. Coyne, Timothy Durham, Manching Ku, Thanh Truong,
+  Matthew~L. Eaton, Alex Dobin, Andrea Tanzer, Julien Lagarde, Wei Lin,
+  Chenghai Xue, Brian~A. Williams, Chris Zaleski, Maik R{\"{o}}der, Felix
+  Kokocinski, Rehab~F. Abdelhamid, Tyler Alioto, Igor Antoshechkin, Michael~T.
+  Baer, Philippe Batut, Ian Bell, Kimberly Bell, Sudipto Chakrabortty,
+  Jacqueline Chrast, Joao Curado, Thomas Derrien, Jorg Drenkow, Erica Dumais,
+  Jackie Dumais, Radha Duttagupta, Megan Fastuca, Kata Fejes-Toth, Pedro
+  Ferreira, Sylvain Foissac, Melissa~J. Fullwood, Hui Gao, David Gonzalez,
+  Assaf Gordon, C{\'{e}}dric Howald, Sonali Jha, Rory Johnson, Philipp
+  Kapranov, Brandon King, Colin Kingswood, Guoliang Li, Oscar~J. Luo, Eddie
+  Park, Jonathan~B. Preall, Kimberly Presaud, Paolo Ribeca, Daniel Robyr,
+  Xiaoan Ruan, Michael Sammeth, Kuljeet~Singh Sandhu, Lorain Schaeffer,
+  Lei~Hoon See, Atif Shahab, Jorgen Skancke, Ana~Maria Suzuki, Hazuki
+  Takahashi, Hagen Tilgner, Diane Trout, Nathalie Walters, Huaien Wang,
+  Yoshihide Hayashizaki, Alexandre Reymond, Stylianos~E. Antonarakis,
+  Gregory~J. Hannon, Yijun Ruan, Piero Carninci, Cricket~A. Sloan, Katrina
+  Learned, Venkat~S. Malladi, Matthew~C. Wong, Galt~P. Barber, Melissa~S.
+  Cline, Timothy~R. Dreszer, Steven~G. Heitner, Donna Karolchik, Vanessa~M.
+  Kirkup, Laurence~R. Meyer, Jeffrey~C. Long, Morgan Maddren, Brian~J. Raney,
+  Linda~L. Grasfeder, Paul~G. Giresi, Anna Battenhouse, Nathan~C. Sheffield,
+  Kimberly~A. Showers, Darin London, Akshay~A. Bhinge, Christopher Shestak,
+  Matthew~R. Schaner, Seul~Ki Kim, Zhuzhu~Z. Zhang, Piotr~A. Mieczkowski,
+  Joanna~O. Mieczkowska, Zheng Liu, Ryan~M. McDaniell, Yunyun Ni, Naim~U.
+  Rashid, Min~Jae Kim, Sheera Adar, Zhancheng Zhang, Tianyuan Wang, Deborah
+  Winter, Damian Keefe, Vishwanath~R. Iyer, Meizhen Zheng, Ping Wang, Jason
+  Gertz, Jost Vielmetter, E.~Christopher Partridge, Katherine~E. Varley, Clarke
+  Gasper, Anita Bansal, Shirley Pepke, Preti Jain, Henry Amrhein, Kevin~M.
+  Bowling, Michael Anaya, Marie~K. Cross, Michael~A. Muratet, Kimberly~M.
+  Newberry, Kenneth McCue, Amy~S. Nesmith, Katherine~I. Fisher-Aylor, Barbara
+  Pusey, Gilberto DeSalvo, Stephanie~L. Parker, Sreeram Balasubramanian,
+  Nicholas~S. Davis, Sarah~K. Meadows, Tracy Eggleston, J.~Scott Newberry,
+  Shawn~E. Levy, Devin~M. Absher, Wing~H. Wong, Matthew~J. Blow, Axel Visel,
+  Len~A. Pennachio, Hanna~M. Petrykowska, Alexej Abyzov, Bronwen Aken, Daniel
+  Barrell, Gemma Barson, Andrew Berry, Alexandra Bignell, Veronika Boychenko,
+  Giovanni Bussotti, Claire Davidson, Gloria Despacio-Reyes, Mark Diekhans,
+  Iakes Ezkurdia, Adam Frankish, James Gilbert, Jose~Manuel Gonzalez,
+  Ed~Griffiths, Rachel Harte, David~A. Hendrix, Toby Hunt, Irwin Jungreis, Mike
+  Kay, Ekta Khurana, Jing Leng, Michael~F. Lin, Jane Loveland, Zhi Lu, Deepa
+  Manthravadi, Marco Mariotti, Jonathan Mudge, Gaurab Mukherjee, Cedric
+  Notredame, Baikang Pei, Jose~Manuel Rodriguez, Gary Saunders, Andrea Sboner,
+  Stephen Searle, Cristina Sisu, Catherine Snow, Charlie Steward, Electra
+  Tapanari, Michael~L. Tress, Marijke~J. {Van Baren}, Stefan Washietl, Laurens
+  Wilming, Amonida Zadissa, Zhengdong Zhang, Michael Brent, David Haussler,
+  Alfonso Valencia, Nick Addleman, Roger~P. Alexander, Raymond~K. Auerbach,
+  Suganthi Balasubramanian, Keith Bettinger, Nitin Bhardwaj, Alan~P. Boyle,
+  Alina~R. Cao, Philip Cayting, Alexandra Charos, Yong Cheng, Catharine
+  Eastman, Ghia Euskirchen, Joseph~D. Fleming, Fabian Grubert, Lukas Habegger,
+  Manoj Hariharan, Arif Harmanci, Sushma Iyengar, Victor~X. Jin, Konrad~J.
+  Karczewski, Maya Kasowski, Phil Lacroute, Hugo Lam, Nathan Lamarre-Vincent,
+  Jin Lian, Marianne Lindahl-Allen, Renqiang Min, Benoit Miotto, Hannah
+  Monahan, Zarmik Moqtaderi, Xinmeng~J. Mu, Henriette O'Geen, Zhengqing Ouyang,
+  Dorrelyn Patacsil, Debasish Raha, Lucia Ramirez, Brian Reed, Minyi Shi, Teri
+  Slifer, Heather Witt, Linfeng Wu, Xiaoqin Xu, Koon~Kiu Yan, Xinqiong Yang,
+  Kevin Struhl, Sherman~M. Weissman, Luiz~O. Penalva, Subhradip Karmakar,
+  Raj~R. Bhanvadia, Alina Choudhury, Marc Domanus, Lijia Ma, Jennifer Moran,
+  Alec Victorsen, Thomas Auer, Lazaro Centanin, Michael Eichenlaub, Franziska
+  Gruhl, Stephan Heermann, Burkhard Hoeckendorf, Daigo Inoue, Tanja Kellner,
+  Stephan Kirchmaier, Claudia Mueller, Robert Reinhardt, Lea Schertel,
+  Stephanie Schneider, Rebecca Sinn, Beate Wittbrodt, Jochen Wittbrodt, Gaurav
+  Jain, Gayathri Balasundaram, Daniel~L. Bates, Rachel Byron, Theresa~K.
+  Canfield, Morgan~J. Diegel, Douglas Dunn, Abigail~K. Ebersol, Tristan Frum,
+  Kavita Garg, Erica Gist, R.~Scott Hansen, Lisa Boatman, Eric Haugen, Richard
+  Humbert, Audra~K. Johnson, Ericka~M. Johnson, Tattyana~V. Kutyavin, Kristen
+  Lee, Dimitra Lotakis, Matthew~T. Maurano, Shane~J. Neph, Fiedencio~V. Neri,
+  Eric~D. Nguyen, Hongzhu Qu, Alex~P. Reynolds, Vaughn Roach, Eric Rynes,
+  Minerva~E. Sanchez, Richard~S. Sandstrom, Anthony~O. Shafer, Andrew~B.
+  Stergachis, Sean Thomas, Benjamin Vernot, Jeff Vierstra, Shinny Vong, Hao
+  Wang, Molly~A. Weaver, Yongqi Yan, Miaohua Zhang, Joshua~M. Akey, Michael
+  Bender, Michael~O. Dorschner, Mark Groudine, Michael~J. MacCoss, Patrick
+  Navas, George Stamatoyannopoulos, Kathryn Beal, Alvis Brazma, Paul Flicek,
+  Nathan Johnson, Margus Lukk, Nicholas~M. Luscombe, Daniel Sobral, Juan~M.
+  Vaquerizas, Serafim Batzoglou, Arend Sidow, Nadine Hussami, Sofia
+  Kyriazopoulou-Panagiotopoulou, Max~W. Libbrecht, Marc~A. Schaub, Webb Miller,
+  Peter~J. Bickel, Balazs Banfai, Nathan~P. Boley, Haiyan Huang, Jingyi~Jessica
+  Li, William~Stafford Noble, Jeffrey~A. Bilmes, Orion~J. Buske, Avinash~D.
+  Sahu, Peter~V. Kharchenko, Peter~J. Park, Dannon Baker, James Taylor, and
+  Lucas Lochovsky.
+\newblock {An integrated encyclopedia of DNA elements in the human genome}.
+\newblock \emph{Nature 2012 489:7414}, 489\penalty0 (7414):\penalty0 57--74,
+  sep 2012.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature11247}.
+\newblock URL \url{https://www.nature.com/articles/nature11247}.
+
+\bibitem[Dyck and Morrow(2017)]{Dyck2017}
+Laura~I.Van Dyck and Eric~M. Morrow.
 \newblock {Genetic control of postnatal human brain growth}.
-\newblock {\em Current opinion in neurology}, 30(1):114, 2017.
+\newblock \emph{Current opinion in neurology}, 30\penalty0 (1):\penalty0 114,
+  2017.
+\newblock ISSN 14736551.
+\newblock \doi{10.1097/WCO.0000000000000405}.
+\newblock URL \url{/pmc/articles/PMC5340196/
+  /pmc/articles/PMC5340196/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5340196/}.
 
-\bibitem{Ernst2015}
-A.~Ernst and J.~Fris{\'{e}}n.
+\bibitem[Ernst and Fris{\'{e}}n(2015)]{Ernst2015}
+Aur{\'{e}}lie Ernst and Jonas Fris{\'{e}}n.
 \newblock {Adult Neurogenesis in Humans- Common and Unique Traits in Mammals}.
-\newblock {\em PLoS Biology}, 13(1), 2015.
+\newblock \emph{PLoS Biology}, 13\penalty0 (1), 2015.
+\newblock ISSN 15457885.
+\newblock \doi{10.1371/JOURNAL.PBIO.1002045}.
+\newblock URL \url{/pmc/articles/PMC4306487/
+  /pmc/articles/PMC4306487/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4306487/}.
 
-\bibitem{Bear2016chapter7app}
-M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\bibitem[{F. Bear} et~al.(2016{\natexlab{a}}){F. Bear}, {W. Connors}, and {A.
+  Paradiso}]{Bear2016chapter7app}
+Mark {F. Bear}, Barry {W. Connors}, and Michael {A. Paradiso}.
 \newblock {Appendix: An illustrated guide to human neuroanatomy}.
-\newblock In {\em Exploring the brain}, chapter~7, pages 205--262. Wolters
-  Kluwer, 4th edition, 2016.
+\newblock In \emph{Exploring the brain}, chapter~7, pages 205--262. Wolters
+  Kluwer, 4th edition, 2016{\natexlab{a}}.
+\newblock ISBN 0781778174.
 
-\bibitem{F.Bear2016b}
-M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
-\newblock {Differentiation of the Forebrain}.
-\newblock In {\em Exploring the brain}, chapter~7, pages 196--199. Wolters
-  Kluwer, 4th edition, 2016.
-
-\bibitem{F.Bear2016a}
-M.~{F. Bear}, B.~{W. Connors}, and M.~{A. Paradiso}.
+\bibitem[{F. Bear} et~al.(2016{\natexlab{b}}){F. Bear}, {W. Connors}, and {A.
+  Paradiso}]{F.Bear2016a}
+Mark {F. Bear}, Barry {W. Connors}, and Michael {A. Paradiso}.
 \newblock {Formation of the Neural Tube-Three Primary Brain Vesicles}.
-\newblock In {\em Exploring the brain}, chapter~7, pages 193--196. Wolters
-  Kluwer, 4th edition, 2016.
+\newblock In \emph{Exploring the brain}, chapter~7, pages 193--196. Wolters
+  Kluwer, 4th edition, 2016{\natexlab{b}}.
+\newblock ISBN 0781778174.
 
-\bibitem{Fernandes2021}
-S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
+\bibitem[{F. Bear} et~al.(2016{\natexlab{c}}){F. Bear}, {W. Connors}, and {A.
+  Paradiso}]{F.Bear2016b}
+Mark {F. Bear}, Barry {W. Connors}, and Michael {A. Paradiso}.
+\newblock {Differentiation of the Forebrain}.
+\newblock In \emph{Exploring the brain}, chapter~7, pages 196--199. Wolters
+  Kluwer, 4th edition, 2016{\natexlab{c}}.
+\newblock ISBN 0781778174.
+
+\bibitem[Fernandes et~al.(2021)Fernandes, Zhang, Jamann, and
+  Lipka]{Fernandes2021}
+Samuel~B. Fernandes, Kevin~S. Zhang, Tiffany~M. Jamann, and Alexander~E. Lipka.
 \newblock {How Well Can Multivariate and Univariate GWAS Distinguish Between
   True and Spurious Pleiotropy?}
-\newblock {\em Frontiers in Genetics}, 11:1747, jan 2021.
+\newblock \emph{Frontiers in Genetics}, 11:\penalty0 1747, jan 2021.
+\newblock ISSN 16648021.
+\newblock \doi{10.3389/FGENE.2020.602526/BIBTEX}.
 
-\bibitem{Finnerty2003}
-J.~R. Finnerty.
+\bibitem[Ferng and Mytilinaios(2022)]{Ferng2022}
+Alice Ferng and Dimitrios Mytilinaios.
+\newblock {Brodmann areas: Anatomy and functions | Kenhub}, 2022.
+\newblock URL \url{https://www.kenhub.com/en/library/anatomy/brodmann-areas}.
+
+\bibitem[Finnerty(2003)]{Finnerty2003}
+John~R. Finnerty.
 \newblock {The origins of axial patterning in the metazoa: how old is bilateral
   symmetry?}
-\newblock {\em International Journal of Developmental Biology},
-  47(7-8):523--529, dec 2003.
+\newblock \emph{International Journal of Developmental Biology}, 47\penalty0
+  (7-8):\penalty0 523--529, dec 2003.
+\newblock ISSN 0214-6282.
+\newblock \doi{10.1387/IJDB.14756328}.
+\newblock URL \url{http://www.ijdb.ehu.es/web/paper/14756328}.
 
-\bibitem{Galesloot2014}
-T.~E. Galesloot, K.~{Van Steen}, L.~A. Kiemeney, L.~L. Janss, and S.~H.
-  Vermeulen.
+\bibitem[Galesloot et~al.(2014)Galesloot, {Van Steen}, Kiemeney, Janss, and
+  Vermeulen]{Galesloot2014}
+Tessel~E. Galesloot, Kristel {Van Steen}, Lambertus~A.L.M. Kiemeney, Luc~L.
+  Janss, and Sita~H. Vermeulen.
 \newblock {A comparison of multivariate genome-wide association methods}.
-\newblock {\em PLoS ONE}, 9(4), apr 2014.
+\newblock \emph{PLoS ONE}, 9\penalty0 (4), apr 2014.
+\newblock ISSN 19326203.
+\newblock \doi{10.1371/JOURNAL.PONE.0095923}.
 
-\bibitem{Gotz2005}
-M.~G{\"{o}}tz and W.~B. Huttner.
+\bibitem[G{\"{o}}tz and Huttner(2005)]{Gotz2005}
+Magdalena G{\"{o}}tz and Wieland~B Huttner.
 \newblock {The cell biology of Neurogenesis}.
-\newblock {\em Nat Rev Mol Cell Biol}, 6:777--788, 2005.
+\newblock \emph{Nat Rev Mol Cell Biol}, 6:\penalty0 777--788, 2005.
+\newblock \doi{10.1038/nrm1739}.
+\newblock URL \url{www.nature.com/articles/nrm1739}.
 
-\bibitem{Grimes2017}
-D.~T. Grimes and R.~D. Burdine.
+\bibitem[Grimes and Burdine(2017)]{Grimes2017}
+Daniel~T. Grimes and Rebecca~D. Burdine.
 \newblock {Left-right patterning: breaking symmetry to asymmetric
   morphogenesis}.
-\newblock {\em Trends in genetics : TIG}, 33(9):616, sep 2017.
+\newblock \emph{Trends in genetics : TIG}, 33\penalty0 (9):\penalty0 616, sep
+  2017.
+\newblock ISSN 13624555.
+\newblock \doi{10.1016/J.TIG.2017.06.004}.
+\newblock URL \url{/pmc/articles/PMC5764106/
+  /pmc/articles/PMC5764106/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764106/}.
 
-\bibitem{Heger2020}
-P.~Heger, W.~Zheng, A.~Rottmann, K.~A. {Pan Lio}, and T.~Wiehe.
+\bibitem[Guadalupe et~al.(2015)Guadalupe, Zwiers, Wittfeld, Teumer, Vasquez,
+  Hoogman, Hagoort, Fernandez, Buitelaar, van Bokhoven, Hegenscheid,
+  V{\"{o}}lzke, Franke, Fisher, Grabe, and Francks]{Guadalupe2015}
+Tulio Guadalupe, Marcel~P. Zwiers, Katharina Wittfeld, Alexander Teumer,
+  Alejandro~Arias Vasquez, Martine Hoogman, Peter Hagoort, Guillen Fernandez,
+  Jan Buitelaar, Hans van Bokhoven, Katrin Hegenscheid, Henry V{\"{o}}lzke,
+  Barbara Franke, Simon~E. Fisher, Hans~J. Grabe, and Clyde Francks.
+\newblock {Asymmetry within and around the human planum temporale is sexually
+  dimorphic and influenced by genes involved in steroid hormone receptor
+  activity}.
+\newblock \emph{Cortex; a journal devoted to the study of the nervous system
+  and behavior}, 62:\penalty0 41--55, jan 2015.
+\newblock ISSN 1973-8102.
+\newblock \doi{10.1016/J.CORTEX.2014.07.015}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/25239853/}.
+
+\bibitem[Heger et~al.(2020)Heger, Zheng, Rottmann, {Pan Lio}, and
+  Wiehe]{Heger2020}
+Peter Heger, Wen Zheng, Anna Rottmann, Kristen~A. {Pan Lio}, and Thomas Wiehe.
 \newblock {The genetic factors of bilaterian evolution}.
-\newblock {\em eLife}, 9:1--45, jul 2020.
+\newblock \emph{eLife}, 9:\penalty0 1--45, jul 2020.
+\newblock ISSN 2050084X.
+\newblock \doi{10.7554/ELIFE.45530}.
 
-\bibitem{Hejnol2016}
-A.~Hejnol and K.~Pang.
+\bibitem[Hejnol and Pang(2016)]{Hejnol2016}
+Andreas Hejnol and Kevin Pang.
 \newblock {Xenacoelomorpha's significance for understanding bilaterian
   evolution}.
-\newblock {\em Current Opinion in Genetics And Development}, 39:48--54, aug
-  2016.
+\newblock \emph{Current Opinion in Genetics And Development}, 39:\penalty0
+  48--54, aug 2016.
+\newblock ISSN 0959-437X.
+\newblock \doi{10.1016/J.GDE.2016.05.019}.
 
-\bibitem{Herbert2005}
-M.~R. Herbert, D.~A. Ziegler, C.~K. Deutsch, L.~M. O'Brien, D.~N. Kennedy,
-  P.~A. Filipek, A.~I. Bakardjiev, J.~Hodgson, M.~Takeoka, N.~Makris, and V.~S.
-  {Caviness Jr}.
+\bibitem[Herbert et~al.(2005)Herbert, Ziegler, Deutsch, O'Brien, Kennedy,
+  Filipek, Bakardjiev, Hodgson, Takeoka, Makris, and {Caviness
+  Jr}]{Herbert2005}
+M~R Herbert, D~A Ziegler, C~K Deutsch, L~M O'Brien, D~N Kennedy, P~A Filipek,
+  A~I Bakardjiev, J~Hodgson, M~Takeoka, N~Makris, and V~S {Caviness Jr}.
 \newblock {Brain asymmetries in autism and developmental language disorder: a
   nested whole-brain analysis}.
-\newblock {\em Brain}, 128(1):213--226, jan 2005.
+\newblock \emph{Brain}, 128\penalty0 (1):\penalty0 213--226, jan 2005.
+\newblock ISSN 0006-8950.
+\newblock \doi{10.1093/brain/awh330}.
+\newblock URL \url{https://doi.org/10.1093/brain/awh330}.
 
-\bibitem{Jackson2011}
-D.~Jackson, R.~Riley, and I.~R. White.
+\bibitem[Jackson et~al.(2011)Jackson, Riley, and White]{Jackson2011}
+Dan Jackson, Richard Riley, and Ian~R. White.
 \newblock {Multivariate meta-analysis: Potential and promise}.
-\newblock {\em Statistics in Medicine}, 30(20):2481, sep 2011.
+\newblock \emph{Statistics in Medicine}, 30\penalty0 (20):\penalty0 2481, sep
+  2011.
+\newblock ISSN 02776715.
+\newblock \doi{10.1002/SIM.4172}.
+\newblock URL \url{/pmc/articles/PMC3470931/
+  /pmc/articles/PMC3470931/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3470931/}.
 
-\bibitem{Klingenberg2020}
-C.~P. Klingenberg.
+\bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
+  SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
+  Hoh]{Klein2005}
+Robert~J. Klein, Caroline Zeiss, Emily~Y. Chew, Jen~Yue Tsai, Richard~S.
+  Sackler, Chad Haynes, Alice~K. Henning, John~Paul SanGiovanni, Shrikant~M.
+  Mane, Susan~T. Mayne, Michael~B. Bracken, Frederick~L. Ferris, Jurg Ott,
+  Colin Barnstable, and Josephine Hoh.
+\newblock {Complement factor H polymorphism in age-related macular
+  degeneration}.
+\newblock \emph{Science}, 308\penalty0 (5720):\penalty0 385--389, apr 2005.
+\newblock ISSN 00368075.
+\newblock \doi{10.1126/SCIENCE.1109557/SUPPL_FILE/KLEIN_SOM.PDF}.
+\newblock URL \url{https://www.science.org/doi/abs/10.1126/science.1109557}.
+
+\bibitem[Klingenberg(2020)]{Klingenberg2020}
+Christian~Peter Klingenberg.
 \newblock {Walking on Kendall's Shape Space: Understanding Shape Spaces and
   Their Coordinate Systems}.
-\newblock {\em Evolutionary Biology}, 47(4):334--352, dec 2020.
+\newblock \emph{Evolutionary Biology}, 47\penalty0 (4):\penalty0 334--352, dec
+  2020.
+\newblock ISSN 19342845.
+\newblock \doi{10.1007/S11692-020-09513-X/FIGURES/9}.
+\newblock URL
+  \url{https://link.springer.com/article/10.1007/s11692-020-09513-x}.
 
-\bibitem{klingenberg2002}
-C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
+\bibitem[Klingenberg et~al.(2002)Klingenberg, Barluenga, and
+  Meyer]{klingenberg2002}
+Christian~Peter Klingenberg, Marta Barluenga, and Axel Meyer.
 \newblock Shape analysis of symmetric structures: Quantifying variation among
   individuals and asymmetry.
-\newblock {\em Evolution}, 56(10):1909--1920, 2002.
+\newblock \emph{Evolution}, 56\penalty0 (10):\penalty0 1909--1920, 2002.
+\newblock ISSN 00143820, 15585646.
+\newblock URL \url{http://www.jstor.org/stable/3094634}.
 
-\bibitem{Koch2021}
-E.~M. Koch and S.~R. Sunyaev.
+\bibitem[Koch and Sunyaev(2021)]{Koch2021}
+Evan~M. Koch and Shamil~R. Sunyaev.
 \newblock {Maintenance of Complex Trait Variation: Classic Theory and Modern
   Data}.
-\newblock {\em Frontiers in Genetics}, 12:2198, nov 2021.
+\newblock \emph{Frontiers in Genetics}, 12:\penalty0 2198, nov 2021.
+\newblock ISSN 16648021.
+\newblock \doi{10.3389/FGENE.2021.763363/BIBTEX}.
 
-\bibitem{Kong2022}
-X.-Z. Kong, M.~C. Postema, T.~Guadalupe, C.~de~Kovel, P.~S.~W. Boedhoe,
-  M.~Hoogman, S.~R. Mathias, D.~van Rooij, D.~Schijven, D.~C. Glahn, S.~E.
-  Medland, N.~Jahanshad, S.~I. Thomopoulos, J.~A. Turner, J.~Buitelaar,
-  T.~G.~M. van Erp, B.~Franke, S.~E. Fisher, O.~A. van~den Heuvel, L.~Schmaal,
-  P.~M. Thompson, and C.~Francks.
+\bibitem[Kong et~al.(2022)Kong, Postema, Guadalupe, de~Kovel, Boedhoe, Hoogman,
+  Mathias, van Rooij, Schijven, Glahn, Medland, Jahanshad, Thomopoulos, Turner,
+  Buitelaar, van Erp, Franke, Fisher, van~den Heuvel, Schmaal, Thompson, and
+  Francks]{Kong2022}
+Xiang-Zhen Kong, Merel~C Postema, Tulio Guadalupe, Carolien de~Kovel, Premika
+  S~W Boedhoe, Martine Hoogman, Samuel~R Mathias, Daan van Rooij, Dick
+  Schijven, David~C Glahn, Sarah~E Medland, Neda Jahanshad, Sophia~I
+  Thomopoulos, Jessica~A Turner, Jan Buitelaar, Theo G~M van Erp, Barbara
+  Franke, Simon~E Fisher, Odile~A van~den Heuvel, Lianne Schmaal, Paul~M
+  Thompson, and Clyde Francks.
 \newblock {Mapping brain asymmetry in health and disease through the ENIGMA
   consortium}.
-\newblock {\em Human Brain Mapping}, 43(1):167--181, jan 2022.
+\newblock \emph{Human Brain Mapping}, 43\penalty0 (1):\penalty0 167--181, jan
+  2022.
+\newblock ISSN 1065-9471.
+\newblock \doi{https://doi.org/10.1002/hbm.25033}.
+\newblock URL \url{https://doi.org/10.1002/hbm.25033}.
 
-\bibitem{LeMay1976}
-M.~LeMay.
-\newblock {Morphological cerebral asymmetries of modern man, fossil man, and
-  nonhuman primate.}
-\newblock {\em Annals of the New York Academy of Sciences}, 280:349--366, 1976.
+\bibitem[Kuo and Massoud(2022)]{Kuo2022}
+Frank Kuo and Tarik~F. Massoud.
+\newblock {Structural asymmetries in normal brain anatomy: A brief overview}.
+\newblock \emph{Annals of Anatomy - Anatomischer Anzeiger}, 241:\penalty0
+  151894, apr 2022.
+\newblock ISSN 0940-9602.
+\newblock \doi{10.1016/J.AANAT.2022.151894}.
 
-\bibitem{Littlejohns2020}
-T.~J. Littlejohns, J.~Holliday, L.~M. Gibson, S.~Garratt, N.~Oesingmann,
-  F.~Alfaro-Almagro, J.~D. Bell, C.~Boultwood, R.~Collins, M.~C. Conroy,
-  N.~Crabtree, N.~Doherty, A.~F. Frangi, N.~C. Harvey, P.~Leeson, K.~L. Miller,
-  S.~Neubauer, S.~E. Petersen, J.~Sellors, S.~Sheard, S.~M. Smith, C.~L.
-  Sudlow, P.~M. Matthews, and N.~E. Allen.
+\bibitem[Li et~al.(2015)Li, Wang, Li, Li, and Li]{Li2015}
+Shuyu Li, Shaoyi Wang, Xinwei Li, Qiongling Li, and Xiaobo Li.
+\newblock {Abnormal surface morphology of the central sulcus in children with
+  attention-deficit/hyperactivity disorder}.
+\newblock \emph{Frontiers in Neuroanatomy}, 9\penalty0 (AUGUST):\penalty0 114,
+  aug 2015.
+\newblock ISSN 16625129.
+\newblock \doi{10.3389/FNANA.2015.00114/BIBTEX}.
+
+\bibitem[Littlejohns et~al.(2020)Littlejohns, Holliday, Gibson, Garratt,
+  Oesingmann, Alfaro-Almagro, Bell, Boultwood, Collins, Conroy, Crabtree,
+  Doherty, Frangi, Harvey, Leeson, Miller, Neubauer, Petersen, Sellors, Sheard,
+  Smith, Sudlow, Matthews, and Allen]{Littlejohns2020}
+Thomas~J. Littlejohns, Jo~Holliday, Lorna~M. Gibson, Steve Garratt, Niels
+  Oesingmann, Fidel Alfaro-Almagro, Jimmy~D. Bell, Chris Boultwood, Rory
+  Collins, Megan~C. Conroy, Nicola Crabtree, Nicola Doherty, Alejandro~F.
+  Frangi, Nicholas~C. Harvey, Paul Leeson, Karla~L. Miller, Stefan Neubauer,
+  Steffen~E. Petersen, Jonathan Sellors, Simon Sheard, Stephen~M. Smith,
+  Cathie~L.M. Sudlow, Paul~M. Matthews, and Naomi~E. Allen.
 \newblock {The UK Biobank imaging enhancement of 100,000 participants:
   rationale, data collection, management and future directions}.
-\newblock {\em Nature Communications 2020 11:1}, 11(1):1--12, may 2020.
+\newblock \emph{Nature Communications 2020 11:1}, 11\penalty0 (1):\penalty0
+  1--12, may 2020.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-020-15948-9}.
+\newblock URL \url{https://www.nature.com/articles/s41467-020-15948-9}.
 
-\bibitem{Malik2013}
-S.~Malik, G.~Vinukonda, L.~R. Vose, D.~Diamond, B.~B. Bhimavarapu, F.~Hu, M.~T.
-  Zia, R.~Hevner, N.~Zecevic, and P.~Ballabh.
+\bibitem[Malik et~al.(2013)Malik, Vinukonda, Vose, Diamond, Bhimavarapu, Hu,
+  Zia, Hevner, Zecevic, and Ballabh]{Malik2013}
+Sabrina Malik, Govindaiah Vinukonda, Linnea~R. Vose, Daniel Diamond, Bala~B.R.
+  Bhimavarapu, Furong Hu, Muhammad~T. Zia, Robert Hevner, Nada Zecevic, and
+  Praveen Ballabh.
 \newblock {Neurogenesis continues in the third trimester of pregnancy and is
   suppressed by premature birth}.
-\newblock {\em The Journal of neuroscience : the official journal of the
-  Society for Neuroscience}, 33(2):411--423, jan 2013.
+\newblock \emph{The Journal of neuroscience : the official journal of the
+  Society for Neuroscience}, 33\penalty0 (2):\penalty0 411--423, jan 2013.
+\newblock ISSN 1529-2401.
+\newblock \doi{10.1523/JNEUROSCI.4445-12.2013}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/23303921/}.
 
-\bibitem{Molnar2019}
-Z.~Moln{\'{a}}r, G.~J. Clowry, N.~{\v{S}}estan, A.~Alzu'bi, T.~Bakken, R.~F.
-  Hevner, P.~S. H{\"{u}}ppi, I.~Kostovi{\'{c}}, P.~Rakic, E.~S. Anton,
-  D.~Edwards, P.~Garcez, A.~Hoerder-Suabedissen, and A.~Kriegstein.
+\bibitem[Maller et~al.(2015)Maller, Anderson, Thomson, Rosenfeld, Daskalakis,
+  and Fitzgerald]{Maller2015}
+Jerome~J. Maller, Rodney Anderson, Richard~H. Thomson, Jeffrey~V. Rosenfeld,
+  Zafiris~J. Daskalakis, and Paul~B. Fitzgerald.
+\newblock {Occipital bending (Yakovlevian torque) in bipolar depression}.
+\newblock \emph{Psychiatry Research: Neuroimaging}, 231\penalty0 (1):\penalty0
+  8--14, jan 2015.
+\newblock ISSN 0925-4927.
+\newblock \doi{10.1016/J.PSCYCHRESNS.2014.11.008}.
+
+\bibitem[Moln{\'{a}}r et~al.(2019)Moln{\'{a}}r, Clowry, {\v{S}}estan, Alzu'bi,
+  Bakken, Hevner, H{\"{u}}ppi, Kostovi{\'{c}}, Rakic, Anton, Edwards, Garcez,
+  Hoerder-Suabedissen, and Kriegstein]{Molnar2019}
+Zolt{\'{a}}n Moln{\'{a}}r, Gavin~J. Clowry, Nenad {\v{S}}estan, Ayman Alzu'bi,
+  Trygve Bakken, Robert~F. Hevner, Petra~S. H{\"{u}}ppi, Ivica Kostovi{\'{c}},
+  Pasko Rakic, E.~S. Anton, David Edwards, Patricia Garcez, Anna
+  Hoerder-Suabedissen, and Arnold Kriegstein.
 \newblock {New insights into the development of the human cerebral cortex}.
-\newblock {\em Journal of Anatomy}, 235(3):432, 2019.
+\newblock \emph{Journal of Anatomy}, 235\penalty0 (3):\penalty0 432, 2019.
+\newblock ISSN 14697580.
+\newblock \doi{10.1111/JOA.13055}.
+\newblock URL \url{/pmc/articles/PMC6704245/
+  /pmc/articles/PMC6704245/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6704245/}.
 
-\bibitem{Naqvi2021}
-S.~Naqvi, Y.~Sleyp, H.~Hoskens, K.~Indencleef, J.~P. Spence, R.~Bruffaerts,
-  A.~Radwan, R.~J. Eller, S.~Richmond, M.~D. Shriver, J.~R. Shaffer, S.~M.
-  Weinberg, S.~Walsh, J.~Thompson, J.~K. Pritchard, S.~Sunaert, H.~Peeters,
-  J.~Wysocka, and P.~Claes.
+\bibitem[Naqvi et~al.(2021)Naqvi, Sleyp, Hoskens, Indencleef, Spence,
+  Bruffaerts, Radwan, Eller, Richmond, Shriver, Shaffer, Weinberg, Walsh,
+  Thompson, Pritchard, Sunaert, Peeters, Wysocka, and Claes]{Naqvi2021}
+Sahin Naqvi, Yoeri Sleyp, Hanne Hoskens, Karlijne Indencleef, Jeffrey~P Spence,
+  Rose Bruffaerts, Ahmed Radwan, Ryan~J Eller, Stephen Richmond, Mark~D
+  Shriver, John~R Shaffer, Seth~M Weinberg, Susan Walsh, James Thompson,
+  Jonathan~K Pritchard, Stefan Sunaert, Hilde Peeters, Joanna Wysocka, and
+  Peter Claes.
 \newblock {Shared heritability of human face and brain shape}.
-\newblock {\em Nature Genetics}, 53(6):830--839, 2021.
+\newblock \emph{Nature Genetics}, 53\penalty0 (6):\penalty0 830--839, 2021.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/s41588-021-00827-w}.
+\newblock URL \url{https://doi.org/10.1038/s41588-021-00827-w}.
 
-\bibitem{Neubauer2020}
-S.~Neubauer, P.~Gunz, N.~A. Scott, J.~J. Hublin, and P.~Mitteroecker.
+\bibitem[Neubauer et~al.(2020)Neubauer, Gunz, Scott, Hublin, and
+  Mitteroecker]{Neubauer2020}
+Simon Neubauer, Philipp Gunz, Nadia~A. Scott, Jean~Jacques Hublin, and Philipp
+  Mitteroecker.
 \newblock {Evolution of brain lateralization: A shared hominid pattern of
   endocranial asymmetry is much more variable in humans than in great apes}.
-\newblock {\em Science Advances}, 6(7):9935--9949, 2020.
+\newblock \emph{Science Advances}, 6\penalty0 (7):\penalty0 9935--9949, 2020.
+\newblock ISSN 23752548.
+\newblock \doi{10.1126/SCIADV.AAX9935/SUPPL_FILE/AAX9935_SM.PDF}.
+\newblock URL \url{https://www.science.org/doi/abs/10.1126/sciadv.aax9935}.
 
-\bibitem{Ng2002}
-A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
+\bibitem[Ng et~al.(2002)Ng, Jordan, and Weiss]{Ng2002}
+Andrew~Y. Ng, Michael~I. Jordan, and Yair Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
-\newblock In {\em Advances in Neural Information Processing Systems}, 2002.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2002.
 
-\bibitem{Nowakowski2016}
-T.~J. Nowakowski, A.~A. Pollen, C.~Sandoval-Espinosa, and A.~R. Kriegstein.
+\bibitem[Nishizaki et~al.(2020)Nishizaki, Ng, Dong, Porter, Morterud, Williams,
+  Asman, Switzenberg, and Boyle]{Nishizaki2020}
+Sierra~S. Nishizaki, Natalie Ng, Shengcheng Dong, Robert~S. Porter, Cody
+  Morterud, Colten Williams, Courtney Asman, Jessica~A. Switzenberg, and
+  Alan~P. Boyle.
+\newblock {Predicting the effects of SNPs on transcription factor binding
+  affinity}.
+\newblock \emph{Bioinformatics}, 36\penalty0 (2):\penalty0 364--372, jan 2020.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/BIOINFORMATICS/BTZ612}.
+\newblock URL
+  \url{https://academic.oup.com/bioinformatics/article/36/2/364/5543098}.
+
+\bibitem[Nowakowski et~al.(2016)Nowakowski, Pollen, Sandoval-Espinosa, and
+  Kriegstein]{Nowakowski2016}
+Tomasz~J. Nowakowski, Alex~A. Pollen, Carmen Sandoval-Espinosa, and Arnold~R.
+  Kriegstein.
 \newblock {Transformation of the Radial Glia Scaffold Demarcates Two Stages of
   Human Cerebral Cortex Development}.
-\newblock {\em Neuron}, 91(6):1219--1227, sep 2016.
+\newblock \emph{Neuron}, 91\penalty0 (6):\penalty0 1219--1227, sep 2016.
+\newblock ISSN 10974199.
+\newblock
+  \doi{10.1016/J.NEURON.2016.09.005/ATTACHMENT/5FB07326-F8FF-4C17-9374-553AF90F6D57/MMC2.XLSX}.
+\newblock URL \url{http://www.cell.com/article/S0896627316305645/fulltext
+  http://www.cell.com/article/S0896627316305645/abstract
+  https://www.cell.com/neuron/abstract/S0896-6273(16)30564-5}.
 
-\bibitem{Okada2005}
-Y.~Okada, S.~Takeda, Y.~Tanaka, J.~C.~I. Belmonte, and N.~Hirokawa.
+\bibitem[Okada et~al.(2005)Okada, Takeda, Tanaka, Belmonte, and
+  Hirokawa]{Okada2005}
+Yasushi Okada, Sen Takeda, Yosuke Tanaka, Juan Carlos~Izpis{\'{u}}a Belmonte,
+  and Nobutaka Hirokawa.
 \newblock {Mechanism of Nodal Flow: A Conserved Symmetry Breaking Event in
   Left-Right Axis Determination}.
-\newblock {\em Cell}, 121(4):633--644, may 2005.
+\newblock \emph{Cell}, 121\penalty0 (4):\penalty0 633--644, may 2005.
+\newblock ISSN 0092-8674.
+\newblock \doi{10.1016/J.CELL.2005.04.008}.
 
-\bibitem{Purnell2018}
-M.~A. Purnell, P.~J. Donoghue, S.~E. Gabbott, M.~E. McNamara, D.~J. Murdock,
-  and R.~S. Sansom.
+\bibitem[Ong et~al.(2019)Ong, Stohler, and Herr]{Ong2019}
+Wei~Yi Ong, Christian~S. Stohler, and Deron~R. Herr.
+\newblock {Role of the Prefrontal Cortex in Pain Processing}.
+\newblock \emph{Molecular Neurobiology}, 56\penalty0 (2):\penalty0 1137, feb
+  2019.
+\newblock ISSN 15591182.
+\newblock \doi{10.1007/S12035-018-1130-9}.
+\newblock URL \url{/pmc/articles/PMC6400876/
+  /pmc/articles/PMC6400876/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6400876/}.
+
+\bibitem[Purnell et~al.(2018)Purnell, Donoghue, Gabbott, McNamara, Murdock, and
+  Sansom]{Purnell2018}
+Mark~A. Purnell, Philip~J.C. Donoghue, Sarah~E. Gabbott, Maria~E. McNamara,
+  Duncan~J.E. Murdock, and Robert~S. Sansom.
 \newblock {Experimental analysis of soft-tissue fossilization: opening the
   black box}.
-\newblock {\em Palaeontology}, 61(3):317--323, may 2018.
+\newblock \emph{Palaeontology}, 61\penalty0 (3):\penalty0 317--323, may 2018.
+\newblock ISSN 1475-4983.
+\newblock \doi{10.1111/PALA.12360}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/full/10.1111/pala.12360
+  https://onlinelibrary.wiley.com/doi/abs/10.1111/pala.12360
+  https://onlinelibrary.wiley.com/doi/10.1111/pala.12360}.
 
-\bibitem{Rakic2009}
+\bibitem[Rakic(2009)]{Rakic2009}
 P.~Rakic.
 \newblock {Radial glial cells: Brain functions}.
-\newblock In {\em Encyclopedia of Neuroscience}, volume~R, pages 15--21.
+\newblock In \emph{Encyclopedia of Neuroscience}, volume~R, pages 15--21.
   Elsevier Ltd, 2009.
+\newblock ISBN 9780080450469.
+\newblock \doi{10.1016/B978-008045046-9.01021-4}.
 
-\bibitem{Ribolsi2014}
-M.~Ribolsi, Z.~J. Daskalakis, A.~Siracusano, and G.~Koch.
+\bibitem[Ramensky et~al.(2002)Ramensky, Bork, and Sunyaev]{Ramensky2002}
+Vasily Ramensky, Peer Bork, and Shamil Sunyaev.
+\newblock {Human non‐synonymous SNPs: server and survey}.
+\newblock \emph{Nucleic Acids Research}, 30\penalty0 (17):\penalty0 3894--3900,
+  sep 2002.
+\newblock ISSN 0305-1048.
+\newblock \doi{10.1093/NAR/GKF493}.
+\newblock URL \url{https://academic.oup.com/nar/article/30/17/3894/2376118}.
+
+\bibitem[Ribolsi et~al.(2014)Ribolsi, Daskalakis, Siracusano, and
+  Koch]{Ribolsi2014}
+Michele Ribolsi, Zafiris~J Daskalakis, Alberto Siracusano, and Giacomo Koch.
 \newblock {Abnormal Asymmetry of Brain Connectivity in Schizophrenia }, 2014.
+\newblock URL
+  \url{https://www.frontiersin.org/article/10.3389/fnhum.2014.01010}.
 
-\bibitem{Schmitz2019}
-J.~Schmitz, O.~G{\"{u}}nt{\"{u}}rk{\"{u}}n, and S.~Ocklenburg.
+\bibitem[Schmitz et~al.(2019)Schmitz, G{\"{u}}nt{\"{u}}rk{\"{u}}n, and
+  Ocklenburg]{Schmitz2019}
+Judith Schmitz, Onur G{\"{u}}nt{\"{u}}rk{\"{u}}n, and Sebastian Ocklenburg.
 \newblock {Building an asymmetrical brain: The molecular perspective}.
-\newblock {\em Frontiers in Psychology}, 10(APR):982, 2019.
+\newblock \emph{Frontiers in Psychology}, 10\penalty0 (APR):\penalty0 982,
+  2019.
+\newblock ISSN 16641078.
+\newblock \doi{10.3389/FPSYG.2019.00982/BIBTEX}.
 
-\bibitem{Sheng2021}
-J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
+\bibitem[Sha et~al.(2021)Sha, Schijven, Carrion-Castillo, Joliot, Mazoyer,
+  Fisher, Crivello, and Francks]{Sha2021}
+Zhiqiang Sha, Dick Schijven, Amaia Carrion-Castillo, Marc Joliot, Bernard
+  Mazoyer, Simon~E. Fisher, Fabrice Crivello, and Clyde Francks.
+\newblock {The genetic architecture of structural left–right asymmetry of the
+  human brain}.
+\newblock \emph{Nature Human Behaviour 2021 5:9}, 5\penalty0 (9):\penalty0
+  1226--1239, mar 2021.
+\newblock ISSN 2397-3374.
+\newblock \doi{10.1038/s41562-021-01069-w}.
+\newblock URL \url{https://www.nature.com/articles/s41562-021-01069-w}.
+
+\bibitem[Sheng et~al.(2021)Sheng, Wang, Cheng, Zhang, Zhou, and Shi]{Sheng2021}
+Jinhua Sheng, Luyun Wang, Hu~Cheng, Qiao Zhang, Rougang Zhou, and Yuchen Shi.
 \newblock {Strategies for multivariate analyses of imaging genetics study in
   Alzheimer's disease}.
-\newblock {\em Neuroscience Letters}, 762:136147, sep 2021.
+\newblock \emph{Neuroscience Letters}, 762:\penalty0 136147, sep 2021.
+\newblock ISSN 0304-3940.
+\newblock \doi{10.1016/J.NEULET.2021.136147}.
 
-\bibitem{Telano2021}
-L.~N. Telano and S.~Baker.
+\bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'{e}}, Par{\'{e}}, and
+  Meyre]{Tam2019}
+Vivian Tam, Nikunj Patel, Michelle Turcotte, Yohan Boss{\'{e}}, Guillaume
+  Par{\'{e}}, and David Meyre.
+\newblock {Benefits and limitations of genome-wide association studies}.
+\newblock \emph{Nature Reviews Genetics 2019 20:8}, 20\penalty0 (8):\penalty0
+  467--484, may 2019.
+\newblock ISSN 1471-0064.
+\newblock \doi{10.1038/s41576-019-0127-1}.
+\newblock URL \url{https://www.nature.com/articles/s41576-019-0127-1}.
+
+\bibitem[Telano and Baker(2021)]{Telano2021}
+Lauren~N. Telano and Stephen Baker.
 \newblock {Physiology, Cerebral Spinal Fluid}.
-\newblock {\em StatPearls}, jul 2021.
+\newblock \emph{StatPearls}, jul 2021.
+\newblock URL \url{https://www.ncbi.nlm.nih.gov/books/NBK519007/}.
 
-\bibitem{VanDongen1999}
+\bibitem[Uffelmann et~al.(2021)Uffelmann, Huang, Munung, de~Vries, Okada,
+  Martin, Martin, Lappalainen, and Posthuma]{Uffelmann2021}
+Emil Uffelmann, Qin~Qin Huang, Nchangwi~Syntia Munung, Jantina de~Vries,
+  Yukinori Okada, Alicia~R Martin, Hilary~C Martin, Tuuli Lappalainen, and
+  Danielle Posthuma.
+\newblock Genome-wide association studies.
+\newblock \emph{Nature Reviews Methods Primers}, 1:\penalty0 59, 2021.
+\newblock ISSN 2662-8449.
+\newblock \doi{10.1038/s43586-021-00056-9}.
+\newblock URL \url{https://doi.org/10.1038/s43586-021-00056-9}.
+
+\bibitem[Usui et~al.(2021)Usui, Macleod, McCann, Senior, and
+  Nakagawa]{Usui2021}
+Takuji Usui, Malcolm~R. Macleod, Sarah~K. McCann, Alistair~M. Senior, and
+  Shinichi Nakagawa.
+\newblock {Meta-analysis of variation suggests that embracing variability
+  improves both replicability and generalizability in preclinical research}.
+\newblock \emph{PLOS Biology}, 19\penalty0 (5):\penalty0 e3001009, may 2021.
+\newblock ISSN 1545-7885.
+\newblock \doi{10.1371/JOURNAL.PBIO.3001009}.
+\newblock URL
+  \url{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3001009}.
+
+\bibitem[{Van Dongen} et~al.(1999){Van Dongen}, Molenberghs, and
+  Matthysen]{VanDongen1999}
 S.~{Van Dongen}, G.~Molenberghs, and E.~Matthysen.
 \newblock {The statistical analysis of fluctuating asymmetry: REML estimation
   of a mixed regression model}.
-\newblock {\em Journal of Evolutionary Biology}, 12(1):94--102, jan 1999.
+\newblock \emph{Journal of Evolutionary Biology}, 12\penalty0 (1):\penalty0
+  94--102, jan 1999.
+\newblock ISSN 1010061X.
+\newblock \doi{10.1046/J.1420-9101.1999.00012.X}.
 
-\bibitem{Vijayakumar2016}
-N.~Vijayakumar, N.~B. Allen, G.~Youssef, M.~Dennison, M.~Y{\"{u}}cel, J.~G.
-  Simmons, and S.~Whittle.
+\bibitem[Vijayakumar et~al.(2016)Vijayakumar, Allen, Youssef, Dennison,
+  Y{\"{u}}cel, Simmons, and Whittle]{Vijayakumar2016}
+Nandita Vijayakumar, Nicholas~B. Allen, George Youssef, Meg Dennison, Murat
+  Y{\"{u}}cel, Julian~G. Simmons, and Sarah Whittle.
 \newblock {Brain development during adolescence: A mixed-longitudinal
   investigation of cortical thickness, surface area, and volume}.
-\newblock {\em Human Brain Mapping}, 37(6):2027--2038, jun 2016.
+\newblock \emph{Human Brain Mapping}, 37\penalty0 (6):\penalty0 2027--2038, jun
+  2016.
+\newblock ISSN 10970193.
+\newblock \doi{10.1002/HBM.23154}.
 
-\bibitem{Vingerhoets2021}
-G.~Vingerhoets, R.~Gerrits, and H.~Verhelst.
+\bibitem[Vingerhoets et~al.(2021)Vingerhoets, Gerrits, and
+  Verhelst]{Vingerhoets2021}
+Guy Vingerhoets, Robin Gerrits, and Helena Verhelst.
 \newblock {Atypical Brain Asymmetry in Human Situs Inversus: Gut Feeling or
   Real Evidence?}
-\newblock {\em Symmetry 2021, Vol. 13, Page 695}, 13(4):695, apr 2021.
+\newblock \emph{Symmetry 2021, Vol. 13, Page 695}, 13\penalty0 (4):\penalty0
+  695, apr 2021.
+\newblock ISSN 2073-8994.
+\newblock \doi{10.3390/SYM13040695}.
+\newblock URL \url{https://www.mdpi.com/2073-8994/13/4/695/htm
+  https://www.mdpi.com/2073-8994/13/4/695}.
 
-\bibitem{VonLuxburg2007}
-U.~{Von Luxburg}.
+\bibitem[{Von Luxburg}(2007)]{VonLuxburg2007}
+Ulrike {Von Luxburg}.
 \newblock {A tutorial on spectral clustering}.
-\newblock {\em Statistics and Computing 2007 17:4}, 17(4):395--416, aug 2007.
+\newblock \emph{Statistics and Computing 2007 17:4}, 17\penalty0 (4):\penalty0
+  395--416, aug 2007.
+\newblock ISSN 1573-1375.
+\newblock \doi{10.1007/S11222-007-9033-Z}.
+\newblock URL
+  \url{https://link.springer.com/article/10.1007/s11222-007-9033-z}.
+
+\bibitem[White et~al.(2002)White, Andreasen, and Nopoulos]{White2002}
+Tonya White, Nancy~C. Andreasen, and Peggy Nopoulos.
+\newblock {Brain Volumes and Surface Morphology in Monozygotic Twins}.
+\newblock \emph{Cerebral Cortex}, 12\penalty0 (5):\penalty0 486--493, may 2002.
+\newblock ISSN 1047-3211.
+\newblock \doi{10.1093/CERCOR/12.5.486}.
+\newblock URL \url{https://academic.oup.com/cercor/article/12/5/486/318712}.
+
+\bibitem[Wittens et~al.(2021)Wittens, Allemeersch, Sima, Naeyaert,
+  Vanderhasselt, Vanbinst, Buls, {De Brucker}, Raeymaekers, Fransen, Smeets,
+  van Hecke, Nagels, Bjerke, de~Mey, and Engelborghs]{Wittens2021}
+Mandy Melissa~Jane Wittens, Gert~Jan Allemeersch, Diana~Maria Sima, Maarten
+  Naeyaert, Tim Vanderhasselt, Anne~Marie Vanbinst, Nico Buls, Yannick {De
+  Brucker}, Hubert Raeymaekers, Erik Fransen, Dirk Smeets, Wim van Hecke, Guy
+  Nagels, Maria Bjerke, Johan de~Mey, and Sebastiaan Engelborghs.
+\newblock {Inter- and Intra-Scanner Variability of Automated Brain Volumetry on
+  Three Magnetic Resonance Imaging Systems in Alzheimer's Disease and
+  Controls}.
+\newblock \emph{Frontiers in Aging Neuroscience}, 13:\penalty0 641, oct 2021.
+\newblock ISSN 16634365.
+\newblock \doi{10.3389/FNAGI.2021.746982/BIBTEX}.
 
 \end{thebibliography}

@@ -1,13 +1,12 @@
 #!/bin/bash
 set -e
-source ../get_input_args.sh $1 $2 $3
+source ../get_input_args.sh $1 $2 $3 $4
 cd ../../python
 
 ROOT_DIR=".."
-
-MUNGED_DIR=$ROOT_DIR/results/ldsc/$DATASET_ID/munged
+MUNGED_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/munged
 traits=$(ls $ROOT_DIR/SAMPLE_DATA/OTHER_TRAITS_GWAS)
-RG_DIR=$ROOT_DIR/results/ldsc/other_traits/$DATASET_ID/rg
+RG_DIR=$ROOT_DIR/results/$MODALITY/ldsc/other_traits/$DATASET_ID/rg
 for i in {1..31}; do
     par_i=$(printf "%02.f" $i)
     echo Handling Partition $par_i
@@ -21,7 +20,8 @@ for i in {1..31}; do
     ./ldsc/ldsc.py --rg $as_file$tr_files --ref-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $RG_DIR/par$par_i
 done
 
-ret="$ROOT_DIR/results/ldsc/$DATASET_ID/rg/other_traits_correlation.csv"
+mkdir -p $ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/rg/
+ret="$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/rg/other_traits_correlation.csv"
 rm -f $ret
 for i in {1..31}; do
     par_i=$(printf "%02.f" $i)

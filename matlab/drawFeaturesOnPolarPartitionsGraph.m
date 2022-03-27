@@ -1,4 +1,4 @@
-function drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, datasetName, resultsDir, reduction, recomputeParts, recomputeBaseParts)
+function drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, modality, resultsDir, reduction, recomputeParts, recomputeBaseParts)
 if nargin<6
     reduction=1;
 end
@@ -8,9 +8,9 @@ end
 if nargin<8
     recomputeBaseParts=0;
 end
-clusterDir = ['../results/hierarchicalClusteringDemo/' datasetName '/'];
-clusterArray = load(['../results/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction' num2str(reduction) '/levels4/segmentation.mat']).clusterArray;
-template = load([clusterDir 'asymmetry_reduction' num2str(reduction) '/levels4/input_info.mat']).preprocTemplate;
+clusterDir = ['../results/' modality '/hierarchicalClusteringDemo/STAGE00DATA/'];
+clusterArray = load(['../results/' modality '/hierarchicalClusteringDemo/STAGE00DATA/' modality '_reduction' num2str(reduction) '/levels4/segmentation.mat']).clusterArray;
+template = load([clusterDir modality '_reduction' num2str(reduction) '/levels4/input_info.mat']).preprocTemplate;
 [~, ~, handles] = paintClusters(clusterArray, template, 4, false);
 rawDir = [resultsDir 'props/'];
 if ~isfolder(rawDir), mkdir(rawDir); end

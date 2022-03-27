@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
-source ../get_input_args.sh $1 $2 $3
+source ../get_input_args.sh $1 $2 $3 $4
 cd ../../python
 ROOT_DIR=".."
-MUNGED_DIR=$ROOT_DIR/results/ldsc/$DATASET_ID/munged
-H2_DIR=$ROOT_DIR/results/ldsc/$DATASET_ID/h2
+MUNGED_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/munged
+H2_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/h2
 mkdir -p $MUNGED_DIR
 mkdir -p $H2_DIR
 

@@ -21,10 +21,11 @@ end
 %%
 UPDATE_FIGS = 1;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
-DEFAULT_CHRS = 20;
+DEFAULT_CHRS = 1:22;
 DEFAULT_SUBSAMPLED = 0;
-DEFAULT_DATASET_INDEX = 1;
-DEFAULT_MEDIAN_IMPUTE = 'no';
+DEFAULT_DATASET_INDEX = 2;
+DEFAULT_MEDIAN_IMPUTE = 'mean';
+DEFAULT_MODALITY = 'symmetry'; %symmetry,asymmetry
 DEFAULT_BLOCK_SIZE =2000;
 
 SUBSAMPLED = getenv('SUBSAMPLED');
@@ -100,6 +101,10 @@ else
     end
 end
 
+MODALITY = getenv("MODALITY");
+if(isempty(MODALITY))
+    MODALITY = DEFAULT_MODALITY;
+end
 
 DATASET_INDEX = getenv("DATASET_INDEX");
 if (isempty(DATASET_INDEX))
@@ -110,7 +115,7 @@ else
         DATASET_INDEX = str2double(DATASET_INDEX);
     end
 end
-
+disp(['Modality: ' MODALITY])
 disp(['Number of threads: ', num2str(THREADS)])
 disp(['Location of data: ', DATA_DIR])
 disp(['Location of temporary data:', SCRATCH_ROOT])
@@ -134,8 +139,8 @@ RESULTS_ROOT = getenv('RESULTS_ROOT');
 if(isempty(RESULTS_ROOT))
     RESULTS_ROOT = '../results/';
 end
-RESULTS_DIR = [RESULTS_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
-SCRATCH_DIR = [SCRATCH_ROOT, 'genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+RESULTS_DIR = [RESULTS_ROOT, MODALITY '/genomeDemo/'  DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+SCRATCH_DIR = [SCRATCH_ROOT, MODALITY '/genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
 disp(['Location of results: ', RESULTS_DIR]);
 disp(['Location of temporary results:', SCRATCH_DIR])
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
@@ -144,7 +149,7 @@ if ~isfolder(SCRATCH_DIR), mkdir(SCRATCH_DIR); end
 COV_GENO_PATH = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
 PHENO_PATH = getenv('PHENO_PATH');
 if(isempty(PHENO_PATH))
-    PHENO_PATH = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/asymmetry_reduction1/levels4/phenotype_varThres80.mat'];
+    PHENO_PATH = [RESULTS_ROOT, MODALITY '/hierarchicalClusteringDemo/' DATASET_NAME '/' MODALITY '_reduction1/levels4/phenotype_varThres80.mat'];
 end
 
 disp(['Loading phenotype from: ', PHENO_PATH])
@@ -238,7 +243,7 @@ for CHR_IND=1:length(CHRS)
     load(PLINK_DATA_INFO_OUT, 'snpsPruned', 'intervals', 'sampleSizes');
     toc;
     BONFERRONI_THRES = NO_PARTITION_THRES / length(PHENO);
-    if UPDATE_FIGS
+    if UPDATE_FIGS && ~isdeployed
         disp("Plotting results..")
         tic;
         plotSimpleGWAS(intervals, intStats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition']);

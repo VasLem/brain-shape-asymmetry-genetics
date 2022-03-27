@@ -18,7 +18,6 @@ NUM_LEVELS = 4;
 MAX_NUM_PCS = 500;
 DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'asymmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -58,10 +57,6 @@ try
 catch
 end
 
-COMPONENT=getenv('SYM_COMPONENT');
-if isempty(COMPONENT)
-    COMPONENT = DEFAULT_COMPONENT;
-end
 
 SELECTED_VARIANCE_THRESHOLD = 80;
 
@@ -99,11 +94,11 @@ if ~isfile(COMPUTED_ANGLES_PATH)
     % GPA
     [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, ~] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
     %% Rerun once to allign to the template
-    preprocRH(:,1,:) = -preprocRH(:,1,:);
-    [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, 1, 1, 1);
-
+    indRH = preprocRH(:,:,1);
+    indLH = preprocLH(:,:,1);
+    indRH(:,1) = -indRH(:,1);
+    showTorque(indRH, indLH, preprocTemplate)
     %% Get torque
-    close all
     angles = zeros(size(preprocLH,3),1);
     for ind=1:length(angles)
         indLH = preprocLH(:,:,ind);
@@ -120,71 +115,31 @@ if ~isfile(COMPUTED_ANGLES_PATH)
     avgRH(:,1) = -avgRH(:,1);
     save(COMPUTED_ANGLES_PATH, "angles", "preprocTemplate", 'avgRH', 'avgLH')
 else
-    load(COMPUTED_ANGLES_PATH)
+    load(COMPUTED_ANGLES_PATH, '-mat')
 end
 %%
+close all
 avgAngle = mean(angles);
 fig = showTorque(avgRH, avgLH, preprocTemplate, avgAngle);
 saveas(fig, [RESULTS_DIR, replace(sprintf('averaged_torque_%.3f',90 - rad2deg(avgAngle)), '.', '_'), '.svg'] );
 [fig, ang] = showTorque(avgRH, avgLH, preprocTemplate);
 saveas(fig, [RESULTS_DIR, replace(sprintf('torque_of_average_shape_%.3f',90 - rad2deg(ang)), '.', '_'), '.svg'] );
-function [fig , ang]=  showTorque(tRH, tLH, preprocTemplate, ang)
-z_c = repmat(mean([tRH(:,3); tLH(:,3)]),size(tRH,1),1);
 
-templateLH = clone(preprocTemplate);
-templateRH = clone(preprocTemplate);
-templateLH.Vertices = tLH;
-templateRH.Vertices = tRH;
-
-tRH = tRH(:,1:2);
-tLH = tLH(:,1:2);
-v1=templateLH.viewer;
-templateRH.viewer(v1);
-v1.BackgroundColor = 'white';
-v1.SceneLightVisible = 1;
-fig = v1.Figure;
-if nargin < 4
-
-    [rhP, lhP, ang0] = getPoints(tRH, tLH);
-    ang = ang0;
-    plot3(rhP(:, 1), rhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
-    plot3(lhP(:, 1), lhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
-end
-
-ymin = min([tRH(:,2); tLH(:,2)]);
-ymax = max([tRH(:,2); tLH(:,2)]);
-ymid = (ymin + ymax)/2;
-L = ymax - ymin;
-x1 = 0 - (L/2 * cos(ang));
-x2 = 0 + (L/2*cos(ang));
-y1=ymid - (L/2*sin(ang));
-y2=ymid+(L/2*sin(ang));
-
-
-
-plot3(linspace(x1,x2, 1000),linspace(y1,y2, 1000),z_c(1:1000), 'r', "LineWidth",4);
-plot3([0, 0], [y1, y2],z_c(1:2), 'k',"LineWidth",2)
-
-end
-%%
 function [rhP, lhP, ang] = getPoints(RH, LH)
-rLim = 1 / 3 * mean(RH(:,1));
-lLim = 1 / 3 * mean(LH(:,1));
-th = 0.01;
+rLim = 1 / 2 * mean(RH(:,1));
+lLim = 1 / 2 * mean(LH(:,1));
 RH = RH(RH(:,1) < rLim, 1:2);
 LH = LH(LH(:,1) > lLim, 1:2);
 xyRH_hull = convhull(double(RH));
 xyLH_hull = convhull(double(LH));
 
-xyRH_hull_points = RH(xyRH_hull,1:2);
-xyLH_hull_points = LH(xyLH_hull, 1:2);
-rhPoints = xyRH_hull_points(:,1:2);
-lhPoints = xyLH_hull_points(:,1:2);
+rhPoints = RH(xyRH_hull,1:2);
+lhPoints = LH(xyLH_hull,1:2);
 
 rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
-rhDists(rhPoints(2:end,1) > rLim - th) = 0;
+rhDists(rhPoints(2:end,1) == max(rhPoints(:,1) - rLim)) = 0;
 lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
-lhDists(lhPoints(2:end,1) < lLim + th) = 0;
+lhDists(lhPoints(1:end-1,1) == min(lhPoints(:,1) - lLim)) = 0;
 [~, rhInd] = max(rhDists);
 [~, lhInd] = max(lhDists);
 rhP = rhPoints(rhInd:rhInd+1,:);
@@ -198,3 +153,53 @@ lhAngleVec = [diff(lhP(:,1)), diff(lhP(:,2))];
 avgVec = rhAngleVec/norm(rhAngleVec) + lhAngleVec/norm(lhAngleVec);
 ang = angle(avgVec(1) + 1i * avgVec(2));
 end
+
+function [fig , ang]=  showTorque(tRH, tLH, preprocTemplate, ang)
+zmin = min([tRH(:,3); tLH(:,3)]);
+zmax = max([tRH(:,3); tLH(:,3)]);
+zmid = (zmin + zmax)/2;
+z_c = repmat(mean([tRH(:,3); tLH(:,3)]),size(tRH,1),1);
+
+templateLH = clone(preprocTemplate);
+templateRH = clone(preprocTemplate);
+templateLH.Vertices = tLH;
+templateRH.Vertices = tRH;
+
+tRH = tRH(tRH(:,3) < zmax, 1:2);
+tLH = tLH(tLH(:,3) < zmax, 1:2);
+
+v1=templateLH.viewer;
+templateRH.viewer(v1);
+v1.BackgroundColor = 'white';
+view(gca, 180, -90);
+light = camlight(gca,'headlight');
+set(light,'Position',get(gca,'CameraPosition'));    
+fig = v1.Figure;
+if nargin < 4
+
+    [rhP, lhP, ang0] = getPoints(tRH, tLH);
+    ang = ang0;
+    plot3(rhP(:, 1), rhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
+    plot3(lhP(:, 1), lhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
+end
+
+ymin = min([tRH(:,2); tLH(:,2)]);
+ymax = max([tRH(:,2); tLH(:,2)]);
+ymid = (ymin + ymax)/2;
+
+
+
+L = ymax - ymin;
+x1 = 0 - (L/2 * cos(ang));
+x2 = 0 + (L/2*cos(ang));
+y1=ymid - (L/2*sin(ang));
+y2=ymid+(L/2*sin(ang));
+
+
+
+plot3(linspace(x1,x2, 1000),linspace(y1,y2, 1000),z_c(1:1000), 'r', "LineWidth",4);
+plot3([0, 0], [y1, y2],z_c(1:2), 'k',"LineWidth",2)
+
+end
+%%
+

@@ -18,7 +18,7 @@ NUM_LEVELS = 4;
 MAX_NUM_PCS = 500;
 DEFAULT_DATASET_INDEX = 2;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'asymmetry'; %asymmetry,symmetry
+DEFAULT_MODALITY = 'symmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -55,16 +55,23 @@ RESULTS_ROOT = getenv('RESULTS_ROOT');
 if(isempty(RESULTS_ROOT))
     RESULTS_ROOT = '../results/';
 end
-RESULTS_DIR = [RESULTS_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
-
-
 
 SCRATCH_ROOT = getenv('SCRATCH_ROOT');
 if(isempty(SCRATCH_ROOT))
     SCRATCH_ROOT = '../results/';
 end
 
-SCRATCH_DIR = [SCRATCH_ROOT, 'hierarchicalClusteringDemo/' DATASET_NAME '/'];
+MODALITY=getenv('MODALITY');
+if isempty(MODALITY)
+    MODALITY = DEFAULT_MODALITY;
+end
+
+SCRATCH_DIR = [SCRATCH_ROOT, MODALITY '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+
+RESULTS_DIR = [RESULTS_ROOT, MODALITY '/hierarchicalClusteringDemo/' DATASET_NAME '/'];
+
+
+
 
 
 
@@ -83,16 +90,12 @@ try
 catch
 end
 
-COMPONENT=getenv('SYM_COMPONENT');
-if isempty(COMPONENT)
-    COMPONENT = DEFAULT_COMPONENT;
-end
 
 SELECTED_VARIANCE_THRESHOLD = 80;
 
 
-SELECTION_DIR   = [RESULTS_DIR COMPONENT '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
-SELECTION_SCRATCH_DIR   = [SCRATCH_DIR COMPONENT '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
+SELECTION_DIR   = [RESULTS_DIR MODALITY '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
+SELECTION_SCRATCH_DIR   = [SCRATCH_DIR MODALITY '_reduction' num2str(round(1/REDUCTION_RATE)) '/'];
 SEGMENTATION_DIR = [SELECTION_DIR 'levels' num2str(NUM_LEVELS) '/'];
 SEGMENTATION_SCRATCH_DIR = [SELECTION_SCRATCH_DIR 'levels' num2str(NUM_LEVELS) '/'];
 SEGMENTATION_SCRATCH_INPUT_OUT = [SEGMENTATION_SCRATCH_DIR, 'input.mat'];
@@ -164,7 +167,7 @@ if SEGMENTATION_INPUT_PROC
     [preprocTemplate, preprocLH, preprocRH, preprocPhenoIID, preprocLandmarksIndices] = preprocessSymmetry(refTemplate, LH, RH, phenoIID, REDUCTION_RATE, 1, 3);
 
 
-    switch COMPONENT
+    switch MODALITY
         case 'asymmetry'
             A = (preprocLH - preprocRH);
         case 'symmetry'
