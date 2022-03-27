@@ -109,31 +109,11 @@ if ~isfile(COMPUTED_ANGLES_PATH)
         indLH = preprocLH(:,:,ind);
         indRH = preprocRH(:,:,ind);
         indRH(:,1) = -indRH(:,1);
-        xyRH_hull = convhull(double(indRH(:,1:2)));
-        xyLH_hull = convhull(double(indLH(:,1:2)));
-        xyRH_hull_points = indRH(xyRH_hull,1:2);
-        xyLH_hull_points = indLH(xyLH_hull, 1:2);
-        rhPoints = xyRH_hull_points(xyRH_hull_points(:,1)<0.1,:);
-        lhPoints = xyLH_hull_points(xyLH_hull_points(:,1)>-0.1,:);
-
-        rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
-        lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
-        [~, rhInd] = max(rhDists);
-        [~, lhInd] = max(lhDists);
-        rhP = rhPoints(rhInd:rhInd+1,:);
-        [~,a] = sort(rhP(:,2));
-        rhP = rhP(a,:);
-        lhP = lhPoints(lhInd:lhInd+1,:);
-        [~,b] = sort(lhP(:,2));
-        lhP = lhP(b,:);
-        rhAngleVec = [diff(rhP(:,1)), diff(rhP(:,2))];
-        lhAngleVec = [diff(lhP(:,1)), diff(lhP(:,2))];
-        p = [0; 0; 1];
-        %     angdiff = vecangle360(rhAngleVec,lhAngleVec,p);
-        %     avgAngle = angle(rhAngleVec(1) + 1i * rhAngleVec(2))+ angdiff / 2;
-        %     angles(ind) = avgAngle;
-        avgVec = rhAngleVec/norm(rhAngleVec) + lhAngleVec/norm(lhAngleVec);
-        angles(ind) = angle(avgVec(1) + 1i * avgVec(2));
+        [rhP, lhP, ang0] = getPoints(indRH, indLH);
+        angles(ind) = ang0;
+        if angles(ind) > 1.1 * pi/2 || angles(ind) < 0.9 * pi/2
+            showTorque(indRH, indLH, preprocTemplate)
+        end
     end
     avgLH = mean(preprocLH,3);
     avgRH = mean(preprocRH,3);
@@ -142,58 +122,80 @@ if ~isfile(COMPUTED_ANGLES_PATH)
 else
     load(COMPUTED_ANGLES_PATH)
 end
+%%
+avgAngle = mean(angles);
+fig = showTorque(avgRH, avgLH, preprocTemplate, avgAngle);
 
+ang = 90 - rad2deg(avgAngle);
+saveas(fig, sprintf('../results/torque_%.3f.svg',ang))
 
+function fig =  showTorque(tRH, tLH, preprocTemplate, ang)
+z_c = repmat(mean([tRH(:,3); tLH(:,3)]),size(tRH,1),1);
 
 templateLH = clone(preprocTemplate);
 templateRH = clone(preprocTemplate);
+templateLH.Vertices = tLH;
+templateRH.Vertices = tRH;
 
-templateLH.Vertices = avgLH;
-templateRH.Vertices = avgRH;
+tRH = tRH(:,1:2);
+tLH = tLH(:,1:2);
 v1=templateLH.viewer;
 templateRH.viewer(v1);
 v1.BackgroundColor = 'white';
 v1.SceneLightVisible = 1;
+fig = v1.Figure;
+if nargin < 4
 
-xyRH_hull = convhull(double(avgRH(:,1:2)));
-xyLH_hull = convhull(double(avgLH(:,1:2)));
-%%
+    [rhP, lhP, ang0] = getPoints(tRH, tLH);
+    ang = ang0;
+    plot3(rhP(:, 1), rhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
+    plot3(lhP(:, 1), lhP(:, 2), z_c(1:2), 'b', "LineWidth",4);
+end
 
-
-% plot3(avgRH(xyRH_hull,1), avgRH(xyRH_hull,2),z_c(xyRH_hull),'r')
-% plot3(avgLH(xyLH_hull,1), avgLH(xyLH_hull,2),z_c(xyLH_hull),'r')
-tRH = avgRH;
-tLH = avgLH;
-% tRH = indRH;
-% tLH = indLH;
-xyRH_hull = convhull(double(tRH(:,1:2)));
-xyLH_hull = convhull(double(tLH(:,1:2)));
-xyRH_hull_points = tRH(xyRH_hull,:);
-xyLH_hull_points = tLH(xyLH_hull, :);
-rhPoints = xyRH_hull_points(xyRH_hull_points(:,1)<0.1,:);
-lhPoints = xyLH_hull_points(xyLH_hull_points(:,1)>-0.1,:);
-rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
-lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
-[~, rhInd] = max(rhDists);
-[~, lhInd] = max(lhDists);
-z_c = repmat(mean([tRH(:,3); tLH(:,3)]),size(tRH,1),1);
-scatter3(rhPoints(:,1), rhPoints(:,2), z_c(1:length(rhPoints)), 'b', '.');
-scatter3(lhPoints(:,1), lhPoints(:,2), z_c(1:length(lhPoints)), 'b', '.');
-
-plot3(rhPoints(rhInd:rhInd+1,1), rhPoints(rhInd:rhInd+1,2), z_c(1:2), 'b');
-plot3(lhPoints(lhInd:lhInd+1,1), lhPoints(lhInd:lhInd+1,2), z_c(1:2), 'b');
-avgAngle = mean(angles);
-
-ymin = min([xyRH_hull_points(:,2); xyLH_hull_points(:,2)]);
-ymax = max([xyRH_hull_points(:,2); xyLH_hull_points(:,2)]);
+ymin = min([tRH(:,2); tLH(:,2)]);
+ymax = max([tRH(:,2); tLH(:,2)]);
 ymid = (ymin + ymax)/2;
 L = ymax - ymin;
-x1 = 0 - (L/2 * cos(avgAngle));
-x2 = 0 + (L/2*cos(avgAngle));
-y1=ymid - (L/2*sin(avgAngle));
-y2=ymid+(L/2*sin(avgAngle));
+x1 = 0 - (L/2 * cos(ang));
+x2 = 0 + (L/2*cos(ang));
+y1=ymid - (L/2*sin(ang));
+y2=ymid+(L/2*sin(ang));
+
+
+
 plot3(linspace(x1,x2, 1000),linspace(y1,y2, 1000),z_c(1:1000), 'r', "LineWidth",4);
 plot3([0, 0], [y1, y2],z_c(1:2), 'k',"LineWidth",2)
+
+end
 %%
-ang = 90 + rad2deg(avgAngle);
-saveas(v1.Figure, sprintf('../results/torque_%.3f.svg',ang))
+function [rhP, lhP, ang] = getPoints(RH, LH)
+rLim = 1 / 3 * mean(RH(:,1));
+lLim = 1 / 3 * mean(LH(:,1));
+th = 0.01;
+RH = RH(RH(:,1) < rLim, 1:2);
+LH = LH(LH(:,1) > lLim, 1:2);
+xyRH_hull = convhull(double(RH));
+xyLH_hull = convhull(double(LH));
+
+xyRH_hull_points = RH(xyRH_hull,1:2);
+xyLH_hull_points = LH(xyLH_hull, 1:2);
+rhPoints = xyRH_hull_points(:,1:2);
+lhPoints = xyLH_hull_points(:,1:2);
+
+rhDists = (rhPoints(2:end,1)-rhPoints(1:end-1,1)).^2 + (rhPoints(2:end,2)-rhPoints(1:end-1,2)).^2;
+rhDists(rhPoints(2:end,1) > rLim - th) = 0;
+lhDists = (lhPoints(2:end,1)-lhPoints(1:end-1,1)).^2 + (lhPoints(2:end,2)-lhPoints(1:end-1,2)).^2;
+lhDists(lhPoints(2:end,1) < lLim + th) = 0;
+[~, rhInd] = max(rhDists);
+[~, lhInd] = max(lhDists);
+rhP = rhPoints(rhInd:rhInd+1,:);
+[~,a] = sort(rhP(:,2));
+rhP = rhP(a,:);
+lhP = lhPoints(lhInd:lhInd+1,:);
+[~,b] = sort(lhP(:,2));
+lhP = lhP(b,:);
+rhAngleVec = [diff(rhP(:,1)), diff(rhP(:,2))];
+lhAngleVec = [diff(lhP(:,1)), diff(lhP(:,2))];
+avgVec = rhAngleVec/norm(rhAngleVec) + lhAngleVec/norm(lhAngleVec);
+ang = angle(avgVec(1) + 1i * avgVec(2));
+end
