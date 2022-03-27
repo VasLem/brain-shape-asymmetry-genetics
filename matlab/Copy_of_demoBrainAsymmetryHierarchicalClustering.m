@@ -16,9 +16,9 @@ if ~isdeployed
 end
 NUM_LEVELS = 4;
 MAX_NUM_PCS = 500;
-DEFAULT_DATASET_INDEX = 2;
+DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_COMPONENT = 'asymmetry'; %asymmetry,symmetry
+DEFAULT_COMPONENT = 'symmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results

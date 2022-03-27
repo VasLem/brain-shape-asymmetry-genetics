@@ -1,8 +1,8 @@
 #!/bin/bash -l
-#PBS -l nodes=1:ppn=32
-#PBS -l pmem=2500MB
+#PBS -l nodes=1:ppn=36
+#PBS -l pmem=5GB
 #PBS -l walltime=12:00:00
-#PBS -A default_project
+#PBS -A lp_louvre_esat_students
 #PBS -m ae -M vasileios.lemonidis@student.kuleuven.be
 
 module purge
