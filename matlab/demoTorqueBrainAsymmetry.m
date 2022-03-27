@@ -41,7 +41,7 @@ switch DATASET_INDEX
 end
 RESULTS_ROOT = '../results/';
 RESULTS_DIR = [RESULTS_ROOT, 'demoTorqueBrainAsymmetry/' DATASET_NAME '/'];
-COMPUTED_ANGLES_PATH = [RESULTS_DIR, 'computedAngles.mat'];
+COMPUTED_ANGLES_PATH = [RESULTS_DIR, 'computedAngles'];
 
 THREADS = getenv('THREADS');
 if(isempty(THREADS))
@@ -125,11 +125,10 @@ end
 %%
 avgAngle = mean(angles);
 fig = showTorque(avgRH, avgLH, preprocTemplate, avgAngle);
-
-ang = 90 - rad2deg(avgAngle);
-saveas(fig, sprintf('../results/torque_%.3f.svg',ang))
-
-function fig =  showTorque(tRH, tLH, preprocTemplate, ang)
+saveas(fig, [RESULTS_DIR, replace(sprintf('averaged_torque_%.3f',90 - rad2deg(avgAngle)), '.', '_'), '.svg'] );
+[fig, ang] = showTorque(avgRH, avgLH, preprocTemplate);
+saveas(fig, [RESULTS_DIR, replace(sprintf('torque_of_average_shape_%.3f',90 - rad2deg(ang)), '.', '_'), '.svg'] );
+function [fig , ang]=  showTorque(tRH, tLH, preprocTemplate, ang)
 z_c = repmat(mean([tRH(:,3); tLH(:,3)]),size(tRH,1),1);
 
 templateLH = clone(preprocTemplate);
