@@ -76,6 +76,12 @@ M.~C. Corballis.
 \newblock {\em Philosophical Transactions of the Royal Society B: Biological
   Sciences}, 364(1519):867, 2009.
 
+\bibitem{Manzano2018}
+{\"{O}}.~de~Manzano and F.~Ull{\'{e}}n.
+\newblock {Same Genes, Different Brains: Neuroanatomical Differences Between
+  Monozygotic Twins Discordant for Musical Training}.
+\newblock {\em Cerebral Cortex}, 28(1):387--394, jan 2018.
+
 \bibitem{Desikan2006}
 R.~S. Desikan, F.~S{\'{e}}gonne, B.~Fischl, B.~T. Quinn, B.~C. Dickerson,
   D.~Blacker, R.~L. Buckner, A.~M. Dale, R.~P. Maguire, B.~T. Hyman, M.~S.
@@ -83,6 +89,14 @@ R.~S. Desikan, F.~S{\'{e}}gonne, B.~Fischl, B.~T. Quinn, B.~C. Dickerson,
 \newblock {An automated labeling system for subdividing the human cerebral
   cortex on MRI scans into gyral based regions of interest}.
 \newblock {\em NeuroImage}, 31(3):968--980, jul 2006.
+
+\bibitem{Dickie2019}
+E.~W. Dickie, A.~Anticevic, D.~E. Smith, T.~S. Coalson, M.~Manogaran,
+  N.~Calarco, J.~D. Viviano, M.~F. Glasser, D.~C. {Van Essen}, and A.~N.
+  Voineskos.
+\newblock {ciftify: A framework for surface-based analysis of legacy MR
+  acquisitions}.
+\newblock {\em NeuroImage}, 197:818, aug 2019.
 
 \bibitem{Dyck2017}
 L.~I. Dyck and E.~M. Morrow.
@@ -118,6 +132,10 @@ S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
   True and Spurious Pleiotropy?}
 \newblock {\em Frontiers in Genetics}, 11:1747, jan 2021.
 
+\bibitem{Ferng2022}
+A.~Ferng and D.~Mytilinaios.
+\newblock {Brodmann areas: Anatomy and functions | Kenhub}, 2022.
+
 \bibitem{Finnerty2003}
 J.~R. Finnerty.
 \newblock {The origins of axial patterning in the metazoa: how old is bilateral
@@ -141,6 +159,16 @@ D.~T. Grimes and R.~D. Burdine.
 \newblock {Left-right patterning: breaking symmetry to asymmetric
   morphogenesis}.
 \newblock {\em Trends in genetics : TIG}, 33(9):616, sep 2017.
+
+\bibitem{Guadalupe2015}
+T.~Guadalupe, M.~P. Zwiers, K.~Wittfeld, A.~Teumer, A.~A. Vasquez, M.~Hoogman,
+  P.~Hagoort, G.~Fernandez, J.~Buitelaar, H.~van Bokhoven, K.~Hegenscheid,
+  H.~V{\"{o}}lzke, B.~Franke, S.~E. Fisher, H.~J. Grabe, and C.~Francks.
+\newblock {Asymmetry within and around the human planum temporale is sexually
+  dimorphic and influenced by genes involved in steroid hormone receptor
+  activity}.
+\newblock {\em Cortex; a journal devoted to the study of the nervous system and
+  behavior}, 62:41--55, jan 2015.
 
 \bibitem{Heger2020}
 P.~Heger, W.~Zheng, A.~Rottmann, K.~A. {Pan Lio}, and T.~Wiehe.
@@ -194,6 +222,12 @@ X.-Z. Kong, M.~C. Postema, T.~Guadalupe, C.~de~Kovel, P.~S.~W. Boedhoe,
 \newblock {Mapping brain asymmetry in health and disease through the ENIGMA
   consortium}.
 \newblock {\em Human Brain Mapping}, 43(1):167--181, jan 2022.
+
+\bibitem{Kuo2022}
+F.~Kuo and T.~F. Massoud.
+\newblock {Structural asymmetries in normal brain anatomy: A brief overview}.
+\newblock {\em Annals of Anatomy - Anatomischer Anzeiger}, 241:151894, apr
+  2022.
 
 \bibitem{LeMay1976}
 M.~LeMay.
@@ -257,6 +291,11 @@ Y.~Okada, S.~Takeda, Y.~Tanaka, J.~C.~I. Belmonte, and N.~Hirokawa.
   Left-Right Axis Determination}.
 \newblock {\em Cell}, 121(4):633--644, may 2005.
 
+\bibitem{Ong2019}
+W.~Y. Ong, C.~S. Stohler, and D.~R. Herr.
+\newblock {Role of the Prefrontal Cortex in Pain Processing}.
+\newblock {\em Molecular Neurobiology}, 56(2):1137, feb 2019.
+
 \bibitem{Purnell2018}
 M.~A. Purnell, P.~J. Donoghue, S.~E. Gabbott, M.~E. McNamara, D.~J. Murdock,
   and R.~S. Sansom.
@@ -313,5 +352,10 @@ G.~Vingerhoets, R.~Gerrits, and H.~Verhelst.
 U.~{Von Luxburg}.
 \newblock {A tutorial on spectral clustering}.
 \newblock {\em Statistics and Computing 2007 17:4}, 17(4):395--416, aug 2007.
+
+\bibitem{White2002}
+T.~White, N.~C. Andreasen, and P.~Nopoulos.
+\newblock {Brain Volumes and Surface Morphology in Monozygotic Twins}.
+\newblock {\em Cerebral Cortex}, 12(5):486--493, may 2002.
 
 \end{thebibliography}

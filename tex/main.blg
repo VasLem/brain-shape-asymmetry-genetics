@@ -9,44 +9,44 @@ A level-1 auxiliary file: gwas.aux
 A level-1 auxiliary file: discussion.aux
 The style file: abbrv.bst
 Database file #1: references.bib
-You've used 50 entries,
+You've used 57 entries,
             2118 wiz_defined-function locations,
-            875 strings with 16235 characters,
-and the built_in function-call counts, 21537 in all, are:
-= -- 1996
-> -- 1498
+            920 strings with 17950 characters,
+and the built_in function-call counts, 24380 in all, are:
+= -- 2252
+> -- 1709
 < -- 8
-+ -- 592
-- -- 542
-* -- 1952
-:= -- 3713
-add.period$ -- 153
-call.type$ -- 50
-change.case$ -- 423
++ -- 675
+- -- 618
+* -- 2208
+:= -- 4212
+add.period$ -- 173
+call.type$ -- 57
+change.case$ -- 482
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 600
-empty$ -- 1328
-format.name$ -- 542
-if$ -- 4217
+cite$ -- 57
+duplicate$ -- 673
+empty$ -- 1499
+format.name$ -- 618
+if$ -- 4766
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 50
-newline$ -- 252
-num.names$ -- 100
-pop$ -- 357
+int.to.str$ -- 57
+missing$ -- 56
+newline$ -- 286
+num.names$ -- 114
+pop$ -- 409
 preamble$ -- 1
-purify$ -- 371
+purify$ -- 423
 quote$ -- 0
-skip$ -- 402
+skip$ -- 455
 stack$ -- 0
-substring$ -- 1208
-swap$ -- 89
+substring$ -- 1351
+swap$ -- 96
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 198
+type$ -- 226
 warning$ -- 0
-while$ -- 180
-width$ -- 52
-write$ -- 555
+while$ -- 203
+width$ -- 59
+write$ -- 629
