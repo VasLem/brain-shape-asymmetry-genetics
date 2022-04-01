@@ -1,52 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+The style file: plainnat.bst
 A level-1 auxiliary file: introduction.aux
-A level-1 auxiliary file: dataset_description.aux
+A level-1 auxiliary file: mat_and_methods.aux
 A level-1 auxiliary file: preprocessing.aux
 A level-1 auxiliary file: asymmetry.aux
 A level-1 auxiliary file: gwas.aux
 A level-1 auxiliary file: discussion.aux
-The style file: abbrv.bst
+Illegal, another \bibstyle command---line 53 of file main.aux
+ : \bibstyle
+ :          {abbrv}
+I'm skipping whatever remains of this command
 Database file #1: references.bib
-You've used 57 entries,
-            2118 wiz_defined-function locations,
-            920 strings with 17950 characters,
-and the built_in function-call counts, 24380 in all, are:
-= -- 2252
-> -- 1709
-< -- 8
-+ -- 675
-- -- 618
-* -- 2208
-:= -- 4212
-add.period$ -- 173
-call.type$ -- 57
-change.case$ -- 482
-chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 673
-empty$ -- 1499
-format.name$ -- 618
-if$ -- 4766
-int.to.chr$ -- 0
-int.to.str$ -- 57
-missing$ -- 56
-newline$ -- 286
-num.names$ -- 114
-pop$ -- 409
+You've used 62 entries,
+            2773 wiz_defined-function locations,
+            1187 strings with 25532 characters,
+and the built_in function-call counts, 41033 in all, are:
+= -- 3648
+> -- 3387
+< -- 26
++ -- 1135
+- -- 1071
+* -- 4042
+:= -- 6642
+add.period$ -- 335
+call.type$ -- 62
+change.case$ -- 545
+chr.to.int$ -- 60
+cite$ -- 124
+duplicate$ -- 1327
+empty$ -- 2456
+format.name$ -- 1157
+if$ -- 8293
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 61
+newline$ -- 463
+num.names$ -- 248
+pop$ -- 861
 preamble$ -- 1
-purify$ -- 423
+purify$ -- 481
 quote$ -- 0
-skip$ -- 455
+skip$ -- 1124
 stack$ -- 0
-substring$ -- 1351
-swap$ -- 96
+substring$ -- 1260
+swap$ -- 147
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 226
+type$ -- 677
 warning$ -- 0
-while$ -- 203
-width$ -- 59
-write$ -- 629
+while$ -- 281
+width$ -- 0
+write$ -- 1107
+(There was 1 error message)
