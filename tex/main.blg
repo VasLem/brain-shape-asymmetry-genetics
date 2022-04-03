@@ -8,50 +8,50 @@ A level-1 auxiliary file: preprocessing.aux
 A level-1 auxiliary file: asymmetry.aux
 A level-1 auxiliary file: gwas.aux
 A level-1 auxiliary file: discussion.aux
-Illegal, another \bibstyle command---line 53 of file main.aux
+Illegal, another \bibstyle command---line 54 of file main.aux
  : \bibstyle
  :          {abbrv}
 I'm skipping whatever remains of this command
 Database file #1: references.bib
-You've used 63 entries,
+You've used 69 entries,
             2773 wiz_defined-function locations,
-            1196 strings with 25849 characters,
-and the built_in function-call counts, 41732 in all, are:
-= -- 3712
-> -- 3444
+            1254 strings with 39779 characters,
+and the built_in function-call counts, 75011 in all, are:
+= -- 5839
+> -- 9024
 < -- 26
-+ -- 1154
-- -- 1089
-* -- 4115
-:= -- 6755
-add.period$ -- 341
-call.type$ -- 63
-change.case$ -- 554
-chr.to.int$ -- 61
-cite$ -- 126
-duplicate$ -- 1348
-empty$ -- 2497
-format.name$ -- 1176
-if$ -- 8433
++ -- 3014
+- -- 2943
+* -- 8042
+:= -- 12668
+add.period$ -- 376
+call.type$ -- 69
+change.case$ -- 1190
+chr.to.int$ -- 67
+cite$ -- 138
+duplicate$ -- 1474
+empty$ -- 2743
+format.name$ -- 3036
+if$ -- 14508
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 62
-newline$ -- 471
-num.names$ -- 252
-pop$ -- 874
+missing$ -- 68
+newline$ -- 518
+num.names$ -- 276
+pop$ -- 2117
 preamble$ -- 1
-purify$ -- 489
+purify$ -- 1119
 quote$ -- 0
-skip$ -- 1141
+skip$ -- 1826
 stack$ -- 0
-substring$ -- 1287
-swap$ -- 149
+substring$ -- 1449
+swap$ -- 160
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 688
+type$ -- 754
 warning$ -- 0
-while$ -- 286
+while$ -- 316
 width$ -- 0
-write$ -- 1126
+write$ -- 1238
 (There was 1 error message)

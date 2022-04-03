@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{69}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,6 +29,16 @@ Reem~S. Abu-Rustum, M.~Fouad Ziade, and Sameer~E. Abu-Rustum.
   https://onlinelibrary.wiley.com/doi/abs/10.7863/ultra.32.9.1623
   https://onlinelibrary.wiley.com/doi/10.7863/ultra.32.9.1623}.
 
+\bibitem[{Alejandro Gonzalez-Chica} et~al.(2015){Alejandro Gonzalez-Chica},
+  {Luiz Bastos}, {Pereira Duquia}, {Rangel Bonamigo}, and
+  Mart{\'{i}}nez-Mesa]{AlejandroGonzalez-Chica2015}
+David {Alejandro Gonzalez-Chica}, Jo{\~{a}}o {Luiz Bastos}, Rodrigo {Pereira
+  Duquia}, Renan {Rangel Bonamigo}, and Jeovany Mart{\'{i}}nez-Mesa.
+\newblock {EPIDEMIOLOGY AND BIOSTATISTICS APPLIED TO DERMATOLOGY}.
+\newblock \emph{An Bras Dermatol}, 90\penalty0 (4):\penalty0 523--531, 2015.
+\newblock \doi{10.1590/abd1806-4841.20154289}.
+\newblock URL \url{http://dx.doi.org/10.1590/abd1806-4841.20154289}.
+
 \bibitem[Aw and Levin(2009)]{Aw2009}
 Sherry Aw and Michael Levin.
 \newblock {Is left-right asymmetry a form of planar cell polarity?}
@@ -58,6 +68,63 @@ Antoine Balzeau, Emmanuel Gilissen, and Dominique Grimaud-Herv{\'{e}}.
 \newblock \doi{10.1371/JOURNAL.PONE.0029581}.
 \newblock URL
   \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0029581}.
+
+\bibitem[Belmont et~al.(2003)Belmont, Hardenbol, Willis, Yu, Yang, Ch'Ang,
+  Huang, Liu, Shen, Tam, Tsui, Waye, Wong, Zeng, Zhang, Chee, Galver, Kruglyak,
+  Murray, Oliphant, Montpetit, Chagnon, Ferretti, Leboeuf, Phillips, Verner,
+  Duan, Lind, Miller, Rice, Saccone, Taillon-Miller, Xiao, Sekine, Sorimachi,
+  Tanaka, Tsunoda, Yoshino, Bentley, Hunt, Powell, Zhang, Matsuda, Fukushima,
+  Macer, Suda, Rotimi, Adebamowo, Aniagwu, Marshall, Matthew, Nkwodimmah,
+  Royal, Leppert, Dixon, Cunningham, Kanani, Thorisson, Chen, Cutler, Kashuk,
+  Donnelly, Marchini, McVean, Myers, Cardon, Morris, Weir, Mullikin, Feolo,
+  Daly, Qiu, Kent, Dunston, Kato, Niikawa, Watkin, Gibbs, Sodergren, Weinstock,
+  Wilson, Fulton, Rogers, Birren, Han, Wang, Godbout, Wallenburg,
+  L'Archev{\^{e}}que, Bellemare, Todani, Fujita, Tanaka, Holden, Collins,
+  Brooks, McEwen, Guyer, Jordan, Peterson, Spiegel, Sung, Zacharia, Kennedy,
+  Dunn, Seabrook, Shillito, Skene, Stewart, Valle, Clayton, Jorde, Chakravarti,
+  Cho, Duster, Foster, Jasperse, Knoppers, Kwok, Licinio, Long, Ossorio, Wang,
+  Rotimi, Spallone, Terry, Lander, Lai, Nickerson, Abecasis, Altshuler,
+  Boehnke, Deloukas, Douglas, Gabriel, Hudson, Hudson, Kruglyak, Nakamura,
+  Nussbaum, Schaffner, Sherry, Stein, and Tanaka]{Belmont2003}
+John~W. Belmont, Paul Hardenbol, Thomas~D. Willis, Fuli Yu, Huanming Yang,
+  Lan~Yang Ch'Ang, Wei Huang, Bin Liu, Yan Shen, Paul Kwong~Hang Tam, Lap~Chee
+  Tsui, Mary Miu~Yee Waye, Jeffrey Tze~Fei Wong, Changqing Zeng, Qingrun Zhang,
+  Mark~S. Chee, Luana~M. Galver, Semyon Kruglyak, Sarah~S. Murray, Arnold~R.
+  Oliphant, Alexandre Montpetit, Fanny Chagnon, Vincent Ferretti, Martin
+  Leboeuf, Michael~S. Phillips, Andrei Verner, Shenghui Duan, Denise~L. Lind,
+  Raymond~D. Miller, John Rice, Nancy~L. Saccone, Patricia Taillon-Miller, Ming
+  Xiao, Akihiro Sekine, Koki Sorimachi, Yoichi Tanaka, Tatsuhiko Tsunoda, Eiji
+  Yoshino, David~R. Bentley, Sarah Hunt, Don Powell, Houcan Zhang, Ichiro
+  Matsuda, Yoshimitsu Fukushima, Darryl~R. Macer, Eiko Suda, Charles Rotimi,
+  Clement~A. Adebamowo, Toyin Aniagwu, Patricia~A. Marshall, Olayemi Matthew,
+  Chibuzor Nkwodimmah, Charmaine~D.M. Royal, Mark~F. Leppert, Missy Dixon,
+  Fiona Cunningham, Ardavan Kanani, Gudmundur~A. Thorisson, Peter~E. Chen,
+  David~J. Cutler, Carl~S. Kashuk, Peter Donnelly, Jonathan Marchini,
+  Gilean~A.T. McVean, Simon~R. Myers, Lon~R. Cardon, Andrew Morris, Bruce~S.
+  Weir, James~C. Mullikin, Michael Feolo, Mark~J. Daly, Renzong Qiu, Alastair
+  Kent, Georgia~M. Dunston, Kazuto Kato, Norio Niikawa, Jessica Watkin,
+  Richard~A. Gibbs, Erica Sodergren, George~M. Weinstock, Richard~K. Wilson,
+  Lucinda~L. Fulton, Jane Rogers, Bruce~W. Birren, Hua Han, Hongguang Wang,
+  Martin Godbout, John~C. Wallenburg, Paul L'Archev{\^{e}}que, Guy Bellemare,
+  Kazuo Todani, Takashi Fujita, Satoshi Tanaka, Arthur~L. Holden, Francis~S.
+  Collins, Lisa~D. Brooks, Jean~E. McEwen, Mark~S. Guyer, Elke Jordan, Jane~L.
+  Peterson, Jack Spiegel, Lawrence~M. Sung, Lynn~F. Zacharia, Karen Kennedy,
+  Michael~G. Dunn, Richard Seabrook, Mark Shillito, Barbara Skene, John~G.
+  Stewart, David~L. Valle, Ellen~Wright Clayton, Lynn~B. Jorde, Aravinda
+  Chakravarti, Mildred~K. Cho, Troy Duster, Morris~W. Foster, Maria Jasperse,
+  Bartha~M. Knoppers, Pui~Yan Kwok, Julio Licinio, Jeffrey~C. Long, Pilar
+  Ossorio, Vivian~Ota Wang, Charles~N. Rotimi, Patricia Spallone, Sharon~F.
+  Terry, Eric~S. Lander, Eric~H. Lai, Deborah~A. Nickerson, Gon{\c{c}}alo~R.
+  Abecasis, David Altshuler, Michael Boehnke, Panos Deloukas, Julie~A. Douglas,
+  Stacey~B. Gabriel, Richard~R. Hudson, Thomas~J. Hudson, Leonid Kruglyak,
+  Yusuke Nakamura, Robert~L. Nussbaum, Stephen~F. Schaffner, Stephen~T. Sherry,
+  Lincoln~D. Stein, and Toshihiro Tanaka.
+\newblock {The International HapMap Project}.
+\newblock \emph{Nature 2004 426:6968}, 426\penalty0 (6968):\penalty0 789--796,
+  dec 2003.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature02168}.
+\newblock URL \url{https://www.nature.com/articles/nature02168}.
 
 \bibitem[Brodmann(1909)]{Brodmann1909}
 K~Brodmann.
@@ -167,6 +234,165 @@ Erin~W. Dickie, Alan Anticevic, Dawn~E. Smith, Timothy~S. Coalson, Mathuvanthi
 \newblock URL \url{/pmc/articles/PMC6675413/
   /pmc/articles/PMC6675413/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6675413/}.
+
+\bibitem[Dunham et~al.(2012)Dunham, Kundaje, Aldred, Collins, Davis, Doyle,
+  Epstein, Frietze, Harrow, Kaul, Khatun, Lajoie, Landt, Lee, Pauli,
+  Rosenbloom, Sabo, Safi, Sanyal, Shoresh, Simon, Song, Trinklein, Altshuler,
+  Birney, Brown, Cheng, Djebali, Dong, Ernst, Furey, Gerstein, Giardine,
+  Greven, Hardison, Harris, Herrero, Hoffman, Iyer, Kellis, Kheradpour,
+  Lassmann, Li, Lin, Marinov, Merkel, Mortazavi, Parker, Reddy, Rozowsky,
+  Schlesinger, Thurman, Wang, Ward, Whitfield, Wilder, Wu, Xi, Yip, Zhuang,
+  Bernstein, Green, Gunter, Snyder, Pazin, Lowdon, Dillon, Adams, Kelly, Zhang,
+  Wexler, Good, Feingold, Crawford, Dekker, Elnitski, Farnham, Giddings,
+  Gingeras, Guig{\'{o}}, Hubbard, Kent, Lieb, Margulies, Myers,
+  Stamatoyannopoulos, Tenenbaum, Weng, White, Wold, Yu, Wrobel, Risk,
+  Gunawardena, Kuiper, Maier, Xie, Chen, Mikkelsen, Gillespie, Goren, Ram,
+  Zhang, Wang, Issner, Coyne, Durham, Ku, Truong, Eaton, Dobin, Tanzer,
+  Lagarde, Lin, Xue, Williams, Zaleski, R{\"{o}}der, Kokocinski, Abdelhamid,
+  Alioto, Antoshechkin, Baer, Batut, Bell, Bell, Chakrabortty, Chrast, Curado,
+  Derrien, Drenkow, Dumais, Dumais, Duttagupta, Fastuca, Fejes-Toth, Ferreira,
+  Foissac, Fullwood, Gao, Gonzalez, Gordon, Howald, Jha, Johnson, Kapranov,
+  King, Kingswood, Li, Luo, Park, Preall, Presaud, Ribeca, Robyr, Ruan,
+  Sammeth, Sandhu, Schaeffer, See, Shahab, Skancke, Suzuki, Takahashi, Tilgner,
+  Trout, Walters, Wang, Hayashizaki, Reymond, Antonarakis, Hannon, Ruan,
+  Carninci, Sloan, Learned, Malladi, Wong, Barber, Cline, Dreszer, Heitner,
+  Karolchik, Kirkup, Meyer, Long, Maddren, Raney, Grasfeder, Giresi,
+  Battenhouse, Sheffield, Showers, London, Bhinge, Shestak, Schaner, Kim,
+  Zhang, Mieczkowski, Mieczkowska, Liu, McDaniell, Ni, Rashid, Kim, Adar,
+  Zhang, Wang, Winter, Keefe, Iyer, Zheng, Wang, Gertz, Vielmetter, Partridge,
+  Varley, Gasper, Bansal, Pepke, Jain, Amrhein, Bowling, Anaya, Cross, Muratet,
+  Newberry, McCue, Nesmith, Fisher-Aylor, Pusey, DeSalvo, Parker,
+  Balasubramanian, Davis, Meadows, Eggleston, Newberry, Levy, Absher, Wong,
+  Blow, Visel, Pennachio, Petrykowska, Abyzov, Aken, Barrell, Barson, Berry,
+  Bignell, Boychenko, Bussotti, Davidson, Despacio-Reyes, Diekhans, Ezkurdia,
+  Frankish, Gilbert, Gonzalez, Griffiths, Harte, Hendrix, Hunt, Jungreis, Kay,
+  Khurana, Leng, Lin, Loveland, Lu, Manthravadi, Mariotti, Mudge, Mukherjee,
+  Notredame, Pei, Rodriguez, Saunders, Sboner, Searle, Sisu, Snow, Steward,
+  Tapanari, Tress, {Van Baren}, Washietl, Wilming, Zadissa, Zhang, Brent,
+  Haussler, Valencia, Addleman, Alexander, Auerbach, Balasubramanian,
+  Bettinger, Bhardwaj, Boyle, Cao, Cayting, Charos, Cheng, Eastman, Euskirchen,
+  Fleming, Grubert, Habegger, Hariharan, Harmanci, Iyengar, Jin, Karczewski,
+  Kasowski, Lacroute, Lam, Lamarre-Vincent, Lian, Lindahl-Allen, Min, Miotto,
+  Monahan, Moqtaderi, Mu, O'Geen, Ouyang, Patacsil, Raha, Ramirez, Reed, Shi,
+  Slifer, Witt, Wu, Xu, Yan, Yang, Struhl, Weissman, Penalva, Karmakar,
+  Bhanvadia, Choudhury, Domanus, Ma, Moran, Victorsen, Auer, Centanin,
+  Eichenlaub, Gruhl, Heermann, Hoeckendorf, Inoue, Kellner, Kirchmaier,
+  Mueller, Reinhardt, Schertel, Schneider, Sinn, Wittbrodt, Wittbrodt, Jain,
+  Balasundaram, Bates, Byron, Canfield, Diegel, Dunn, Ebersol, Frum, Garg,
+  Gist, Hansen, Boatman, Haugen, Humbert, Johnson, Johnson, Kutyavin, Lee,
+  Lotakis, Maurano, Neph, Neri, Nguyen, Qu, Reynolds, Roach, Rynes, Sanchez,
+  Sandstrom, Shafer, Stergachis, Thomas, Vernot, Vierstra, Vong, Wang, Weaver,
+  Yan, Zhang, Akey, Bender, Dorschner, Groudine, MacCoss, Navas,
+  Stamatoyannopoulos, Beal, Brazma, Flicek, Johnson, Lukk, Luscombe, Sobral,
+  Vaquerizas, Batzoglou, Sidow, Hussami, Kyriazopoulou-Panagiotopoulou,
+  Libbrecht, Schaub, Miller, Bickel, Banfai, Boley, Huang, Li, Noble, Bilmes,
+  Buske, Sahu, Kharchenko, Park, Baker, Taylor, and Lochovsky]{Dunham2012}
+Ian Dunham, Anshul Kundaje, Shelley~F. Aldred, Patrick~J. Collins, Carrie~A.
+  Davis, Francis Doyle, Charles~B. Epstein, Seth Frietze, Jennifer Harrow,
+  Rajinder Kaul, Jainab Khatun, Bryan~R. Lajoie, Stephen~G. Landt, Bum~Kyu Lee,
+  Florencia Pauli, Kate~R. Rosenbloom, Peter Sabo, Alexias Safi, Amartya
+  Sanyal, Noam Shoresh, Jeremy~M. Simon, Lingyun Song, Nathan~D. Trinklein,
+  Robert~C. Altshuler, Ewan Birney, James~B. Brown, Chao Cheng, Sarah Djebali,
+  Xianjun Dong, Jason Ernst, Terrence~S. Furey, Mark Gerstein, Belinda
+  Giardine, Melissa Greven, Ross~C. Hardison, Robert~S. Harris, Javier Herrero,
+  Michael~M. Hoffman, Sowmya Iyer, Manolis Kellis, Pouya Kheradpour, Timo
+  Lassmann, Qunhua Li, Xinying Lin, Georgi~K. Marinov, Angelika Merkel, Ali
+  Mortazavi, Stephen~C.J. Parker, Timothy~E. Reddy, Joel Rozowsky, Felix
+  Schlesinger, Robert~E. Thurman, Jie Wang, Lucas~D. Ward, Troy~W. Whitfield,
+  Steven~P. Wilder, Weisheng Wu, Hualin~S. Xi, Kevin~Y. Yip, Jiali Zhuang,
+  Bradley~E. Bernstein, Eric~D. Green, Chris Gunter, Michael Snyder, Michael~J.
+  Pazin, Rebecca~F. Lowdon, Laura~A.L. Dillon, Leslie~B. Adams, Caroline~J.
+  Kelly, Julia Zhang, Judith~R. Wexler, Peter~J. Good, Elise~A. Feingold,
+  Gregory~E. Crawford, Job Dekker, Laura Elnitski, Peggy~J. Farnham, Morgan~C.
+  Giddings, Thomas~R. Gingeras, Roderic Guig{\'{o}}, Timothy~J. Hubbard,
+  W.~James Kent, Jason~D. Lieb, Elliott~H. Margulies, Richard~M. Myers, John~A.
+  Stamatoyannopoulos, Scott~A. Tenenbaum, Zhiping Weng, Kevin~P. White, Barbara
+  Wold, Yanbao Yu, John Wrobel, Brian~A. Risk, Harsha~P. Gunawardena,
+  Heather~C. Kuiper, Christopher~W. Maier, Ling Xie, Xian Chen, Tarjei~S.
+  Mikkelsen, Shawn Gillespie, Alon Goren, Oren Ram, Xiaolan Zhang, Li~Wang,
+  Robbyn Issner, Michael~J. Coyne, Timothy Durham, Manching Ku, Thanh Truong,
+  Matthew~L. Eaton, Alex Dobin, Andrea Tanzer, Julien Lagarde, Wei Lin,
+  Chenghai Xue, Brian~A. Williams, Chris Zaleski, Maik R{\"{o}}der, Felix
+  Kokocinski, Rehab~F. Abdelhamid, Tyler Alioto, Igor Antoshechkin, Michael~T.
+  Baer, Philippe Batut, Ian Bell, Kimberly Bell, Sudipto Chakrabortty,
+  Jacqueline Chrast, Joao Curado, Thomas Derrien, Jorg Drenkow, Erica Dumais,
+  Jackie Dumais, Radha Duttagupta, Megan Fastuca, Kata Fejes-Toth, Pedro
+  Ferreira, Sylvain Foissac, Melissa~J. Fullwood, Hui Gao, David Gonzalez,
+  Assaf Gordon, C{\'{e}}dric Howald, Sonali Jha, Rory Johnson, Philipp
+  Kapranov, Brandon King, Colin Kingswood, Guoliang Li, Oscar~J. Luo, Eddie
+  Park, Jonathan~B. Preall, Kimberly Presaud, Paolo Ribeca, Daniel Robyr,
+  Xiaoan Ruan, Michael Sammeth, Kuljeet~Singh Sandhu, Lorain Schaeffer,
+  Lei~Hoon See, Atif Shahab, Jorgen Skancke, Ana~Maria Suzuki, Hazuki
+  Takahashi, Hagen Tilgner, Diane Trout, Nathalie Walters, Huaien Wang,
+  Yoshihide Hayashizaki, Alexandre Reymond, Stylianos~E. Antonarakis,
+  Gregory~J. Hannon, Yijun Ruan, Piero Carninci, Cricket~A. Sloan, Katrina
+  Learned, Venkat~S. Malladi, Matthew~C. Wong, Galt~P. Barber, Melissa~S.
+  Cline, Timothy~R. Dreszer, Steven~G. Heitner, Donna Karolchik, Vanessa~M.
+  Kirkup, Laurence~R. Meyer, Jeffrey~C. Long, Morgan Maddren, Brian~J. Raney,
+  Linda~L. Grasfeder, Paul~G. Giresi, Anna Battenhouse, Nathan~C. Sheffield,
+  Kimberly~A. Showers, Darin London, Akshay~A. Bhinge, Christopher Shestak,
+  Matthew~R. Schaner, Seul~Ki Kim, Zhuzhu~Z. Zhang, Piotr~A. Mieczkowski,
+  Joanna~O. Mieczkowska, Zheng Liu, Ryan~M. McDaniell, Yunyun Ni, Naim~U.
+  Rashid, Min~Jae Kim, Sheera Adar, Zhancheng Zhang, Tianyuan Wang, Deborah
+  Winter, Damian Keefe, Vishwanath~R. Iyer, Meizhen Zheng, Ping Wang, Jason
+  Gertz, Jost Vielmetter, E.~Christopher Partridge, Katherine~E. Varley, Clarke
+  Gasper, Anita Bansal, Shirley Pepke, Preti Jain, Henry Amrhein, Kevin~M.
+  Bowling, Michael Anaya, Marie~K. Cross, Michael~A. Muratet, Kimberly~M.
+  Newberry, Kenneth McCue, Amy~S. Nesmith, Katherine~I. Fisher-Aylor, Barbara
+  Pusey, Gilberto DeSalvo, Stephanie~L. Parker, Sreeram Balasubramanian,
+  Nicholas~S. Davis, Sarah~K. Meadows, Tracy Eggleston, J.~Scott Newberry,
+  Shawn~E. Levy, Devin~M. Absher, Wing~H. Wong, Matthew~J. Blow, Axel Visel,
+  Len~A. Pennachio, Hanna~M. Petrykowska, Alexej Abyzov, Bronwen Aken, Daniel
+  Barrell, Gemma Barson, Andrew Berry, Alexandra Bignell, Veronika Boychenko,
+  Giovanni Bussotti, Claire Davidson, Gloria Despacio-Reyes, Mark Diekhans,
+  Iakes Ezkurdia, Adam Frankish, James Gilbert, Jose~Manuel Gonzalez,
+  Ed~Griffiths, Rachel Harte, David~A. Hendrix, Toby Hunt, Irwin Jungreis, Mike
+  Kay, Ekta Khurana, Jing Leng, Michael~F. Lin, Jane Loveland, Zhi Lu, Deepa
+  Manthravadi, Marco Mariotti, Jonathan Mudge, Gaurab Mukherjee, Cedric
+  Notredame, Baikang Pei, Jose~Manuel Rodriguez, Gary Saunders, Andrea Sboner,
+  Stephen Searle, Cristina Sisu, Catherine Snow, Charlie Steward, Electra
+  Tapanari, Michael~L. Tress, Marijke~J. {Van Baren}, Stefan Washietl, Laurens
+  Wilming, Amonida Zadissa, Zhengdong Zhang, Michael Brent, David Haussler,
+  Alfonso Valencia, Nick Addleman, Roger~P. Alexander, Raymond~K. Auerbach,
+  Suganthi Balasubramanian, Keith Bettinger, Nitin Bhardwaj, Alan~P. Boyle,
+  Alina~R. Cao, Philip Cayting, Alexandra Charos, Yong Cheng, Catharine
+  Eastman, Ghia Euskirchen, Joseph~D. Fleming, Fabian Grubert, Lukas Habegger,
+  Manoj Hariharan, Arif Harmanci, Sushma Iyengar, Victor~X. Jin, Konrad~J.
+  Karczewski, Maya Kasowski, Phil Lacroute, Hugo Lam, Nathan Lamarre-Vincent,
+  Jin Lian, Marianne Lindahl-Allen, Renqiang Min, Benoit Miotto, Hannah
+  Monahan, Zarmik Moqtaderi, Xinmeng~J. Mu, Henriette O'Geen, Zhengqing Ouyang,
+  Dorrelyn Patacsil, Debasish Raha, Lucia Ramirez, Brian Reed, Minyi Shi, Teri
+  Slifer, Heather Witt, Linfeng Wu, Xiaoqin Xu, Koon~Kiu Yan, Xinqiong Yang,
+  Kevin Struhl, Sherman~M. Weissman, Luiz~O. Penalva, Subhradip Karmakar,
+  Raj~R. Bhanvadia, Alina Choudhury, Marc Domanus, Lijia Ma, Jennifer Moran,
+  Alec Victorsen, Thomas Auer, Lazaro Centanin, Michael Eichenlaub, Franziska
+  Gruhl, Stephan Heermann, Burkhard Hoeckendorf, Daigo Inoue, Tanja Kellner,
+  Stephan Kirchmaier, Claudia Mueller, Robert Reinhardt, Lea Schertel,
+  Stephanie Schneider, Rebecca Sinn, Beate Wittbrodt, Jochen Wittbrodt, Gaurav
+  Jain, Gayathri Balasundaram, Daniel~L. Bates, Rachel Byron, Theresa~K.
+  Canfield, Morgan~J. Diegel, Douglas Dunn, Abigail~K. Ebersol, Tristan Frum,
+  Kavita Garg, Erica Gist, R.~Scott Hansen, Lisa Boatman, Eric Haugen, Richard
+  Humbert, Audra~K. Johnson, Ericka~M. Johnson, Tattyana~V. Kutyavin, Kristen
+  Lee, Dimitra Lotakis, Matthew~T. Maurano, Shane~J. Neph, Fiedencio~V. Neri,
+  Eric~D. Nguyen, Hongzhu Qu, Alex~P. Reynolds, Vaughn Roach, Eric Rynes,
+  Minerva~E. Sanchez, Richard~S. Sandstrom, Anthony~O. Shafer, Andrew~B.
+  Stergachis, Sean Thomas, Benjamin Vernot, Jeff Vierstra, Shinny Vong, Hao
+  Wang, Molly~A. Weaver, Yongqi Yan, Miaohua Zhang, Joshua~M. Akey, Michael
+  Bender, Michael~O. Dorschner, Mark Groudine, Michael~J. MacCoss, Patrick
+  Navas, George Stamatoyannopoulos, Kathryn Beal, Alvis Brazma, Paul Flicek,
+  Nathan Johnson, Margus Lukk, Nicholas~M. Luscombe, Daniel Sobral, Juan~M.
+  Vaquerizas, Serafim Batzoglou, Arend Sidow, Nadine Hussami, Sofia
+  Kyriazopoulou-Panagiotopoulou, Max~W. Libbrecht, Marc~A. Schaub, Webb Miller,
+  Peter~J. Bickel, Balazs Banfai, Nathan~P. Boley, Haiyan Huang, Jingyi~Jessica
+  Li, William~Stafford Noble, Jeffrey~A. Bilmes, Orion~J. Buske, Avinash~D.
+  Sahu, Peter~V. Kharchenko, Peter~J. Park, Dannon Baker, James Taylor, and
+  Lucas Lochovsky.
+\newblock {An integrated encyclopedia of DNA elements in the human genome}.
+\newblock \emph{Nature 2012 489:7414}, 489\penalty0 (7414):\penalty0 57--74,
+  sep 2012.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature11247}.
+\newblock URL \url{https://www.nature.com/articles/nature11247}.
 
 \bibitem[Dyck and Morrow(2017)]{Dyck2017}
 Laura~I.Van Dyck and Eric~M. Morrow.
@@ -321,6 +547,20 @@ Dan Jackson, Richard Riley, and Ian~R. White.
   /pmc/articles/PMC3470931/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3470931/}.
 
+\bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
+  SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
+  Hoh]{Klein2005}
+Robert~J. Klein, Caroline Zeiss, Emily~Y. Chew, Jen~Yue Tsai, Richard~S.
+  Sackler, Chad Haynes, Alice~K. Henning, John~Paul SanGiovanni, Shrikant~M.
+  Mane, Susan~T. Mayne, Michael~B. Bracken, Frederick~L. Ferris, Jurg Ott,
+  Colin Barnstable, and Josephine Hoh.
+\newblock {Complement factor H polymorphism in age-related macular
+  degeneration}.
+\newblock \emph{Science}, 308\penalty0 (5720):\penalty0 385--389, apr 2005.
+\newblock ISSN 00368075.
+\newblock \doi{10.1126/SCIENCE.1109557/SUPPL_FILE/KLEIN_SOM.PDF}.
+\newblock URL \url{https://www.science.org/doi/abs/10.1126/science.1109557}.
+
 \bibitem[Klingenberg(2020)]{Klingenberg2020}
 Christian~Peter Klingenberg.
 \newblock {Walking on Kendall's Shape Space: Understanding Shape Spaces and
@@ -470,6 +710,19 @@ Andrew~Y. Ng, Michael~I. Jordan, and Yair Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2002.
 
+\bibitem[Nishizaki et~al.(2020)Nishizaki, Ng, Dong, Porter, Morterud, Williams,
+  Asman, Switzenberg, and Boyle]{Nishizaki2020}
+Sierra~S. Nishizaki, Natalie Ng, Shengcheng Dong, Robert~S. Porter, Cody
+  Morterud, Colten Williams, Courtney Asman, Jessica~A. Switzenberg, and
+  Alan~P. Boyle.
+\newblock {Predicting the effects of SNPs on transcription factor binding
+  affinity}.
+\newblock \emph{Bioinformatics}, 36\penalty0 (2):\penalty0 364--372, jan 2020.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/BIOINFORMATICS/BTZ612}.
+\newblock URL
+  \url{https://academic.oup.com/bioinformatics/article/36/2/364/5543098}.
+
 \bibitem[Nowakowski et~al.(2016)Nowakowski, Pollen, Sandoval-Espinosa, and
   Kriegstein]{Nowakowski2016}
 Tomasz~J. Nowakowski, Alex~A. Pollen, Carmen Sandoval-Espinosa, and Arnold~R.
@@ -525,6 +778,15 @@ P.~Rakic.
   Elsevier Ltd, 2009.
 \newblock ISBN 9780080450469.
 \newblock \doi{10.1016/B978-008045046-9.01021-4}.
+
+\bibitem[Ramensky et~al.(2002)Ramensky, Bork, and Sunyaev]{Ramensky2002}
+Vasily Ramensky, Peer Bork, and Shamil Sunyaev.
+\newblock {Human non‐synonymous SNPs: server and survey}.
+\newblock \emph{Nucleic Acids Research}, 30\penalty0 (17):\penalty0 3894--3900,
+  sep 2002.
+\newblock ISSN 0305-1048.
+\newblock \doi{10.1093/NAR/GKF493}.
+\newblock URL \url{https://academic.oup.com/nar/article/30/17/3894/2376118}.
 
 \bibitem[Ribolsi et~al.(2014)Ribolsi, Daskalakis, Siracusano, and
   Koch]{Ribolsi2014}
