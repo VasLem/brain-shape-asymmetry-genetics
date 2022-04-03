@@ -139,3 +139,31 @@ parfor partition=1:31
 
     end
 end
+
+
+
+function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThresB, pThres, path)
+fig = figure('visible','off');
+fig.Position = [100 100 900 900];
+hold on
+pNum = size(intStats.chisqSignificance, 2);
+for i=1:pNum
+    sig1 = num2str(sum(intStats.chisqSignificance(:,i)<pThresB));
+    sig2 = num2str(sum(intStats.chisqSignificance(:, i)<pThres));
+    scatter(intervals(:, 1), -log10(intStats.chisqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
+end
+yline(-log10(pThresB), 'DisplayName', 'Bonferroni Threshold');
+yline(-log10(pThres), '--', 'DisplayName', '(No correction Threshold)');
+title(['Chromosome ' num2str(chromosome) ', Partitions: ' num2str(pNum)])
+ylabel('-log10p');
+lgd = legend;
+set(lgd,'Location','BestOutside');
+saveas(fig, [path '_logPlot.svg']);
+end
+
+%% visualize GWAS
+partition = 1;
+par1Outname = sprintf("%sCCAPart%02d.csv.gz",OUTPUT_DIR, partition);
+gunzip(par1Outname);
+plotSimpleGWAS()
+

@@ -5,22 +5,20 @@ addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 
 
-MODALITY = 'symmetry'; %asymmetry, symmetry
+MODALITY = 'asymmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 1;
+DATASET_INDEX = 0;
 SUBSAMPLED = 0;
 IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 
 switch DATASET_INDEX
+    case 0
+        DATASET_NAME = 'joinedDatasets';
     case 1
-        UKBIOBANK = 'UKBIOBANK';
         DATASET_NAME = 'STAGE00DATA';
-        GENO_ID = 'sel19908';
     case 2
-        UKBIOBANK = 'MY_UKBIOBANK';
         DATASET_NAME = 'BATCH2_2021_DATA';
-        GENO_ID = 'sel16875_rmrel';
 end
 switch IMPUTE_STRATEGY
     case 'no'
@@ -43,25 +41,41 @@ else
     REDUCTION_ID = 'not_subsampled';
 end
 RESULTS_ROOT = '../results/';
-RESULTS_DIR = [RESULTS_ROOT, MODALITY '/genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
-covGenoPath = [DATA_DIR, 'IMAGEN/BRAIN/' UKBIOBANK '/COVARIATES/COVDATAINLIERS.mat'];
+if DATASET_INDEX ~=0
+    RESULTS_DIR = [RESULTS_ROOT, MODALITY '/genomeDemo/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+else
+    RESULTS_DIR = [RESULTS_ROOT, MODALITY '/meta_analysis/' DATASET_NAME '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+   
+end
 if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 %%
 AVAILABLE_CHRS = [];
 PNUM = 31;
 part = cell(22, 1);
 noPart = cell(22,1);
-
-for CHR=1:22
-    disp(['CHR:' , num2str(CHR)]);
-    CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
-    try
-        load([CHR_DIR 'withPartCCA.mat'],'stats');
-        part{CHR} = stats.chisqSignificance;
-        noPart{CHR} = stats.chisqSignificance(:,1);
-        AVAILABLE_CHRS(end+1) = CHR;
-    catch
+if DATASET_INDEX ~=0
+    for CHR=1:22
+        disp(['CHR:' , num2str(CHR)]);
+        CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
+        try
+            load([CHR_DIR 'withPartCCA.mat'],'stats');
+            part{CHR} = stats.chisqSignificance;
+            noPart{CHR} = stats.chisqSignificance(:,1);
+            AVAILABLE_CHRS(end+1) = CHR;
+        catch
+        end
     end
+else
+    partition = 1;
+        PAR_FILE =  sprintf('%sCCAPart%02d.csv',RESULTS_DIR,partition);
+       
+        gunzip([PAR_FILE '.gz']);
+        tab = readtable(PAR_FILE,"Delimiter",",","ReadVariableNames",1);
+        delete(PAR_FILE);
+        for CHR=1:22
+                noPart{CHR} = table2array(tab(tab.chromosome == CHR,'P_value')); 
+                AVAILABLE_CHRS(end+1) = CHR;
+        end 
 end
 disp(['Chromosomes correctly parsed:', num2str(AVAILABLE_CHRS)])
 %%
@@ -92,6 +106,7 @@ set(gca,'TickDir','out');
 saveas(f, [RESULTS_DIR 'gwas.svg']);
 close(f);
 %%
+if DATASET_INDEX ~= 0
 pThres = NO_PARTITION_THRES;
 bpThres = NO_PARTITION_THRES / 31;
 fig = figure;
@@ -140,4 +155,4 @@ hold off;
 saveas(fig, [RESULTS_DIR 'partitions_gwas.svg']);
 
 close(fig);
-
+end
