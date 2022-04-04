@@ -11,7 +11,7 @@ for par=1:285
     tab.A2 = GWAS.A2;
     tab.A1 = GWAS.A1;
     tab.P_value = 10.^-(single(GWAS.P(:,par))/10000);
-    tab.P_value(tab.P_value==0) = 0.1 * min(tab.P_value(tab.P_value ~= 0));
+    tab.P_value(tab.P_value==0) = min(tab.P_value(tab.P_value ~= 0));
     tab.ChiScore = GWAS.CHI(:,par);
     tab.chromosome = GWAS.CHR;
     writetable(tab, fil);

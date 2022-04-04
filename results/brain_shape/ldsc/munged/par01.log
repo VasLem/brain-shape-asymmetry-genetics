@@ -27,6 +27,26 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
 WARNING: 523 SNPs had P outside of (0,1]. The P column may be mislabeled.
+WARNING: 2407 SNPs had P outside of (0,1]. The P column may be mislabeled.
+Read 9705931 SNPs from --sumstats file.
+Removed 1 SNPs with missing values.
+Removed 0 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 2930 SNPs with out-of-bounds p-values.
+Removed 2463803 variants that were not SNPs or were strand-ambiguous.
+7239197 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (7239197 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (7239197 SNPs remain).
 
-Conversion finished at Mon Apr  4 13:13:09 2022
-Total time elapsed: 14.62s
+ERROR converting summary statistics:
+
+Traceback (most recent call last):
+  File "./ldsc/munge_sumstats.py", line 710, in munge_sumstats
+    check_median(dat.SIGNED_SUMSTAT, signed_sumstat_null, 0.1, sign_cname))
+  File "./ldsc/munge_sumstats.py", line 373, in check_median
+    raise ValueError(msg.format(F=name, M=expected_median, V=round(m, 2)))
+ValueError: WARNING: median value of SIGNED_SUMSTATS is 443.23 (should be close to 285.0). This column may be mislabeled.
+
+
+Conversion finished at Tue Apr  5 18:04:05 2022
+Total time elapsed: 1.0m:8.53s

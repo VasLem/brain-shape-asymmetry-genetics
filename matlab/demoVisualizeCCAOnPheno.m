@@ -3,11 +3,13 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = 0;
 SUBSAMPLED = 0;
-MODALITY = 'symmetry';
-DATASET_INDEX = 1;
+MODALITY = 'asymmetry';
+DATASET_INDEX = 0;
 IMPUTE_STRATEGY = 'mean';
 
 switch DATASET_INDEX
+    case 0
+        DATASET = 'joinedDatasets';
     case 1
         DATASET = 'STAGE00DATA';
     case 2
@@ -38,8 +40,11 @@ else
     REDUCTION=1;
 end
 RESULTS_ROOT = '../results/';
-GENO_DIR = [RESULTS_ROOT, MODALITY '/genomeDemo/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/'];
-
+if DATASET_INDEX ~= 0
+    GENO_DIR = [RESULTS_ROOT, MODALITY '/genomeDemo/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+else
+    GENO_DIR = [RESULTS_ROOT, MODALITY '/meta_analysis/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/'];
+end
 RESULTS_DIR = fullfile(pwd, [RESULTS_ROOT MODALITY '/visualizeCCAOnPheno/' DATASET '/' IMPUTE_ID '/' REDUCTION_ID '/']);
 
 %%
@@ -50,27 +55,49 @@ featsClassesNames = cellstr(strcat('Chr', string(1:22)));
 rescomputeParts = 0;
 
 
+
 featMats = cell(2,1);
 for i=1:2
     countsMat = zeros(31, 22);
     for j=1:31
         bCId = char(featMatsIds(i));
         for chr=1:22
-            path = [ GENO_DIR 'chr' num2str(chr) '/PartitionedGTL' bCId 'significant_snps.csv'];
+            if DATASET_INDEX ~= 0
+                path = [ GENO_DIR 'chr' num2str(chr) '/PartitionedGTL' bCId 'significant_snps.csv'];
+            else
+                path = [ GENO_DIR '/' sprintf('CCAPart%02d.csv',j)];
+                gunzip([path, '.gz']);
+            end
             if ~isfile(path)
                 %                 disp(['Chromosome ' num2str(chr) ' snps file ' path ' not found. Skipping.']);
                 continue
             end
-            snpsTable = readtable(path);
+            if DATASET_INDEX ~= 0
+                snpsTable = readtable(path);
+            else
+                snpsTable = readtable(path, "ReadVariableNames",1,Delimiter=',');
+            end
             if isempty(snpsTable)
                 continue
             end
-            countsMat(j, chr) = sum((snpsTable.PARTITION == j) & (snpsTable.CHR==chr));
+            if DATASET_INDEX == 0
+                if strcmp(bCId,'WoutBC')
+                    t = 5e-8;
+                else
+                    t = 5e-8/(19644 + 16342);
+                end
+                countsMat(j, chr) = sum((snpsTable.chromosome==chr) & snpsTable.P_value<=t);
+            else
+                countsMat(j, chr) = sum((snpsTable.PARTITION == j) & (snpsTable.CHR==chr));
+            end
+            if DATASET_INDEX == 0
+                delete(path)
+            end
         end
     end
     countsMat(countsMat==0) = nan;
     featMats{i} = countsMat;
-    
+
 end
 %%
 drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, RESULTS_DIR, REDUCTION, RECOMPUTE_PARTS)
