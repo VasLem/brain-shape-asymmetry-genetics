@@ -10,14 +10,12 @@ switch REDUCTION
         error("REDUCTION=1 or 10")
 end
 DATASET_ID= [DATASET '/mean_imputed/' SUBSAMPLED_ID];
-labels = {'auto', 'face', 'brain_shape'};
-for trait_ind=1:3
+labels = {'auto', 'brain_shape'};
+for trait_ind=1:2
     switch trait_ind
         case 1
             trait='';
         case 2
-            trait='face';
-        case 3
             trait='brain_shape';
     end
     out_dir = ['../results/ldsc/' DATASET_ID '/rg/'];
