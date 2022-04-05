@@ -3,8 +3,8 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = 0;
 SUBSAMPLED = 0;
-MODALITY = 'asymmetry';
-DATASET_INDEX = 0;
+MODALITY = 'symmetry';
+DATASET_INDEX = 1;
 IMPUTE_STRATEGY = 'mean';
 
 switch DATASET_INDEX
@@ -59,7 +59,7 @@ rescomputeParts = 0;
 featMats = cell(2,1);
 for i=1:2
     countsMat = zeros(31, 22);
-    for j=1:31
+    parfor j=1:31
         bCId = char(featMatsIds(i));
         for chr=1:22
             if DATASET_INDEX ~= 0

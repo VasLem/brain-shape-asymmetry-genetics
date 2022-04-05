@@ -3,7 +3,7 @@ load("../SAMPLE_DATA/BRAIN_SHAPE_GWAS/BRAINGWAS.mat");
 %%
 OUTPUT_DIR = '../SAMPLE_DATA/BRAIN_SHAPE_PARTITIONS/';
 if ~isfolder(OUTPUT_DIR), mkdir(OUTPUT_DIR); end
-for par=1:285
+parfor par=1:285
     fil = sprintf("%spar%02d.csv",OUTPUT_DIR, par);
     tab = table;
     tab.rsID = GWAS.RS;

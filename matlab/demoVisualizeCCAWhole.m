@@ -5,9 +5,9 @@ addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 
 
-MODALITY = 'asymmetry'; %asymmetry, symmetry
+MODALITY = 'symmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 0;
+DATASET_INDEX = 1;
 SUBSAMPLED = 0;
 IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
