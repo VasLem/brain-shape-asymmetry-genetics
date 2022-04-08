@@ -5,9 +5,9 @@ addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 
 
-MODALITY = 'symmetry'; %asymmetry, symmetry
+MODALITY = 'asymmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 1;
+DATASET_INDEX = 0;
 SUBSAMPLED = 0;
 IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
@@ -71,9 +71,12 @@ else
        
         gunzip([PAR_FILE '.gz']);
         tab = readtable(PAR_FILE,"Delimiter",",","ReadVariableNames",1);
+        
         delete(PAR_FILE);
         for CHR=1:22
-                noPart{CHR} = table2array(tab(tab.chromosome == CHR,'P_value')); 
+                chrtab = tab(tab.chromosome == CHR,:);
+                [~, a] = sort(chrtab.position);
+                noPart{CHR} = table2array(chrtab(a, 'P_value')); 
                 AVAILABLE_CHRS(end+1) = CHR;
         end 
 end

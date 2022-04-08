@@ -23,7 +23,7 @@ NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_SUBSAMPLED = 0;
 DEFAULT_MEDIAN_IMPUTE = 'mean';
-DEFAULT_MODALITY = 'symmetry'; %symmetry,asymmetry
+DEFAULT_MODALITY = 'asymmetry'; %symmetry,asymmetry
 
 SUBSAMPLED = getenv('SUBSAMPLED');
 if(isempty(SUBSAMPLED))
@@ -49,7 +49,7 @@ switch IMPUTE_STRATEGY
     case 'zero'
         IMPUTE_ID = 'zero_imputed';
     case 'mean'
-        IMPUTE_ID = 'mean_imputed';    
+        IMPUTE_ID = 'mean_imputed';
     case 'median'
         IMPUTE_ID = 'median_imputed';
     case 'beagle'
@@ -106,6 +106,15 @@ DATASET_ID = [IMPUTE_ID '/' REDUCTION_ID];
 OUTPUT_DIR = ['../results/' MODALITY '/meta_analysis/joinedDatasets/' DATASET_ID '/'];
 if ~isfolder(OUTPUT_DIR), mkdir(OUTPUT_DIR); end
 %%
+obj = SNPLIB();
+obj.nThreads = THREADS;
+disp("Reading SNPs info..")
+for CHR=1:22
+    GENO_PATH = [DATA_DIR 'IMAGEN/BRAIN/UKBIOBANK/GENOTYPES/PLINK/ukb_img_maf0.01_geno0.5_hwe1e-6_sel19908_chr' num2str(CHR)];
+    [snps{CHR},~] = obj.importPLINKDATA(GENO_PATH);
+end
+disp("Joining datasets..")
+snps = cat(1,snps{:});
 parfor partition=1:31
     disp(['Partition ' num2str(partition)]);
     ftab = [];
@@ -115,27 +124,28 @@ parfor partition=1:31
         else
             DATASET_NAME = 'BATCH2_2021_DATA';
         end
-    INPUT_DIR = ['../results/' MODALITY '/meta_analysis/' DATASET_NAME '/' DATASET_ID '/'];
-    fname = gunzip(sprintf("%sCCAPart%02d.csv.gz",INPUT_DIR, partition));
-    outname = sprintf("%sCCAPart%02d.csv",OUTPUT_DIR, partition);
-    tab = readtable(fname{1});
-    delete(fname{1});
-    if isempty(ftab)
-        ftab = tab;
-    else
-        ftab = innerjoin(ftab, tab, keys='rsID'); % overlapping SNPs only
-        pvalues = ftab(:,{'P_value_tab','P_value_ftab'});
-        ftab.P_value = stouffer(table2array(pvalues));
-        zeroMask = ftab.P_value == 0;
-        ftab.P_value(zeroMask) = min(ftab.P_value(~zeroMask))/10;
-        ftab.ChiScore = (ftab.ChiScore_tab + ftab.ChiScore_ftab) / 2;
-        ftab.N = ftab.N_ftab + ftab.N_tab;
-        ftab = ftab(:, {'rsID','N','A2_ftab','A1_ftab', 'P_value','ChiScore', 'chromosome_ftab'});
-        ftab.Properties.VariableNames = {'rsID','N','A2','A1','P_value','ChiScore','chromosome'};
-        writetable(ftab,outname);
-        gzip(outname);
-        delete(outname);
-    end
+        INPUT_DIR = ['../results/' MODALITY '/meta_analysis/' DATASET_NAME '/' DATASET_ID '/'];
+        fname = gunzip(sprintf("%sCCAPart%02d.csv.gz",INPUT_DIR, partition));
+        outname = sprintf("%sCCAPart%02d.csv",OUTPUT_DIR, partition);
+        tab = readtable(fname{1});
+        delete(fname{1});
+        if isempty(ftab)
+            ftab = tab;
+        else
+            ftab = innerjoin(ftab, tab, keys='rsID'); % overlapping SNPs only
+            ftab = innerjoin(ftab, snps,  LeftKeys='rsID', RightKeys='RSID') % get Positions
+            pvalues = ftab(:,{'P_value_tab','P_value_ftab'});
+            ftab.P_value = stouffer(table2array(pvalues));
+            zeroMask = ftab.P_value == 0;
+            ftab.P_value(zeroMask) = min(ftab.P_value(~zeroMask))/10;
+            ftab.ChiScore = (ftab.ChiScore_tab + ftab.ChiScore_ftab) / 2;
+            ftab.N = ftab.N_ftab + ftab.N_tab;
+            ftab = ftab(:, {'rsID', 'POS', 'N','A2_ftab','A1_ftab', 'P_value','ChiScore', 'chromosome_ftab'});
+            ftab.Properties.VariableNames = {'rsID','position', 'N','A2','A1','P_value','ChiScore','chromosome'};
+            writetable(ftab,outname);
+            gzip(outname);
+            delete(outname);
+        end
 
     end
 end

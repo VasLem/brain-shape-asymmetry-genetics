@@ -4,7 +4,7 @@ cd ../../python
 ROOT_DIR=".."
 MODALITY=asymmetry
 N_PARTS=285
-MEDIAN=285
+MEDIAN=443
 MUNGED_DIR=$ROOT_DIR/results/brain_shape/ldsc/munged
 H2_DIR=$ROOT_DIR/results/brain_shape/ldsc/h2
 mkdir -p $MUNGED_DIR

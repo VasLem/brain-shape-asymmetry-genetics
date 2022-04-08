@@ -4,7 +4,7 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 
 % TO CHANGE
-DATASET_INDEX = 2;
+DATASET_INDEX = 1;
 MODALITY = 'symmetry'; %asymmetry,symmetry
 SUBSAMPLED_ID='not_subsampled';
 IMPUTE_STRATEGY = 'mean';
