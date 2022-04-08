@@ -1,4 +1,4 @@
-\begin{thebibliography}{70}
+\begin{thebibliography}{71}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -896,6 +896,15 @@ Guy Vingerhoets, Robin Gerrits, and Helena Verhelst.
 \newblock \doi{10.3390/SYM13040695}.
 \newblock URL \url{https://www.mdpi.com/2073-8994/13/4/695/htm
   https://www.mdpi.com/2073-8994/13/4/695}.
+
+\bibitem[Visscher et~al.(2012)Visscher, Brown, McCarthy, and
+  Yang]{Visscher2012}
+Peter~M. Visscher, Matthew~A. Brown, Mark~I. McCarthy, and Jian Yang.
+\newblock {Five Years of GWAS Discovery}.
+\newblock \emph{The American Journal of Human Genetics}, 90\penalty0
+  (1):\penalty0 7--24, jan 2012.
+\newblock ISSN 0002-9297.
+\newblock \doi{10.1016/J.AJHG.2011.11.029}.
 
 \bibitem[Vogt(2020)]{Vogt2020}
 G{\"{u}}nter Vogt.
