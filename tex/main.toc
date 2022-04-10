@@ -22,15 +22,18 @@
 \contentsline {subsection}{\numberline {1.2.1}\Acf {mvgwas}}{11}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}\Acf {snp} identity and importance}{12}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}\Acf {ld} effect on \acp {snp}}{12}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Genetic contributions modeling}{12}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.4}Genetic association modeling}{12}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Advantages and disadvantages of univariate \ac {gwas}}{14}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}\Acf {mvgwas}}{14}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}Genetic correlation analysis}{15}{subsection.1.2.7}%
 \contentsline {section}{\numberline {1.3}Phenotypic trait analysis}{15}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Summary on cortex anatomy}{15}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Dataset Description}{15}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Phenotypic partitioning}{15}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}Breaking the complexity into parts}{15}{section.1.4}%
+\contentsline {subsection}{\numberline {1.3.3}Phenotypic partitioning}{16}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Breaking the complexity into parts}{16}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Searching for the origin}{16}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Data description}{16}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Novelties based on related literature}{16}{section.1.7}%
+\contentsline {section}{\numberline {1.7}Novelties based on related literature}{17}{section.1.7}%
 \contentsline {subsection}{\numberline {1.7.1}Evolution}{17}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}Clinical studies}{17}{subsection.1.7.2}%
 \contentsline {chapter}{\chapternumberline {2}Materials and Methods}{19}{chapter.2}%

@@ -1,4 +1,4 @@
-\begin{thebibliography}{71}
+\begin{thebibliography}{73}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -472,6 +472,14 @@ Tessel~E. Galesloot, Kristel {Van Steen}, Lambertus~A.L.M. Kiemeney, Luc~L.
 \newblock ISSN 19326203.
 \newblock \doi{10.1371/JOURNAL.PONE.0095923}.
 
+\bibitem[Gallagher and Chen-Plotkin(2018)]{Gallagher2018}
+Michael~D. Gallagher and Alice~S. Chen-Plotkin.
+\newblock {The Post-GWAS Era: From Association to Function}.
+\newblock \emph{The American Journal of Human Genetics}, 102\penalty0
+  (5):\penalty0 717--730, may 2018.
+\newblock ISSN 0002-9297.
+\newblock \doi{10.1016/J.AJHG.2018.04.002}.
+
 \bibitem[G{\"{o}}tz and Huttner(2005)]{Gotz2005}
 Magdalena G{\"{o}}tz and Wieland~B Huttner.
 \newblock {The cell biology of Neurogenesis}.
@@ -709,6 +717,16 @@ Simon Neubauer, Philipp Gunz, Nadia~A. Scott, Jean~Jacques Hublin, and Philipp
 Andrew~Y. Ng, Michael~I. Jordan, and Yair Weiss.
 \newblock {On spectral clustering: Analysis and an algorithm}.
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2002.
+
+\bibitem[Nicholls et~al.(2020)Nicholls, John, Watson, Munroe, Barnes, and
+  Cabrera]{Nicholls2020}
+Hannah~L. Nicholls, Christopher~R. John, David~S. Watson, Patricia~B. Munroe,
+  Michael~R. Barnes, and Claudia~P. Cabrera.
+\newblock {Reaching the End-Game for GWAS: Machine Learning Approaches for the
+  Prioritization of Complex Disease Loci}.
+\newblock \emph{Frontiers in Genetics}, 11:\penalty0 350, apr 2020.
+\newblock ISSN 16648021.
+\newblock \doi{10.3389/FGENE.2020.00350/BIBTEX}.
 
 \bibitem[Nishizaki et~al.(2020)Nishizaki, Ng, Dong, Porter, Morterud, Williams,
   Asman, Switzenberg, and Boyle]{Nishizaki2020}
