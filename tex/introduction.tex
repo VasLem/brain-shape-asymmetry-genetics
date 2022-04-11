@@ -201,12 +201,12 @@ Phenotypic differences among individuals, described by the trait variance $V_p$,
 	\caption[Examples of \acs{gwas} Manhattan plots \cite{Klein2005}]{Examples of \ac{gwas}. In (A), the first recorded \ac{gwas} Manhattan plot \cite{Klein2005} is displayed, where the \ac{snp} in chromosome 1 (black arrow) with the most significant  effect, related to Complement H Factor Polymorphism, was identified to affect age-related macular degeneration disease propensity, one of the major causes of blindness among elderly. In (B), a \ac{gwas} scatter plot from the present work is shown, where the \acp{snp} spikes signal, attributed to \ac{ld}, is evident.}
 \end{figure}
 
-\subsection{Advantages and disadvantages of univariate \ac{gwas}}
+\subsection{Major advantages and disadvantages of univariate \ac{gwas}}
 
 There are several design benefits and limitations of such a process. \ac{gwas} have been successful in revealing novel relationships between genes with known properties and a variety of observed phenotypic traits and clinical applications, presenting evidence of possible biological mechanisms related to genes with unknown function \cite{Tam2019}. They also empower population-specific comparative studies, at the level of how ethnicity or other kinds of population stratification affect a certain trait, while accommodating the possibility to investigate the effect of an allele no matter how frequently it might appear in the studied sample \cite{Tam2019}. 
 On the other hand, it has been generally observed  that each \ac{snp} can only explain a small part of the heritability of a certain trait, with a large amount of the signal hidden in gene-to-gene interactions, that are not captured in this method, and possibly in \acp{snp} whose contribution has not been considered significant enough  \cite{Tam2019}. To remedy the latter issue, larger sample size is ideally required. Due to the fact that the largest amount of \acp{snp} is located in intronic regions, it has also been difficult to assess the causality of those variants, which genes they affect and how they do it. Additionally, too many, possibly unrelated, hits may be involved in a \ac{gwas} result, due to \ac{ld}. \cite{Tam2019} Recent studies have deployed advanced post-\ac{gwas} statistical and \ac{ml} approaches to account for identifying the causality and the functional behavior of significant \ac{snp}  \cite{Nicholls2020,Gallagher2018}. 
 
-\subsection{\Acf{mvgwas}}
+\subsection{\Acfp{mvgwas}}
 When the analyzed phenotype is described by more than one measurements, as is the case in this work, where it is expressed as the combination of different \ac{3d} landmarks composing the cortex of each individual, \ac{gwas} require a methodological change to accommodate this fact, as univariate regression cannot be used as is. Also, a single genetic locus may exhibit more than one minor allele. The goal, consequently, is to incorporate multi-allelic \acsp{snp} and, more importantly, multivariate phenotype, in a single hypothesis test per \ac{snp}, leading to what is called \acf{mvgwas}. In general, there is an abundance of strategies on how to perform a \ac{mvgwas}, ranging from direct methods, that approximate the inputs relation either in an unbiased manner or making certain educated guesses, to more complex techniques, that increase statistical power by transforming the inputs, at the expense of explanatory ability \cite{Galesloot2014}. There are also methods that are based on the meta-analysis of outcomes from univariate studies, commonly used to juxtapose experiments from separate sources, for which the original data is missing, the experimental setup, mainly sample size, across studies varies, marking the studies data `incompatible`, or a single study is computationally intractable \cite{Uffelmann2021,Cichonska2016}. These approaches combine the test-statistics produced from the individual studies and produce an estimate of the multiple trait test-statistic. Which approach performs best mainly lies on the dataset properties and the nature of the scientific question. Factors such as low sample size \cite{Sheng2021}, genes pleiotropic effects \cite{Fernandes2021} (i.e a gene affects multiple phenotypically independent biological pathways) or within-study variability \cite{Usui2021,Jackson2011} tend to handicap the statistical modeling and increase the type I and II errors of the corresponding hypothesis tests. In this study, \ac{cca} was chosen due to the high capacity in efficiently reducing the inputs dimensionality while preserving most information regarding their correlation, and the same sample size across analyzed traits, an approach that has provided successful results in similar efforts of brain shape and face shape analysis \cite{Claes2018,Naqvi2021}.
 
 \subsection{\Ac{ldsc} analysis}
@@ -214,22 +214,37 @@ When the analyzed phenotype is described by more than one measurements, as is th
 \Ac{ld} between two alleles $A$ and $B$ from different loci is generally quantified using one of the following values: 
 \begin{itemize}
 \item{
-the coefficient of linkage disequilibrium D:
+the coefficient of linkage disequilibrium $\mathcal{D}$:
 $$
-D := p_{AB} - p_Ap_B
+\mathcal{D} := p_{AB} - p_Ap_B
 $$
-with $p_{AB}$ referring to the haplotype AB frequency and $p_i$ to the allele i frequency. This coefficient is scaled by theoretical maximum D, $D_{max}$, to render it independent of the per-pair frequencies magnitudes, producing $D'$.
+with $p_{AB}$ referring to the haplotype AB frequency and $p_i$ to the allele i frequency. This coefficient is scaled by theoretical maximum $\mathcal{D}$, $\mathcal{D}_{max}$, to render it independent of the per-pair frequencies magnitudes, producing $\mathcal{D}'$.
 }
 \item{
-the genetic correlation $r^2$, defined by:
+the genetic correlation $r^2$, a proxy of the Pearson coefficient, defined by:
 $$
-r^2:= \frac{D}{p_A(1-p_A)p_B(1-p_B)}
+r^2:= \frac{\mathcal{D}}{p_A(1-p_A)p_B(1-p_B)}
 $$
-which is preferred over $D'$ because of its independence to the sample size. It can be shown that $D'$
 }
 \end{itemize}
+Based on simulations, it has been shown that $\mathcal{D}'$ is inflated when the sample size is small or the minor allele is rare \cite{Teare2002}.  In a seminal research work from \citet{Bulik-Sullivan2015}, it was found that there is a closed mathematical expression that connects the allele j $\chi^2$ expected value  with the average heritability explained per \ac{snp} $h$ and its \ac{ld} score, defined by $\sum_k{{r_{jk}}^2}$, $r_{jk}$ being the $r^2$ of the j with the k allele:
+$$
+E[\chi^2|l_j] = Nh^2l_j/M + N\alpha + 1
+$$
+$\alpha$ is the contribution of population-related effects, such as population stratification, that are not being controlled, known as confounding biases. The gains from this regression are dual; a measurement of heritability can be obtained by estimating the slope, and the confounding bias effect can be measured by the intercept. This formula, which originally referred to a univariate phenotype, was extended in \cite{Naqvi2021} to incorporate D-dimensional multivariate traits:
+$$
+E\left[\frac{\chi^2_j}{D\left(1+\frac{\chi^2_j}{N}\right)}\right] = \frac{N-1}{P}\left(\frac{\sum_{d=1}^{D}h_d^2}{D}\right)l_j +1 + O\left(\frac{1}{N}\right)
+$$
+The basic underlying assumptions is that each \ac{snp} effect is assessed independently from the rest and that the covariance matrix of the phenotype equals the identity matrix multiplied by N, namely that the studied traits are orthogonal to each other.
 
- In a seminal research work from \citet{Bulik-Sullivan2015}, it was found that there is a closed mathematical expression that connects the \ac{snp} j studied heritability with \ac{ld} scores, defined by $\sum_k{{r_{jk}}^2}$, with $r_{jk}$ being the correlation 
+\subsection{\Ac{ldsc} genetic correlation}
+\citet{Bulik-Sullivan2015_cor} also invented a way to utilize \ac{gwas} results produced for two different traits as a proxy to relate the genetic correlation of these traits, namely the extent over which the two characteristics are being regulated by similar genetic drivers:
+$$
+E[z_1z_2l_j] = \frac{\sqrt{N_1N_2}\rho_g}{M}l_j + \frac{\rho N_s}{\sqrt{N_1N_2}}
+$$ 
+
+
+
 
 The analysis outcome requires further processing, as explained in \autoref{sec:postprocessing}, to account for the main weakness of this method, that it does not consider the \ac{snp}-to-\ac{snp} effect, tackled using as proxy the notion of \ac{ld}, and subsequently to topologically and functionally enhance the filtered findings. Once this additional step has been performed, a cross-traits analysis is applied, described in \autoref{sec:metaanalysis}, where the \ac{da} genetic signature is compared with the signatures of phenotypic traits, analyzed in a similar study \cite{Naqvi2021}, the cerebral and facial shapes.
 

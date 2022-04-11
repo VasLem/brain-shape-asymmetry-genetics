@@ -1,4 +1,4 @@
-\begin{thebibliography}{73}
+\begin{thebibliography}{76}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -131,6 +131,142 @@ K~Brodmann.
 \newblock \emph{{Vergleichende Lokalisationslehre der Grosshirnrinde in ihren
   Prinzipien dargestellt auf Grund des Zellenbaues}}.
 \newblock Johann Ambrosius Barth, Leipzig, 1909.
+
+\bibitem[Bulik-Sullivan et~al.(2015{\natexlab{a}})Bulik-Sullivan, Finucane,
+  Anttila, Gusev, Day, Loh, Duncan, Perry, Patterson, Robinson, Daly, Price,
+  and Neale]{Bulik-Sullivan2015_cor}
+Brendan Bulik-Sullivan, Hilary~K. Finucane, Verneri Anttila, Alexander Gusev,
+  Felix~R. Day, Po~Ru Loh, Laramie Duncan, John~R.B. Perry, Nick Patterson,
+  Elise~B. Robinson, Mark~J. Daly, Alkes~L. Price, and Benjamin~M. Neale.
+\newblock {An atlas of genetic correlations across human diseases and traits}.
+\newblock \emph{Nature Genetics 2015 47:11}, 47\penalty0 (11):\penalty0
+  1236--1241, sep 2015{\natexlab{a}}.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/ng.3406}.
+\newblock URL \url{https://www.nature.com/articles/ng.3406}.
+
+\bibitem[Bulik-Sullivan et~al.(2015{\natexlab{b}})Bulik-Sullivan, Loh,
+  Finucane, Ripke, Yang, Patterson, Daly, Price, Neale, Corvin, Walters, Farh,
+  Holmans, Lee, Collier, Huang, Pers, Agartz, Agerbo, Albus, Alexander, Amin,
+  Bacanu, Begemann, Belliveau, Bene, Bergen, Bevilacqua, Bigdeli, Black,
+  Bruggeman, Buccola, Buckner, Byerley, Cahn, Cai, Cairns, Campion, Cantor,
+  Carr, Carrera, Catts, Chambert, Chan, Chen, Chen, Cheng, Cheung, Chong,
+  Cloninger, Cohen, Cohen, Cormican, Craddock, Crespo-Facorro, Crowley, Curtis,
+  Davidson, Davis, Degenhardt, {Del Favero}, DeLisi, Demontis, Dikeos, Dinan,
+  Djurovic, Donohoe, Drapeau, Duan, Dudbridge, Durmishi, Eichhammer, Eriksson,
+  Escott-Price, Essioux, Fanous, Farrell, Frank, Franke, Freedman, Freimer,
+  Friedl, Friedman, Fromer, Genovese, Georgieva, Gershon, Giegling,
+  Giusti-Rodr{\'{i}}guez, Godard, Goldstein, Golimbet, Gopal, Gratten, {De
+  Haan}, Hammer, Hamshere, Hansen, Hansen, Haroutunian, Hartmann, Henskens,
+  Herms, Hirschhorn, Hoffmann, Hofman, Hollegaard, Hougaard, Ikeda, Joa,
+  Juli{\'{a}}, Kahn, Kalaydjieva, Karachanak-Yankova, Karjalainen, Kavanagh,
+  Keller, Kelly, Kennedy, Khrunin, Kim, Klovins, Knowles, Konte, Kucinskas,
+  Kucinskiene, Kuzelova-Ptackova, K{\"{a}}hler, Laurent, Keong, Lee, Legge,
+  Lerer, Li, Li, Liang, Lieberman, Limborska, Loughland, Lubinski,
+  L{\"{o}}nnqvist, Macek, Magnusson, Maher, Maier, Mallet, Marsal, Mattheisen,
+  Mattingsdal, McCarley, McDonald, McIntosh, Meier, Meijer, Melegh, Melle,
+  Mesholam-Gately, Metspalu, Michie, Milani, Milanova, Mokrab, Morris, Mors,
+  Murphy, Murray, Myin-Germeys, M{\"{u}}ller-Myhsok, Nelis, Nenadic, Nertney,
+  Nestadt, Nicodemus, Nikitina-Zake, Nisenbaum, Nordin, O'Callaghan,
+  O'Dushlaine, O'Neill, Oh, Olincy, Olsen, {Van Os}, Pantelis, Papadimitriou,
+  Papiol, Parkhomenko, Pato, Paunio, Pejovic-Milovancevic, Perkins,
+  Pietil{\"{a}}inen, Pimm, Pocklington, Powell, Pulver, Purcell, Quested,
+  Rasmussen, Reichenberg, Reimers, Richards, Roffman, Roussos, Ruderfer,
+  Salomaa, Sanders, Schall, Schubert, Schulze, Schwab, Scolnick, Scott,
+  Seidman, Shi, Sigurdsson, Silagadze, Silverman, Sim, Slominsky, Smoller, So,
+  Spencer, Stahl, Stefansson, Steinberg, Stogmann, Straub, Strengman,
+  Strohmaier, Stroup, Subramaniam, Suvisaari, Svrakic, Szatkiewicz,
+  S{\"{o}}derman, Thirumalai, Toncheva, Tooney, Tosato, Veijola, Waddington,
+  Walsh, Wang, Wang, Webb, Weiser, Wildenauer, Williams, Williams, Witt, Wolen,
+  Wong, Wormley, Wu, Xi, Zai, Zheng, Zimprich, Wray, Stefansson, Visscher,
+  Adolfsson, Andreassen, Blackwood, Bramon, Buxbaum, B{\o}rglum, Cichon,
+  Darvasi, Domenici, Ehrenreich, Esko, Gejman, Gill, Gurling, Hultman, Iwata,
+  Jablensky, J{\"{o}}nsson, Kendler, Kirov, Knight, Lencz, Levinson, Li, Liu,
+  Malhotra, McCarroll, McQuillin, Moran, Mortensen, Mowry, N{\"{o}}then,
+  Ophoff, Owen, Palotie, Pato, Petryshen, Posthuma, Rietschel, Riley, Rujescu,
+  Sham, Sklar, {St Clair}, Weinberger, Wendland, Werge, Sullivan, and
+  O'Donovan]{Bulik-Sullivan2015}
+Brendan Bulik-Sullivan, Po~Ru Loh, Hilary~K. Finucane, Stephan Ripke, Jian
+  Yang, Nick Patterson, Mark~J. Daly, Alkes~L. Price, Benjamin~M. Neale, Aiden
+  Corvin, James~T.R. Walters, Kai~How Farh, Peter~A. Holmans, Phil Lee,
+  David~A. Collier, Hailiang Huang, Tune~H. Pers, Ingrid Agartz, Esben Agerbo,
+  Margot Albus, Madeline Alexander, Farooq Amin, Silviu~A. Bacanu, Martin
+  Begemann, Richard~A. Belliveau, Judit Bene, Sarah~E. Bergen, Elizabeth
+  Bevilacqua, Tim~B. Bigdeli, Donald~W. Black, Richard Bruggeman, Nancy~G.
+  Buccola, Randy~L. Buckner, William Byerley, Wiepke Cahn, Guiqing Cai,
+  Murray~J. Cairns, Dominique Campion, Rita~M. Cantor, Vaughan~J. Carr, Noa
+  Carrera, Stanley~V. Catts, Kimberly~D. Chambert, Raymond~C.K. Chan,
+  Ronald~Y.L. Chen, Eric~Y.H. Chen, Wei Cheng, Eric~F.C. Cheung, Siow~Ann
+  Chong, C.~Robert Cloninger, David Cohen, Nadine Cohen, Paul Cormican, Nick
+  Craddock, Benedicto Crespo-Facorro, James~J. Crowley, David Curtis, Michael
+  Davidson, Kenneth~L. Davis, Franziska Degenhardt, Jurgen {Del Favero},
+  Lynn~E. DeLisi, Ditte Demontis, Dimitris Dikeos, Timothy Dinan, Srdjan
+  Djurovic, Gary Donohoe, Elodie Drapeau, Jubao Duan, Frank Dudbridge, Naser
+  Durmishi, Peter Eichhammer, Johan Eriksson, Valentina Escott-Price, Laurent
+  Essioux, Ayman~H. Fanous, Martilias~S. Farrell, Josef Frank, Lude Franke,
+  Robert Freedman, Nelson~B. Freimer, Marion Friedl, Joseph~I. Friedman,
+  Menachem Fromer, Giulio Genovese, Lyudmila Georgieva, Elliot~S. Gershon, Ina
+  Giegling, Paola Giusti-Rodr{\'{i}}guez, Stephanie Godard, Jacqueline~I.
+  Goldstein, Vera Golimbet, Srihari Gopal, Jacob Gratten, Lieuwe {De Haan},
+  Christian Hammer, Marian~L. Hamshere, Mark Hansen, Thomas Hansen, Vahram
+  Haroutunian, Annette~M. Hartmann, Frans~A. Henskens, Stefan Herms, Joel~N.
+  Hirschhorn, Per Hoffmann, Andrea Hofman, Mads~V. Hollegaard, David~M.
+  Hougaard, Masashi Ikeda, Inge Joa, Antonio Juli{\'{a}}, Ren{\'{e}}~S. Kahn,
+  Luba Kalaydjieva, Sena Karachanak-Yankova, Juha Karjalainen, David Kavanagh,
+  Matthew~C. Keller, Brian~J. Kelly, James~L. Kennedy, Andrey Khrunin, Yunjung
+  Kim, Janis Klovins, James~A. Knowles, Bettina Konte, Vaidutis Kucinskas,
+  Zita~Ausrele Kucinskiene, Hana Kuzelova-Ptackova, Anna~K. K{\"{a}}hler,
+  Claudine Laurent, Jimmy Lee~Chee Keong, S.~Hong Lee, Sophie~E. Legge, Bernard
+  Lerer, Miaoxin Li, Tao Li, Kung~Yee Liang, Jeffrey Lieberman, Svetlana
+  Limborska, Carmel~M. Loughland, Jan Lubinski, Jouko L{\"{o}}nnqvist, Milan
+  Macek, Patrik~K.E. Magnusson, Brion~S. Maher, Wolfgang Maier, Jacques Mallet,
+  Sara Marsal, Manuel Mattheisen, Morten Mattingsdal, Robert~W. McCarley, Colm
+  McDonald, Andrew~M. McIntosh, Sandra Meier, Carin~J. Meijer, Bela Melegh,
+  Ingrid Melle, Raquelle~I. Mesholam-Gately, Andres Metspalu, Patricia~T.
+  Michie, Lili Milani, Vihra Milanova, Younes Mokrab, Derek~W. Morris, Ole
+  Mors, Kieran~C. Murphy, Robin~M. Murray, Inez Myin-Germeys, Bertram
+  M{\"{u}}ller-Myhsok, Mari Nelis, Igor Nenadic, Deborah~A. Nertney, Gerald
+  Nestadt, Kristin~K. Nicodemus, Liene Nikitina-Zake, Laura Nisenbaum, Annelie
+  Nordin, Eadbhard O'Callaghan, Colm O'Dushlaine, F.~Anthony O'Neill, Sang~Yun
+  Oh, Ann Olincy, Line Olsen, Jim {Van Os}, Christos Pantelis, George~N.
+  Papadimitriou, Sergi Papiol, Elena Parkhomenko, Michele~T. Pato, Tiina
+  Paunio, Milica Pejovic-Milovancevic, Diana~O. Perkins, Olli
+  Pietil{\"{a}}inen, Jonathan Pimm, Andrew~J. Pocklington, John Powell, Ann~E.
+  Pulver, Shaun~M. Purcell, Digby Quested, Henrik~B. Rasmussen, Abraham
+  Reichenberg, Mark~A. Reimers, Alexander~L. Richards, Joshua~L. Roffman, Panos
+  Roussos, Douglas~M. Ruderfer, Veikko Salomaa, Alan~R. Sanders, Ulrich Schall,
+  Christian~R. Schubert, Thomas~G. Schulze, Sibylle~G. Schwab, Edward~M.
+  Scolnick, Rodney~J. Scott, Larry~J. Seidman, Jianxin Shi, Engilbert
+  Sigurdsson, Teimuraz Silagadze, Jeremy~M. Silverman, Kang Sim, Petr
+  Slominsky, Jordan~W. Smoller, Hon~Cheong So, Chris~C.A. Spencer, Eli~A.
+  Stahl, Hreinn Stefansson, Stacy Steinberg, Elisabeth Stogmann, Richard~E.
+  Straub, Eric Strengman, Jana Strohmaier, T.~Scott Stroup, Mythily
+  Subramaniam, Jaana Suvisaari, Dragan~M. Svrakic, Jin~P. Szatkiewicz, Erik
+  S{\"{o}}derman, Srinivas Thirumalai, Draga Toncheva, Paul~A. Tooney, Sarah
+  Tosato, Juha Veijola, John Waddington, Dermot Walsh, Dai Wang, Qiang Wang,
+  Bradley~T. Webb, Mark Weiser, Dieter~B. Wildenauer, Nigel~M. Williams,
+  Stephanie Williams, Stephanie~H. Witt, Aaron~R. Wolen, Emily~H.M. Wong,
+  Brandon~K. Wormley, Jing~Qin Wu, Hualin~Simon Xi, Clement~C. Zai, Xuebin
+  Zheng, Fritz Zimprich, Naomi~R. Wray, Kari Stefansson, Peter~M. Visscher,
+  Rolf Adolfsson, Ole~A. Andreassen, Douglas~H.R. Blackwood, Elvira Bramon,
+  Joseph~D. Buxbaum, Anders~D. B{\o}rglum, Sven Cichon, Ariel Darvasi, Enrico
+  Domenici, Hannelore Ehrenreich, T{\~{o}}nu Esko, Pablo~V. Gejman, Michael
+  Gill, Hugh Gurling, Christina~M. Hultman, Nakao Iwata, Assen~V. Jablensky,
+  Erik~G. J{\"{o}}nsson, Kenneth~S. Kendler, George Kirov, Jo~Knight, Todd
+  Lencz, Douglas~F. Levinson, Qingqin~S. Li, Jianjun Liu, Anil~K. Malhotra,
+  Steven~A. McCarroll, Andrew McQuillin, Jennifer~L. Moran, Preben~B.
+  Mortensen, Bryan~J. Mowry, Markus~M. N{\"{o}}then, Roel~A. Ophoff, Michael~J.
+  Owen, Aarno Palotie, Carlos~N. Pato, Tracey~L. Petryshen, Danielle Posthuma,
+  Marcella Rietschel, Brien~P. Riley, Dan Rujescu, Pak~C. Sham, Pamela Sklar,
+  David {St Clair}, Daniel~R. Weinberger, Jens~R. Wendland, Thomas Werge,
+  Patrick~F. Sullivan, and Michael~C. O'Donovan.
+\newblock {LD Score regression distinguishes confounding from polygenicity in
+  genome-wide association studies}.
+\newblock \emph{Nature Genetics 2015 47:3}, 47\penalty0 (3):\penalty0 291--295,
+  feb 2015{\natexlab{b}}.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/ng.3211}.
+\newblock URL \url{https://www.nature.com/articles/ng.3211}.
 
 \bibitem[Cara et~al.(2022)Cara, Streata, Buga, and Iliescu]{Cara2022}
 Monica~Laura Cara, Ioana Streata, Ana~Maria Buga, and Dominic~Gabriel Iliescu.
@@ -852,6 +988,16 @@ Vivian Tam, Nikunj Patel, Michelle Turcotte, Yohan Boss{\'{e}}, Guillaume
 \newblock ISSN 1471-0064.
 \newblock \doi{10.1038/s41576-019-0127-1}.
 \newblock URL \url{https://www.nature.com/articles/s41576-019-0127-1}.
+
+\bibitem[Teare et~al.(2002)Teare, Dunning, Durocher, Rennart, and
+  Easton]{Teare2002}
+M.~D. Teare, A.~M. Dunning, F.~Durocher, G.~Rennart, and D.~F. Easton.
+\newblock {Sampling distribution of summary linkage disequilibrium measures}.
+\newblock \emph{Annals of human genetics}, 66\penalty0 (Pt 3):\penalty0
+  223--233, 2002.
+\newblock ISSN 0003-4800.
+\newblock \doi{10.1017/S0003480002001082}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/12174213/}.
 
 \bibitem[Telano and Baker(2021)]{Telano2021}
 Lauren~N. Telano and Stephen Baker.
