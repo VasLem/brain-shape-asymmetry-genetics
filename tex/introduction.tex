@@ -209,7 +209,27 @@ On the other hand, it has been generally observed  that each \ac{snp} can only e
 \subsection{\Acf{mvgwas}}
 When the analyzed phenotype is described by more than one measurements, as is the case in this work, where it is expressed as the combination of different \ac{3d} landmarks composing the cortex of each individual, \ac{gwas} require a methodological change to accommodate this fact, as univariate regression cannot be used as is. Also, a single \ac{snp} may exhibit more than one minor allele. The goal, consequently, is to incorporate multi-allelic \acsp{snp} and, more importantly, multivariate phenotype, in a single hypothesis test per \ac{snp}, leading to what is called \acf{mvgwas}. In general, there is an abundance of strategies on how to perform a \ac{mvgwas}, ranging from direct methods, that approximate the inputs relation either in an unbiased manner or making certain educated guesses, to more complex techniques, that increase statistical power by transforming the inputs, at the expense of explanatory ability \cite{Galesloot2014}. There are also methods that are based on the meta-analysis of outcomes from univariate studies, commonly used to juxtapose experiments from separate sources, for which the original data is missing, the experimental setup, mainly sample size, across studies varies, marking the studies data `incompatible`, or a single study is computationally intractable \cite{Uffelmann2021,Cichonska2016}. These approaches combine the test-statistics produced from the individual studies and produce an estimate of the multiple trait test-statistic. Which approach performs best mainly lies on the dataset properties and the nature of the scientific question. Factors such as low sample size \cite{Sheng2021}, genes pleiotropic effects \cite{Fernandes2021} (i.e a gene affects multiple phenotypically independent biological pathways) or within-study variability \cite{Usui2021,Jackson2011} tend to handicap the statistical modeling and increase the type I and II errors of the corresponding hypothesis tests. In this study, \ac{cca} was chosen due to the high capacity in efficiently reducing the inputs dimensionality while preserving most information regarding their correlation, and the same sample size across analyzed traits, an approach that has provided successful results in similar efforts of brain shape and face shape analysis \cite{Claes2018,Naqvi2021}.
 
-\subsection{Genetic correlation analysis}
+\subsection{\Ac{ldsc} analysis}
+
+\Ac{ld} between two alleles $A$ and $B$ from different loci is generally quantified using one of the following values: 
+\begin{itemize}
+\item{
+the coefficient of linkage disequilibrium D:
+$$
+D := p_{AB} - p_Ap_B
+$$
+with $p_{AB}$ referring to the haplotype AB frequency and $p_i$ to the allele i frequency. This coefficient is scaled by theoretical maximum D, $D_{max}$, to render it independent of the per-pair frequencies magnitudes, producing $D'$.
+}
+\item{
+the genetic correlation $r^2$, defined by:
+$$
+r^2:= \frac{D}{p_A(1-p_A)p_B(1-p_B)}
+$$
+which is preferred over $D'$ because of its independence to the sample size. It can be shown that $D'$
+}
+\end{itemize}
+
+ In a seminal research work from \citet{Bulik-Sullivan2015}, it was found that there is a closed mathematical expression that connects the \ac{snp} j studied heritability with \ac{ld} scores, defined by $\sum_k{{r_{jk}}^2}$, with $r_{jk}$ being the correlation 
 
 The analysis outcome requires further processing, as explained in \autoref{sec:postprocessing}, to account for the main weakness of this method, that it does not consider the \ac{snp}-to-\ac{snp} effect, tackled using as proxy the notion of \ac{ld}, and subsequently to topologically and functionally enhance the filtered findings. Once this additional step has been performed, a cross-traits analysis is applied, described in \autoref{sec:metaanalysis}, where the \ac{da} genetic signature is compared with the signatures of phenotypic traits, analyzed in a similar study \cite{Naqvi2021}, the cerebral and facial shapes.
 
