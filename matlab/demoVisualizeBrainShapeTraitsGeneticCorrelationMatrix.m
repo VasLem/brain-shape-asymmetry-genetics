@@ -1,5 +1,6 @@
 clear, close all
-DATASET = 'STAGE00DATA';
+DATASET = 'joinedDatasets';
+MODALITY = 'asymmetry';
 REDUCTION = 1;
 switch REDUCTION
     case 1
@@ -10,28 +11,20 @@ switch REDUCTION
         error("REDUCTION=1 or 10")
 end
 DATASET_ID= [DATASET '/mean_imputed/' SUBSAMPLED_ID];
-labels = {'auto', 'brain_shape'};
+labels = {'brain_shape', 'auto'};
 for trait_ind=1:2
-    switch trait_ind
-        case 1
-            trait='';
-        case 2
-            trait='brain_shape';
-    end
-    out_dir = ['../results/ldsc/' DATASET_ID '/rg/'];
-    if trait_ind==1
-        inp_file = [out_dir '/correlation.csv'];
-    else
-        inp_file = [out_dir '/' trait '_correlation.csv'];
-    end
+    trait = labels{trait_ind};
+    out_dir = ['../results/' MODALITY '/ldsc/' DATASET_ID '/rg/'];
+    inp_file = [out_dir '/' trait '_correlation.csv'];
     inp = readtable(inp_file);
 
-    if trait_ind==1
+    if trait_ind==2
         ret = eye(31);
         ret(ret==0) = nan;
     else
         ret = nan(31,round(height(inp)/31));
     end
+    disp(size(ret))
     if iscellstr(inp.rg)
         na_mask = cellfun(@(x)(strcmp(x,'NA')), inp.rg);
         inp.rg(na_mask) = {'nan'};
@@ -46,11 +39,10 @@ for trait_ind=1:2
         end
         [~,fname1] = fileparts(inp.p1(row));
         [~,fname2] = fileparts(inp.p2(row));
-
         ind1 = str2double(regexprep(fname1, "par(\d+).sumstats", '$1'));
         ind2 = str2double(regexprep(fname2, "par(\d+).sumstats", '$1'));
         ret(ind1, ind2) = inp.rg(row);
-        if trait_ind==1
+        if trait_ind==2
             ret(ind2, ind1) = inp.rg(row);
         end
     end
@@ -64,7 +56,7 @@ for trait_ind=1:2
     axis equal
     axis tight
     saveas(fig, [out_dir labels{trait_ind} '_heatmap.svg'])
-    if trait_ind == 1
+    if trait_ind == 2
         featMat = ret;
         featMat(abs(featMat) < 0.7) = nan;
         featMat(abs(featMat)>1.25) = nan;

@@ -21,7 +21,9 @@ if iscellstr(inp.rg)
     inp.rg(na_mask) = {'nan'};
     inp.rg = cellfun(@(x)(str2double(x)), inp.rg);
 end
-traits = ["ADHD" ,"ASD", "BipolarDisorderAll", "Handedness", "Intelligence", "LanguageFunctionalConnectivity",  "OCD",  "Schizophrenia"];
+traits = ["AlzheimersDisease", "ADHD" ,"ASD", "BipolarDisorderAll", "EducationalAttainment", "Handedness", "Intelligence",...
+    "LanguageFunctionalConnectivity","MajorDepressiveDisorder", "NeuroticismMeasurement", ...
+    "OCD",  "RedHair", "Schizophrenia"];
 for row=1:height(inp)
     if inp.p(row) > 0.05
         continue
@@ -36,17 +38,20 @@ for row=1:height(inp)
 end
 clrLim = [min(min(ret)),max(max(ret))]; 
 diamLim = [0.3, 1];
-fig=figure();
+%%
+fig=figure;
 [nr,nc] = size(ret);
 pcolor([ret nan(nr,1); nan(1,nc+1)]);
 % imagesc(ret)
 colormap(gca,'jet');
 colorbar();
 caxis(clrLim);
+set(gca,'xtick',1:length(traits));
 xticklabels(traits);
 axis equal
 axis tight
 saveas(fig, [out_dir 'otherTraitsHeatmap.svg'])
+%%
 featMats{1} = round(100 * ret)/100;
 featMatsIds{1} = 'otherTraits';
 featsClassesNames = traits;

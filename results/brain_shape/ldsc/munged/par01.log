@@ -7,9 +7,10 @@
 *********************************************************************
 Call: 
 ./munge_sumstats.py \
---signed-sumstats ChiScore,443 \
+--signed-sumstats ChiScore,1 \
 --delim , \
 --out ../results/brain_shape/ldsc/munged/par01 \
+--merge-alleles ../SAMPLE_DATA/w_hm3.snplist \
 --n-min 1000.0 \
 --a1 A1 \
 --a2 A2 \
@@ -25,17 +26,28 @@ rsID:	Variant ID (e.g., rs number)
 A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
 ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 
+Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
+Read 1217311 SNPs for allele merge.
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
+Read 9705930 SNPs from --sumstats file.
+Removed 8525824 SNPs not in --merge-alleles.
+Removed 0 SNPs with missing values.
+Removed 0 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 0 SNPs with out-of-bounds p-values.
+Removed 14 variants that were not SNPs or were strand-ambiguous.
+1180092 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (1180092 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1180092 SNPs remain).
+Median value of SIGNED_SUMSTATS was 1.04237258911, which seems sensible.
+Removed 20 SNPs whose alleles did not match --merge-alleles (1180072 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1180072 with nonmissing beta) to ../results/brain_shape/ldsc/munged/par01.sumstats.gz.
 
-ERROR converting summary statistics:
+Metadata:
+Mean chi^2 = 1.891
+Lambda GC = 1.674
+Max chi^2 = 200.794
+3955 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Traceback (most recent call last):
-  File "./ldsc/munge_sumstats.py", line 695, in munge_sumstats
-    dat = parse_dat(dat_gen, cname_translation, merge_alleles, log, args)
-  File "./ldsc/munge_sumstats.py", line 283, in parse_dat
-    ii &= filter_pvals(dat.P, log, args)
-TypeError: ufunc 'bitwise_and' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
-
-
-Conversion finished at Fri Apr  8 10:41:24 2022
-Total time elapsed: 5.57s
+Conversion finished at Sun Apr 10 14:43:28 2022
+Total time elapsed: 32.79s
