@@ -1,0 +1,121 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/rg/par28 \
+--rg ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Mon Apr 11 22:59:44 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1168875 SNPs remain.
+After merging with regression SNP LD, 1168875 SNPs remain.
+Computing rg for phenotype 2/4
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.0715 (0.0147)
+Lambda GC: 1.0527
+Mean Chi^2: 1.042
+Intercept: 0.9917 (0.0061)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/4
+-----------------------------
+Total Observed scale h2: 0.0422 (0.0131)
+Lambda GC: 1.0315
+Mean Chi^2: 1.0315
+Intercept: 1.0019 (0.0068)
+Ratio: 0.0617 (0.2162)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0519 (0.0091)
+Mean z1*z2: 0.3217
+Intercept: 0.285 (0.0043)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.9451 (0.1177)
+Z-score: 8.0297
+P: 9.7682e-16
+
+Computing rg for phenotype 3/4
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 3/4
+-----------------------------
+Total Observed scale h2: 0.0153 (0.0123)
+Lambda GC: 1.0135
+Mean Chi^2: 1.0103
+Intercept: 0.9997 (0.0059)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.02 (0.008)
+Mean z1*z2: 0.2476
+Intercept: 0.2336 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6045 (0.2103)
+Z-score: 2.8742
+P: 0.0041
+
+Computing rg for phenotype 4/4
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 4/4
+-----------------------------
+Total Observed scale h2: 0.0026 (0.0109)
+Lambda GC: 1.0135
+Mean Chi^2: 1.0125
+Intercept: 1.0107 (0.0056)
+Ratio: 0.8583 (0.4511)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0172 (0.0067)
+Mean z1*z2: 0.2101
+Intercept: 0.1982 (0.0034)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+
+Summary of Genetic Correlation Results
+                                                                                            p1                                                                                             p2      rg      se       z           p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz  0.9451  0.1177  8.0297  9.7682e-16  0.0422     0.0131  1.0019     0.0068    0.2850       0.0043
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz  0.6045  0.2103  2.8742  4.0509e-03  0.0153     0.0123  0.9997     0.0059    0.2336       0.0037
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz  1.2571  3.1262  0.4021  6.8760e-01  0.0026     0.0109  1.0107     0.0056    0.1982       0.0034
+
+Analysis finished at Mon Apr 11 23:00:13 2022
+Total time elapsed: 28.8s

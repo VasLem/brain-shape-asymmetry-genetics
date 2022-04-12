@@ -1,0 +1,748 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/rg/par05 \
+--rg ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par06.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par07.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par08.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par09.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par10.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par11.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par12.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par13.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par14.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par15.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par16.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par17.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par18.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par19.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par20.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par21.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par22.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par23.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par24.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par25.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par26.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par27.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz,../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Mon Apr 11 22:24:22 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1168875 SNPs remain.
+After merging with regression SNP LD, 1168875 SNPs remain.
+Computing rg for phenotype 2/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par06.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.1673 (0.0183)
+Lambda GC: 1.1144
+Mean Chi^2: 1.1059
+Intercept: 0.9882 (0.0065)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/27
+------------------------------
+Total Observed scale h2: 0.052 (0.0136)
+Lambda GC: 1.0496
+Mean Chi^2: 1.0381
+Intercept: 1.0018 (0.0058)
+Ratio: 0.0478 (0.1521)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0604 (0.0092)
+Mean z1*z2: 0.1666
+Intercept: 0.1232 (0.0039)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6477 (0.0697)
+Z-score: 9.2891
+P: 1.5560e-20
+
+Computing rg for phenotype 3/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par07.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 3/27
+------------------------------
+Total Observed scale h2: 0.0813 (0.0145)
+Lambda GC: 1.0557
+Mean Chi^2: 1.0518
+Intercept: 0.995 (0.0068)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0861 (0.0094)
+Mean z1*z2: 0.2349
+Intercept: 0.1739 (0.0042)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7383 (0.0539)
+Z-score: 13.6906
+P: 1.1557e-42
+
+Computing rg for phenotype 4/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par08.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 4/27
+------------------------------
+Total Observed scale h2: 0.1347 (0.0148)
+Lambda GC: 1.1207
+Mean Chi^2: 1.0939
+Intercept: 1.0005 (0.0067)
+Ratio: 0.0056 (0.0717)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1132 (0.0103)
+Mean z1*z2: 0.2626
+Intercept: 0.1819 (0.0041)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7536 (0.0435)
+Z-score: 17.3316
+P: 2.7188e-67
+
+Computing rg for phenotype 5/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par09.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 5/27
+------------------------------
+Total Observed scale h2: 0.0705 (0.0137)
+Lambda GC: 1.0649
+Mean Chi^2: 1.0532
+Intercept: 1.0043 (0.0064)
+Ratio: 0.0806 (0.1196)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0883 (0.0099)
+Mean z1*z2: 0.2558
+Intercept: 0.1932 (0.0043)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8133 (0.0735)
+Z-score: 11.0663
+P: 1.8284e-28
+
+Computing rg for phenotype 6/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par10.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 6/27
+------------------------------
+Total Observed scale h2: 0.1288 (0.0181)
+Lambda GC: 1.0833
+Mean Chi^2: 1.0815
+Intercept: 0.9911 (0.0068)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1416 (0.0175)
+Mean z1*z2: 0.7369
+Intercept: 0.6368 (0.0065)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.9648 (0.0248)
+Z-score: 38.9318
+P: 0.
+
+Computing rg for phenotype 7/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par11.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 7/27
+------------------------------
+Total Observed scale h2: 0.1107 (0.0146)
+Lambda GC: 1.0895
+Mean Chi^2: 1.0754
+Intercept: 0.9985 (0.0063)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1257 (0.0138)
+Mean z1*z2: 0.5991
+Intercept: 0.5108 (0.0052)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.924 (0.0379)
+Z-score: 24.3871
+P: 2.3441e-131
+
+Computing rg for phenotype 8/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par12.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 8/27
+------------------------------
+Total Observed scale h2: 0.0641 (0.0138)
+Lambda GC: 1.0557
+Mean Chi^2: 1.0434
+Intercept: 0.9988 (0.0059)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0709 (0.0091)
+Mean z1*z2: 0.1791
+Intercept: 0.1283 (0.0038)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6845 (0.0634)
+Z-score: 10.7976
+P: 3.5317e-27
+
+Computing rg for phenotype 9/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par13.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 9/27
+------------------------------
+Total Observed scale h2: 0.0149 (0.0123)
+Lambda GC: 1.0105
+Mean Chi^2: 1.0112
+Intercept: 1.0009 (0.0057)
+Ratio: 0.0798 (0.5084)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0457 (0.0083)
+Mean z1*z2: 0.1877
+Intercept: 0.1552 (0.0038)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.9149 (0.309)
+Z-score: 2.9608
+P: 0.0031
+
+Computing rg for phenotype 10/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par14.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 10/27
+-------------------------------
+Total Observed scale h2: 0.0757 (0.0145)
+Lambda GC: 1.0557
+Mean Chi^2: 1.0479
+Intercept: 0.995 (0.0067)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.08 (0.0097)
+Mean z1*z2: 0.2431
+Intercept: 0.1863 (0.0041)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7107 (0.0593)
+Z-score: 11.9897
+P: 4.0239e-33
+
+Computing rg for phenotype 11/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par15.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 11/27
+-------------------------------
+Total Observed scale h2: 0.0257 (0.0121)
+Lambda GC: 1.0255
+Mean Chi^2: 1.0241
+Intercept: 1.0065 (0.006)
+Ratio: 0.2676 (0.2494)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0568 (0.0079)
+Mean z1*z2: 0.1941
+Intercept: 0.154 (0.0036)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8657 (0.1796)
+Z-score: 4.8203
+P: 1.4334e-06
+
+Computing rg for phenotype 12/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par16.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 12/27
+-------------------------------
+Total Observed scale h2: 0.0933 (0.014)
+Lambda GC: 1.0864
+Mean Chi^2: 1.0693
+Intercept: 1.0047 (0.007)
+Ratio: 0.0684 (0.1006)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0946 (0.0095)
+Mean z1*z2: 0.2585
+Intercept: 0.1916 (0.0039)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7572 (0.0559)
+Z-score: 13.555
+P: 7.3974e-42
+
+Computing rg for phenotype 13/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par17.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 13/27
+-------------------------------
+Total Observed scale h2: 0.1552 (0.0151)
+Lambda GC: 1.127
+Mean Chi^2: 1.1092
+Intercept: 1.0014 (0.0064)
+Ratio: 0.0128 (0.0582)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1249 (0.0112)
+Mean z1*z2: 0.2419
+Intercept: 0.1531 (0.004)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7752 (0.0424)
+Z-score: 18.2938
+P: 9.2762e-75
+
+Computing rg for phenotype 14/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par18.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 14/27
+-------------------------------
+Total Observed scale h2: 0.067 (0.0132)
+Lambda GC: 1.0649
+Mean Chi^2: 1.0489
+Intercept: 1.0022 (0.0064)
+Ratio: 0.0445 (0.1317)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0832 (0.0098)
+Mean z1*z2: 0.2442
+Intercept: 0.1846 (0.0043)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7856 (0.0721)
+Z-score: 10.9015
+P: 1.1343e-27
+
+Computing rg for phenotype 15/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par19.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 15/27
+-------------------------------
+Total Observed scale h2: 0.0408 (0.0135)
+Lambda GC: 1.0405
+Mean Chi^2: 1.0319
+Intercept: 1.0039 (0.0059)
+Ratio: 0.1215 (0.1846)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0731 (0.0082)
+Mean z1*z2: 0.2295
+Intercept: 0.1783 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8846 (0.1245)
+Z-score: 7.1058
+P: 1.1960e-12
+
+Computing rg for phenotype 16/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par20.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 16/27
+-------------------------------
+Total Observed scale h2: 0.1454 (0.0172)
+Lambda GC: 1.1019
+Mean Chi^2: 1.0987
+Intercept: 0.9957 (0.007)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1342 (0.015)
+Mean z1*z2: 0.5221
+Intercept: 0.4269 (0.0056)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8603 (0.0334)
+Z-score: 25.7609
+P: 2.4339e-146
+
+Computing rg for phenotype 17/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par21.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 17/27
+-------------------------------
+Total Observed scale h2: 0.0587 (0.0153)
+Lambda GC: 1.0405
+Mean Chi^2: 1.0348
+Intercept: 0.9938 (0.0063)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1005 (0.0142)
+Mean z1*z2: 0.5438
+Intercept: 0.4726 (0.0054)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 1.0137 (0.0677)
+Z-score: 14.9636
+P: 1.2704e-50
+
+Computing rg for phenotype 18/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par22.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 18/27
+-------------------------------
+Total Observed scale h2: 0.1553 (0.015)
+Lambda GC: 1.1175
+Mean Chi^2: 1.1046
+Intercept: 0.9963 (0.0064)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1293 (0.0124)
+Mean z1*z2: 0.4052
+Intercept: 0.3135 (0.0047)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.8025 (0.0344)
+Z-score: 23.3244
+P: 2.5092e-120
+
+Computing rg for phenotype 19/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par23.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 19/27
+-------------------------------
+Total Observed scale h2: 0.0248 (0.0133)
+Lambda GC: 1.0195
+Mean Chi^2: 1.0209
+Intercept: 1.0035 (0.006)
+Ratio: 0.1663 (0.29)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0786 (0.0119)
+Mean z1*z2: 0.4747
+Intercept: 0.4193 (0.0047)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 20/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par24.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 20/27
+-------------------------------
+Total Observed scale h2: 0.0818 (0.0151)
+Lambda GC: 1.0649
+Mean Chi^2: 1.059
+Intercept: 1.0011 (0.0061)
+Ratio: 0.0192 (0.1036)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0764 (0.0096)
+Mean z1*z2: 0.201
+Intercept: 0.1463 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6529 (0.06)
+Z-score: 10.8905
+P: 1.2793e-27
+
+Computing rg for phenotype 21/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par25.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 21/27
+-------------------------------
+Total Observed scale h2: 0.0244 (0.0139)
+Lambda GC: 1.0135
+Mean Chi^2: 1.0136
+Intercept: 0.9968 (0.006)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.058 (0.0085)
+Mean z1*z2: 0.1881
+Intercept: 0.1472 (0.0035)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.9083 (0.2205)
+Z-score: 4.1196
+P: 3.7953e-05
+
+Computing rg for phenotype 22/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par26.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 22/27
+-------------------------------
+Total Observed scale h2: 0.0034 (0.0119)
+Lambda GC: 0.9957
+Mean Chi^2: 1.0032
+Intercept: 1.0009 (0.006)
+Ratio: 0.2813 (1.8503)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0369 (0.0077)
+Mean z1*z2: 0.1822
+Intercept: 0.1561 (0.0039)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 23/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par27.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 23/27
+-------------------------------
+Total Observed scale h2: 0.0094 (0.0125)
+Lambda GC: 1.0135
+Mean Chi^2: 1.015
+Intercept: 1.0086 (0.006)
+Ratio: 0.5738 (0.3974)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0521 (0.0085)
+Mean z1*z2: 0.1911
+Intercept: 0.1543 (0.0034)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+Computing rg for phenotype 24/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 24/27
+-------------------------------
+Total Observed scale h2: 0.0715 (0.0147)
+Lambda GC: 1.0527
+Mean Chi^2: 1.042
+Intercept: 0.9917 (0.0061)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0739 (0.0085)
+Mean z1*z2: 0.2171
+Intercept: 0.1647 (0.0037)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6754 (0.0595)
+Z-score: 11.3598
+P: 6.6267e-30
+
+Computing rg for phenotype 25/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 25/27
+-------------------------------
+Total Observed scale h2: 0.0422 (0.0131)
+Lambda GC: 1.0315
+Mean Chi^2: 1.0315
+Intercept: 1.0019 (0.0068)
+Ratio: 0.0617 (0.2162)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.066 (0.0089)
+Mean z1*z2: 0.2421
+Intercept: 0.1952 (0.0039)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.7853 (0.094)
+Z-score: 8.3518
+P: 6.7228e-17
+
+Computing rg for phenotype 26/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 26/27
+-------------------------------
+Total Observed scale h2: 0.0153 (0.0123)
+Lambda GC: 1.0135
+Mean Chi^2: 1.0103
+Intercept: 0.9997 (0.0059)
+Ratio < 0 (usually indicates GC correction).
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0469 (0.0073)
+Mean z1*z2: 0.1845
+Intercept: 0.1515 (0.0035)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.9273 (0.335)
+Z-score: 2.7679
+P: 0.0056
+
+Computing rg for phenotype 27/27
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1168875 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 27/27
+-------------------------------
+Total Observed scale h2: 0.0026 (0.0109)
+Lambda GC: 1.0135
+Mean Chi^2: 1.0125
+Intercept: 1.0107 (0.0056)
+Ratio: 0.8583 (0.4511)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0454 (0.0079)
+Mean z1*z2: 0.1865
+Intercept: 0.1544 (0.0035)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: nan (nan) (rg out of bounds) 
+Z-score: nan (nan) (rg out of bounds)
+P: nan (nan) (rg out of bounds)
+WARNING: rg was out of bounds.
+This often means that h2 is not significantly different from zero.
+
+
+Summary of Genetic Correlation Results
+                                                                                            p1                                                                                             p2      rg      se        z            p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par06.sumstats.gz  0.6477  0.0697   9.2891   1.5560e-20  0.0520     0.0136  1.0018     0.0058    0.1232       0.0039
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par07.sumstats.gz  0.7383  0.0539  13.6906   1.1557e-42  0.0813     0.0145  0.9950     0.0068    0.1739       0.0042
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par08.sumstats.gz  0.7536  0.0435  17.3316   2.7188e-67  0.1347     0.0148  1.0005     0.0067    0.1819       0.0041
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par09.sumstats.gz  0.8133  0.0735  11.0663   1.8284e-28  0.0705     0.0137  1.0043     0.0064    0.1932       0.0043
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par10.sumstats.gz  0.9648  0.0248  38.9318   0.0000e+00  0.1288     0.0181  0.9911     0.0068    0.6368       0.0065
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par11.sumstats.gz  0.9240  0.0379  24.3871  2.3441e-131  0.1107     0.0146  0.9985     0.0063    0.5108       0.0052
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par12.sumstats.gz  0.6845  0.0634  10.7976   3.5317e-27  0.0641     0.0138  0.9988     0.0059    0.1283       0.0038
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par13.sumstats.gz  0.9149  0.3090   2.9608   3.0688e-03  0.0149     0.0123  1.0009     0.0057    0.1552       0.0038
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par14.sumstats.gz  0.7107  0.0593  11.9897   4.0239e-33  0.0757     0.0145  0.9950     0.0067    0.1863       0.0041
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par15.sumstats.gz  0.8657  0.1796   4.8203   1.4334e-06  0.0257     0.0121  1.0065     0.0060    0.1540       0.0036
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par16.sumstats.gz  0.7572  0.0559  13.5550   7.3974e-42  0.0933     0.0140  1.0047     0.0070    0.1916       0.0039
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par17.sumstats.gz  0.7752  0.0424  18.2938   9.2762e-75  0.1552     0.0151  1.0014     0.0064    0.1531       0.0040
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par18.sumstats.gz  0.7856  0.0721  10.9015   1.1343e-27  0.0670     0.0132  1.0022     0.0064    0.1846       0.0043
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par19.sumstats.gz  0.8846  0.1245   7.1058   1.1960e-12  0.0408     0.0135  1.0039     0.0059    0.1783       0.0037
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par20.sumstats.gz  0.8603  0.0334  25.7609  2.4339e-146  0.1454     0.0172  0.9957     0.0070    0.4269       0.0056
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par21.sumstats.gz  1.0137  0.0677  14.9636   1.2704e-50  0.0587     0.0153  0.9938     0.0063    0.4726       0.0054
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par22.sumstats.gz  0.8025  0.0344  23.3244  2.5092e-120  0.1553     0.0150  0.9963     0.0064    0.3135       0.0047
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par23.sumstats.gz  1.2214  0.2413   5.0621   4.1469e-07  0.0248     0.0133  1.0035     0.0060    0.4193       0.0047
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par24.sumstats.gz  0.6529  0.0600  10.8905   1.2793e-27  0.0818     0.0151  1.0011     0.0061    0.1463       0.0037
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par25.sumstats.gz  0.9083  0.2205   4.1196   3.7953e-05  0.0244     0.0139  0.9968     0.0060    0.1472       0.0035
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par26.sumstats.gz  1.5548  3.2733   0.4750   6.3480e-01  0.0034     0.0119  1.0009     0.0060    0.1561       0.0039
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par27.sumstats.gz  1.3165  0.7753   1.6980   8.9502e-02  0.0094     0.0125  1.0086     0.0060    0.1543       0.0034
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par28.sumstats.gz  0.6754  0.0595  11.3598   6.6267e-30  0.0715     0.0147  0.9917     0.0061    0.1647       0.0037
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par29.sumstats.gz  0.7853  0.0940   8.3518   6.7228e-17  0.0422     0.0131  1.0019     0.0068    0.1952       0.0039
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par30.sumstats.gz  0.9273  0.3350   2.7679   5.6413e-03  0.0153     0.0123  0.9997     0.0059    0.1515       0.0035
+ ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par05.sumstats.gz  ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par31.sumstats.gz  2.1732  5.5490   0.3916   6.9533e-01  0.0026     0.0109  1.0107     0.0056    0.1544       0.0035
+
+Analysis finished at Mon Apr 11 22:26:51 2022
+Total time elapsed: 2.0m:28.8s
