@@ -1,4 +1,4 @@
-\begin{thebibliography}{76}
+\begin{thebibliography}{78}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -599,6 +599,22 @@ John~R. Finnerty.
 \newblock \doi{10.1387/IJDB.14756328}.
 \newblock URL \url{http://www.ijdb.ehu.es/web/paper/14756328}.
 
+\bibitem[Finucane et~al.(2015)Finucane, Bulik-Sullivan, Gusev, Trynka, Reshef,
+  Loh, Anttila, Xu, Zang, Farh, Ripke, Day, Purcell, Stahl, Lindstrom, Perry,
+  Okada, Raychaudhuri, Daly, Patterson, Neale, and Price]{Finucane2015}
+Hilary~K. Finucane, Brendan Bulik-Sullivan, Alexander Gusev, Gosia Trynka,
+  Yakir Reshef, Po~Ru Loh, Verneri Anttila, Han Xu, Chongzhi Zang, Kyle Farh,
+  Stephan Ripke, Felix~R. Day, Shaun Purcell, Eli Stahl, Sara Lindstrom,
+  John~R.B. Perry, Yukinori Okada, Soumya Raychaudhuri, Mark~J. Daly, Nick
+  Patterson, Benjamin~M. Neale, and Alkes~L. Price.
+\newblock {Partitioning heritability by functional annotation using genome-wide
+  association summary statistics}.
+\newblock \emph{Nature Genetics 2015 47:11}, 47\penalty0 (11):\penalty0
+  1228--1235, sep 2015.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/ng.3404}.
+\newblock URL \url{https://www.nature.com/articles/ng.3404}.
+
 \bibitem[Galesloot et~al.(2014)Galesloot, {Van Steen}, Kiemeney, Janss, and
   Vermeulen]{Galesloot2014}
 Tessel~E. Galesloot, Kristel {Van Steen}, Lambertus~A.L.M. Kiemeney, Luc~L.
@@ -1004,6 +1020,17 @@ Lauren~N. Telano and Stephen Baker.
 \newblock {Physiology, Cerebral Spinal Fluid}.
 \newblock \emph{StatPearls}, jul 2021.
 \newblock URL \url{https://www.ncbi.nlm.nih.gov/books/NBK519007/}.
+
+\bibitem[Trynka et~al.(2013)Trynka, Sandor, Han, Xu, Stranger, Liu, and
+  Raychaudhuri]{Trynka2013}
+Gosia Trynka, Cynthia Sandor, Buhm Han, Han Xu, Barbara~E. Stranger, X.~Shirley
+  Liu, and Soumya Raychaudhuri.
+\newblock {Chromatin marks identify critical cell types for fine mapping
+  complex trait variants}.
+\newblock \emph{Nature genetics}, 45\penalty0 (2):\penalty0 124--130, feb 2013.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/NG.2504}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/23263488/}.
 
 \bibitem[Uffelmann et~al.(2021)Uffelmann, Huang, Munung, de~Vries, Okada,
   Martin, Martin, Lappalainen, and Posthuma]{Uffelmann2021}

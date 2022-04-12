@@ -13,45 +13,45 @@ Illegal, another \bibstyle command---line 54 of file main.aux
  :          {abbrv}
 I'm skipping whatever remains of this command
 Database file #1: references.bib
-You've used 76 entries,
+You've used 78 entries,
             2773 wiz_defined-function locations,
-            1311 strings with 48322 characters,
-and the built_in function-call counts, 94850 in all, are:
-= -- 7174
-> -- 12121
+            1328 strings with 49260 characters,
+and the built_in function-call counts, 97116 in all, are:
+= -- 7355
+> -- 12388
 < -- 29
-+ -- 4048
-- -- 3969
-* -- 10322
-:= -- 16144
-add.period$ -- 413
-call.type$ -- 76
-change.case$ -- 1553
-chr.to.int$ -- 73
-cite$ -- 152
-duplicate$ -- 1628
-empty$ -- 3027
-format.name$ -- 4071
-if$ -- 18186
++ -- 4137
+- -- 4056
+* -- 10572
+:= -- 16525
+add.period$ -- 425
+call.type$ -- 78
+change.case$ -- 1588
+chr.to.int$ -- 75
+cite$ -- 156
+duplicate$ -- 1670
+empty$ -- 3111
+format.name$ -- 4160
+if$ -- 18623
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 75
-newline$ -- 569
-num.names$ -- 304
-pop$ -- 2816
+missing$ -- 77
+newline$ -- 585
+num.names$ -- 312
+pop$ -- 2876
 preamble$ -- 1
-purify$ -- 1475
+purify$ -- 1508
 quote$ -- 0
-skip$ -- 2257
+skip$ -- 2308
 stack$ -- 0
-substring$ -- 1626
-swap$ -- 184
+substring$ -- 1686
+swap$ -- 188
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 831
+type$ -- 853
 warning$ -- 0
-while$ -- 351
+while$ -- 361
 width$ -- 0
-write$ -- 1361
+write$ -- 1399
 (There was 1 error message)
