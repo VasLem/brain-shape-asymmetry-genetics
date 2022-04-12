@@ -6,8 +6,8 @@ cd ../../python
 
 ROOT_DIR=".."
 
-MUNGED_DIR=$ROOT_DIR/results/ldsc/$DATASET_ID/munged
-RG_DIR=$ROOT_DIR/results/ldsc/$DATASET_ID/rg
+MUNGED_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/munged
+RG_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/rg
 mkdir -p $RG_DIR
 for i in {1..30}; do
     par_i=$(printf "%02.f" $i)
@@ -20,7 +20,7 @@ for i in {1..30}; do
     ./ldsc/ldsc.py --rg $files --ref-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --w-ld-chr $ROOT_DIR/SAMPLE_DATA/eur_w_ld_chr/ --out $RG_DIR/par$par_i
 done
 
-ret="$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/rg/correlation.csv"
+ret="$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/rg/auto_correlation.csv"
 rm -f $ret
 for i in {1..30}; do
     par_i=$(printf "%02.f" $i)

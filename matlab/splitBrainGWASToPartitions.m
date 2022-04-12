@@ -3,7 +3,7 @@ load("../SAMPLE_DATA/BRAIN_SHAPE_GWAS/BRAINGWAS.mat");
 %%
 OUTPUT_DIR = '../SAMPLE_DATA/BRAIN_SHAPE_PARTITIONS/';
 if ~isfolder(OUTPUT_DIR), mkdir(OUTPUT_DIR); end
-for par=1:285
+parfor par=1:285
     fil = sprintf("%spar%02d.csv",OUTPUT_DIR, par);
     tab = table;
     tab.rsID = GWAS.RS;
@@ -15,7 +15,7 @@ for par=1:285
     tab.ChiScore = double(GWAS.CHI(:, par)) / 10000;
     tab.chromosome = GWAS.CHR;
     tab = tab(~isnan(tab.ChiScore), :);
-    tab.ChiScore = tab.ChiScore - mean(tab.ChiScore) + 1;
+    tab.ChiScore = tab.ChiScore - min(tab.ChiScore) + 1; % push the minimum value to 1
    
     writetable(tab, fil);
     gzip(fil);
