@@ -235,20 +235,21 @@ $\alpha$ is the contribution of population-related effects, such as population s
 $$
 E\left[\frac{\chi^2_j}{D\left(1+\frac{\chi^2_j}{N}\right)}\right] = \frac{N-1}{P}\left(\frac{\sum_{d=1}^{D}h_d^2}{D}\right)l_j +1 + O\left(\frac{1}{N}\right)
 $$
-The basic underlying assumptions is that each \ac{snp} effect is assessed independently from the rest and that the covariance matrix of the phenotype equals the identity matrix multiplied by N, namely that the studied traits are orthogonal to each other.
-
+The basic underlying assumptions are:
+\begin{itemize}
+	\item{The \ac{snp} heritability follows a uniform distribution, i.e. it is on average the same genome wide. Extensions have been made to relax this, generally wrong \cite{Trynka2013}, assumption, by considering partitions of \ac{snp} separately and doing what is known as stratified \ac{ldsc} regression. \cite{Finucane2015}}
+	\item{Each \ac{snp} effect is assessed independently from the rest.}
+	\item{The covariance matrix of the phenotype equals the identity matrix multiplied by N, that is the studied traits are orthogonal to each other.}
+\end{itemize}
 \subsection{\Ac{ldsc} genetic correlation}
+
 \citet{Bulik-Sullivan2015_cor} also invented a way to utilize \ac{gwas} results produced for two different traits as a proxy to relate the genetic correlation of these traits, namely the extent over which the two characteristics are being regulated by similar genetic drivers:
 $$
-E[z_1z_2l_j] = \frac{\sqrt{N_1N_2}\rho_g}{M}l_j + \frac{\rho N_s}{\sqrt{N_1N_2}}
-$$ 
-
-
+E[z_{1j}z_{2j}|l_j] = \frac{\sqrt{N_1N_2}\rho_g}{M}l_j + \frac{\rho N_s}{\sqrt{N_1N_2}}
+$$
 
 
 The analysis outcome requires further processing, as explained in \autoref{sec:postprocessing}, to account for the main weakness of this method, that it does not consider the \ac{snp}-to-\ac{snp} effect, tackled using as proxy the notion of \ac{ld}, and subsequently to topologically and functionally enhance the filtered findings. Once this additional step has been performed, a cross-traits analysis is applied, described in \autoref{sec:metaanalysis}, where the \ac{da} genetic signature is compared with the signatures of phenotypic traits, analyzed in a similar study \cite{Naqvi2021}, the cerebral and facial shapes.
-
-
 
 
 
