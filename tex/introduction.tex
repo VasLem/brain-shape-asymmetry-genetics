@@ -249,8 +249,8 @@ $$
 where $O(1/N)$ term is corresponding to the confounding biases effect.
 The basic underlying assumptions, or limitations, of such a model are:
 \begin{itemize}
-	\item{The \ac{snp} heritability follows a uniform distribution, i.e. it is on average the same genome wide. Extensions have been made to relax this, generally wrong \cite{Trynka2013}, assumption, by considering partitions of \ac{snp} separately and doing what is known as stratified \ac{ldsc} regression\cite{Finucane2015}. This method was based on existing chromatin activity profiles, that is the average suppression of genetic loci, per cell type. A further gene-specific development by \citet{Finucane2018} was performed to instead incorporate gene expression profiles per cell type.
-	\item{Each \ac{snp} effect is assessed independently from the rest, therefore no between-\ac{snp} interactions can be included in the computation.
+	\item{The \ac{snp} heritability follows a uniform distribution, i.e. it is on average the same genome wide. Extensions have been made to relax this, generally wrong \cite{Trynka2013}, assumption, by considering partitions of \acp{snp} separately and doing what is known as stratified \ac{ldsc} regression\cite{Finucane2015}, based on existing chromatin activity profiles, the average suppression of genetic loci, per cell type. A further gene-specific development by \citet{Finucane2018} was performed instead to incorporate gene expression profiles per cell type.}
+	\item{Each \ac{snp} effect is assessed independently from the rest, therefore no between-\acp{snp} interactions can be included in the computation.}
 	\item{The covariance matrix of the phenotype equals the identity matrix multiplied by N, that is the studied traits are orthogonal to each other.}
 \end{itemize}
 
@@ -261,8 +261,20 @@ E[z_{1j}z_{2j}|l_j] = \frac{\sqrt{N_1N_2}\rho_g}{M}l_j + \frac{\rho N_s}{\sqrt{N
 $$
 The conversion between $\chi^2$ with 1 \ac{dof} and $z$ score values is straightforward, as, by definition, the square of a standard normal distribution follows the $\chi^2$ one with 1 \ac{dof}. In other words, the equation above retrogresses to the \ac{ldsc} regression one, if traits 1 and 2 are considered the same. With \ac{ldsc} correlation, seemingly independent phenotypes can be compared, testing for pleiotropic \ac{snp} effects and discovering novel biological pathways \cite{Bulik-Sullivan2015_cor}.
 
-\subsection{Generalizing to genes}
-As previously stated, the majority of \acp{snp} resides in non-coding region and the way significant variants in such regions affect the gene expression has not been deciphered yet. Nevertheless, methods have been created to map them onto gene space. One of such
+\subsection{Generalizing to genes - Functional association}
+The next natural step to perform, once significant variants have been identified for a specific phenotype, is to investigate the ways that such an association is realized, ultimately supporting the assembly of the complex relationships graph between genetics and actual observations. This kind of venture is largely obfuscated, given the little amount of knowledge that exists to fill the relational path. The majority of \acp{snp} reside in intronic regions \cite{Belmont2003}. A great number of them is also likely to exhibit cis-acting effects. Surprising is also the event that \acp{snp} mapped on an exon of a known gene can be actually manifesting significant correlation with a trait, such as obesity \cite{Claussnitzer2015}, through the interaction with a different gene. Resolution of \ac{gwas} in discovering causal genes is also being limited by the number of studied individuals, the genotyping arrays technologies and the existence of \ac{ld} \cite{Do2017}, with the lead \acp{snp} not necessarily being the functional source of the association signal. Even by ignoring the ambiguous relationships and by knowing the start and end of an association path, the probabilities are thin that the exact trajectory can be derived.
+
+Nevertheless, active research is being performed, to approximate and model the underlying dynamics. Highly trait-specific and exhaustive wet-lab ablation studies, that include genome editing, can profoundly reduce the functional analysis complexity, particularly when little evolutionary and ethical barriers exist, and the analyzed trait has low dimensionality \cite{Rao2021}. In the general case, though, modeling and approximations need to be performed, in order to deal with the task. Population stratification and ethnic group variation has shown little interference in common variants analyses \cite{Visscher2012}, at least when considering \ac{gwas} on various diseases, a fact that points to highly frequent and widely distributed causal alleles and may support a form of simplification for the described, seemingly physically and computationally intractable task, possibly allowing for the unification of results from diverse ethnicity experiments. In addition, a gradual incorporation of multiple knowledge sources is taking place to support this undertake; findings from \ac{rna} expression profiling (such as RNAseq and scRNAseq) \cite{Yan2020,Zhou2022} or epigenetic regulation studies (such as ATACseq and CHIPseq) \cite{Corces2020,Huo2019}, that could potentially provide snapshots of genes expression during development, are cross-tested against \ac{gwas}. Through identification of cell types by genetic expression profiles clustering and association between tissues and identified clusters, localized analyses can be more accurate in extracting \ac{snp}-to-gene relationships \cite{Cano-Gamez2020}.
+
+
+The key approximation required to combine information is to map the underlying information onto the same space. The most elementary common studied structure in these analyses is the gene, therefore the significant loci are usually mapped to the analyses
+
+FOR FURTHER READ:
+https://www.frontiersin.org/articles/10.3389/fgene.2020.00424/full#B131 (for gene analysis)
+https://www.nature.com/articles/s41576-018-0016-z (For snp analysis)
+
+
+
 
 
 \subsection{Functional association}

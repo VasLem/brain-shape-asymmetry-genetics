@@ -13,45 +13,50 @@ Illegal, another \bibstyle command---line 54 of file main.aux
  :          {abbrv}
 I'm skipping whatever remains of this command
 Database file #1: references.bib
-You've used 78 entries,
+Repeated entry---line 2731 of file references.bib
+ : @article{Visscher2012
+ :                      ,
+I'm skipping whatever remains of this entry
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+You've used 87 entries,
             2773 wiz_defined-function locations,
-            1328 strings with 49260 characters,
-and the built_in function-call counts, 97116 in all, are:
-= -- 7355
-> -- 12388
-< -- 29
-+ -- 4137
-- -- 4056
-* -- 10572
-:= -- 16525
-add.period$ -- 425
-call.type$ -- 78
-change.case$ -- 1588
-chr.to.int$ -- 75
-cite$ -- 156
-duplicate$ -- 1670
-empty$ -- 3111
-format.name$ -- 4160
-if$ -- 18623
+            1408 strings with 53424 characters,
+and the built_in function-call counts, 105482 in all, are:
+= -- 8033
+> -- 13324
+< -- 30
++ -- 4449
+- -- 4359
+* -- 11471
+:= -- 17934
+add.period$ -- 477
+call.type$ -- 87
+change.case$ -- 1716
+chr.to.int$ -- 84
+cite$ -- 174
+duplicate$ -- 1858
+empty$ -- 3455
+format.name$ -- 4474
+if$ -- 20249
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 77
-newline$ -- 585
-num.names$ -- 312
-pop$ -- 2876
+missing$ -- 86
+newline$ -- 655
+num.names$ -- 348
+pop$ -- 3089
 preamble$ -- 1
-purify$ -- 1508
+purify$ -- 1627
 quote$ -- 0
-skip$ -- 2308
+skip$ -- 2510
 stack$ -- 0
-substring$ -- 1686
-swap$ -- 188
+substring$ -- 1851
+swap$ -- 206
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 853
+type$ -- 952
 warning$ -- 0
-while$ -- 361
+while$ -- 403
 width$ -- 0
-write$ -- 1399
-(There was 1 error message)
+write$ -- 1566
+(There were 2 error messages)

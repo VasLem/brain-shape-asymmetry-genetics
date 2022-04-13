@@ -1,4 +1,4 @@
-\begin{thebibliography}{78}
+\begin{thebibliography}{87}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -268,6 +268,14 @@ Brendan Bulik-Sullivan, Po~Ru Loh, Hilary~K. Finucane, Stephan Ripke, Jian
 \newblock \doi{10.1038/ng.3211}.
 \newblock URL \url{https://www.nature.com/articles/ng.3211}.
 
+\bibitem[Cano-Gamez and Trynka(2020)]{Cano-Gamez2020}
+Eddie Cano-Gamez and Gosia Trynka.
+\newblock {From GWAS to Function: Using Functional Genomics to Identify the
+  Mechanisms Underlying Complex Diseases}.
+\newblock \emph{Frontiers in Genetics}, 11:\penalty0 424, may 2020.
+\newblock ISSN 16648021.
+\newblock \doi{10.3389/FGENE.2020.00424/BIBTEX}.
+
 \bibitem[Cara et~al.(2022)Cara, Streata, Buga, and Iliescu]{Cara2022}
 Monica~Laura Cara, Ioana Streata, Ana~Maria Buga, and Dominic~Gabriel Iliescu.
 \newblock {Developmental Brain Asymmetry. The Good and the Bad Sides}.
@@ -319,6 +327,21 @@ Peter Claes, Jasmien Roosenboom, Julie~D White, Tomek Swigut, Dzemila Sero,
 \newblock \doi{10.1038/s41588-018-0057-4}.
 \newblock URL \url{https://doi.org/10.1038/s41588-018-0057-4}.
 
+\bibitem[Claussnitzer et~al.(2015)Claussnitzer, Dankel, Kim, Quon, Meuleman,
+  Haugen, Glunk, Sousa, Beaudry, Puviindran, Abdennur, Liu, Svensson, Hsu,
+  Drucker, Mellgren, Hui, Hauner, and Kellis]{Claussnitzer2015}
+Melina Claussnitzer, Simon~N. Dankel, Kyoung-Han Kim, Gerald Quon, Wouter
+  Meuleman, Christine Haugen, Viktoria Glunk, Isabel~S. Sousa, Jacqueline~L.
+  Beaudry, Vijitha Puviindran, Nezar~A. Abdennur, Jannel Liu, Per-Arne
+  Svensson, Yi-Hsiang Hsu, Daniel~J. Drucker, Gunnar Mellgren, Chi-Chung Hui,
+  Hans Hauner, and Manolis Kellis.
+\newblock {FTO Obesity Variant Circuitry and Adipocyte Browning in Humans }.
+\newblock \emph{New England Journal of Medicine}, 373\penalty0 (10):\penalty0
+  895--907, sep 2015.
+\newblock ISSN 0028-4793.
+\newblock \doi{10.1056/NEJMOA1502214/SUPPL_FILE/NEJMOA1502214_DISCLOSURES.PDF}.
+\newblock URL \url{https://www.nejm.org/doi/10.1056/NEJMoa1502214}.
+
 \bibitem[Concha et~al.(2012)Concha, Bianco, and Wilson]{Concha2012}
 Miguel~L. Concha, Isaac~H. Bianco, and Stephen~W. Wilson.
 \newblock {Encoding asymmetry within neural circuits}.
@@ -336,6 +359,23 @@ Michael~C. Corballis.
 \newblock ISSN 14712970.
 \newblock \doi{10.1098/RSTB.2008.0232}.
 \newblock URL \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2666079/}.
+
+\bibitem[Corces et~al.(2020)Corces, Shcherbina, Kundu, Gloudemans,
+  Fr{\'{e}}sard, Granja, Louie, Eulalio, Shams, Bagdatli, Mumbach, Liu,
+  Montine, Greenleaf, Kundaje, Montgomery, Chang, and Montine]{Corces2020}
+M.~Ryan Corces, Anna Shcherbina, Soumya Kundu, Michael~J. Gloudemans, Laure
+  Fr{\'{e}}sard, Jeffrey~M. Granja, Bryan~H. Louie, Tiffany Eulalio, Shadi
+  Shams, S.~Tansu Bagdatli, Maxwell~R. Mumbach, Boxiang Liu, Kathleen~S.
+  Montine, William~J. Greenleaf, Anshul Kundaje, Stephen~B. Montgomery,
+  Howard~Y. Chang, and Thomas~J. Montine.
+\newblock {Single-cell epigenomic analyses implicate candidate causal variants
+  at inherited risk loci for Alzheimer's and Parkinson's diseases}.
+\newblock \emph{Nature genetics}, 52\penalty0 (11):\penalty0 1158, nov 2020.
+\newblock ISSN 15461718.
+\newblock \doi{10.1038/S41588-020-00721-X}.
+\newblock URL \url{/pmc/articles/PMC7606627/
+  /pmc/articles/PMC7606627/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7606627/}.
 
 \bibitem[de~Manzano and Ull{\'{e}}n(2018)]{Manzano2018}
 {\"{O}}rjan de~Manzano and Fredrik Ull{\'{e}}n.
@@ -370,6 +410,19 @@ Erin~W. Dickie, Alan Anticevic, Dawn~E. Smith, Timothy~S. Coalson, Mathuvanthi
 \newblock URL \url{/pmc/articles/PMC6675413/
   /pmc/articles/PMC6675413/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6675413/}.
+
+\bibitem[Do et~al.(2017)Do, Shearer, Suzuki, Terry, Gelernter, Greally, and
+  Tycko]{Do2017}
+Catherine Do, Alyssa Shearer, Masako Suzuki, Mary~Beth Terry, Joel Gelernter,
+  John~M. Greally, and Benjamin Tycko.
+\newblock {Genetic–epigenetic interactions in cis: a major focus in the
+  post-GWAS era}.
+\newblock \emph{Genome Biology 2017 18:1}, 18\penalty0 (1):\penalty0 1--22, jun
+  2017.
+\newblock ISSN 1474-760X.
+\newblock \doi{10.1186/S13059-017-1250-Y}.
+\newblock URL
+  \url{https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1250-y}.
 
 \bibitem[Dunham et~al.(2012)Dunham, Kundaje, Aldred, Collins, Davis, Doyle,
   Epstein, Frietze, Harrow, Kaul, Khatun, Lajoie, Landt, Lee, Pauli,
@@ -615,6 +668,23 @@ Hilary~K. Finucane, Brendan Bulik-Sullivan, Alexander Gusev, Gosia Trynka,
 \newblock \doi{10.1038/ng.3404}.
 \newblock URL \url{https://www.nature.com/articles/ng.3404}.
 
+\bibitem[Finucane et~al.(2018)Finucane, Reshef, Anttila, Slowikowski, Gusev,
+  Byrnes, Gazal, Loh, Lareau, Shoresh, Genovese, Saunders, Macosko, Pollack,
+  Perry, Buenrostro, Bernstein, Raychaudhuri, McCarroll, Neale, and
+  Price]{Finucane2018}
+Hilary~K. Finucane, Yakir~A. Reshef, Verneri Anttila, Kamil Slowikowski,
+  Alexander Gusev, Andrea Byrnes, Steven Gazal, Po~Ru Loh, Caleb Lareau, Noam
+  Shoresh, Giulio Genovese, Arpiar Saunders, Evan Macosko, Samuela Pollack,
+  John~R.B. Perry, Jason~D. Buenrostro, Bradley~E. Bernstein, Soumya
+  Raychaudhuri, Steven McCarroll, Benjamin~M. Neale, and Alkes~L. Price.
+\newblock {Heritability enrichment of specifically expressed genes identifies
+  disease-relevant tissues and cell types}.
+\newblock \emph{Nature Genetics 2018 50:4}, 50\penalty0 (4):\penalty0 621--629,
+  apr 2018.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/s41588-018-0081-4}.
+\newblock URL \url{https://www.nature.com/articles/s41588-018-0081-4}.
+
 \bibitem[Galesloot et~al.(2014)Galesloot, {Van Steen}, Kiemeney, Janss, and
   Vermeulen]{Galesloot2014}
 Tessel~E. Galesloot, Kristel {Van Steen}, Lambertus~A.L.M. Kiemeney, Luc~L.
@@ -695,6 +765,16 @@ M~R Herbert, D~A Ziegler, C~K Deutsch, L~M O'Brien, D~N Kennedy, P~A Filipek,
 \newblock ISSN 0006-8950.
 \newblock \doi{10.1093/brain/awh330}.
 \newblock URL \url{https://doi.org/10.1093/brain/awh330}.
+
+\bibitem[Huo et~al.(2019)Huo, Li, Liu, Li, and Luo]{Huo2019}
+Yongxia Huo, Shiwu Li, Jiewei Liu, Xiaoyan Li, and Xiong~Jian Luo.
+\newblock {Functional genomics reveal gene regulatory mechanisms underlying
+  schizophrenia risk}.
+\newblock \emph{Nature Communications 2019 10:1}, 10\penalty0 (1):\penalty0
+  1--19, feb 2019.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-019-08666-4}.
+\newblock URL \url{https://www.nature.com/articles/s41467-019-08666-4}.
 
 \bibitem[Jackson et~al.(2011)Jackson, Riley, and White]{Jackson2011}
 Dan Jackson, Richard Riley, and Ian~R. White.
@@ -958,6 +1038,17 @@ Vasily Ramensky, Peer Bork, and Shamil Sunyaev.
 \newblock \doi{10.1093/NAR/GKF493}.
 \newblock URL \url{https://academic.oup.com/nar/article/30/17/3894/2376118}.
 
+\bibitem[Rao et~al.(2021)Rao, Yao, and Bauer]{Rao2021}
+Shuquan Rao, Yao Yao, and Daniel~E. Bauer.
+\newblock {Editing GWAS: experimental approaches to dissect and exploit
+  disease-associated genetic variation}.
+\newblock \emph{Genome Medicine 2021 13:1}, 13\penalty0 (1):\penalty0 1--20,
+  mar 2021.
+\newblock ISSN 1756-994X.
+\newblock \doi{10.1186/S13073-021-00857-3}.
+\newblock URL
+  \url{https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00857-3}.
+
 \bibitem[Ribolsi et~al.(2014)Ribolsi, Daskalakis, Siracusano, and
   Koch]{Ribolsi2014}
 Michele Ribolsi, Zafiris~J Daskalakis, Alberto Siracusano, and Giacomo Koch.
@@ -1136,5 +1227,29 @@ Mandy Melissa~Jane Wittens, Gert~Jan Allemeersch, Diana~Maria Sima, Maarten
 \newblock \emph{Frontiers in Aging Neuroscience}, 13:\penalty0 641, oct 2021.
 \newblock ISSN 16634365.
 \newblock \doi{10.3389/FNAGI.2021.746982/BIBTEX}.
+
+\bibitem[Yan et~al.(2020)Yan, Huang, Freebern, Santos, Dai, Si, Ma, Cao, Guo,
+  Liu, Ma, Fang, and Zhang]{Yan2020}
+Ze~Yan, Hetian Huang, Ellen Freebern, Daniel~J.A. Santos, Dongmei Dai, Jingfang
+  Si, Chong Ma, Jie Cao, Gang Guo, George~E. Liu, Li~Ma, Lingzhao Fang, and
+  Yi~Zhang.
+\newblock {Integrating RNA-Seq with GWAS reveals novel insights into the
+  molecular mechanism underpinning ketosis in cattle}.
+\newblock \emph{BMC Genomics}, 21\penalty0 (1):\penalty0 1--12, jul 2020.
+\newblock ISSN 14712164.
+\newblock \doi{10.1186/S12864-020-06909-Z/FIGURES/5}.
+\newblock URL
+  \url{https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-06909-z}.
+
+\bibitem[Zhou et~al.(2022)Zhou, Zhang, Zhao, Cheng, Tang, Qiu, Dong, Lu, Lian,
+  Zhuang, Tian, Wang, and Chu]{Zhou2022}
+Yan Zhou, Yingyi Zhang, Rui Zhao, Zhounan Cheng, Minzhu Tang, Anni Qiu, Yang
+  Dong, Yihua Lu, Yulong Lian, Xun Zhuang, Tian Tian, Wei Wang, and Minjie Chu.
+\newblock {Integrating RNA-Seq With GWAS Reveals a Novel SNP in Immune-Related
+  HLA-DQB1 Gene Associated With Occupational Pulmonary Fibrosis Risk: A
+  Multi-Stage Study}.
+\newblock \emph{Frontiers in Immunology}, 12:\penalty0 5822, jan 2022.
+\newblock ISSN 16643224.
+\newblock \doi{10.3389/FIMMU.2021.796932/BIBTEX}.
 
 \end{thebibliography}
