@@ -18,45 +18,45 @@ Repeated entry---line 2731 of file references.bib
  :                      ,
 I'm skipping whatever remains of this entry
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-You've used 87 entries,
+You've used 102 entries,
             2773 wiz_defined-function locations,
-            1408 strings with 53424 characters,
-and the built_in function-call counts, 105482 in all, are:
-= -- 8033
-> -- 13324
+            1549 strings with 66007 characters,
+and the built_in function-call counts, 132359 in all, are:
+= -- 9961
+> -- 17149
 < -- 30
-+ -- 4449
-- -- 4359
-* -- 11471
-:= -- 17934
-add.period$ -- 477
-call.type$ -- 87
-change.case$ -- 1716
-chr.to.int$ -- 84
-cite$ -- 174
-duplicate$ -- 1858
-empty$ -- 3455
-format.name$ -- 4474
-if$ -- 20249
++ -- 5724
+- -- 5619
+* -- 14530
+:= -- 22588
+add.period$ -- 566
+call.type$ -- 102
+change.case$ -- 2181
+chr.to.int$ -- 99
+cite$ -- 204
+duplicate$ -- 2172
+empty$ -- 4064
+format.name$ -- 5749
+if$ -- 25299
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 86
-newline$ -- 655
-num.names$ -- 348
-pop$ -- 3089
+missing$ -- 101
+newline$ -- 774
+num.names$ -- 408
+pop$ -- 3945
 preamble$ -- 1
-purify$ -- 1627
+purify$ -- 2077
 quote$ -- 0
-skip$ -- 2510
+skip$ -- 3097
 stack$ -- 0
-substring$ -- 1851
-swap$ -- 206
+substring$ -- 2231
+swap$ -- 235
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 952
+type$ -- 1117
 warning$ -- 0
-while$ -- 403
+while$ -- 473
 width$ -- 0
-write$ -- 1566
+write$ -- 1849
 (There were 2 error messages)

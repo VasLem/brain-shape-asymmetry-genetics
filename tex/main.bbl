@@ -1,4 +1,4 @@
-\begin{thebibliography}{87}
+\begin{thebibliography}{102}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -38,6 +38,23 @@ David {Alejandro Gonzalez-Chica}, Jo{\~{a}}o {Luiz Bastos}, Rodrigo {Pereira
 \newblock \emph{An Bras Dermatol}, 90\penalty0 (4):\penalty0 523--531, 2015.
 \newblock \doi{10.1590/abd1806-4841.20154289}.
 \newblock URL \url{http://dx.doi.org/10.1590/abd1806-4841.20154289}.
+
+\bibitem[Ashburner et~al.(2000)Ashburner, Ball, Blake, Botstein, Butler,
+  Cherry, Davis, Dolinski, Dwight, Eppig, Harris, Hill, Issel-Tarver,
+  Kasarskis, Lewis, Matese, Richardson, Ringwald, Rubin, and
+  Sherlock]{Ashburner2000}
+Michael Ashburner, Catherine~A. Ball, Judith~A. Blake, David Botstein, Heather
+  Butler, J.~Michael Cherry, Allan~P. Davis, Kara Dolinski, Selina~S. Dwight,
+  Janan~T. Eppig, Midori~A. Harris, David~P. Hill, Laurie Issel-Tarver, Andrew
+  Kasarskis, Suzanna Lewis, John~C. Matese, Joel~E. Richardson, Martin
+  Ringwald, Gerald~M. Rubin, and Gavin Sherlock.
+\newblock {Gene Ontology: tool for the unification of biology}.
+\newblock \emph{Nature genetics}, 25\penalty0 (1):\penalty0 25, may 2000.
+\newblock ISSN 10614036.
+\newblock \doi{10.1038/75556}.
+\newblock URL \url{/pmc/articles/PMC3037419/
+  /pmc/articles/PMC3037419/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037419/}.
 
 \bibitem[Aw and Levin(2009)]{Aw2009}
 Sherry Aw and Michael Levin.
@@ -285,6 +302,17 @@ Monica~Laura Cara, Ioana Streata, Ana~Maria Buga, and Dominic~Gabriel Iliescu.
 \newblock \doi{10.3390/SYM14010128}.
 \newblock URL \url{https://www.mdpi.com/2073-8994/14/1/128/htm
   https://www.mdpi.com/2073-8994/14/1/128}.
+
+\bibitem[Chen et~al.(2013)Chen, Tan, Kou, Duan, Wang, Meirelles, Clark, and
+  Ma'ayan]{Chen2013}
+Edward~Y. Chen, Christopher~M. Tan, Yan Kou, Qiaonan Duan, Zichen Wang,
+  Gabriela~V. Meirelles, Neil~R. Clark, and Avi Ma'ayan.
+\newblock {Enrichr: interactive and collaborative HTML5 gene list enrichment
+  analysis tool}.
+\newblock \emph{BMC bioinformatics}, 14, apr 2013.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-14-128}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/23586463/}.
 
 \bibitem[Chini and Hanganu-Opatz(2021)]{Chini2021}
 Mattia Chini and Ileana~L. Hanganu-Opatz.
@@ -745,6 +773,18 @@ Peter Heger, Wen Zheng, Anna Rottmann, Kristen~A. {Pan Lio}, and Thomas Wiehe.
 \newblock ISSN 2050084X.
 \newblock \doi{10.7554/ELIFE.45530}.
 
+\bibitem[Heinz et~al.(2010)Heinz, Benner, Spann, Bertolino, Lin, Laslo, Cheng,
+  Murre, Singh, and Glass]{Heinz2010}
+Sven Heinz, Christopher Benner, Nathanael Spann, Eric Bertolino, Yin~C. Lin,
+  Peter Laslo, Jason~X. Cheng, Cornelis Murre, Harinder Singh, and
+  Christopher~K. Glass.
+\newblock {Simple combinations of lineage-determining transcription factors
+  prime cis-regulatory elements required for macrophage and B cell identities}.
+\newblock \emph{Molecular cell}, 38\penalty0 (4):\penalty0 576--589, may 2010.
+\newblock ISSN 1097-4164.
+\newblock \doi{10.1016/J.MOLCEL.2010.05.004}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/20513432/}.
+
 \bibitem[Hejnol and Pang(2016)]{Hejnol2016}
 Andreas Hejnol and Kevin Pang.
 \newblock {Xenacoelomorpha's significance for understanding bilaterian
@@ -786,6 +826,22 @@ Dan Jackson, Richard Riley, and Ian~R. White.
 \newblock URL \url{/pmc/articles/PMC3470931/
   /pmc/articles/PMC3470931/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3470931/}.
+
+\bibitem[Janky et~al.(2014)Janky, Verfaillie, Imrichov{\'{a}}, van~de Sande,
+  Standaert, Christiaens, Hulselmans, Herten, {Naval Sanchez}, Potier,
+  Svetlichnyy, {Kalender Atak}, Fiers, Marine, and Aerts]{Janky2014}
+Rekin's Janky, Annelien Verfaillie, Hana Imrichov{\'{a}}, Bram van~de Sande,
+  Laura Standaert, Valerie Christiaens, Gert Hulselmans, Koen Herten, Marina
+  {Naval Sanchez}, Delphine Potier, Dmitry Svetlichnyy, Zeynep {Kalender Atak},
+  Mark Fiers, Jean~Christophe Marine, and Stein Aerts.
+\newblock {iRegulon: From a Gene List to a Gene Regulatory Network Using Large
+  Motif and Track Collections}.
+\newblock \emph{PLOS Computational Biology}, 10\penalty0 (7):\penalty0
+  e1003731, 2014.
+\newblock ISSN 1553-7358.
+\newblock \doi{10.1371/JOURNAL.PCBI.1003731}.
+\newblock URL
+  \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731}.
 
 \bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
   SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
@@ -829,6 +885,138 @@ Evan~M. Koch and Shamil~R. Sunyaev.
 \newblock ISSN 16648021.
 \newblock \doi{10.3389/FGENE.2021.763363/BIBTEX}.
 
+\bibitem[Kong et~al.(2018)Kong, Mathias, Guadalupe, Ab{\'{e}}, Agartz,
+  Akudjedu, Aleman, Alhusaini, Allen, Ames, Andreassen, Vasquez, Armstrong,
+  Bergo, Bastin, Batalla, Bauer, Baune, Baur-Streubel, Biederman, Blaine,
+  Boedhoe, B{\o}en, Bose, Bralten, Brandeis, Brem, Brodaty, Y{\"{u}}ksel,
+  Brooks, Buitelaar, B{\"{u}}rger, B{\"{u}}low, Calhoun, Calvo,
+  Canales-Rodr{\'{i}}guez, Canive, Cannon, Caparelli, Castellanos, Cavalleri,
+  Cendes, Chaim-Avancini, Chantiluke, Chen, Chen, Cheng, Christakou, Clark,
+  Coghill, Connolly, Conzelmann, C{\'{o}}rdova-Palomera, Cousijn, Crow,
+  Cubillo, Dale, Dannlowski, {De Bruttopilo}, {De Zeeuw}, Deary, Delanty,
+  Demeter, {Di Martino}, Dickie, Dietsche, Doan, Doherty, Doyle, Durston, Earl,
+  Ehrlich, Ekman, Elvs{\aa}shagen, Epstein, Fair, Faraone, Fern{\'{a}}ndez,
+  Filho, F{\"{o}}rster, Fouche, Foxe, Frodl, Fuentes-Claramonte, Fullerton,
+  Garavan, Garcia, Gotlib, Goudriaan, Grabe, Groenewold, Grotegerd, Gruber,
+  Gurholt, Haavik, Hahn, Hansell, Harris, Hartman, Hern{\'{a}}ndez, Heslenfeld,
+  Hester, Hibar, Ho, Ho, Hoekstra, {Van Holst}, Hoogman, H{\o}vik, Howells,
+  Hugdahl, Huyser, Ingvar, Irwin, Ishikawa, James, Jahanshad, Jernigan,
+  J{\"{o}}nsson, K{\"{a}}hler, Kaleda, Kelly, Kerich, Keshavan, Khadka,
+  Kircher, Kohls, Konrad, Korucuoglu, Kr{\"{a}}mer, Krug, Kwon,
+  Lambregts-Rommelse, Land{\'{e}}n, L{\'{a}}zaro, Lebedeva, Lenroot, Lesch, Li,
+  Lim, Liu, Lochner, London, Lonning, Lorenzetti, Luciano, Luijten, Lundervold,
+  MacKey, MacMaster, Maingault, Malpas, Malt, Mataix-Cols, Martin-Santos,
+  Mayer, McCarthy, Mitchell, Mueller, Maniega, Mazoyer, McDonald, McLellan,
+  McMahon, McPhilemy, Momenan, Morales, Narayanaswamy, Moreira, Nerland,
+  Nestor, Newman, Nigg, Nordvik, Novotny, Weiss, O'Gorman, Oosterlaan, Oranje,
+  Orr, Overs, Pauli, Paulus, Plessen, {Von Polier}, Pomarol-Clotet, Portella,
+  Qiu, Radua, Ramos-Quiroga, Reddy, Reif, Roberts, Rosa, Rubia, Sacchet,
+  Sachdev, Salvador, Schmaal, Schulte-R{\"{u}}ther, Schweren, Seidman, Seitz,
+  Serpa, Shaw, Shumskaya, Silk, Simmons, Simulionyte, Sinha, Sjoerds, Smelror,
+  Soliva, Solowij, Souza-Duran, Sponheim, Stein, Stein, Stevens, Strike, Sudre,
+  Sui, Tamm, Temmingh, Thoma, Tomyshev, Tronchin, Turner, Uhlmann, {Van Erp},
+  {Van Den Heuvel}, {Van Der Meer}, {Van Eijk}, Vance, Veer, Veltman,
+  Venkatasubramanian, Vilarroya, Vives-Gilabert, Voineskos, V{\"{o}}lzke,
+  Vuletic, Walitza, Walter, Walton, Wardlaw, Wen, Westlye, Whelan, White,
+  Wiers, Wright, Wittfeld, Yang, Yasuda, Yoncheva, Y{\"{u}}cel, Yun, Zanetti,
+  Zhen, Zhu, Ziegler, Zierhut, {De Zubicaray}, Zwiers, Glahn, Franke, Crivello,
+  Tzourio-Mazoyer, Fisher, Thompson, Francks, Farde, Flyckt, Engberg, Erhardt,
+  Fatouros-Bergman, Cervenka, Schwieler, Piehl, Collste, Victorsson, Malmqvist,
+  Hedberg, and Orhan]{Kong2018}
+Xiang~Zhen Kong, Samuel~R. Mathias, Tulio Guadalupe, Christoph Ab{\'{e}},
+  Ingrid Agartz, Theophilus~N. Akudjedu, Andre Aleman, Saud Alhusaini,
+  Nicholas~B. Allen, David Ames, Ole~A. Andreassen, Alejandro~Arias Vasquez,
+  Nicola~J. Armstrong, Felipe Bergo, Mark~E. Bastin, Albert Batalla, Jochen
+  Bauer, Bernhard~T. Baune, Ramona Baur-Streubel, Joseph Biederman, Sara~K.
+  Blaine, Premika Boedhoe, Erlend B{\o}en, Anushree Bose, Janita Bralten,
+  Daniel Brandeis, Silvia Brem, Henry Brodaty, Dilara Y{\"{u}}ksel, Samantha~J.
+  Brooks, Jan Buitelaar, Christian B{\"{u}}rger, Robin B{\"{u}}low, Vince
+  Calhoun, Anna Calvo, Erick~Jorge Canales-Rodr{\'{i}}guez, Jose~M. Canive,
+  Dara~M. Cannon, Elisabeth~C. Caparelli, Francisco~X. Castellanos,
+  Gianpiero~L. Cavalleri, Fernando Cendes, Tiffany~Moukbel Chaim-Avancini,
+  Kaylita Chantiluke, Qun~Lin Chen, Xiayu Chen, Yuqi Cheng, Anastasia
+  Christakou, Vincent~P. Clark, David Coghill, Colm~G. Connolly, Annette
+  Conzelmann, Aldo C{\'{o}}rdova-Palomera, Janna Cousijn, Tim Crow, Ana
+  Cubillo, Anders Dale, Udo Dannlowski, Sara~Ambrosino {De Bruttopilo}, Patrick
+  {De Zeeuw}, Ian~J. Deary, Norman Delanty, Damion~V. Demeter, Adriana {Di
+  Martino}, Erin~W. Dickie, Bruno Dietsche, N.~Trung Doan, Colin~P. Doherty,
+  Alysa Doyle, Sarah Durston, Eric Earl, Stefan Ehrlich, Carl~Johan Ekman,
+  Torbj{\o}rn Elvs{\aa}shagen, Jeffery~N. Epstein, Damien~A. Fair, Stephen~V.
+  Faraone, Guill{\'{e}}n Fern{\'{a}}ndez, Geraldo~Busatto Filho, Katharina
+  F{\"{o}}rster, Jean~Paul Fouche, John~J. Foxe, Thomas Frodl, Paola
+  Fuentes-Claramonte, Janice Fullerton, Hugh Garavan, Danielle Do~Santos
+  Garcia, Ian~H. Gotlib, Anna~E. Goudriaan, Hans~J{\"{o}}rgen Grabe, Nynke~A.
+  Groenewold, Dominik Grotegerd, Oliver Gruber, Tiril Gurholt, Jan Haavik, Tim
+  Hahn, Narelle~K. Hansell, Mathew~A. Harris, Catharina~A. Hartman, Maria Del
+  Carmen~Vald{\'{e}}s Hern{\'{a}}ndez, Dirk Heslenfeld, Robert Hester,
+  Derrek~Paul Hibar, Beng~Choon Ho, Tiffany~C. Ho, Pieter~J. Hoekstra, Ruth~J.
+  {Van Holst}, Martine Hoogman, Marie~F. H{\o}vik, Fleur~M. Howells, Kenneth
+  Hugdahl, Chaim Huyser, Martin Ingvar, Lourdes Irwin, Akari Ishikawa, Anthony
+  James, Neda Jahanshad, Terry~L. Jernigan, Erik~G. J{\"{o}}nsson, Claas
+  K{\"{a}}hler, Vasily Kaleda, Clare Kelly, Michael Kerich, Matcheri~S.
+  Keshavan, Sabin Khadka, Tilo Kircher, Gregor Kohls, Kerstin Konrad, Ozlem
+  Korucuoglu, Bernd Kr{\"{a}}mer, Axel Krug, Jun~Soo Kwon, Nanda
+  Lambregts-Rommelse, Mikael Land{\'{e}}n, Luisa L{\'{a}}zaro, Irina Lebedeva,
+  Rhoshel Lenroot, Klaus~Peter Lesch, Qinqin Li, Kelvin~O. Lim, Jia Liu,
+  Christine Lochner, Edythe~D. London, Vera Lonning, Valentina Lorenzetti,
+  Michelle Luciano, Maartje Luijten, Astri~J. Lundervold, Scott MacKey,
+  Frank~P. MacMaster, Sophie Maingault, Charles~B. Malpas, Ulrik~F. Malt, David
+  Mataix-Cols, Rocio Martin-Santos, Andrew~R. Mayer, Hazel McCarthy, Philip~B.
+  Mitchell, Bryon~A. Mueller, Susana~Mu{\~{n}}oz Maniega, Bernard Mazoyer, Colm
+  McDonald, Quinn McLellan, Katie~L. McMahon, Genevieve McPhilemy, Reza
+  Momenan, Angelica~M. Morales, Janardhanan~C. Narayanaswamy, Jos{\'{e}}
+  Carlos~Vasques Moreira, Stener Nerland, Liam Nestor, Erik Newman, Joel~T.
+  Nigg, Jan~Egil Nordvik, Stephanie Novotny, Eileen~Oberwelland Weiss, Ruth~L.
+  O'Gorman, Jaap Oosterlaan, Bob Oranje, Catherine Orr, Bronwyn Overs, Paul
+  Pauli, Martin Paulus, Kerstin~Jessica Plessen, Georg~G. {Von Polier}, Edith
+  Pomarol-Clotet, Maria~J. Portella, Jiang Qiu, Joaquim Radua, Josep~Antoni
+  Ramos-Quiroga, Y.~C.Janardhan Reddy, Andreas Reif, Gloria Roberts, Pedro
+  Rosa, Katya Rubia, Matthew~D. Sacchet, Perminder~S. Sachdev, Raymond
+  Salvador, Lianne Schmaal, Martin Schulte-R{\"{u}}ther, Lizanne Schweren,
+  Larry Seidman, Jochen Seitz, Mauricio~Henriques Serpa, Philip Shaw, Elena
+  Shumskaya, Timothy~J. Silk, Alan~N. Simmons, Egle Simulionyte, Rajita Sinha,
+  Zsuzsika Sjoerds, Runar~Elle Smelror, Joan~Carlos Soliva, Nadia Solowij,
+  Fabio~Luisde Souza-Duran, Scott~R. Sponheim, Dan~J. Stein, Elliot~A. Stein,
+  Michael Stevens, Lachlan~T. Strike, Gustavo Sudre, Jing Sui, Leanne Tamm,
+  Hendrik~S. Temmingh, Robert~J. Thoma, Alexander Tomyshev, Giulia Tronchin,
+  Jessica Turner, Anne Uhlmann, Theo~G.M. {Van Erp}, Odile~A. {Van Den Heuvel},
+  Dennis {Van Der Meer}, Liza {Van Eijk}, Alasdair Vance, Ilya~M. Veer, Dick~J.
+  Veltman, Ganesan Venkatasubramanian, Oscar Vilarroya, Yolanda Vives-Gilabert,
+  Aristotle~N. Voineskos, Henry V{\"{o}}lzke, Daniella Vuletic, Susanne
+  Walitza, Henrik Walter, Esther Walton, Joanna~M. Wardlaw, Wei Wen, Lars~T.
+  Westlye, Christopher~D. Whelan, Tonya White, Reinout~W. Wiers, Margaret~J.
+  Wright, Katharina Wittfeld, Tony~T. Yang, Clarissa~L. Yasuda, Yuliya
+  Yoncheva, Murat Y{\"{u}}cel, Je~Yeon Yun, Marcus~Vinicius Zanetti, Zonglei
+  Zhen, Xing~Xing Zhu, Georg~C. Ziegler, Kathrin Zierhut, Greig~I. {De
+  Zubicaray}, Marcel Zwiers, David~C. Glahn, Barbara Franke, Fabrice Crivello,
+  Nathalie Tzourio-Mazoyer, Simon~E. Fisher, Paul~M. Thompson, Clyde Francks,
+  Lars Farde, Lena Flyckt, G{\"{o}}ran Engberg, Sophie Erhardt, Helena
+  Fatouros-Bergman, Simon Cervenka, Lilly Schwieler, Fredrik Piehl, Karin
+  Collste, Pauliina Victorsson, Anna Malmqvist, Mikael Hedberg, and Funda
+  Orhan.
+\newblock {Mapping cortical brain asymmetry in 17,141 healthy individuals
+  worldwide via the ENIGMA consortium}.
+\newblock \emph{Proceedings of the National Academy of Sciences of the United
+  States of America}, 115\penalty0 (22):\penalty0 E5154--E5163, may 2018.
+\newblock ISSN 10916490.
+\newblock \doi{10.1073/PNAS.1718418115/SUPPL_FILE/PNAS.1718418115.SD07.XLSX}.
+\newblock URL \url{www.pnas.org/cgi/doi/10.1073/pnas.1718418115}.
+
+\bibitem[Kong et~al.(2021)Kong, Postema, Schijven, Castillo, Pepe, Crivello,
+  Joliot, Mazoyer, Fisher, and Francks]{Kong2021}
+Xiang~Zhen Kong, Merel Postema, Dick Schijven, Amaia~Carri{\'{o}}n Castillo,
+  Antonietta Pepe, Fabrice Crivello, Marc Joliot, Bernard Mazoyer, Simon~E.
+  Fisher, and Clyde Francks.
+\newblock {Large-Scale Phenomic and Genomic Analysis of Brain Asymmetrical
+  Skew}.
+\newblock \emph{Cerebral Cortex (New York, NY)}, 31\penalty0 (9):\penalty0
+  4151, sep 2021.
+\newblock ISSN 14602199.
+\newblock \doi{10.1093/CERCOR/BHAB075}.
+\newblock URL \url{/pmc/articles/PMC8328207/
+  /pmc/articles/PMC8328207/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8328207/}.
+
 \bibitem[Kong et~al.(2022)Kong, Postema, Guadalupe, de~Kovel, Boedhoe, Hoogman,
   Mathias, van Rooij, Schijven, Glahn, Medland, Jahanshad, Thomopoulos, Turner,
   Buitelaar, van Erp, Franke, Fisher, van~den Heuvel, Schmaal, Thompson, and
@@ -863,6 +1051,16 @@ Shuyu Li, Shaoyi Wang, Xinwei Li, Qiongling Li, and Xiaobo Li.
   aug 2015.
 \newblock ISSN 16625129.
 \newblock \doi{10.3389/FNANA.2015.00114/BIBTEX}.
+
+\bibitem[Liao et~al.(2019)Liao, Wang, Jaehnig, Shi, and Zhang]{Liao2019}
+Yuxing Liao, Jing Wang, Eric~J. Jaehnig, Zhiao Shi, and Bing Zhang.
+\newblock {WebGestalt 2019: gene set analysis toolkit with revamped UIs and
+  APIs}.
+\newblock \emph{Nucleic Acids Research}, 47\penalty0 (W1):\penalty0 W199--W205,
+  jul 2019.
+\newblock ISSN 0305-1048.
+\newblock \doi{10.1093/NAR/GKZ401}.
+\newblock URL \url{https://academic.oup.com/nar/article/47/W1/W199/5494758}.
 
 \bibitem[Littlejohns et~al.(2020)Littlejohns, Holliday, Gibson, Garratt,
   Oesingmann, Alfaro-Almagro, Bell, Boultwood, Collins, Conroy, Crabtree,
@@ -905,6 +1103,17 @@ Jerome~J. Maller, Rodney Anderson, Richard~H. Thomson, Jeffrey~V. Rosenfeld,
 \newblock ISSN 0925-4927.
 \newblock \doi{10.1016/J.PSCYCHRESNS.2014.11.008}.
 
+\bibitem[McLean et~al.(2010)McLean, Bristor, Hiller, Clarke, Schaar, Lowe,
+  Wenger, and Bejerano]{McLean2010}
+Cory~Y. McLean, Dave Bristor, Michael Hiller, Shoa~L. Clarke, Bruce~T. Schaar,
+  Craig~B. Lowe, Aaron~M. Wenger, and Gill Bejerano.
+\newblock {GREAT improves functional interpretation of cis-regulatory regions}.
+\newblock \emph{Nature Biotechnology 2010 28:5}, 28\penalty0 (5):\penalty0
+  495--501, may 2010.
+\newblock ISSN 1546-1696.
+\newblock \doi{10.1038/nbt.1630}.
+\newblock URL \url{https://www.nature.com/articles/nbt.1630}.
+
 \bibitem[Moln{\'{a}}r et~al.(2019)Moln{\'{a}}r, Clowry, {\v{S}}estan, Alzu'bi,
   Bakken, Hevner, H{\"{u}}ppi, Kostovi{\'{c}}, Rakic, Anton, Edwards, Garcez,
   Hoerder-Suabedissen, and Kriegstein]{Molnar2019}
@@ -919,6 +1128,23 @@ Zolt{\'{a}}n Moln{\'{a}}r, Gavin~J. Clowry, Nenad {\v{S}}estan, Ayman Alzu'bi,
 \newblock URL \url{/pmc/articles/PMC6704245/
   /pmc/articles/PMC6704245/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6704245/}.
+
+\bibitem[Mootha et~al.(2003)Mootha, Lindgren, Eriksson, Subramanian, Sihag,
+  Lehar, Puigserver, Carlsson, Ridderstr{\aa}le, Laurila, Houstis, Daly,
+  Patterson, Mesirov, Golub, Tamayo, Spiegelman, Lander, Hirschhorn, Altshuler,
+  and Groop]{Mootha2003}
+Vamsi~K. Mootha, Cecilia~M. Lindgren, Karl~Fredrik Eriksson, Aravind
+  Subramanian, Smita Sihag, Joseph Lehar, Pere Puigserver, Emma Carlsson,
+  Martin Ridderstr{\aa}le, Esa Laurila, Nicholas Houstis, Mark~J. Daly, Nick
+  Patterson, Jill~P. Mesirov, Todd~R. Golub, Pablo Tamayo, Bruce Spiegelman,
+  Eric~S. Lander, Joel~N. Hirschhorn, David Altshuler, and Leif~C. Groop.
+\newblock {PGC-1$\alpha$-responsive genes involved in oxidative phosphorylation
+  are coordinately downregulated in human diabetes}.
+\newblock \emph{Nature Genetics 2003 34:3}, 34\penalty0 (3):\penalty0 267--273,
+  jun 2003.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/ng1180}.
+\newblock URL \url{https://www.nature.com/articles/ng1180}.
 
 \bibitem[Naqvi et~al.(2021)Naqvi, Sleyp, Hoskens, Indencleef, Spence,
   Bruffaerts, Radwan, Eller, Richmond, Shriver, Shaffer, Weinberg, Walsh,
@@ -1056,6 +1282,16 @@ Michele Ribolsi, Zafiris~J Daskalakis, Alberto Siracusano, and Giacomo Koch.
 \newblock URL
   \url{https://www.frontiersin.org/article/10.3389/fnhum.2014.01010}.
 
+\bibitem[Schaid et~al.(2018)Schaid, Chen, and Larson]{Schaid2018}
+Daniel~J. Schaid, Wenan Chen, and Nicholas~B. Larson.
+\newblock {From genome-wide associations to candidate causal variants by
+  statistical fine-mapping}.
+\newblock \emph{Nature Reviews Genetics 2018 19:8}, 19\penalty0 (8):\penalty0
+  491--504, may 2018.
+\newblock ISSN 1471-0064.
+\newblock \doi{10.1038/s41576-018-0016-z}.
+\newblock URL \url{https://www.nature.com/articles/s41576-018-0016-z}.
+
 \bibitem[Schmitz et~al.(2019)Schmitz, G{\"{u}}nt{\"{u}}rk{\"{u}}n, and
   Ocklenburg]{Schmitz2019}
 Judith Schmitz, Onur G{\"{u}}nt{\"{u}}rk{\"{u}}n, and Sebastian Ocklenburg.
@@ -1084,6 +1320,33 @@ Jinhua Sheng, Luyun Wang, Hu~Cheng, Qiao Zhang, Rougang Zhou, and Yuchen Shi.
 \newblock \emph{Neuroscience Letters}, 762:\penalty0 136147, sep 2021.
 \newblock ISSN 0304-3940.
 \newblock \doi{10.1016/J.NEULET.2021.136147}.
+
+\bibitem[Subramanian et~al.(2005)Subramanian, Tamayo, Mootha, Mukherjee, Ebert,
+  Gillette, Paulovich, Pomeroy, Golub, Lander, and Mesirov]{Subramanian2005}
+Aravind Subramanian, Pablo Tamayo, Vamsi~K. Mootha, Sayan Mukherjee,
+  Benjamin~L. Ebert, Michael~A. Gillette, Amanda Paulovich, Scott~L. Pomeroy,
+  Todd~R. Golub, Eric~S. Lander, and Jill~P. Mesirov.
+\newblock {Gene set enrichment analysis: A knowledge-based approach for
+  interpreting genome-wide expression profiles}.
+\newblock \emph{Proceedings of the National Academy of Sciences of the United
+  States of America}, 102\penalty0 (43):\penalty0 15545--15550, oct 2005.
+\newblock ISSN 00278424.
+\newblock \doi{10.1073/PNAS.0506580102/SUPPL_FILE/06580FIG7.JPG}.
+\newblock URL \url{www.pnas.orgcgidoi10.1073pnas.0506580102}.
+
+\bibitem[Szklarczyk et~al.(2021)Szklarczyk, Gable, Nastou, Lyon, Kirsch,
+  Pyysalo, Doncheva, Legeay, Fang, Bork, Jensen, and von
+  Mering]{Szklarczyk2021}
+Damian Szklarczyk, Annika~L. Gable, Katerina~C. Nastou, David Lyon, Rebecca
+  Kirsch, Sampo Pyysalo, Nadezhda~T. Doncheva, Marc Legeay, Tao Fang, Peer
+  Bork, Lars~J. Jensen, and Christian von Mering.
+\newblock {The STRING database in 2021: customizable protein-protein networks,
+  and functional characterization of user-uploaded gene/measurement sets}.
+\newblock \emph{Nucleic acids research}, 49\penalty0 (D1):\penalty0 D605--D612,
+  jan 2021.
+\newblock ISSN 1362-4962.
+\newblock \doi{10.1093/NAR/GKAA1074}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/33237311/}.
 
 \bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'{e}}, Par{\'{e}}, and
   Meyre]{Tam2019}
@@ -1206,6 +1469,27 @@ Ulrike {Von Luxburg}.
 \newblock URL
   \url{https://link.springer.com/article/10.1007/s11222-007-9033-z}.
 
+\bibitem[Wang et~al.(2010)Wang, Li, and Hakonarson]{Wang2010}
+Kai Wang, Mingyao Li, and Hakon Hakonarson.
+\newblock {ANNOVAR: functional annotation of genetic variants from
+  high-throughput sequencing data}.
+\newblock \emph{Nucleic Acids Research}, 38\penalty0 (16):\penalty0 e164--e164,
+  sep 2010.
+\newblock ISSN 0305-1048.
+\newblock \doi{10.1093/NAR/GKQ603}.
+\newblock URL \url{https://academic.oup.com/nar/article/38/16/e164/1749458}.
+
+\bibitem[Watanabe et~al.(2017)Watanabe, Taskesen, {Van Bochoven}, and
+  Posthuma]{Watanabe2017}
+Kyoko Watanabe, Erdogan Taskesen, Arjen {Van Bochoven}, and Danielle Posthuma.
+\newblock {Functional mapping and annotation of genetic associations with
+  FUMA}.
+\newblock \emph{Nature Communications 2017 8:1}, 8\penalty0 (1):\penalty0
+  1--11, nov 2017.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-017-01261-5}.
+\newblock URL \url{https://www.nature.com/articles/s41467-017-01261-5}.
+
 \bibitem[White et~al.(2002)White, Andreasen, and Nopoulos]{White2002}
 Tonya White, Nancy~C. Andreasen, and Peggy Nopoulos.
 \newblock {Brain Volumes and Surface Morphology in Monozygotic Twins}.
@@ -1240,6 +1524,15 @@ Ze~Yan, Hetian Huang, Ellen Freebern, Daniel~J.A. Santos, Dongmei Dai, Jingfang
 \newblock \doi{10.1186/S12864-020-06909-Z/FIGURES/5}.
 \newblock URL
   \url{https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-06909-z}.
+
+\bibitem[Zhao et~al.(2022)Zhao, Matloff, Shi, Cabeen, and Toga]{Zhao2022}
+Lu~Zhao, William Matloff, Yonggang Shi, Ryan~P. Cabeen, and Arthur~W. Toga.
+\newblock {Mapping Complex Brain Torque Components and Their Genetic
+  Architecture and Phenomic Associations in 24,112 Individuals}.
+\newblock \emph{Biological Psychiatry}, 91\penalty0 (8):\penalty0 753--768, apr
+  2022.
+\newblock ISSN 0006-3223.
+\newblock \doi{10.1016/J.BIOPSYCH.2021.11.002}.
 
 \bibitem[Zhou et~al.(2022)Zhou, Zhang, Zhao, Cheng, Tang, Qiu, Dong, Lu, Lian,
   Zhuang, Tian, Wang, and Chu]{Zhou2022}
