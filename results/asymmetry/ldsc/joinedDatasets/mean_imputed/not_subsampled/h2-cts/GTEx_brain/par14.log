@@ -1,0 +1,55 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2-cts ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par14.sumstats.gz \
+--ref-ld-chr ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline. \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/GTEx_brain/par14 \
+--ref-ld-chr-cts GTEx_brain.ldcts \
+--w-ld-chr ../SAMPLE_DATA/weights_hm3_no_hla/weights. 
+
+Beginning analysis at Thu Apr 14 22:19:42 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par14.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/weights_hm3_no_hla/weights.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1242190 SNPs.
+After merging with reference panel LD, 1164620 SNPs remain.
+After merging with regression SNP LD, 1057172 SNPs remain.
+Removed 0 SNPs with chi^2 > 80 (1057172 SNPs remain)
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.1.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.2.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.3.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.4.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.5.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.6.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.7.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.8.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.9.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.10.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.11.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.12.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from GTEx_brain_1000Gv3_ldscores/GTEx_brain.13.,GTEx_brain_1000Gv3_ldscores/GTEx_brain.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Results printed to ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/GTEx_brain/par14.cell_type_results.txt
+Analysis finished at Thu Apr 14 22:22:19 2022
+Total time elapsed: 2.0m:37.27s

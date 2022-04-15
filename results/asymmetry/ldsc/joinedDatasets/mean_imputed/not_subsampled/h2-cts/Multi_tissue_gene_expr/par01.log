@@ -1,0 +1,439 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2-cts ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par01.sumstats.gz \
+--ref-ld-chr ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline. \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/par01 \
+--ref-ld-chr-cts Multi_tissue_gene_expr.ldcts \
+--w-ld-chr ../SAMPLE_DATA/weights_hm3_no_hla/weights. 
+
+Beginning analysis at Tue Apr 12 22:28:39 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par01.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/weights_hm3_no_hla/weights.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1242190 SNPs.
+After merging with reference panel LD, 1164620 SNPs remain.
+After merging with regression SNP LD, 1057172 SNPs remain.
+Removed 0 SNPs with chi^2 > 80 (1057172 SNPs remain)
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.1.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.2.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.3.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.4.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.5.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.6.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.7.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.8.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.9.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.10.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.11.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.12.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.13.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.14.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.15.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.16.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.17.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.18.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.19.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.20.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.21.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.22.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.23.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.24.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.25.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.26.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.27.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.28.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.29.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.30.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.31.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.32.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.33.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.34.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.35.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.36.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.37.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.38.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.39.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.40.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.41.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.42.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.43.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.44.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.45.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.46.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.47.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.48.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.49.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.50.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.51.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.52.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.53.,Multi_tissue_gene_expr_1000Gv3_ldscores/GTEx.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.1.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.2.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.3.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.4.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.5.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.6.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.7.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.8.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.9.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.10.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.11.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.12.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.13.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.14.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.15.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.16.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.17.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.18.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.19.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.20.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.21.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.22.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.23.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.24.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.25.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.26.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.27.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.28.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.29.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.30.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.31.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.32.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.33.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.34.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.35.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.36.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.37.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.38.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.39.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.40.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.41.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.42.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.43.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.44.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.45.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.46.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.47.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.48.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.49.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.50.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.51.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.52.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.53.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.54.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.55.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.56.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.57.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.58.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.59.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.60.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.61.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.62.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.63.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.64.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.65.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.66.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.67.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.68.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.69.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.70.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.71.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.72.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.73.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.74.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.75.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.76.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.77.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.78.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.79.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.80.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.81.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.82.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.83.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.84.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.85.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.86.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.87.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.88.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.89.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.90.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.91.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.92.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.93.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.94.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.95.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.96.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.97.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.98.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.99.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.100.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.101.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.102.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.103.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.104.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.105.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.106.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.107.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.108.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.109.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.110.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.111.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.112.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.113.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.114.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.115.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.116.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.117.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.118.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.119.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.120.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.121.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.122.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.123.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.124.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.125.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.126.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.127.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.128.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.129.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.130.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.131.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.132.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.133.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.134.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.135.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.136.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.137.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.138.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.139.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.140.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.141.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.142.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.143.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.144.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.145.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.146.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.147.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.148.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.149.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.150.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.151.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.152.,Multi_tissue_gene_expr_1000Gv3_ldscores/Franke.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Results printed to ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/par01.cell_type_results.txt
+Analysis finished at Tue Apr 12 23:06:15 2022
+Total time elapsed: 37.0m:35.63s

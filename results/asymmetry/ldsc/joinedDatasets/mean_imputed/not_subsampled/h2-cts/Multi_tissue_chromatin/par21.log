@@ -1,0 +1,1007 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2-cts ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par21.sumstats.gz \
+--ref-ld-chr ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline. \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/Multi_tissue_chromatin/par21 \
+--ref-ld-chr-cts Multi_tissue_chromatin.ldcts \
+--w-ld-chr ../SAMPLE_DATA/weights_hm3_no_hla/weights. 
+
+Beginning analysis at Thu Apr 14 17:45:29 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par21.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/weights_hm3_no_hla/weights.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1242190 SNPs.
+After merging with reference panel LD, 1164620 SNPs remain.
+After merging with regression SNP LD, 1057172 SNPs remain.
+Removed 0 SNPs with chi^2 > 80 (1057172 SNPs remain)
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.1.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.2.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.3.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.4.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.5.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.6.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.7.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.8.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.9.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.10.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.11.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.12.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.13.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.14.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.15.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.16.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.17.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.18.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.19.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.20.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.21.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.22.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.23.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.24.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.25.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.26.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.27.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.28.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.29.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.30.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.31.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.32.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.33.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.34.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.35.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.36.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.37.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.38.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.39.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.40.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.41.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.42.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.43.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.44.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.45.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.46.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.47.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.48.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.49.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.50.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.51.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.52.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.53.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.54.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.55.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.56.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.57.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.58.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.59.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.60.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.61.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.62.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.63.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.64.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.65.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.66.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.67.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.68.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.69.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.70.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.71.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.72.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.73.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.74.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.75.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.76.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.77.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.78.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.79.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.80.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.81.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.82.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.83.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.84.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.85.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.86.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.87.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.88.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.89.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.90.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.91.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.92.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.93.,Multi_tissue_chromatin_1000Gv3_ldscores/ENTEX.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.1.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.2.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.3.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.4.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.5.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.6.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.7.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.8.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.9.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.10.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.11.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.12.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.13.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.14.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.15.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.16.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.17.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.18.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.19.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.20.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.21.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.22.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.23.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.24.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.25.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.26.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.27.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.28.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.29.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.30.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.31.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.32.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.33.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.34.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.35.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.36.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.37.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.38.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.39.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.40.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.41.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.42.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.43.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.44.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.45.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.46.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.47.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.48.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.49.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.50.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.51.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.52.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.53.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.54.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.55.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.56.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.57.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.58.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.59.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.60.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.61.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.62.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.63.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.64.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.65.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.66.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.67.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.68.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.69.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.70.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.71.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.72.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.73.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.74.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.75.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.76.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.77.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.78.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.79.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.80.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.81.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.82.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.83.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.84.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.85.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.86.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.87.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.88.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.89.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.90.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.91.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.92.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.93.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.94.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.95.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.96.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.97.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.98.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.99.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.100.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.101.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.102.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.103.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.104.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.105.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.106.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.107.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.108.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.109.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.110.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.111.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.112.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.113.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.114.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.115.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.116.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.117.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.118.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.119.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.120.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.121.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.122.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.123.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.124.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.125.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.126.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.127.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.128.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.129.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.130.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.131.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.132.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.133.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.134.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.135.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.136.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.137.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.138.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.139.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.140.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.141.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.142.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.143.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.144.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.145.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.146.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.147.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.148.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.149.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.150.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.151.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.152.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.153.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.154.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.155.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.156.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.157.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.158.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.159.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.160.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.161.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.162.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.163.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.164.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.165.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.166.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.167.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.168.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.169.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.170.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.171.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.172.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.173.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.174.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.175.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.176.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.177.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.178.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.179.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.180.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.181.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.182.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.183.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.184.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.185.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.186.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.187.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.188.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.189.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.190.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.191.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.192.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.193.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.194.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.195.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.196.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.197.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.198.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.199.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.200.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.201.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.202.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.203.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.204.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.205.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.206.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.207.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.208.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.209.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.210.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.211.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.212.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.213.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.214.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.215.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.216.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.217.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.218.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.219.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.220.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.221.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.222.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.223.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.224.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.225.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.226.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.227.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.228.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.229.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.230.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.231.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.232.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.233.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.234.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.235.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.236.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.237.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.238.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.239.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.240.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.241.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.242.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.243.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.244.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.245.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.246.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.247.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.248.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.249.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.250.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.251.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.252.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.253.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.254.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.255.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.256.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.257.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.258.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.259.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.260.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.261.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.262.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.263.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.264.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.265.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.266.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.267.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.268.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.269.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.270.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.271.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.272.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.273.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.274.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.275.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.276.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.277.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.278.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.279.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.280.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.281.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.282.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.283.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.284.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.285.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.286.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.287.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.288.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.289.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.290.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.291.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.292.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.293.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.294.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.295.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.296.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.297.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.298.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.299.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.300.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.301.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.302.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.303.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.304.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.305.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.306.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.307.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.308.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.309.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.310.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.311.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.312.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.313.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.314.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.315.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.316.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.317.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.318.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.319.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.320.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.321.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.322.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.323.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.324.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.325.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.326.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.327.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.328.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.329.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.330.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.331.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.332.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.333.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.334.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.335.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.336.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.337.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.338.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.339.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.340.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.341.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.342.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.343.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.344.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.345.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.346.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.347.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.348.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.349.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.350.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.351.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.352.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.353.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.354.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.355.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.356.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.357.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.358.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.359.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.360.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.361.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.362.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.363.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.364.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.365.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.366.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.367.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.368.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.369.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.370.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.371.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.372.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.373.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.374.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.375.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.376.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.377.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.378.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.379.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.380.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.381.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.382.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.383.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.384.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.385.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.386.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.387.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.388.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.389.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.390.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.391.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.392.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.393.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.394.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.395.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.396.,Multi_tissue_chromatin_1000Gv3_ldscores/Roadmap.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Results printed to ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/Multi_tissue_chromatin/par21.cell_type_results.txt
+Analysis finished at Thu Apr 14 20:15:26 2022
+Total time elapsed: 2.0h:29.0m:57.44s

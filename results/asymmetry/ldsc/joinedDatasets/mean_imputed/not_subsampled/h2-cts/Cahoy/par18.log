@@ -1,0 +1,35 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2-cts ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par18.sumstats.gz \
+--ref-ld-chr ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline. \
+--out ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/Cahoy/par18 \
+--ref-ld-chr-cts Cahoy.ldcts \
+--w-ld-chr ../SAMPLE_DATA/weights_hm3_no_hla/weights. 
+
+Beginning analysis at Thu Apr 14 12:38:26 2022
+Reading summary statistics from ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/munged/par18.sumstats.gz ...
+Read summary statistics for 1174887 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/1000G_EUR_Phase3_baseline/baseline.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/weights_hm3_no_hla/weights.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1242190 SNPs.
+After merging with reference panel LD, 1164620 SNPs remain.
+After merging with regression SNP LD, 1057172 SNPs remain.
+Removed 0 SNPs with chi^2 > 80 (1057172 SNPs remain)
+Reading cts reference panel LD Score from Cahoy_1000Gv3_ldscores/Cahoy.1.,Cahoy_1000Gv3_ldscores/Cahoy.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Cahoy_1000Gv3_ldscores/Cahoy.2.,Cahoy_1000Gv3_ldscores/Cahoy.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Reading cts reference panel LD Score from Cahoy_1000Gv3_ldscores/Cahoy.3.,Cahoy_1000Gv3_ldscores/Cahoy.control.[1-22] ... (ldscore_fromlist)
+Performing regression.
+Results printed to ../results/asymmetry/ldsc/joinedDatasets/mean_imputed/not_subsampled/h2-cts/Cahoy/par18.cell_type_results.txt
+Analysis finished at Thu Apr 14 12:39:24 2022
+Total time elapsed: 57.87s
