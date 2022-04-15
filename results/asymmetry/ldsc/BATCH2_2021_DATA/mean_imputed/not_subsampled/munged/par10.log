@@ -29,25 +29,25 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
 Read 1217311 SNPs for allele merge.
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
-Read 8338806 SNPs from --sumstats file.
-Removed 7157688 SNPs not in --merge-alleles.
+Read 8340618 SNPs from --sumstats file.
+Removed 7159560 SNPs not in --merge-alleles.
 Removed 0 SNPs with missing values.
 Removed 0 SNPs with INFO <= 0.9.
 Removed 0 SNPs with MAF <= 0.01.
 Removed 0 SNPs with out-of-bounds p-values.
-Removed 167 variants that were not SNPs or were strand-ambiguous.
-1180951 SNPs remain.
-Removed 2984 SNPs with duplicated rs numbers (1177967 SNPs remain).
-Removed 0 SNPs with N < 1000.0 (1177967 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.989167496075, which seems sensible.
-Removed 89 SNPs whose alleles did not match --merge-alleles (1177878 SNPs remain).
-Writing summary statistics for 1217311 SNPs (1177878 with nonmissing beta) to ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par10.sumstats.gz.
+Removed 3 variants that were not SNPs or were strand-ambiguous.
+1181055 SNPs remain.
+Removed 5123 SNPs with duplicated rs numbers (1175932 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1175932 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.989383145919, which seems sensible.
+Removed 2 SNPs whose alleles did not match --merge-alleles (1175930 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1175930 with nonmissing beta) to ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par10.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.044
-Lambda GC = 1.048
-Max chi^2 = 34.755
-32 Genome-wide significant SNPs (some may have been removed by filtering).
+Mean chi^2 = 1.042
+Lambda GC = 1.046
+Max chi^2 = 41.573
+14 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Fri Apr  1 15:45:18 2022
-Total time elapsed: 28.22s
+Conversion finished at Fri Apr 15 18:33:47 2022
+Total time elapsed: 29.77s

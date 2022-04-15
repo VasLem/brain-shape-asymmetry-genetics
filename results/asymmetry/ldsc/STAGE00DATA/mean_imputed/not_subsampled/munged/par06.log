@@ -29,25 +29,25 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
 Read 1217311 SNPs for allele merge.
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
-Read 5002056 SNPs from --sumstats file.
-Removed 4305709 SNPs not in --merge-alleles.
+Read 8337864 SNPs from --sumstats file.
+Removed 7156109 SNPs not in --merge-alleles.
 Removed 0 SNPs with missing values.
 Removed 0 SNPs with INFO <= 0.9.
 Removed 0 SNPs with MAF <= 0.01.
 Removed 0 SNPs with out-of-bounds p-values.
-Removed 246 variants that were not SNPs or were strand-ambiguous.
-696101 SNPs remain.
-Removed 242 SNPs with duplicated rs numbers (695859 SNPs remain).
-Removed 0 SNPs with N < 1000.0 (695859 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.987452152645, which seems sensible.
-Removed 121 SNPs whose alleles did not match --merge-alleles (695738 SNPs remain).
-Writing summary statistics for 1217311 SNPs (695738 with nonmissing beta) to ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par06.sumstats.gz.
+Removed 412 variants that were not SNPs or were strand-ambiguous.
+1181343 SNPs remain.
+Removed 418 SNPs with duplicated rs numbers (1180925 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1180925 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.987099934043, which seems sensible.
+Removed 209 SNPs whose alleles did not match --merge-alleles (1180716 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1180716 with nonmissing beta) to ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par06.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.032
-Lambda GC = 1.054
+Mean chi^2 = 1.03
+Lambda GC = 1.046
 Max chi^2 = 24.788
 0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Fri Apr  1 15:42:19 2022
-Total time elapsed: 19.02s
+Conversion finished at Fri Apr 15 18:30:57 2022
+Total time elapsed: 29.8s

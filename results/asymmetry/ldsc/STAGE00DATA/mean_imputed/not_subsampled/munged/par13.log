@@ -29,26 +29,25 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
 Read 1217311 SNPs for allele merge.
 Reading sumstats from data.csv into memory 5000000 SNPs at a time.
-Read 8337864 SNPs from --sumstats file.
-Removed 7156109 SNPs not in --merge-alleles.
-Removed 0 SNPs with missing values.
+Read 8339783 SNPs from --sumstats file.
+Removed 7158828 SNPs not in --merge-alleles.
+Removed 1 SNPs with missing values.
 Removed 0 SNPs with INFO <= 0.9.
 Removed 0 SNPs with MAF <= 0.01.
 Removed 0 SNPs with out-of-bounds p-values.
-Removed 412 variants that were not SNPs or were strand-ambiguous.
-1181343 SNPs remain.
-Removed 418 SNPs with duplicated rs numbers (1180925 SNPs remain).
-Removed 0 SNPs with N < 1000.0 (1180925 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.989193673465, which seems sensible.
-Removed 209 SNPs whose alleles did not match --merge-alleles (1180716 SNPs remain).
-Writing summary statistics for 1217311 SNPs (1180716 with nonmissing beta) to ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par13.sumstats.gz.
+Removed 3 variants that were not SNPs or were strand-ambiguous.
+1180951 SNPs remain.
+Removed 5019 SNPs with duplicated rs numbers (1175932 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1175932 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.985189148933, which seems sensible.
+Removed 2 SNPs whose alleles did not match --merge-alleles (1175930 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1175930 with nonmissing beta) to ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par13.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.012
-WARNING: mean chi^2 may be too small.
+Mean chi^2 = 1.024
 Lambda GC = 1.02
-Max chi^2 = 25.414
+Max chi^2 = 25.789
 0 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Fri Apr  1 15:46:04 2022
-Total time elapsed: 28.3s
+Conversion finished at Fri Apr 15 18:34:53 2022
+Total time elapsed: 29.04s
