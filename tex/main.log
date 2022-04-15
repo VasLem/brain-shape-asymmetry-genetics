@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  14 APR 2022 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  15 APR 2022 14:35
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1310,6 +1310,7 @@ Loading module `upgrade' ...
 \g__acro_gsea_int=\count383
 \g__acro_grm_int=\count384
 \g__acro_go_int=\count385
+\g__acro_ai_int=\count386
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 19
 .
@@ -1362,16 +1363,16 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count386
+\scratchcounter=\count387
 \scratchdimen=\dimen270
 \scratchbox=\box61
-\nofMPsegments=\count387
-\nofMParguments=\count388
+\nofMPsegments=\count388
+\nofMParguments=\count389
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count389
+\MPscratchCnt=\count390
 \MPscratchDim=\dimen271
-\MPnumerator=\count390
-\makeMPintoPDFobject=\count391
+\MPnumerator=\count391
+\makeMPintoPDFobject=\count392
 \everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1414,7 +1415,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count392
+\c@section@level=\count393
 )
 Redoing nameref's sectioning
 Redoing nameref's label
@@ -1534,7 +1535,7 @@ Package microtype Info: Character `029' is missing
 
 
 ]
-<graphics/bilateria_phylum.jpg, id=289, 328.68396pt x 278.09496pt>
+<graphics/bilateria_phylum.jpg, id=290, 328.68396pt x 278.09496pt>
 File: graphics/bilateria_phylum.jpg Graphic file (type jpg)
 <use graphics/bilateria_phylum.jpg>
 Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
@@ -1543,7 +1544,7 @@ Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
 Package svg Info: Last page of `./svg-inkscape/da_visualization_svg-tex.pdf' is
  1 on input line 22.
  (./svg-inkscape/da_visualization_svg-tex.pdf_tex
-<./svg-inkscape/da_visualization_svg-tex.pdf, id=316, page=1, 722.7pt x 406.518
+<./svg-inkscape/da_visualization_svg-tex.pdf, id=317, page=1, 722.7pt x 406.518
 75pt>
 File: ./svg-inkscape/da_visualization_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/da_visualization_svg-tex.pdf, page 1>
@@ -1555,7 +1556,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 [4 <./svg-inkscape/da_visualization_svg-tex.pdf>]
-<graphics/rg_cells_division.png, id=413, 570.13pt x 508.90125pt>
+<graphics/rg_cells_division.png, id=414, 570.13pt x 508.90125pt>
 File: graphics/rg_cells_division.png Graphic file (type png)
 <use graphics/rg_cells_division.png>
 Package pdftex.def Info: graphics/rg_cells_division.png  used on input line 32.
@@ -1566,7 +1567,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 [6 <./graphics/rg_cells_division.png>]
-<graphics/coronal_section.png, id=449, 749.80125pt x 716.6775pt>
+<graphics/coronal_section.png, id=450, 749.80125pt x 716.6775pt>
 File: graphics/coronal_section.png Graphic file (type png)
 <use graphics/coronal_section.png>
 Package pdftex.def Info: graphics/coronal_section.png  used on input line 46.
@@ -1574,17 +1575,17 @@ Package pdftex.def Info: graphics/coronal_section.png  used on input line 46.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-<graphics/axial_section.png, id=450, 650.43pt x 750.805pt>
+<graphics/axial_section.png, id=451, 650.43pt x 750.805pt>
 File: graphics/axial_section.png Graphic file (type png)
 <use graphics/axial_section.png>
 Package pdftex.def Info: graphics/axial_section.png  used on input line 55.
 (pdftex.def)             Requested size: 89.80106pt x 103.65703pt.
-<graphics/3d_sections.png, id=451, 684.5575pt x 728.7225pt>
+<graphics/3d_sections.png, id=452, 684.5575pt x 728.7225pt>
 File: graphics/3d_sections.png Graphic file (type png)
 <use graphics/3d_sections.png>
 Package pdftex.def Info: graphics/3d_sections.png  used on input line 63.
 (pdftex.def)             Requested size: 89.80106pt x 95.59344pt.
-<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=456, 1501.61pt x 1088.065pt>
+<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=457, 1501.61pt x 1088.065pt>
 
 File: graphics/1280px-Lobes_of_the_brain_NL.svg.png Graphic file (type png)
 <use graphics/1280px-Lobes_of_the_brain_NL.svg.png>
@@ -1596,12 +1597,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./graphics/coronal_section.png> <./graphics/axial_section.png> <./graphics
 /3d_sections.png>]
-<graphics/brodmann_medial.png, id=465, 352.6776pt x 248.3679pt>
+<graphics/brodmann_medial.png, id=466, 352.6776pt x 248.3679pt>
 File: graphics/brodmann_medial.png Graphic file (type png)
 <use graphics/brodmann_medial.png>
 Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 86.
 (pdftex.def)             Requested size: 179.09879pt x 126.12779pt.
-<graphics/brodmann_lateral.png, id=466, 359.6637pt x 269.5671pt>
+<graphics/brodmann_lateral.png, id=467, 359.6637pt x 269.5671pt>
 File: graphics/brodmann_lateral.png Graphic file (type png)
 <use graphics/brodmann_lateral.png>
 Package pdftex.def Info: graphics/brodmann_lateral.png  used on input line 93.
@@ -1612,7 +1613,7 @@ Package svg Info: Last page of `./svg-inkscape/dk_left_svg-tex.pdf' is 1 on inp
 ut line 132.
 
 (./svg-inkscape/dk_left_svg-tex.pdf_tex
-<./svg-inkscape/dk_left_svg-tex.pdf, id=492, page=1, 301.1617pt x 150.58084pt>
+<./svg-inkscape/dk_left_svg-tex.pdf, id=493, page=1, 301.1617pt x 150.58084pt>
 File: ./svg-inkscape/dk_left_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/dk_left_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/dk_left_svg-tex.pdf , page1 used on inp
@@ -1622,7 +1623,7 @@ ut line 56.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./svg-inkscape/dk_left_svg-tex.pdf>]
-<graphics/yakovlevian_external.jpg, id=573, 421.59914pt x 155.69188pt>
+<graphics/yakovlevian_external.jpg, id=574, 421.59914pt x 155.69188pt>
 File: graphics/yakovlevian_external.jpg Graphic file (type jpg)
 <use graphics/yakovlevian_external.jpg>
 Package pdftex.def Info: graphics/yakovlevian_external.jpg  used on input line 
@@ -1633,7 +1634,7 @@ Underfull \vbox (badness 2035) has occurred while \output is active []
 
  [11]
 [12 <./graphics/yakovlevian_external.jpg>] [13]
-<graphics/gwas_2005.png, id=674, 524.96124pt x 373.395pt>
+<graphics/gwas_2005.png, id=675, 524.96124pt x 373.395pt>
 File: graphics/gwas_2005.png Graphic file (type png)
 <use graphics/gwas_2005.png>
 Package pdftex.def Info: graphics/gwas_2005.png  used on input line 202.
@@ -1642,7 +1643,7 @@ Package svg Info: Last page of `./svg-inkscape/gwas_svg-tex.pdf' is 1 on input
 line 209.
 
 (./svg-inkscape/gwas_svg-tex.pdf_tex
-<./svg-inkscape/gwas_svg-tex.pdf, id=676, page=1, 903.48515pt x 451.74257pt>
+<./svg-inkscape/gwas_svg-tex.pdf, id=677, page=1, 903.48515pt x 451.74257pt>
 File: ./svg-inkscape/gwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_svg-tex.pdf , page1 used on input 
@@ -1722,6 +1723,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
+Underfull \hbox (badness 1852) in paragraph at lines 20--31
+[]\T1/lmr/m/n/10.95 (+20) R. S. Abu-Rustum, M. F. Zi-ade, and S. E. Abu-Rustum.
+  Ref-er-
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 20--31
+\T1/lmr/m/n/10.95 (+20) ence Val-ues for the Right and Left Fe-tal Choroid Plex
+us at 11 to
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 20--31
+\T1/lmr/m/n/10.95 (+20) 13 Weeks.  \T1/lmr/m/it/10.95 (+20) Jour-nal of Ul-tra-
+sound in Medicine\T1/lmr/m/n/10.95 (+20) , 32(9):1623--1629, sep
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 20--31
 \T1/lmtt/m/n/10.95 / / onlinelibrary . wiley . com / doi / full / 10 . 7863 / u
 ltra . 32 . 9 . 1623https :
@@ -1734,158 +1753,224 @@ tra . 32 . 9 . 1623https :
  []
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 46--58
-[]\T1/lmr/m/n/10.95 (+20) Michael Ash-burner, Cather-ine A. Ball, Ju-dith A. Bl
-ake, David Bot-
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 46--58
-\T1/lmr/m/n/10.95 (+20) Joel E. Richard-son, Mar-tin Ring-wald, Ger-ald M. Ru-b
-in, and Gavin
- []
-
-
-Underfull \hbox (badness 1033) in paragraph at lines 46--58
-\T1/lmr/m/it/10.95 (+20) ge-net-ics\T1/lmr/m/n/10.95 (+20) , 25(1):25, may 2000
-.  ISSN 10614036.  doi: $10 . 1038 / 75556$.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--58
+Underfull \hbox (badness 10000) in paragraph at lines 46--54
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3037419 
 / /pmc / articles / PMC3037419 / ?report =
  []
 
 [33
 
-] [34] [35] [36] [37]
-Underfull \hbox (badness 2359) in paragraph at lines 394--407
-\T1/lmr/m/n/10.95 (+20) epige-nomic anal-y-ses im-pli-cate can-di-date causal v
-ari-ants at in-her-ited
+] [34]
+Underfull \hbox (badness 1681) in paragraph at lines 280--289
+[]\T1/lmr/m/n/10.95 (+20) M. R. Corces et al.  Single-cell epige-nomic anal-y-s
+es im-pli-cate can-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--407
-\T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC7606627 
-/ /pmc / articles / PMC7606627 / ?report =
+Underfull \hbox (badness 5331) in paragraph at lines 280--289
+\T1/lmr/m/n/10.95 (+20) di-date causal vari-ants at in-her-ited risk loci for A
+lzheimer's and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--441
-\T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6675413 
-/ /pmc / articles / PMC6675413 / ?report =
- []
-
-[38] [39] [40]
-Underfull \hbox (badness 2073) in paragraph at lines 615--624
-\T1/lmr/m/n/10.95 (+20) tal hu-man brain growth.  \T1/lmr/m/it/10.95 (+20) Cur-
-rent opin-ion in neu-rol-ogy\T1/lmr/m/n/10.95 (+20) , 30(1):114,
+Underfull \hbox (badness 1297) in paragraph at lines 280--289
+\T1/lmr/m/n/10.95 (+20) 15461718.  doi: $10 . 1038 / S41588-[]020-[]00721-[]X$.
+  URL []$\T1/lmtt/m/n/10.95 /pmc / articles /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--624
+Underfull \hbox (badness 10000) in paragraph at lines 280--289
+\T1/lmtt/m/n/10.95 PMC7606627 / /pmc / articles / PMC7606627 / ?report = abstra
+cthttps :
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 310--321
+\T1/lmr/m/n/10.95 (+20) a-ran, N. Calarco, J. D. Vi-viano, M. F. Glasser, D. C.
+ Van Es-sen,
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 310--321
+\T1/lmr/m/n/10.95 (+20) and A. N. Voineskos.  ciftify: A frame-work for surface
+-based anal-
+ []
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 310--321
+\T1/lmr/m/n/10.95 (+20) y-sis of legacy MR ac-qui-si-tions.  \T1/lmr/m/it/10.95
+ (+20) Neu-roIm-age\T1/lmr/m/n/10.95 (+20) , 197:818, aug 2019.
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 310--321
+\T1/lmr/m/n/10.95 (+20) ISSN 10959572.  doi: $10 . 1016 / J . NEUROIMAGE . 2019
+ . 04 . 078$.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--321
+[]$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6675413 / /pmc / articles / PMC66754
+13 / ?report =
+ []
+
+[35]
+Underfull \hbox (badness 1931) in paragraph at lines 396--405
+[]\T1/lmr/m/n/10.95 (+20) L. I. Dyck and E. M. Mor-row.  Ge-netic con-trol of p
+ost-na-tal hu-
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 396--405
+\T1/lmr/m/n/10.95 (+20) man brain growth.  \T1/lmr/m/it/10.95 (+20) Cur-rent op
+in-ion in neu-rol-ogy\T1/lmr/m/n/10.95 (+20) , 30(1):114, 2017.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--405
+\T1/lmr/m/n/10.95 (+20) ISSN 14736551.  doi: $10 . 1097 / WCO . 000000000000040
+5$.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--405
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC5340196 / /pmc / articles / PMC53401
 96 / ?report =
  []
 
 
-Underfull \hbox (badness 3138) in paragraph at lines 626--634
-[]\T1/lmr/m/n/10.95 (+20) Aurélie Ernst and Jonas Frisén.  Adult Neu-ro-ge-n-e-
-sis in Humans-
+Underfull \hbox (badness 4096) in paragraph at lines 407--415
+[]\T1/lmr/m/n/10.95 (+20) A. Ernst and J. Frisén.  Adult Neu-ro-ge-n-e-sis in H
+umans- Com-
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 626--634
-\T1/lmr/m/n/10.95 (+20) Com-mon and Unique Traits in Mam-mals.  \T1/lmr/m/it/10
-.95 (+20) PLoS Bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 13(1),
+Underfull \hbox (badness 1990) in paragraph at lines 407--415
+\T1/lmr/m/n/10.95 (+20) mon and Unique Traits in Mam-mals.  \T1/lmr/m/it/10.95 
+(+20) PLoS Bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 13(1), 2015.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 626--634
+Underfull \hbox (badness 6094) in paragraph at lines 407--415
+\T1/lmr/m/n/10.95 (+20) ISSN 15457885.  doi: $10 . 1371 / JOURNAL . PBIO . 1002
+045$.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--415
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC4306487 / /pmc / articles / PMC43064
 87 / ?report =
  []
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 741--751
+[36]
+Underfull \hbox (badness 1024) in paragraph at lines 525--535
+\T1/lmr/m/n/10.95 (+20) (9):616, sep 2017.  ISSN 13624555.  doi: $10 . 1016 / J
+ . TIG . 2017 . 06 . 004$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--535
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC5764106 
 / /pmc / articles / PMC5764106 / ?report =
  []
 
-[42]
-Underfull \hbox (badness 4120) in paragraph at lines 820--829
+[37]
+Underfull \hbox (badness 7486) in paragraph at lines 599--608
+[]\T1/lmr/m/n/10.95 (+20) D. Jack-son, R. Ri-ley, and I. R. White.  Mul-ti-vari
+-ate meta-
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 599--608
 \T1/lmr/m/n/10.95 (+20) analysis: Po-ten-tial and promise.  \T1/lmr/m/it/10.95 
 (+20) Statis-tics in Medicine\T1/lmr/m/n/10.95 (+20) , 30(20):
  []
 
 
-Underfull \hbox (badness 1838) in paragraph at lines 820--829
+Underfull \hbox (badness 1838) in paragraph at lines 599--608
 \T1/lmr/m/n/10.95 (+20) 2481, sep 2011.  ISSN 02776715.  doi: $10 . 1002 / SIM 
 . 4172$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--829
+Underfull \hbox (badness 10000) in paragraph at lines 599--608
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3470931 / /pmc / articles / PMC34709
 31 / ?report =
  []
 
-[43]
-Underfull \hbox (badness 1910) in paragraph at lines 861--870
-\T1/lmr/m/n/10.95 (+20) S11692-[]020-[]09513-[]X / FIGURES / 9$.  URL []$\T1/lm
-tt/m/n/10.95 https : / / link . springer . com /
- []
-
-[44] [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1019
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 710--721
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC8328207 
 / /pmc / articles / PMC8328207 / ?report =
  []
 
-[46]
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1131
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 819--827
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6704245 
 / /pmc / articles / PMC6704245 / ?report =
  []
 
-[47]
-Underfull \hbox (badness 4492) in paragraph at lines 1204--1215
+[40]
+Underfull \hbox (badness 1577) in paragraph at lines 890--900
+\T1/lmr/m/n/10.95 (+20) stein.  Trans-for-ma-tion of the Ra-dial Glia Scaf-fold
+ De-mar-cates Two
+ []
+
+
+Underfull \hbox (badness 4492) in paragraph at lines 890--900
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 http : / / www . cell . com /
  article / S0896627316305645 / fulltexthttp :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1204--1215
+Underfull \hbox (badness 10000) in paragraph at lines 890--900
 \T1/lmtt/m/n/10.95 / / www . cell . com / article / S0896627316305645 / abstrac
 thttps : / / www .
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 1227--1236
-\T1/lmr/m/n/10.95 (+20) Pre-frontal Cor-tex in Pain Pro-cess-ing.  \T1/lmr/m/it
-/10.95 (+20) Molec-u-lar Neu-ro-bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 56
+Underfull \hbox (badness 1496) in paragraph at lines 911--920
+\T1/lmr/m/n/10.95 (+20) Cor-tex in Pain Pro-cess-ing.  \T1/lmr/m/it/10.95 (+20)
+ Molec-u-lar Neu-ro-bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 56(2):1137, feb
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1227--1236
-\T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6400876 
-/ /pmc / articles / PMC6400876 / ?report =
+Underfull \hbox (badness 3482) in paragraph at lines 911--920
+\T1/lmr/m/n/10.95 (+20) 2019.  ISSN 15591182.  doi: $10 . 1007 / S12035-[]018-[
+]1130-[]9$.  URL
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 1239--1249
+
+Underfull \hbox (badness 10000) in paragraph at lines 911--920
+[]$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6400876 / /pmc / articles / PMC64008
+76 / ?report =
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 923--933
+[]\T1/lmr/m/n/10.95 (+20) M. A. Pur-nell, P. J. Donoghue, S. E. Gab-bott, M. E.
+ Mc-Na-mara,
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 923--933
+\T1/lmr/m/n/10.95 (+20) fos-siliza-tion: open-ing the black box.  \T1/lmr/m/it/
+10.95 (+20) Palaeon-tol-ogy\T1/lmr/m/n/10.95 (+20) , 61(3):317--323,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 923--933
 \T1/lmtt/m/n/10.95 / / onlinelibrary . wiley . com / doi / full / 10 . 1111 / p
 ala . 12360https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1239--1249
+Underfull \hbox (badness 10000) in paragraph at lines 923--933
 \T1/lmtt/m/n/10.95 / / onlinelibrary . wiley . com / doi / abs / 10 . 1111 / pa
 la . 12360https :
  []
 
-[49] [50] [51]) [52]
+[41] [42] [43] [44]) [45]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1895,19 +1980,20 @@ la . 12360https :
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- (./main.aux (./introduction.aux) (./mat_and_methods.aux)
-(./preprocessing.aux) (./asymmetry.aux) (./gwas.aux) (./discussion.aux))
+ (./main.aux (./introduction.aux)
+(./mat_and_methods.aux) (./preprocessing.aux) (./asymmetry.aux) (./gwas.aux)
+(./discussion.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 20C9EC7627588A1BEE201BC9C5439F90;4179.
+(rerunfilecheck)             Checksum: 20AFEC4697786CAAD0D6E41811FAEED3;4093.
  ) 
 Here is how much of TeX's memory you used:
- 27911 strings out of 478276
- 595325 string characters out of 5846504
- 945059 words of memory out of 5000000
- 45162 multiletter control sequences out of 15000+600000
- 560375 words of font info for 223 fonts, out of 8000000 for 9000
+ 28042 strings out of 478276
+ 599597 string characters out of 5846504
+ 947339 words of memory out of 5000000
+ 45279 multiletter control sequences out of 15000+600000
+ 561449 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,12n,92p,4104b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,12n,92p,4104b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf-dist/
@@ -1928,10 +2014,10 @@ type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
 ic/lm/lmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt1
 0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
 /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (62 pages, 6027364 bytes).
+Output written on main.pdf (55 pages, 6001583 bytes).
 PDF statistics:
- 1386 PDF objects out of 1440 (max. 8388607)
- 1179 compressed objects within 12 object streams
- 256 named destinations out of 1000 (max. 500000)
+ 1402 PDF objects out of 1440 (max. 8388607)
+ 1201 compressed objects within 13 object streams
+ 258 named destinations out of 1000 (max. 500000)
  40250 words of extra memory for PDF output out of 42996 (max. 10000000)
 

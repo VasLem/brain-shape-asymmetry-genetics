@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: plainnat.bst
+The style file: plainnat-maxbibnames10.bst
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: mat_and_methods.aux
 A level-1 auxiliary file: preprocessing.aux
@@ -18,45 +18,45 @@ Repeated entry---line 2731 of file references.bib
  :                      ,
 I'm skipping whatever remains of this entry
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-You've used 102 entries,
-            2773 wiz_defined-function locations,
-            1549 strings with 66007 characters,
-and the built_in function-call counts, 132359 in all, are:
-= -- 9961
-> -- 17149
-< -- 30
-+ -- 5724
-- -- 5619
-* -- 14530
-:= -- 22588
-add.period$ -- 566
-call.type$ -- 102
-change.case$ -- 2181
-chr.to.int$ -- 99
-cite$ -- 204
-duplicate$ -- 2172
-empty$ -- 4064
-format.name$ -- 5749
-if$ -- 25299
+You've used 110 entries,
+            2790 wiz_defined-function locations,
+            1617 strings with 68321 characters,
+and the built_in function-call counts, 117379 in all, are:
+= -- 10369
+> -- 12987
+< -- 32
++ -- 4310
+- -- 4197
+* -- 11925
+:= -- 18779
+add.period$ -- 609
+call.type$ -- 110
+change.case$ -- 2247
+chr.to.int$ -- 107
+cite$ -- 220
+duplicate$ -- 2337
+empty$ -- 4364
+format.name$ -- 4337
+if$ -- 23247
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 101
-newline$ -- 774
-num.names$ -- 408
-pop$ -- 3945
+missing$ -- 109
+newline$ -- 833
+num.names$ -- 440
+pop$ -- 4043
 preamble$ -- 1
-purify$ -- 2077
+purify$ -- 2135
 quote$ -- 0
-skip$ -- 3097
+skip$ -- 3312
 stack$ -- 0
-substring$ -- 2231
-swap$ -- 235
+substring$ -- 2361
+swap$ -- 251
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1117
+type$ -- 1205
 warning$ -- 0
-while$ -- 473
+while$ -- 507
 width$ -- 0
-write$ -- 1849
+write$ -- 1991
 (There were 2 error messages)
