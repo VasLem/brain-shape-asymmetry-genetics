@@ -18,10 +18,9 @@ for ind=1:length(geneSets)
     out_dir = ['../results/' MODALITY '/ldsc/' DATASET_ID '/h2-cts/'  geneSet '/'];
     inp_file = [out_dir 'h2_results.csv'];
     inp = readtable(inp_file);
-    
-
-
-    
+    disp(geneSet)
+    disp(strjoin(unique(inp.Name),'\n'))
+        
     if iscellstr(inp.Coefficient_P_value)
         na_mask = cellfun(@(x)(strcmp(x,'NA')), inp.Coefficient_P_value);
         inp.Coefficient_P_value(na_mask) = {'nan'};
@@ -65,13 +64,14 @@ for ind=1:length(geneSets)
 %     featMats{2} = ret_c';
 %     featMatsIds{2} = 'coeff';
     featsClassesNames = names;
-    drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+%     drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
 end
 
 function fig = drawResponseMatrix(response, xlabs, ylabs)
     clrLim = [min(min(response)),max(max(response))];
     fig = figure();
-
+%     p = axes('Position',[0.2 0.05 0.6 0.9]);
+%     p.PositionConstraint = 'outerposition';
     imAlpha = ones(size(response));
     imAlpha(isnan(response)) = 0;
     imagesc(response, 'AlphaData', imAlpha);
@@ -80,8 +80,7 @@ function fig = drawResponseMatrix(response, xlabs, ylabs)
     xticks(1:length(xlabs));
     xticklabels(xlabs);
     colormap(gca,'jet');
-    colorbar();
     caxis(clrLim);
-    axis equal
     axis tight
+    colorbar();
 end
