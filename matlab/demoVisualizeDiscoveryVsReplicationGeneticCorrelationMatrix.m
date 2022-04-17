@@ -30,6 +30,5 @@ imagesc(ret, "AlphaData",ImageAlpha)
 colormap(gca,'jet');
 colorbar();
 caxis(clrLim);
-axis equal
 axis tight
 saveas(fig, [out_dir 'dirVsRepHeatmap.svg'])
