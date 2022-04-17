@@ -1,0 +1,8 @@
+# GREAT version 4.0.4	Species assembly: hg19	Association rule: Basal+extension: 5000 bp upstream, 1000 bp downstream, 1000000 bp max extension, curated regulatory domains included
+rs75267789	LRRIQ3 (+909832)
+rs7023465	COL15A1 (-53592), GALNT12 (+82348)
+rs76341705	DAAM1 (-101037), DACT1 (+524239)
+rs4924345	RASGRP1 (-758698), THBS1 (-257589)
+rs72813426	DEF8 (-13596), ENSG00000258947 (+11900)
+17:44248848_G_A	ARL17B (+2429), LRRC37A (+64204)
+

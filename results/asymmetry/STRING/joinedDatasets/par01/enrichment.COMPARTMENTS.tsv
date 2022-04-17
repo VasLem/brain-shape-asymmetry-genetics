@@ -1,0 +1,2 @@
+#term ID	term description	observed gene count	background gene count	strength	false discovery rate	matching proteins in your network (IDs)	matching proteins in your network (labels)
+GOCC:0005874	Microtubule	7	193	0.94	0.0470	9606.ENSP00000233121,9606.ENSP00000238788,9606.ENSP00000268699,9606.ENSP00000301071,9606.ENSP00000320295,9606.ENSP00000336799,9606.ENSP00000340820	MAPRE3,TMEM214,GAS8,TUBA1A,TUBB3,TUBA1B,MAPT

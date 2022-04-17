@@ -1,0 +1,13 @@
+# GREAT version 4.0.4	Species assembly: hg19	Association rule: Basal+extension: 5000 bp upstream, 1000 bp downstream, 1000000 bp max extension, curated regulatory domains included
+ARL17B	rs369533348 (+2429)
+GTF2A2	rs12899115 (-1417)
+LRRC37A	rs369533348 (+64204)
+MAP2	rs2048249 (+5776)
+MC1R	rs111398992 (-13178)
+MEIS1	rs2860911 (-690004)
+SPRED2	rs2860911 (-313217)
+TCF25	rs111398992 (+31089)
+TUBA1A	rs1057725 (+38847)
+TUBA1B	rs1057725 (-19082)
+UNC80	rs2048249 (-186796)
+
