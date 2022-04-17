@@ -39,10 +39,6 @@
 \contentsline {section}{\numberline {2.4}\Ac {mri} Shapes Normalization}{23}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Shapes Partitioning}{24}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Symmetry Statistical analysis}{25}{section.2.6}%
-\contentsline {chapter}{\chapternumberline {3}Data Preprocessing}{27}{chapter.3}%
-\contentsline {chapter}{\chapternumberline {4}Asymmetry Phenotypic Analysis}{29}{chapter.4}%
-\contentsline {chapter}{\chapternumberline {5}Asymmetry Genetic Analysis}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Post-Processing}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Meta-Analysis}{31}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {6}Discussion}{33}{chapter.6}%
-\contentsline {chapter}{Bibliography}{35}{chapter*.17}%
+\contentsline {chapter}{\chapternumberline {3}Results}{27}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {4}Discussion}{29}{chapter.4}%
+\contentsline {chapter}{Bibliography}{31}{chapter*.17}%
