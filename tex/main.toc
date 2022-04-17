@@ -32,26 +32,26 @@
 \contentsline {subsection}{\numberline {1.2.10}\Ac {ldsc} genetic correlation}{17}{subsection.1.2.10}%
 \contentsline {subsection}{\numberline {1.2.11}Generalizing to genes - Functional association}{18}{subsection.1.2.11}%
 \contentsline {section}{\numberline {1.3}Related studies}{19}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Phenotypic trait analysis}{20}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Summary on cortex anatomy}{20}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Dataset Description}{20}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Phenotypic partitioning}{20}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}Breaking the complexity into parts}{20}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Searching for the origin}{21}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Data description}{21}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Novelties based on related literature}{21}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}Evolution}{21}{subsection.1.8.1}%
-\contentsline {subsection}{\numberline {1.8.2}Clinical studies}{21}{subsection.1.8.2}%
-\contentsline {chapter}{\chapternumberline {2}Materials and Methods}{23}{chapter.2}%
-\contentsline {section}{\numberline {2.1}General}{23}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Phenotype}{23}{section.2.2}%
-\contentsline {section}{\numberline {2.3}\Ac {mri} Shapes Normalization}{23}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Symmetry Statistical analysis}{24}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Genome}{24}{section.2.5}%
-\contentsline {chapter}{\chapternumberline {3}Data Preprocessing}{25}{chapter.3}%
-\contentsline {chapter}{\chapternumberline {4}Asymmetry Phenotypic Analysis}{27}{chapter.4}%
-\contentsline {chapter}{\chapternumberline {5}Asymmetry Genetic Analysis}{29}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Post-Processing}{29}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Meta-Analysis}{29}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {6}Discussion}{31}{chapter.6}%
-\contentsline {chapter}{Bibliography}{33}{chapter*.16}%
+\contentsline {section}{\numberline {1.4}Phenotypic trait analysis}{21}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Summary on cortex anatomy}{21}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Dataset Description}{21}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Phenotypic partitioning}{21}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}Breaking the complexity into parts}{22}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Searching for the origin}{22}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Data description}{22}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Novelties based on related literature}{22}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Evolution}{23}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Clinical studies}{23}{subsection.1.8.2}%
+\contentsline {chapter}{\chapternumberline {2}Materials and Methods}{25}{chapter.2}%
+\contentsline {section}{\numberline {2.1}General}{25}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Phenotype}{25}{section.2.2}%
+\contentsline {section}{\numberline {2.3}\Ac {mri} Shapes Normalization}{25}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Symmetry Statistical analysis}{26}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Genome}{26}{section.2.5}%
+\contentsline {chapter}{\chapternumberline {3}Data Preprocessing}{27}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {4}Asymmetry Phenotypic Analysis}{29}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {5}Asymmetry Genetic Analysis}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Post-Processing}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Meta-Analysis}{31}{section.5.2}%
+\contentsline {chapter}{\chapternumberline {6}Discussion}{33}{chapter.6}%
+\contentsline {chapter}{Bibliography}{35}{chapter*.16}%
