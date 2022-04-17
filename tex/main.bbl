@@ -1,4 +1,4 @@
-\begin{thebibliography}{110}
+\begin{thebibliography}{116}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -287,6 +287,17 @@ M.~R. Corces et al.
   /pmc/articles/PMC7606627/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7606627/}.
 
+\bibitem[de~Leeuw et~al.(2015)de~Leeuw, Mooij, Heskes, and
+  Posthuma]{DeLeeuw2015}
+C.~A. de~Leeuw, J.~M. Mooij, T.~Heskes, and D.~Posthuma.
+\newblock {MAGMA: Generalized Gene-Set Analysis of GWAS Data}.
+\newblock \emph{PLOS Computational Biology}, 11\penalty0 (4):\penalty0
+  e1004219, apr 2015.
+\newblock ISSN 1553-7358.
+\newblock \doi{10.1371/JOURNAL.PCBI.1004219}.
+\newblock URL
+  \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004219}.
+
 \bibitem[de~Manzano and Ull{\'{e}}n(2018)]{Manzano2018}
 {\"{O}}.~de~Manzano and F.~Ull{\'{e}}n.
 \newblock {Same Genes, Different Brains: Neuroanatomical Differences Between
@@ -304,6 +315,15 @@ R.~S. Desikan et al.
 \newblock \emph{NeuroImage}, 31\penalty0 (3):\penalty0 968--980, jul 2006.
 \newblock ISSN 1053-8119.
 \newblock \doi{10.1016/J.NEUROIMAGE.2006.01.021}.
+
+\bibitem[Destrieux et~al.(2010)Destrieux, Fischl, Dale, and
+  Halgren]{Destrieux2010}
+C.~Destrieux, B.~Fischl, A.~Dale, and E.~Halgren.
+\newblock {Automatic parcellation of human cortical gyri and sulci using
+  standard anatomical nomenclature}.
+\newblock \emph{NeuroImage}, 53\penalty0 (1):\penalty0 1--15, oct 2010.
+\newblock ISSN 1053-8119.
+\newblock \doi{10.1016/J.NEUROIMAGE.2010.06.010}.
 
 \bibitem[Dickie et~al.(2019)Dickie, Anticevic, Smith, Coalson, Manogaran,
   Calarco, Viviano, Glasser, {Van Essen}, and Voineskos]{Dickie2019}
@@ -618,6 +638,28 @@ R.~Janky et al.
 \newblock \doi{10.1371/JOURNAL.PCBI.1003731}.
 \newblock URL
   \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731}.
+
+\bibitem[Jernigan et~al.(2016)Jernigan, Brown, Hagler, Akshoomoff, Bartsch,
+  Newman, Thompson, Bloss, Murray, Schork, Kennedy, Kuperman, McCabe, Chung,
+  Libiger, Maddox, Casey, Chang, Ernst, Frazier, Gruen, Sowell, Kenet,
+  Kaufmann, Mostofsky, Amaral, and Dale]{Jernigan2016}
+T.~L. Jernigan et al.
+\newblock {The Pediatric Imaging, Neurocognition, and Genetics (PING) Data
+  Repository}.
+\newblock \emph{NeuroImage}, 124:\penalty0 1149--1154, jan 2016.
+\newblock ISSN 1053-8119.
+\newblock \doi{10.1016/J.NEUROIMAGE.2015.04.057}.
+
+\bibitem[Kang et~al.(2011)Kang, Kawasawa, Cheng, Zhu, Xu, Li, Sousa, Pletikos,
+  Meyer, Sedmak, Guennel, Shin, Johnson, Krsnik, Mayer, Fertuzinhos, Umlauf,
+  Lisgo, Vortmeyer, Weinberger, Mane, Hyde, Huttner, Reimers, Kleinman, and
+  {\v{S}}estan]{Kang2011}
+H.~J. Kang et al.
+\newblock {Spatio-temporal transcriptome of the human brain}.
+\newblock \emph{Nature}, 478\penalty0 (7370):\penalty0 483--489, oct 2011.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/NATURE10523}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/22031440/}.
 
 \bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
   SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
@@ -976,6 +1018,16 @@ A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
 \newblock ISSN 1662453X.
 \newblock \doi{10.3389/FNINS.2018.00576/BIBTEX}.
 
+\bibitem[Satterthwaite et~al.(2016)Satterthwaite, Connolly, Ruparel, Calkins,
+  Jackson, Elliott, Roalf, Hopsona, Prabhakaran, Behr, Qiu, Mentch, Chiavacci,
+  Sleiman, Gur, Hakonarson, and Gur]{Satterthwaite2016}
+T.~D. Satterthwaite et al.
+\newblock {The Philadelphia Neurodevelopmental Cohort: A publicly available
+  resource for the study of normal and abnormal brain development in youth}.
+\newblock \emph{NeuroImage}, 124:\penalty0 1115--1119, jan 2016.
+\newblock ISSN 1053-8119.
+\newblock \doi{10.1016/J.NEUROIMAGE.2015.03.056}.
+
 \bibitem[Savic and Lindstr{\"{o}}m(2008)]{Savic2008}
 I.~Savic and P.~Lindstr{\"{o}}m.
 \newblock {PET and MRI show differences in cerebral asymmetry and functional
@@ -1155,6 +1207,18 @@ G.~Vogt.
 \newblock \emph{Phenotypic Switching: Implications in Biology and Medicine},
   pages 207--251, jan 2020.
 \newblock \doi{10.1016/B978-0-12-817996-3.00010-4}.
+
+\bibitem[Volkow et~al.(2018)Volkow, Koob, Croyle, Bianchi, Gordon, Koroshetz,
+  P{\'{e}}rez-Stable, Riley, Bloch, Conway, Deeds, Dowling, Grant, Howlett,
+  Matochik, Morgan, Murray, Noronha, Spong, Wargo, Warren, and
+  Weiss]{Volkow2018}
+N.~D. Volkow et al.
+\newblock {The conception of the ABCD study: From substance use to a broad NIH
+  collaboration}.
+\newblock \emph{Developmental Cognitive Neuroscience}, 32:\penalty0 4--7, aug
+  2018.
+\newblock ISSN 1878-9293.
+\newblock \doi{10.1016/J.DCN.2017.10.002}.
 
 \bibitem[{Von Luxburg}(2007)]{VonLuxburg2007}
 U.~{Von Luxburg}.
