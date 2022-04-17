@@ -30,5 +30,6 @@ imagesc(ret, "AlphaData",ImageAlpha)
 colormap(gca,'jet');
 colorbar();
 caxis(clrLim);
+yticks([]);
 axis tight
 saveas(fig, [out_dir 'dirVsRepHeatmap.svg'])
