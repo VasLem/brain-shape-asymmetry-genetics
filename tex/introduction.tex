@@ -284,45 +284,4 @@ In the work of \citet{Kong2018}, the performed phenotypic measurements remained 
 By far the most complete reported study on cortical asymmetry was performed  by \citet{Zhao2022}. They focused on local geometrical features and the alteration of brain torque during development, by considering contiguous brain slices along with skewness coefficients and average landmark asymmetry differences on regions defined by automatic parcellation Destrieux atlas \cite{Destrieux2010}, collecting 348 features per individual. To handle the temporal factor, specialized datasets for studying brain development during adolescence, ABCD \cite{Volkow2018}, PING \cite{Jernigan2016} and PNC \cite{Satterthwaite2016}, came into play \cite{Zhao2022}. By using meta-analysis applied on univariate \ac{gwas}, they were able to identify only 2 significant lead \acp{snp}, in chromosomes 1 and 10,  from the originally discovered 86 lead \acp{snp}, after adjusting p-values for the number of traits under a strict Bonferroni threshold. Without considering this adjustment, they identified significant genetic correlations; under  moderately high positive $r_g$ (>0.2), with \ac{ad}, \ac{adhd}, and under negative $r_g$ (<-0.2) with bipolar disorder, educational attainment, intelligence and schizophrenia \cite{Zhao2022}. 
 
 
-
-
-\section{Phenotypic trait analysis}\label{sec:phenotype_intro}
-\subsection{Summary on cortex anatomy}
- 
-\subsection{Dataset Description}
- 
-
-The current study focuses on identifying the genetic landscape that composes the observed symmetry pattern, hence, subsequently, a brief introduction into how the genetic variations are being statistically modeled is provided.
-
-
-
-
-
-
-
-\subsection{Phenotypic partitioning}\label{sec:hsc}
-\Acf{hsc} is an unsupervised method of iterative partitioning, that makes use of the distance matrix eigenvectors \cite{Ng2002}. It results into a binary tree structure (i.e. each parent shape is partitioned into two children). In the current study, a level-4 partitioning is performed, resulting into 31 partitions. Subsequently, they are transformed to the corresponding principal components that explain 80\% of the variance, not only for reasons of further dimensionality reduction, but also to ensure that the resulting traits are orthogonal, and therefore compatible for \ac{ldsc} analyses. TO BE CONTINUED
-
-
-
-
-\section{Breaking the complexity into parts}
-TO BE EXPANDED
-
-The present work evaluates the brain asymmetry genetic landscape in a coarse-to-fine segmentation, through the application of \ac{hsc}\cite{Ng2002}, discussed in \autoref{sec:hsc}. The technique has been used in a number of different related studies \cite{Claes2018}\cite{Naqvi2021}, yielding results that are in accordance with the underlying anatomic features. The main reason behind this partitioning is the intrinsic complexity of the studied phenotype, eliciting expected differences in the genomic profiles of each cerebral cortex region. The basic assumption made is that topologically close landmarks share similar genetic background. In general though, this type of distance-based clustering is governed by the least quantity of assumptions, regarding the shape or form of the cluster \cite{VonLuxburg2007}. The partitions' genetic juxtaposition is valuable for identifying which regions share similar significant genetic loci, highlighting the corresponding genes contribution, or showcasing the specialization of certain regions that share little to no similarities with their neighbors. Identifying the latter provides a way of mapping the developmental activation of each locus, bringing forth the opportunity to augment the results of related developmental studies \cite{Vijayakumar2016}.
-
-\section{Searching for the origin}
-TO BE EXPANDED
-
-The genomic studies are performed under the framework of \ac{snp}-by-\ac{snp} \ac{cca}. 
-
-
-\section{Data description}
-In this study, targeted on humans, a cross section between the dependent cerebral asymmetry and the independent genetic factors is performed, in an effort to discover affiliated genetic regions and provide a novel understanding of the related genes cooperation. With the advent of technology capable to collect and process genomes from different individuals in relatively high speed, vast databases have been constructed. One of the main players in the data collection has been UK Biobank; a large-scale database from a randomized consortium of 500,000 individuals, whose genome has been collected, from whom  48,000 subjects had also participated in brain \ac{mri} collection process, as of December 2020 \cite{Littlejohns2020}. In this thesis, we exploit this newly acquired dataset to identify the key loci that are related to the human brain surface symmetry. Only healthy self-proclaimed white European individuals were considered. 
-
-\section{Novelties based on related literature} 
- Due to the biological importance of cerebral bilateral asymmetry, it is a subject that has been rigorously studied from multiple viewpoints.
- \subsection{Evolution}
-
- \subsection{Clinical studies}
  
