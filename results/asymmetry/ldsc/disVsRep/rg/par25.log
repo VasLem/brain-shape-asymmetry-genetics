@@ -1,0 +1,47 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/asymmetry/ldsc/disVsRep/rg/par25 \
+--rg ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz,../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Sat Apr 16 20:47:41 2022
+Reading summary statistics from ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz ...
+Read summary statistics for 1180716 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174407 SNPs remain.
+After merging with regression SNP LD, 1174407 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1168875 SNPs with valid alleles.
+ERROR computing rg for phenotype 2/2, from file ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz.
+Traceback (most recent call last):
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 410, in estimate_rg
+    rghat = _rg(loop, args, log, M_annot, ref_ld_cnames, w_ld_cname, i)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/sumstats.py", line 539, in _rg
+    intercept_gencov=intercepts[2], n_blocks=n_blocks, twostep=args.two_step)
+  File "/usr/local/micapollo01/MIC/DATA/STUDENTS/vlemon0/code/python/ldsc/ldscore/regressions.py", line 706, in __init__
+    np.multiply(hsq1.tot_delete_values, hsq2.tot_delete_values))
+FloatingPointError: invalid value encountered in sqrt
+
+
+
+Summary of Genetic Correlation Results
+                                                                                         p1                                                                                               p2  rg  se   z   p h2_obs h2_obs_se h2_int h2_int_se gcov_int gcov_int_se
+ ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz  ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par25.sumstats.gz  NA  NA  NA  NA     NA        NA     NA        NA       NA          NA
+
+Analysis finished at Sat Apr 16 20:48:00 2022
+Total time elapsed: 19.11s

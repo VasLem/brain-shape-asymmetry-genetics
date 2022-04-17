@@ -15,7 +15,7 @@ Call:
 --a1 A1 \
 --a2 A2 \
 --snp rsID \
---sumstats data.csv \
+--sumstats ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/tmp.csv \
 --p P-value 
 
 Interpreting column names as follows:
@@ -28,7 +28,7 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 
 Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
 Read 1217311 SNPs for allele merge.
-Reading sumstats from data.csv into memory 5000000 SNPs at a time.
+Reading sumstats from ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/tmp.csv into memory 5000000 SNPs at a time.
 Read 8305363 SNPs from --sumstats file.
 Removed 7129460 SNPs not in --merge-alleles.
 Removed 0 SNPs with missing values.
@@ -50,5 +50,5 @@ Lambda GC = 0.992
 Max chi^2 = 88.841
 5 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Fri Apr  1 15:56:32 2022
-Total time elapsed: 27.66s
+Conversion finished at Sat Apr 16 15:21:50 2022
+Total time elapsed: 29.21s

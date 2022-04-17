@@ -1,0 +1,65 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--ref-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ \
+--out ../results/asymmetry/ldsc/disVsRep/rg/par02 \
+--rg ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz,../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz \
+--w-ld-chr ../SAMPLE_DATA/eur_w_ld_chr/ 
+
+Beginning analysis at Sat Apr 16 20:40:32 2022
+Reading summary statistics from ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz ...
+Read summary statistics for 1180716 SNPs.
+Reading reference panel LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1290028 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from ../SAMPLE_DATA/eur_w_ld_chr/[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1290028 SNPs.
+After merging with reference panel LD, 1174407 SNPs remain.
+After merging with regression SNP LD, 1174407 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 1174407 SNPs remain.
+1168875 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.2895 (0.0325)
+Lambda GC: 1.1238
+Mean Chi^2: 1.1071
+Intercept: 0.9956 (0.007)
+Ratio < 0 (usually indicates GC correction).
+
+Heritability of phenotype 2/2
+-----------------------------
+Total Observed scale h2: 0.2502 (0.0333)
+Lambda GC: 1.0957
+Mean Chi^2: 1.083
+Intercept: 1.0035 (0.0068)
+Ratio: 0.0425 (0.0814)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.1834 (0.02)
+Mean z1*z2: 0.1381
+Intercept: 0.0723 (0.004)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.6815 (0.0546)
+Z-score: 12.4891
+P: 8.5633e-36
+
+
+Summary of Genetic Correlation Results
+                                                                                         p1                                                                                               p2      rg      se        z           p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+ ../results/asymmetry/ldsc/STAGE00DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz  ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par02.sumstats.gz  0.6815  0.0546  12.4891  8.5633e-36  0.2502     0.0333  1.0035     0.0068    0.0723        0.004
+
+Analysis finished at Sat Apr 16 20:40:49 2022
+Total time elapsed: 17.8s

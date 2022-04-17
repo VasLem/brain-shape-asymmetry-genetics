@@ -15,7 +15,7 @@ Call:
 --a1 A1 \
 --a2 A2 \
 --snp rsID \
---sumstats data.csv \
+--sumstats ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/tmp.csv \
 --p P-value 
 
 Interpreting column names as follows:
@@ -28,26 +28,26 @@ ChiScore:	Directional summary statistic as specified by --signed-sumstats.
 
 Reading list of SNPs for allele merge from ../SAMPLE_DATA/w_hm3.snplist
 Read 1217311 SNPs for allele merge.
-Reading sumstats from data.csv into memory 5000000 SNPs at a time.
-Read 5117644 SNPs from --sumstats file.
-Removed 4406185 SNPs not in --merge-alleles.
+Reading sumstats from ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/tmp.csv into memory 5000000 SNPs at a time.
+Read 8305363 SNPs from --sumstats file.
+Removed 7129460 SNPs not in --merge-alleles.
 Removed 0 SNPs with missing values.
 Removed 0 SNPs with INFO <= 0.9.
 Removed 0 SNPs with MAF <= 0.01.
 Removed 0 SNPs with out-of-bounds p-values.
-Removed 9 variants that were not SNPs or were strand-ambiguous.
-711450 SNPs remain.
-Removed 2936 SNPs with duplicated rs numbers (708514 SNPs remain).
-Removed 0 SNPs with N < 1000.0 (708514 SNPs remain).
-Median value of SIGNED_SUMSTATS was 0.991411847126, which seems sensible.
-Removed 3 SNPs whose alleles did not match --merge-alleles (708511 SNPs remain).
-Writing summary statistics for 1217311 SNPs (708511 with nonmissing beta) to ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz.
+Removed 2 variants that were not SNPs or were strand-ambiguous.
+1175901 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (1175901 SNPs remain).
+Removed 0 SNPs with N < 1000.0 (1175901 SNPs remain).
+Median value of SIGNED_SUMSTATS was 0.991325011541, which seems sensible.
+Removed 2 SNPs whose alleles did not match --merge-alleles (1175899 SNPs remain).
+Writing summary statistics for 1217311 SNPs (1175899 with nonmissing beta) to ../results/asymmetry/ldsc/BATCH2_2021_DATA/mean_imputed/not_subsampled/munged/par16.sumstats.gz.
 
 Metadata:
-Mean chi^2 = 1.04
-Lambda GC = 1.055
-Max chi^2 = 26.781
-0 Genome-wide significant SNPs (some may have been removed by filtering).
+Mean chi^2 = 1.041
+Lambda GC = 1.053
+Max chi^2 = 41.489
+3 Genome-wide significant SNPs (some may have been removed by filtering).
 
-Conversion finished at Fri Apr  1 15:48:27 2022
-Total time elapsed: 19.2s
+Conversion finished at Sat Apr 16 15:13:32 2022
+Total time elapsed: 28.71s
