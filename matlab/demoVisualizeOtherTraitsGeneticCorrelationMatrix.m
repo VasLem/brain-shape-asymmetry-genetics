@@ -1,4 +1,6 @@
 clear, close all
+addpath(genpath('AIDFUNCTIONS'));
+addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
 DATASET = 'joinedDatasets';
 REDUCTION = 1;
 MODALITY = 'asymmetry';
@@ -39,14 +41,14 @@ end
 clrLim = [min(min(ret)),max(max(ret))]; 
 diamLim = [0.3, 1];
 %%
-fig=figure;
+fig=figure(Position=[0,0,400,1000]);
 [nr,nc] = size(ret);
-pcolor([ret nan(nr,1); nan(1,nc+1)]);
-% imagesc(ret)
+imagesc(ret, 'AlphaData',~isnan(ret))
 colormap(gca,'jet');
 colorbar();
 caxis(clrLim);
 set(gca,'xtick',1:length(traits));
+set(gca, 'YMinorTick','on')
 xticklabels(traits);
 axis equal
 axis tight
