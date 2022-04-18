@@ -80,7 +80,7 @@ for k=1:nPicks
             if nPicks > 1, figName = [saveName '_' num2str(k)]; end
                
             saveas(f, [figName '.fig']);
-            saveas(f, [figName '.png']);
+            saveas(f, [figName '.svg']);
         end
     end
     

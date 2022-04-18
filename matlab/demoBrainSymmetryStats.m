@@ -16,7 +16,7 @@ THREADS = 4;
 REDUCE = 0.1;
 % REDUCE = 1;
 GPA_REPS = 3;
-DATASET_INDEX = 2; %Which dataset to use
+DATASET_INDEX = 1; %Which dataset to use
 PERFORM_EXPERIMENTS = false;
 %%
 
@@ -250,7 +250,7 @@ outRH = mean(var(alignedRH,0,4),3);
 f = figure;
 hist(outLH - outRH);
 title({'Difference between measurement variances of contralateral and symmetrical,', 'as of the midsaggital plane, landmarks'})
-saveas(f, [resultsDir 'testRetestVarDiff.png'])
+saveas(f, [resultsDir 'testRetestVarDiff.svg'])
 variance.LH = outLH;
 variance.RH = outRH;
 %%
@@ -297,7 +297,7 @@ maxlims = max(template.Vertices);
 minlims = min(template.Vertices);
 xlim(axes, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)])
 
-saveas(f, [resultsDir 'test_retest_variance.png']);
+saveas(f, [resultsDir 'test_retest_variance.svg']);
 save([resultsDir 'test_retest_information.mat'], "variance","-v7");
 end
 
