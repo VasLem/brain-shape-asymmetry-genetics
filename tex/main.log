@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  17 APR 2022 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  17 APR 2022 21:50
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1984,13 +1984,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: E073003AC0E1EAC449EB6C77FC8D2CC6;2619.
  ) 
 Here is how much of TeX's memory you used:
- 28173 strings out of 478276
- 605643 string characters out of 5846504
+ 28171 strings out of 478276
+ 605621 string characters out of 5846504
  950720 words of memory out of 5000000
  45429 multiletter control sequences out of 15000+600000
- 562118 words of font info for 232 fonts, out of 8000000 for 9000
+ 562024 words of font info for 231 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,12n,92p,4104b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,12n,92p,4100b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf-dist/
@@ -2011,7 +2011,7 @@ type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
 ic/lm/lmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt1
 0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
 /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (53 pages, 6008029 bytes).
+Output written on main.pdf (53 pages, 6008051 bytes).
 PDF statistics:
  1389 PDF objects out of 1440 (max. 8388607)
  1192 compressed objects within 12 object streams
