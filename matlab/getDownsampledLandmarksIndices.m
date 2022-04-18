@@ -16,7 +16,7 @@ tic;
 % Apply transformation on the template to receive the undersampled copy as Matlab provides it
 rbs = reducepatch(bs.faces,bs.vertices, reduce);
 rbs.vertices = single(rbs.vertices);
-
+3
 % Compute centroids of the faces of both bs and rbs
 bs.centers = (bs.vertices(bs.faces(:,1),:) + bs.vertices(bs.faces(:,2),:) + bs.vertices(bs.faces(:,3),:))/3;
 rbs.centers = (rbs.vertices(rbs.faces(:,1),:) + rbs.vertices(rbs.faces(:,2),:) + rbs.vertices(rbs.faces(:,3),:))/3;
