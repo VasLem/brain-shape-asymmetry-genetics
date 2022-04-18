@@ -51,15 +51,15 @@ for c=1:length(templates)
             set(light,'Position',get(axes, 'CameraPosition'));
             end
             title({['Scale:' num2str(reductions(c))],  [num2str(s) '  landmarks']})
-            pos = get(axes, 'Position');
-            ax = gca;
-            outerpos = ax.OuterPosition;
-            ti = ax.TightInset;
-            left = outerpos(1) + ti(1);
-            bottom = outerpos(2) + ti(2);
-            ax_width = outerpos(3) - ti(1) - ti(3);
-            ax_height = outerpos(4) - ti(2) - ti(4);
-            ax.Position = [left bottom ax_width ax_height];
+%             pos = get(axes, 'Position');
+%             ax = gca;
+%             outerpos = ax.OuterPosition;
+%             ti = ax.TightInset;
+%             left = outerpos(1) + ti(1);
+%             bottom = outerpos(2) + ti(2);
+%             ax_width = outerpos(3) - ti(1) - ti(3);
+%             ax_height = outerpos(4) - ti(2) - ti(4);
+%             ax.Position = [left bottom ax_width ax_height];
         end
     end
     % f = figure;
