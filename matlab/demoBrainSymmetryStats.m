@@ -16,7 +16,7 @@ THREADS = 4;
 REDUCE = 0.1;
 % REDUCE = 1;
 GPA_REPS = 3;
-DATASET_INDEX = 1; %Which dataset to use
+DATASET_INDEX = 2; %Which dataset to use
 PERFORM_EXPERIMENTS = false;
 %%
 
