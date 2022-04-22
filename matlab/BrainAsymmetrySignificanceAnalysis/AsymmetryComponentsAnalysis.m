@@ -146,7 +146,6 @@ classdef AsymmetryComponentsAnalysis
         
         function ret = shuffleResidual(obj, Set1, Set2)
             ret = permute(cat(3, Set1(:,:), Set2(:, :)), [2,3,1]);
-            
             avgC = mean(ret, 1);
             avgR = mean(ret,2);
             avg = mean(avgC);

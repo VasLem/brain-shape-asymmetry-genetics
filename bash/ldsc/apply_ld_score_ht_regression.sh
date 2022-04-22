@@ -8,7 +8,7 @@ H2_CTS_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/h2-cts
 mkdir -p $MUNGED_DIR
 mkdir -p $H2_CTS_DIR
 
-for cts_name in Cahoy Multi_tissue_chromatin GTEx_brain; do  #Multi_tissue_gene_expr
+for cts_name in Cahoy Multi_tissue_chromatin GTEx_brain Multi_tissue_gene_expr; do
     H2_CTS_SET_DIR=$H2_CTS_DIR/$cts_name
     mkdir -p $H2_CTS_SET_DIR
     baseline=$ROOT_DIR/SAMPLE_DATA/1000G_EUR_Phase3_baseline
