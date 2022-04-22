@@ -19,5 +19,6 @@
 \contentsline {figure}{\numberline {1.8}{\ignorespaces Yakovlevian Torque \cite {Kuo2022}}}{12}{figure.caption.14}%
 \contentsline {figure}{\numberline {1.9}{\ignorespaces Examples of \acs {gwas} Manhattan plots \cite {Klein2005}}}{15}{figure.caption.15}%
 \addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Downsampling indices of original average template using the novel algorithm and specific reduction scales (1/r). As no inter-face edge connectivity criterion is being considered, artifacts occur in the approximated shape, in the form of scars.\relax }}{25}{figure.caption.17}%
 \addvspace {10pt}
 \addvspace {10pt}

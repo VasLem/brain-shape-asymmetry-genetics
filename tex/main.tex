@@ -5,7 +5,11 @@
 \usepackage{float}
 \usepackage{svg}
 \usepackage[pdfusetitle,hidelinks,plainpages=false]{hyperref}
-
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\algnewcommand{\LineComment}[1]{\Statex \hskip\ALG@thistlm \(\triangleright\) #1}
+\makeatother
 \usepackage{subcaption}
 \usepackage[numbers]{natbib}
 \bibliographystyle{plainnat-maxbibnames10}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  17 APR 2022 21:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.22)  18 APR 2022 23:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1191,6 +1191,35 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip192
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks37
+\c@algorithm=\count337
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count338
+\c@ALG@rem=\count339
+\c@ALG@nested=\count340
+\ALG@tlm=\skip193
+\ALG@thistlm=\skip194
+\c@ALG@Lnr=\count341
+\c@ALG@blocknr=\count342
+\c@ALG@storecount=\count343
+\c@ALG@tmpcounter=\count344
+\ALG@tmplength=\skip195
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
 
@@ -1213,23 +1242,23 @@ Package caption Info: memoir document class detected.
 File: caption-memoir.sto 2022/03/02 v2.2b Adaption of the caption package to th
 e memoir document class (AR)
 ))
-\c@caption@flags=\count337
-\c@continuedfloat=\count338
+\c@caption@flags=\count345
+\c@continuedfloat=\count346
 Package caption Info: changepage package is loaded.
 \caption@adjustwidth@hsize=\dimen268
 \caption@adjustwidth@linewidth=\dimen269
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count339
-\c@subtable=\count340
+\c@subfigure=\count347
+\c@subtable=\count348
 )
 (/usr/local/texlive/2021/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip193
-\bibsep=\skip194
+\bibhang=\skip196
+\bibsep=\skip197
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count341
+\c@NAT@ctr=\count349
 )
 (./abbreviations.tex
 (/usr/local/texlive/2021/texmf-dist/tex/latex/acro/acro.sty
@@ -1239,17 +1268,17 @@ Package: expl3 2022-02-24 L3 programming layer (loader)
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count342
+\l__color_backend_stack_int=\count350
 \l__pdf_internal_box=\box60
 ))
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: acro 2022/01/27 v3.7 typeset acronyms and other abbreviations (CN)
-\g__acro_version_int=\count343
-\l__acro_tmpa_int=\count344
-\l__acro_tmpb_int=\count345
-\l__acro_tmpc_int=\count346
-\l__acro_tmpd_int=\count347
+\g__acro_version_int=\count351
+\l__acro_tmpa_int=\count352
+\l__acro_tmpb_int=\count353
+\l__acro_tmpc_int=\count354
+\l__acro_tmpd_int=\count355
 Loading module `base' ...
 Loading module `interface' ...
 Loading module `aux' ...
@@ -1258,15 +1287,15 @@ Loading module `acronyms' ...
 Loading module `formatting' ...
 Loading module `ppfixes' ...
 Loading module `tools' ...
-\l__acro_minimal_usage_int=\count348
-\l__acro_nest_int=\count349
-\g_acro_barrier_int=\count350
-\g_acro_barrier_total_int=\count351
+\l__acro_minimal_usage_int=\count356
+\l__acro_nest_int=\count357
+\g_acro_barrier_int=\count358
+\g_acro_barrier_total_int=\count359
 Loading module `commands' ...
 Loading module `templates' ...
 Loading module `list' ...
 Loading module `pages' ...
-\l__acro_pages_seq_threshold_int=\count352
+\l__acro_pages_seq_threshold_int=\count360
 Loading module `locale' ...
 (/usr/local/texlive/2021/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
@@ -1277,44 +1306,45 @@ Loading module `patch' ...
 Loading module `definitions' ...
 Loading module `upgrade' ...
 )
-\g__acro_gwas_int=\count353
-\g__acro_mvgwas_int=\count354
-\g__acro_da_int=\count355
-\g__acro_mri_int=\count356
-\g__acro_snp_int=\count357
-\g__acro_hsc_int=\count358
-\g__acro_cca_int=\count359
-\g__acro_ld_int=\count360
-\g__acro_fa_int=\count361
-\g__acro_anova_int=\count362
-\g__acro_rss_int=\count363
-\g__acro_dof_int=\count364
-\g__acro_dna_int=\count365
-\g__acro_rna_int=\count366
-\g__acro_cns_int=\count367
-\g__acro_rc_int=\count368
-\g__acro_dv_int=\count369
-\g__acro_lr_int=\count370
-\g__acro_rgc_int=\count371
-\g__acro_npc_int=\count372
-\g__acro_3d_int=\count373
-\g__acro_dk_int=\count374
-\g__acro_adhd_int=\count375
-\g__acro_gpa_int=\count376
-\g__acro_maf_int=\count377
-\g__acro_tf_int=\count378
-\g__acro_glm_int=\count379
-\g__acro_fdr_int=\count380
-\g__acro_ml_int=\count381
-\g__acro_ldsc_int=\count382
-\g__acro_gsea_int=\count383
-\g__acro_grm_int=\count384
-\g__acro_go_int=\count385
-\g__acro_ai_int=\count386
-\g__acro_asd_int=\count387
-\g__acro_ad_int=\count388
+\g__acro_gwas_int=\count361
+\g__acro_mvgwas_int=\count362
+\g__acro_da_int=\count363
+\g__acro_mri_int=\count364
+\g__acro_snp_int=\count365
+\g__acro_hsc_int=\count366
+\g__acro_cca_int=\count367
+\g__acro_ld_int=\count368
+\g__acro_fa_int=\count369
+\g__acro_anova_int=\count370
+\g__acro_rss_int=\count371
+\g__acro_dof_int=\count372
+\g__acro_dna_int=\count373
+\g__acro_rna_int=\count374
+\g__acro_cns_int=\count375
+\g__acro_rc_int=\count376
+\g__acro_dv_int=\count377
+\g__acro_lr_int=\count378
+\g__acro_rgc_int=\count379
+\g__acro_npc_int=\count380
+\g__acro_3d_int=\count381
+\g__acro_dk_int=\count382
+\g__acro_adhd_int=\count383
+\g__acro_gpa_int=\count384
+\g__acro_maf_int=\count385
+\g__acro_tf_int=\count386
+\g__acro_glm_int=\count387
+\g__acro_fdr_int=\count388
+\g__acro_ml_int=\count389
+\g__acro_ldsc_int=\count390
+\g__acro_gsea_int=\count391
+\g__acro_grm_int=\count392
+\g__acro_go_int=\count393
+\g__acro_ai_int=\count394
+\g__acro_asd_int=\count395
+\g__acro_ad_int=\count396
+\g__acro_hcp_int=\count397
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 19
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 23
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -1324,24 +1354,24 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 
 ******************************************************
@@ -1365,17 +1395,17 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count389
+\scratchcounter=\count398
 \scratchdimen=\dimen270
 \scratchbox=\box61
-\nofMPsegments=\count390
-\nofMParguments=\count391
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count392
+\nofMPsegments=\count399
+\nofMParguments=\count400
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count401
 \MPscratchDim=\dimen271
-\MPnumerator=\count393
-\makeMPintoPDFobject=\count394
-\everyMPtoPDFconversion=\toks38
+\MPnumerator=\count402
+\makeMPintoPDFobject=\count403
+\everyMPtoPDFconversion=\toks39
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1385,18 +1415,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 19.
-Package microtype Info: Applying patch `item' on input line 19.
-Package microtype Info: Applying patch `toc' on input line 19.
-Package microtype Info: Applying patch `eqnum' on input line 19.
-Package microtype Info: Applying patch `footnote' on input line 19.
+LaTeX Info: Redefining \microtypecontext on input line 23.
+Package microtype Info: Applying patch `item' on input line 23.
+Package microtype Info: Applying patch `toc' on input line 23.
+Package microtype Info: Applying patch `eqnum' on input line 23.
+Package microtype Info: Applying patch `footnote' on input line 23.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 19.
+LaTeX Info: Redefining \showhyphens on input line 23.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1405,7 +1435,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1417,14 +1447,14 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count395
+\c@section@level=\count404
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 19.
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1438,7 +1468,7 @@ File: translations-basic-dictionary-dutch.trsl (dutch translation file `transla
 tions-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `dutch'. on input line 19.
+or `dutch'. on input line 23.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/translations/translations-basic-d
 ictionary-english.trsl
@@ -1446,29 +1476,29 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 19.
+or `english'. on input line 23.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `kulemtfpf' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<logokul.pdf, id=82, 159.33528pt x 56.90298pt>
+<logokul.pdf, id=70, 159.33528pt x 56.90298pt>
 File: logokul.pdf Graphic file (type pdf)
 <use logokul.pdf>
-Package pdftex.def Info: logokul.pdf  used on input line 19.
+Package pdftex.def Info: logokul.pdf  used on input line 23.
 (pdftex.def)             Requested size: 159.33487pt x 56.90283pt.
 LaTeX Font Info:    Font shape `T1/kulemtfpf/b/n' in size <12> not available
 (Font)              Font shape `T1/kulemtfpf/bx/n' tried instead on input line 
-19.
+23.
 LaTeX Font Info:    Font shape `T1/kulemtfpf/b/n' in size <14.4> not available
 (Font)              Font shape `T1/kulemtfpf/bx/n' tried instead on input line 
-19.
+23.
  [-1
 
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/lo
 cal/texlive/texmf-local/tex/latex/kulemt/logokul.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-9.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+3.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [0
@@ -1537,7 +1567,7 @@ Package microtype Info: Character `029' is missing
 
 
 ]
-<graphics/bilateria_phylum.jpg, id=252, 328.68396pt x 278.09496pt>
+<graphics/bilateria_phylum.jpg, id=241, 328.68396pt x 278.09496pt>
 File: graphics/bilateria_phylum.jpg Graphic file (type jpg)
 <use graphics/bilateria_phylum.jpg>
 Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
@@ -1546,7 +1576,7 @@ Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
 Package svg Info: Last page of `./svg-inkscape/da_visualization_svg-tex.pdf' is
  1 on input line 22.
  (./svg-inkscape/da_visualization_svg-tex.pdf_tex
-<./svg-inkscape/da_visualization_svg-tex.pdf, id=278, page=1, 722.7pt x 406.518
+<./svg-inkscape/da_visualization_svg-tex.pdf, id=267, page=1, 722.7pt x 406.518
 75pt>
 File: ./svg-inkscape/da_visualization_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/da_visualization_svg-tex.pdf, page 1>
@@ -1567,7 +1597,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 [4 <./svg-inkscape/da_visualization_svg-tex.pdf>]
-<graphics/rg_cells_division.png, id=374, 570.13pt x 508.90125pt>
+<graphics/rg_cells_division.png, id=363, 570.13pt x 508.90125pt>
 File: graphics/rg_cells_division.png Graphic file (type png)
 <use graphics/rg_cells_division.png>
 Package pdftex.def Info: graphics/rg_cells_division.png  used on input line 32.
@@ -1578,7 +1608,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 [6 <./graphics/rg_cells_division.png>]
-<graphics/coronal_section.png, id=410, 749.80125pt x 716.6775pt>
+<graphics/coronal_section.png, id=399, 749.80125pt x 716.6775pt>
 File: graphics/coronal_section.png Graphic file (type png)
 <use graphics/coronal_section.png>
 Package pdftex.def Info: graphics/coronal_section.png  used on input line 46.
@@ -1586,17 +1616,17 @@ Package pdftex.def Info: graphics/coronal_section.png  used on input line 46.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-<graphics/axial_section.png, id=411, 650.43pt x 750.805pt>
+<graphics/axial_section.png, id=400, 650.43pt x 750.805pt>
 File: graphics/axial_section.png Graphic file (type png)
 <use graphics/axial_section.png>
 Package pdftex.def Info: graphics/axial_section.png  used on input line 55.
 (pdftex.def)             Requested size: 89.80106pt x 103.65703pt.
-<graphics/3d_sections.png, id=412, 684.5575pt x 728.7225pt>
+<graphics/3d_sections.png, id=401, 684.5575pt x 728.7225pt>
 File: graphics/3d_sections.png Graphic file (type png)
 <use graphics/3d_sections.png>
 Package pdftex.def Info: graphics/3d_sections.png  used on input line 63.
 (pdftex.def)             Requested size: 89.80106pt x 95.59344pt.
-<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=417, 1501.61pt x 1088.065pt>
+<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=406, 1501.61pt x 1088.065pt>
 
 File: graphics/1280px-Lobes_of_the_brain_NL.svg.png Graphic file (type png)
 <use graphics/1280px-Lobes_of_the_brain_NL.svg.png>
@@ -1608,12 +1638,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./graphics/coronal_section.png> <./graphics/axial_section.png> <./graphics
 /3d_sections.png>]
-<graphics/brodmann_medial.png, id=425, 352.6776pt x 248.3679pt>
+<graphics/brodmann_medial.png, id=414, 352.6776pt x 248.3679pt>
 File: graphics/brodmann_medial.png Graphic file (type png)
 <use graphics/brodmann_medial.png>
 Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 86.
 (pdftex.def)             Requested size: 179.09879pt x 126.12779pt.
-<graphics/brodmann_lateral.png, id=426, 359.6637pt x 269.5671pt>
+<graphics/brodmann_lateral.png, id=415, 359.6637pt x 269.5671pt>
 File: graphics/brodmann_lateral.png Graphic file (type png)
 <use graphics/brodmann_lateral.png>
 Package pdftex.def Info: graphics/brodmann_lateral.png  used on input line 93.
@@ -1624,7 +1654,7 @@ Package svg Info: Last page of `./svg-inkscape/dk_left_svg-tex.pdf' is 1 on inp
 ut line 132.
 
 (./svg-inkscape/dk_left_svg-tex.pdf_tex
-<./svg-inkscape/dk_left_svg-tex.pdf, id=452, page=1, 301.1617pt x 150.58084pt>
+<./svg-inkscape/dk_left_svg-tex.pdf, id=441, page=1, 301.1617pt x 150.58084pt>
 File: ./svg-inkscape/dk_left_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/dk_left_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/dk_left_svg-tex.pdf , page1 used on inp
@@ -1634,7 +1664,7 @@ ut line 56.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./svg-inkscape/dk_left_svg-tex.pdf>]
-<graphics/yakovlevian_external.jpg, id=534, 421.59914pt x 155.69188pt>
+<graphics/yakovlevian_external.jpg, id=523, 421.59914pt x 155.69188pt>
 File: graphics/yakovlevian_external.jpg Graphic file (type jpg)
 <use graphics/yakovlevian_external.jpg>
 Package pdftex.def Info: graphics/yakovlevian_external.jpg  used on input line 
@@ -1645,7 +1675,7 @@ Underfull \vbox (badness 2035) has occurred while \output is active []
 
  [11]
 [12 <./graphics/yakovlevian_external.jpg>] [13]
-<graphics/gwas_2005.png, id=635, 524.96124pt x 373.395pt>
+<graphics/gwas_2005.png, id=624, 524.96124pt x 373.395pt>
 File: graphics/gwas_2005.png Graphic file (type png)
 <use graphics/gwas_2005.png>
 Package pdftex.def Info: graphics/gwas_2005.png  used on input line 202.
@@ -1654,7 +1684,7 @@ Package svg Info: Last page of `./svg-inkscape/gwas_svg-tex.pdf' is 1 on input
 line 209.
 
 (./svg-inkscape/gwas_svg-tex.pdf_tex
-<./svg-inkscape/gwas_svg-tex.pdf, id=637, page=1, 903.48515pt x 451.74257pt>
+<./svg-inkscape/gwas_svg-tex.pdf, id=626, page=1, 903.48515pt x 451.74257pt>
 File: ./svg-inkscape/gwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_svg-tex.pdf , page1 used on input 
@@ -1683,26 +1713,34 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: Reference `' on page 23 undefined on input line 2.
 
 [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package svg Info: Last page of `./svg-inkscape/reduction_svg-tex.pdf' is 1 on i
+nput line 27.
+ (./svg-inkscape/reduction_svg-tex.pdf_tex
+<./svg-inkscape/reduction_svg-tex.pdf, id=1000, page=1, 770.88pt x 289.08636pt>
 
- [24])
-[25]
+File: ./svg-inkscape/reduction_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/reduction_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/reduction_svg-tex.pdf , page1 used on i
+nput line 56.
+(pdftex.def)             Requested size: 398.0pt x 149.25386pt.
+) [24] [25 <./svg-inkscape/reduction_svg-tex.pdf>] [26]) [27] [28]
 \openout2 = `results.aux'.
 
- (./results.tex [26
+ (./results.tex) [29
 
 
 
 
-]) [27]
+]
 \openout2 = `discussion.aux'.
 
- (./discussion.tex [28
+ (./discussion.tex
+[30
 
 
 
 
-]) [29] [30
+]) [31] [32
 
 
 
@@ -1748,224 +1786,331 @@ tra . 32 . 9 . 1623https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--54
+Underfull \hbox (badness 5563) in paragraph at lines 43--52
+[]\T1/lmr/m/n/10.95 (+20) M. J. An-der-son.  A new method for non-parametric mu
+l-ti-vari-
+ []
+
+
+Underfull \hbox (badness 3525) in paragraph at lines 43--52
+\T1/lmr/m/n/10.95 (+20) ate anal-y-sis of vari-ance.  \T1/lmr/m/it/10.95 (+20) 
+Aus-tral Ecol-ogy\T1/lmr/m/n/10.95 (+20) , 26(1):32--46, feb 2001.
+ []
+
+
+Underfull \hbox (badness 2197) in paragraph at lines 43--52
+\T1/lmr/m/n/10.95 (+20) ISSN 1442-9993.  doi: $10 . 1111 / J . 1442-[]9993 . 20
+01 . 01070 . PP . X$.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+[]$\T1/lmtt/m/n/10.95 https : / / onlinelibrary . wiley . com / doi / full / 10
+ . 1111 / j . 1442-[]9993 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+\T1/lmtt/m/n/10.95 2001 . 01070 . pp . xhttps : / / onlinelibrary . wiley . com
+ / doi / abs / 10 . 1111 / j .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+\T1/lmtt/m/n/10.95 1442-[]9993 . 2001 . 01070 . pp . xhttps : / / onlinelibrary
+ . wiley . com / doi / 10 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--65
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3037419 
 / /pmc / articles / PMC3037419 / ?report =
  []
 
-[31
+[33
 
-] [32]
-Underfull \hbox (badness 1681) in paragraph at lines 280--289
+] [34]
+Underfull \hbox (badness 1681) in paragraph at lines 291--300
 []\T1/lmr/m/n/10.95 (+20) M. R. Corces et al.  Single-cell epige-nomic anal-y-s
 es im-pli-cate can-
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 280--289
+Underfull \hbox (badness 5331) in paragraph at lines 291--300
 \T1/lmr/m/n/10.95 (+20) di-date causal vari-ants at in-her-ited risk loci for A
 lzheimer's and
  []
 
 
-Underfull \hbox (badness 1297) in paragraph at lines 280--289
+Underfull \hbox (badness 1297) in paragraph at lines 291--300
 \T1/lmr/m/n/10.95 (+20) 15461718.  doi: $10 . 1038 / S41588-[]020-[]00721-[]X$.
   URL []$\T1/lmtt/m/n/10.95 /pmc / articles /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--289
+Underfull \hbox (badness 10000) in paragraph at lines 291--300
 \T1/lmtt/m/n/10.95 PMC7606627 / /pmc / articles / PMC7606627 / ?report = abstra
 cthttps :
  []
 
-[33]
-Underfull \hbox (badness 1205) in paragraph at lines 330--341
+[35]
+Underfull \hbox (badness 1205) in paragraph at lines 341--352
 \T1/lmr/m/n/10.95 (+20) a-ran, N. Calarco, J. D. Vi-viano, M. F. Glasser, D. C.
  Van Es-sen,
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 330--341
+Underfull \hbox (badness 1320) in paragraph at lines 341--352
 \T1/lmr/m/n/10.95 (+20) and A. N. Voineskos.  ciftify: A frame-work for surface
 -based anal-
  []
 
 
-Underfull \hbox (badness 3449) in paragraph at lines 330--341
+Underfull \hbox (badness 3449) in paragraph at lines 341--352
 \T1/lmr/m/n/10.95 (+20) y-sis of legacy MR ac-qui-si-tions.  \T1/lmr/m/it/10.95
  (+20) Neu-roIm-age\T1/lmr/m/n/10.95 (+20) , 197:818, aug 2019.
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 330--341
+Underfull \hbox (badness 2020) in paragraph at lines 341--352
 \T1/lmr/m/n/10.95 (+20) ISSN 10959572.  doi: $10 . 1016 / J . NEUROIMAGE . 2019
  . 04 . 078$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--341
+Underfull \hbox (badness 10000) in paragraph at lines 341--352
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6675413 / /pmc / articles / PMC66754
 13 / ?report =
  []
 
 
-Underfull \hbox (badness 1931) in paragraph at lines 416--425
+Underfull \hbox (badness 1931) in paragraph at lines 427--436
 []\T1/lmr/m/n/10.95 (+20) L. I. Dyck and E. M. Mor-row.  Ge-netic con-trol of p
 ost-na-tal hu-
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 416--425
+Underfull \hbox (badness 1960) in paragraph at lines 427--436
 \T1/lmr/m/n/10.95 (+20) man brain growth.  \T1/lmr/m/it/10.95 (+20) Cur-rent op
 in-ion in neu-rol-ogy\T1/lmr/m/n/10.95 (+20) , 30(1):114, 2017.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--425
+Underfull \hbox (badness 10000) in paragraph at lines 427--436
 \T1/lmr/m/n/10.95 (+20) ISSN 14736551.  doi: $10 . 1097 / WCO . 000000000000040
 5$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--425
+Underfull \hbox (badness 10000) in paragraph at lines 427--436
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC5340196 / /pmc / articles / PMC53401
 96 / ?report =
  []
 
 
-Underfull \hbox (badness 4096) in paragraph at lines 427--435
+Underfull \hbox (badness 4096) in paragraph at lines 438--446
 []\T1/lmr/m/n/10.95 (+20) A. Ernst and J. Frisén.  Adult Neu-ro-ge-n-e-sis in H
 umans- Com-
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 427--435
+Underfull \hbox (badness 1990) in paragraph at lines 438--446
 \T1/lmr/m/n/10.95 (+20) mon and Unique Traits in Mam-mals.  \T1/lmr/m/it/10.95 
 (+20) PLoS Bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 13(1), 2015.
  []
 
 
-Underfull \hbox (badness 6094) in paragraph at lines 427--435
+Underfull \hbox (badness 6094) in paragraph at lines 438--446
 \T1/lmr/m/n/10.95 (+20) ISSN 15457885.  doi: $10 . 1371 / JOURNAL . PBIO . 1002
 045$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--435
+Underfull \hbox (badness 10000) in paragraph at lines 438--446
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC4306487 / /pmc / articles / PMC43064
 87 / ?report =
  []
 
-[34]
-Underfull \hbox (badness 1024) in paragraph at lines 545--555
+[36]
+Underfull \hbox (badness 1112) in paragraph at lines 538--548
+\T1/lmr/m/n/10.95 (+20) eas In Vivo Based on Myelin Con-tent as Re-vealed by T1
+- and T2-
+ []
+
+
+Underfull \hbox (badness 3965) in paragraph at lines 538--548
+\T1/lmr/m/n/10.95 (+20) Weighted MRI.  \T1/lmr/m/it/10.95 (+20) The Jour-nal of
+ Neu-ro-science\T1/lmr/m/n/10.95 (+20) , 31(32):11597, aug
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 538--548
+[]$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3167149 / /pmc / articles / PMC31671
+49 / ?report =
+ []
+
+[37]
+Underfull \hbox (badness 1024) in paragraph at lines 568--578
 \T1/lmr/m/n/10.95 (+20) (9):616, sep 2017.  ISSN 13624555.  doi: $10 . 1016 / J
  . TIG . 2017 . 06 . 004$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--555
+Underfull \hbox (badness 10000) in paragraph at lines 568--578
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC5764106 
 / /pmc / articles / PMC5764106 / ?report =
  []
 
-[35]
-Underfull \hbox (badness 7486) in paragraph at lines 619--628
+
+Underfull \hbox (badness 7486) in paragraph at lines 642--651
 []\T1/lmr/m/n/10.95 (+20) D. Jack-son, R. Ri-ley, and I. R. White.  Mul-ti-vari
 -ate meta-
  []
 
 
-Underfull \hbox (badness 4120) in paragraph at lines 619--628
+Underfull \hbox (badness 4120) in paragraph at lines 642--651
 \T1/lmr/m/n/10.95 (+20) analysis: Po-ten-tial and promise.  \T1/lmr/m/it/10.95 
 (+20) Statis-tics in Medicine\T1/lmr/m/n/10.95 (+20) , 30(20):
  []
 
 
-Underfull \hbox (badness 1838) in paragraph at lines 619--628
+Underfull \hbox (badness 1838) in paragraph at lines 642--651
 \T1/lmr/m/n/10.95 (+20) 2481, sep 2011.  ISSN 02776715.  doi: $10 . 1002 / SIM 
 . 4172$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--628
+Underfull \hbox (badness 10000) in paragraph at lines 642--651
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3470931 / /pmc / articles / PMC34709
 31 / ?report =
  []
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 752--763
+[38]
+Underfull \hbox (badness 1939) in paragraph at lines 710--720
+[]\T1/lmr/m/n/10.95 (+20) C. P. Klin-gen-berg and G. S. Mcin-tyre.  GE-O-MET-RI
+C MOR-PHO-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+\T1/lmr/m/n/10.95 (+20) MET-RICS OF DE-VEL-OP-MEN-TAL IN-STA-BIL-ITY: AN-A-LYZ-
+ING
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+\T1/lmr/m/n/10.95 (+20) PAT-TERNS OF FLUC-TU-AT-ING ASYM-ME-TRY WITH PRO-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+\T1/lmr/m/n/10.95 (+20) CRUSTES METH-ODS.  \T1/lmr/m/it/10.95 (+20) Evo-lu-tion
+\T1/lmr/m/n/10.95 (+20) , 52(5):1363--1375, oct 1998.
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 710--720
+\T1/lmr/m/n/10.95 (+20) ISSN 1558-5646.  doi: $10 . 1111 / J . 1558-[]5646 . 19
+98 . TB02018 . X$.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+[]$\T1/lmtt/m/n/10.95 https : / / onlinelibrary . wiley . com / doi / full / 10
+ . 1111 / j . 1558-[]5646 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+\T1/lmtt/m/n/10.95 1998 . tb02018 . xhttps : / / onlinelibrary . wiley . com / 
+doi / abs / 10 . 1111 / j .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--720
+\T1/lmtt/m/n/10.95 1558-[]5646 . 1998 . tb02018 . xhttps : / / onlinelibrary . 
+wiley . com / doi / 10 .
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 787--798
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC8328207 
 / /pmc / articles / PMC8328207 / ?report =
  []
 
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 861--869
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 914--922
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6704245 
 / /pmc / articles / PMC6704245 / ?report =
  []
 
-[38]
-Underfull \hbox (badness 1577) in paragraph at lines 932--942
+[41]
+Underfull \hbox (badness 1577) in paragraph at lines 985--995
 \T1/lmr/m/n/10.95 (+20) stein.  Trans-for-ma-tion of the Ra-dial Glia Scaf-fold
  De-mar-cates Two
  []
 
 
-Underfull \hbox (badness 4492) in paragraph at lines 932--942
+Underfull \hbox (badness 4492) in paragraph at lines 985--995
 \T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 http : / / www . cell . com /
  article / S0896627316305645 / fulltexthttp :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 932--942
+Underfull \hbox (badness 10000) in paragraph at lines 985--995
 \T1/lmtt/m/n/10.95 / / www . cell . com / article / S0896627316305645 / abstrac
 thttps : / / www .
  []
 
 
-Underfull \hbox (badness 1496) in paragraph at lines 953--962
+Underfull \hbox (badness 1496) in paragraph at lines 1006--1015
 \T1/lmr/m/n/10.95 (+20) Cor-tex in Pain Pro-cess-ing.  \T1/lmr/m/it/10.95 (+20)
  Molec-u-lar Neu-ro-bi-ol-ogy\T1/lmr/m/n/10.95 (+20) , 56(2):1137, feb
  []
 
 
-Underfull \hbox (badness 3482) in paragraph at lines 953--962
+Underfull \hbox (badness 3482) in paragraph at lines 1006--1015
 \T1/lmr/m/n/10.95 (+20) 2019.  ISSN 15591182.  doi: $10 . 1007 / S12035-[]018-[
 ]1130-[]9$.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 953--962
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1015
 []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC6400876 / /pmc / articles / PMC64008
 76 / ?report =
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 965--975
+Underfull \hbox (badness 1424) in paragraph at lines 1018--1028
 []\T1/lmr/m/n/10.95 (+20) M. A. Pur-nell, P. J. Donoghue, S. E. Gab-bott, M. E.
  Mc-Na-mara,
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 965--975
+Underfull \hbox (badness 2181) in paragraph at lines 1018--1028
 \T1/lmr/m/n/10.95 (+20) fos-siliza-tion: open-ing the black box.  \T1/lmr/m/it/
 10.95 (+20) Palaeon-tol-ogy\T1/lmr/m/n/10.95 (+20) , 61(3):317--323,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--975
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1028
 \T1/lmtt/m/n/10.95 / / onlinelibrary . wiley . com / doi / full / 10 . 1111 / p
 ala . 12360https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--975
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1028
 \T1/lmtt/m/n/10.95 / / onlinelibrary . wiley . com / doi / abs / 10 . 1111 / pa
 la . 12360https :
  []
 
-[39] [40] [41] [42]) [43]
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1067
+\T1/lmr/m/n/10.95 (+20) URL []$\T1/lmtt/m/n/10.95 /pmc / articles / PMC3389460 
+/ /pmc / articles / PMC3389460 / ?report =
+ []
+
+[43] [44] [45]) [46]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1975,22 +2120,22 @@ la . 12360https :
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- (./main.aux (./introduction.aux)
-(./mat_and_methods.aux) (./results.aux) (./discussion.aux))
+ (./main.aux (./introduction.aux) (./mat_and_methods.aux)
+(./results.aux) (./discussion.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E073003AC0E1EAC449EB6C77FC8D2CC6;2619.
+(rerunfilecheck)             Checksum: AEDA248CECAFC2D5C6F7CB3A37ED5CE7;2246.
  ) 
 Here is how much of TeX's memory you used:
- 28171 strings out of 478276
- 605621 string characters out of 5846504
- 950720 words of memory out of 5000000
- 45429 multiletter control sequences out of 15000+600000
- 562024 words of font info for 231 fonts, out of 8000000 for 9000
+ 28945 strings out of 478276
+ 620917 string characters out of 5846504
+ 966270 words of memory out of 5000000
+ 46150 multiletter control sequences out of 15000+600000
+ 571897 words of font info for 243 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,12n,92p,4100b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,12n,92p,4100b,761s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf-dist/
@@ -1999,22 +2144,25 @@ dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/l
 m-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/tex
 live/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/
-texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2021/texmf-dis
-t/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
-pe1/public/lm/lmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
-/lm/lmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.p
-fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/
-2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2021/texmf-d
-ist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2021/texmf-dist/fonts/
-type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
-ic/lm/lmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt1
-0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
-/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (53 pages, 6008051 bytes).
+texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/local/texlive/2021/texmf-dist/
+fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1
+/public/lm/lmcsc10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/l
+m/lmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.p
+fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/lo
+cal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf
+-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/
+type1/public/lm/lmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
+/lm/lmri10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10
+.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/
+local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2021/te
+xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2021/texmf-dis
+t/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (56 pages, 6560934 bytes).
 PDF statistics:
- 1389 PDF objects out of 1440 (max. 8388607)
- 1192 compressed objects within 12 object streams
- 252 named destinations out of 1000 (max. 500000)
- 40186 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1520 PDF objects out of 1728 (max. 8388607)
+ 1291 compressed objects within 13 object streams
+ 267 named destinations out of 1000 (max. 500000)
+ 46316 words of extra memory for PDF output out of 51595 (max. 10000000)
 

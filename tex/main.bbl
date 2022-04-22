@@ -1,4 +1,4 @@
-\begin{thebibliography}{116}
+\begin{thebibliography}{123}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -38,6 +38,17 @@ D.~{Alejandro Gonzalez-Chica}, J.~{Luiz Bastos}, R.~{Pereira Duquia},
 \newblock \emph{An Bras Dermatol}, 90\penalty0 (4):\penalty0 523--531, 2015.
 \newblock \doi{10.1590/abd1806-4841.20154289}.
 \newblock URL \url{http://dx.doi.org/10.1590/abd1806-4841.20154289}.
+
+\bibitem[Anderson(2001)]{Anderson2001}
+M.~J. Anderson.
+\newblock {A new method for non-parametric multivariate analysis of variance}.
+\newblock \emph{Austral Ecology}, 26\penalty0 (1):\penalty0 32--46, feb 2001.
+\newblock ISSN 1442-9993.
+\newblock \doi{10.1111/J.1442-9993.2001.01070.PP.X}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/full/10.1111/j.1442-9993.2001.01070.pp.x
+  https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.2001.01070.pp.x
+  https://onlinelibrary.wiley.com/doi/10.1111/j.1442-9993.2001.01070.pp.x}.
 
 \bibitem[Ashburner et~al.(2000)Ashburner, Ball, Blake, Botstein, Butler,
   Cherry, Davis, Dolinski, Dwight, Eppig, Harris, Hill, Issel-Tarver,
@@ -523,6 +534,18 @@ M.~D. Gallagher and A.~S. Chen-Plotkin.
 \newblock ISSN 0002-9297.
 \newblock \doi{10.1016/J.AJHG.2018.04.002}.
 
+\bibitem[Glasser and van Essen(2011)]{Glasser2011}
+M.~F. Glasser and D.~C. van Essen.
+\newblock {Mapping Human Cortical Areas In Vivo Based on Myelin Content as
+  Revealed by T1- and T2-Weighted MRI}.
+\newblock \emph{The Journal of Neuroscience}, 31\penalty0 (32):\penalty0 11597,
+  aug 2011.
+\newblock ISSN 02706474.
+\newblock \doi{10.1523/JNEUROSCI.2180-11.2011}.
+\newblock URL \url{/pmc/articles/PMC3167149/
+  /pmc/articles/PMC3167149/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3167149/}.
+
 \bibitem[G{\"{o}}tz and Huttner(2005)]{Gotz2005}
 M.~G{\"{o}}tz and W.~B. Huttner.
 \newblock {The cell biology of Neurogenesis}.
@@ -683,6 +706,18 @@ C.~P. Klingenberg.
 \newblock URL
   \url{https://link.springer.com/article/10.1007/s11692-020-09513-x}.
 
+\bibitem[Klingenberg and Mcintyre(1998)]{Klingenberg1998}
+C.~P. Klingenberg and G.~S. Mcintyre.
+\newblock {GEOMETRIC MORPHOMETRICS OF DEVELOPMENTAL INSTABILITY: ANALYZING
+  PATTERNS OF FLUCTUATING ASYMMETRY WITH PROCRUSTES METHODS}.
+\newblock \emph{Evolution}, 52\penalty0 (5):\penalty0 1363--1375, oct 1998.
+\newblock ISSN 1558-5646.
+\newblock \doi{10.1111/J.1558-5646.1998.TB02018.X}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/full/10.1111/j.1558-5646.1998.tb02018.x
+  https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1998.tb02018.x
+  https://onlinelibrary.wiley.com/doi/10.1111/j.1558-5646.1998.tb02018.x}.
+
 \bibitem[Klingenberg et~al.(2002)Klingenberg, Barluenga, and
   Meyer]{klingenberg2002}
 C.~P. Klingenberg, M.~Barluenga, and A.~Meyer.
@@ -822,6 +857,15 @@ T.~J. Littlejohns et al.
 \newblock \doi{10.1038/s41467-020-15948-9}.
 \newblock URL \url{https://www.nature.com/articles/s41467-020-15948-9}.
 
+\bibitem[L{\'{o}}pez(2014)]{Lopez2014}
+C.~P. L{\'{o}}pez.
+\newblock {Display Volumes and Specialized Graphics BT - MATLAB Graphical
+  Programming}.
+\newblock pages 73--98. Apress, Berkeley, CA, 2014.
+\newblock ISBN 978-1-4842-0316-3.
+\newblock \doi{10.1007/978-1-4842-0316-3_4}.
+\newblock URL \url{https://doi.org/10.1007/978-1-4842-0316-3_4}.
+
 \bibitem[Malik et~al.(2013)Malik, Vinukonda, Vose, Diamond, Bhimavarapu, Hu,
   Zia, Hevner, Zecevic, and Ballabh]{Malik2013}
 S.~Malik, G.~Vinukonda, L.~R. Vose, D.~Diamond, B.~B. Bhimavarapu, F.~Hu, M.~T.
@@ -843,6 +887,15 @@ J.~J. Maller, R.~Anderson, R.~H. Thomson, J.~V. Rosenfeld, Z.~J. Daskalakis,
   8--14, jan 2015.
 \newblock ISSN 0925-4927.
 \newblock \doi{10.1016/J.PSCYCHRESNS.2014.11.008}.
+
+\bibitem[Marozzi(2004)]{Marozzi2004}
+M.~Marozzi.
+\newblock {Some remarks about the number of permutations one should consider to
+  perform a permutation test}.
+\newblock \emph{Statistica}, 64\penalty0 (1):\penalty0 193--201, 2004.
+\newblock ISSN 1973-2201.
+\newblock \doi{10.6092/ISSN.1973-2201/32}.
+\newblock URL \url{https://rivista-statistica.unibo.it/article/view/32}.
 
 \bibitem[McLean et~al.(2010)McLean, Bristor, Hiller, Clarke, Schaar, Lowe,
   Wenger, and Bejerano]{McLean2010}
@@ -1000,6 +1053,17 @@ S.~Rao, Y.~Yao, and D.~E. Bauer.
 \newblock \doi{10.1186/S13073-021-00857-3}.
 \newblock URL
   \url{https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00857-3}.
+
+\bibitem[Reuter et~al.(2012)Reuter, Schmansky, Rosas, and Fischl]{Reuter2012}
+M.~Reuter, N.~J. Schmansky, H.~D. Rosas, and B.~Fischl.
+\newblock {Within-subject template estimation for unbiased longitudinal image
+  analysis}.
+\newblock \emph{Neuroimage}, 61\penalty0 (4):\penalty0 1402, jul 2012.
+\newblock ISSN 10538119.
+\newblock \doi{10.1016/J.NEUROIMAGE.2012.02.084}.
+\newblock URL \url{/pmc/articles/PMC3389460/
+  /pmc/articles/PMC3389460/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3389460/}.
 
 \bibitem[Ribolsi et~al.(2014)Ribolsi, Daskalakis, Siracusano, and
   Koch]{Ribolsi2014}
@@ -1168,16 +1232,21 @@ S.~{Van Dongen}, G.~Molenberghs, and E.~Matthysen.
 \newblock ISSN 1010061X.
 \newblock \doi{10.1046/J.1420-9101.1999.00012.X}.
 
-\bibitem[Vijayakumar et~al.(2016)Vijayakumar, Allen, Youssef, Dennison,
-  Y{\"{u}}cel, Simmons, and Whittle]{Vijayakumar2016}
-N.~Vijayakumar, N.~B. Allen, G.~Youssef, M.~Dennison, M.~Y{\"{u}}cel, J.~G.
-  Simmons, and S.~Whittle.
-\newblock {Brain development during adolescence: A mixed-longitudinal
-  investigation of cortical thickness, surface area, and volume}.
-\newblock \emph{Human Brain Mapping}, 37\penalty0 (6):\penalty0 2027--2038, jun
-  2016.
-\newblock ISSN 10970193.
-\newblock \doi{10.1002/HBM.23154}.
+\bibitem[{Van Essen} et~al.(2013){Van Essen}, Smith, Barch, Behrens, Yacoub,
+  and Ugurbil]{VanEssen2013}
+D.~C. {Van Essen}, S.~M. Smith, D.~M. Barch, T.~E. Behrens, E.~Yacoub, and
+  K.~Ugurbil.
+\newblock {The WU-Minn Human Connectome Project: an overview}.
+\newblock \emph{NeuroImage}, 80:\penalty0 62--79, oct 2013.
+\newblock ISSN 1095-9572.
+\newblock \doi{10.1016/J.NEUROIMAGE.2013.05.041}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/23684880/}.
+
+\bibitem[Vanbiervliet et~al.(2022)Vanbiervliet, Lemonidis, and
+  Claes]{Vanbiervliet2022}
+A.~Vanbiervliet, V.~Lemonidis, and P.~Claes.
+\newblock {Mapping shape asymmetry of the human cerebrum}.
+\newblock Master's thesis, {KU Leuven}, 2022.
 
 \bibitem[Vingerhoets et~al.(2021)Vingerhoets, Gerrits, and
   Verhelst]{Vingerhoets2021}
