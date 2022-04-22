@@ -1,4 +1,4 @@
-\begin{thebibliography}{123}
+\begin{thebibliography}{145}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -50,6 +50,35 @@ M.~J. Anderson.
   https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.2001.01070.pp.x
   https://onlinelibrary.wiley.com/doi/10.1111/j.1442-9993.2001.01070.pp.x}.
 
+\bibitem[Arnold et~al.(2017)Arnold, Askland, Barlassina, Bellodi, Bienvenu,
+  Black, Bloch, Brentani, Burton, Camarena, Cappi, Cath, Cavallini, Conti,
+  Cook, Coric, Cullen, Cusi, Davis, Delorme, Denys, Derks, Eapen, Edlund,
+  Erdman, Falkai, Figee, Fyer, Geller, Goes, Grabe, Grados, Greenberg,
+  Gr{\"{u}}nblatt, Guo, Hanna, Hemmings, Hounie, Jenicke, Keenan, Kennedy,
+  Khramtsova, Konkashbaev, Knowles, Krasnow, Lange, Lanzagorta, Leboyer,
+  Lennertz, Li, Liang, Lochner, Macciardi, Maher, Maier, Marconi, Mathews,
+  Matthesien, McCracken, McLaughlin, Miguel, Moessner, Murphy, Neale, Nestadt,
+  Nestadt, Nicolini, Nurmi, Osiecki, Pauls, Piacentini, Posthuma, Pulver, Qin,
+  Rasmussen, Rauch, Richter, Riddle, Ripke, Ruhrmann, Sampaio, Samuels, Scharf,
+  Shugart, Smit, Stein, Stewart, Turiel, Vallada, Veenstra-VanderWeele, Wagner,
+  Walitza, Wang, Wendland, Vulink, Yu, and Zai]{Arnold2017}
+P.~D. Arnold et al.
+\newblock {Revealing the complex genetic architecture of obsessive–compulsive
+  disorder using meta-analysis}.
+\newblock \emph{Molecular Psychiatry 2018 23:5}, 23\penalty0 (5):\penalty0
+  1181--1188, aug 2017.
+\newblock ISSN 1476-5578.
+\newblock \doi{10.1038/mp.2017.154}.
+\newblock URL \url{https://www.nature.com/articles/mp2017154}.
+
+\bibitem[Arthur et~al.(2007)Arthur, Arthur, and Vassilvitskii]{Arthur2007}
+D.~Arthur, D.~Arthur, and S.~Vassilvitskii.
+\newblock {K-means++: the advantages of careful seeding}.
+\newblock \emph{IN PROCEEDINGS OF THE 18TH ANNUAL ACM-SIAM SYMPOSIUM ON
+  DISCRETE ALGORITHMS}, 2007.
+\newblock URL
+  \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.360.7427}.
+
 \bibitem[Ashburner et~al.(2000)Ashburner, Ball, Blake, Botstein, Butler,
   Cherry, Davis, Dolinski, Dwight, Eppig, Harris, Hill, Issel-Tarver,
   Kasarskis, Lewis, Matese, Richardson, Ringwald, Rubin, and
@@ -62,6 +91,67 @@ M.~Ashburner et al.
 \newblock URL \url{/pmc/articles/PMC3037419/
   /pmc/articles/PMC3037419/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037419/}.
+
+\bibitem[Auton et~al.(2015)Auton, Abecasis, Altshuler, Durbin, Bentley,
+  Chakravarti, Clark, Donnelly, Eichler, Flicek, Gabriel, Gibbs, Green, Hurles,
+  Knoppers, Korbel, Lander, Lee, Lehrach, Mardis, Marth, McVean, Nickerson,
+  Schmidt, Sherry, Wang, Wilson, Boerwinkle, Doddapaneni, Han, Korchina, Kovar,
+  Lee, Muzny, Reid, Zhu, Chang, Feng, Fang, Guo, Jian, Jiang, Jin, Lan, Li, Li,
+  Li, Liu, Liu, Lu, Ma, Tang, Wang, Wang, Wu, Wu, Xu, Yin, Zhang, Zhang, Zhao,
+  Zhao, Zheng, Gupta, Gharani, Toji, Gerry, Resch, Barker, Clarke, Gil, Hunt,
+  Kelman, Kulesha, Leinonen, McLaren, Radhakrishnan, Roa, Smirnov, Smith,
+  Streeter, Thormann, Toneva, Vaughan, Zheng-Bradley, Grocock, Humphray, James,
+  Kingsbury, Sudbrak, Albrecht, Amstislavskiy, Borodina, Lienhard, Mertes,
+  Sultan, Timmermann, Yaspo, Fulton, Ananiev, Belaia, Beloslyudtsev, Bouk,
+  Chen, Church, Cohen, Cook, Garner, Hefferon, Kimelman, Liu, Lopez, Meric,
+  O'Sullivan, Ostapchuk, Phan, Ponomarov, Schneider, Shekhtman, Sirotkin,
+  Slotta, Zhang, Balasubramaniam, Burton, Danecek, Keane, Kolb-Kokocinski,
+  McCarthy, Stalker, Quail, Davies, Gollub, Webster, Wong, Zhan, Campbell,
+  Kong, Marcketta, Yu, Antunes, Bainbridge, Sabo, Huang, Coin, Fang, Li, Li,
+  Lin, Liu, Luo, Shao, Xie, Ye, Yu, Zhang, Zheng, Zhu, Alkan, Dal, Kahveci,
+  Garrison, Kural, Lee, Leong, Stromberg, Ward, Wu, Zhang, Daly, DePristo,
+  Handsaker, Banks, Bhatia, {Del Angel}, Genovese, Li, Kashin, McCarroll,
+  Nemesh, Poplin, Yoon, Lihm, Makarov, Gottipati, Keinan, Rodriguez-Flores,
+  Rausch, Fritz, St{\"{u}}tz, Beal, Datta, Herrero, Ritchie, Zerbino, Sabeti,
+  Shlyakhter, Schaffner, Vitti, Cooper, Ball, Stenson, Barnes, Bauer, Cheetham,
+  Cox, Eberle, Kahn, Murray, Peden, Shaw, Kenny, Batzer, Konkel, Walker,
+  MacArthur, Lek, Herwig, Ding, Koboldt, Larson, Ye, Gravel, Swaroop, Chew,
+  Lappalainen, Erlich, Gymrek, Willems, Simpson, Shriver, Rosenfeld,
+  Bustamante, Montgomery, {De La Vega}, Byrnes, Carroll, DeGorter, Lacroute,
+  Maples, Martin, Moreno-Estrada, Shringarpure, Zakharia, Halperin, Baran,
+  Cerveira, Hwang, Malhotra, Plewczynski, Radew, Romanovitch, Zhang, Hyland,
+  Craig, Christoforides, Homer, Izatt, Kurdoglu, Sinari, Squire, Xiao, Sebat,
+  Antaki, Gujral, Noor, Ye, Burchard, Hernandez, Gignoux, Haussler, Katzman,
+  Kent, Howie, Ruiz-Linares, Dermitzakis, Devine, Kang, Kidd, Blackwell, Caron,
+  Chen, Emery, Fritsche, Fuchsberger, Jun, Li, Lyons, Scheller, Sidore, Song,
+  Sliwerska, Taliun, Tan, Welch, Wing, Zhan, Awadalla, Hodgkinson, Li, Shi,
+  Quitadamo, Lunter, Marchini, Myers, Churchhouse, Delaneau, Gupta-Hinch,
+  Kretzschmar, Iqbal, Mathieson, Menelaou, Rimmer, Xifara, Oleksyk, Fu, Liu,
+  Xiong, Jorde, Witherspoon, Xing, Browning, Browning, Hormozdiari, Sudmant,
+  Khurana, Tyler-Smith, Albers, Ayub, Chen, Colonna, Jostins, Walter, Xue,
+  Gerstein, Abyzov, Balasubramanian, Chen, Clarke, Fu, Harmanci, Jin, Lee, Liu,
+  Mu, Zhang, Zhang, Hartl, Shakir, Degenhardt, Meiers, Raeder, Casale, Stegle,
+  Lameijer, Hall, Bafna, Michaelson, Gardner, Mills, Dayama, Chen, Fan, Chong,
+  Chen, Chaisson, Huddleston, Malig, Nelson, Parrish, Blackburne, Lindsay,
+  Ning, Zhang, Lam, Sisu, Challis, Evani, Lu, Nagaswamy, Yu, Li, Habegger, Yu,
+  Cunningham, Dunham, Lage, Jespersen, Horn, Kim, Desalle, Narechania, Sayres,
+  Mendez, Poznik, Underhill, Mittelman, Banerjee, Cerezo, Fitzgerald, Louzada,
+  Massaia, Yang, Kalra, Hale, Dan, Barnes, Beiswanger, Cai, Cao, Henn, Jones,
+  Kaye, Kent, Kerasidou, Mathias, Ossorio, Parker, Rotimi, Royal, Sandoval, Su,
+  Tian, Tishkoff, Via, Wang, Yang, Yang, Zhu, Bodmer, Bedoya, Cai, Gao, Chu,
+  Peltonen, Garcia-Montero, Orfao, Dutil, Martinez-Cruzado, Mathias, Hennis,
+  Watson, McKenzie, Qadri, LaRocque, Deng, Asogun, Folarin, Happi, Omoniwa,
+  Stremlau, Tariyal, Jallow, Joof, Corrah, Rockett, Kwiatkowski, Kooner, Hien,
+  Dunstan, ThuyHang, Fonnie, Garry, Kanneh, Moses, Schieffelin, Grant, Gallo,
+  Poletti, Saleheen, Rasheed, Brooks, Felsenfeld, McEwen, Vaydylevich,
+  Duncanson, Dunn, and Schloss]{Auton2015}
+A.~Auton et al.
+\newblock {A global reference for human genetic variation}.
+\newblock \emph{Nature 2015 526:7571}, 526\penalty0 (7571):\penalty0 68--74,
+  sep 2015.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature15393}.
+\newblock URL \url{https://www.nature.com/articles/nature15393}.
 
 \bibitem[Aw and Levin(2009)]{Aw2009}
 S.~Aw and M.~Levin.
@@ -185,6 +275,19 @@ B.~Bulik-Sullivan et al.
 \newblock \doi{10.1038/ng.3211}.
 \newblock URL \url{https://www.nature.com/articles/ng.3211}.
 
+\bibitem[Buniello et~al.(2019)Buniello, Macarthur, Cerezo, Harris, Hayhurst,
+  Malangone, McMahon, Morales, Mountjoy, Sollis, Suveges, Vrousgou, Whetzel,
+  Amode, Guillen, Riat, Trevanion, Hall, Junkins, Flicek, Burdett, Hindorff,
+  Cunningham, and Parkinson]{Buniello2019}
+A.~Buniello et al.
+\newblock {The NHGRI-EBI GWAS Catalog of published genome-wide association
+  studies, targeted arrays and summary statistics 2019}.
+\newblock \emph{Nucleic acids research}, 47\penalty0 (D1):\penalty0
+  D1005--D1012, jan 2019.
+\newblock ISSN 1362-4962.
+\newblock \doi{10.1093/NAR/GKY1120}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/30445434/}.
+
 \bibitem[Cano-Gamez and Trynka(2020)]{Cano-Gamez2020}
 E.~Cano-Gamez and G.~Trynka.
 \newblock {From GWAS to Function: Using Functional Genomics to Identify the
@@ -235,6 +338,21 @@ A.~Cichonska et al.
 \newblock \doi{10.1093/BIOINFORMATICS/BTW052}.
 \newblock URL
   \url{https://academic.oup.com/bioinformatics/article/32/13/1981/1742730}.
+
+\bibitem[Claes et~al.(2012)Claes, Walters, Shriver, Puts, Gibson, Clement,
+  Baynam, Verbeke, Vandermeulen, and Suetens]{Claes2012}
+P.~Claes, M.~Walters, M.~D. Shriver, D.~Puts, G.~Gibson, J.~Clement, G.~Baynam,
+  G.~Verbeke, D.~Vandermeulen, and P.~Suetens.
+\newblock {Sexual dimorphism in multiple aspects of 3D facial symmetry and
+  asymmetry defined by spatially dense geometric morphometrics}.
+\newblock \emph{Journal of Anatomy}, 221\penalty0 (2):\penalty0 97--114, aug
+  2012.
+\newblock ISSN 1469-7580.
+\newblock \doi{10.1111/J.1469-7580.2012.01528.X}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/full/10.1111/j.1469-7580.2012.01528.x
+  https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-7580.2012.01528.x
+  https://onlinelibrary.wiley.com/doi/10.1111/j.1469-7580.2012.01528.x}.
 
 \bibitem[Claes et~al.(2018)Claes, Roosenboom, White, Swigut, Sero, Li, Lee,
   Zaidi, Mattern, Liebowitz, Pearson, Gonz{\'{a}}lez, Leslie, Carlson, Orlova,
@@ -298,6 +416,14 @@ M.~R. Corces et al.
   /pmc/articles/PMC7606627/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7606627/}.
 
+\bibitem[de~Kovel and Francks(2019)]{DeKovel2019}
+C.~G. de~Kovel and C.~Francks.
+\newblock {The molecular genetics of hand preference revisited}.
+\newblock \emph{Scientific reports}, 9\penalty0 (1), dec 2019.
+\newblock ISSN 2045-2322.
+\newblock \doi{10.1038/S41598-019-42515-0}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/30980028/}.
+
 \bibitem[de~Leeuw et~al.(2015)de~Leeuw, Mooij, Heskes, and
   Posthuma]{DeLeeuw2015}
 C.~A. de~Leeuw, J.~M. Mooij, T.~Heskes, and D.~Posthuma.
@@ -317,6 +443,43 @@ C.~A. de~Leeuw, J.~M. Mooij, T.~Heskes, and D.~Posthuma.
 \newblock ISSN 1047-3211.
 \newblock \doi{10.1093/CERCOR/BHX299}.
 \newblock URL \url{https://academic.oup.com/cercor/article/28/1/387/4608057}.
+
+\bibitem[Demontis et~al.(2019)Demontis, Walters, Martin, Mattheisen, Als,
+  Agerbo, Baldursson, Belliveau, Bybjerg-Grauholm, B{\ae}kvad-Hansen, Cerrato,
+  Chambert, Churchhouse, Dumont, Eriksson, Gandal, Goldstein, Grasby, Grove,
+  Gudmundsson, Hansen, Hauberg, Hollegaard, Howrigan, Huang, Maller, Martin,
+  Martin, Moran, Pallesen, Palmer, Pedersen, Pedersen, Poterba, Poulsen, Ripke,
+  Robinson, Satterstrom, Stefansson, Stevens, Turley, Walters, Won, Wright,
+  Albayrak, Anney, Arranz, Banaschewski, Bau, Biederman, Buitelaar, Casas,
+  Charach, Crosbie, Dempfle, Doyle, Ebstein, Elia, Freitag, F{\"{o}}cker, Gill,
+  Grevet, Hawi, Hebebrand, Herpertz-Dahlmann, Hervas, Hinney, Hohmann, Holmans,
+  Hutz, Ickowitz, Johansson, Kent, Kittel-Schneider, Lambregts-Rommelse,
+  Lehmkuhl, Loo, McGough, Meyer, Mick, Middletion, Miranda, Mota, Mulas,
+  Mulligan, Nelson, Nguyen, Oades, O'Donovan, Owen, Palmason, Ramos-Quiroga,
+  Renner, Ribas{\'{e}}s, Rietschel, Rivero, Romanos, Romanos, Rothenberger,
+  Royers, S{\'{a}}nchez-Mora, Scherag, Schimmelmann, Sch{\"{a}}fer, Sergeant,
+  Sinzig, Smalley, Steinhausen, Thompson, Todorov, Vasquez, Walitza, Wang,
+  Warnke, Williams, Witt, Yang, Zayats, Zhang-James, Smith, Davies, Ehli,
+  Evans, Fedko, Greven, Groen-Blokhuis, Guxens, Hammerschlag, Hartman,
+  Heinrich, {Jan Hottenga}, Hudziak, Jugessur, Kemp, Krapohl, Murcia, Myhre,
+  Nolte, Nyholt, Ormel, Ouwens, Pappa, Pennell, Plomin, Ring, Standl,
+  Stergiakouli, Pourcain, Stoltenberg, Sunyer, Thiering, Tiemeier, Tiesler,
+  Timpson, Trzaskowski, van~der Most, Vilor-Tejedor, Wang, Whitehouse, Zhao,
+  Agee, Alipanahi, Auton, Bell, Bryc, Elson, Fontanillas, Furlotte, Hinds,
+  Hromatka, Huber, Kleinman, Litterman, McIntyre, Mountain, Northover, Pitts,
+  Sathirapongsasuti, Sazonova, Shelton, Shringarpure, Tian, Vacic, Wilson,
+  Andreassen, Asherson, Burton, Boomsma, Cormand, Dalsgaard, Franke, Gelernter,
+  Geschwind, Hakonarson, Haavik, Kranzler, Kuntsi, Langley, Lesch, Middeldorp,
+  Reif, Rohde, Roussos, Schachar, Sklar, Sonuga-Barke, Sullivan, Thapar, Tung,
+  Waldman, Medland, Stefansson, Nordentoft, Hougaard, Werge, Mors, Mortensen,
+  Daly, Faraone, B{\o}rglum, and Neale]{Demontis2019}
+D.~Demontis et al.
+\newblock {Discovery of the first genome-wide significant risk loci for
+  attention deficit/hyperactivity disorder}.
+\newblock \emph{Nature genetics}, 51\penalty0 (1):\penalty0 63--75, jan 2019.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/S41588-018-0269-7}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/30478444/}.
 
 \bibitem[Desikan et~al.(2006)Desikan, S{\'{e}}gonne, Fischl, Quinn, Dickerson,
   Blacker, Buckner, Dale, Maguire, Hyman, Albert, and Killiany]{Desikan2006}
@@ -576,6 +739,49 @@ D.~T. Grimes and R.~D. Burdine.
   /pmc/articles/PMC5764106/?report=abstract
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764106/}.
 
+\bibitem[Grove et~al.(2019)Grove, Ripke, Als, Mattheisen, Walters, Won,
+  Pallesen, Agerbo, Andreassen, Anney, Awashti, Belliveau, Bettella, Buxbaum,
+  Bybjerg-Grauholm, B{\ae}kvad-Hansen, Cerrato, Chambert, Christensen,
+  Churchhouse, Dellenvall, Demontis, {De Rubeis}, Devlin, Djurovic, Dumont,
+  Goldstein, Hansen, Hauberg, Hollegaard, Hope, Howrigan, Huang, Hultman, Klei,
+  Maller, Martin, Martin, Moran, Nyegaard, N{\ae}rland, Palmer, Palotie,
+  Pedersen, Pedersen, DPoterba, Poulsen, Pourcain, Qvist, Rehnstr{\"{o}}m,
+  Reichenberg, Reichert, Robinson, Roeder, Roussos, Saemundsen, Sandin,
+  Satterstrom, {Davey Smith}, Stefansson, Steinberg, Stevens, Sullivan, Turley,
+  Walters, Xu, Wray, Trzaskowski, Byrne, Abdellaoui, Adams, Air, Andlauer,
+  Bacanu, Beekman, Bigdeli, Binder, Blackwood, Bryois, Buttensch{\o}n, Cai,
+  Castelao, Clarke, Coleman, Colodro-Conde, Couvy-Duchesne, Craddock, Crawford,
+  Davies, Deary, Degenhardt, Derks, Direk, Dolan, Dunn, Eley, Escott-Price,
+  Kiadeh, Finucane, Forstner, Frank, Gaspar, Gill, Goes, Gordon, Hall, Hansen,
+  Herms, Hickie, Hoffmann, Homuth, Horn, Hottenga, Ising, Jansen, Jorgenson,
+  Knowles, Kohane, Kraft, Kretzschmar, Krogh, Kutalik, Li, Lind, MacIntyre,
+  MacKinnon, Maier, Maier, Marchini, Mbarek, McGrath, McGuffin, Medland, Mehta,
+  Middeldorp, Mihailov, Milaneschi, Milani, Mondimore, Montgomery, Mostafavi,
+  Mullins, Nauck, Ng, Nivard, Nyholt, O'Reilly, Oskarsson, Owen, Painter,
+  Peterson, Pettersson, Peyrot, Pistis, Posthuma, Quiroz, Rice, Riley, Rivera,
+  Mirza, Schoevers, Schulte, Shen, Shi, Shyn, Sigurdsson, Sinnamon, Smit,
+  Smith, Streit, Strohmaier, Tansey, Teismann, Teumer, Thompson, Thomson,
+  Thorgeirsson, Traylor, Treutlein, Trubetskoy, Uitterlinden, Umbricht, {Van
+  der Auwera}, van Hemert, Viktorin, Visscher, Wang, Webb, Weinsheimer,
+  Wellmann, Willemsen, Witt, Wu, Xi, Yang, Zhang, Arolt, Baune, Berger,
+  Boomsma, Cichon, Dannlowski, de~Geus, DePaulo, Domenici, Domschke, Esko,
+  Grabe, Hamilton, Hayward, Heath, Kendler, Kloiber, Lewis, Li, Lucae, Madden,
+  Magnusson, Martin, McIntosh, Metspalu, M{\"{u}}ller-Myhsok, N{\"{o}}then,
+  O'Donovan, Paciga, Pedersen, Penninx, Perlis, Porteous, Potash, Preisig,
+  Rietschel, Schaefer, Schulze, Smoller, Tiemeier, Uher, V{\"{o}}lzke,
+  Weissman, Lewis, Levinson, Breen, Agee, Alipanahi, Auton, Bell, Bryc, Elson,
+  Fontanillas, Furlotte, Hromatka, Huber, Kleinman, Litterman, McIntyre,
+  Mountain, Noblin, Northover, Pitts, Sathirapongsasuti, Sazonova, Shelton,
+  Shringarpure, Tung, Vacic, Wilson, Stefansson, Geschwind, Nordentoft,
+  Hougaard, Werge, Mors, Mortensen, Neale, Daly, and B{\o}rglum]{Grove2019}
+J.~Grove et al.
+\newblock {Identification of common genetic risk variants for autism spectrum
+  disorder}.
+\newblock \emph{Nature genetics}, 51\penalty0 (3):\penalty0 431--444, mar 2019.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/S41588-019-0344-8}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/30804558/}.
+
 \bibitem[Guadalupe et~al.(2015)Guadalupe, Zwiers, Wittfeld, Teumer, Vasquez,
   Hoogman, Hagoort, Fernandez, Buitelaar, van Bokhoven, Hegenscheid,
   V{\"{o}}lzke, Franke, Fisher, Grabe, and Francks]{Guadalupe2015}
@@ -588,6 +794,26 @@ T.~Guadalupe et al.
 \newblock ISSN 1973-8102.
 \newblock \doi{10.1016/J.CORTEX.2014.07.015}.
 \newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/25239853/}.
+
+\bibitem[Guebel and Torres(2013)]{Guebel2013}
+D.~V. Guebel and N.~V. Torres.
+\newblock {Partial Least-Squares Regression (PLSR)}.
+\newblock \emph{Encyclopedia of Systems Biology}, pages 1646--1648, 2013.
+\newblock \doi{10.1007/978-1-4419-9863-7_1274}.
+\newblock URL
+  \url{https://link.springer.com/referenceworkentry/10.1007/978-1-4419-9863-7_1274}.
+
+\bibitem[Guindo-Mart{\'{i}}nez et~al.(2021)Guindo-Mart{\'{i}}nez, Amela,
+  Bon{\`{a}}s-Guarch, Puiggr{\`{o}}s, Salvoro, Miguel-Escalada, Carey, Cole,
+  R{\"{u}}eger, Atkinson, Leong, Sanchez, Ramon-Cortes, Ejarque, Palmer, Kurki,
+  Aragam, Florez, Badia, Mercader, and Torrents]{Guindo-Martinez2021}
+M.~Guindo-Mart{\'{i}}nez et al.
+\newblock {The impact of non-additive genetic associations on age-related
+  complex diseases}.
+\newblock \emph{Nature communications}, 12\penalty0 (1), dec 2021.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/S41467-021-21952-4}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/33893285/}.
 
 \bibitem[Heger et~al.(2020)Heger, Zheng, Rottmann, {Pan Lio}, and
   Wiehe]{Heger2020}
@@ -661,6 +887,22 @@ R.~Janky et al.
 \newblock \doi{10.1371/JOURNAL.PCBI.1003731}.
 \newblock URL
   \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731}.
+
+\bibitem[Jansen et~al.(2019)Jansen, Savage, Watanabe, Bryois, Williams,
+  Steinberg, Sealock, Karlsson, H{\"{a}}gg, Athanasiu, Voyle, Proitsi,
+  Witoelar, Stringer, Aarsland, Almdahl, Andersen, Bergh, Bettella, Bjornsson,
+  Br{\ae}khus, Br{\aa}then, de~Leeuw, Desikan, Djurovic, Dumitrescu, Fladby,
+  Hohman, Jonsson, Kiddle, Rongve, Saltvedt, Sando, Selb{\ae}k, Shoai, Skene,
+  Snaedal, Stordal, Ulstein, Wang, White, Hardy, Hjerling-Leffler, Sullivan,
+  van~der Flier, Dobson, Davis, Stefansson, Stefansson, Pedersen, Ripke,
+  Andreassen, and Posthuma]{Jansen2019}
+I.~E. Jansen et al.
+\newblock {Genome-wide meta-analysis identifies new loci and functional
+  pathways influencing Alzheimer's disease risk}.
+\newblock \emph{Nature genetics}, 51\penalty0 (3):\penalty0 404--413, mar 2019.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/S41588-018-0311-9}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/30617256/}.
 
 \bibitem[Jernigan et~al.(2016)Jernigan, Brown, Hagler, Akshoomoff, Bartsch,
   Newman, Thompson, Bloss, Murray, Schork, Kennedy, Kuperman, McCabe, Chung,
@@ -817,6 +1059,17 @@ F.~Kuo and T.~F. Massoud.
 \newblock ISSN 0940-9602.
 \newblock \doi{10.1016/J.AANAT.2022.151894}.
 
+\bibitem[Lee et~al.(2018)Lee, McGue, Iacono, and Chow]{Lee2018}
+J.~J. Lee, M.~McGue, W.~G. Iacono, and C.~C. Chow.
+\newblock {The accuracy of LD Score regression as an estimator of confounding
+  and genetic correlations in genome-wide association studies}.
+\newblock \emph{Genetic epidemiology}, 42\penalty0 (8):\penalty0 783, dec 2018.
+\newblock ISSN 10982272.
+\newblock \doi{10.1002/GEPI.22161}.
+\newblock URL \url{/pmc/articles/PMC6758917/
+  /pmc/articles/PMC6758917/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6758917/}.
+
 \bibitem[Li et~al.(2015)Li, Wang, Li, Li, and Li]{Li2015}
 S.~Li, S.~Wang, X.~Li, Q.~Li, and X.~Li.
 \newblock {Abnormal surface morphology of the central sulcus in children with
@@ -859,12 +1112,22 @@ T.~J. Littlejohns et al.
 
 \bibitem[L{\'{o}}pez(2014)]{Lopez2014}
 C.~P. L{\'{o}}pez.
-\newblock {Display Volumes and Specialized Graphics BT - MATLAB Graphical
-  Programming}.
-\newblock pages 73--98. Apress, Berkeley, CA, 2014.
-\newblock ISBN 978-1-4842-0316-3.
+\newblock {Display Volumes and Specialized Graphics}.
+\newblock \emph{MATLAB Graphical Programming}, pages 73--98, 2014.
 \newblock \doi{10.1007/978-1-4842-0316-3_4}.
-\newblock URL \url{https://doi.org/10.1007/978-1-4842-0316-3_4}.
+\newblock URL
+  \url{https://link.springer.com/chapter/10.1007/978-1-4842-0316-3_4}.
+
+\bibitem[Luciano et~al.(2018)Luciano, Hagenaars, Davies, Hill, Clarke, Shirali,
+  Harris, Marioni, Liewald, Fawns-Ritchie, Adams, Howard, Lewis, Gale,
+  McIntosh, and Deary]{Luciano2018}
+M.~Luciano et al.
+\newblock {Association analysis in over 329,000 individuals identifies 116
+  independent variants influencing neuroticism}.
+\newblock \emph{Nature genetics}, 50\penalty0 (1):\penalty0 6--11, jan 2018.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/S41588-017-0013-8}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/29255261/}.
 
 \bibitem[Malik et~al.(2013)Malik, Vinukonda, Vose, Diamond, Bhimavarapu, Hu,
   Zia, Hevner, Zecevic, and Ballabh]{Malik2013}
@@ -908,6 +1171,16 @@ C.~Y. McLean, D.~Bristor, M.~Hiller, S.~L. Clarke, B.~T. Schaar, C.~B. Lowe,
 \newblock \doi{10.1038/nbt.1630}.
 \newblock URL \url{https://www.nature.com/articles/nbt.1630}.
 
+\bibitem[Mekki et~al.(2022)Mekki, Guillemot, Lema{\^{i}}tre,
+  Carri{\'{o}}n-Castillo, Forkel, Frouin, and Philippe]{Mekki2022}
+Y.~Mekki, V.~Guillemot, H.~Lema{\^{i}}tre, A.~Carri{\'{o}}n-Castillo,
+  S.~Forkel, V.~Frouin, and C.~Philippe.
+\newblock {The genetic architecture of language functional connectivity}.
+\newblock \emph{NeuroImage}, 249, apr 2022.
+\newblock ISSN 1095-9572.
+\newblock \doi{10.1016/J.NEUROIMAGE.2021.118795}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/34929384/}.
+
 \bibitem[Moln{\'{a}}r et~al.(2019)Moln{\'{a}}r, Clowry, {\v{S}}estan, Alzu'bi,
   Bakken, Hevner, H{\"{u}}ppi, Kostovi{\'{c}}, Rakic, Anton, Edwards, Garcez,
   Hoerder-Suabedissen, and Kriegstein]{Molnar2019}
@@ -932,6 +1205,70 @@ V.~K. Mootha et al.
 \newblock ISSN 1546-1718.
 \newblock \doi{10.1038/ng1180}.
 \newblock URL \url{https://www.nature.com/articles/ng1180}.
+
+\bibitem[Morgan et~al.(2018)Morgan, Pairo-Castineira, Rawlik, Canela-Xandri,
+  Rees, Sims, Tenesa, and Jackson]{Morgan2018}
+M.~D. Morgan, E.~Pairo-Castineira, K.~Rawlik, O.~Canela-Xandri, J.~Rees,
+  D.~Sims, A.~Tenesa, and I.~J. Jackson.
+\newblock {Genome-wide study of hair colour in UK Biobank explains most of the
+  SNP heritability}.
+\newblock \emph{Nature Communications 2018 9:1}, 9\penalty0 (1):\penalty0
+  1--10, dec 2018.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-018-07691-z}.
+\newblock URL \url{https://www.nature.com/articles/s41467-018-07691-z}.
+
+\bibitem[Mullins et~al.(2021)Mullins, Forstner, O'Connell, Coombes, Coleman,
+  Qiao, Als, Bigdeli, B{\o}rte, Bryois, Charney, Drange, Gandal, Hagenaars,
+  Ikeda, Kamitaki, Kim, Krebs, Panagiotaropoulou, Schilder, Sloofman,
+  Steinberg, Trubetskoy, Winsvold, Won, Abramova, Adorjan, Agerbo, {Al Eissa},
+  Albani, Alliey-Rodriguez, Anjorin, Antilla, Antoniou, Awasthi, Baek,
+  B{\ae}kvad-Hansen, Bass, Bauer, Beins, Bergen, Birner, {B{\o}cker Pedersen},
+  B{\o}en, Boks, Bosch, Brum, Brumpton, Brunkhorst-Kanaan, Budde,
+  Bybjerg-Grauholm, Byerley, Cairns, Casas, Cervantes, Clarke, Cruceanu,
+  Cuellar-Barboza, Cunningham, Curtis, Czerski, Dale, Dalkner, David,
+  Degenhardt, Djurovic, Dobbyn, Douzenis, Elvs{\aa}shagen, Escott-Price,
+  Ferrier, Fiorentino, Foroud, Forty, Frank, Frei, Freimer, Fris{\'{e}}n, Gade,
+  Garnham, Gelernter, {Gi{\o}rtz Pedersen}, Gizer, Gordon, Gordon-Smith,
+  Greenwood, Grove, Guzman-Parra, Ha, Haraldsson, Hautzinger, Heilbronner,
+  Hellgren, Herms, Hoffmann, Holmans, Huckins, Jamain, Johnson, Kalman,
+  Kamatani, Kennedy, Kittel-Schneider, Knowles, Kogevinas, Koromina, Kranz,
+  Kranzler, Kubo, Kupka, Kushner, Lavebratt, Lawrence, Leber, Lee, Lee, Levy,
+  Lewis, Liao, Lucae, Lundberg, MacIntyre, Magnusson, Maier, Maihofer,
+  Malaspina, Maratou, Martinsson, Mattheisen, McCarroll, McGregor, McGuffin,
+  McKay, Medeiros, Medland, Millischer, Montgomery, Moran, Morris,
+  M{\"{u}}hleisen, O'Brien, O'Donovan, {Olde Loohuis}, Oruc, Papiol,
+  Pardi{\~{n}}as, Perry, Pfennig, Porichi, Potash, Quested, Raj, Rapaport,
+  DePaulo, Regeer, Rice, Rivas, Rivera, Roth, Roussos, Ruderfer,
+  S{\'{a}}nchez-Mora, Schulte, Senner, Sharp, Shilling, Sigurdsson, Sirignano,
+  Slaney, Smeland, Smith, Sobell, {S{\o}holm Hansen}, {Soler Artigas}, Spijker,
+  Stein, Strauss, {\'{S}}wi{\c{a}}tkowska, Terao, Thorgeirsson, Toma, Tooney,
+  Tsermpini, Vawter, Vedder, Walters, Witt, Xi, Xu, Yang, Young, Young, Zandi,
+  Zhou, Zillich, Adolfsson, Agartz, Alda, Alfredsson, Babadjanova, Backlund,
+  Baune, Bellivier, Bengesser, Berrettini, Blackwood, Boehnke, B{\o}rglum,
+  Breen, Carr, Catts, Corvin, Craddock, Dannlowski, Dikeos, Esko, Etain,
+  Ferentinos, Frye, Fullerton, Gawlik, Gershon, Goes, Green,
+  Grigoroiu-Serbanescu, Hauser, Henskens, Hillert, Hong, Hougaard, Hultman,
+  Hveem, Iwata, Jablensky, Jones, Jones, Kahn, Kelsoe, Kirov, Land{\'{e}}n,
+  Leboyer, Lewis, Li, Lissowska, Lochner, Loughland, Martin, Mathews, Mayoral,
+  McElroy, McIntosh, McMahon, Melle, Michie, Milani, Mitchell, Morken, Mors,
+  Mortensen, Mowry, M{\"{u}}ller-Myhsok, Myers, Neale, Nievergelt, Nordentoft,
+  N{\"{o}}then, O'Donovan, Oedegaard, Olsson, Owen, Paciga, Pantelis, Pato,
+  Pato, Patrinos, Perlis, Posthuma, Ramos-Quiroga, Reif, Reininghaus,
+  Ribas{\'{e}}s, Rietschel, Ripke, Rouleau, Saito, Schall, Schalling,
+  Schofield, Schulze, Scott, Scott, Serretti, {Shannon Weickert}, Smoller,
+  Stefansson, Stefansson, Stordal, Streit, Sullivan, Turecki, Vaaler, Vieta,
+  Vincent, Waldman, Weickert, Werge, Wray, Zwart, Biernacka, Nurnberger,
+  Cichon, Edenberg, Stahl, McQuillin, {Di Florio}, Ophoff, and
+  Andreassen]{Mullins2021}
+N.~Mullins et al.
+\newblock {Genome-wide association study of more than 40,000 bipolar disorder
+  cases provides new insights into the underlying biology}.
+\newblock \emph{Nature Genetics 2021 53:6}, 53\penalty0 (6):\penalty0 817--829,
+  may 2021.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/s41588-021-00857-4}.
+\newblock URL \url{https://www.nature.com/articles/s41588-021-00857-4}.
 
 \bibitem[Naqvi et~al.(2021)Naqvi, Sleyp, Hoskens, Indencleef, Spence,
   Bruffaerts, Radwan, Eller, Richmond, Shriver, Shaffer, Weinberg, Walsh,
@@ -1001,6 +1338,48 @@ Y.~Okada, S.~Takeda, Y.~Tanaka, J.~C.~I. Belmonte, and N.~Hirokawa.
 \newblock \emph{Cell}, 121\penalty0 (4):\penalty0 633--644, may 2005.
 \newblock ISSN 0092-8674.
 \newblock \doi{10.1016/J.CELL.2005.04.008}.
+
+\bibitem[Okbay et~al.(2016)Okbay, Beauchamp, Fontana, Lee, Pers, Rietveld,
+  Turley, Chen, Emilsson, Meddens, Oskarsson, Pickrell, Thom, Timshel, {De
+  Vlaming}, Abdellaoui, Ahluwalia, Bacelis, Baumbach, Bjornsdottir, Brandsma,
+  {Pina Concas}, Derringer, Furlotte, Galesloot, Girotto, Gupta, Hall, Harris,
+  Hofer, Horikoshi, Huffman, Kaasik, Kalafati, Karlsson, Kong, Lahti, {Van Der
+  Lee}, Deleeuw, Lind, Lindgren, Liu, Mangino, Marten, Mihailov, Miller, {Van
+  Der Most}, Oldmeadow, Payton, Pervjakova, Peyrot, Qian, Raitakari, Rueedi,
+  Salvi, Schmidt, Schraut, Shi, Smith, Poot, {St Pourcain}, Teumer,
+  Thorleifsson, Verweij, Vuckovic, Wellmann, Westra, Yang, Zhao, Zhu, Alizadeh,
+  Amin, Bakshi, Baumeister, Biino, B{\o}nnelykke, Boyle, Campbell, Cappuccio,
+  Davies, {De Neve}, Deloukas, Demuth, Ding, Eibich, Eisele, Eklund, Evans,
+  Faul, Feitosa, Forstner, Gandin, Gunnarsson, Halld{\'{o}}rsson, Harris,
+  Holliday, Heath, Hocking, Homuth, Horan, Hottenga, {De Jager}, Joshi,
+  Jugessur, Kaakinen, K{\"{a}}h{\"{o}}nen, Kanoni, Keltigangas-J{\"{a}}rvinen,
+  Kiemeney, Kolcic, Koskinen, Kraja, Kroh, Kutalik, Latvala, Launer, Lebreton,
+  Levinson, Lichtenstein, Lichtner, Liewald, Loukola, Madden, M{\"{a}}gi,
+  M{\"{a}}ki-Opas, Marioni, Marques-Vidal, Meddens, Mcmahon, Meisinger,
+  Meitinger, Milaneschi, Milani, Montgomery, Myhre, Nelson, Nyholt, Ollier,
+  Palotie, Paternoster, Pedersen, Petrovic, Porteous, Ra{\"{i}}kk{\"{o}}nen,
+  Ring, Robino, Rostapshova, Rudan, Rustichini, Salomaa, Sanders, Sarin,
+  Schmidt, Scott, Smith, Smith, Staessen, Steinhagen-Thiessen, Strauch,
+  Terracciano, Tobin, Ulivi, Vaccargiu, Quaye, {Van Rooij}, Venturini,
+  Vinkhuyzen, V{\"{o}}lker, V{\"{o}}lzke, Vonk, Vozzi, Waage, Ware, Willemsen,
+  Attia, Bennett, Berger, Bertram, Bisgaard, Boomsma, Borecki, B{\"{u}}ltmann,
+  Chabris, Cucca, Cusi, Deary, Dedoussis, {Van Duijn}, Eriksson, Franke,
+  Franke, Gasparini, Gejman, Gieger, Grabe, Gratten, Groenen, Gudnason, {Van
+  Der Harst}, Hayward, Hinds, Hoffmann, Hypp{\"{o}}nen, Iacono, Jacobsson,
+  J{\"{a}}rvelin, J{\"{o}}ckel, Kaprio, Kardia, Lehtim{\"{a}}ki, Lehrer,
+  Magnusson, Martin, Mcgue, Metspalu, Pendleton, Penninx, Perola, Pirastu,
+  Pirastu, Polasek, Posthuma, Power, Province, Samani, Schlessinger, Schmidt,
+  S{\o}rensen, Spector, Stefansson, Thorsteinsdottir, Thurik, Timpson,
+  Tiemeier, Tung, Uitterlinden, Vitart, Vollenweider, Weir, Wilson, Wright,
+  Conley, Krueger, {Davey Smith}, Hofman, Laibson, Medland, Meyer, Yang,
+  Johannesson, Visscher, Esko, Koellinger, Cesarini, and Benjamin]{Okbay2016}
+A.~Okbay et al.
+\newblock {Genome-wide association study identifies 74 loci associated with
+  educational attainment}.
+\newblock \emph{Nature}, 533\penalty0 (7604):\penalty0 539--542, may 2016.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/NATURE17671}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/27225129/}.
 
 \bibitem[Ong et~al.(2019)Ong, Stohler, and Herr]{Ong2019}
 W.~Y. Ong, C.~S. Stohler, and D.~R. Herr.
@@ -1072,6 +1451,83 @@ M.~Ribolsi, Z.~J. Daskalakis, A.~Siracusano, and G.~Koch.
 \newblock URL
   \url{https://www.frontiersin.org/article/10.3389/fnhum.2014.01010}.
 
+\bibitem[Ripke et~al.(2014)Ripke, Neale, Corvin, Walters, Farh, Holmans, Lee,
+  Bulik-Sullivan, Collier, Huang, Pers, Agartz, Agerbo, Albus, Alexander, Amin,
+  Bacanu, Begemann, Belliveau, Bene, Bergen, Bevilacqua, Bigdeli, Black,
+  Bruggeman, Buccola, Buckner, Byerley, Cahn, Cai, Campion, Cantor, Carr,
+  Carrera, Catts, Chambert, Chan, Chen, Chen, Cheng, Cheung, Chong, Cloninger,
+  Cohen, Cohen, Cormican, Craddock, Crowley, Curtis, Davidson, Davis,
+  Degenhardt, {Del Favero}, Demontis, Dikeos, Dinan, Djurovic, Donohoe,
+  Drapeau, Duan, Dudbridge, Durmishi, Eichhammer, Eriksson, Escott-Price,
+  Essioux, Fanous, Farrell, Frank, Franke, Freedman, Freimer, Friedl, Friedman,
+  Fromer, Genovese, Georgieva, Giegling, Giusti-Rodr{\'{i}}guez, Godard,
+  Goldstein, Golimbet, Gopal, Gratten, {De Haan}, Hammer, Hamshere, Hansen,
+  Hansen, Haroutunian, Hartmann, Henskens, Herms, Hirschhorn, Hoffmann, Hofman,
+  Hollegaard, Hougaard, Ikeda, Joa, Juli{\`{a}}, Kahn, Kalaydjieva,
+  Karachanak-Yankova, Karjalainen, Kavanagh, Keller, Kennedy, Khrunin, Kim,
+  Klovins, Knowles, Konte, Kucinskas, Kucinskiene, Kuzelova-Ptackova,
+  K{\"{a}}hler, Laurent, Keong, Lee, Legge, Lerer, Li, Li, Liang, Lieberman,
+  Limborska, Loughland, Lubinski, L{\"{o}}nnqvist, Macek, Magnusson, Maher,
+  Maier, Mallet, Marsal, Mattheisen, Mattingsdal, McCarley, McDonald, McIntosh,
+  Meier, Meijer, Melegh, Melle, Mesholam-Gately, Metspalu, Michie, Milani,
+  Milanova, Mokrab, Morris, Mors, Murphy, Murray, Myin-Germeys,
+  M{\"{u}}ller-Myhsok, Nelis, Nenadic, Nertney, Nestadt, Nicodemus,
+  Nikitina-Zake, Nisenbaum, Nordin, O'Callaghan, O'Dushlaine, O'Neill, Oh,
+  Olincy, Olsen, {Van Os}, Pantelis, Papadimitriou, Papiol, Parkhomenko, Pato,
+  Paunio, Pejovic-Milovancevic, Perkins, Pietil{\"{a}}inen, Pimm, Pocklington,
+  Powell, Price, Pulver, Purcell, Quested, Rasmussen, Reichenberg, Reimers,
+  Richards, Roffman, Roussos, Ruderfer, Salomaa, Sanders, Schall, Schubert,
+  Schulze, Schwab, Scolnick, Scott, Seidman, Shi, Sigurdsson, Silagadze,
+  Silverman, Sim, Slominsky, Smoller, So, Spencer, Stahl, Stefansson,
+  Steinberg, Stogmann, Straub, Strengman, Strohmaier, Stroup, Subramaniam,
+  Suvisaari, Svrakic, Szatkiewicz, S{\"{o}}derman, Thirumalai, Toncheva,
+  Tosato, Veijola, Waddington, Walsh, Wang, Wang, Webb, Weiser, Wildenauer,
+  Williams, Williams, Witt, Wolen, Wong, Wormley, Xi, Zai, Zheng, Zimprich,
+  Wray, Stefansson, Visscher, Adolfsson, Andreassen, Blackwood, Bramon,
+  Buxbaum, B{\o}rglum, Cichon, Darvasi, Domenici, Ehrenreich, Esko, Gejman,
+  Gill, Gurling, Hultman, Iwata, Jablensky, J{\"{o}}nsson, Kendler, Kirov,
+  Knight, Lencz, Levinson, Li, Liu, Malhotra, McCarroll, McQuillin, Moran,
+  Mortensen, Mowry, N{\"{o}}then, Ophoff, Owen, Palotie, Pato, Petryshen,
+  Posthuma, Rietschel, Riley, Rujescu, Sham, Sklar, {St Clair}, Weinberger,
+  Wendland, Werge, Daly, Sullivan, and O'Donovan]{Ripke2014}
+S.~Ripke et al.
+\newblock {Biological insights from 108 schizophrenia-associated genetic loci}.
+\newblock \emph{Nature 2014 511:7510}, 511\penalty0 (7510):\penalty0 421--427,
+  jul 2014.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/nature13595}.
+\newblock URL \url{https://www.nature.com/articles/nature13595}.
+
+\bibitem[{Roadmap Epigenomics Consortium} et~al.(2015){Roadmap Epigenomics
+  Consortium}, Kundaje, Meuleman, Ernst, Bilenky, Yen, Heravi-Moussavi,
+  Kheradpour, Zhang, Wang, Ziller, Amin, Whitaker, Schultz, Ward, Sarkar, Quon,
+  Sandstrom, Eaton, Wu, Pfenning, Wang, Claussnitzer, Liu, Coarfa, Harris,
+  Shoresh, Epstein, Gjoneska, Leung, Xie, Hawkins, Lister, Hong, Gascard,
+  Mungall, Moore, Chuah, Tam, Canfield, Hansen, Kaul, Sabo, Bansal, Carles,
+  Dixon, Farh, Feizi, Karlic, Kim, Kulkarni, Li, Lowdon, Elliott, Mercer, Neph,
+  Onuchic, Polak, Rajagopal, Ray, Sallari, Siebenthall, Sinnott-Armstrong,
+  Stevens, Thurman, Wu, Zhang, Zhou, Beaudet, Boyer, {De Jager}, Farnham,
+  Fisher, Haussler, Jones, Li, Marra, McManus, Sunyaev, Thomson, Tlsty, Tsai,
+  Wang, Waterland, Zhang, Chadwick, Bernstein, Costello, Ecker, Hirst,
+  Meissner, Milosavljevic, Ren, Stamatoyannopoulos, Wang, and
+  Kellis]{RoadmapEpigenomicsConsortium2015}
+{Roadmap Epigenomics Consortium} et al.
+\newblock {Integrative analysis of 111 reference human epigenomes}.
+\newblock \emph{Nature}, 518\penalty0 (7539):\penalty0 317, feb 2015.
+\newblock ISSN 14764687.
+\newblock \doi{10.1038/NATURE14248}.
+\newblock URL \url{/pmc/articles/PMC4530010/
+  /pmc/articles/PMC4530010/?report=abstract
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4530010/}.
+
+\bibitem[Robert and Escoufier(1976)]{Robert1976}
+P.~Robert and Y.~Escoufier.
+\newblock {A Unifying Tool for Linear Multivariate Statistical Methods: The RV-
+  Coefficient}.
+\newblock \emph{Applied Statistics}, 25\penalty0 (3):\penalty0 257, 1976.
+\newblock ISSN 00359254.
+\newblock \doi{10.2307/2347233}.
+
 \bibitem[Sarica et~al.(2018)Sarica, Vasta, Novellino, Vaccaro, Cerasa, and
   Quattrone]{Sarica2018}
 A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
@@ -1140,6 +1596,28 @@ J.~Sheng, L.~Wang, H.~Cheng, Q.~Zhang, R.~Zhou, and Y.~Shi.
 \newblock \emph{Neuroscience Letters}, 762:\penalty0 136147, sep 2021.
 \newblock ISSN 0304-3940.
 \newblock \doi{10.1016/J.NEULET.2021.136147}.
+
+\bibitem[Shi and Malik(2000)]{Shi2000}
+J.~Shi and J.~Malik.
+\newblock {Normalized cuts and image segmentation}.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 22\penalty0 (8):\penalty0 888--905, 2000.
+\newblock ISSN 01628828.
+\newblock \doi{10.1109/34.868688}.
+
+\bibitem[Sniekers et~al.(2017)Sniekers, Stringer, Watanabe, Jansen, Coleman,
+  Krapohl, Taskesen, Hammerschlag, Okbay, Zabaneh, Amin, Breen, Cesarini,
+  Chabris, Iacono, Ikram, Johannesson, Koellinger, Lee, Magnusson, McGue,
+  Miller, Ollier, Payton, Pendleton, Plomin, Rietveld, Tiemeier, {Van Duijn},
+  and Posthuma]{Sniekers2017}
+S.~Sniekers et al.
+\newblock {Genome-wide association meta-analysis of 78,308 individuals
+  identifies new loci and genes influencing human intelligence}.
+\newblock \emph{Nature genetics}, 49\penalty0 (7):\penalty0 1107--1112, jul
+  2017.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/NG.3869}.
+\newblock URL \url{https://pubmed.ncbi.nlm.nih.gov/28530673/}.
 
 \bibitem[Subramanian et~al.(2005)Subramanian, Tamayo, Mootha, Mukherjee, Ebert,
   Gillette, Paulovich, Pomeroy, Golub, Lander, and Mesirov]{Subramanian2005}
