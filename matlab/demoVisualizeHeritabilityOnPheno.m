@@ -54,7 +54,7 @@ rows = table.Row;
 for rowCnt=1:length(rows)
     row = rows{rowCnt};
     values = table2array(table(row,:));
-    [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values);
+    [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values,'w');
     close(fig)
     saveas(fig2, [RESULTS_DIR, row, '.svg'])
     print(fig2, '-dpng', '-r300', [RESULTS_DIR, row, '.png'])
