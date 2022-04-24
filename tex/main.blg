@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2022)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: plainnat-maxbibnames10.bst
+The style file: abbrvnat-maxbibnames10.bst
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: mat_and_methods.aux
 A level-1 auxiliary file: results.aux
@@ -14,17 +14,17 @@ Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 You've used 145 entries,
-            2790 wiz_defined-function locations,
-            1907 strings with 125438 characters,
-and the built_in function-call counts, 217987 in all, are:
-= -- 18852
+            2785 wiz_defined-function locations,
+            1906 strings with 125145 characters,
+and the built_in function-call counts, 216545 in all, are:
+= -- 18543
 > -- 27354
 < -- 43
 + -- 9095
 - -- 8947
-* -- 22523
-:= -- 35009
-add.period$ -- 807
+* -- 22317
+:= -- 34700
+add.period$ -- 704
 call.type$ -- 145
 change.case$ -- 4688
 chr.to.int$ -- 142
@@ -32,13 +32,13 @@ cite$ -- 290
 duplicate$ -- 3072
 empty$ -- 5714
 format.name$ -- 9134
-if$ -- 42611
+if$ -- 42302
 int.to.chr$ -- 4
 int.to.str$ -- 1
 missing$ -- 143
-newline$ -- 1101
+newline$ -- 998
 num.names$ -- 580
-pop$ -- 8770
+pop$ -- 8873
 preamble$ -- 1
 purify$ -- 4541
 quote$ -- 0
@@ -53,5 +53,5 @@ type$ -- 1590
 warning$ -- 0
 while$ -- 668
 width$ -- 0
-write$ -- 2631
+write$ -- 2425
 (There was 1 error message)
