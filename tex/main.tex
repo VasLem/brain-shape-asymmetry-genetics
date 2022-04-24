@@ -1,5 +1,5 @@
 \documentclass[master=ebin,english]{kulemt}
-\setup{title={Global-To-Local Segmentation and Genotypic Analysis Of Brain Shape Asymmetry},author={Vasileios Lemonidis},promoter={Prof. Peter Claes \and Prof. Isabelle Cleynen}, assessor=,assistant={MSc. Meng Yuan \and MSc. Seppe Goovaerts},acyear=2022,bind=3mm,inputenc=utf8}
+\setup{title={Global-To-Local Segmentation and Genotypic Analysis Of Brain Shape Asymmetry},author={Vasileios Lemonidis},promoter={Prof. Peter Claes\\ Dept. of Electrical Engineering\\ Dept. of Human Genetics \\~\\ Prof. Isabelle Cleynen\\ Dept. of Human Genetics}, assessor=,assistant={MSc. Meng Yuan \and MSc. Seppe Goovaerts},acyear=2022,bind=3mm,inputenc=utf8}
 \setup{font=lm}
 
 \usepackage{float}
@@ -15,7 +15,10 @@
 \makeatother
 \usepackage{subcaption}
 \usepackage[numbers]{natbib}
-\bibliographystyle{plainnat-maxbibnames10}
+\bibliographystyle{abbrvnat-maxbibnames10}
+
+%\bibliographystyle{plainnat-maxbibnames10}
+
 \graphicspath{
 	{../results},
 	 {graphics}
@@ -25,7 +28,7 @@
 \usepackage{amsmath}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
-
+\DeclareMathOperator*{\erfc}{erfc}
 
 \begin{document}
 	\begin{preface}[The Author\\ \textup{1 January 2010}]
