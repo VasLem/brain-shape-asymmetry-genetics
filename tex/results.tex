@@ -1,7 +1,25 @@
 \chapter{Results}\label{chap:results}
 \section{Statistical brain shape analysis}
-The main 
+
+\begin{figure}[H]
+	\centering
+	\begin{center}
+		\makebox[\textwidth]{\includesvg[width=0.95\paperwidth]{symmetryStats/STAGE00DATA/reduce10_gpaReps3/N_REP3/iters10000_nPicks5_perPickSize50_/results.svg}}
+	\end{center}
+	\caption[Statistical brain shape analysis results]{Asymmetry components significance analysis. Information about each landmark has been used to fill the \ac{3d} average shape of the left hemisphere, displayed medially and laterally. The \acp{mss} are produced by dividing \acp{rss} with the appropriate \acp{dof}. Both the first and the second column refer to information retrieved from the non-permuted data. The last column is derived by applying various thresholds (shown in the colorbar) on the p-value response presented on the third column.}
+	\label{fig:stat_analysis}	
+\end{figure}
+
+The main results from the 2-way permutation \ac{anova} are summarized in \autoref{fig:stat_analysis} and are also being more formally medically followed by \citet{Vanbiervliet2022}. The individual effect (first row), which corresponds to the average shape variability across individuals, exhibits greater variation in the medial surface, particularly in the middle-anterior and middle-posterior parts of the cingulate gyrus and sulcus ($\subseteq$BA28, processing emotions and behavior regulation), the rostral part of the cuneus ($\subseteq$BA17, processing of visual information), the parahippocampal gyrus ($\subseteq$BA27, memory encoding and retrieval), and the fusiform gyrus ($\subseteq$BA37, recognition of faces). 
+
+\Ac{da} (second row), the focus of this study, relevant to the general aptitude of individuals to exhibit certain asymmetric traits, is found to be highly significant in almost half of the studied surface. In line with the general identified asymmetry patterns presented in \autoref{subsec:general_sym_traits}, it is greatly localized around the peri-sylvian fissure and the temporal lobe (see peri-sylvian asymmetry). Also, it occurs in the medial surface, and the occipital lobe, implying relationship with the yakovlevian torque, although lower significance of the effect is demonstrated on the prefrontal lobe.
+
+\Ac{fa} effect (last row), which, as a reminder, is related to environmentally and developmentally induced variations, has been found generally significant across the cortical surface. This finding can be partly justified to the large combinatorial space from where permutations are collected (see \autoref{subsec:stat_methods}), as well as the overall exhibited plasticity of the human cortex (see \autoref{subsec:plasticity}), as raised by \citet{Vanbiervliet2022}. However, a comparison across regions is possible by inspecting  $F_{FA}$ instead, where, in the caudal part of the middle frontal gyrus ($\subseteq$ BA40, phonological processing and emotional responses), the superior part of the precentral gyrus ($\subseteq$ BA07, space localization), and the caudal part of the superior frontal sulcus and gyrus ($\subseteq$ BA08, planning complex movements) greater effect of \ac{fa} is exhibited.
+
+
 \section{Covariates control}
+
+
 \section{Partitioning}
 \section{Significant \ac{snp} identification}
 \section{\ac{ldsr}}
