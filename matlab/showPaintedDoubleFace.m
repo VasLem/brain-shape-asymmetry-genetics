@@ -6,7 +6,7 @@ function [ax,pRet]=showPaintedDoubleFace(fig, shape, center, axisSize, ax, jetcm
 % to the hole, defaults to black if not given
 
 %
-if nargin < 5
+if nargin < 5 || ~isa(ax,'matlab.graphics.axis.Axes')
     if isnan(center)
         %         ax(1) = subplot(1,2,1);
         %         ax(2) = subplot(1,2,2);
@@ -17,13 +17,13 @@ if nargin < 5
         %         ax(2) = axes(fig, 'pos',[center(1) ,  center(2) - axisSize/2, axisSize, axisSize]);
     end
 end
-if nargin < 6
+if nargin < 6 || isnan(jetcmap)
     jetcmap = false;
 end
-if nargin < 7
+if nargin < 7 || any(isnan(clims))
     clims = [0,1];
 end
-if nargin < 8
+if nargin < 8 | any(isnan(invcolor))
     invcolor = 'white';
 end
 if isnan(invcolor)
@@ -59,33 +59,13 @@ for i=1:2
     s.PatchHandle.FaceColor = 'flat';
     
     if i == 2
-
         light = camlight(ax,'headlight');
         set(light,'Position',get(ax,'CameraPosition'));
-        if numel(jetcmap)==1
-            if ~jetcmap
-                colormap(ax,'colorcube');
-             
-                if length(unique(s.VertexValue))==1
-                    caxis(ax, [0,1]);
-                end
-            else
-                colormap(ax, 'jet');
-                caxis(ax, clims);
-            end
-        end
     end
-    if numel(jetcmap) ~= 1
-        s.ColorMode = 'texture';
-        colormap(ax,jetcmap)
-    end
-
-
 end
 daspect(ax, [1 1 1]);
 axis(ax,'image');
 axis(ax,'off');
-drawnow;
 end
 function [x,y,z]=addRectangle(ax, shape, color, pToUse)
 if isnan(pToUse)
