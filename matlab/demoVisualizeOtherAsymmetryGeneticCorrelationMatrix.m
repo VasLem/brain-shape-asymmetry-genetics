@@ -51,4 +51,5 @@ featMats{1} = round(100 * ret)/100;
 featMatsIds{1} = 'otherAsymmetry';
 featsClassesNames = traits;
 datasetName = DATASET;
+%%
 drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)

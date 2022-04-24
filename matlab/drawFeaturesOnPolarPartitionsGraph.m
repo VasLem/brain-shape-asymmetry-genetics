@@ -11,7 +11,9 @@ end
 clusterDir = ['../results/' modality '/hierarchicalClusteringDemo/STAGE00DATA/'];
 clusterArray = load(['../results/' modality '/hierarchicalClusteringDemo/STAGE00DATA/' modality '_reduction' num2str(reduction) '/levels4/segmentation.mat']).clusterArray;
 template = load([clusterDir modality '_reduction' num2str(reduction) '/levels4/input_info.mat']).preprocTemplate;
-[~, ~, handles] = paintClusters(clusterArray, template, 4, false);
+[f1, f2, handles] = paintClusters(clusterArray, template, 4, false,[],'white',colorcube(2));
+close(f2);
+f1.Visible='off';
 rawDir = [resultsDir 'props/'];
 if ~isfolder(rawDir), mkdir(rawDir); end
 for i=1:length(handles)
