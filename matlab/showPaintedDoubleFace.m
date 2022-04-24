@@ -39,12 +39,13 @@ end
 for i=1:2
     s = clone(shape);
     if i==2
-        s.Vertices(:,1) = -s.Vertices(:,1);
+        s.Vertices(:,1) = - s.Vertices(:,1);
+        s.Vertices(:, 2) = - s.Vertices(:, 2); % to show the left hemisphere
     end
+    
     if i == 1
         s.Vertices(:,2) = s.Vertices(:,2) - abs(max(s.Vertices(:,2))) - 0.1;
     else
-        s.Vertices(:, 2) = - s.Vertices(:, 2);
         s.Vertices(:,2) = s.Vertices(:,2) + abs(min(s.Vertices(:,2))) + 0.1;
     end
 
