@@ -9,39 +9,39 @@ if nargin < 6
     smallestPvalue = 0.0001;
 end
 i=1;
-VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'I';
+VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'MSE_I';
 try
-VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'IF';
+VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'F_I';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permIF;
 else
     VertexValues{i,3}=showstruct.LM.IP;
 end
-titlenames{i,3} = 'p-Value';
+titlenames{i,3} = 'F_I perm. p-value';
 catch
 end
 i=i+1;
-VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = 'D';
+VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = 'MSE_D';
 try
-VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = 'DF';
+VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = 'F_{DA}';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permDF;
 else
     VertexValues{i,3}=showstruct.LM.DP;
 end
-titlenames{i,3} = 'p-Value';
+titlenames{i,3} = 'F_{DA} perm. p-value';
 catch
 end
 i=i+1;
-VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'F';
+VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'MSE_S';
 try
-VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'FF';
+VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'F_{FA}';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permFF;
 else
     VertexValues{i,3}=showstruct.LM.FP;
 end
-titlenames{i,3} = 'p-Value';
+titlenames{i,3} = 'F_{FA} perm. p-value';
 
 catch
 end
@@ -61,7 +61,14 @@ for i=1:3
         c = c+1;
     end
     VertexValues{i,4} = res;
-    titlenames{i,4} = "Significance";
+    switch i
+        case 1
+            titlenames{i,4} = "I Significance";
+        case 2
+             titlenames{i,4} = "DA Significance";
+        case 3
+             titlenames{i,4} = "FA Significance";
+    end
 end
 catch
 end

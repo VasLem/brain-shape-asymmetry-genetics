@@ -21,11 +21,11 @@ for i=1:length(handles)
     end
     f1 = figure('visible','off');
     s = copyobj(handles{i}.handle,f1);
-    set(s(1),'position',[0.0 0.25 0.5 0.5]);
-    set(s(2),'position',[0.5 0.25 0.5 0.5]);
+    set(s,'position',[0 0 1 1]);
     set(f1, 'color', 'none');
     set(s, 'color', 'none');
     print(f1, '-dpng', '-r300', ret_path);
+    saveas(f1, [rawDir num2str(i) '.pdf']);
     close(f1);
 end
 

@@ -115,6 +115,7 @@ for CHR=1:22
 end
 disp("Joining datasets..")
 snps = cat(1,snps{:});
+%%
 for partition=1:31
     disp(['Partition ' num2str(partition)]);
     ftab = [];
@@ -135,7 +136,7 @@ for partition=1:31
             ftab = innerjoin(ftab, tab, keys='rsID'); % overlapping SNPs only
             ftab = innerjoin(ftab, snps,  LeftKeys='rsID', RightKeys='RSID'); % get Positions
             pvalues = ftab(:,{'P_value_tab','P_value_ftab'});
-            ftab.P_value = stouffer(table2array(pvalues));
+            ftab.P_value = stouffer(double(table2array(pvalues)));
             zeroMask = ftab.P_value == 0;
             ftab.P_value(zeroMask) = min(ftab.P_value(~zeroMask))/10;
             ftab.ChiScore = (ftab.ChiScore_tab + ftab.ChiScore_ftab) / 2;

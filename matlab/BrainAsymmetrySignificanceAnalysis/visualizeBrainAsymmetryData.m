@@ -10,7 +10,7 @@ try
     nSamplesPerPick = data.nSamplesPerPick;
 catch
 end
-arrange = [size(VertexValues,1) 2 * size(VertexValues,2)];
+arrange = [size(VertexValues,1) size(VertexValues,2)];
 
 clim = [];
 rend = brainSurface;
@@ -27,6 +27,8 @@ if size(VertexValues,2) > 1
 end
 
 nPicks = size(VertexValues{1,1},1);
+set(0,'defaulttextinterpreter','tex')
+set(0,'DefaultTextFontname', 'Latin Modern Sans')
 for k=1:nPicks
     counter = 0;
     try
@@ -41,41 +43,28 @@ for k=1:nPicks
             %i=1;
             sVertexValues = VertexValues{i,j}(k,:);
             counter = counter+1;
-            fout.ax1{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-            colormap(fout.ax1{i,j},map);
-            
-            if ~isempty(clim), set(fout.ax1{i,j},'clim',clim);end
-            renderBrainSurface(rend,sVertexValues,fout.ax1{i,j});
-            maxlims = max(rend.Vertices);
-            minlims = min(rend.Vertices);
-            colorbar(fout.ax1{i,j},'SouthOutside');
-            if j<4
-                set(fout.ax1{i,j},'clim',[0 max(sVertexValues)]);
-            end
-            if j==4,set(fout.ax1{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
-                cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
-            view(fout.ax1{i,j},-90,0);
-            xlim(fout.ax1{i,j}, [0, 1.3 * (maxlims(1) + minlims(1)) / 3])
-            light = camlight(fout.ax1{i,j},'headlight');
-            set(light,'Position',get(fout.ax1{i,j},'CameraPosition'));
-            drawnow;
-            title(fout.ax1{i,j},titlenames{i,j})
-            counter = counter+1;
-            fout.ax2{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
-            renderBrainSurface(rend,sVertexValues,fout.ax2{i,j});
+            fout.ax{i,j} = subplot(arrange(1),arrange(2),counter,'Parent',f);
+            view(fout.ax{i,j},-90,0);
+            shape = clone(brainSurface);
+            shape.ColorMode = 'indexed';
+            shape.VertexValue = sVertexValues;
+            shape.Material = 'dull';
 
-            view(fout.ax2{i,j},90,0);
-            colorbar(fout.ax2{i,j},'SouthOutside');
+            if ~isempty(clim), set(fout.ax{i,j},'clim',clim);end
+            showPaintedDoubleFace(fout, shape, nan, nan, fout.ax{i,j},map)
+            colorbar(fout.ax{i,j},'SouthOutside');
             if j<4
-                set(fout.ax2{i,j},'clim',[0 max(sVertexValues)]);
+                set(fout.ax{i,j},'clim',[0 max(sVertexValues)]);
             end
-            colormap(fout.ax2{i,j},map);
-            if j==4,set(fout.ax2{i,j},'clim',[0 length(thresholds)]); cb=findall(gcf,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
+            if j==4,set(fout.ax{i,j},'clim',[0 length(thresholds)]); cb=findall(f,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
                 cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
-            light = camlight(fout.ax2{i,j},'headlight');
-            set(light,'Position',get(fout.ax2{i,j},'CameraPosition'));
             drawnow;
-            if ~isempty(clim), set(fout.ax2{i,j},'clim',clim);end
+            fout.ax{i,j}.Visible = 'on';
+            axis(fout.ax{i,j},'image');
+            axis(fout.ax{i,j},'off');
+            title(fout.ax{i,j},titlenames{i,j},'FontSize',11)
+            
+            
             figName = saveName;
             if nPicks > 1, figName = [saveName '_' num2str(k)]; end
                

@@ -57,10 +57,10 @@ avgTemplate.ColorMode = 'Indexed';
 f = figure;
 f.Units = 'normalized';
 f.Position = [0.2,0.2,0.5,0.5];
- t = tiledlayout(1,2);
+ t = tiledlayout(1,1);
  t.TileSpacing = 'none';
 t.Padding = 'tight';
-ax = showPaintedDoubleFace(f,avgTemplate,nan,nan, [nexttile(t), nexttile(t)]);
+ax = showPaintedDoubleFace(f,avgTemplate,nan,nan, nexttile(t));
 colormap(map)
 daspect(ax(1), [1 1 1]);
 daspect(ax(2), [1 1 1]);

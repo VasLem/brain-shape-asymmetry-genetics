@@ -1,17 +1,17 @@
 # MEAN_SAMPLE_SIZE = 35986
-# TOTAL_GENES = 13622
+# TOTAL_GENES = 13428
 # TEST_DIRECTION = one-sided, positive (set), one-sided, positive (covar)
 # CONDITIONED_INTERNAL = gene size, gene density, inverse mac, log(gene size), log(gene density), log(inverse mac)
 # CONDITIONED_HIDDEN = Average (covar)
 VARIABLE                TYPE  NGENES         BETA     BETA_STD           SE            P
-Early_prenatal         COVAR   13622    0.0019428    0.0029269     0.009845      0.42178
-Early_mid-prenatal     COVAR   13622    0.0048453    0.0072772     0.011277      0.33373
-Late_mid-prenatal      COVAR   13622    0.0023986    0.0035535     0.014057      0.43225
-Late_prenatal          COVAR   13622    -0.011342     -0.01558     0.016099      0.75945
-Early_infancy          COVAR   13622    -0.020351    -0.028821     0.028984       0.7587
-Late_infancy           COVAR   13622    -0.014288    -0.020822     0.020775      0.75418
-Early_childhood        COVAR   13622    -0.010481    -0.014636     0.014462      0.76569
-Late_childhood         COVAR   13622    -0.035699    -0.052542     0.018945      0.97023
-Adolescence            COVAR   13622     0.022602     0.031846      0.02027      0.13243
-Young_adulthood        COVAR   13622     0.022103     0.031447     0.018506      0.11618
-Middle_adulthood       COVAR   13622     0.015147     0.022473      0.01578      0.16857
+Early_prenatal         COVAR   13428     0.014185     0.021346     0.009564     0.069028
+Early_mid-prenatal     COVAR   13428     0.020254     0.030391     0.010903     0.031623
+Late_mid-prenatal      COVAR   13428     0.025111      0.03718     0.013386     0.030345
+Late_prenatal          COVAR   13428    -0.013539     -0.01858     0.015471      0.80924
+Early_infancy          COVAR   13428    -0.020104    -0.028452     0.026976      0.77193
+Late_infancy           COVAR   13428    0.0057082    0.0083178      0.01997      0.38751
+Early_childhood        COVAR   13428    -0.028247    -0.039412     0.013828      0.97945
+Late_childhood         COVAR   13428    -0.045393      -0.0668     0.018306      0.99342
+Adolescence            COVAR   13428    -0.014697    -0.020707     0.019405      0.77558
+Young_adulthood        COVAR   13428   -0.0064501   -0.0091794     0.017682      0.64236
+Middle_adulthood       COVAR   13428    -0.012147    -0.018025     0.015154       0.7886

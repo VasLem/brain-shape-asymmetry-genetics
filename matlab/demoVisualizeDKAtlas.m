@@ -53,12 +53,10 @@ lTemplate.VertexRGB(atlasL.index~=-1, :) = cmap(exind, :);
 lTemplate.ColorMode = 'texture';
 fig = figure();
 fig.Position = [100 100 400 200];
-t = tiledlayout(1,2);
+t = tiledlayout(1,1);
 t.TileSpacing = 'none';
 t.Padding = 'tight';
-ax = showPaintedDoubleFace(fig, lTemplate,nan, nan,[nexttile(t), nexttile(t)] , cmap);
-zlim(ax(1),[min(lTemplate.Vertices(:,3)), max(lTemplate.Vertices(:,3))])
-zlim(ax(2),[min(lTemplate.Vertices(:,3)), max(lTemplate.Vertices(:,3))])
+ax = showPaintedDoubleFace(fig, lTemplate,nan, nan,nexttile(t) , cmap);
 
 saveas(fig, '../results/dk_left.svg')
 %%

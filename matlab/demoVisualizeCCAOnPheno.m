@@ -1,10 +1,10 @@
 close all; clear
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-RECOMPUTE_PARTS = 0;
+RECOMPUTE_PARTS = 1;
 SUBSAMPLED = 0;
-MODALITY = 'symmetry';
-DATASET_INDEX = 1;
+MODALITY = 'asymmetry';
+DATASET_INDEX = 0;
 IMPUTE_STRATEGY = 'mean';
 
 switch DATASET_INDEX
@@ -52,7 +52,6 @@ if ~isfolder(RESULTS_DIR), mkdir(RESULTS_DIR); end
 
 featMatsIds = ["WithBC", "WoutBC"];
 featsClassesNames = cellstr(strcat('Chr', string(1:22)));
-rescomputeParts = 0;
 
 
 
@@ -84,7 +83,7 @@ for i=1:2
                 if strcmp(bCId,'WoutBC')
                     t = 5e-8;
                 else
-                    t = 5e-8/(19644 + 16342);
+                    t = 5e-8/31;
                 end
                 countsMat(j, chr) = sum((snpsTable.chromosome==chr) & snpsTable.P_value<=t);
             else
@@ -100,5 +99,5 @@ for i=1:2
 
 end
 %%
-drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, RESULTS_DIR, REDUCTION, RECOMPUTE_PARTS)
+drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, RESULTS_DIR, REDUCTION, RECOMPUTE_PARTS,  1)
 
