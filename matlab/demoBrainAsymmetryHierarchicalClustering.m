@@ -294,8 +294,11 @@ if DATASET_INDEX == 1
         load(SEGMENTATION_OUT);
     end
     %%
-    [fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true, [],nan,colorcube(2));
+    [fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true, [],nan,colorcube(2),'square');
     saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.png']);
+    %%
+    saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.svg']);
+    %%
     print(fig2,'-dsvg','-r300',[SEGMENTATION_DIR 'segmentation.svg']);
 else
     disp("Loading STAGE00DATA partitions..")

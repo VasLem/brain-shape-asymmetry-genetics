@@ -1,4 +1,4 @@
-function [fig, fig2, handles]= paintClusters(clustered, template, numLevels, isRecursive, values, invcolor,map)
+function [fig, fig2, handles]= paintClusters(clustered, template, numLevels, isRecursive, values, invcolor,map, tilesLayout)
 % Paint clusters with a certain number of levels numLevels of a shape3d
 % template using concentric circles.
 if nargin < 4
@@ -8,8 +8,12 @@ if nargin < 5
     values = [];
 end
 if nargin < 6
-    invcolor = nan;
+    invcolor = 'white';
 end
+if nargin < 7
+    map = 'parula';
+end
+
 if ~isempty(values) && isRecursive
         error("Cannot visualize custom values when painting recursively.")
 end
@@ -40,14 +44,26 @@ hold off;
 fig2 = figure;
 fig2.Units = 'normalized';
 fig2.Position = [0.1,0.1, 0.8*(1/numLevels), 0.8];
-if ~isempty(values)
-    % give space to colorbar
-    t = tiledlayout(numLevels + 2,1);
+if nargin < 8 || ~strcmp(tilesLayout, 'square')
+    if ~isempty(values)
+        % give space to colorbar
+        t = tiledlayout(numLevels + 2,1);
+    else
+        t = tiledlayout(numLevels + 1,1);
+    end
+    t.TileSpacing = 'none';
+    t.Padding = 'tight';
 else
-    t = tiledlayout(numLevels + 1,1);
+    if strcmp(tilesLayout,'square')
+        fig2.Position = [0.1,0.1, 0.6, 0.4];
+        if ~isempty(values)
+            t = tiledlayout(3,2);
+        else
+            t = tiledlayout(2,2);
+        end
+    end
 end
-t.TileSpacing = 'none';
-t.Padding = 'tight';
+
 minValue = 0;
 maxValue = 1;
 if ~isempty(values)
@@ -55,10 +71,21 @@ minValue = min(values);
 maxValue = max(values);
 end
 for i =1:(numLevels + 1)
+    if isempty(values)
+        if i == 1
+            continue
+        end
+    end
     shape = levelShapes{i};    
     ax = showPaintedDoubleFace(fig2, shape, nan, nan, nexttile(t), ~isempty(values),[minValue,maxValue], invcolor);
+    if i == 1
+        title(ax,'root')
+    else
+        title(ax,['level ' num2str(i-1)])
+    end
     daspect(ax, [1 1 1]);
 end
+
 if ~isempty(values)
     h = axes(fig2,'visible','off');
     h.Units = 'normalized';
@@ -69,6 +96,8 @@ if ~isempty(values)
     colormap('jet');
     caxis(h,[minValue, maxValue]);
 end
+set(fig2, 'InvertHardCopy', 'off');
+set(fig2, 'Color', 'white');
 end
 
 function [ret, levelShapes]=paintIterative(fig, pax, xl, yl, axpos, ydir, clustered, template,polarPoints, offsetR, levelShapes, values,invcolor,map)
