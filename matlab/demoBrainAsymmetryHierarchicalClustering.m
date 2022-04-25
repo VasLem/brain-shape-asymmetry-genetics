@@ -16,9 +16,9 @@ if ~isdeployed
 end
 NUM_LEVELS = 4;
 MAX_NUM_PCS = 500;
-DEFAULT_DATASET_INDEX = 2;
+DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
-DEFAULT_MODALITY = 'symmetry'; %asymmetry,symmetry
+DEFAULT_MODALITY = 'asymmetry'; %asymmetry,symmetry
 SEED = 42;
 
 rng(SEED); % For reproducible results
@@ -242,36 +242,18 @@ if ~exist('explainedCov', 'var')
 end
 f = figure;
 view(gca,90,0);
-colormap(gca,'jet');
-light = camlight(gca,'headlight');
-set(light,'Position',get(gca,'CameraPosition'));
-drawnow;
+
 visualizeCovExp = clone(preprocTemplate);
 visualizeCovExp.VertexValue = explainedCov;
-
 visualizeCovExp.ColorMode = 'indexed';
 visualizeCovExp.Material = 'Dull';
 visualizeCovExp.ViewMode = 'solid';
+
+showPaintedDoubleFace(f,visualizeCovExp,nan,nan,nan,nan,[0 1],nan,nan)
 colorbar(gca,'SouthOutside');
-visualizeCovExp.RenderAxes = gca;
-visualizeCovExp.Visible = true;
-visualizeCovExp.PatchHandle.FaceColor = 'flat';
-maxlims = max(visualizeCovExp.Vertices);
-minlims = min(visualizeCovExp.Vertices);
-axis(gca,'image');
-axis(gca,'off');
-xlim(gca, [ 1.3 * (maxlims(1) + minlims(1)) / 3, maxlims(1)]);
-drawnow;
+saveas(f, [SELECTION_DIR, 'explainedDKCovariates.svg']);
 
-savefig(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.fig']);
-saveas(f, [SELECTION_DIR, 'explainedDKCovariatesMedial.png']);
-view(gca,-90,0);
-set(light,'Position',get(gca,'CameraPosition'));
-xlim(gca, [ minlims(1), maxlims(1)]);
-savefig(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.fig']);
-saveas(f, [SELECTION_DIR, 'explainedDKCovariatesLateral.png']);
-
-
+%%
 if RESIDUALS_PROC
     disp("Fitting PLS model to covariates and removing their effect from the phenotype..");
     [resT, explainedCovWhole] = controlForCovariates([covData,  centroidSizesLH(:), centroidSizesRH(:)], sym2DMatrix);
@@ -309,7 +291,8 @@ if DATASET_INDEX == 1
     else
         load(SEGMENTATION_OUT);
     end
-    [fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true);
+    %%
+    [fig, fig2, handles] = paintClusters(clustered, preprocTemplate, NUM_LEVELS, true, [],nan,colorcube(2));
     saveas(fig, [SEGMENTATION_DIR 'segmentation_circular.png']);
     print(fig2,'-dsvg','-r300',[SEGMENTATION_DIR 'segmentation.svg']);
 else

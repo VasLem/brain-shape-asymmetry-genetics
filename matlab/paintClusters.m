@@ -147,8 +147,8 @@ ret.handle= paintSingle(fig, clustered.rootIndices, template, convertToFigureSpa
     offsetR, nan, nan,invcolor,map);
 levelShapes{level + 1} = paintSingle(nan, clustered.rootIndices, template, nan, nan, levelShapes{level + 1},nan,invcolor,map);
 if numel(clustered.parts)>0
-    [ret.parts{1}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{1}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);
-    [ret.parts{2}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{2}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes);
+    [ret.parts{1}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{1}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes,invcolor,map);
+    [ret.parts{2}, polarPoints, levelShapes]  = paintRecursive(fig, pax, xl, yl, axpos, ydir, clustered.parts{2}, template,  polarPoints, newCenter,  offsetR, level+1, levelShapes,invcolor,map);
 else
     if numel(polarPoints)>=level+1
         if numel(polarPoints{level+1}) > 0
