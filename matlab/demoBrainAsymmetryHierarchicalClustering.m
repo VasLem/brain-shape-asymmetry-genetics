@@ -250,6 +250,8 @@ visualizeCovExp.Material = 'Dull';
 visualizeCovExp.ViewMode = 'solid';
 
 showPaintedDoubleFace(f,visualizeCovExp,nan,nan,nan,nan,[0 1],nan,nan)
+set(f, 'InvertHardCopy', 'off');
+set(f, 'Color', 'white');
 colorbar(gca,'SouthOutside');
 saveas(f, [SELECTION_DIR, 'explainedDKCovariates.svg']);
 
