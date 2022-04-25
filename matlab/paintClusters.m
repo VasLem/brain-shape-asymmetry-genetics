@@ -79,9 +79,9 @@ for i =1:(numLevels + 1)
     shape = levelShapes{i};    
     ax = showPaintedDoubleFace(fig2, shape, nan, nan, nexttile(t), ~isempty(values),[minValue,maxValue], invcolor);
     if i == 1
-        title(ax,'root')
+        title(ax,'root','FontSIze',16)
     else
-        title(ax,['level ' num2str(i-1)])
+        title(ax,['level ' num2str(i-1)],'FontSize',16)
     end
     daspect(ax, [1 1 1]);
 end
