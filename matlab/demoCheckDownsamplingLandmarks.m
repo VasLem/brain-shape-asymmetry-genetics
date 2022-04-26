@@ -29,6 +29,8 @@ for c=1:length(templates)
     title(ax, {['Scale:' num2str(reductions(c))],  [num2str(s) '  landmarks']})
 end
 outdir = '../results/downsampling/';
+set(f, 'InvertHardCopy', 'off');
+set(f, 'Color', 'white');
 if ~isfolder(outdir), mkdir(outdir); end
 saveas(f, [outdir 'reduction.svg'])
 

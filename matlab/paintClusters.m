@@ -1,4 +1,4 @@
-function [fig, fig2, handles]= paintClusters(clustered, template, numLevels, isRecursive, values, invcolor,map, tilesLayout)
+function [fig, fig2, handles]= paintClusters(clustered, template, numLevels, isRecursive, values, invcolor,map, tilesLayout, map2)
 % Paint clusters with a certain number of levels numLevels of a shape3d
 % template using concentric circles.
 if nargin < 4
@@ -12,6 +12,9 @@ if nargin < 6
 end
 if nargin < 7
     map = 'parula';
+end
+if nargin < 9
+    map2 = map;
 end
 
 if ~isempty(values) && isRecursive
@@ -79,10 +82,11 @@ for i =1:(numLevels + 1)
     shape = levelShapes{i};    
     ax = showPaintedDoubleFace(fig2, shape, nan, nan, nexttile(t), ~isempty(values),[minValue,maxValue], invcolor);
     if i == 1
-        title(ax,'root','FontSIze',16)
+        title(ax,'root','FontSIze','FontUnits','normalized','FontSize',0.2,'FontWeight','bold')
     else
-        title(ax,['level ' num2str(i-1)],'FontSize',16)
+        title(ax,['level ' num2str(i-1)],'FontUnits','normalized','FontSize',0.2,'FontWeight','bold')
     end
+    colormap(ax,map2);
     daspect(ax, [1 1 1]);
 end
 
