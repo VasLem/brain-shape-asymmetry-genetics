@@ -1,4 +1,8 @@
 clear, close all
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
 DATASET = 'joinedDatasets';
 REDUCTION = 1;
 MODALITY = 'asymmetry';
@@ -52,4 +56,4 @@ featMatsIds{1} = 'otherAsymmetry';
 featsClassesNames = traits;
 datasetName = DATASET;
 %%
-drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1,1)

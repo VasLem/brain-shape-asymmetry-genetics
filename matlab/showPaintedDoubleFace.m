@@ -17,7 +17,7 @@ if nargin < 5 || ~isa(ax,'matlab.graphics.axis.Axes')
         %         ax(2) = axes(fig, 'pos',[center(1) ,  center(2) - axisSize/2, axisSize, axisSize]);
     end
 end
-if nargin < 6 || isnan(jetcmap)
+if nargin < 6 | isnan(jetcmap)
     jetcmap = false;
 end
 if nargin < 7 || any(isnan(clims))

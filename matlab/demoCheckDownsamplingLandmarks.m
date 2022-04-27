@@ -2,6 +2,10 @@
 clear, close all
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
 brainSurface = load('../SAMPLE_DATA/IMAGEN/BRAIN/UKBIOBANK/PHENOTYPES/LH/RENDERMATERIAL.mat');
 template = brainSurface.RefScan;
 reductions = [1, 0.5, 0.1, 0.05, 0.01, 0.005];

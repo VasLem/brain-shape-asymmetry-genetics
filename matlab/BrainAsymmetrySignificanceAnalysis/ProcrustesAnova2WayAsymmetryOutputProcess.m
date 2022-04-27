@@ -9,39 +9,39 @@ if nargin < 6
     smallestPvalue = 0.0001;
 end
 i=1;
-VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = 'MSS_I';
+VertexValues{i,1} = showstruct.LM.I;titlenames{i,1} = '$\mathrm{MSS_{I}}$';
 try
-VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = 'F_I';
+VertexValues{i,2} = showstruct.LM.IF;titlenames{i,2} = '$\mathrm{F_{I}}$';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permIF;
 else
     VertexValues{i,3}=showstruct.LM.IP;
 end
-titlenames{i,3} = 'F_I perm. p-value';
+titlenames{i,3} = '$\mathrm{F_{I}}$ perm. p-value';
 catch
 end
 i=i+1;
-VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = 'MSS_D';
+VertexValues{i,1} = showstruct.LM.D;titlenames{i,1} = '$\mathrm{MSS_{D}}$';
 try
-VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = 'F_{DA}';
+VertexValues{i,2} = showstruct.LM.DF;titlenames{i,2} = '$\mathrm{F_{DA}}$';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permDF;
 else
     VertexValues{i,3}=showstruct.LM.DP;
 end
-titlenames{i,3} = 'F_{DA} perm. p-value';
+titlenames{i,3} =  '$\mathrm{F_{DA}}$ perm. p-value';
 catch
 end
 i=i+1;
-VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} = 'MSS_S';
+VertexValues{i,1} = showstruct.LM.F;titlenames{i,1} =  '$\mathrm{MSS_{S}}$';
 try
-VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} = 'F_{FA}';
+VertexValues{i,2} = showstruct.LM.FF;titlenames{i,2} =  '$\mathrm{F_{FA}}$';
 if showPerm
     VertexValues{i,3}=showstruct.LM.permFF;
 else
     VertexValues{i,3}=showstruct.LM.FP;
 end
-titlenames{i,3} = 'F_{FA} perm. p-value';
+titlenames{i,3} =  '$\mathrm{F_{FA}}$ perm. p-value';
 
 catch
 end

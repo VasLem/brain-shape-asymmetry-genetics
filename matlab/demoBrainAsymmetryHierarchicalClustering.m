@@ -8,15 +8,15 @@
 %%%%%%%%%%%%
 %% Applying Hierarchical Clustering to Brain Symmetry Related information
 close all;clear;
-set(groot, 'defaultAxesTickLabelInterpreter','latex');
-set(groot, 'defaultLegendInterpreter','latex');
-set(0, 'defaulttextinterpreter','latex');
-set(0,'DefaultTextFontname', 'LMU Serif');
 if ~isdeployed
     restoredefaultpath;
     addpath(genpath('AIDFUNCTIONS'));
     addpath(genpath('FUNCTIONS'));
     addpath(genpath('.'));
+    set(groot, 'defaultAxesTickLabelInterpreter','latex');
+    set(groot, 'defaultLegendInterpreter','latex');
+    set(0, 'defaulttextinterpreter','latex');
+    set(0,'DefaultTextFontname', 'LMU Serif');
 end
 NUM_LEVELS = 4;
 MAX_NUM_PCS = 500;
@@ -24,7 +24,7 @@ DEFAULT_DATASET_INDEX = 1;
 REDUCTION_RATE = 1;
 DEFAULT_MODALITY = 'asymmetry'; %asymmetry,symmetry
 SEED = 42;
-
+EXPERIMENT = 0; 
 rng(SEED); % For reproducible results
 if endsWith(cd, "AIDFUNCTIONS/DEMO")
     cd("../..")
@@ -313,7 +313,12 @@ end
 nSubj = length(preprocPhenoIID);
 nVertices = size(clusterArray, 2);
 partitions_num = 2^(NUM_LEVELS + 1) - 1;
-explainedThresholds = 50:10:90;
+
+if EXPERIMENT
+    explainedThresholds = 50:10:90;
+else
+    explainedThresholds = SELECTED_VARIANCE_THRESHOLD;
+end
 clusterExpComponentsNum = zeros(partitions_num, length(explainedThresholds));
 means = zeros(partitions_num, 3, nSubj);
 templateCenters = zeros(partitions_num,3);
@@ -368,12 +373,23 @@ if FINAL_RET_PROC
                 partitionsSizes(k) = MAX_NUM_PCS;
             end
         end
+        fig = figure();
+        fig.Units = 'normalized';
+        fig.Position = [0.1,0.1,0.5,0.5];
+
+        b = bar((1:partitions_num)',partitionsSizes,'facecolor', [180,180,180]/255);
+        text((1:partitions_num)',partitionsSizes, strcat(num2str((round(10*explainedVariance)/10)''),'\%') ,'vert','bottom','horiz','center'); 
+        box off
+        
+        saveas(fig, [SEGMENTATION_DIR 'explainedVarianceSIngleThreshold.svg']);
+        
         save(FINAL_PARTITIONS_SIZES_PATH, 'partitionsSizes', 'explainedVariance', '-v7');
     else
         disp(['Loading PCA number that explains ' num2str(SELECTED_VARIANCE_THRESHOLD) '% of variance for each partition of STAGE00DATA..'])
-
+        
         load(FINAL_PARTITIONS_INFO_ORIG_PATH);
     end
+    
 
     maxNumComponents = max(clusterExpComponentsNum(: , explainedThresholds == SELECTED_VARIANCE_THRESHOLD));
     ppb = ParforProgressbar(partitions_num);

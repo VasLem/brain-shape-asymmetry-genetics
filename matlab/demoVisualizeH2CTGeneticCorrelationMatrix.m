@@ -1,4 +1,8 @@
 clear, close all
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
 DATASET = 'joinedDatasets';
 MODALITY = 'asymmetry';
 REDUCTION = 1;

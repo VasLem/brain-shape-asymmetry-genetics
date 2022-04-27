@@ -17,17 +17,20 @@ if ~isdeployed
     addpath(genpath('.'));
     addpath(genpath('AIDFUNCTIONS'));
     addpath(genpath('../SNPLIB/'));
+    set(groot, 'defaultAxesTickLabelInterpreter','latex');
+    set(groot, 'defaultLegendInterpreter','latex');
+    set(0, 'defaulttextinterpreter','latex');
+    set(0,'DefaultTextFontname', 'LMU Serif');
 end
 %%
 UPDATE_FIGS = 1;
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
 DEFAULT_CHRS = 1:22;
 DEFAULT_SUBSAMPLED = 0;
-DEFAULT_DATASET_INDEX = 2;
+DEFAULT_DATASET_INDEX = 1;
 DEFAULT_MEDIAN_IMPUTE = 'mean';
-DEFAULT_MODALITY = 'symmetry'; %symmetry,asymmetry
+DEFAULT_MODALITY = 'asymmetry'; %symmetry,asymmetry
 DEFAULT_BLOCK_SIZE =2000;
-
 SUBSAMPLED = getenv('SUBSAMPLED');
 if(isempty(SUBSAMPLED))
     SUBSAMPLED = DEFAULT_SUBSAMPLED;
@@ -246,8 +249,8 @@ for CHR_IND=1:length(CHRS)
     if UPDATE_FIGS && ~isdeployed
         disp("Plotting results..")
         tic;
-        plotSimpleGWAS(intervals, intStats.chisqSignificance(:, 1), CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition']);
-        plotPartitionsGWAS(intervals, intStats, CHR, BONFERRONI_THRES, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL']);
+        plotSimpleGWAS(intervals, intStats.chisqSignificance(:, 1), snpsPruned, CHR, NO_PARTITION_THRES,  [CHR_DIR  'noPartition']);
+        plotPartitionsGWAS(intervals, intStats, snpsPruned, CHR, BONFERRONI_THRES, NO_PARTITION_THRES, [CHR_DIR 'PartitionedGTL']);
         toc;
     end
     %% Significant SNPs tables extraction
@@ -293,7 +296,7 @@ idx = cumsum(idx);
 end
 
 %%
-function fig = plotPartitionsGWAS(intervals, intStats, chromosome, pThresB, pThres, path)
+function fig = plotPartitionsGWAS(intervals, intStats, snps, chromosome, pThresB, pThres, path)
 fig = figure('visible','off');
 fig.Position = [100 100 900 900];
 hold on
@@ -301,7 +304,7 @@ pNum = size(intStats.chisqSignificance, 2);
 for i=1:pNum
     sig1 = num2str(sum(intStats.chisqSignificance(:,i)<pThresB));
     sig2 = num2str(sum(intStats.chisqSignificance(:, i)<pThres));
-    scatter(intervals(:, 1), -log10(intStats.chisqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
+    scatter(snps.POS(intervals(:,1)), -log10(intStats.chisqSignificance(:, i)),'.','DisplayName',['Part. ' num2str(i) ', # significant:', sig1, '(', sig2, ')']);
 end
 yline(-log10(pThresB), 'DisplayName', 'Bonferroni Threshold');
 yline(-log10(pThres), '--', 'DisplayName', '(No correction Threshold)');
@@ -313,9 +316,9 @@ saveas(fig, [path '_logPlot.svg']);
 end
 
 
-function fig = plotSimpleGWAS(intervals, chisqSignificance, chromosome, pThres, path)
+function fig = plotSimpleGWAS(intervals, chisqSignificance, snps, chromosome, pThres, path)
 fig = figure;
-scatter(intervals(:, 1), -log10(chisqSignificance), 18, '.');
+scatter(snps.POS(intervals(:, 1)), -log10(chisqSignificance), 18, '.');
 yline(-log10(pThres));
 
 title(['Chromosome ' num2str(chromosome) ', ' num2str(sum(chisqSignificance<pThres)) ' significant intervals out of ' num2str(length(chisqSignificance))])

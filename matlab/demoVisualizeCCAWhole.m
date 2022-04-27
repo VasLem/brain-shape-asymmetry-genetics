@@ -3,11 +3,15 @@ restoredefaultpath;
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
-
-
+%%
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
+%%
 MODALITY = 'asymmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 0;
+DATASET_INDEX = 2;
 SUBSAMPLED = 0;
 IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
@@ -53,31 +57,39 @@ AVAILABLE_CHRS = [];
 PNUM = 31;
 part = cell(22, 1);
 noPart = cell(22,1);
+
 if DATASET_INDEX ~=0
+    minPos = 0;
     for CHR=1:22
         disp(['CHR:' , num2str(CHR)]);
         CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
         try
             load([CHR_DIR 'withPartCCA.mat'],'stats');
-            part{CHR} = stats.chisqSignificance;
-            noPart{CHR} = stats.chisqSignificance(:,1);
+            load([CHR_DIR 'plink_data_info.mat'], 'snpsPruned', 'intervals');
+            part{CHR} = stats.chisqSignificance(intervals(:,1), :);
+            pos{CHR} = minPos + snpsPruned.POS(intervals(:, 1));
+            noPart{CHR} = stats.chisqSignificance(intervals(:, 1), 1);
             AVAILABLE_CHRS(end+1) = CHR;
+            minPos = max(pos{CHR});
         catch
         end
     end
 else
     partition = 1;
         PAR_FILE =  sprintf('%sCCAPart%02d.csv',RESULTS_DIR,partition);
-       
         gunzip([PAR_FILE '.gz']);
         tab = readtable(PAR_FILE,"Delimiter",",","ReadVariableNames",1);
         
         delete(PAR_FILE);
+        minPos = 0;
         for CHR=1:22
                 chrtab = tab(tab.chromosome == CHR,:);
                 [~, a] = sort(chrtab.position);
+
+                pos{CHR} = minPos + chrtab.position(a);
                 noPart{CHR} = table2array(chrtab(a, 'P_value')); 
                 AVAILABLE_CHRS(end+1) = CHR;
+                minPos = max(pos{CHR});
         end 
 end
 disp(['Chromosomes correctly parsed:', num2str(AVAILABLE_CHRS)])
@@ -94,17 +106,14 @@ for CHR=1:22
         continue
     end
     intStats = noPart{CHR};
-    scatter(cnt + (1:length(intStats)), -log10(intStats),'.');
-    xticks_pos(end + 1) = cnt + length(intStats) / 2;
-    st_edges(end + 1) = cnt;
+    scatter(pos{CHR}, -log10(intStats),'.');
+    xticks_pos(end + 1) = median(pos{CHR});
     cnt = cnt + length(intStats);
-    en_edges(end + 1) = cnt;
 end
 xticks(xticks_pos)
 xticklabels(arrayfun(@num2str, AVAILABLE_CHRS , 'UniformOutput', 0))
 yline(-log10(NO_PARTITION_THRES));
 ylabel('-log10p');
-xlim([0, cnt]);
 set(gca,'TickDir','out');
 saveas(f, [RESULTS_DIR 'gwas.svg']);
 close(f);
@@ -128,16 +137,14 @@ for CHR=1:22
     for i=1:pNum
         signum = sum(intStats(:, i)<pThres);
         bsignum = sum(intStats(:, i)<bpThres);
+        
         if signum > 0
-            scatter(cnt + (1:length(intStats(:, i))), -log10(intStats(:, i)),'.', ...
-                'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', # significant:', ...
+            scatter(pos{CHR}, -log10(intStats(:, i)),'.', ...
+                'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', \# significant:', ...
                 num2str(signum), ' (',num2str(bsignum),')']);
         end
     end
-    xticks_pos(end + 1) = cnt + length(intStats(:, i)) / 2;
-    st_edges(end + 1) = cnt;
-    cnt = cnt + length(intStats(:, i));
-    en_edges(end + 1) = cnt;
+    xticks_pos(end + 1) = median(pos{CHR});
 end
 
 yline(-log10(pThres), '-k', 'DisplayName', 'Threshold');
@@ -152,7 +159,6 @@ lgd.NumColumns = 4;
 set(lgd, 'LimitMaxLegendEntries', false);
 set(lgd,'Location','BestOutside');
 ylabel('-log10p');
-xlim([0, cnt]);
 set(gca,'TickDir','out');
 hold off;
 saveas(fig, [RESULTS_DIR 'partitions_gwas.svg']);

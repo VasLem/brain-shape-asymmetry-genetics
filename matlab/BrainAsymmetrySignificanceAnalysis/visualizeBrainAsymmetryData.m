@@ -27,8 +27,6 @@ if size(VertexValues,2) > 1
 end
 
 nPicks = size(VertexValues{1,1},1);
-set(0,'defaulttextinterpreter','tex')
-set(0,'DefaultTextFontname', 'Latin Modern Sans')
 for k=1:nPicks
     counter = 0;
     try
@@ -51,18 +49,24 @@ for k=1:nPicks
             shape.Material = 'dull';
 
             if ~isempty(clim), set(fout.ax{i,j},'clim',clim);end
-            showPaintedDoubleFace(fout, shape, nan, nan, fout.ax{i,j},map)
+            showPaintedDoubleFace(fout, shape, nan, nan, fout.ax{i,j})
+            colormap(fout.ax{i,j}, map)
             colorbar(fout.ax{i,j},'SouthOutside');
             if j<4
                 set(fout.ax{i,j},'clim',[0 max(sVertexValues)]);
             end
-            if j==4,set(fout.ax{i,j},'clim',[0 length(thresholds)]); cb=findall(f,'type','ColorBar');cb(1).Ticks=1:length(thresholdsTicks);
-                cb(1).TickLabels=thresholdsTicks; cb(1).Label.String = 'p-value'; end
+            if j==4
+                set(fout.ax{i,j},'clim',[0 length(thresholds)]); 
+                cb=findall(f,'type','ColorBar');
+                cb(1).Ticks=1:length(thresholdsTicks);
+                cb(1).TickLabels=thresholdsTicks;
+                cb(1).Label.String = 'p-value';
+            end
             drawnow;
             fout.ax{i,j}.Visible = 'on';
             axis(fout.ax{i,j},'image');
             axis(fout.ax{i,j},'off');
-            title(fout.ax{i,j},titlenames{i,j},'FontSize',11)
+            title(fout.ax{i,j},titlenames{i,j},'FontUnit','normalized', 'FontSize',0.2);
             
             
             figName = saveName;

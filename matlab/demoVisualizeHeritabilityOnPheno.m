@@ -1,6 +1,9 @@
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
-
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
 DATASET_INDEX = 0;
 SUBSAMPLED=0;
 IMPUTE_STRATEGY = 'mean';

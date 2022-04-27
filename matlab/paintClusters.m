@@ -222,7 +222,7 @@ else
 end
 if isa(fig,'matlab.ui.Figure')
     ax = showPaintedDoubleFace(fig, shape, center,axisSize,nan,false,[0,1], invcolor);
-    colormap(ax,map)
+    colormap(ax,map);
 else
     ax = shape;
 end

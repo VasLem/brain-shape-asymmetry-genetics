@@ -1,6 +1,10 @@
 % Create DK atlas image
 clear
 close all
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(0, 'defaulttextinterpreter','latex');
+set(0,'DefaultTextFontname', 'LMU Serif');
 addpath(genpath('AIDFUNCTIONS'));
 atlasL = loadAtlas('Desikan_Killiany','L');
 atlasR = loadAtlas('Desikan_Killiany','R');
