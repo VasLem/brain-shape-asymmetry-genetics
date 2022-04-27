@@ -1,0 +1,2 @@
+#term ID	term description	observed gene count	background gene count	strength	false discovery rate	matching proteins in your network (IDs)	matching proteins in your network (labels)
+CL:16429	Collagen formation, and Defective B3GALTL causes Peters-plus syndrome (PpS)	3	168	1.84	0.0294	9606.ENSP00000250160,9606.ENSP00000260356,9606.ENSP00000364140	WISP1,THBS1,COL15A1

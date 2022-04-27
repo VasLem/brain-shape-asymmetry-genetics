@@ -1,4 +1,4 @@
-\begin{thebibliography}{145}
+\begin{thebibliography}{146}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -1472,6 +1472,15 @@ S.~Sniekers et al.
   2017.
 \newblock ISSN 1546-1718.
 \newblock \doi{10.1038/NG.3869}.
+
+\bibitem[Strehl and Ghosh(2003)]{Strehl2003}
+A.~Strehl and J.~Ghosh.
+\newblock {Cluster ensembles --- a knowledge reuse framework for combining
+  multiple partitions}.
+\newblock \emph{The Journal of Machine Learning Research}, 3\penalty0
+  (3):\penalty0 583--617, mar 2003.
+\newblock ISSN 15324435.
+\newblock \doi{10.1162/153244303321897735}.
 
 \bibitem[Subramanian et~al.(2005)Subramanian, Tamayo, Mootha, Mukherjee, Ebert,
   Gillette, Paulovich, Pomeroy, Golub, Lander, and Mesirov]{Subramanian2005}

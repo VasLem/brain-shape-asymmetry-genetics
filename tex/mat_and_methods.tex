@@ -98,13 +98,53 @@ The consecutive analysis has also been demonstrated in the work of \citet{Vanbie
 
 
 \subsection{Covariates control}
-In the case of \ac{gwas}, variance caused because of non-genetic factors needs to be excised from the underlying data. To this end, covariates adjustment is performed, by retrieving the residue of a \ac{plsr} \cite{Guebel2013} describing $D_A$ relatively to the factors mentioned in \autoref{subsec:primary_data_source}, along with the 20 genetic \acp{pc}, to account for population stratification and reduce confounding biases.
+In the case of \ac{gwas}, variance caused because of non-genetic factors needs to be excised from the underlying data. To this end, covariates adjustment is performed, by retrieving the residue of a \ac{plsr} \cite{Guebel2013} describing $D_A$ relatively to the factors mentioned in \autoref{subsec:primary_data_source}, along with the 20 genetic \acp{pc}, to account for population stratification and reduce confounding biases (\autoref{tab:covariates}).
+\begin{table} [H]
+	\centering
+	\begin{tabularx}{\textwidth}{ |Y|Y| }
+		\hline
+		age(1) & age squared(1)\\
+		\hline
+		height(1) & weight (pre-imaging)(1)\\
+		\hline
+		diastolic blood pressure(1) & systolic blood pressure(1)\\
+		\hline
+		date of measurement(1) & genetic \acp{pc} (20))\\
+		\hline
+		\multicolumn{2}{|c|}{volumetric scaling from T1 head image to standard space(1)}\\
+		\hline
+		\multicolumn{2}{|c|}{X-position of center-of-gravity of brain mask in scanner coordinates(1)}\\
+		\hline
+		\multicolumn{2}{|c|}{Y-position of back of brain mask in scanner coordinates(1)}\\
+		\hline
+		\multicolumn{2}{|c|}{Z-position of center-of-gravity of brain mask in scanner coordinates(1)}\\
+		\hline
+		\multicolumn{2}{|c|}{Z-position of table/coil in scanner coordinates(1)}\\
+		\hline
+		\multicolumn{2}{|c|}{one-hot encoded assessment location (21)} \\
+		\hline
+		\multicolumn{2}{|c|}{left \& right hemisphere centroid sizes prior scaling (2)}\\
+		\hline
+	\end{tabularx}
+	\caption[Covariates used to control phenotype]{Covariates used to control phenotype, totaling 57. Numbers in parenthesis show the dimensionality of each covariate.}
+	\label{tab:covariates}
+\end{table}
+
+
 
 \subsection{Shapes Partitioning}
 The present work evaluates the brain asymmetry genetic landscape in a coarse-to-fine segmentation, through \acf{hsc}. The technique has been used in a number of different related phenotypic studies \cite{Claes2018}\cite{Naqvi2021}, yielding results that are in accordance with the underlying anatomic features. The main reason behind this partitioning is the intrinsic complexity of the studied phenotype, eliciting expected differences in the genomic profiles of each cerebral cortex region. This type of distance-based clustering is governed by the least quantity of assumptions, regarding the shape or form of the cluster \cite{VonLuxburg2007}. The partitions' genetic juxtaposition is valuable for identifying which regions share similar significant genetic loci, highlighting the corresponding genes contribution, or showcasing the specialization of certain regions that share little to no similarities with their neighbors.
 
-\Ac{hsc} is an unsupervised method of iterative partitioning, that makes use of the distance matrix eigenvectors \cite{Ng2002}. The distance matrix between pairs of rows of $D_A$, across individuals, is constructed using RV coefficients \cite{Robert1976}, a generalization of Pearson correlation in N-dimensional space. The resulting matrix gets enhanced pairwise similarities, by becoming sharper through the application of the Laplacian transformation dictated by the Shi-Malik method \cite{Shi2000}. The eigenvectors of the matrix are computed and Kmeans++ clustering \cite{Arthur2007} is applied with 2 clusters. The process is repeated on each cluster for a desirable amount of levels, resulting into a binary tree structure (i.e. each parent shape is partitioned into two children). In the current study, a level-4 partitioning is performed, resulting into a tree of 31 partitions, with the root partition, the entire hemisphere, included. Subsequently, the rows of $D_A$ corresponding to each of those partitions are transformed by \ac{pca}, keeping maximally 500 \acp{pc} that explain at most 80\% of the variance, resulting into a structure $P_A$ that contains 31 arrays, ${P_A}_i,i=1..31$, one for each partition, with varying dimensionality. The last step is not only performed for reasons of dimensionality reduction and computational efficiency, but also to ensure that the resulting phenotypic traits are orthogonal with each other, and therefore compatible for \ac{ldsc} analyses, discussed in \autoref{subsec:ldsc}. The partitioning is derived by the discovery dataset only, so that the \ac{gwas} results between discovery and replication datasets correspond to the same partitions and are directly comparable.
-
+\Ac{hsc} is an unsupervised method of iterative partitioning, that makes use of the distance matrix eigenvectors \cite{Ng2002}. The distance matrix between pairs of rows of $D_A$, across individuals, is constructed using RV coefficients \cite{Robert1976}, a generalization of Pearson correlation in N-dimensional space. The resulting matrix gets enhanced pairwise similarities, by becoming sharper through the application of the Laplacian transformation dictated by the Shi-Malik method \cite{Shi2000}. The eigenvectors of the matrix are computed and Kmeans++ clustering \cite{Arthur2007} is applied with 2 clusters. The process is repeated on each cluster for a desirable amount of levels, resulting into a binary tree structure (i.e. each parent shape is partitioned into two children). In the current study, a level-4 partitioning is performed, resulting into a tree of 31 partitions, with the root partition, the entire hemisphere, included. Subsequently, the rows of $D_A$ corresponding to each of those partitions are transformed by \ac{pca}, keeping maximally 500 \acp{pc} that explain at most 80\% of the variance, resulting into a structure $P_A$ that contains 31 arrays, ${P_A}_i,i=1..31$, one for each partition, with varying dimensionality. The last step is not only performed for reasons of dimensionality reduction and computational efficiency, but also to ensure that the resulting phenotypic traits are orthogonal with each other, and therefore compatible for \ac{ldsc} analyses, discussed in \autoref{subsec:ldsc}. The partitioning is derived by the discovery dataset only, so that the \ac{gwas} results between discovery and replication datasets correspond to the same partitions and are directly comparable. The computed clustering is subsequently compared to the \ac{dk} atlas parcellation, through a symmetric measure of similarity called \ac{nmi}. Let $U:=\{\mathbf{v_i}\},i=1..n_{DK}$ and $V:=\{\mathbf{{v_j}}\},j=1..31$ be the supersets of sets of indices in $\mathcal{V}_S$ associated to partitions by \ac{dk} atlas and  \ac{hsc} respectively. Then, the \ac{nmi} score is:
+$$
+\NMI(U,V):=\frac{1}{S}\sum_{i=1}^{|U|} \sum_{j=1}^{|V|} \frac{|U_i\cap V_j|}{N}
+\log\frac{N|U_i \cap V_j|}{|U_i||V_j|}
+$$
+where in this study the normalizing factor S, generally variable \cite{Strehl2003}, is defined as the square root of the product of the sets entropies, namely  
+$$
+S:=\sqrt{\sum_{i=1}^{|U|}\left(|U_i|log|U_i|\right)\sum_{j=1}^{|V|}\left(|V_j|log|V_j|\right)}
+$$
+This score is by definition independent on the ordering and the number of the labels. However, a differential number of labels which is expected between the measured labels affects the maximally possible result. Therefore, the score is further normalized by scaling it by the approximate (based on integer division) theoretical maximum score that can observed, if each lesser partitioning does not `share`, in correspondence, any labels of the greater partitioning, apart from a single placeholder label, to account for integer division.
 \section{Methods applied on genotype}
 \subsection{Population-based filtering}
 \ac{pca}, using as reference data the 1000G (Phase 3), is applied to select European individuals only. First, \acp{snp} in \ac{ld}, as computed by PLINK 1.9 with parameters 50 variant window-size, 5 variant step size and 0.2 $r^2$, are excluded from the reference dataset. KMeans algorithm is fitted on 25 \acp{pc} of the reference dataset. Then, only individuals from discovery and replication datasets that are included in the clusters with a EURO label are considered. The individuals identifiers of the genotype are consecutively matched to those in the phenotype.
