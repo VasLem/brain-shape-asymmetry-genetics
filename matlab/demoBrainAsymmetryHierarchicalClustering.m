@@ -376,9 +376,16 @@ if FINAL_RET_PROC
         fig = figure();
         fig.Units = 'normalized';
         fig.Position = [0.1,0.1,0.5,0.5];
+        x = (1:partitions_num)';
+        y = partitionsSizes;
 
-        b = bar((1:partitions_num)',partitionsSizes,'facecolor', [180,180,180]/255);
-        text((1:partitions_num)',partitionsSizes, strcat(num2str((round(10*explainedVariance)/10)''),'\%') ,'vert','bottom','horiz','center'); 
+        b = bar(x, y, 'facecolor', [180,180,180]/255);
+        m = (explainedVariance<SELECTED_VARIANCE_THRESHOLD);
+        text(x(m), y(m), strcat(num2str((round(10*explainedVariance(m))/10)''),'\%') ,'vert','bottom','horiz','center'); 
+        xlim([0.6, partitions_num + 0.4]);
+        ylim([0, round(1.1 * max(partitionsSizes))])
+        xlabel('Partition');
+        ylabel('Number of Components Required');
         box off
         
         saveas(fig, [SEGMENTATION_DIR 'explainedVarianceSIngleThreshold.svg']);
