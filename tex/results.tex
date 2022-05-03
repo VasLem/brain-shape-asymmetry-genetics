@@ -18,13 +18,88 @@ The main results from the 2-way permutation \ac{anova} are summarized in \autore
 
 
 \section{Covariates control}
+In \autoref{fig:covar}, the average covariates explained variance on each segment of \ac{dk} atlas is observed as retrieved from \ac{plsr}. The largest part of the frontal lobe, with greater impact on the inferior frontal, the inferior parietal gyrus and the parahippocampal gyrus appear to be more correlated with the collected metadata, shown in \autoref{tab:covariates}. The results point to less observed explained variation around the area of the sylvian fissure and the temporal lobe, and also raise a degree of uncertainty on the significant response observed during the statistical shape asymmetry analysis, regarding the medial surface and the inferior part of the frontal lobe.
+\begin{figure}[H]
+\includesvg[width=0.9\textwidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/explainedDKCovariates.svg}
+\caption[Explained variance from covariates]{Explained variance from the covariates on each \ac{dk} atlas segment, as retrieved from \ac{plsr}, mapped on the average left hemisphere medial and lateral side.}
+\label{fig:covar}
+\end{figure}
+\section{Partitioning and \ac{pca}}
+In \autoref{fig:partitioning}, the partitioning produced from the application of \ac{hsc} is displayed. On the first level, although the cross-section accurately follows the sylvian fissure on the lateral part and partitions the frontal lobe from the rest of the hemisphere, on the medial surface it appears to split the precuneus in half ($\subseteq$ BA07). On the second level, the occipital lobe is separated from the temporal lobe, while the central gyrus appears to be dissected from the frontal lobe, while inspected the lateral surface. On the medial surface, the paracentral gyrus ($\subseteq$ BA04)is approximately separated from the superior-frontal, whereas another cross section appears to share its boundaries with the temporal pole ($\subseteq$ BA38). In general, the unsupervised clustering follows the functional partitioning, validating the close relationship  between function and morphology of each cortical region. The calculated \ac{nmi} score for the partitioning, compared to the \ac{dk} atlas is displayed in \autoref{tab:nmi} for each level. Although the finer the partitioning, the further away from the theoretical maximum value, quantitatively the two clusterings highly agree.
 
+\begin{figure}[H]
+	\begin{adjustwidth}{-4cm}{-4cm}
+	\centering
+	\subfloat[]{
+		\includesvg[width=0.6\linewidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/levels4/segmentation.svg}
+	}\quad
+	\subfloat[]{
+		\includesvg[width=0.4\linewidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/levels4/segmentation_circular.svg}
+	}
 
-\section{Partitioning}
-\section{Significant \ac{snp} identification}
+\end{adjustwidth}
+\caption[4-level brain shape partitioning based on asymmetry]{4-level brain shape partitioning based on cortical asymmetry, using \ac{hsc}. Shown in 2 different versions, on a level representation (top), and as a polar dendrogram plot, annotated with white color against black background (bottom). Those representations are used across the coarse-to-fine analysis in this study.}
+\label{fig:partitioning}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|ccc}
+		& NMI & $\NMI_{max}$ & ratio\\
+		\hline
+		 Lvl 1 & 0.37 & 0.48 & 0.78\\
+		 Lvl 2 & 0.49 & 0.66 & 0.74\\
+		 Lvl 3 & 0.55 & 0.79 & 0.71\\
+		 Lvl 4 & 0.62 & 0.90 & 0.69\\
+	\end{tabular}
+\caption [\ac{nmi} scores across \ac{hsc} partitioning levels]{\Ac{nmi} scores across \ac{hsc} partitioning levels, comparing \ac{dk} atlas with computed partitioning levels. $\NMI_{max}$ is an approximate maximal value, given the different number of partitions in each clustering, and ratio is the scaled \ac{nmi} using that value.}
+\label{tab:nmi}
+\end{table}
+The required number of \ac{pca} features per partition given the constraints, as computed by assessing the discovery dataset, is displayed in \autoref{fig:pcs_num}. A significant dimensionality reduction was achieved, given that the total number of landmark coordinates per individual is 89367.
+\begin{figure}[H]
+\includesvg[width=0.9\textwidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/levels4/explainedVarianceSIngleThreshold.svg}
+\caption[Number of PCs per HSC cortical surface partition]{Number of \acp{pc} for each \ac{hsc} cortical surface partition, required to explain 80\% of its variance, relatively to the discovery dataset. For the first partition, the upper limit of 500 components is reached and only 74\% of its variance is explained.}
+\label{fig:pcs_num}
+\end{figure}
+\section{\ac{gwas}}
+\begin{figure}[H]
+	\centering
+	\subfloat{
+	\includesvg[width=1\textwidth]{asymmetry/genomeDemo/STAGE00DATA/mean_imputed/not_subsampled/gwas_discovery.svg}
+	}
+\par\medskip
+\centering
+	\subfloat{
+	\includesvg[width=1\textwidth]{asymmetry/genomeDemo/BATCH2_2021_DATA/mean_imputed/not_subsampled/gwas_replication.svg}	
+	}
+\par\medskip
+\centering
+	\subfloat{
+		\includesvg[width=1\textwidth]{asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/gwas_joined.svg}	
+	}
+	\caption[GWAS of the entire hemisphere shape asymmetry]{\Ac{gwas} of the entire hemisphere shape asymmetry computed on the discovery (top) and the replication (middle) dataset, along with the meta-analysis union based on Stouffer's method (bottom).}
+	\label{fig:entire_gwas}
+
+\end{figure}
+
+\begin{figure}[H]
+	\begin{adjustwidth}{-4cm}{-3cm}
+	\centering
+	\subfloat{
+		\includesvg[width=0.85\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/CcaCircular.svg}
+	}
+	\subfloat{
+		\includesvg[width=0.15\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/legend.svg}
+	}
+	\end{adjustwidth}	
+	\caption[Number of significant SNPs after Bonferroni correction along partitions]{Number of significant \acp{snp} per chromosome after Bonferroni correction across partitions. The number per chromosome is shown inside boxes of a certain color.}
+	\label{fig:part_bonferroni}
+		
+\end{figure}
 \section{\ac{ldsr}}
 \section{\ac{ldsc}}
 \section{\ac{ldsc}-SEG}
 \section{Developmental analysis}
 \section{Functional association}
 \section{Evolutionary studies}
+

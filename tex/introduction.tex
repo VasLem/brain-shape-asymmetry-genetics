@@ -40,31 +40,25 @@ The cells initially comprising the neural tube walls are named \acp{npc}, and ex
  Human cerebrum is the center of sensations and thinking. The following excerpt provides a summarized anatomic \cite{Bear2016chapter7app} and functional \cite{Ferng2022} perspective.  As aforementioned, cerebrum is entirely produced  from the telencephalon during fetal development, with the telencephalic vesicles ending up becoming the two hemispheres, that remain connected through what is known as the \textbf{Corpus callosum}.  The side view of each hemisphere is named \textbf{lateral}, and the view of the inner side is called \textbf{medial}. The human cerebrum outer covering surface is called \textbf{cerebral cortex}, the region on which the current study focuses. The human cerebrum appears distinctly different from other organisms, mainly due to the \textbf{sulci} (i.e. grooves) and \textbf{gyri} (i.e. bumps), with them being the result of the tremendous expansion of the cerebral cortex surface area during fetal development, folding and wrinkling in order to fit the skull. The precise pattern of gyri and sulci varies significantly across populations, rendering the brain surface unique per individual. Under a biopsy dissection or a \ac{mri} scan, the cerebrum appears to consist of two distinctly colored types of matter, implying changes in composition and consistency; the gray matter, at the outer part of the cerebrum, which  contains the cell bodies, dendrites and the axon terminals, where all synapses are, and the white matter, at the inner part, made up of myelinated (i.e. biologically insulated) axons, which connect different parts of gray matter to each other (\autoref{fig:cerebissection}). Protective layers on top of the gray matter, called \textbf{meninges}, ensure that the brain does not come in contact with the outer bone, with the one attached on and marking the outer borders of the gray matter named \textbf{pial surface}. In this study, the midthickness surface is examined, a term referring to the surface halfway between the pial and white matter surface. 
 
 \begin{figure}[H]
+	\begin{minipage}{.5\linewidth}
 	\centering
-	\begin{subfigure}{0.475\linewidth}
-		
-		\centering
-		\includegraphics[width=0.475\linewidth]{coronal_section}
-		\caption{Coronal section}
+	\subfloat[Coronal section]{
+		\includegraphics[scale=.1]{coronal_section}
 		\label{fig:coronal}
-		
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.475\linewidth}
-		
-		\centering
-		\includegraphics[width=0.475\linewidth]{axial_section}
-		\caption{Axial section}
+	}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+	\centering
+	\subfloat[Axial section]{
+		\includegraphics[scale=.1]{axial_section}
 		\label{fig:axial}
-	\end{subfigure}
-	\vfill
-	\begin{subfigure}{0.475\linewidth}
-		
-		\centering
-		\includegraphics[width=0.475\linewidth]{3d_sections}
-		\caption{\Ac{3d} sections map. Green rectangle corresponds to the coronal section plane (A) and
-			blue rectangle to the axial section plane (B).}
-	\end{subfigure}
+	}
+	\end{minipage}\par\medskip
+	\centering
+	\subfloat[\Ac{3d} sections map. Green rectangle corresponds to the coronal section plane (A) and
+	blue rectangle to the axial section plane (B).]{
+		\includegraphics[scale=.2]{3d_sections}
+	}
 	\caption[\Ac{mri} screening of gray and white matter]{Gray and white matter as seen from different sections, in an \ac{mri} screening, as retrieved from Freesurfer freeview routine. The gray matter is annotated with yellow color in the right hemisphere. Non brain regions have been removed.}
 	\label{fig:cerebissection}
 \end{figure}
@@ -82,20 +76,15 @@ Efforts of partitioning the brain have been numerous throughout the years of med
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{brodmann_medial}
-		\caption{Medial surface}
-		\label{fig:brodmann_medial}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.45\textwidth}
-	\centering
-	\includegraphics[width=\textwidth]{brodmann_lateral}
-	\caption{Lateral surface}
-	\label{fig:brodmann_lateral}
+	\subfloat[Medial surface]{
+		\includegraphics[width=0.45\textwidth]{brodmann_medial}
 	
-	\end{subfigure}
+		\label{fig:brodmann_medial}
+	}
+	\subfloat[Lateral surface]{
+	\includegraphics[width=0.45\textwidth]{brodmann_lateral}
+	\label{fig:brodmann_lateral}
+	}
 	\caption{Brodmann map of functional partitions.}
 	\label{fig:corticalfunctions}
 \end{figure}
@@ -126,7 +115,7 @@ Efforts of partitioning the brain have been numerous throughout the years of med
 }	
 \end{itemize}
 
- Recently, with the advance of imaging methods, maps have been manufactured, to automatically partition the \ac{mri} extracted \ac{3d} cortical surface, based on morphological characteristics. One such gyral-based atlas, \ac{dk}, is derived from the changes in curvature under an expert-driven model of gyri locations \cite{Desikan2006} and provides automatic \textbf{cortical parcellation}, aligned to the Brodmann functional partitioning (\autoref{fig:dk}). This atlas is going to be used throughout the proceeding analysis for the quality control of applied segmentation techniques.
+ Recently, with the advance of imaging methods, maps have been manufactured, to automatically partition the \ac{mri} extracted \ac{3d} cortical surface into 68 partitions, based on morphological characteristics. One such gyral-based atlas, \ac{dk}, is derived from the changes in curvature under an expert-driven model of gyri locations \cite{Desikan2006} and provides automatic \textbf{cortical parcellation}, aligned to the Brodmann functional partitioning (\autoref{fig:dk}). This atlas is going to be used throughout the proceeding analysis for the quality control of applied segmentation techniques.
  
  \begin{figure}[H]
  	\centering
@@ -199,19 +188,15 @@ By assigning a minimal probability to the event that no association is observed,
 The probability threshold is derived based on an empirical value, fixed to 0.05, corrected using the Bonferroni correction for multiple independent tests, hence $\frac{0.05}{N_t}$ with $N_t$ the number of \acp{snp}. The method is rather conservative, therefore usually cutoffs are computed by replacing the number of tests with the amount of independent common \acp{snp} for a given population. Based on the findings of the International Hapmap Project, this amounts approximately between 200,000 to 1 million tag \acp{snp} \cite{Belmont2003}. Therefore, the suggestive cutoff threshold $5\times 10 ^ {-8}$ is used. The p-values are most commonly converted to values proportional to significance, by applying the $-\log_{10}{p}$ transformation.   The \ac{ld} phenomenon, being often locally observable, causes seemingly continuous p-value spikes to appear when plotting the data points, with the lead, or functional, \ac{snp}, that is the one with the greatest local significance (i.e. the lowest locally recorded p-value), being `supported` by lesser significant \ac{snp} in its vicinity. The resulting scatter plot, with \acp{snp} $-\log_{10}{p}$ values placed by bp position on x axis, resembles the Manhattan city landscape (\autoref{fig:gwas_example}).
 
  \begin{figure}[H]
- 	\begin{subfigure}[t]{0.45\textwidth}
-	\centering
-	\includegraphics[width=0.9\textwidth]{gwas_2005}
-	\caption{}
+ 	\centering
+ 	\subfloat[]{
+	\includegraphics[width=0.45\textwidth]{gwas_2005}
 	\label{fig:gwas_2005}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.6\textwidth}
-		\centering
-		\includesvg[width=0.9\textwidth]{asymmetry/genomeDemo/STAGE00DATA/not_imputed/not_subsampled/gwas.svg}
-		\caption{}
+	}
+	\subfloat[]{
+		\includesvg[width=0.6\textwidth]{asymmetry/genomeDemo/STAGE00DATA/not_imputed/not_subsampled/gwas.svg}
 		\label{fig:gwas_example}
-	\end{subfigure}
+	}
 	\caption[Examples of \acs{gwas} Manhattan plots \cite{Klein2005}]{Examples of \ac{gwas}. In (A), the first recorded \ac{gwas} Manhattan plot \cite{Klein2005} is displayed, where the \ac{snp} in chromosome 1 (black arrow) with the most significant  effect, related to Complement H Factor Polymorphism, was identified to affect age-related macular degeneration disease propensity, one of the major causes of blindness among elderly. In (B), a \ac{gwas} scatter plot from the present work is shown, where the \acp{snp} spikes signal, attributed to \ac{ld}, is evident.}
 \end{figure}
 

@@ -1,0 +1,5 @@
+#term ID	term description	observed gene count	background gene count	strength	false discovery rate	matching proteins in your network (IDs)	matching proteins in your network (labels)
+CL:10949	Mixed, incl. post-chaperonin tubulin folding pathway, and microtubule plus-end binding	5	50	2.39	3.68e-08	9606.ENSP00000233121,9606.ENSP00000301071,9606.ENSP00000301072,9606.ENSP00000320295,9606.ENSP00000336799	MAPRE3,TUBA1A,TUBA1C,TUBB3,TUBA1B
+CL:10953	Microtubule-dependent trafficking of connexons from Golgi to the plasma membrane, and Vasohibin	4	23	2.63	2.27e-07	9606.ENSP00000301071,9606.ENSP00000301072,9606.ENSP00000320295,9606.ENSP00000336799	TUBA1A,TUBA1C,TUBB3,TUBA1B
+CL:10954	Tubulin/FtsZ, C-terminal domain superfamily, and Vasohibin	3	18	2.61	3.86e-05	9606.ENSP00000301071,9606.ENSP00000301072,9606.ENSP00000336799	TUBA1A,TUBA1C,TUBA1B
+CL:9225	Energy dependent regulation of mTOR by LKB1-AMPK, and Tau and MAP protein, tubulin-binding repeat	2	20	2.39	0.0191	9606.ENSP00000323867,9606.ENSP00000340820	PRKAG1,MAPT
