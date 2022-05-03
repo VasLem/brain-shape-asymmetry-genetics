@@ -1,6 +1,9 @@
 \documentclass[master=ebin,english,oneside]{kulemt}
 \setup{title={Global-To-Local Segmentation and Genotypic Analysis Of Brain Shape Asymmetry},author={Vasileios Lemonidis},promoter={Prof. Peter Claes\\ Dept. of Electrical Engineering\\ Dept. of Human Genetics \\~\\ Prof. Isabelle Cleynen\\ Dept. of Human Genetics}, assessor=,assistant={MSc. Meng Yuan \and MSc. Seppe Goovaerts},acyear=2022,bind=3mm,inputenc=utf8}
 \setup{font=lm}
+
+\usepackage[table]{xcolor} % for cell colors
+\usepackage{changepage,threeparttable}
 \usepackage{svg}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -12,7 +15,8 @@
 \usepackage[noend]{algpseudocode}
 \usepackage{subfig}
 \usepackage{changepage}
-
+\usepackage{multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
 \usepackage[numbers]{natbib}
 \bibliographystyle{abbrvnat-maxbibnames10}
 

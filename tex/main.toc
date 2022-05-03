@@ -57,7 +57,7 @@
 \contentsline {section}{\numberline {3.1}Statistical brain shape analysis}{36}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Covariates control}{37}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Partitioning and \ac {pca}}{38}{section.3.3}%
-\contentsline {section}{\numberline {3.4}\ac {gwas}}{42}{section.3.4}%
+\contentsline {section}{\numberline {3.4}\ac {gwas}}{40}{section.3.4}%
 \contentsline {section}{\numberline {3.5}\ac {ldsr}}{43}{section.3.5}%
 \contentsline {section}{\numberline {3.6}\ac {ldsc}}{43}{section.3.6}%
 \contentsline {section}{\numberline {3.7}\ac {ldsc}-SEG}{43}{section.3.7}%
@@ -65,4 +65,4 @@
 \contentsline {section}{\numberline {3.9}Functional association}{43}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Evolutionary studies}{43}{section.3.10}%
 \contentsline {chapter}{\chapternumberline {4}Discussion}{44}{chapter.4}%
-\contentsline {chapter}{Bibliography}{45}{chapter*.28}%
+\contentsline {chapter}{Bibliography}{45}{chapter*.29}%
