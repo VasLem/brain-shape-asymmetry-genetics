@@ -13,17 +13,17 @@ function [GC,pGC,seGC] = geneticCorrelationLDblocksWithSE(CHR,POS,V1,V2,LDblocks
          for i=1:1:nBlocks
              switch type
                  case 'mean'
-                    v1(i,:) = mean(V1(LDblockID==Blocks(i),:));
-                    v2(i,:) = mean(V2(LDblockID==Blocks(i),:));
+                    v1(i,:) = nanmean(V1(LDblockID==Blocks(i),:),1);
+                    v2(i,:) = nanmean(V2(LDblockID==Blocks(i),:),1);
                  case 'median'
-                    v1(i,:) = median(V1(LDblockID==Blocks(i),:));
-                    v2(i,:) = median(V2(LDblockID==Blocks(i),:));
+                    v1(i,:) = nanmedian(V1(LDblockID==Blocks(i),:),1);
+                    v2(i,:) = nanmedian(V2(LDblockID==Blocks(i),:),1);
                  case 'max'
-                    v1(i,:) = max(V1(LDblockID==Blocks(i),:));
-                    v2(i,:) = max(V2(LDblockID==Blocks(i),:));
+                    v1(i,:) = nanmax(V1(LDblockID==Blocks(i),:),1);
+                    v2(i,:) = nanmax(V2(LDblockID==Blocks(i),:),1);
                  otherwise
-                    v1(i,:) = mean(V1(LDblockID==Blocks(i),:));
-                    v2(i,:) = mean(V2(LDblockID==Blocks(i),:));
+                    v1(i,:) = nanmean(V1(LDblockID==Blocks(i),:),1);
+                    v2(i,:) = nanmean(V2(LDblockID==Blocks(i),:),1);
              end
              %l2(i) = mean(L2(LDblockID==Blocks(i)));
          end
@@ -53,6 +53,7 @@ end
 function [stat,se,p] = getBootSTATS(vv1,vv2)
          vv1 = double(vv1);
          vv2 = double(vv2);
+
          stat = corr(vv1(:),vv2(:),'type','Spearman');
          %stat = corr(vv1(:),vv2(:),'type','Pearson');
          n = length(vv1);

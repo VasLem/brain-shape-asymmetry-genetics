@@ -11,7 +11,7 @@ set(0,'DefaultTextFontname', 'LMU Serif');
 %%
 MODALITY = 'asymmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;
-DATASET_INDEX = 2;
+DATASET_INDEX = 0;
 SUBSAMPLED = 0;
 IMPUTE_STRATEGY = 'mean';
 NO_PARTITION_THRES = 5*10^-8; % European in LD score
