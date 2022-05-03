@@ -1,0 +1,17 @@
+# MEAN_SAMPLE_SIZE = 16342
+# TOTAL_GENES = 13658
+# TEST_DIRECTION = one-sided, positive (set), one-sided, positive (covar)
+# CONDITIONED_INTERNAL = gene size, gene density, inverse mac, log(gene size), log(gene density), log(inverse mac)
+# CONDITIONED_HIDDEN = Average (covar)
+VARIABLE                TYPE  NGENES         BETA     BETA_STD           SE            P
+Early_prenatal         COVAR   13658     0.017657     0.026632    0.0095479     0.032218
+Early_mid-prenatal     COVAR   13658     0.017445      0.02623     0.010938     0.055384
+Late_mid-prenatal      COVAR   13658    0.0084838     0.012583     0.013597      0.26634
+Late_prenatal          COVAR   13658     0.016772     0.023067     0.015603      0.14122
+Early_infancy          COVAR   13658    -0.029334    -0.041585     0.027834      0.85402
+Late_infancy           COVAR   13658    -0.029599    -0.043163     0.020195      0.92862
+Early_childhood        COVAR   13658     0.010688     0.014939     0.013966      0.22207
+Late_childhood         COVAR   13658    -0.057769    -0.085082     0.018337      0.99918
+Adolescence            COVAR   13658    -0.003202   -0.0045151     0.019453      0.56537
+Young_adulthood        COVAR   13658    -0.024916    -0.035477     0.017652      0.92094
+Middle_adulthood       COVAR   13658    -0.032088    -0.047648     0.015218      0.98249

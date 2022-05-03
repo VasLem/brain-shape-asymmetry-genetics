@@ -5,7 +5,7 @@ addpath(genpath('AIDFUNCTIONS'));
 
 % TO CHANGE
 DATASET_INDEX = 1;
-MODALITY = 'symmetry'; %asymmetry,symmetry
+MODALITY = 'asymmetry'; %asymmetry,symmetry
 SUBSAMPLED_ID='not_subsampled';
 IMPUTE_STRATEGY = 'mean';
 
@@ -50,7 +50,7 @@ for CHR=1:22
         ftab = readtable([CHR_DIR 'chisq_stats.csv']);
         for partition=1:N_PARTITIONS
             tab = ftab(:,{'RSID', 'N', 'A2', 'A1', ['P_PAR', num2str(partition)], ['CHI_PAR',num2str(partition)]});
-            tab = renamevars(tab,{'RSID',['P_PAR' num2str(partition)], ['CHI_PAR', num2str(partition)]},{'rsID','P-value','ChiScore'});
+            tab = renamevars(tab,{'RSID',['P_PAR' num2str(partition)], ['CHI_PAR', num2str(partition)]},{'rsID','P_value','ChiScore'});
             tab.chromosome = CHR * ones(height(tab),1);
             fname =  [RESULTS_DIR sprintf('CCAPart%02d.csv',partition)];
             if CHR ~= 1
