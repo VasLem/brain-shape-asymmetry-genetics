@@ -1,4 +1,4 @@
-\begin{thebibliography}{146}
+\begin{thebibliography}{147}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -186,6 +186,15 @@ J.~W. Belmont et al.
   dec 2003.
 \newblock ISSN 1476-4687.
 \newblock \doi{10.1038/nature02168}.
+
+\bibitem[Berisa and Pickrell(2016)]{Berisa2016}
+T.~Berisa and J.~K. Pickrell.
+\newblock {Approximately independent linkage disequilibrium blocks in human
+  populations}.
+\newblock \emph{Bioinformatics (Oxford, England)}, 32\penalty0 (2):\penalty0
+  283--285, jan 2016.
+\newblock ISSN 1367-4811.
+\newblock \doi{10.1093/BIOINFORMATICS/BTV546}.
 
 \bibitem[Brodmann(1909)]{Brodmann1909}
 K.~Brodmann.

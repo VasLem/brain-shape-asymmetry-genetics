@@ -55,32 +55,74 @@ In \autoref{fig:partitioning}, the partitioning produced from the application of
 \caption [\ac{nmi} scores across \ac{hsc} partitioning levels]{\Ac{nmi} scores across \ac{hsc} partitioning levels, comparing \ac{dk} atlas with computed partitioning levels. $\NMI_{max}$ is an approximate maximal value, given the different number of partitions in each clustering, and ratio is the scaled \ac{nmi} using that value.}
 \label{tab:nmi}
 \end{table}
-The required number of \ac{pca} features per partition given the constraints, as computed by assessing the discovery dataset, is displayed in \autoref{fig:pcs_num}. A significant dimensionality reduction was achieved, given that the total number of landmark coordinates per individual is 89367.
+The required number of \ac{pca} features per partition given the constraints, as computed by assessing the discovery dataset, is displayed in \autoref{fig:pcs_num}. A significant dimensionality reduction was achieved, given that the original total number of landmark coordinates per individual was 89367.
 \begin{figure}[H]
 \includesvg[width=0.9\textwidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/levels4/explainedVarianceSIngleThreshold.svg}
 \caption[Number of PCs per HSC cortical surface partition]{Number of \acp{pc} for each \ac{hsc} cortical surface partition, required to explain 80\% of its variance, relatively to the discovery dataset. For the first partition, the upper limit of 500 components is reached and only 74\% of its variance is explained.}
 \label{fig:pcs_num}
 \end{figure}
 \section{\ac{gwas}}
+
+The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, the partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be in general significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the subset of the genetic signature of their parents, for example partition 8 exhibit a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry . \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located in chromosome 10, although in this study, chromosome 10 does not present any significant signal whatsoever. Chromosome 15 exhibits the highest peak, rs2033939 (P=2.09e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more refined, quantitative comparison is also performed by applying Spearman correlation, with the way mentioned in \autoref{subsec:gencorr} \cite{Naqvi2021}.
+\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
+		
+		\scriptsize
+		\begin{tabular}{ccc||ccc||ccc||ccc}\toprule
+			\multicolumn{3}{c}{\textbf{DISCOVERY}} &\multicolumn{3}{c}{\textbf{REPLICATION}} &\multicolumn{3}{c}{\textbf{UNION}} &\multicolumn{3}{c}{\textbf{SHA ET AL.}} \\\midrule
+			\textbf{CHR} &\textbf{SNP} &\textbf{P} &\textbf{CHR} &\textbf{SNP} &\textbf{P} &\textbf{CHR} &\textbf{SNP} &\textbf{P} &\textbf{CHR} &\textbf{SNP} &\textbf{P} \\
+			15 &rs1080066 &4.10e-28 &15 &rs4924345 &1.41e-27 &15 &rs2033939 &2.09e-50 &10 &\textbf{rs41298373} &5.00e-38 \\
+			17 &rs10775404 &5.12e-27 &17 &rs9910683 &2.42e-20 &17 &17:44243312\_C\_G &3.91e-44 &17 &rs35853889 &1.00e-20 \\
+			14 &rs160459 &2.57e-17 &9 &rs7023465 &3.74e-18 &14 &\textbf{rs160459} &3.58e-28 &17 &rs80103986c &5.00e-16 \\
+			1 &rs6658111 &3.05e-15 &14 &rs74826997 &3.02e-14 &9 &rs7023465 &1.40e-25 &9 &rs911934 &2.00e-15 \\
+			16 &rs111398992 &1.17e-12 &14 &rs160459 &6.57e-13 &1 &\textbf{rs6658111} &4.31e-25 &17 &rs55938136 &5.00e-15 \\
+			2 &rs7575465 &1.57e-12 &1 &rs6658111 &8.08e-12 &14 &rs74826997 &3.36e-22 &16 &\textbf{rs111398992} &6.00e-15 \\
+			16 &rs9939914 &7.01e-12 &10 &rs41298373 &2.10e-11 &16 &\textbf{rs72813426} &3.78e-21 &17 &rs568039055 &8.00e-15 \\
+			10 &rs41298373 &3.66e-11 &16 &rs35769864 &1.40e-10 &10 &\textbf{rs41298373} &9.26e-21 &16 &\textbf{rs72813426} &2.00e-14 \\
+			17 &rs62063672 &1.40e-10 &12 &rs10783306 &7.41e-10 &16 &\textbf{rs111398992} &1.66e-20 &14 &\textbf{rs160459} &5.00e-12 \\
+			3 &rs35124509 &2.71e-10 &2 &rs7575465 &7.75e-10 &2 &rs7575465 &1.80e-20 &12 &rs10783306 &1.00e-11 \\
+			14 &rs76341705 &3.81e-10 &16 &rs111398992 &9.24e-10 &3 &rs35124509 &1.26e-15 &2 &rs12617392 &4.00e-11 \\
+			9 &rs911934 &4.71e-10 & & & &16 &rs11640500 &2.84e-15 &1 &\textbf{rs6658111} &1.00e-10 \\
+			3 &rs2399037 &4.21e-9 & & & &12 &rs1057548 &1.71e-13 &2 &rs62130503 &1.00e-10 \\
+			7 &rs117766132 &6.39e-9 & & & &16 &rs12711472 &4.61e-12 &2 &rs368536282 &1.00e-10 \\
+			\cellcolor[HTML]{C8C8C8}2 &\cellcolor[HTML]{C8C8C8}rs2691112 &\cellcolor[HTML]{C8C8C8}1.29e-8 & & & &2 &rs7601767 &8.67e-11 &6 &rs7781 &2.00e-10 \\
+			\cellcolor[HTML]{C8C8C8}2 &\cellcolor[HTML]{C8C8C8}rs7601767 &\cellcolor[HTML]{C8C8C8}1.88e-8 & & & &7 &rs151218739 &1.76e-10 &14 &rs201816193 &4.00e-10 \\
+			\cellcolor[HTML]{C8C8C8}8 &\cellcolor[HTML]{C8C8C8}rs7000137 &\cellcolor[HTML]{C8C8C8}2.60e-8 & & & &8 &rs10106820 &1.80e-10 &19 &rs11672092 &6.00e-10 \\
+			& & & & & &2 &rs13021393 &6.80e-10 &21 &\textbf{rs7283026} &8.00e-10 \\
+			& & & & & &21 &\textbf{rs7283026} &3.01e-9 &3 &rs2279829 &1.00e-9 \\
+			& & & & & &8 &rs442103 &3.43e-9 &5 &rs869219775 &3.00e-9 \\
+			& & & & & &15 &rs8026370 &4.49e-9 &20 &rs6135555 &7.00e-9 \\
+			& & & & & &21 &rs4819075 &5.01e-9 &\cellcolor[HTML]{C8C8C8}X &\cellcolor[HTML]{C8C8C8}rs12400461 &\cellcolor[HTML]{C8C8C8}1.00e-8 \\
+			& & & & & &\cellcolor[HTML]{C8C8C8}2 &\cellcolor[HTML]{C8C8C8}rs2287283 &\cellcolor[HTML]{C8C8C8}1.38e-8 &\cellcolor[HTML]{C8C8C8}6 &\cellcolor[HTML]{C8C8C8}rs9385385 &\cellcolor[HTML]{C8C8C8}1.00e-8 \\
+			& & & & & &\cellcolor[HTML]{C8C8C8}2 &\cellcolor[HTML]{C8C8C8}rs7609463 &\cellcolor[HTML]{C8C8C8}1.38e-8 &\cellcolor[HTML]{C8C8C8}17 &\cellcolor[HTML]{C8C8C8}rs35908989 &\cellcolor[HTML]{C8C8C8}1.00e-8 \\
+			& & & & & &\cellcolor[HTML]{C8C8C8}17 &\cellcolor[HTML]{C8C8C8}rs930119 &\cellcolor[HTML]{C8C8C8}3.02e-8 &\cellcolor[HTML]{C8C8C8}4 &\cellcolor[HTML]{C8C8C8}rs9307052 &\cellcolor[HTML]{C8C8C8}2.00e-8 \\
+			& & & & & &\cellcolor[HTML]{C8C8C8}11 &\cellcolor[HTML]{C8C8C8}rs2251662 &\cellcolor[HTML]{C8C8C8}3.41e-8 &\cellcolor[HTML]{C8C8C8}22 &\cellcolor[HTML]{C8C8C8}rs9615351 &\cellcolor[HTML]{C8C8C8}3.00e-8 \\
+			& & & & & & & & &\cellcolor[HTML]{C8C8C8}7 &\cellcolor[HTML]{C8C8C8}rs6947352 &\cellcolor[HTML]{C8C8C8}4.00e-8 \\
+			\bottomrule
+		\end{tabular}
+		\caption[Identified lead \acp{snp} for the entire hemisphere]{Identified lead \acp{snp} for the entire hemisphere across the different datasets, along with a comparison with \citet{Sha2021}. In gray, \acp{snp} with significance less than 1e-8 but greater than 5e-8 are reported. In bold are displayed the variants identified both in the present study and in the work of \citet{Sha2021}.}
+		\label{tab:leadsnps}
+\end{threeparttable}\end{adjustwidth}
 \begin{figure}[H]
 	\centering
 	\subfloat{
-	\includesvg[width=1\textwidth]{asymmetry/genomeDemo/STAGE00DATA/mean_imputed/not_subsampled/gwas_discovery.svg}
+		\includesvg[width=1\textwidth]{asymmetry/genomeDemo/STAGE00DATA/mean_imputed/not_subsampled/gwas_discovery.svg}
 	}
-\par\medskip
-\centering
+	\par\medskip
+	\centering
 	\subfloat{
-	\includesvg[width=1\textwidth]{asymmetry/genomeDemo/BATCH2_2021_DATA/mean_imputed/not_subsampled/gwas_replication.svg}	
+		\includesvg[width=1\textwidth]{asymmetry/genomeDemo/BATCH2_2021_DATA/mean_imputed/not_subsampled/gwas_replication.svg}	
 	}
-\par\medskip
-\centering
+	\par\medskip
+	\centering
 	\subfloat{
 		\includesvg[width=1\textwidth]{asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/gwas_joined.svg}	
 	}
-	\caption[GWAS of the entire hemisphere shape asymmetry]{\Ac{gwas} of the entire hemisphere shape asymmetry computed on the discovery (top) and the replication (middle) dataset, along with the meta-analysis union based on Stouffer's method (bottom).}
+	\caption[mvGWAS of the entire hemisphere shape asymmetry]{\Ac{mvgwas} of the entire hemisphere shape asymmetry computed on the discovery (top) and the replication (middle) dataset, along with the meta-analysis union based on Stouffer's method (bottom).}
 	\label{fig:entire_gwas}
-
 \end{figure}
+
+
+
 
 \begin{figure}[H]
 	\begin{adjustwidth}{-4cm}{-3cm}

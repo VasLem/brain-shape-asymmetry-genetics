@@ -13,45 +13,45 @@ I'm skipping whatever remains of this command
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-You've used 146 entries,
+You've used 147 entries,
             2785 wiz_defined-function locations,
-            1916 strings with 125437 characters,
-and the built_in function-call counts, 217033 in all, are:
-= -- 18593
-> -- 27376
-< -- 44
-+ -- 9102
-- -- 8953
-* -- 22359
-:= -- 34774
-add.period$ -- 709
-call.type$ -- 146
-change.case$ -- 4693
-chr.to.int$ -- 143
-cite$ -- 292
-duplicate$ -- 3092
-empty$ -- 5754
-format.name$ -- 9143
-if$ -- 42405
+            1925 strings with 125691 characters,
+and the built_in function-call counts, 217521 in all, are:
+= -- 18643
+> -- 27398
+< -- 45
++ -- 9109
+- -- 8959
+* -- 22401
+:= -- 34848
+add.period$ -- 714
+call.type$ -- 147
+change.case$ -- 4698
+chr.to.int$ -- 144
+cite$ -- 294
+duplicate$ -- 3112
+empty$ -- 5794
+format.name$ -- 9152
+if$ -- 42508
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 144
-newline$ -- 1005
-num.names$ -- 584
-pop$ -- 8879
+missing$ -- 145
+newline$ -- 1012
+num.names$ -- 588
+pop$ -- 8885
 preamble$ -- 1
-purify$ -- 4545
+purify$ -- 4549
 quote$ -- 0
-skip$ -- 6112
+skip$ -- 6128
 stack$ -- 0
-substring$ -- 3120
-swap$ -- 333
+substring$ -- 3147
+swap$ -- 335
 text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1601
+type$ -- 1612
 warning$ -- 0
-while$ -- 673
+while$ -- 678
 width$ -- 0
-write$ -- 2442
+write$ -- 2459
 (There was 1 error message)
