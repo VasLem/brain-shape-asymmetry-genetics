@@ -54,12 +54,12 @@ for i=1:length(featMats)
     ax.Colormap = cols;
     % Remove Faces of patches
     set(hPatch,'Faces', NaN)
+    set(lh,'Box','off')
+    lh.Units='pixels';
     lhPos = get(lh,'Position');
+    f.Units ='pixels';
+    set(f, 'Position',lhPos);
     lh.Units='normalized';
-    f.Units ='normalized';
-    fPos = get(f,'Position');
-    fPos(3:4)=lhPos(3:4);
-    set(gcf, 'Position',fPos);
     set(lh,'Position',[0 0 1 1])
     saveas(gcf,[featResultsDir 'legend.svg'])
     close(f);
