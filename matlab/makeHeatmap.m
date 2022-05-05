@@ -49,8 +49,9 @@ function fig=makeHeatmap(ret,traits,isPvalue, figPos)
     caxis(clrLim);
     set(ax,'xtick',1:length(traits));
     set(ax, 'YMinorTick','on')
-%     set(ax,'YDir','normal')
+    set(ax,'YDir','normal')
     xticklabels(traits);
+    ylabel('Partition')
     if isPvalue
         set(ax,'ColorScale','log')
     end
