@@ -54,7 +54,9 @@ rows = table.Row;
 for rowCnt=1:length(rows)
     row = rows{rowCnt};
     values = table2array(table(row,:));
-    [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values,'white','jet');
+    map = repmat(linspace(0.2,1,100), [3,1])';
+
+    [fig, fig2, handles] = paintClusters(clusterArray, preprocTemplate, 4, false, values,'k',map);
     close(fig)
     set(fig2, 'InvertHardCopy', 'off');
     set(fig2, 'Color', 'white');

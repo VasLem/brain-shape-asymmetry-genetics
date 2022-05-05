@@ -100,7 +100,7 @@ if ~isempty(values)
     ticks = linspace(minValue,maxValue, 10);
     colorbar(h, 'South','TickLabels',  round(ticks*1000)/1000, ...
         'Ticks',linspace(minValue,maxValue, 10),'FontWeight','bold');
-    colormap('jet');
+    colormap(map);
     caxis(h,[minValue, maxValue]);
 end
 set(fig2, 'InvertHardCopy', 'off');
