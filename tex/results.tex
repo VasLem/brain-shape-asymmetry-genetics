@@ -63,10 +63,24 @@ The required number of \ac{pca} features per partition given the constraints, as
 \end{figure}
 \section{\ac{gwas}}
 
-The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, the partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be in general significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the subset of the genetic signature of their parents, for example partition 8 exhibit a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry. \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located in chromosome 10, although in this study, same chromosome 10 peak did not rank equally highly. Chromosome 15 exhibits the highest peak instead, rs2033939 (P=2.09e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more fine-grained, quantitative comparison is also performed by applying Spearman correlation, with the way mentioned in \autoref{subsec:gencorr} \cite{Naqvi2021}, after accounting for co-linearity and mean aggregating p-values of linked loci. 
+The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, the partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be in general significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the subset of the genetic signature of their parents, for example partition 8 exhibit a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry. \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located in chromosome 10, although in this study, same chromosome 10 peak did not rank equally highly. Chromosome 15 exhibits the highest peak instead, rs2033939 (P=2e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more fine-grained, quantitative comparison is also performed by applying Spearman correlation, with the way mentioned in \autoref{subsec:gencorr} \cite{Naqvi2021}, after accounting for co-linearity and mean aggregating p-values of linked loci (\autoref{tab:otherAsym}). Generally, the degree of agreement is non-negligible, and most partitions exhibit significant monotonic relationship with the results from \citet{Sha2021}. The greatest (0.16) and most strongly supported (P=1e-11) correlation is observed for the entire hemisphere (partition 1).
 
 \begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
-		
+	\tiny
+	\fontsize{4}{7}
+	\selectfont
+	\setlength\tabcolsep{1.3pt}
+	\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+		\textbf{Partition} &\textbf{1} &\textbf{2} &\textbf{3} &\textbf{4} &\textbf{5} &\textbf{6} &\textbf{7} &\textbf{8} &\textbf{9} &\textbf{10} &\textbf{11} &\textbf{12} &\textbf{13} &\textbf{14} &\textbf{15} &\textbf{16} &\textbf{17} &\textbf{18} &\textbf{19} &\textbf{20} &\textbf{21} &\textbf{22} &\textbf{23} &\textbf{24} &\textbf{25} &\textbf{26} &\textbf{27} &\textbf{28} &\textbf{29} &\textbf{30} &\textbf{31} \\\hline
+		\textbf{Correlation} &0.16 &0.13 &0.14 &0.12 &0.1 &0.1 &0.08 &0.13 &0.06 &0.06 &0.11 &0.1 &0.05 &0.09 &0.04 &0.1 &0.15 &0.05 &0.04 &0.03 &0.04 &0.15 &0.08 &0.16 &0.02 &0.05 &0.02 &0.08 &0.07 &-0.02 &0.01 \\
+		\textbf{P-value} &1.2e-11 &1.1e-8 &2.6e-11 &4.3e-7 &7.5e-5 &1.7e-5 &9.6e-4 &5.1e-8 &6.9e-3 &1.8e-2 &4.3e-6 &1.1e-5 &4.0e-2 &2.2e-4 &6.0e-2 &1.5e-5 &1.4e-9 &1.8e-2 &8.4e-2 &1.0e-1 &4.0e-2 &5.1e-10 &2.9e-3 &4.3e-11 &2.6e-1 &2.8e-2 &1.9e-1 &8.2e-4 &5.0e-3 &7.6e-1 &3.7e-1 \\
+	\end{tabular}
+
+\caption{Spearman correlation of the mvGWAS on each partition with the results from \citet{Sha2021}, and the corresponding bootstrap p-values.}\label{tab:otherAsym}
+\end{threeparttable}\end{adjustwidth}
+
+
+\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]	
 		\scriptsize
 		\begin{tabular}{ccc||ccc||ccc||ccc}\toprule
 			\multicolumn{3}{c}{\textbf{DISCOVERY}} &\multicolumn{3}{c}{\textbf{REPLICATION}} &\multicolumn{3}{c}{\textbf{UNION}} &\multicolumn{3}{c}{\textbf{SHA ET AL.}} \\\midrule
@@ -123,22 +137,20 @@ The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peak
 \end{figure}
 
 
-
-
 \begin{figure}[H]
 	\begin{adjustwidth}{-4cm}{-3cm}
 	\centering
 	\subfloat{
-		\includesvg[width=0.85\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/CcaCircular.svg}
+		\includesvg[width=0.95\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/CcaCircularJoined.svg}
 	}
 	\subfloat{
-		\includesvg[width=0.15\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/legend.svg}
+		\includesvg[width=0.05\linewidth]{asymmetry/visualizeCCAOnPheno/joinedDatasets/mean_imputed/not_subsampled/WithBC/legend.svg}
 	}
 	\end{adjustwidth}	
-	\caption[Number of significant SNPs after Bonferroni correction along partitions]{Number of significant \acp{snp} per chromosome after Bonferroni correction across partitions. The number per chromosome is shown inside boxes of a certain color.}
+	\caption[Number of significant SNPs after Bonferroni correction along partitions]{Number of significant \acp{snp} per chromosome after Bonferroni correction across partitions. The variants number per chromosome is shown inside boxes of a different color, displayed in the legend on the right.}
 	\label{fig:part_bonferroni}
-		
 \end{figure}
+
 \section{\ac{ldsr}}
 \section{\ac{ldsc}}
 \section{\ac{ldsc}-SEG}
