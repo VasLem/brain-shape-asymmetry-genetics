@@ -1,5 +1,8 @@
-function [GC,pGC,seGC] = geneticCorrelationLDblocksWithSE(CHR,POS,V1,V2,LDblocks,type)
+function [GC,pGC,seGC] = geneticCorrelationLDblocksWithSE(CHR,POS,V1,V2,LDblocks,type,statmethod)
          if nargin<6, type = 'mean';end
+         if nargin<7
+            statmethod  = 'Spearman';
+        end
          nV1 = size(V1,2);
          nV2 = size(V2,2);
          disp('IDENTIFYING LD BLOCKS');
@@ -41,7 +44,7 @@ function [GC,pGC,seGC] = geneticCorrelationLDblocksWithSE(CHR,POS,V1,V2,LDblocks
              for j=1:nV2
                  % j=200; 
                  vv2 = v2(:,j); %#ok<*PFBNS>
-                 [forGC(j),forseGC(j),forpGC(j)] = getBootSTATS(vv1(:),vv2(:));
+                 [forGC(j),forseGC(j),forpGC(j)] = getBootSTATS(vv1(:),vv2(:),statmethod);
              end
              GC(i,:) = forGC;
              pGC(i,:) = forpGC;
@@ -50,18 +53,17 @@ function [GC,pGC,seGC] = geneticCorrelationLDblocksWithSE(CHR,POS,V1,V2,LDblocks
          end
          closeParForProgress(path,ID)
 end
-function [stat,se,p] = getBootSTATS(vv1,vv2)
+
+function [stat,se,p] = getBootSTATS(vv1,vv2,statmethod)
          vv1 = double(vv1);
          vv2 = double(vv2);
 
-         stat = corr(vv1(:),vv2(:),'type','Spearman');
-         %stat = corr(vv1(:),vv2(:),'type','Pearson');
+         stat = corr(vv1(:),vv2(:),'type',statmethod);
          n = length(vv1);
          val = zeros(1,100);
          for i=1:100
              index = randsample(n,n,true);
-             val(i)= corr(vv1(index),vv2(index),'type','Spearman');
-             %val(i)= corr(vv1(index),vv2(index),'type','Pearson');
+             val(i)= corr(vv1(index),vv2(index),'type',statmethod);
          end
          se = std(val);
          %p = 2*normcdf(-1*abs(stat/se),0,1);

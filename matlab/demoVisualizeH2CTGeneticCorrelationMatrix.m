@@ -1,8 +1,5 @@
 clear, close all
-set(groot, 'defaultAxesTickLabelInterpreter','latex');
-set(groot, 'defaultLegendInterpreter','latex');
-set(0, 'defaulttextinterpreter','latex');
-set(0,'DefaultTextFontname', 'LMU Serif');
+setuplatex
 DATASET = 'joinedDatasets';
 MODALITY = 'asymmetry';
 REDUCTION = 1;
@@ -68,7 +65,7 @@ for ind=1:length(geneSets)
 %     featMats{2} = ret_c';
 %     featMatsIds{2} = 'coeff';
     featsClassesNames = names;
-%     drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+    drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
 end
 
 function fig = drawResponseMatrix(response, xlabs, ylabs)

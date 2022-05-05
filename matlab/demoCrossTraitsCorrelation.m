@@ -2,7 +2,7 @@
 %SNPs in 1000G
 
 labels ={'OTHER_TRAITS_GWAS','OTHER_ASYMMETRY_GWAS','BRAIN_SHAPE_CHR'};
-for lInd=1:1%:length(labels)
+for lInd=2:2%:length(labels)
     lab = labels{lInd};
     INPUT_DIR = ['../SAMPLE_DATA/' lab];
     disp(['Label:',lab])

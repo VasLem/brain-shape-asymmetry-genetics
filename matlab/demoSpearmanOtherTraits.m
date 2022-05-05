@@ -1,16 +1,14 @@
 clear all
-
+close all
 %%
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
-set(groot, 'defaultAxesTickLabelInterpreter','latex');
-set(groot, 'defaultLegendInterpreter','latex');
-set(0, 'defaulttextinterpreter','latex');
-set(0,'DefaultTextFontname', 'LMU Serif');
+setuplatex;
 %%
 DATASET = 'joinedDatasets';
 REDUCTION = 1;
 MODALITY = 'asymmetry';
+RECOMPUTE = 0;
 switch REDUCTION
     case 1
     SUBSAMPLED_ID = 'not_subsampled';
@@ -21,12 +19,13 @@ switch REDUCTION
 end
 DATASET_ID= [DATASET '/mean_imputed/' SUBSAMPLED_ID];
 %%
-load(['../results/asymmetry/meta_analysis/' DATASET_ID '/mean_imputed/not_subsampled/par.mat']);
-load('../results/w_hm3.noMHC.mat','SNP_NOMHC')
-%%
-load('../results/correlation_sources/OTHER_TRAITS_GWAS.mat');
+
 %%
 outDir = ['../results/' MODALITY '/spearman_correlation/' DATASET_ID '/other_traits/'];
+if ~isfile([outDir, 'spearman_corr.csv']) || RECOMPUTE
+load(['../results/asymmetry/meta_analysis/' DATASET_ID '/par.mat']);
+load('../results/w_hm3.noMHC.mat','SNP_NOMHC')
+load('../results/correlation_sources/OTHER_TRAITS_GWAS.mat');
 if ~isfolder(outDir), mkdir(outDir); end
 %%
 [ind12, ind21] = vlookupFast(PAR.RS, SYN.RS);
@@ -53,24 +52,37 @@ spearman_pcorr = array2table(pGC,'VariableNames',SYN.NAMES);
 writetable(spearman_pcorr, [outDir 'spearman_pcorr.csv']);
 spearman_secorr = array2table(seGC,'VariableNames',SYN.NAMES);
 writetable(spearman_secorr, [outDir 'spearman_secorr.csv']);
-%% 
+end
+%%
+
+spearman_corr = readtable([outDir 'spearman_corr.csv']);
+GC = table2array(spearman_corr);
+spearman_pcorr = readtable([outDir 'spearman_pcorr.csv']);
+pGC = table2array(spearman_pcorr);
+spearman_secorr = readtable([outDir 'spearman_secorr.csv']);
+seGC = table2array(spearman_secorr);
+
+traits = spearman_corr.Properties.VariableNames;
+
+writetable(spearman_corr, [outDir 'spearman_corr.csv']);
 diamLim = [0.3, 1];
-traits = SYN.NAMES;
 ret = GC;
-ret(pGC>0.05) = nan;
-clrLim = [nanmin(ret,[],'all'),nanmax(ret,[],'all')];
-fig=figure(Position=[0,0,400,1000]);
-[nr,nc] = size(ret);
-imagesc(ret, 'AlphaData',~isnan(ret))
-colormap(gca,'jet');
-colorbar();
-caxis(clrLim);
-set(gca,'xtick',1:length(traits));
-set(gca, 'YMinorTick','on')
-xticklabels(traits);
-axis equal
-axis tight
+mask  =~all(isnan(ret),1);
+if any(~mask)
+    writelines(traits(~mask), [outDir 'spearman_failed']);
+end
+ret = ret(:,mask);
+pRet = pGC;
+pRet = pGC(:, mask);
+traits = traits(mask);
+%%
+close all
+fig = makeHeatmap(ret, traits, 0);
 saveas(fig, [outDir 'otherTraitsHeatmap.svg'])
+
+fig = makeHeatmap(pRet, traits,1);
+saveas(fig, [outDir 'otherTraitsHeatmapPvalues.svg'])
+
 %%
 featMats{1} = round(100 * ret)/100;
 featMatsIds{1} = 'otherTraits';

@@ -4,10 +4,7 @@ addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 %%
-set(groot, 'defaultAxesTickLabelInterpreter','latex');
-set(groot, 'defaultLegendInterpreter','latex');
-set(0, 'defaulttextinterpreter','latex');
-set(0,'DefaultTextFontname', 'LMU Serif');
+setuplatex
 %%
 MODALITY = 'asymmetry'; %asymmetry, symmetry
 MAX_NUM_FEATS = 0;

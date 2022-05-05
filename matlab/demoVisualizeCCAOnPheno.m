@@ -1,4 +1,5 @@
 close all; clear
+setuplatex
 addpath(genpath('.'));
 addpath(genpath('AIDFUNCTIONS'));
 RECOMPUTE_PARTS = 1;
