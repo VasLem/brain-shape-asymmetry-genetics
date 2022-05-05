@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  3 MAY 2022 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  3 MAY 2022 20:21
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1994,6 +1994,19 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 114--115
  [][] 
  []
 
+Package svg Info: Calling Inkscape on input line 119.
+runsystem(inkscape "../results//asymmetry/meta_analysis/joinedDatasets/mean_imp
+uted/not_subsampled/gwas_joined.svg" -D --export-latex \relax --without-gui --e
+xport-pdf="gwas_joined_svg-tex.pdf")...executed.
+
+runsystem(mkdir -p "./svg-inkscape/")...executed.
+
+runsystem(mv "gwas_joined_svg-tex.pdf" "./svg-inkscape/gwas_joined_svg-tex.pdf"
+)...executed.
+
+runsystem(mv "gwas_joined_svg-tex.pdf_tex" "./svg-inkscape/gwas_joined_svg-tex.
+pdf_tex")...executed.
+
 Package svg Info: Last page of `./svg-inkscape/gwas_joined_svg-tex.pdf' is 1 on
  input line 119.
 (./svg-inkscape/gwas_joined_svg-tex.pdf_tex
@@ -2010,7 +2023,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 119--120
  []
 
 [41]
-Overfull \vbox (69.18152pt too high) has occurred while \output is active []
+Overfull \vbox (82.78152pt too high) has occurred while \output is active []
 
 
 [42 <./svg-inkscape/gwas_discovery_svg-tex.pdf> <./svg-inkscape/gwas_replicatio
@@ -2254,10 +2267,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4991511FEB06FF0A7ECB825B88AAECD5;3944.
  ) 
 Here is how much of TeX's memory you used:
- 32978 strings out of 478233
- 718983 string characters out of 5843844
- 1177559 words of memory out of 5000000
- 49969 multiletter control sequences out of 15000+600000
+ 32980 strings out of 478233
+ 719041 string characters out of 5843844
+ 1177547 words of memory out of 5000000
+ 49971 multiletter control sequences out of 15000+600000
  591912 words of font info for 276 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,17n,133p,4100b,827s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2284,7 +2297,7 @@ ocal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texm
 f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/
 fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (67 pages, 22279936 bytes).
+Output written on main.pdf (67 pages, 22279184 bytes).
 PDF statistics:
  2381 PDF objects out of 2487 (max. 8388607)
  1873 compressed objects within 19 object streams
