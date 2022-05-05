@@ -1,6 +1,6 @@
 
 function fig=makeHeatmap(ret,traits,isPvalue, figPos)
-    clrLim = [nanmin(ret,[],'all'),nanmax(ret,[],'all')];
+    clrLim = [nanmin(abs(ret),[],'all'),nanmax(abs(ret),[],'all')];
     if nargin < 4
         figPos = nan;
     end
@@ -12,7 +12,7 @@ function fig=makeHeatmap(ret,traits,isPvalue, figPos)
     dy = diff(yrange)/(nr-1);
     xg = linspace(xrange(1)-dx/2,xrange(2)+dx/2,nc+1);
     yg = linspace(yrange(1)-dy/2,yrange(2)+dy/2,nr+1);
-    imagesc(xrange,yrange,ret,'AlphaData',~isnan(ret)); hold on
+    imagesc(xrange,yrange,abs(ret),'AlphaData',~isnan(ret)); hold on
     hm = mesh(xg,yg,zeros([nr,nc]+1));
     hm.FaceColor = 'none';
     hm.EdgeColor = 'k';
@@ -25,7 +25,7 @@ function fig=makeHeatmap(ret,traits,isPvalue, figPos)
     end
     [y,x] = meshgrid(1:nr, 1:nc);
     % Draw Image and Label Pixels
-    text(x(:), y(:), t, 'HorizontalAlignment', 'Center')
+    text(x(:), y(:), t', 'HorizontalAlignment', 'Center')
     
     l = linspace(0.3,1,100);
     s = ones(size(l));
@@ -39,11 +39,17 @@ function fig=makeHeatmap(ret,traits,isPvalue, figPos)
         map = flip(map,1);
     end
     colormap(ax,map);
-    colorbar();
+    a = colorbar();
+    if isPvalue
+        a.Label.String = 'P-value';
+    else
+        a.Label.String = 'Absol. Corr';
+    end
+
     caxis(clrLim);
     set(ax,'xtick',1:length(traits));
     set(ax, 'YMinorTick','on')
-    set(ax,'YDir','normal')
+%     set(ax,'YDir','normal')
     xticklabels(traits);
     if isPvalue
         set(ax,'ColorScale','log')
