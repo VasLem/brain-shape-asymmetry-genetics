@@ -40,7 +40,7 @@ for ind=1:length(geneSets)
     ret_c = nan(length(names), 31);
     for row=1:height(inp)
         m = strcmp(names, inp.Name(row));
-        ret_p(m,inp.partition(row)) = -log10(inp.Coefficient_P_value(row));
+        ret_p(m,inp.partition(row)) = inp.Coefficient_P_value(row);
         ret_c(m,inp.partition(row)) = inp.Coefficient(row);
     end
     
@@ -50,38 +50,27 @@ for ind=1:length(geneSets)
     end
     ret_p = ret_p(ret_mask, :);
     ret_c = ret_c(ret_mask, :);
-    ret_p = round(100 * ret_p)/100;
     names = names(ret_mask);
     names = cellfun(@(x)strip(replace(x, '_', ' ')),names, 'UniformOutput',false);
     sc_mask = any(isfinite(ret_p),1);
     sc_pars = 1:31;
     sc_pars = sc_pars(sc_mask);
-    fig = drawResponseMatrix(ret_p(:, sc_pars), sc_pars, names);
-    saveas(fig, [out_dir 'p_heatmap.svg']);
-    fig = drawResponseMatrix(ret_c(:, sc_pars), sc_pars, names);
-    saveas(fig, [out_dir 'c_heatmap.svg'])
+    [fig, ax] = makeHeatmap(ret_p(:, sc_pars)', names, 1);
+    set(ax, 'ytick', 1:length(sc_pars));
+    yticklabels(ax, sc_pars)
+    saveas(fig, [out_dir 'heatmap.svg']);
+%     [fig, ax] = makeHeatmap(ret_c(:, sc_pars)', names, 0);
+%     set(ax, 'ytick', 1:length(sc_pars));
+%     yticklabels(ax, sc_pars)
+    
+%     saveas(fig, [out_dir 'c_heatmap.svg'])
     featMats{1} = ret_p';
     featMatsIds{1} = 'p_value';
 %     featMats{2} = ret_c';
 %     featMatsIds{2} = 'coeff';
     featsClassesNames = names;
-    drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+%     if ind==2
+%         drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+%     end
 end
 
-function fig = drawResponseMatrix(response, xlabs, ylabs)
-    clrLim = [min(min(response)),max(max(response))];
-    fig = figure();
-%     p = axes('Position',[0.2 0.05 0.6 0.9]);
-%     p.PositionConstraint = 'outerposition';
-    imAlpha = ones(size(response));
-    imAlpha(isnan(response)) = 0;
-    imagesc(response, 'AlphaData', imAlpha);
-    yticks(1:length(ylabs));
-    yticklabels(ylabs);
-    xticks(1:length(xlabs));
-    xticklabels(xlabs);
-    colormap(gca,'jet');
-    caxis(clrLim);
-    axis tight
-    colorbar();
-end

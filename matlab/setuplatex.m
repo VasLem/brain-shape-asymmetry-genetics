@@ -6,6 +6,7 @@ for i = 1:length(index_interpreter)
     default_name = strrep(list_factory{index_interpreter(i)},'factory','default');
     set(groot, default_name,'latex');
 end
-set(0,'DefaultTextFontname', 'LMU Serif');
-set(0,'DefaultTextFontsize',11);
+set(groot,'defaultTextFontname', 'LMU Serif');
+set(groot,'defaultTextFontsize',20);
+set(groot,'defaultAxesFontSize',20);
 end
