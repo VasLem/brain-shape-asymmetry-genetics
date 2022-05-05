@@ -82,11 +82,14 @@ for i =1:(numLevels + 1)
     shape = levelShapes{i};    
     ax = showPaintedDoubleFace(fig2, shape, nan, nan, nexttile(t), ~isempty(values),[minValue,maxValue], invcolor);
     if i == 1
-        title(ax,'root','FontSIze','FontUnits','normalized','FontSize',0.2,'FontWeight','bold')
+        title(ax,'root','FontUnits','normalized','FontSize',0.1,'FontWeight','bold')
     else
-        title(ax,['level ' num2str(i-1)],'FontUnits','normalized','FontSize',0.2,'FontWeight','bold')
+        title(ax,['level ' num2str(i-1)],'FontUnits','normalized','FontSize',0.1,'FontWeight','bold')
     end
     colormap(ax,map2);
+    if ~isempty(values)
+        caxis(ax,[minValue, maxValue]);
+    end
     daspect(ax, [1 1 1]);
 end
 
@@ -120,7 +123,9 @@ for c=1:size(clustered,1)
         pInds = find( cluster == 1);
         ret{cnt}.handle = paintSingle(fig, pInds, template, ...
             convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), offsetR, nan, value,invcolor,map);
-
+        if ~isnan(value)
+              clim([0,1])
+        end
         levelShapes{level + 1} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level + 1},value,invcolor,map);
         ret{cnt}.level = level;
         ret{cnt}.id = 1;
@@ -151,6 +156,9 @@ for c=1:size(clustered,1)
             pInds = find(selection);
             ret{cnt}.handle = paintSingle(fig, pInds, template, convertToFigureSpace(axpos, ydir, xl, yl, [0.5,0.5] + center), ...
                 offsetR, nan, value,invcolor,map);
+            if ~isnan(value)
+                clim([0,1])
+            end
             levelShapes{level + 1} = paintSingle(nan, pInds, template, nan, nan, levelShapes{level + 1},value,invcolor,map);
             ret{cnt}.level = level;
             ret{cnt}.id = k;
@@ -226,6 +234,7 @@ if isa(fig,'matlab.ui.Figure')
 else
     ax = shape;
 end
+
 end
 
 
