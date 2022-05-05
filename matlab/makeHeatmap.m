@@ -1,7 +1,9 @@
 
-function fig=makeHeatmap(ret,traits,isPvalue)
+function fig=makeHeatmap(ret,traits,isPvalue, figPos)
     clrLim = [nanmin(ret,[],'all'),nanmax(ret,[],'all')];
-
+    if nargin < 4
+        figPos = nan;
+    end
     fig=figure(Position=[0,0,400,1000]);
     [nr,nc] = size(ret);
     xrange = [1 nc]; % imagesc only needs the endpoints
@@ -17,7 +19,7 @@ function fig=makeHeatmap(ret,traits,isPvalue)
     ax = gca;
     t = num2cell(ret); % extact values into cells
     if isPvalue
-        t = cellfun(@(x)sprintf('%.1e',x), t, 'UniformOutput', false); % convert to string
+        t = cellfun(@(x)sprintf('%.0e',x), t, 'UniformOutput', false); % convert to string
     else
         t = cellfun(@(x)sprintf('%.2f',x), t, 'UniformOutput', false); % convert to string
     end
@@ -47,13 +49,15 @@ function fig=makeHeatmap(ret,traits,isPvalue)
         set(ax,'ColorScale','log')
     end
     axis tight
-    alignFigToContent(fig, ax);
+    alignFigToContent(fig, ax, figPos);
 end
 
-function alignFigToContent(fig, h)
+function alignFigToContent(fig, h, figPos)
 set(h, 'Units', 'pixels');
-pos = get(h,'OuterPosition');
-set(fig, 'Position',pos);
+if isnan(figPos)
+    figPos = get(h,'OuterPosition');
+end
+set(fig, 'Position', figPos);
 set(h, 'Units',' normalized');
 set(h, 'OuterPosition', [0,0,1,1]);
 end

@@ -80,13 +80,17 @@ close all
 fig = makeHeatmap(ret, traits, 0);
 saveas(fig, [outDir 'otherTraitsHeatmap.svg'])
 
-fig = makeHeatmap(pRet, traits,1);
+fig = makeHeatmap(pRet, traits,1, get(fig,'Position'));
 saveas(fig, [outDir 'otherTraitsHeatmapPvalues.svg'])
 
 %%
-featMats{1} = round(100 * ret)/100;
+ret = GC;
+ret(ret>0.05) = nan;
+ret = round(100 * ret)/100;
+ret(ret==0) = nan;
+featMats{1} = ret;
 featMatsIds{1} = 'otherTraits';
-featsClassesNames = traits;
+featsClassesNames =spearman_corr.Properties.VariableNames;
 datasetName = DATASET;
 drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, outDir, REDUCTION, 1)
 
