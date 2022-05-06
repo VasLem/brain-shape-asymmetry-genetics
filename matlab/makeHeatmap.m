@@ -67,7 +67,9 @@ function [fig, ax]=makeHeatmap(ret,traits,isPvalue, figPos,writeValues)
     if isPvalue
         set(ax,'ColorScale','log')
         if size(get(a, 'ticks')) < 5 
-            set(a,'ticks', 10.^(round(linspace(floor(min(log10(ret), [], 'all')),ceil(max(log10(ret), [],'all')),7))))
+            vals = (round(linspace(floor(min(log10(ret), [], 'all')),ceil(max(log10(ret), [],'all')),7)));
+            vals = unique(vals);
+            set(a,'ticks', 10.^(vals));
         end
     end
 end

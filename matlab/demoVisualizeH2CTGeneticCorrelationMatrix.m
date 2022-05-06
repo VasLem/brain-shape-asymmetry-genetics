@@ -72,8 +72,8 @@ for ind=1:length(geneSets)
 %     featMats{2} = ret_c';
 %     featMatsIds{2} = 'coeff';
     featsClassesNames = names;
-    if ind==2
-        drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
-    end
+%     if ind==2
+%         drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+%     end
 end
 
