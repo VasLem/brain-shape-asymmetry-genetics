@@ -57,11 +57,14 @@ for ind=1:length(geneSets)
     sc_pars = sc_pars(sc_mask);
     [fig, ax] = makeHeatmap(ret_p(:, sc_pars)', names, 1);
     set(ax, 'ytick', 1:length(sc_pars));
-    yticklabels(ax, sc_pars)
-    saveas(fig, [out_dir 'heatmap.svg']);
-%     [fig, ax] = makeHeatmap(ret_c(:, sc_pars)', names, 0);
-%     set(ax, 'ytick', 1:length(sc_pars));
-%     yticklabels(ax, sc_pars)
+    yticklabels(ax, sc_pars);
+    set(ax,'YMinorTick', 'off');
+    saveas(fig, [out_dir 'ldsc_seg_pHeatmap.svg']);
+    [fig, ax] = makeHeatmap(ret_c(:, sc_pars)', names, 0);
+    set(ax, 'ytick', 1:length(sc_pars));
+    yticklabels(ax, sc_pars);
+    set(ax,'YMinorTick', 'off');
+    saveas(fig, [out_dir 'ldsc_seg_heatmap.svg']);
     
 %     saveas(fig, [out_dir 'c_heatmap.svg'])
     featMats{1} = ret_p';
@@ -69,8 +72,8 @@ for ind=1:length(geneSets)
 %     featMats{2} = ret_c';
 %     featMatsIds{2} = 'coeff';
     featsClassesNames = names;
-%     if ind==2
-%         drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
-%     end
+    if ind==2
+        drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, out_dir, REDUCTION, 1)
+    end
 end
 
