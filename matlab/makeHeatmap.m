@@ -62,11 +62,14 @@ function [fig, ax]=makeHeatmap(ret,traits,isPvalue, figPos,writeValues)
     set(ax,'YDir','normal')
     xticklabels(traits);
     ylabel('Partition')
-    if isPvalue
-        set(ax,'ColorScale','log')
-    end
     axis tight
     alignFigToContent(fig, ax, figPos);
+    if isPvalue
+        set(ax,'ColorScale','log')
+        if size(get(a, 'ticks')) < 5 
+            set(a,'ticks', 10.^(round(linspace(floor(min(log10(ret), [], 'all')),ceil(max(log10(ret), [],'all')),7))))
+        end
+    end
 end
 
 function x= formatValue(x, isPvalue)

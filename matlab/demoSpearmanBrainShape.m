@@ -79,8 +79,8 @@ pos(4) = pos(4)/4;
 set(fig, 'Position', pos);
 set(ax, 'xtick', 1:10:length(traits));
 xticklabels(ax, traits(a(1:10:length(traits))));
-
 saveas(fig, [outDir 'brainShapeHeatmap.svg'])
+%%
 [fig, ax] = makeHeatmap(pGC, traits,1, get(fig, 'Position'), 0);
 set(ax, 'xtick', 1:10:length(traits));
 xticklabels(ax, traits(a(1:10:length(traits))));
