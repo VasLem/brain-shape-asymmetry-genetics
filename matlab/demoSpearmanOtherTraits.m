@@ -85,7 +85,7 @@ saveas(fig, [outDir 'otherTraitsHeatmapPvalues.svg'])
 
 %%
 ret = GC;
-ret(ret>0.05) = nan;
+ret(pGC>0.05) = nan;
 ret = round(100 * ret)/100;
 ret(ret==0) = nan;
 featMats{1} = ret;
