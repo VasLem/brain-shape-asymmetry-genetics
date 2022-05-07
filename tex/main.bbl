@@ -1,4 +1,4 @@
-\begin{thebibliography}{147}
+\begin{thebibliography}{158}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -195,6 +195,16 @@ T.~Berisa and J.~K. Pickrell.
   283--285, jan 2016.
 \newblock ISSN 1367-4811.
 \newblock \doi{10.1093/BIOINFORMATICS/BTV546}.
+
+\bibitem[Bracci et~al.(2010)Bracci, Ietswaart, Peelen, and
+  Cavina-Pratesi]{Bracci2010}
+S.~Bracci, M.~Ietswaart, M.~V. Peelen, and C.~Cavina-Pratesi.
+\newblock {Dissociable Neural Responses to Hands and Non-Hand Body Parts in
+  Human Left Extrastriate Visual Cortex}.
+\newblock \emph{Journal of Neurophysiology}, 103\penalty0 (6):\penalty0 3389,
+  jun 2010.
+\newblock ISSN 00223077.
+\newblock \doi{10.1152/JN.00215.2010}.
 
 \bibitem[Brodmann(1909)]{Brodmann1909}
 K.~Brodmann.
@@ -749,6 +759,18 @@ M.~Guindo-Mart{\'{i}}nez et al.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/S41467-021-21952-4}.
 
+\bibitem[Han et~al.(2016)Han, Jung, Yun, Park, Cho, Hur, Shin, Lee, and
+  Kwon]{Han2016}
+H.~J. Han, W.~H. Jung, J.~Y. Yun, J.~W. Park, K.~K. Cho, J.~W. Hur, N.~Y. Shin,
+  T.~Y. Lee, and J.~S. Kwon.
+\newblock {Disruption of effective connectivity from the dorsolateral
+  prefrontal cortex to the orbitofrontal cortex by negative emotional
+  distraction in obsessive–compulsive disorder}.
+\newblock \emph{Psychological Medicine}, 46\penalty0 (5):\penalty0 921--932,
+  apr 2016.
+\newblock ISSN 0033-2917.
+\newblock \doi{10.1017/S0033291715002391}.
+
 \bibitem[Heger et~al.(2020)Heger, Zheng, Rottmann, {Pan Lio}, and
   Wiehe]{Heger2020}
 P.~Heger, W.~Zheng, A.~Rottmann, K.~A. {Pan Lio}, and T.~Wiehe.
@@ -785,6 +807,32 @@ M.~R. Herbert et al.
 \newblock \emph{Brain}, 128\penalty0 (1):\penalty0 213--226, jan 2005.
 \newblock ISSN 0006-8950.
 \newblock \doi{10.1093/brain/awh330}.
+
+\bibitem[Hesling et~al.(2012)Hesling, Dilharreguy, Bordessoules, and
+  Allard]{Hesling2012}
+I.~Hesling, B.~Dilharreguy, M.~Bordessoules, and M.~Allard.
+\newblock {The neural processing of second language comprehension modulated by
+  the degree of proficiency: a listening connected speech FMRI study}.
+\newblock \emph{The open neuroimaging journal}, 6:\penalty0 44--54, jul 2012.
+\newblock ISSN 1874-4400.
+\newblock \doi{10.2174/1874440001206010044}.
+
+\bibitem[Hikasa and Sokol(2013)]{Hikasa2013}
+H.~Hikasa and S.~Y. Sokol.
+\newblock {Wnt Signaling in Vertebrate Axis Specification}.
+\newblock \emph{Cold Spring Harbor Perspectives in Biology}, 5\penalty0 (1),
+  jan 2013.
+\newblock ISSN 19430264.
+\newblock \doi{10.1101/CSHPERSPECT.A007955}.
+
+\bibitem[Hu et~al.(2017)Hu, Li, Wang, and Wang]{Hu2017}
+G.~Hu, G.~Li, H.~Wang, and Y.~Wang.
+\newblock {Hedgehog participates in the establishment of left-right asymmetry
+  during amphioxus development by controlling Cerberus expression}.
+\newblock \emph{Development (Cambridge, England)}, 144\penalty0 (24):\penalty0
+  4694--4703, 2017.
+\newblock ISSN 1477-9129.
+\newblock \doi{10.1242/DEV.157172}.
 
 \bibitem[Huo et~al.(2019)Huo, Li, Liu, Li, and Luo]{Huo2019}
 Y.~Huo, S.~Li, J.~Liu, X.~Li, and X.~J. Luo.
@@ -978,6 +1026,23 @@ J.~J. Lee, M.~McGue, W.~G. Iacono, and C.~C. Chow.
 \newblock ISSN 10982272.
 \newblock \doi{10.1002/GEPI.22161}.
 
+\bibitem[Li and Tsien(2009)]{Li2009}
+F.~Li and J.~Z. Tsien.
+\newblock {Memory and the NMDA Receptors}.
+\newblock \emph{The New England journal of medicine}, 361\penalty0
+  (3):\penalty0 302, jul 2009.
+\newblock ISSN 0028-4793.
+\newblock \doi{10.1056/NEJMCIBR0902052}.
+
+\bibitem[Li et~al.(2020)Li, Hu, Gao, Cao, Zhang, Bu, Lu, Wang, Tang, Li, Yang,
+  Biswal, Gong, and Huang]{Li2020}
+H.~Li et al.
+\newblock {Neural primacy of the dorsolateral prefrontal cortex in patients
+  with obsessive-compulsive disorder}.
+\newblock \emph{NeuroImage : Clinical}, 28:\penalty0 102432, jan 2020.
+\newblock ISSN 22131582.
+\newblock \doi{10.1016/J.NICL.2020.102432}.
+
 \bibitem[Li et~al.(2015)Li, Wang, Li, Li, and Li]{Li2015}
 S.~Li, S.~Wang, X.~Li, Q.~Li, and X.~Li.
 \newblock {Abnormal surface morphology of the central sulcus in children with
@@ -1080,6 +1145,15 @@ Y.~Mekki, V.~Guillemot, H.~Lema{\^{i}}tre, A.~Carri{\'{o}}n-Castillo,
 \newblock ISSN 1095-9572.
 \newblock \doi{10.1016/J.NEUROIMAGE.2021.118795}.
 
+\bibitem[Mi et~al.(2019)Mi, Muruganujan, Ebert, Huang, and Thomas]{Mi2019}
+H.~Mi, A.~Muruganujan, D.~Ebert, X.~Huang, and P.~D. Thomas.
+\newblock {PANTHER version 14: more genomes, a new PANTHER GO-slim and
+  improvements in enrichment analysis tools}.
+\newblock \emph{Nucleic acids research}, 47\penalty0 (D1):\penalty0 D419--D426,
+  jan 2019.
+\newblock ISSN 1362-4962.
+\newblock \doi{10.1093/NAR/GKY1038}.
+
 \bibitem[Moln{\'{a}}r et~al.(2019)Moln{\'{a}}r, Clowry, {\v{S}}estan, Alzu'bi,
   Bakken, Hevner, H{\"{u}}ppi, Kostovi{\'{c}}, Rakic, Anton, Edwards, Garcez,
   Hoerder-Suabedissen, and Kriegstein]{Molnar2019}
@@ -1162,6 +1236,16 @@ N.~Mullins et al.
   may 2021.
 \newblock ISSN 1546-1718.
 \newblock \doi{10.1038/s41588-021-00857-4}.
+
+\bibitem[Myers et~al.(2017)Myers, Mandelstam, Ramantani, Rushing, de~Vries,
+  Koolen, and Scheffer]{Myers2017}
+K.~A. Myers, S.~A. Mandelstam, G.~Ramantani, E.~J. Rushing, B.~B. de~Vries,
+  D.~A. Koolen, and I.~E. Scheffer.
+\newblock {The epileptology of Koolen-de Vries syndrome:
+  Electro-clinico-radiologic findings in 31 patients}.
+\newblock \emph{Epilepsia}, 58\penalty0 (6):\penalty0 1085--1094, jun 2017.
+\newblock ISSN 1528-1167.
+\newblock \doi{10.1111/EPI.13746}.
 
 \bibitem[Naqvi et~al.(2021)Naqvi, Sleyp, Hoskens, Indencleef, Spence,
   Bruffaerts, Radwan, Eller, Richmond, Shriver, Shaffer, Weinberg, Walsh,
@@ -1273,6 +1357,14 @@ W.~Y. Ong, C.~S. Stohler, and D.~R. Herr.
   2019.
 \newblock ISSN 15591182.
 \newblock \doi{10.1007/S12035-018-1130-9}.
+
+\bibitem[Peelen and Downing(2005)]{Peelen2005}
+M.~V. Peelen and P.~E. Downing.
+\newblock {Selectivity for the human body in the fusiform gyrus}.
+\newblock \emph{Journal of Neurophysiology}, 93\penalty0 (1):\penalty0
+  603--608, jan 2005.
+\newblock ISSN 00223077.
+\newblock \doi{10.1152/JN.00513.2004/ASSET/IMAGES/LARGE/Z9K0010543090003.JPEG}.
 
 \bibitem[Purnell et~al.(2018)Purnell, Donoghue, Gabbott, McNamara, Murdock, and
   Sansom]{Purnell2018}
@@ -1500,6 +1592,14 @@ A.~Subramanian et al.
   States of America}, 102\penalty0 (43):\penalty0 15545--15550, oct 2005.
 \newblock ISSN 00278424.
 \newblock \doi{10.1073/PNAS.0506580102/SUPPL_FILE/06580FIG7.JPG}.
+
+\bibitem[Sun and Walsh(2006)]{Sun2006}
+T.~Sun and C.~A. Walsh.
+\newblock {Molecular approaches to brain asymmetry and handedness}.
+\newblock \emph{Nature Reviews Neuroscience 2006 7:8}, 7\penalty0 (8):\penalty0
+  655--662, aug 2006.
+\newblock ISSN 1471-0048.
+\newblock \doi{10.1038/nrn1930}.
 
 \bibitem[Szklarczyk et~al.(2021)Szklarczyk, Gable, Nastou, Lyon, Kirsch,
   Pyysalo, Doncheva, Legeay, Fang, Bork, Jensen, and von
