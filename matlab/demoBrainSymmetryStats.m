@@ -1,10 +1,7 @@
 %% Investigating LEFT - RIGHT asymmetry
 close all;clear;
 restoredefaultpath;
-set(groot, 'defaultAxesTickLabelInterpreter','latex');
-set(groot, 'defaultLegendInterpreter','latex');
-set(0, 'defaulttextinterpreter','latex');
-set(0,'DefaultTextFontname', 'LMU Serif');
+setuplatex
 addpath(genpath('AIDFUNCTIONS'));
 addpath(genpath('BrainAsymmetrySignificanceAnalysis'));
 %% MAIN PARAMETERS
