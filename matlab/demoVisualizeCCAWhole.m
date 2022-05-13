@@ -128,7 +128,6 @@ close(f);
 pThres = NO_PARTITION_THRES;
 bpThres = NO_PARTITION_THRES / 31;
 fig = figure;
-fig.Position = [100 100 1200 600];
 hold on
 cnt = 0;
 xticks_pos = [];
@@ -140,12 +139,13 @@ for CHR=1:22
     end
     intStats = part{CHR};
     pNum = size(intStats, 2);
+    
     for i=1:pNum
         signum = sum(intStats(:, i)<pThres);
         bsignum = sum(intStats(:, i)<bpThres);
-        
+        mask = intStats(:,i) < 0.5;
         if signum > 0
-            scatter(pos{CHR}, -log10(intStats(:, i)),'.', ...
+            scatter(pos{CHR}(mask), -log10(intStats(mask, i)),'.', ...
                 'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', \# significant:', ...
                 num2str(signum), ' (',num2str(bsignum),')']);
         end
@@ -167,7 +167,8 @@ set(lgd,'Location','BestOutside');
 ylabel('-log10p');
 set(gca,'TickDir','out');
 hold off;
-saveas(fig, [RESULTS_DIR 'partitions_gwas.svg']);
+% saveas(fig, );
+savefigToPdf(fig, [RESULTS_DIR 'partitions_gwas.pdf']);
 close(fig);
 
 

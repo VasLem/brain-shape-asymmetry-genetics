@@ -57,23 +57,22 @@ imagesc(GC)
 colorbar
 
 %%
-spearman_corr = array2table(GC,'VariableNames',SYN.NAMES);
+spearman_corr = array2table(GC);
 writetable(spearman_corr, [outDir 'spearman_corr.csv']);
-spearman_pcorr = array2table(pGC,'VariableNames',SYN.NAMES);
+spearman_pcorr = array2table(pGC);
 writetable(spearman_pcorr, [outDir 'spearman_pcorr.csv']);
-spearman_secorr = array2table(seGC,'VariableNames',SYN.NAMES);
+spearman_secorr = array2table(seGC);
 writetable(spearman_secorr, [outDir 'spearman_secorr.csv']);
+
 %% 
 
 diamLim = [0.3, 1];
-traits = SYN.NAMES;
 ret = GC;
 ret(pGC>0.05) = nan;
 clrLim = [nanmin(ret,[],'all'),nanmax(ret,[],'all')];
 fig=figure;
 [nr,nc] = size(ret);
 imagesc(ret, 'AlphaData',~isnan(ret))
-
 
 
 colormap(gca,'jet');

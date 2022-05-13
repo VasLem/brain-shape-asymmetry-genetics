@@ -8,9 +8,9 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Preface}{i}{chapter*.1}%
 \contentsline {chapter}{List of Figures}{iii}{section*.3}%
-\contentsline {chapter}{List of Tables}{iii}{section*.4}%
-\contentsline {chapter}{List of Abbreviations}{v}{section*.4}%
-\contentsline {chapter}{Abstract}{vii}{chapter*.6}%
+\contentsline {chapter}{List of Tables}{iv}{section*.4}%
+\contentsline {chapter}{List of Abbreviations}{vi}{section*.4}%
+\contentsline {chapter}{Abstract}{viii}{chapter*.6}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Biomedical and anatomic principles}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Bilateria lineage}{1}{subsection.1.1.1}%
@@ -59,10 +59,14 @@
 \contentsline {section}{\numberline {3.3}Partitioning and \ac {pca}}{38}{section.3.3}%
 \contentsline {section}{\numberline {3.4}\ac {gwas}}{40}{section.3.4}%
 \contentsline {section}{\numberline {3.5}\ac {ldsr}}{43}{section.3.5}%
-\contentsline {section}{\numberline {3.6}\ac {ldsc}}{43}{section.3.6}%
-\contentsline {section}{\numberline {3.7}\ac {ldsc}-SEG}{43}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Developmental analysis}{43}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Functional association}{43}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Evolutionary studies}{43}{section.3.10}%
-\contentsline {chapter}{\chapternumberline {4}Discussion}{44}{chapter.4}%
-\contentsline {chapter}{Bibliography}{45}{chapter*.30}%
+\contentsline {section}{\numberline {3.6}Cross-traits correlation}{43}{section.3.6}%
+\contentsline {section}{\numberline {3.7}\Ac {ldsc-seg}}{47}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Developmental analysis}{48}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Functional association}{49}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Proteins set network analysis}{50}{section.3.10}%
+\contentsline {chapter}{\chapternumberline {4}Discussion}{52}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Comparison with literature}{52}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Contributions}{53}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Limitations and possible extensions}{53}{section.4.3}%
+\contentsline {appendix}{\chapternumberline {A}Functional Analysis}{56}{appendix.A}%
+\contentsline {chapter}{Bibliography}{60}{appendix*.42}%
