@@ -61,6 +61,7 @@ for k=1:nPicks
                 cb(1).Ticks=1:length(thresholdsTicks);
                 cb(1).TickLabels=thresholdsTicks;
                 cb(1).Label.String = 'p-value';
+                cb(1).Label.Interpreter = 'latex';
             end
             drawnow;
             fout.ax{i,j}.Visible = 'on';

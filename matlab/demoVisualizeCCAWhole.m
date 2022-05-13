@@ -58,7 +58,7 @@ noPart = cell(22,1);
 if DATASET_INDEX ~=0
     minPos = 0;
     for CHR=1:22
-        disp(['CHR:' , num2str(CHR)]);
+        disp(['Handling CHR:' , num2str(CHR)]);
         CHR_DIR = [RESULTS_DIR 'chr' num2str(CHR) '/'];
         try
             load([CHR_DIR 'withPartCCA.mat'],'stats');
@@ -72,7 +72,8 @@ if DATASET_INDEX ~=0
         end
     end
 else
-    partition = 1;
+    for partition=1:31
+        disp(['Handling partition ', num2str(partition)])
         PAR_FILE =  sprintf('%sCCAPart%02d.csv',RESULTS_DIR,partition);
         gunzip([PAR_FILE '.gz']);
         tab = readtable(PAR_FILE,"Delimiter",",","ReadVariableNames",1);
@@ -84,10 +85,19 @@ else
                 [~, a] = sort(chrtab.position);
 
                 pos{CHR} = minPos + chrtab.position(a);
-                noPart{CHR} = table2array(chrtab(a, 'P_value')); 
+                pvals = table2array(chrtab(a, 'P_value')); 
+                
+                if partition==1
+                    part{CHR} = zeros(height(a),31);
+                end
+                if partition == 1
+                    noPart{CHR} = pvals;
+                end
+                part{CHR}(:,partition) = pvals;
                 AVAILABLE_CHRS(end+1) = CHR;
                 minPos = max(pos{CHR});
         end 
+    end
 end
 disp(['Chromosomes correctly parsed:', num2str(AVAILABLE_CHRS)])
 %%
@@ -115,7 +125,6 @@ set(gca,'TickDir','out');
 saveas(f, [RESULTS_DIR 'gwas.svg']);
 close(f);
 %%
-if DATASET_INDEX ~= 0
 pThres = NO_PARTITION_THRES;
 bpThres = NO_PARTITION_THRES / 31;
 fig = figure;
@@ -159,6 +168,6 @@ ylabel('-log10p');
 set(gca,'TickDir','out');
 hold off;
 saveas(fig, [RESULTS_DIR 'partitions_gwas.svg']);
-
 close(fig);
-end
+
+

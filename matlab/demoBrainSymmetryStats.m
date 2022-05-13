@@ -216,6 +216,7 @@ outu = upsampleAnovaStats(out, templateAdjacency, preprocLandmarksIndices);
 showstruct = outu;
 showPerm=1;
 %%
+template.Vertices(:,1) = -template.Vertices(:,1);
 data = ProcrustesAnova2WayAsymmetryOutputProcess(...
     template, showstruct, N_SAMPLES_PER_PICK , showPerm, [RESULTS_DIR 'data' experimentId '.mat'], 1/N_ITER);
 %%
@@ -253,6 +254,15 @@ title({'Difference between measurement variances of contralateral and symmetrica
 saveas(f, [resultsDir 'testRetestVarDiff.svg'])
 variance.LH = outLH;
 variance.RH = outRH;
+%%
+t = clone(template);
+f = figure;
+axes = subplot(2, 2, 1);
+t.VertexValue = outu.LM.E;
+t.ColorMode = 'indexed';
+t.Material = 'dull';
+showPaintedDoubleFace(f,t,nan)
+colorbar( 'SouthOutside');
 %%
 template = clone(template);
 f = figure;

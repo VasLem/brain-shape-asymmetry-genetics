@@ -7,7 +7,7 @@ addpath(genpath('AIDFUNCTIONS'));
 DATASET_INDEX = 1;
 MODALITY = 'asymmetry'; %asymmetry,symmetry
 SUBSAMPLED_ID='not_subsampled';
-IMPUTE_STRATEGY = 'mean';
+IMPUTE_STRATEGY = 'no';
 
 switch IMPUTE_STRATEGY
     case 'no'
