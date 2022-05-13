@@ -133,17 +133,19 @@ cnt = 0;
 xticks_pos = [];
 st_edges = [];
 en_edges = [];
+maxy=0;
+
 for CHR=1:22
      if ~ismember(CHR, AVAILABLE_CHRS)
         continue
     end
     intStats = part{CHR};
     pNum = size(intStats, 2);
-    
+    maxy = max(maxy, max(-log10(intStats),[],'all'));
     for i=1:pNum
         signum = sum(intStats(:, i)<pThres);
         bsignum = sum(intStats(:, i)<bpThres);
-        mask = intStats(:,i) < 0.5;
+        mask = intStats(:,i) < 1e-3;
         if signum > 0
             scatter(pos{CHR}(mask), -log10(intStats(mask, i)),'.', ...
                 'DisplayName',['Chr. ' num2str(CHR) ', Part. ' num2str(i) ', \# significant:', ...
@@ -160,15 +162,18 @@ yline(-log10(bpThres), '--k', 'DisplayName', '(Bonferroni Threshold)');
 ylabel('-log10p');
 xticks(xticks_pos)
 xticklabels(arrayfun(@num2str, AVAILABLE_CHRS, 'UniformOutput', 0))
+
+ylim([3,1.05*maxy])
 lgd = legend;
 lgd.NumColumns = 4;
 set(lgd, 'LimitMaxLegendEntries', false);
-set(lgd,'Location','BestOutside');
+set(lgd,'Location','SouthOutside');
 ylabel('-log10p');
 set(gca,'TickDir','out');
 hold off;
 % saveas(fig, );
+%%
 savefigToPdf(fig, [RESULTS_DIR 'partitions_gwas.pdf']);
-close(fig);
+% close(fig);
 
 
