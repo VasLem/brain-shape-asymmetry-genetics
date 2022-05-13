@@ -61,9 +61,9 @@ The required number of \ac{pca} features per partition given the constraints, as
 \caption[Number of PCs per HSC cortical surface partition]{Number of \acp{pc} for each \ac{hsc} cortical surface partition, required to explain 80\% of its variance, relatively to the discovery dataset. For the first partition, the upper limit of 500 components is reached and only 74\% of its variance is explained.}
 \label{fig:pcs_num}
 \end{figure}
-\section{\ac{gwas}}
+\section{\acs{gwas}}
 
-The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, the partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be in general significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the subset of the genetic signature of their parents, for example partition 8 exhibit a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry. \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located in chromosome 10, although in this study, same chromosome 10 peak did not rank equally highly. Chromosome 15 exhibits the highest peak instead, rs2033939 (P=2e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more fine-grained, quantitative comparison is also performed by applying Spearman correlation, with the way mentioned in \autoref{subsec:gencorr} \cite{Naqvi2021} (cf. \autoref{tab:otherAsym}). The degree of agreement is non-negligible, and most partitions exhibit significant monotonic relationship with the results from \citet{Sha2021}. The greatest (0.16) and most strongly supported (P=1e-11) correlation is observed for the entire hemisphere (partition 1).
+The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}, with the overlaid Manhattan plots shown  in \autoref{fig:part_manhattan}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be, in general, significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the genetic signature of their parents, for example partition 8 exhibits a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry. \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located at chromosome 10, although in this study, same chromosome 10 peak did not rank in an equally high degree. Chromosome 15 exhibits the highest peak instead, namely the \ac{snp} rs2033939 (P=2e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more fine-grained, quantitative comparison is also performed by applying Spearman correlation, in the way mentioned at \autoref{subsec:gencorr} \cite{Naqvi2021} (cf. \autoref{tab:otherAsym}). The degree of agreement is non-negligible, and most partitions exhibit significant monotonic relationship with the results from \citet{Sha2021}. The greatest (0.16) and most strongly supported (P=1e-11) correlation is observed relatively to the entire hemisphere (partition 1). For the discovery dataset, the experiment was performed both with and without mean substitution, with the Spearman correlation values clearly suggesting that mean substitution has little effect on the results (\autoref{tab: spearman_no_vs_mean}).
 
 \begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
 	\tiny
@@ -150,7 +150,7 @@ The resulting \ac{mvgwas} results on the entire hemisphere exhibit distinct peak
 	\label{fig:part_bonferroni}
 \end{figure}
 
-\section{\ac{ldsr}}
+\section{\acs{ldsr}}
 \label{subsec:ldsr_results}
 The observed heritability is generally below 0.3 across the different partitioning levels (figure \autoref{fig:herit_part}), as expected from the effect of plasticity on cortical asymmetry. The heritability estimates minima and maxima grossly agree with the results of \citet{Sha2021}. Comparably more heritable than in other regions appears to be the asymmetry on the temporal lobe, on the auditory cortex and the basal surface of the temporal lobe.  The confounding bias is found to be considerably low, with the \ac{ldsr} intercept being close to 1 \cite{Bulik-Sullivan2015} (figure \autoref{fig:confbias}), so little to no subpopulation stratification is observed. 
 
@@ -159,7 +159,7 @@ The observed heritability is generally below 0.3 across the different partitioni
 After performing Spearman correlation with the univariate traits mentioned in \autoref{subsec:other_sources}, no monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified:
 \begin{itemize}
 	\item{\ac{adhd}}
-	\item{\ac{asd}
+	\item{\ac{asd}}
 	\item{\ac{ad}}
 	\item{\ac{bd}}
 	\item{Major Depressive Disorder}
@@ -209,7 +209,7 @@ Investigating the relations of cortical asymmetry with another trait related to 
 	\par\medskip
 	\subfloat[Bootstrapping P-value]{
 		\includesvg[width=\linewidth]{asymmetry/spearman_correlation/joinedDatasets/mean_imputed/not_subsampled/brain_shape/brainShapeHeatmapPvalues.svg}}
-	\caption{Brain shape partitions (x-axis) \ac{gwas} scores, as derived by \citet{Naqvi2021}, compared against cortical asymmetry partitions (y-axis) \ac{gwas} scores of the present study.}
+	\caption[Brain shape genetically related to cortical asymmetry]{Brain shape partitions (x-axis) \ac{gwas} scores, as derived by \citet{Naqvi2021}, compared against cortical asymmetry partitions (y-axis) \ac{gwas} scores of the present study.}
 	\label{fig:spearmanShape}
 \end{adjustwidth}
 \end{figure}
@@ -230,7 +230,7 @@ Investigating the relations of cortical asymmetry with another trait related to 
 \end{figure}
 
 
-\section{\Ac{ldsc-seg}}
+\section{\acs{ldsc-seg}}
 In \autoref{fig:ldsc-seg-chromatin} chromatin accessibility enriched regions for specific adult or developing tissues were found to be related with cortical asymmetry heritability. Out of the 489 tested tissues, mainly those related with the brain, and in particular with the fetal brain, exhibited more significant relationship with the studied population. The strongest significance was displayed by the fetal brain female tissue, versus the male analog, suggesting that female fetuses may exhibit increased asymmetric heritability. However, these results need to be taken with a grain of salt, as the underlying population used to collect the samples was comprised only by a few individuals, at different time periods, so it os quite possible that uncontrollable factors and sample bias obscure the results. Another observation is that partitions that `reacted` to this analysis are mainly localized on regions that had already been found to have increased heritability in \autoref{subsec:ldsr_results} and figure \autoref{fig:herit_part}.
 
 
@@ -317,23 +317,24 @@ Last but not least, through the analysis of the computed STRING proteins network
 	\end{minipage} \quad
 	\begin{minipage}{0.5\linewidth}
 		\subfloat[Cluster 1, 13 genes participating in Hedhegog gene signalling (Reactome GO enrichment through Panther without correction, with Fisher's exact test, P-value=1e-2).]{
-			\includesvg[pretex=\tiny, width=0.45\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_1/clusterMCL2_1.svg}
+			\includesvg[pretex=\tiny, width=0.4\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_1/clusterMCL2_1.svg}
 		}
 	\quad
 	\subfloat[Cluster 2, 8 genes participating in WNT ligand biogenesis, to regulate morphogenesis, namely the positioning of different cell types in a tissue during development (P-value={9e-3}).]{
-		\includesvg[pretex=\tiny, width=0.45\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_2/clusterMCL2_2.svg}
+		\includesvg[pretex=\tiny, width=0.4\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_2/clusterMCL2_2.svg}
 	}
 	\par\medskip
 	\subfloat[Cluster 3, 8 genes with a role in gap junction assembly(P-value=1e-10), activation of AMPK downstream of NMDARs (P-value=4e-13) and tubulin folding(P-value=2e-10).]{
-	\includesvg[pretex=\tiny, width=0.45\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_3/clusterMCL2_3.svg}
-	}
-	\quad
+	\includesvg[pretex=\tiny, width=0.4\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_3/clusterMCL2_3.svg}
+	}\qquad	
+	\centering	
 	\subfloat[Cluster 4, 5 genes participating in extracellular matrix organization, specifically in collagen formation (P-value=2e-4), but also in its degradation (P-value=1e-4).]{
-	\includesvg[pretex=\tiny, width=0.45\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_4/clusterMCL2_4.svg}
+	\includesvg[pretex=\tiny, width=0.4\textwidth]{asymmetry/STRING/joinedDatasets/par01/clusterMCL2_4/clusterMCL2_4.svg}
 	}
+	
 	\end{minipage}
 
-\caption{STRING gene network from the entire hemisphere \ac{gwas} gene set. Each cluster is annotated using PANTHER (cf. \autoref{subsec:func_mat_methods}).}
+\caption[STRING protein-protein interaction network from the entire hemisphere GWAS]{STRING protein-protein interaction network from the entire hemisphere \ac{gwas} gene set. Each cluster is annotated using PANTHER (cf. \autoref{subsec:func_mat_methods}).}
 \label{fig:string_net}
 \end{adjustwidth}
 \end{figure}
