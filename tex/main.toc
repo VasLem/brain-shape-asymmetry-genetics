@@ -7,9 +7,9 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{List of Figures}{iv}{section*.2}%
-\contentsline {chapter}{List of Tables}{iv}{section*.3}%
-\contentsline {chapter}{List of Abbreviations}{vi}{section*.3}%
-\contentsline {chapter}{Abstract}{viii}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{v}{section*.3}%
+\contentsline {chapter}{List of Abbreviations}{vii}{section*.3}%
+\contentsline {chapter}{Abstract}{ix}{chapter*.5}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Biomedical and anatomic principles}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Bilateria lineage}{1}{subsection.1.1.1}%
@@ -67,7 +67,14 @@
 \contentsline {section}{\numberline {4.1}Comparison with literature}{52}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Contributions}{53}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Limitations and possible extensions}{53}{section.4.3}%
-\contentsline {appendix}{\chapternumberline {A}Genome preprocessing}{55}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}Heritability}{58}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}Functional Analysis}{60}{appendix.C}%
-\contentsline {chapter}{Bibliography}{64}{appendix*.44}%
+\contentsline {subsection}{\numberline {4.3.1}Limitations}{53}{subsection.4.3.1}%
+\contentsline {subsubsection}{First stage}{53}{section*.37}%
+\contentsline {subsubsection}{Second stage}{54}{section*.38}%
+\contentsline {subsection}{\numberline {4.3.2}Controversies}{54}{subsection.4.3.2}%
+\contentsline {subsubsection}{Cross-trait correlation results differ at snp- and gene- level}{54}{section*.39}%
+\contentsline {subsubsection}{Existence of subpopulation structure}{55}{section*.40}%
+\contentsline {subsection}{\numberline {4.3.3}Extensions}{55}{subsection.4.3.3}%
+\contentsline {appendix}{\chapternumberline {A}Genome preprocessing and filtering}{56}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}Heritability}{61}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Functional Analysis}{63}{appendix.C}%
+\contentsline {chapter}{Bibliography}{67}{appendix*.50}%

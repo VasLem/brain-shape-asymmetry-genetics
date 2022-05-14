@@ -1,4 +1,4 @@
-\begin{thebibliography}{162}
+\begin{thebibliography}{166}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -283,6 +283,16 @@ A.~Buniello et al.
 \newblock ISSN 1362-4962.
 \newblock \doi{10.1093/NAR/GKY1120}.
 
+\bibitem[Bycroft et~al.(2018)Bycroft, Freeman, Petkova, Band, Elliott, Sharp,
+  Motyer, Vukcevic, Delaneau, O'Connell, Cortes, Welsh, Young, Effingham,
+  McVean, Leslie, Allen, Donnelly, and Marchini]{Bycroft2018}
+C.~Bycroft et al.
+\newblock {The UK Biobank resource with deep phenotyping and genomic data}.
+\newblock \emph{Nature 2018 562:7726}, 562\penalty0 (7726):\penalty0 203--209,
+  oct 2018.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/s41586-018-0579-z}.
+
 \bibitem[Cano-Gamez and Trynka(2020)]{Cano-Gamez2020}
 E.~Cano-Gamez and G.~Trynka.
 \newblock {From GWAS to Function: Using Functional Genomics to Identify the
@@ -328,6 +338,17 @@ A.~Cichonska et al.
   2016.
 \newblock ISSN 1367-4803.
 \newblock \doi{10.1093/BIOINFORMATICS/BTW052}.
+
+\bibitem[Cirulli et~al.(2020)Cirulli, White, Read, Elhanan, Metcalf, Tanudjaja,
+  Fath, Sandoval, Isaksson, Schlauch, Grzymski, Lu, and
+  Washington]{Cirulli2020}
+E.~T. Cirulli et al.
+\newblock {Genome-wide rare variant analysis for thousands of phenotypes in
+  over 70,000 exomes from two cohorts}.
+\newblock \emph{Nature Communications 2020 11:1}, 11\penalty0 (1):\penalty0
+  1--10, jan 2020.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-020-14288-y}.
 
 \bibitem[Claes et~al.(2012)Claes, Walters, Shriver, Puts, Gibson, Clement,
   Baynam, Verbeke, Vandermeulen, and Suetens]{Claes2012}
@@ -777,6 +798,21 @@ M.~Guindo-Mart{\'{i}}nez et al.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/S41467-021-21952-4}.
 
+\bibitem[Halldorsson et~al.(2022)Halldorsson, Eggertsson, Moore, Hauswedell,
+  Eiriksson, Ulfarsson, Palsson, Hardarson, Oddsson, Jensson, Kristmundsdottir,
+  Sigurpalsdottir, Stefansson, Beyter, Holley, Tragante, Gylfason, Olason,
+  Zink, Asgeirsdottir, Sverrisson, Sigurdsson, Gudjonsson, Sigurdsson,
+  Halldorsson, Sveinbjornsson, Norland, Styrkarsdottir, Magnusdottir,
+  Snorradottir, Kristinsson, Sobech, Jonsson, Geirsson, Olafsson, Jonsson,
+  Pedersen, Erikstrup, Brunak, Ostrowski, Consortium, Thorleifsson, Jonsson,
+  Melsted, Jonsdottir, Rafnar, Holm, Stefansson, Saemundsdottir, Gudbjartsson,
+  Magnusson, Masson, Thorsteinsdottir, Helgason, Jonsson, Sulem, and
+  Stefansson]{Halldorsson2022}
+B.~V. Halldorsson et al.
+\newblock {The sequences of 150,119 genomes in the UK biobank}.
+\newblock \emph{bioRxiv}, page 2021.11.16.468246, mar 2022.
+\newblock \doi{10.1101/2021.11.16.468246}.
+
 \bibitem[Han et~al.(2016)Han, Jung, Yun, Park, Cho, Hur, Shin, Lee, and
   Kwon]{Han2016}
 H.~J. Han, W.~H. Jung, J.~Y. Yun, J.~W. Park, K.~K. Cho, J.~W. Hur, N.~Y. Shin,
@@ -915,6 +951,17 @@ H.~J. Kang et al.
 \newblock \emph{Nature}, 478\penalty0 (7370):\penalty0 483--489, oct 2011.
 \newblock ISSN 1476-4687.
 \newblock \doi{10.1038/NATURE10523}.
+
+\bibitem[Kierczak et~al.(2022)Kierczak, Rafati, H{\"{o}}glund, Gourl{\'{e}},
+  {Lo Faro}, Schmitz, Ek, Gyllensten, Enroth, Ekman, Nystedt, Karlsson, and
+  Johansson]{Kierczak2022}
+M.~Kierczak et al.
+\newblock {Contribution of rare whole-genome sequencing variants to plasma
+  protein levels and the missing heritability}.
+\newblock \emph{Nature Communications 2022 13:1}, 13\penalty0 (1):\penalty0
+  1--12, may 2022.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-022-30208-8}.
 
 \bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
   SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
