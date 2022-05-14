@@ -171,7 +171,6 @@ set(lgd,'Location','SouthOutside');
 ylabel('-log10p');
 set(gca,'TickDir','out');
 hold off;
-% saveas(fig, );
 %%
 savefigToPdf(fig, [RESULTS_DIR 'partitions_gwas.pdf']);
 % close(fig);
