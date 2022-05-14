@@ -20,7 +20,8 @@
 \usepackage{soul}% for underlines
 \usepackage[numbers]{natbib}
 \bibliographystyle{abbrvnat-maxbibnames10}
-
+\pdfminorversion=7
+\pdfsuppresswarningpagegroup=1
 %\bibliographystyle{plainnat-maxbibnames10}
 
 \graphicspath{
@@ -35,9 +36,13 @@
 \DeclareMathOperator*{\erfc}{erfc}
 \DeclareMathOperator*{\NMI}{NMI}
 \begin{document}
-	\begin{preface}[The Author\\ \textup{1 January 2010}]
-		The text of the preface. A few paragraphs should follow.
-	\end{preface}
+\newenvironment{acknowledgements}%
+{\cleardoublepage\thispagestyle{empty}\null\vfill\begin{center}%
+		\bfseries Acknowledgements\end{center}}%
+{\vfill\null}
+\begin{acknowledgements}
+	I would like to convey my deep gratitude to everyone that  supported me throughout the writing of this thesis. Specifically, professor Peter Claes provided the grounds for its conception and a concrete plan for its manifestation, offering me access to the essential tools, data and advice. Professor Isabelle Cleynen supplied me with the necessary threoretical basis on population genetics, without which I would not be capable or feel confident enough to confront the thesis' complexity. My mentors, PhD students Meng Yuan and Seppe Goovaerts, offered extremely valuable feedback through frequent communication and to-the-point advice at every step of this thesis, successfully guiding me towards its realization. Last but not least, I owe a great thank you to the people that stood beside me, family and friends, whose tolerance and support comprised the cornerstone of this effort.
+\end{acknowledgements}
 \tableofcontents*
 \cleardoublepage
 \listoffigures

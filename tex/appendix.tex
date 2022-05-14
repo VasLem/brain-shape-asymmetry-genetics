@@ -1,4 +1,63 @@
 \appendix
+\chapter{Genome preprocessing}
+
+\begin{table}[!htp]\centering
+	\scriptsize
+	\begin{tabular}{cc}\toprule
+		\textbf{Partition} &\textbf{Spearman Correlation} \\\midrule
+		1 &0.9996 \\
+		2 &0.9997 \\
+		3 &0.9989 \\
+		4 &0.9997 \\
+		5 &0.9997 \\
+		6 &0.9994 \\
+		7 &0.9997 \\
+		8 &0.9994 \\
+		9 &0.9997 \\
+		10 &0.9997 \\
+		11 &0.9996 \\
+		12 &0.9996 \\
+		13 &0.9997 \\
+		14 &0.9997 \\
+		15 &0.9997 \\
+		16 &0.9996 \\
+		17 &0.9997 \\
+		18 &0.9997 \\
+		19 &0.9997 \\
+		20 &0.9995 \\
+		21 &0.9997 \\
+		22 &0.9997 \\
+		23 &0.9997 \\
+		24 &0.9997 \\
+		25 &0.9997 \\
+		26 &0.9996 \\
+		27 &0.9997 \\
+		28 &0.9996 \\
+		29 &0.9996 \\
+		30 &0.9996 \\
+		31 &0.9997 \\
+		\bottomrule
+	\end{tabular}
+\caption[Spearman correlation assessing mean substitution effect]{Spearman correlation between corresponding partitions, comparing the cases with versus without mean substitution of missing \acp{snp}.}
+\label{tab: spearman_no_vs_mean}
+\end{table}
+\begin{figure}
+\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering
+	
+
+	\includegraphics[width=\linewidth]{asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/partitions_gwas.pdf}
+	\caption[Combined Manhattan plots across different partitions]{Combined Manhattan plots across different partitions, showing the number of significant \acp{snp} below the threshold of 5e-8 and with the Bonferroni correction, inside parentheses.}
+	\label{fig:part_manhattan}
+
+
+\end{adjustwidth}
+\end{figure}
+\chapter{Heritability}
+\begin{figure}[H]
+	\centering
+\includesvg[width=0.5\textwidth]{asymmetry/visualizeHeritabilityOnPheno/joinedDatasets/mean_imputed/not_subsampled/Lambda GC.svg}
+\caption[$\lambda_{GC}$ coefficient, as computed by LDSR]{$\lambda_{GC}$ coefficient, as computed by \ac{ldsr}. The observed $\chi^2$ value is close to the expected one at all studied partitions, with their ratio being close to 1.}	
+\end{figure}
 \chapter{Functional Analysis}
 \begin{figure}[H]
 	\centering
@@ -16,6 +75,7 @@
 	\caption[GO terms enrichment analysis]{\Ac{go} terms enrichment analysis -log10 P-values (the higher value and the darker color, the more significant), as computed by FUMA, with the gene set augmented by GREAT.For all three cases, the entire hemisphere and the four 2nd level partition were assessed, however not all of the tests displayed a significant signal with \ac{go} terms.}
 	\label{fig:go}
 \end{figure}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/canonical_pathways.pdf}

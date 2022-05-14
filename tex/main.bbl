@@ -1,4 +1,4 @@
-\begin{thebibliography}{159}
+\begin{thebibliography}{162}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -339,6 +339,16 @@ P.~Claes, M.~Walters, M.~D. Shriver, D.~Puts, G.~Gibson, J.~Clement, G.~Baynam,
   2012.
 \newblock ISSN 1469-7580.
 \newblock \doi{10.1111/J.1469-7580.2012.01528.X}.
+
+\bibitem[Claes et~al.(2014)Claes, Liberton, Daniels, Rosana, Quillen, Pearson,
+  McEvoy, Bauchet, Zaidi, Yao, Tang, Barsh, Absher, Puts, Rocha, Beleza,
+  Pereira, Baynam, Suetens, Vandermeulen, Wagner, Boster, and
+  Shriver]{Claes2014}
+P.~Claes et al.
+\newblock {Modeling 3D Facial Shape from DNA}.
+\newblock \emph{PLOS Genetics}, 10\penalty0 (3):\penalty0 e1004224, 2014.
+\newblock ISSN 1553-7404.
+\newblock \doi{10.1371/JOURNAL.PGEN.1004224}.
 
 \bibitem[Claes et~al.(2018)Claes, Roosenboom, White, Swigut, Sero, Li, Lee,
   Zaidi, Mattern, Liebowitz, Pearson, Gonz{\'{a}}lez, Leslie, Carlson, Orlova,
@@ -1409,6 +1419,14 @@ S.~Rao, Y.~Yao, and D.~E. Bauer.
 \newblock ISSN 1756-994X.
 \newblock \doi{10.1186/S13073-021-00857-3}.
 
+\bibitem[Rawlik et~al.(2016)Rawlik, Canela-Xandri, and Tenesa]{Rawlik2016}
+K.~Rawlik, O.~Canela-Xandri, and A.~Tenesa.
+\newblock {Evidence for sex-specific genetic architectures across a spectrum of
+  human complex traits}.
+\newblock \emph{Genome Biology}, 17\penalty0 (1), jul 2016.
+\newblock ISSN 1474760X.
+\newblock \doi{10.1186/S13059-016-1025-X}.
+
 \bibitem[Reuter et~al.(2012)Reuter, Schmansky, Rosas, and Fischl]{Reuter2012}
 M.~Reuter, N.~J. Schmansky, H.~D. Rosas, and B.~Fischl.
 \newblock {Within-subject template estimation for unbiased longitudinal image
@@ -1769,6 +1787,17 @@ K.~Watanabe, E.~Taskesen, A.~{Van Bochoven}, and D.~Posthuma.
   1--11, nov 2017.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/s41467-017-01261-5}.
+
+\bibitem[White et~al.(2020)White, Indencleef, Naqvi, Eller, Hoskens,
+  Roosenboom, Lee, Li, Mohammed, Richmond, Quillen, Norton, Feingold, Swigut,
+  Marazita, Peeters, Hens, Shaffer, Wysocka, Walsh, Weinberg, Shriver, and
+  Claes]{White2020}
+J.~D. White et al.
+\newblock {Insights into the genetic architecture of the human face}.
+\newblock \emph{Nature Genetics 2020 53:1}, 53\penalty0 (1):\penalty0 45--53,
+  dec 2020.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/s41588-020-00741-7}.
 
 \bibitem[White et~al.(2002)White, Andreasen, and Nopoulos]{White2002}
 T.~White, N.~C. Andreasen, and P.~Nopoulos.
