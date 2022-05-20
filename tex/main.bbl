@@ -1,4 +1,4 @@
-\begin{thebibliography}{166}
+\begin{thebibliography}{170}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -1075,6 +1075,17 @@ X.-Z. Kong et al.
 \newblock ISSN 1065-9471.
 \newblock \doi{https://doi.org/10.1002/hbm.25033}.
 
+\bibitem[Kranz et~al.(2012)Kranz, Ekawardhani, Lin, Witzmann, Streit,
+  Schuelter, Bauer, Henseler, Turner, Muller, Reif, Schote, and
+  Meyer]{Kranz2012}
+T.~M. Kranz et al.
+\newblock {The chromosome 15q14 locus for bipolar disorder and schizophrenia:
+  is C15orf53 a major candidate gene?}
+\newblock \emph{Journal of psychiatric research}, 46\penalty0 (11):\penalty0
+  1414--1420, nov 2012.
+\newblock ISSN 1879-1379.
+\newblock \doi{10.1016/J.JPSYCHIRES.2012.08.008}.
+
 \bibitem[Kuo and Massoud(2022)]{Kuo2022}
 F.~Kuo and T.~F. Massoud.
 \newblock {Structural asymmetries in normal brain anatomy: A brief overview}.
@@ -1560,6 +1571,24 @@ P.~Robert and Y.~Escoufier.
 \newblock ISSN 00359254.
 \newblock \doi{10.2307/2347233}.
 
+\bibitem[Roe et~al.(2021)Roe, Vidal-Pi{\~{n}}eiro, S{\o}rensen, Brandmaier,
+  D{\"{u}}zel, Gonzalez, Kievit, Knights, K{\"{u}}hn, Lindenberger, Mowinckel,
+  Nyberg, Park, Pudas, Rundle, Walhovd, Fjell, Westerhausen, Masters, Bush,
+  Fowler, Darby, Pertile, Restrepo, Roberts, Robertson, Rumble, Ryan, Collins,
+  Thai, Trounson, Lennon, Li, Ugarte, Volitakis, Vovos, Williams, Baker,
+  Russell, Peretti, Milicic, Lim, Rodrigues, Taddei, Taddei, Hone, Lim,
+  Fernandez, Rainey-Smith, Pedrini, Martins, Doecke, Bourgeat, Fripp, Gibson,
+  Leroux, Hanson, Dore, Zhang, Burnham, Rowe, Villemagne, Yates, Pejoska,
+  Jones, Ames, Cyarto, Lautenschlager, Barnham, Cheng, Hill, Killeen, Maruff,
+  Silbert, Brown, Sohrabi, Savage, and Vacher]{Roe2021}
+J.~M. Roe et al.
+\newblock {Asymmetric thinning of the cerebral cortex across the adult lifespan
+  is accelerated in Alzheimer's disease}.
+\newblock \emph{Nature Communications 2021 12:1}, 12\penalty0 (1):\penalty0
+  1--11, feb 2021.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-021-21057-y}.
+
 \bibitem[Sarica et~al.(2018)Sarica, Vasta, Novellino, Vaccaro, Cerasa, and
   Quattrone]{Sarica2018}
 A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
@@ -1633,6 +1662,16 @@ J.~Shi and J.~Malik.
   Intelligence}, 22\penalty0 (8):\penalty0 888--905, 2000.
 \newblock ISSN 01628828.
 \newblock \doi{10.1109/34.868688}.
+
+\bibitem[Siewert-Rocks et~al.(2022)Siewert-Rocks, Kim, Yao, Shi, and
+  Price]{Siewert-Rocks2022}
+K.~M. Siewert-Rocks, S.~S. Kim, D.~W. Yao, H.~Shi, and A.~L. Price.
+\newblock {Leveraging gene co-regulation to identify gene sets enriched for
+  disease heritability}.
+\newblock \emph{The American Journal of Human Genetics}, 109\penalty0
+  (3):\penalty0 393--404, mar 2022.
+\newblock ISSN 0002-9297.
+\newblock \doi{10.1016/J.AJHG.2022.01.005}.
 
 \bibitem[Sniekers et~al.(2017)Sniekers, Stringer, Watanabe, Jansen, Coleman,
   Krapohl, Taskesen, Hammerschlag, Okbay, Zabaneh, Amin, Breen, Cesarini,
@@ -1807,6 +1846,17 @@ U.~{Von Luxburg}.
   395--416, aug 2007.
 \newblock ISSN 1573-1375.
 \newblock \doi{10.1007/S11222-007-9033-Z}.
+
+\bibitem[Wang et~al.(2018)Wang, Li, Zhou, Zhao, Niu, Wang, Yan, Cao, Xiang, and
+  Li]{Wang2018}
+B.~Wang, T.~Li, M.~Zhou, S.~Zhao, Y.~Niu, X.~Wang, T.~Yan, R.~Cao, J.~Xiang,
+  and D.~Li.
+\newblock {The abnormality of topological asymmetry in hemispheric brain
+  anatomical networks in bipolar disorder}.
+\newblock \emph{Frontiers in Neuroscience}, 12\penalty0 (SEP):\penalty0 618,
+  sep 2018.
+\newblock ISSN 1662453X.
+\newblock \doi{10.3389/FNINS.2018.00618/BIBTEX}.
 
 \bibitem[Wang et~al.(2010)Wang, Li, and Hakonarson]{Wang2010}
 K.~Wang, M.~Li, and H.~Hakonarson.
