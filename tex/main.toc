@@ -49,33 +49,33 @@
 \contentsline {subsection}{\numberline {2.4.1}\acs {mvgwas} \acs {cca}}{30}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Discovery and replication results aggregation}{31}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Heritability and confounding bias detection}{31}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}Tissue and cell-type specific heritability analysis}{32}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.4}Tissue and cell-type specific heritability analysis}{33}{subsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.4.5}Genetic correlation analyses}{33}{subsection.2.4.5}%
 \contentsline {subsection}{\numberline {2.4.6}Gene-based developmental and functional analysis}{34}{subsection.2.4.6}%
-\contentsline {chapter}{\chapternumberline {3}Results}{36}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Statistical brain shape analysis}{36}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Covariates control}{37}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Partitioning and \acs {pca}}{38}{section.3.3}%
-\contentsline {section}{\numberline {3.4}\acs {gwas}}{40}{section.3.4}%
-\contentsline {section}{\numberline {3.5}\acs {ldsr}}{43}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Cross-traits correlation}{43}{section.3.6}%
-\contentsline {section}{\numberline {3.7}\acs {ldsc-seg}}{47}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Developmental analysis}{48}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Functional association}{49}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Proteins set network analysis}{50}{section.3.10}%
-\contentsline {chapter}{\chapternumberline {4}Discussion}{52}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Comparison with literature}{52}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Controversies leading to new questions}{53}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Dependency on gender}{53}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Cross-trait correlation results differ at \acs {snp}- and gene- level}{53}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Existence of subpopulation structure}{53}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Contributions}{54}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Limitations and possible extensions}{54}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Limitations}{54}{subsection.4.4.1}%
-\contentsline {subsubsection}{First stage}{54}{section*.37}%
-\contentsline {subsubsection}{Second stage}{55}{section*.38}%
-\contentsline {subsection}{\numberline {4.4.2}Extensions}{55}{subsection.4.4.2}%
-\contentsline {appendix}{\chapternumberline {A}Genome preprocessing and filtering}{56}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}Heritability}{61}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}Functional Analysis}{63}{appendix.C}%
-\contentsline {chapter}{Bibliography}{67}{appendix*.48}%
+\contentsline {chapter}{\chapternumberline {3}Results}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Statistical brain shape analysis}{37}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Covariates control}{38}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Partitioning and \acs {pca}}{39}{section.3.3}%
+\contentsline {section}{\numberline {3.4}\acs {gwas}}{41}{section.3.4}%
+\contentsline {section}{\numberline {3.5}\acs {ldsr}}{44}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Cross-traits correlation}{44}{section.3.6}%
+\contentsline {section}{\numberline {3.7}\acs {ldsc-seg}}{48}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Developmental analysis}{49}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Functional association}{50}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Proteins set network analysis}{51}{section.3.10}%
+\contentsline {chapter}{\chapternumberline {4}Discussion}{53}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Comparison with literature}{53}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Controversies leading to new questions}{54}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Dependency on gender}{54}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Cross-trait correlation results differ at \acs {snp}- and gene- level}{54}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Existence of subpopulation structure}{54}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Contributions}{55}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Limitations and possible extensions}{55}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Limitations}{55}{subsection.4.4.1}%
+\contentsline {subsubsection}{First stage}{55}{section*.37}%
+\contentsline {subsubsection}{Second stage}{56}{section*.38}%
+\contentsline {subsection}{\numberline {4.4.2}Further extensions}{56}{subsection.4.4.2}%
+\contentsline {appendix}{\chapternumberline {A}Genome preprocessing and filtering}{57}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}Heritability}{62}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Functional Analysis}{64}{appendix.C}%
+\contentsline {chapter}{Bibliography}{68}{appendix*.48}%

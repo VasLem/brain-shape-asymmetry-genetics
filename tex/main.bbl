@@ -1,4 +1,4 @@
-\begin{thebibliography}{170}
+\begin{thebibliography}{172}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -694,6 +694,22 @@ M.~D. Gallagher and A.~S. Chen-Plotkin.
 \newblock ISSN 0002-9297.
 \newblock \doi{10.1016/J.AJHG.2018.04.002}.
 
+\bibitem[Gialluisi et~al.(2020)Gialluisi, Andlauer, Mirza-Schreiber, Moll,
+  Becker, Hoffmann, Ludwig, Czamara, Pourcain, Honbolyg{\'{o}}, T{\'{o}}th,
+  Cs{\'{e}}pe, Huguet, Chaix, Iannuzzi, Demonet, Morris, Hulslander, Willcutt,
+  DeFries, Olson, Smith, Pennington, Vaessen, Maurer, Lyytinen, Peyrard-Janvid,
+  Lepp{\"{a}}nen, Brandeis, Bonte, Stein, Talcott, Fauchereau, Wilcke, Kirsten,
+  M{\"{u}}ller, Francks, Bourgeron, Monaco, Ramus, Landerl, Kere, Scerri,
+  Paracchini, Fisher, Schumacher, N{\"{o}}then, M{\"{u}}ller-Myhsok, and
+  Schulte-K{\"{o}}rne]{Gialluisi2020}
+A.~Gialluisi et al.
+\newblock {Genome-wide association study reveals new insights into the
+  heritability and genetic correlates of developmental dyslexia}.
+\newblock \emph{Molecular Psychiatry 2020 26:7}, 26\penalty0 (7):\penalty0
+  3004--3017, oct 2020.
+\newblock ISSN 1476-5578.
+\newblock \doi{10.1038/s41380-020-00898-x}.
+
 \bibitem[Glasser and van Essen(2011)]{Glasser2011}
 M.~F. Glasser and D.~C. van Essen.
 \newblock {Mapping Human Cortical Areas In Vivo Based on Myelin Content as
@@ -1101,6 +1117,18 @@ J.~J. Lee, M.~McGue, W.~G. Iacono, and C.~C. Chow.
 \newblock \emph{Genetic epidemiology}, 42\penalty0 (8):\penalty0 783, dec 2018.
 \newblock ISSN 10982272.
 \newblock \doi{10.1002/GEPI.22161}.
+
+\bibitem[Levey et~al.(2021)Levey, Stein, Wendt, Pathak, Zhou, Aslan, Quaden,
+  Harrington, Nu{\~{n}}ez, Overstreet, Radhakrishnan, Sanacora, McIntosh, Shi,
+  Shringarpure, Concato, Polimanti, and Gelernter]{Levey2021}
+D.~F. Levey et al.
+\newblock {Bi-ancestral depression GWAS in the Million Veteran Program and
+  meta-analysis in >1.2 million individuals highlight new therapeutic
+  directions}.
+\newblock \emph{Nature Neuroscience 2021 24:7}, 24\penalty0 (7):\penalty0
+  954--963, may 2021.
+\newblock ISSN 1546-1726.
+\newblock \doi{10.1038/s41593-021-00860-2}.
 
 \bibitem[Li and Tsien(2009)]{Li2009}
 F.~Li and J.~Z. Tsien.
