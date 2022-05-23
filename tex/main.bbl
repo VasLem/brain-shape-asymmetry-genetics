@@ -1,4 +1,4 @@
-\begin{thebibliography}{162}
+\begin{thebibliography}{172}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -283,6 +283,16 @@ A.~Buniello et al.
 \newblock ISSN 1362-4962.
 \newblock \doi{10.1093/NAR/GKY1120}.
 
+\bibitem[Bycroft et~al.(2018)Bycroft, Freeman, Petkova, Band, Elliott, Sharp,
+  Motyer, Vukcevic, Delaneau, O'Connell, Cortes, Welsh, Young, Effingham,
+  McVean, Leslie, Allen, Donnelly, and Marchini]{Bycroft2018}
+C.~Bycroft et al.
+\newblock {The UK Biobank resource with deep phenotyping and genomic data}.
+\newblock \emph{Nature 2018 562:7726}, 562\penalty0 (7726):\penalty0 203--209,
+  oct 2018.
+\newblock ISSN 1476-4687.
+\newblock \doi{10.1038/s41586-018-0579-z}.
+
 \bibitem[Cano-Gamez and Trynka(2020)]{Cano-Gamez2020}
 E.~Cano-Gamez and G.~Trynka.
 \newblock {From GWAS to Function: Using Functional Genomics to Identify the
@@ -328,6 +338,17 @@ A.~Cichonska et al.
   2016.
 \newblock ISSN 1367-4803.
 \newblock \doi{10.1093/BIOINFORMATICS/BTW052}.
+
+\bibitem[Cirulli et~al.(2020)Cirulli, White, Read, Elhanan, Metcalf, Tanudjaja,
+  Fath, Sandoval, Isaksson, Schlauch, Grzymski, Lu, and
+  Washington]{Cirulli2020}
+E.~T. Cirulli et al.
+\newblock {Genome-wide rare variant analysis for thousands of phenotypes in
+  over 70,000 exomes from two cohorts}.
+\newblock \emph{Nature Communications 2020 11:1}, 11\penalty0 (1):\penalty0
+  1--10, jan 2020.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-020-14288-y}.
 
 \bibitem[Claes et~al.(2012)Claes, Walters, Shriver, Puts, Gibson, Clement,
   Baynam, Verbeke, Vandermeulen, and Suetens]{Claes2012}
@@ -673,6 +694,22 @@ M.~D. Gallagher and A.~S. Chen-Plotkin.
 \newblock ISSN 0002-9297.
 \newblock \doi{10.1016/J.AJHG.2018.04.002}.
 
+\bibitem[Gialluisi et~al.(2020)Gialluisi, Andlauer, Mirza-Schreiber, Moll,
+  Becker, Hoffmann, Ludwig, Czamara, Pourcain, Honbolyg{\'{o}}, T{\'{o}}th,
+  Cs{\'{e}}pe, Huguet, Chaix, Iannuzzi, Demonet, Morris, Hulslander, Willcutt,
+  DeFries, Olson, Smith, Pennington, Vaessen, Maurer, Lyytinen, Peyrard-Janvid,
+  Lepp{\"{a}}nen, Brandeis, Bonte, Stein, Talcott, Fauchereau, Wilcke, Kirsten,
+  M{\"{u}}ller, Francks, Bourgeron, Monaco, Ramus, Landerl, Kere, Scerri,
+  Paracchini, Fisher, Schumacher, N{\"{o}}then, M{\"{u}}ller-Myhsok, and
+  Schulte-K{\"{o}}rne]{Gialluisi2020}
+A.~Gialluisi et al.
+\newblock {Genome-wide association study reveals new insights into the
+  heritability and genetic correlates of developmental dyslexia}.
+\newblock \emph{Molecular Psychiatry 2020 26:7}, 26\penalty0 (7):\penalty0
+  3004--3017, oct 2020.
+\newblock ISSN 1476-5578.
+\newblock \doi{10.1038/s41380-020-00898-x}.
+
 \bibitem[Glasser and van Essen(2011)]{Glasser2011}
 M.~F. Glasser and D.~C. van Essen.
 \newblock {Mapping Human Cortical Areas In Vivo Based on Myelin Content as
@@ -776,6 +813,21 @@ M.~Guindo-Mart{\'{i}}nez et al.
 \newblock \emph{Nature communications}, 12\penalty0 (1), dec 2021.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/S41467-021-21952-4}.
+
+\bibitem[Halldorsson et~al.(2022)Halldorsson, Eggertsson, Moore, Hauswedell,
+  Eiriksson, Ulfarsson, Palsson, Hardarson, Oddsson, Jensson, Kristmundsdottir,
+  Sigurpalsdottir, Stefansson, Beyter, Holley, Tragante, Gylfason, Olason,
+  Zink, Asgeirsdottir, Sverrisson, Sigurdsson, Gudjonsson, Sigurdsson,
+  Halldorsson, Sveinbjornsson, Norland, Styrkarsdottir, Magnusdottir,
+  Snorradottir, Kristinsson, Sobech, Jonsson, Geirsson, Olafsson, Jonsson,
+  Pedersen, Erikstrup, Brunak, Ostrowski, Consortium, Thorleifsson, Jonsson,
+  Melsted, Jonsdottir, Rafnar, Holm, Stefansson, Saemundsdottir, Gudbjartsson,
+  Magnusson, Masson, Thorsteinsdottir, Helgason, Jonsson, Sulem, and
+  Stefansson]{Halldorsson2022}
+B.~V. Halldorsson et al.
+\newblock {The sequences of 150,119 genomes in the UK biobank}.
+\newblock \emph{bioRxiv}, page 2021.11.16.468246, mar 2022.
+\newblock \doi{10.1101/2021.11.16.468246}.
 
 \bibitem[Han et~al.(2016)Han, Jung, Yun, Park, Cho, Hur, Shin, Lee, and
   Kwon]{Han2016}
@@ -916,6 +968,17 @@ H.~J. Kang et al.
 \newblock ISSN 1476-4687.
 \newblock \doi{10.1038/NATURE10523}.
 
+\bibitem[Kierczak et~al.(2022)Kierczak, Rafati, H{\"{o}}glund, Gourl{\'{e}},
+  {Lo Faro}, Schmitz, Ek, Gyllensten, Enroth, Ekman, Nystedt, Karlsson, and
+  Johansson]{Kierczak2022}
+M.~Kierczak et al.
+\newblock {Contribution of rare whole-genome sequencing variants to plasma
+  protein levels and the missing heritability}.
+\newblock \emph{Nature Communications 2022 13:1}, 13\penalty0 (1):\penalty0
+  1--12, may 2022.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-022-30208-8}.
+
 \bibitem[Klein et~al.(2005)Klein, Zeiss, Chew, Tsai, Sackler, Haynes, Henning,
   SanGiovanni, Mane, Mayne, Bracken, Ferris, Ott, Barnstable, and
   Hoh]{Klein2005}
@@ -1028,6 +1091,17 @@ X.-Z. Kong et al.
 \newblock ISSN 1065-9471.
 \newblock \doi{https://doi.org/10.1002/hbm.25033}.
 
+\bibitem[Kranz et~al.(2012)Kranz, Ekawardhani, Lin, Witzmann, Streit,
+  Schuelter, Bauer, Henseler, Turner, Muller, Reif, Schote, and
+  Meyer]{Kranz2012}
+T.~M. Kranz et al.
+\newblock {The chromosome 15q14 locus for bipolar disorder and schizophrenia:
+  is C15orf53 a major candidate gene?}
+\newblock \emph{Journal of psychiatric research}, 46\penalty0 (11):\penalty0
+  1414--1420, nov 2012.
+\newblock ISSN 1879-1379.
+\newblock \doi{10.1016/J.JPSYCHIRES.2012.08.008}.
+
 \bibitem[Kuo and Massoud(2022)]{Kuo2022}
 F.~Kuo and T.~F. Massoud.
 \newblock {Structural asymmetries in normal brain anatomy: A brief overview}.
@@ -1043,6 +1117,18 @@ J.~J. Lee, M.~McGue, W.~G. Iacono, and C.~C. Chow.
 \newblock \emph{Genetic epidemiology}, 42\penalty0 (8):\penalty0 783, dec 2018.
 \newblock ISSN 10982272.
 \newblock \doi{10.1002/GEPI.22161}.
+
+\bibitem[Levey et~al.(2021)Levey, Stein, Wendt, Pathak, Zhou, Aslan, Quaden,
+  Harrington, Nu{\~{n}}ez, Overstreet, Radhakrishnan, Sanacora, McIntosh, Shi,
+  Shringarpure, Concato, Polimanti, and Gelernter]{Levey2021}
+D.~F. Levey et al.
+\newblock {Bi-ancestral depression GWAS in the Million Veteran Program and
+  meta-analysis in >1.2 million individuals highlight new therapeutic
+  directions}.
+\newblock \emph{Nature Neuroscience 2021 24:7}, 24\penalty0 (7):\penalty0
+  954--963, may 2021.
+\newblock ISSN 1546-1726.
+\newblock \doi{10.1038/s41593-021-00860-2}.
 
 \bibitem[Li and Tsien(2009)]{Li2009}
 F.~Li and J.~Z. Tsien.
@@ -1513,6 +1599,24 @@ P.~Robert and Y.~Escoufier.
 \newblock ISSN 00359254.
 \newblock \doi{10.2307/2347233}.
 
+\bibitem[Roe et~al.(2021)Roe, Vidal-Pi{\~{n}}eiro, S{\o}rensen, Brandmaier,
+  D{\"{u}}zel, Gonzalez, Kievit, Knights, K{\"{u}}hn, Lindenberger, Mowinckel,
+  Nyberg, Park, Pudas, Rundle, Walhovd, Fjell, Westerhausen, Masters, Bush,
+  Fowler, Darby, Pertile, Restrepo, Roberts, Robertson, Rumble, Ryan, Collins,
+  Thai, Trounson, Lennon, Li, Ugarte, Volitakis, Vovos, Williams, Baker,
+  Russell, Peretti, Milicic, Lim, Rodrigues, Taddei, Taddei, Hone, Lim,
+  Fernandez, Rainey-Smith, Pedrini, Martins, Doecke, Bourgeat, Fripp, Gibson,
+  Leroux, Hanson, Dore, Zhang, Burnham, Rowe, Villemagne, Yates, Pejoska,
+  Jones, Ames, Cyarto, Lautenschlager, Barnham, Cheng, Hill, Killeen, Maruff,
+  Silbert, Brown, Sohrabi, Savage, and Vacher]{Roe2021}
+J.~M. Roe et al.
+\newblock {Asymmetric thinning of the cerebral cortex across the adult lifespan
+  is accelerated in Alzheimer's disease}.
+\newblock \emph{Nature Communications 2021 12:1}, 12\penalty0 (1):\penalty0
+  1--11, feb 2021.
+\newblock ISSN 2041-1723.
+\newblock \doi{10.1038/s41467-021-21057-y}.
+
 \bibitem[Sarica et~al.(2018)Sarica, Vasta, Novellino, Vaccaro, Cerasa, and
   Quattrone]{Sarica2018}
 A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
@@ -1586,6 +1690,16 @@ J.~Shi and J.~Malik.
   Intelligence}, 22\penalty0 (8):\penalty0 888--905, 2000.
 \newblock ISSN 01628828.
 \newblock \doi{10.1109/34.868688}.
+
+\bibitem[Siewert-Rocks et~al.(2022)Siewert-Rocks, Kim, Yao, Shi, and
+  Price]{Siewert-Rocks2022}
+K.~M. Siewert-Rocks, S.~S. Kim, D.~W. Yao, H.~Shi, and A.~L. Price.
+\newblock {Leveraging gene co-regulation to identify gene sets enriched for
+  disease heritability}.
+\newblock \emph{The American Journal of Human Genetics}, 109\penalty0
+  (3):\penalty0 393--404, mar 2022.
+\newblock ISSN 0002-9297.
+\newblock \doi{10.1016/J.AJHG.2022.01.005}.
 
 \bibitem[Sniekers et~al.(2017)Sniekers, Stringer, Watanabe, Jansen, Coleman,
   Krapohl, Taskesen, Hammerschlag, Okbay, Zabaneh, Amin, Breen, Cesarini,
@@ -1760,6 +1874,17 @@ U.~{Von Luxburg}.
   395--416, aug 2007.
 \newblock ISSN 1573-1375.
 \newblock \doi{10.1007/S11222-007-9033-Z}.
+
+\bibitem[Wang et~al.(2018)Wang, Li, Zhou, Zhao, Niu, Wang, Yan, Cao, Xiang, and
+  Li]{Wang2018}
+B.~Wang, T.~Li, M.~Zhou, S.~Zhao, Y.~Niu, X.~Wang, T.~Yan, R.~Cao, J.~Xiang,
+  and D.~Li.
+\newblock {The abnormality of topological asymmetry in hemispheric brain
+  anatomical networks in bipolar disorder}.
+\newblock \emph{Frontiers in Neuroscience}, 12\penalty0 (SEP):\penalty0 618,
+  sep 2018.
+\newblock ISSN 1662453X.
+\newblock \doi{10.3389/FNINS.2018.00618/BIBTEX}.
 
 \bibitem[Wang et~al.(2010)Wang, Li, and Hakonarson]{Wang2010}
 K.~Wang, M.~Li, and H.~Hakonarson.
