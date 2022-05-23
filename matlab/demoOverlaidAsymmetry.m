@@ -3,7 +3,7 @@ close all
 addpath(genpath('AIDFUNCTIONS'));
 DATA_DIR = '../SAMPLE_DATA/';
 DATASET_INDEX = 1;
-
+setuplatex
 switch DATASET_INDEX
     case 1
         UKBIOBANK = 'UKBIOBANK';
@@ -63,12 +63,13 @@ t.Padding = 'tight';
 ax = showPaintedDoubleFace(f,avgTemplate,nan,nan, nexttile(t));
 colormap(map)
 daspect(ax(1), [1 1 1]);
-daspect(ax(2), [1 1 1]);
 h = axes(f,'visible','off');
 h.Units = 'normalized';
 h.Position = [0.1,0,0.8,0.7];
 ticks = linspace(-1,1, 10);
 cb = colorbar(h, 'South','TickLabels',  round(ticks*10)/10, ...
         'Ticks',linspace(0,1, 10),'FontWeight','bold', 'FontSize',20);
-cb(1).Label.String = '\mid L-C \mid_2 - \mid R - C\mid_2';
+cb(1).Label.String = '$\mathrm{{\left| L - C \right|}_{2} - {\left| R - C \right|}_{2}}$';
+cb(1).Label.Interpreter = 'latex';
+%%
 saveas(f, sprintf('../results/asymmetry/da_visualization.svg'))
