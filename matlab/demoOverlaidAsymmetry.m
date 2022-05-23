@@ -69,7 +69,8 @@ h.Position = [0.1,0,0.8,0.7];
 ticks = linspace(-1,1, 10);
 cb = colorbar(h, 'South','TickLabels',  round(ticks*10)/10, ...
         'Ticks',linspace(0,1, 10),'FontWeight','bold', 'FontSize',20);
-cb(1).Label.String = '$\mathrm{{\left| L - C \right|}_{2} - {\left| R - C \right|}_{2}}$';
+cb(1).Label.String = '$\mathrm{\mathbf{{\left|\left|L - C\right|\right|}_{2} - {\left|\left|R - C\right|\right|}_{2}}}$';
 cb(1).Label.Interpreter = 'latex';
-%%
+set(f, 'InvertHardCopy', 'off');
+set(f, 'Color', 'white');
 saveas(f, sprintf('../results/asymmetry/da_visualization.svg'))
