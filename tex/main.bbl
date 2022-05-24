@@ -299,7 +299,7 @@ E.~Cano-Gamez and G.~Trynka.
   Mechanisms Underlying Complex Diseases}.
 \newblock \emph{Frontiers in Genetics}, 11:\penalty0 424, may 2020.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2020.00424/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2020.00424}.
 
 \bibitem[Cara et~al.(2022)Cara, Streata, Buga, and Iliescu]{Cara2022}
 M.~L. Cara, I.~Streata, A.~M. Buga, and D.~G. Iliescu.
@@ -631,7 +631,7 @@ S.~B. Fernandes, K.~S. Zhang, T.~M. Jamann, and A.~E. Lipka.
   True and Spurious Pleiotropy?}
 \newblock \emph{Frontiers in Genetics}, 11:\penalty0 1747, jan 2021.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2020.602526/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2020.602526}.
 
 \bibitem[Ferng and Mytilinaios(2022)]{Ferng2022}
 A.~Ferng and D.~Mytilinaios.
@@ -643,7 +643,7 @@ J.~A. Filipe and I.~Kyriazakis.
   variability in individuals and populations}.
 \newblock \emph{Frontiers in Genetics}, 10\penalty0 (JUL):\penalty0 727, 2019.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2019.00727/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2019.00727}.
 
 \bibitem[Finnerty(2003)]{Finnerty2003}
 J.~R. Finnerty.
@@ -996,7 +996,7 @@ C.~P. Klingenberg.
 \newblock \emph{Evolutionary Biology}, 47\penalty0 (4):\penalty0 334--352, dec
   2020.
 \newblock ISSN 19342845.
-\newblock \doi{10.1007/S11692-020-09513-X/FIGURES/9}.
+\newblock \doi{10.1007/S11692-020-09513-X}.
 
 \bibitem[Klingenberg and Mcintyre(1998)]{Klingenberg1998}
 C.~P. Klingenberg and G.~S. Mcintyre.
@@ -1020,7 +1020,7 @@ E.~M. Koch and S.~R. Sunyaev.
   Data}.
 \newblock \emph{Frontiers in Genetics}, 12:\penalty0 2198, nov 2021.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2021.763363/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2021.763363}.
 
 \bibitem[Kong et~al.(2018)Kong, Mathias, Guadalupe, Ab{\'{e}}, Agartz,
   Akudjedu, Aleman, Alhusaini, Allen, Ames, Andreassen, Vasquez, Armstrong,
@@ -1066,7 +1066,7 @@ X.~Z. Kong et al.
 \newblock \emph{Proceedings of the National Academy of Sciences of the United
   States of America}, 115\penalty0 (22):\penalty0 E5154--E5163, may 2018.
 \newblock ISSN 10916490.
-\newblock \doi{10.1073/PNAS.1718418115/SUPPL_FILE/PNAS.1718418115.SD07.XLSX}.
+\newblock \doi{10.1073/PNAS.1718418115}.
 
 \bibitem[Kong et~al.(2021)Kong, Postema, Schijven, Castillo, Pepe, Crivello,
   Joliot, Mazoyer, Fisher, and Francks]{Kong2021}
@@ -1154,7 +1154,7 @@ S.~Li, S.~Wang, X.~Li, Q.~Li, and X.~Li.
 \newblock \emph{Frontiers in Neuroanatomy}, 9\penalty0 (AUGUST):\penalty0 114,
   aug 2015.
 \newblock ISSN 16625129.
-\newblock \doi{10.3389/FNANA.2015.00114/BIBTEX}.
+\newblock \doi{10.3389/FNANA.2015.00114}.
 
 \bibitem[Liao et~al.(2019)Liao, Wang, Jaehnig, Shi, and Zhang]{Liao2019}
 Y.~Liao, J.~Wang, E.~J. Jaehnig, Z.~Shi, and B.~Zhang.
@@ -1171,7 +1171,7 @@ J.~Lin, R.~Tabassum, S.~Ripatti, and M.~Pirinen.
   Univariate Genome-Wide Association Statistics}.
 \newblock \emph{Frontiers in Genetics}, 11:\penalty0 431, may 2020.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2020.00431/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2020.00431}.
 
 \bibitem[Littlejohns et~al.(2020)Littlejohns, Holliday, Gibson, Garratt,
   Oesingmann, Alfaro-Almagro, Bell, Boultwood, Collins, Conroy, Crabtree,
@@ -1382,7 +1382,7 @@ H.~L. Nicholls, C.~R. John, D.~S. Watson, P.~B. Munroe, M.~R. Barnes, and C.~P.
   Prioritization of Complex Disease Loci}.
 \newblock \emph{Frontiers in Genetics}, 11:\penalty0 350, apr 2020.
 \newblock ISSN 16648021.
-\newblock \doi{10.3389/FGENE.2020.00350/BIBTEX}.
+\newblock \doi{10.3389/FGENE.2020.00350}.
 
 \bibitem[Nishizaki et~al.(2020)Nishizaki, Ng, Dong, Porter, Morterud, Williams,
   Asman, Switzenberg, and Boyle]{Nishizaki2020}
@@ -1401,8 +1401,7 @@ T.~J. Nowakowski, A.~A. Pollen, C.~Sandoval-Espinosa, and A.~R. Kriegstein.
   Human Cerebral Cortex Development}.
 \newblock \emph{Neuron}, 91\penalty0 (6):\penalty0 1219--1227, sep 2016.
 \newblock ISSN 10974199.
-\newblock
-  \doi{10.1016/J.NEURON.2016.09.005/ATTACHMENT/5FB07326-F8FF-4C17-9374-553AF90F6D57/MMC2.XLSX}.
+\newblock \doi{10.1016/J.NEURON.2016.09.005}.
 
 \bibitem[Okada et~al.(2005)Okada, Takeda, Tanaka, Belmonte, and
   Hirokawa]{Okada2005}
@@ -1468,7 +1467,7 @@ M.~V. Peelen and P.~E. Downing.
 \newblock \emph{Journal of Neurophysiology}, 93\penalty0 (1):\penalty0
   603--608, jan 2005.
 \newblock ISSN 00223077.
-\newblock \doi{10.1152/JN.00513.2004/ASSET/IMAGES/LARGE/Z9K0010543090003.JPEG}.
+\newblock \doi{10.1152/JN.00513.2004}.
 
 \bibitem[Purnell et~al.(2018)Purnell, Donoghue, Gabbott, McNamara, Murdock, and
   Sansom]{Purnell2018}
@@ -1625,7 +1624,7 @@ A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
 \newblock \emph{Frontiers in Neuroscience}, 12\penalty0 (AUG):\penalty0 576,
   aug 2018.
 \newblock ISSN 1662453X.
-\newblock \doi{10.3389/FNINS.2018.00576/BIBTEX}.
+\newblock \doi{10.3389/FNINS.2018.00576}.
 
 \bibitem[Satterthwaite et~al.(2016)Satterthwaite, Connolly, Ruparel, Calkins,
   Jackson, Elliott, Roalf, Hopsona, Prabhakaran, Behr, Qiu, Mentch, Chiavacci,
@@ -1662,7 +1661,7 @@ J.~Schmitz, O.~G{\"{u}}nt{\"{u}}rk{\"{u}}n, and S.~Ocklenburg.
 \newblock \emph{Frontiers in Psychology}, 10\penalty0 (APR):\penalty0 982,
   2019.
 \newblock ISSN 16641078.
-\newblock \doi{10.3389/FPSYG.2019.00982/BIBTEX}.
+\newblock \doi{10.3389/FPSYG.2019.00982}.
 
 \bibitem[Sha et~al.(2021)Sha, Schijven, Carrion-Castillo, Joliot, Mazoyer,
   Fisher, Crivello, and Francks]{Sha2021}
@@ -1731,7 +1730,7 @@ A.~Subramanian et al.
 \newblock \emph{Proceedings of the National Academy of Sciences of the United
   States of America}, 102\penalty0 (43):\penalty0 15545--15550, oct 2005.
 \newblock ISSN 00278424.
-\newblock \doi{10.1073/PNAS.0506580102/SUPPL_FILE/06580FIG7.JPG}.
+\newblock \doi{10.1073/PNAS.0506580102}.
 
 \bibitem[Sun and Walsh(2006)]{Sun2006}
 T.~Sun and C.~A. Walsh.
@@ -1884,7 +1883,7 @@ B.~Wang, T.~Li, M.~Zhou, S.~Zhao, Y.~Niu, X.~Wang, T.~Yan, R.~Cao, J.~Xiang,
 \newblock \emph{Frontiers in Neuroscience}, 12\penalty0 (SEP):\penalty0 618,
   sep 2018.
 \newblock ISSN 1662453X.
-\newblock \doi{10.3389/FNINS.2018.00618/BIBTEX}.
+\newblock \doi{10.3389/FNINS.2018.00618}.
 
 \bibitem[Wang et~al.(2010)Wang, Li, and Hakonarson]{Wang2010}
 K.~Wang, M.~Li, and H.~Hakonarson.
@@ -1940,7 +1939,7 @@ M.~M.~J. Wittens et al.
   Controls}.
 \newblock \emph{Frontiers in Aging Neuroscience}, 13:\penalty0 641, oct 2021.
 \newblock ISSN 16634365.
-\newblock \doi{10.3389/FNAGI.2021.746982/BIBTEX}.
+\newblock \doi{10.3389/FNAGI.2021.746982}.
 
 \bibitem[Yan et~al.(2020)Yan, Huang, Freebern, Santos, Dai, Si, Ma, Cao, Guo,
   Liu, Ma, Fang, and Zhang]{Yan2020}
@@ -1949,7 +1948,7 @@ Z.~Yan et al.
   molecular mechanism underpinning ketosis in cattle}.
 \newblock \emph{BMC Genomics}, 21\penalty0 (1):\penalty0 1--12, jul 2020.
 \newblock ISSN 14712164.
-\newblock \doi{10.1186/S12864-020-06909-Z/FIGURES/5}.
+\newblock \doi{10.1186/S12864-020-06909-Z}.
 
 \bibitem[Yang et~al.(2010)Yang, Benyamin, McEvoy, Gordon, Henders, Nyholt,
   Madden, Heath, Martin, Montgomery, Goddard, and Visscher]{Yang2010}
@@ -1978,7 +1977,7 @@ Y.~Zhou et al.
   Multi-Stage Study}.
 \newblock \emph{Frontiers in Immunology}, 12:\penalty0 5822, jan 2022.
 \newblock ISSN 16643224.
-\newblock \doi{10.3389/FIMMU.2021.796932/BIBTEX}.
+\newblock \doi{10.3389/FIMMU.2021.796932}.
 
 \bibitem[Zuo et~al.(2019)Zuo, Ran, Wang, Li, Han, Tang, Qu, and Li]{Zuo2019}
 Z.~Zuo, S.~Ran, Y.~Wang, C.~Li, Q.~Han, Q.~Tang, W.~Qu, and H.~Li.

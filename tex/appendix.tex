@@ -1,46 +1,8 @@
 \appendix
 \chapter{Genome preprocessing and filtering}
 
-\begin{table}[!htp]\centering
-	\scriptsize
-	\begin{tabular}{cc}\toprule
-		\textbf{Partition} &\textbf{Spearman Correlation} \\\midrule
-		1 &0.9996 \\
-		2 &0.9997 \\
-		3 &0.9989 \\
-		4 &0.9997 \\
-		5 &0.9997 \\
-		6 &0.9994 \\
-		7 &0.9997 \\
-		8 &0.9994 \\
-		9 &0.9997 \\
-		10 &0.9997 \\
-		11 &0.9996 \\
-		12 &0.9996 \\
-		13 &0.9997 \\
-		14 &0.9997 \\
-		15 &0.9997 \\
-		16 &0.9996 \\
-		17 &0.9997 \\
-		18 &0.9997 \\
-		19 &0.9997 \\
-		20 &0.9995 \\
-		21 &0.9997 \\
-		22 &0.9997 \\
-		23 &0.9997 \\
-		24 &0.9997 \\
-		25 &0.9997 \\
-		26 &0.9996 \\
-		27 &0.9997 \\
-		28 &0.9996 \\
-		29 &0.9996 \\
-		30 &0.9996 \\
-		31 &0.9997 \\
-		\bottomrule
-	\end{tabular}
-\caption[Spearman correlation assessing mean substitution effect]{Spearman correlation between corresponding partitions, comparing the cases with versus without mean substitution of missing \acp{snp}.}
-\label{tab: spearman_no_vs_mean}
-\end{table}
+
+
 
 \begin{figure}[H]
 	\centering
@@ -94,25 +56,105 @@
 
 \end{table}
 
-
-\begin{figure}
-\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering
-	
-
-	\includegraphics[width=\linewidth]{asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/partitions_gwas.pdf}
-	\caption[Combined Manhattan plots across different partitions]{Combined Manhattan plots across different partitions, showing the number of significant \acp{snp} below the threshold of 5e-8 and with the Bonferroni correction, inside parentheses.}
-	\label{fig:part_manhattan}
+\chapter{\Acs{gwas} results}
 
 
-\end{adjustwidth}
+\begin{figure}[H]
+	\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering
+		\begin{minipage}{0.45\linewidth}
+			\subfloat[Spearman correlation assessing mean substitution effect]{
+				\scriptsize
+				\begin{tabular}{cc}\toprule
+					\textbf{Partition} &\textbf{Spearman Correlation} \\\midrule
+					1 &0.9996 \\
+					2 &0.9997 \\
+					3 &0.9989 \\
+					4 &0.9997 \\
+					5 &0.9997 \\
+					6 &0.9994 \\
+					7 &0.9997 \\
+					8 &0.9994 \\
+					9 &0.9997 \\
+					10 &0.9997 \\
+					11 &0.9996 \\
+					12 &0.9996 \\
+					13 &0.9997 \\
+					14 &0.9997 \\
+					15 &0.9997 \\
+					16 &0.9996 \\
+					17 &0.9997 \\
+					18 &0.9997 \\
+					19 &0.9997 \\
+					20 &0.9995 \\
+					21 &0.9997 \\
+					22 &0.9997 \\
+					23 &0.9997 \\
+					24 &0.9997 \\
+					25 &0.9997 \\
+					26 &0.9996 \\
+					27 &0.9997 \\
+					28 &0.9996 \\
+					29 &0.9996 \\
+					30 &0.9996 \\
+					31 &0.9997 \\
+					\bottomrule
+				\end{tabular}
+				\label{tab: spearman_no_vs_mean}
+			}
+		\end{minipage}
+		\quad
+		\begin{minipage}{0.45\linewidth}
+			\centering
+			\subfloat[With substitution]{
+				\includesvg[width=1\textwidth]{asymmetry/genomeDemo/STAGE00DATA/mean_imputed/not_subsampled/gwas_discovery.svg}
+			}
+			\par\medskip
+			\centering
+			\subfloat[Without substitution]{
+				\includesvg[width=1\textwidth]{asymmetry/genomeDemo/STAGE00DATA/not_imputed/not_subsampled/gwas_discovery_not_imputed.svg}	
+			}
+		\end{minipage}
+	\end{adjustwidth}
+	\caption{Graphs assessing the quantitative (across partitions) and qualitative effect (on the entire hemisphere) of mean \ac{snp} substitution on the discovery dataset \ac{gwas}.}
 \end{figure}
+
+\begin{figure}[H]
+	\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering
+		
+		
+		\includegraphics[width=\linewidth]{asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/partitions_gwas.pdf}
+		\caption[Combined Manhattan plots across different partitions]{Combined Manhattan plots across different partitions, showing the number of significant \acp{snp} below the threshold of 5e-8 and with the Bonferroni correction, inside parentheses.}
+		\label{fig:part_manhattan}
+		
+		
+	\end{adjustwidth}
+\end{figure}
+
+\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering
+	\begin{threeparttable}[!htb]
+		\tiny
+		\fontsize{4}{7}
+		\selectfont
+		\setlength\tabcolsep{1.3pt}
+		\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+			\textbf{Partition} &\textbf{1} &\textbf{2} &\textbf{3} &\textbf{4} &\textbf{5} &\textbf{6} &\textbf{7} &\textbf{8} &\textbf{9} &\textbf{10} &\textbf{11} &\textbf{12} &\textbf{13} &\textbf{14} &\textbf{15} &\textbf{16} &\textbf{17} &\textbf{18} &\textbf{19} &\textbf{20} &\textbf{21} &\textbf{22} &\textbf{23} &\textbf{24} &\textbf{25} &\textbf{26} &\textbf{27} &\textbf{28} &\textbf{29} &\textbf{30} &\textbf{31} \\\hline
+			\textbf{Correlation} &0.16 &0.13 &0.14 &0.12 &0.1 &0.1 &0.08 &0.13 &0.06 &0.06 &0.11 &0.1 &0.05 &0.09 &0.04 &0.1 &0.15 &0.05 &0.04 &0.03 &0.04 &0.15 &0.08 &0.16 &0.02 &0.05 &0.02 &0.08 &0.07 &-0.02 &0.01 \\
+			\textbf{P-value} &1.2e-11 &1.1e-8 &2.6e-11 &4.3e-7 &7.5e-5 &1.7e-5 &9.6e-4 &5.1e-8 &6.9e-3 &1.8e-2 &4.3e-6 &1.1e-5 &4.0e-2 &2.2e-4 &6.0e-2 &1.5e-5 &1.4e-9 &1.8e-2 &8.4e-2 &1.0e-1 &4.0e-2 &5.1e-10 &2.9e-3 &4.3e-11 &2.6e-1 &2.8e-2 &1.9e-1 &8.2e-4 &5.0e-3 &7.6e-1 &3.7e-1 \\
+		\end{tabular}
+		\caption{Spearman correlation of the mvGWAS on each partition with the results from \citet{Sha2021}, and the corresponding bootstrap p-values.}\label{tab:otherAsym}
+	\end{threeparttable}
+\end{adjustwidth}
+
 \chapter{Heritability}
 \begin{figure}[H]
 	\centering
 \includesvg[width=0.5\textwidth]{asymmetry/visualizeHeritabilityOnPheno/joinedDatasets/mean_imputed/not_subsampled/Lambda GC.svg}
 \caption[$\lambda_{GC}$ coefficient, as computed by LDSR]{$\lambda_{GC}$ coefficient, as computed by \ac{ldsr}. The observed $\chi^2$ value is close to the expected one at all studied partitions, with their ratio being close to 1.}	
 \end{figure}
-\chapter{Functional Analysis}
+
+
+
+\chapter{Functional analysis}
 \begin{figure}[H]
 	\centering
 	\subfloat[Cell components]{
