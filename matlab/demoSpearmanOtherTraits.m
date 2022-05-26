@@ -78,9 +78,11 @@ traits = traits(mask);
 %%
 close all
 fig = makeHeatmap(ret, traits, 0);
+colormap('parula')
 saveas(fig, [outDir 'otherTraitsHeatmap.svg'])
 
 fig = makeHeatmap(pRet, traits,1, get(fig,'Position'));
+colormap(flipud(parula))
 saveas(fig, [outDir 'otherTraitsHeatmapPvalues.svg'])
 
 %%
