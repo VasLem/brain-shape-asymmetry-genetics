@@ -1,4 +1,4 @@
-\begin{thebibliography}{172}
+\begin{thebibliography}{177}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -526,6 +526,14 @@ C.~Do, A.~Shearer, M.~Suzuki, M.~B. Terry, J.~Gelernter, J.~M. Greally, and
 \newblock ISSN 1474-760X.
 \newblock \doi{10.1186/S13059-017-1250-Y}.
 
+\bibitem[Dray and Josse(2015)]{Dray2015}
+S.~Dray and J.~Josse.
+\newblock {Principal component analysis with missing values: a comparative
+  survey of methods}.
+\newblock \emph{Plant Ecology}, 216\penalty0 (5):\penalty0 657--667, may 2015.
+\newblock ISSN 15735052.
+\newblock \doi{10.1007/S11258-014-0406-Z/FIGURES/3}.
+
 \bibitem[Dunham et~al.(2012)Dunham, Kundaje, Aldred, Collins, Davis, Doyle,
   Epstein, Frietze, Harrow, Kaul, Khatun, Lajoie, Landt, Lee, Pauli,
   Rosenbloom, Sabo, Safi, Sanyal, Shoresh, Simon, Song, Trinklein, Altshuler,
@@ -913,6 +921,14 @@ Y.~Huo, S.~Li, J.~Liu, X.~Li, and X.~J. Luo.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/s41467-019-08666-4}.
 
+\bibitem[Jackson et~al.(2010)Jackson, Carpenter, Nebert, and
+  Vasiliou]{Jackson2010}
+B.~C. Jackson, C.~Carpenter, D.~W. Nebert, and V.~Vasiliou.
+\newblock {Update of human and mouse forkhead box (FOX) gene families}.
+\newblock \emph{Human Genomics}, 4\penalty0 (5):\penalty0 345, jun 2010.
+\newblock ISSN 14797364.
+\newblock \doi{10.1186/1479-7364-4-5-345}.
+
 \bibitem[Jackson et~al.(2011)Jackson, Riley, and White]{Jackson2011}
 D.~Jackson, R.~Riley, and I.~R. White.
 \newblock {Multivariate meta-analysis: Potential and promise}.
@@ -1172,6 +1188,13 @@ J.~Lin, R.~Tabassum, S.~Ripatti, and M.~Pirinen.
 \newblock \emph{Frontiers in Genetics}, 11:\penalty0 431, may 2020.
 \newblock ISSN 16648021.
 \newblock \doi{10.3389/FGENE.2020.00431}.
+
+\bibitem[Little and Rubin(2002)]{Little2002}
+R.~J.~A. Little and D.~B. Rubin.
+\newblock {Single Imputation Methods}.
+\newblock In \emph{Statistical Analysis with Missing Data}, chapter~4, pages
+  59--74. John Wiley \& Sons, Ltd, 2 edition, aug 2002.
+\newblock \doi{10.1002/9781119013563.CH4}.
 
 \bibitem[Littlejohns et~al.(2020)Littlejohns, Holliday, Gibson, Garratt,
   Oesingmann, Alfaro-Almagro, Bell, Boultwood, Collins, Conroy, Crabtree,
@@ -1740,6 +1763,13 @@ T.~Sun and C.~A. Walsh.
 \newblock ISSN 1471-0048.
 \newblock \doi{10.1038/nrn1930}.
 
+\bibitem[Sun et~al.(2009)Sun, Chen, Yang, Hu, and Shi]{Sun2009}
+T.~Sun, S.~Chen, J.~Yang, X.~Hu, and P.~Shi.
+\newblock {Discriminative canonical correlation analysis with missing samples}.
+\newblock \emph{2009 WRI World Congress on Computer Science and Information
+  Engineering, CSIE 2009}, 6:\penalty0 95--99, 2009.
+\newblock \doi{10.1109/CSIE.2009.794}.
+
 \bibitem[Szklarczyk et~al.(2021)Szklarczyk, Gable, Nastou, Lyon, Kirsch,
   Pyysalo, Doncheva, Legeay, Fang, Bork, Jensen, and von
   Mering]{Szklarczyk2021}
@@ -1801,6 +1831,24 @@ T.~Usui, M.~R. Macleod, S.~K. McCann, A.~M. Senior, and S.~Nakagawa.
 \newblock \emph{PLOS Biology}, 19\penalty0 (5):\penalty0 e3001009, may 2021.
 \newblock ISSN 1545-7885.
 \newblock \doi{10.1371/JOURNAL.PBIO.3001009}.
+
+\bibitem[van~der Meer et~al.(2020)van~der Meer, Rokicki, Kaufmann,
+  C{\'{o}}rdova-Palomera, Moberget, Aln{\ae}s, Bettella, Frei, Doan,
+  S{\o}nderby, Smeland, Agartz, Bertolino, Bralten, Brandt, Buitelaar,
+  Djurovic, van Donkelaar, D{\o}rum, Espeseth, Faraone, Fern{\'{a}}ndez,
+  Fisher, Franke, Haatveit, Hartman, Hoekstra, H{\aa}berg, J{\"{o}}nsson,
+  Kolsk{\aa}r, {Le Hellard}, Lund, Lundervold, Lundervold, Melle, {Monereo
+  S{\'{a}}nchez}, Norbom, Nordvik, Nyberg, Oosterlaan, Papalino,
+  Papassotiropoulos, Pergola, de~Quervain, Richard, Sanders, Selvaggi,
+  Shumskaya, Steen, T{\o}nnesen, Ulrichsen, Zwiers, Andreassen, and
+  Westlye]{VanderMeer2020}
+D.~van~der Meer et al.
+\newblock {Brain scans from 21,297 individuals reveal the genetic architecture
+  of hippocampal subfield volumes}.
+\newblock \emph{Molecular Psychiatry}, 25\penalty0 (11):\penalty0 3053, nov
+  2020.
+\newblock ISSN 14765578.
+\newblock \doi{10.1038/S41380-018-0262-7}.
 
 \bibitem[{Van Dongen} et~al.(1999){Van Dongen}, Molenberghs, and
   Matthysen]{VanDongen1999}

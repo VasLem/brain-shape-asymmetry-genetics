@@ -68,17 +68,18 @@
 \contentsline {subsection}{\numberline {4.1.1}Phenotype}{53}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Genotype}{53}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Controversies leading to new questions}{54}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Dependency on gender}{54}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Cross-trait correlation results differ at \acs {snp}- and gene- level}{55}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Existence of subpopulation structure}{55}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Contributions}{55}{section.4.3}%
+\contentsline {subsection}{\numberline {4.2.1}\Acs {gsea} is susceptible to false positives}{54}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Dependency on gender needs to be assessed}{55}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Cross-trait correlation results differ at \acs {snp}- and gene- level}{55}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Underlying subpopulation structure may exist after all}{55}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Contributions}{56}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Limitations and possible extensions}{56}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Limitations}{56}{subsection.4.4.1}%
 \contentsline {subsubsection}{First stage}{56}{section*.36}%
-\contentsline {subsubsection}{Second stage}{56}{section*.37}%
+\contentsline {subsubsection}{Second stage}{57}{section*.37}%
 \contentsline {subsection}{\numberline {4.4.2}Further extensions}{57}{subsection.4.4.2}%
 \contentsline {appendix}{\chapternumberline {A}Genome preprocessing and filtering}{58}{appendix.A}%
 \contentsline {appendix}{\chapternumberline {B}\Acs {gwas} results}{60}{appendix.B}%
 \contentsline {appendix}{\chapternumberline {C}Heritability}{63}{appendix.C}%
 \contentsline {appendix}{\chapternumberline {D}Functional analysis}{65}{appendix.D}%
-\contentsline {chapter}{Bibliography}{69}{appendix*.48}%
+\contentsline {chapter}{Bibliography}{72}{appendix*.51}%

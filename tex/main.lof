@@ -65,10 +65,16 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {C.1}{\ignorespaces $\lambda _{GC}$ coefficient, as computed by LDSR}}{63}{figure.caption.43}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {D.1}{\ignorespaces GO terms enrichment analysis}}{65}{figure.caption.44}%
+\contentsline {figure}{\numberline {D.1}{\ignorespaces GO terms GSEA -log10P values}}{65}{figure.caption.44}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cell components}}}{65}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Biological processes}}}{65}{subfigure.1.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Molecular function}}}{65}{subfigure.1.3}%
-\contentsline {figure}{\numberline {D.2}{\ignorespaces Canonical pathways gene set enrichment analysis}}{66}{figure.caption.45}%
-\contentsline {figure}{\numberline {D.3}{\ignorespaces Differential gene expression enrichment analysis}}{67}{figure.caption.46}%
-\contentsline {figure}{\numberline {D.4}{\ignorespaces GWAS Catalog gene set enrichment analysis}}{68}{figure.caption.47}%
+\contentsline {figure}{\numberline {D.2}{\ignorespaces GO terms GSEA genes}}{66}{figure.caption.45}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cell components}}}{66}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Biological processes}}}{66}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Molecular function}}}{66}{subfigure.2.3}%
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Canonical pathways GSEA -log10P values}}{67}{figure.caption.46}%
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Canonical pathways GSEA genes}}{68}{figure.caption.47}%
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Differential gene expression enrichment analysis}}{69}{figure.caption.48}%
+\contentsline {figure}{\numberline {D.6}{\ignorespaces GWAS Catalog GSEA -log10P values}}{70}{figure.caption.49}%
+\contentsline {figure}{\numberline {D.7}{\ignorespaces GWAS Catalog GSEA genes}}{71}{figure.caption.50}%

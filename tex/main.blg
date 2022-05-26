@@ -15,45 +15,45 @@ A level-1 auxiliary file: popsum.aux
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-You've used 172 entries,
+You've used 177 entries,
             2785 wiz_defined-function locations,
-            2143 strings with 139518 characters,
-and the built_in function-call counts, 242045 in all, are:
-= -- 20828
-> -- 29989
-< -- 51
-+ -- 9968
-- -- 9793
-* -- 24851
-:= -- 38726
-add.period$ -- 838
-call.type$ -- 172
-change.case$ -- 5154
-chr.to.int$ -- 169
-cite$ -- 344
-duplicate$ -- 3665
-empty$ -- 6786
-format.name$ -- 10021
-if$ -- 47403
+            2189 strings with 142382 characters,
+and the built_in function-call counts, 246616 in all, are:
+= -- 21236
+> -- 30452
+< -- 55
++ -- 10121
+- -- 9941
+* -- 25297
+:= -- 39442
+add.period$ -- 862
+call.type$ -- 177
+change.case$ -- 5237
+chr.to.int$ -- 174
+cite$ -- 354
+duplicate$ -- 3780
+empty$ -- 6991
+format.name$ -- 10178
+if$ -- 48328
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 170
-newline$ -- 1186
-num.names$ -- 688
-pop$ -- 9701
+missing$ -- 175
+newline$ -- 1219
+num.names$ -- 708
+pop$ -- 9851
 preamble$ -- 1
-purify$ -- 4980
+purify$ -- 5057
 quote$ -- 0
-skip$ -- 6863
+skip$ -- 7002
 stack$ -- 0
-substring$ -- 3703
-swap$ -- 417
-text.length$ -- 12
+substring$ -- 3802
+swap$ -- 434
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1887
+type$ -- 1942
 warning$ -- 0
-while$ -- 792
+while$ -- 816
 width$ -- 0
-write$ -- 2882
+write$ -- 2965
 (There was 1 error message)
