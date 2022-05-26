@@ -63,21 +63,11 @@ The required number of \ac{pca} features per partition given the constraints, as
 \end{figure}
 \section{\acs{gwas}}
 
-The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). 22 lead \acp{snp} with p-value less than 5e-8, versus 21 reported in literature \cite{Sha2021}, are retrieved from the meta-analysis union, using the methods defined earlier (\autoref{subsec:func_mat_methods}), six of which have also been exactly identified by \citet{Sha2021} (\autoref{tab:leadsnps}). Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}, with the overlaid Manhattan plots shown  in \autoref{fig:part_manhattan}. A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be, in general, significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the genetic signature of their parents, for example partition 8 exhibits a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry. \citet{Sha2021} reported the most significant \ac{snp}, rs41298373 (P=5e-38), to be located at chromosome 10, although in this study, same chromosome 10 peak did not rank in an equally high degree. Chromosome 15 exhibits the highest peak instead, namely the \ac{snp} rs2033939 (P=2e-50), but no peaks for that chromosome were identified by \citet{Sha2021}. In general, several differences with the primary results reported by \citet{Sha2021} are observable in the current study, even from a qualitative viewpoint. There is also generally more confidence reported over common identified lead \acp{snp}, characterized by lower p-values in the present study than the ones reported in literature \cite{Sha2021}. A more fine-grained, quantitative comparison is also performed by applying Spearman correlation, in the way mentioned at \autoref{subsec:gencorr} \cite{Naqvi2021} (cf. \autoref{tab:otherAsym}). The degree of agreement is non-negligible, and most partitions exhibit significant monotonic relationship with the results from \citet{Sha2021}. The greatest (0.16) and most strongly supported (P=1e-11) correlation is observed relatively to the entire hemisphere (partition 1). For the discovery dataset, the experiment was performed both with and without mean substitution, with the Spearman correlation values clearly suggesting that mean substitution has little effect on the results (\autoref{tab: spearman_no_vs_mean}).
+The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). In \autoref{tab:leadsnps}, the identified \acp{snp} are shown for the discovery and replication datasets \acp{gwas}, as well as the meta-analysis \ac{gwas} union and the ones reported in literature \cite{Sha2021}. Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}, with the overlaid Manhattan plots shown  in \autoref{fig:part_manhattan}. 
 
-\begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
-	\tiny
-	\fontsize{4}{7}
-	\selectfont
-	\setlength\tabcolsep{1.3pt}
-	\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-		\textbf{Partition} &\textbf{1} &\textbf{2} &\textbf{3} &\textbf{4} &\textbf{5} &\textbf{6} &\textbf{7} &\textbf{8} &\textbf{9} &\textbf{10} &\textbf{11} &\textbf{12} &\textbf{13} &\textbf{14} &\textbf{15} &\textbf{16} &\textbf{17} &\textbf{18} &\textbf{19} &\textbf{20} &\textbf{21} &\textbf{22} &\textbf{23} &\textbf{24} &\textbf{25} &\textbf{26} &\textbf{27} &\textbf{28} &\textbf{29} &\textbf{30} &\textbf{31} \\\hline
-		\textbf{Correlation} &0.16 &0.13 &0.14 &0.12 &0.1 &0.1 &0.08 &0.13 &0.06 &0.06 &0.11 &0.1 &0.05 &0.09 &0.04 &0.1 &0.15 &0.05 &0.04 &0.03 &0.04 &0.15 &0.08 &0.16 &0.02 &0.05 &0.02 &0.08 &0.07 &-0.02 &0.01 \\
-		\textbf{P-value} &1.2e-11 &1.1e-8 &2.6e-11 &4.3e-7 &7.5e-5 &1.7e-5 &9.6e-4 &5.1e-8 &6.9e-3 &1.8e-2 &4.3e-6 &1.1e-5 &4.0e-2 &2.2e-4 &6.0e-2 &1.5e-5 &1.4e-9 &1.8e-2 &8.4e-2 &1.0e-1 &4.0e-2 &5.1e-10 &2.9e-3 &4.3e-11 &2.6e-1 &2.8e-2 &1.9e-1 &8.2e-4 &5.0e-3 &7.6e-1 &3.7e-1 \\
-	\end{tabular}
-\caption{Spearman correlation of the mvGWAS on each partition with the results from \citet{Sha2021}, and the corresponding bootstrap p-values.}\label{tab:otherAsym}
-\end{threeparttable}\end{adjustwidth}
+A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be, in general, significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the genetic signature of their parents, for example partition 8 exhibits a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry.  Chromosome 15 exhibits the highest peak, namely the \ac{snp} rs2033939 (P=2e-50). 
 
+To confirm that mean substitution of missing variants did not considerably affect the results, Spearman correlation was measured between the \ac{gwas} results produced from the discovery dataset, with and without mean substitution. The produced values clearly suggested that mean substitution had little to no effect on the overall monotonicity (table \autoref{tab: spearman_no_vs_mean}).
 
 \begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]	
 		\scriptsize
@@ -116,6 +106,7 @@ The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits disti
 		\caption[Identified lead \acp{snp} for the entire hemisphere]{Identified lead \acp{snp} for the entire hemisphere across the different datasets, along with a comparison with \citet{Sha2021}. In gray, \acp{snp} with significance less than 1e-8 but greater than 5e-8 are reported. In bold are displayed the variants identified both in the present study and in the work of \citet{Sha2021}.}
 		\label{tab:leadsnps}
 \end{threeparttable}\end{adjustwidth}
+
 \begin{figure}[H]
 	\centering
 	\subfloat{
@@ -156,12 +147,13 @@ The observed heritability is generally below 0.3 across the different partitioni
 
 
 \section{Cross-traits correlation}
+\label{sec:ct-res}
 After performing Spearman correlation with the univariate traits mentioned in \autoref{subsec:other_sources}, no monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified:
 \begin{itemize}
-	\item{\ac{adhd}}
-	\item{\ac{asd}}
-	\item{\ac{ad}}
-	\item{\ac{bd}}
+	\item{\Acf{adhd}}
+	\item{\Acf{asd}}
+	\item{\Acf{ad}}
+	\item{\Acf{bd}}
 	\item{Major Depressive Disorder}
 	\item{Schizophrenia}
 \end{itemize}
@@ -297,18 +289,18 @@ For the following analyses, only the \ac{gwas} scores produced by assessing the 
 		& & & & & & & & &ZNF276 \\
 		\bottomrule
 	\end{tabular}
-	\caption[Identified gene sets]{Identified gene sets using FUMA and GREAT for the entire hemisphere and the 2nd level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed.}
+	\caption[Identified gene sets]{Identified gene sets using FUMA and GREAT for the entire hemisphere and the 2nd level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed. Lead \acp{snp} that have not been mapped to a gene are also displayed with their rs-id.}
 	\label{tab:genesets}
 \end{threeparttable}\end{adjustwidth}
 
 
 \section{Functional association}
 \label{sec:res_functional}
-The extrapolation of the identified lead \acp{snp} to the gene abstraction level, using FUMA and GREAT produced the genes sets presented in \autoref{tab:genesets}. It is evident that there are differences, and even certain genes appear to be related with cortical asymmetry only in certain partitions. By examining FUMA functional association with \ac{go} terms, a tight connection of the identified gene set is demonstrated with the cytoskeleton and particularly with the microtubules function and biological processes (\autoref{fig:go}), in line with literature \cite{Sha2021}. Furthermore, testing the identified gene set versus gene differential expression of diverse tissues, cerebral and cerebellum tissues displayed the greatest enrichment (\autoref{fig:de_genes}), whereas thyroid and female gender related tissues, namely uterus and ovary ones, exhibit mostly downregulated genes enrichment. By investigating the gene set enrichment on traits reported in \ac{gwas} catalog (\autoref{fig:gw_catalog}), behavior-related traits, such as alcohol use disorder, handedness, and phenotypic traits closely related to the exoderm, such as sun tan response, male baldness and the red hair trait, appear highly correlated with the identified asymmetry gene sets. Canonical pathways enrichment analysis (\autoref{fig:can_pathways}) reveals connections with NMDA receptors pathways, particularly on the frontal lobe,  known to control synaptic plasticity and memory function in mammals \cite{Li2009}.
+The extrapolation of the identified lead \acp{snp} to the gene abstraction level, using FUMA and GREAT produced the genes sets presented in \autoref{tab:genesets}. It is evident that there are differences, and even certain genes appear to be related with cortical asymmetry only in certain partitions. By examining FUMA functional association with \ac{go} terms, a tight connection of the identified gene set is demonstrated with the cytoskeleton and particularly with the microtubules function and biological processes (\autoref{fig:go} and \ref{fig:go_genes}), in line with literature \cite{Sha2021}. Furthermore, testing the identified gene set versus gene differential expression of diverse tissues, cerebral and cerebellum tissues displayed the greatest enrichment (\autoref{fig:de_genes}), whereas thyroid and female gender related tissues, namely uterus and ovary ones, exhibit mostly downregulated genes enrichment. By investigating the gene set enrichment on traits reported in \ac{gwas} catalog (\autoref{fig:gw_catalog} and \ref{fig:gw_catalog_genes}), behavior-related traits, such as alcohol use disorder, handedness, and phenotypic traits closely related to the exoderm, such as sun tan response, male baldness and the red hair trait, appear highly correlated with the identified asymmetry gene sets. Canonical pathways enrichment analysis (\autoref{fig:can_pathways} and \ref{fig:can_pathways_genes}) reveals connections with NMDA receptors pathways, particularly on the frontal lobe,  known to control synaptic plasticity and memory function in mammals \cite{Li2009}.
 
 \section{Proteins set network analysis}
 
-Last but not least, through the analysis of the computed STRING proteins network on the \ac{gwas} of the entire hemisphere, densely connected clusters were identified and their functional identity was researched through gene enrichment analysis (\autoref{fig:string_net}). The results showcase four main pathways, governing cytoskeleton formation at diverse abstraction levels, with the first cluster related to the \ac{lr} axis formation \cite{Hu2017}, the second cluster to the \ac{dv} axis formation \cite{Hikasa2013}, the third participating in the intracellular cytoskeleton structure and the fourth in the extracellular matrix formation. However, it is worth noting that the degree of enrichment is succinct, because if any correction is applied by PANTHER software most clusters failed to be mapped to a specific pathway. Enriched publications identified were mainly related to chromosome 17 and Koolen de Vries syndrome, a genetic disease that is being identified in \ac{mri} scan as highly asymmetric ventricles, that in many cases gives rise to increased cortical asymmetry \cite{Myers2017}.
+Last but not least, through the analysis of the computed STRING proteins network on the \ac{gwas} of the entire hemisphere, densely connected clusters were identified and their functional identity was researched through gene enrichment analysis (\autoref{fig:string_net}). The results showcase four main pathways, governing cytoskeleton formation at diverse abstraction levels, with the first cluster related to the \ac{lr} axis formation \cite{Hu2017}, the second cluster to the \ac{dv} axis formation \cite{Hikasa2013}, the third participating in the intracellular cytoskeleton structure and the fourth in the extracellular matrix formation. However, it is worth noting that the degree of enrichment is succinct, because if any correction is applied by PANTHER software most clusters are not mapped to a specific pathway. Enriched publications identified were mainly related to chromosome 17 and Koolen de Vries syndrome, a genetic disease that is being identified in \ac{mri} scan as highly asymmetric ventricles, that in many cases gives rise to increased cortical asymmetry \cite{Myers2017}.
 
 \begin{figure}[H]
 \begin{adjustwidth}{-3cm}{-3cm}
