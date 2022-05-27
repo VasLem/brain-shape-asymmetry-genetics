@@ -24,10 +24,10 @@ for i=1:length(handles)
     f1 = figure('visible','off');
     s = copyobj(handles{i}.handle,f1);
     set(s,'position',[0 0 1 1]);
-    set(f1, 'color', 'none');
     set(s, 'color', 'none');
     print(f1, '-dpng', '-r300', ret_path);
-    saveas(f1, [rawDir num2str(i) '.pdf']);
+    set(f1,'Color','none')
+    saveas(f1, [rawDir num2str(i) '.svg']);
     close(f1);
 end
 

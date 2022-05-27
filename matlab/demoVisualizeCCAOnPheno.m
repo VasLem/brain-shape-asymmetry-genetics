@@ -100,5 +100,6 @@ for i=1:2
 
 end
 %%
+
 drawFeaturesOnPolarPartitionsGraph(featMats, featMatsIds, featsClassesNames, MODALITY, RESULTS_DIR, REDUCTION, RECOMPUTE_PARTS,  1)
 
