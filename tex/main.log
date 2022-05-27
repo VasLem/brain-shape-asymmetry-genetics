@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  27 MAY 2022 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  27 MAY 2022 21:57
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2629,32 +2629,32 @@ Overfull \vbox (64.19052pt too high) has occurred while \output is active []
 
 [64 <./svg-inkscape/Lambda GC_svg-tex.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_CC.pdf, id=7444, 1683.26462pt x 595.82402pt>
+/partitionsSummary/GO_CC.pdf, id=7444, 1683.26462pt x 587.37044pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_CC.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GO_CC.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_CC.pdf  used on input line 162.
-(pdftex.def)             Requested size: 398.0pt x 140.87326pt.
+(pdftex.def)             Requested size: 398.0pt x 138.87454pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_BP.pdf, id=7445, 1918.54964pt x 769.39949pt>
+/partitionsSummary/GO_BP.pdf, id=7445, 1918.54964pt x 757.56425pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_BP.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GO_BP.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_BP.pdf  used on input line 166.
-(pdftex.def)             Requested size: 398.0pt x 159.60632pt.
+(pdftex.def)             Requested size: 398.0pt x 157.15118pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_MF.pdf, id=7446, 1487.62477pt x 378.85439pt>
+/partitionsSummary/GO_MF.pdf, id=7446, 1487.62477pt x 374.62761pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_MF.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GO_MF.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_MF.pdf  used on input line 170.
-(pdftex.def)             Requested size: 398.0pt x 101.35555pt.
+(pdftex.def)             Requested size: 398.0pt x 100.22475pt.
 
 Overfull \hbox (7.29999pt too wide) in paragraph at lines 162--171
  [][] 
@@ -2715,10 +2715,15 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 178--187
  [][] 
  []
 
+<graphics/genes_legend.pdf, id=7454, 374.90062pt x 341.02406pt>
+File: graphics/genes_legend.pdf Graphic file (type pdf)
+<use graphics/genes_legend.pdf>
+Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 190.
+(pdftex.def)             Requested size: 112.47105pt x 102.308pt.
 [65
 
 ]
-Overfull \vbox (126.07263pt too high) has occurred while \output is active []
+Overfull \vbox (120.48798pt too high) has occurred while \output is active []
 
 
 [66 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2727,7 +2732,7 @@ tasets/mean_imputed/not_subsampled/partitionsSummary/GO_bp.pdf> <../results/asy
 mmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSumm
 ary/GO_mf.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/canonical_pathways.pdf, id=7503, 2230.93166pt x 3069.27586pt
+/partitionsSummary/canonical_pathways.pdf, id=7504, 2230.93166pt x 3012.63922pt
 >
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/canonical_pathways.pdf Graphic file (type pdf)
@@ -2735,10 +2740,10 @@ mpled/partitionsSummary/canonical_pathways.pdf Graphic file (type pdf)
 pled/partitionsSummary/canonical_pathways.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/canonical_pathways.pdf  used on inpu
-t line 192.
-(pdftex.def)             Requested size: 398.0pt x 547.52834pt.
+t line 197.
+(pdftex.def)             Requested size: 398.0pt x 537.42491pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_Canonical_Pathways.pdf, id=7504, 1436.00491pt x 1526.0
+/partitionsSummary/genes_Canonical_Pathways.pdf, id=7505, 1436.00491pt x 1526.0
 2322pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_Canonical_Pathways.pdf Graphic file (type pdf)
@@ -2746,41 +2751,50 @@ mpled/partitionsSummary/genes_Canonical_Pathways.pdf Graphic file (type pdf)
 pled/partitionsSummary/genes_Canonical_Pathways.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/genes_Canonical_Pathways.pdf  used o
-n input line 201.
+n input line 207.
 (pdftex.def)             Requested size: 554.49014pt x 589.23222pt.
- [67 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
-mpled/partitionsSummary/genes_GO_cc.pdf> <../results/asymmetry/FUMA gene2func/j
-oinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf> <.
-./results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/p
-artitionsSummary/genes_GO_mf.pdf>]
+
+Overfull \hbox (3.65pt too wide) in paragraph at lines 207--208
+ [] 
+ []
+
+File: graphics/genes_legend.pdf Graphic file (type pdf)
+<use graphics/genes_legend.pdf>
+Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 212.
+(pdftex.def)             Requested size: 37.49225pt x 34.1044pt.
+[67 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/genes_GO_cc.pdf> <../results/asymmetry/FUMA gene2func/jo
+inedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf> <..
+/results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/pa
+rtitionsSummary/genes_GO_mf.pdf> <./graphics/genes_legend.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/DEG.pdf, id=7536, 1409.62535pt x 726.00636pt>
+/partitionsSummary/DEG.pdf, id=7551, 1420.82417pt x 1778.73029pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/DEG.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/DEG.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
-n_imputed/not_subsampled/partitionsSummary/DEG.pdf  used on input line 210.
-(pdftex.def)             Requested size: 398.0pt x 204.98639pt.
+n_imputed/not_subsampled/partitionsSummary/DEG.pdf  used on input line 220.
+(pdftex.def)             Requested size: 398.0pt x 498.25822pt.
  [68 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/canonical_pathways.pdf>]
-Overfull \vbox (70.95193pt too high) has occurred while \output is active []
+Overfull \vbox (123.05634pt too high) has occurred while \output is active []
 
 
 [69 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/genes_Canonical_Pathways.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GWASCatalog.pdf, id=7565, 1617.02214pt x 2505.15514pt>
+/partitionsSummary/GWASCatalog.pdf, id=7582, 1617.02214pt x 2459.50778pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GWASCatalog.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GWASCatalog.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GWASCatalog.pdf  used on input line 
-217.
-(pdftex.def)             Requested size: 398.0pt x 616.57797pt.
+226.
+(pdftex.def)             Requested size: 398.0pt x 605.34308pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GWASCatalog.pdf, id=7566, 1436.00491pt x 1169.04956pt>
+/partitionsSummary/genes_GWASCatalog.pdf, id=7583, 1436.00491pt x 1169.04956pt>
 
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GWASCatalog.pdf Graphic file (type pdf)
@@ -2788,26 +2802,39 @@ mpled/partitionsSummary/genes_GWASCatalog.pdf Graphic file (type pdf)
 pled/partitionsSummary/genes_GWASCatalog.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/genes_GWASCatalog.pdf  used on input
- line 225.
-(pdftex.def)             Requested size: 554.49014pt x 451.39658pt.
- [70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
-mpled/partitionsSummary/DEG.pdf>]
-Overfull \vbox (54.77771pt too high) has occurred while \output is active []
+ line 236.
+(pdftex.def)             Requested size: 568.71652pt x 462.99144pt.
+
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 236--237
+ [] 
+ []
+
+File: graphics/genes_legend.pdf Graphic file (type pdf)
+<use graphics/genes_legend.pdf>
+Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 240.
+(pdftex.def)             Requested size: 74.97879pt x 68.2036pt.
+[70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/DEG.pdf>]
+Overfull \vbox (43.54282pt too high) has occurred while \output is active []
 
 
 [71 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
-pled/partitionsSummary/GWASCatalog.pdf>]) [72 <../results/asymmetry/FUMA gene2f
-unc/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GWAScata
-log.pdf>] (./main.bbl [73
+pled/partitionsSummary/GWASCatalog.pdf>])
+Overfull \vbox (17.31474pt too high) has occurred while \output is active []
+
+
+[72 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [73
 
 
 
 
-] [74] [75] [76] [77] [78] [79] [80] [81] [82]
-[83] [84] [85] [86] [87] [88]) [89]
+] [74] [75]
+[76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88]) [89]
 \openout2 = `popsum.aux'.
 
- (./popsum.tex) [90
+
+(./popsum.tex) [90
 
 
 ]
@@ -2820,18 +2847,17 @@ log.pdf>] (./main.bbl [73
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- (./main.aux
-(./introduction.aux) (./mat_and_methods.aux) (./results.aux) (./discussion.aux)
-(./appendix.aux) (./popsum.aux))
+ (./main.aux (./introduction.aux) (./mat_and_methods.aux)
+(./results.aux) (./discussion.aux) (./appendix.aux) (./popsum.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4C7A22E6814DAE6D3613511A8EF12A91;5406.
  ) 
 Here is how much of TeX's memory you used:
- 34194 strings out of 478233
- 769927 string characters out of 5843844
- 1242822 words of memory out of 5000000
- 50830 multiletter control sequences out of 15000+600000
- 634777 words of font info for 346 fonts, out of 8000000 for 9000
+ 34187 strings out of 478233
+ 768534 string characters out of 5843844
+ 1242846 words of memory out of 5000000
+ 50819 multiletter control sequences out of 15000+600000
+ 634676 words of font info for 345 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,19n,133p,4096b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -2865,10 +2891,10 @@ lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lms
 y6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (101 pages, 33955636 bytes).
+Output written on main.pdf (101 pages, 34410291 bytes).
 PDF statistics:
- 7922 PDF objects out of 8907 (max. 8388607)
- 5726 compressed objects within 58 object streams
- 496 named destinations out of 1000 (max. 500000)
- 81264 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 7942 PDF objects out of 8907 (max. 8388607)
+ 5734 compressed objects within 58 object streams
+ 501 named destinations out of 1000 (max. 500000)
+ 81269 words of extra memory for PDF output out of 89155 (max. 10000000)
 
