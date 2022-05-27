@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  26 MAY 2022 22:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  27 MAY 2022 16:56
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1753,7 +1753,7 @@ Package microtype Info: Character `029' is missing
 
 
 ]
-<graphics/bilateria_phylum.jpg, id=438, 328.68396pt x 278.09496pt>
+<graphics/bilateria_phylum.jpg, id=457, 328.68396pt x 278.09496pt>
 File: graphics/bilateria_phylum.jpg Graphic file (type jpg)
 <use graphics/bilateria_phylum.jpg>
 Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
@@ -1764,7 +1764,7 @@ Package svg Info: Last page of `./svg-inkscape/da_visualization_svg-tex.pdf' is
  1 on input line 22.
 
 (./svg-inkscape/da_visualization_svg-tex.pdf_tex
-<./svg-inkscape/da_visualization_svg-tex.pdf, id=465, page=1, 963.65532pt x 542
+<./svg-inkscape/da_visualization_svg-tex.pdf, id=484, page=1, 963.65532pt x 542
 .05612pt>
 File: ./svg-inkscape/da_visualization_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/da_visualization_svg-tex.pdf, page 1>
@@ -1772,87 +1772,87 @@ Package pdftex.def Info: ./svg-inkscape/da_visualization_svg-tex.pdf , page1 us
 ed on input line 56.
 (pdftex.def)             Requested size: 358.19757pt x 201.48398pt.
 ) [3] [4 <./svg-inkscape/da_visualization_svg-tex.pdf>]
-<graphics/rg_cells_division.png, id=563, 570.13pt x 508.90125pt>
+<graphics/rg_cells_division.png, id=581, 570.13pt x 508.90125pt>
 File: graphics/rg_cells_division.png Graphic file (type png)
 <use graphics/rg_cells_division.png>
 Package pdftex.def Info: graphics/rg_cells_division.png  used on input line 33.
 
 (pdftex.def)             Requested size: 318.40121pt x 284.20624pt.
  [5] [6 <./graphics/rg_cells_division.png>]
-<graphics/coronal_section.png, id=599, 749.80125pt x 716.6775pt>
+<graphics/coronal_section.png, id=618, 749.80125pt x 716.6775pt>
 File: graphics/coronal_section.png Graphic file (type png)
 <use graphics/coronal_section.png>
-Package pdftex.def Info: graphics/coronal_section.png  used on input line 48.
+Package pdftex.def Info: graphics/coronal_section.png  used on input line 47.
 (pdftex.def)             Requested size: 74.98451pt x 71.67194pt.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/9'.
-(microtype)             Ignoring protrusion settings for this character.
-<graphics/axial_section.png, id=600, 650.43pt x 750.805pt>
+<graphics/axial_section.png, id=619, 650.43pt x 750.805pt>
 File: graphics/axial_section.png Graphic file (type png)
 <use graphics/axial_section.png>
-Package pdftex.def Info: graphics/axial_section.png  used on input line 55.
+Package pdftex.def Info: graphics/axial_section.png  used on input line 54.
 (pdftex.def)             Requested size: 65.0468pt x 75.08488pt.
-<graphics/3d_sections.png, id=601, 684.5575pt x 728.7225pt>
+<graphics/3d_sections.png, id=620, 684.5575pt x 728.7225pt>
 File: graphics/3d_sections.png Graphic file (type png)
 <use graphics/3d_sections.png>
-Package pdftex.def Info: graphics/3d_sections.png  used on input line 61.
+Package pdftex.def Info: graphics/3d_sections.png  used on input line 59.
 (pdftex.def)             Requested size: 136.90907pt x 145.74191pt.
-<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=606, 1501.61pt x 1088.065pt>
+<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=625, 1501.61pt x 1088.065pt>
 
 File: graphics/1280px-Lobes_of_the_brain_NL.svg.png Graphic file (type png)
 <use graphics/1280px-Lobes_of_the_brain_NL.svg.png>
 Package pdftex.def Info: graphics/1280px-Lobes_of_the_brain_NL.svg.png  used on
- input line 70.
+ input line 68.
 (pdftex.def)             Requested size: 318.40121pt x 230.70853pt.
  [7 <./graphics/coronal_section.png> <./graphics/axial_section.png> <./graphics
 /3d_sections.png>]
-<graphics/brodmann_medial.png, id=619, 352.6776pt x 248.3679pt>
+<graphics/brodmann_medial.png, id=636, 352.6776pt x 248.3679pt>
 File: graphics/brodmann_medial.png Graphic file (type png)
 <use graphics/brodmann_medial.png>
-Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 83.
+Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 81.
 (pdftex.def)             Requested size: 179.09879pt x 126.12779pt.
-<graphics/brodmann_lateral.png, id=620, 359.6637pt x 269.5671pt>
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/9'.
+(microtype)             Ignoring protrusion settings for this character.
+<graphics/brodmann_lateral.png, id=637, 359.6637pt x 269.5671pt>
 File: graphics/brodmann_lateral.png Graphic file (type png)
 <use graphics/brodmann_lateral.png>
-Package pdftex.def Info: graphics/brodmann_lateral.png  used on input line 87.
+Package pdftex.def Info: graphics/brodmann_lateral.png  used on input line 85.
 (pdftex.def)             Requested size: 179.09879pt x 134.23615pt.
  [8 <./graphics/1280px-Lobes_of_the_brain_NL.svg.png> <./graphics/brodmann_medi
 al.png> <./graphics/brodmann_lateral.png>] [9]
 Package svg Info: Last page of `./svg-inkscape/dk_left_svg-tex.pdf' is 1 on inp
-ut line 122.
+ut line 120.
 
 (./svg-inkscape/dk_left_svg-tex.pdf_tex
-<./svg-inkscape/dk_left_svg-tex.pdf, id=648, page=1, 301.14227pt x 150.5625pt>
+<./svg-inkscape/dk_left_svg-tex.pdf, id=666, page=1, 301.14227pt x 150.5625pt>
 File: ./svg-inkscape/dk_left_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/dk_left_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/dk_left_svg-tex.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 318.40121pt x 159.19803pt.
 ) [10 <./svg-inkscape/dk_left_svg-tex.pdf>]
-<graphics/yakovlevian_external.jpg, id=728, 421.59914pt x 155.69188pt>
+<graphics/yakovlevian_external.jpg, id=746, 421.59914pt x 155.69188pt>
 File: graphics/yakovlevian_external.jpg Graphic file (type jpg)
 <use graphics/yakovlevian_external.jpg>
 Package pdftex.def Info: graphics/yakovlevian_external.jpg  used on input line 
-154.
+152.
 (pdftex.def)             Requested size: 398.0pt x 146.97754pt.
  [11] [12 <./graphics/yakovlevian_external.jpg>] [13]
-<graphics/gwas_2005.png, id=829, 524.96124pt x 373.395pt>
+<graphics/gwas_2005.png, id=846, 524.96124pt x 373.395pt>
 File: graphics/gwas_2005.png Graphic file (type png)
 <use graphics/gwas_2005.png>
-Package pdftex.def Info: graphics/gwas_2005.png  used on input line 195.
+Package pdftex.def Info: graphics/gwas_2005.png  used on input line 193.
 (pdftex.def)             Requested size: 179.09879pt x 127.38564pt.
 Package svg Info: Last page of `./svg-inkscape/gwas_svg-tex.pdf' is 1 on input 
-line 199.
+line 197.
 
 (./svg-inkscape/gwas_svg-tex.pdf_tex
-<./svg-inkscape/gwas_svg-tex.pdf, id=831, page=1, 903.4269pt x 451.7007pt>
+<./svg-inkscape/gwas_svg-tex.pdf, id=848, page=1, 903.4269pt x 451.7007pt>
 File: ./svg-inkscape/gwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_svg-tex.pdf , page1 used on input 
 line 56.
 (pdftex.def)             Requested size: 238.80243pt x 119.39684pt.
 )
-Overfull \hbox (34.50119pt too wide) in paragraph at lines 195--200
+Overfull \hbox (34.50119pt too wide) in paragraph at lines 193--198
  [][][][] 
  []
 
@@ -1861,7 +1861,7 @@ Overfull \hbox (34.50119pt too wide) in paragraph at lines 195--200
 \openout2 = `mat_and_methods.aux'.
 
  (./mat_and_methods.tex
-<graphics/diagram.pdf, id=1166, 643.6547pt x 692.5875pt>
+<graphics/diagram.pdf, id=1184, 643.6547pt x 692.5875pt>
 File: graphics/diagram.pdf Graphic file (type pdf)
 <use graphics/diagram.pdf>
 Package pdftex.def Info: graphics/diagram.pdf  used on input line 6.
@@ -1876,7 +1876,7 @@ Package pdftex.def Info: graphics/diagram.pdf  used on input line 6.
 Package svg Info: Last page of `./svg-inkscape/reduction_svg-tex.pdf' is 1 on i
 nput line 76.
  (./svg-inkscape/reduction_svg-tex.pdf_tex
-<./svg-inkscape/reduction_svg-tex.pdf, id=1295, page=1, 770.88pt x 289.08636pt>
+<./svg-inkscape/reduction_svg-tex.pdf, id=1313, page=1, 770.88pt x 289.08636pt>
 
 File: ./svg-inkscape/reduction_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/reduction_svg-tex.pdf, page 1>
@@ -1892,7 +1892,7 @@ nput line 56.
 Package svg Info: Last page of `./svg-inkscape/results_svg-tex.pdf' is 1 on inp
 ut line 7.
  (./svg-inkscape/results_svg-tex.pdf_tex
-<./svg-inkscape/results_svg-tex.pdf, id=1603, page=1, 1650.165pt x 832.6874pt>
+<./svg-inkscape/results_svg-tex.pdf, id=1620, page=1, 1650.165pt x 832.6874pt>
 File: ./svg-inkscape/results_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/results_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/results_svg-tex.pdf , page1 used on inp
@@ -1912,7 +1912,7 @@ Package svg Info: Last page of `./svg-inkscape/explainedDKCovariates_svg-tex.pd
 f' is 1 on input line 23.
 
 (./svg-inkscape/explainedDKCovariates_svg-tex.pdf_tex
-<./svg-inkscape/explainedDKCovariates_svg-tex.pdf, id=1683, page=1, 421.5992pt 
+<./svg-inkscape/explainedDKCovariates_svg-tex.pdf, id=1701, page=1, 421.5992pt 
 x 316.18124pt>
 File: ./svg-inkscape/explainedDKCovariates_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/explainedDKCovariates_svg-tex.pdf, page 1>
@@ -1921,10 +1921,10 @@ e1 used on input line 56.
 (pdftex.def)             Requested size: 358.19757pt x 268.6347pt.
 ) [38]
 Package svg Info: Last page of `./svg-inkscape/segmentation_svg-tex.pdf' is 1 o
-n input line 35.
+n input line 36.
 
 (./svg-inkscape/segmentation_svg-tex.pdf_tex
-<./svg-inkscape/segmentation_svg-tex.pdf, id=1701, page=1, 1156.45772pt x 433.6
+<./svg-inkscape/segmentation_svg-tex.pdf, id=1719, page=1, 1156.45772pt x 433.6
 2pt>
 File: ./svg-inkscape/segmentation_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/segmentation_svg-tex.pdf, page 1>
@@ -1933,10 +1933,10 @@ n input line 56.
 (pdftex.def)             Requested size: 375.37703pt x 140.74619pt.
 )
 Package svg Info: Last page of `./svg-inkscape/segmentation_circular_svg-tex.pd
-f' is 1 on input line 38.
+f' is 1 on input line 39.
 
 (./svg-inkscape/segmentation_circular_svg-tex.pdf_tex
-<./svg-inkscape/segmentation_circular_svg-tex.pdf, id=1703, page=1, 421.5992pt 
+<./svg-inkscape/segmentation_circular_svg-tex.pdf, id=1721, page=1, 421.5992pt 
 x 316.18124pt>
 File: ./svg-inkscape/segmentation_circular_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/segmentation_circular_svg-tex.pdf, page 1>
@@ -1945,10 +1945,10 @@ e1 used on input line 56.
 (pdftex.def)             Requested size: 250.245pt x 187.67426pt.
 ) [39 <./svg-inkscape/explainedDKCovariates_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/explainedVarianceSIngleThreshold
-_svg-tex.pdf' is 1 on input line 60.
+_svg-tex.pdf' is 1 on input line 61.
 
 (./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf_tex
-<./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf, id=1772, page=1, 
+<./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf, id=1790, page=1, 
 963.6pt x 542.025pt>
 File: ./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf Graphic file 
 (type pdf)
@@ -1969,7 +1969,7 @@ Overfull \hbox (19.95639pt too wide) in paragraph at lines 72--108
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_svg-tex.pdf' is 1
  on input line 114.
 (./svg-inkscape/gwas_discovery_svg-tex.pdf_tex
-<./svg-inkscape/gwas_discovery_svg-tex.pdf, id=1996, page=1, 903.4269pt x 451.7
+<./svg-inkscape/gwas_discovery_svg-tex.pdf, id=2016, page=1, 903.4269pt x 451.7
 007pt>
 File: ./svg-inkscape/gwas_discovery_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_discovery_svg-tex.pdf, page 1>
@@ -1984,7 +1984,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 114--115
 Package svg Info: Last page of `./svg-inkscape/gwas_replication_svg-tex.pdf' is
  1 on input line 119.
 (./svg-inkscape/gwas_replication_svg-tex.pdf_tex
-<./svg-inkscape/gwas_replication_svg-tex.pdf, id=1998, page=1, 903.4269pt x 451
+<./svg-inkscape/gwas_replication_svg-tex.pdf, id=2018, page=1, 903.4269pt x 451
 .7007pt>
 File: ./svg-inkscape/gwas_replication_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_replication_svg-tex.pdf, page 1>
@@ -1999,7 +1999,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 119--120
 Package svg Info: Last page of `./svg-inkscape/gwas_joined_svg-tex.pdf' is 1 on
  input line 124.
 (./svg-inkscape/gwas_joined_svg-tex.pdf_tex
-<./svg-inkscape/gwas_joined_svg-tex.pdf, id=2000, page=1, 903.4269pt x 451.7007
+<./svg-inkscape/gwas_joined_svg-tex.pdf, id=2020, page=1, 903.4269pt x 451.7007
 pt>
 File: ./svg-inkscape/gwas_joined_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_joined_svg-tex.pdf, page 1>
@@ -2021,7 +2021,7 @@ Package svg Info: Last page of `./svg-inkscape/CcaCircularJoined_svg-tex.pdf' i
 s 1 on input line 135.
 
 (./svg-inkscape/CcaCircularJoined_svg-tex.pdf_tex
-<./svg-inkscape/CcaCircularJoined_svg-tex.pdf, id=2170, page=1, 2565.58426pt x 
+<./svg-inkscape/CcaCircularJoined_svg-tex.pdf, id=2189, page=1, 2565.58426pt x 
 1286.8075pt>
 File: ./svg-inkscape/CcaCircularJoined_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/CcaCircularJoined_svg-tex.pdf, page 1>
@@ -2033,7 +2033,7 @@ Package svg Info: Last page of `./svg-inkscape/legend_svg-tex.pdf' is 1 on inpu
 t line 138.
 
 (./svg-inkscape/legend_svg-tex.pdf_tex
-<./svg-inkscape/legend_svg-tex.pdf, id=2172, page=1, 48.18pt x 128.73094pt>
+<./svg-inkscape/legend_svg-tex.pdf, id=2191, page=1, 48.18pt x 128.73094pt>
 File: ./svg-inkscape/legend_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/legend_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/legend_svg-tex.pdf , page1 used on inpu
@@ -2047,9 +2047,9 @@ Overfull \hbox (14.59996pt too wide) in paragraph at lines 135--139
 [44 <./svg-inkscape/CcaCircularJoined_svg-tex.pdf> <./svg-inkscape/legend_svg-t
 ex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/Total Observed scale h2_svg-tex.
-pdf' is 1 on input line 166.
+pdf' is 1 on input line 168.
  (./svg-inkscape/Total Observed scale h2_svg-tex.pdf_tex
-<./svg-inkscape/Total Observed scale h2_svg-tex.pdf, id=2266, page=1, 385.44177
+<./svg-inkscape/Total Observed scale h2_svg-tex.pdf, id=2285, page=1, 385.44177
 pt x 867.24913pt>
 File: ./svg-inkscape/Total Observed scale h2_svg-tex.pdf Graphic file (type pdf
 )
@@ -2059,10 +2059,10 @@ age1 used on input line 56.
 (pdftex.def)             Requested size: 156.49014pt x 352.10736pt.
 )
 Package svg Info: Last page of `./svg-inkscape/Intercept_svg-tex.pdf' is 1 on i
-nput line 171.
+nput line 173.
 
 (./svg-inkscape/Intercept_svg-tex.pdf_tex
-<./svg-inkscape/Intercept_svg-tex.pdf, id=2268, page=1, 385.44177pt x 867.24913
+<./svg-inkscape/Intercept_svg-tex.pdf, id=2287, page=1, 385.44177pt x 867.24913
 pt>
 File: ./svg-inkscape/Intercept_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Intercept_svg-tex.pdf, page 1>
@@ -2072,10 +2072,10 @@ nput line 56.
 ) [45 <./svg-inkscape/Total Observed scale h2_svg-tex.pdf> <./svg-inkscape/Inte
 rcept_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf' 
-is 1 on input line 189.
+is 1 on input line 191.
 
 (./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, id=2396, page=1, 494.59781pt x 
+<./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, id=2406, page=1, 494.59781pt x 
 737.75626pt>
 File: ./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, page 1>
@@ -2084,10 +2084,10 @@ used on input line 56.
 (pdftex.def)             Requested size: 199.0pt x 296.83089pt.
 )
 Package svg Info: Last page of `./svg-inkscape/otherTraitsHeatmapPvalues_svg-te
-x.pdf' is 1 on input line 191.
+x.pdf' is 1 on input line 193.
 
 (./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf, id=2398, page=1, 494.597
+<./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf, id=2408, page=1, 494.597
 81pt x 737.75626pt>
 File: ./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf Graphic file (type p
 df)
@@ -2096,14 +2096,13 @@ Package pdftex.def Info: ./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf ,
  page1 used on input line 56.
 (pdftex.def)             Requested size: 199.0pt x 296.83089pt.
 )
-Overfull \hbox (7.29999pt too wide) in paragraph at lines 189--192
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 191--194
 [][][][] 
  []
 
-[46]
 Package svg Info: Last page of `./svg-inkscape/brainShapeHeatmap_svg-tex.pdf' i
-s 1 on input line 200.
- (./svg-inkscape/brainShapeHeatmap_svg-tex.pdf_tex
+s 1 on input line 202.
+(./svg-inkscape/brainShapeHeatmap_svg-tex.pdf_tex
 <./svg-inkscape/brainShapeHeatmap_svg-tex.pdf, id=2410, page=1, 1330.21968pt x 
 184.43906pt>
 File: ./svg-inkscape/brainShapeHeatmap_svg-tex.pdf Graphic file (type pdf)
@@ -2112,12 +2111,12 @@ Package pdftex.def Info: ./svg-inkscape/brainShapeHeatmap_svg-tex.pdf , page1 u
 sed on input line 56.
 (pdftex.def)             Requested size: 568.71652pt x 78.85414pt.
 )
-Overfull \hbox (3.65pt too wide) in paragraph at lines 200--201
+Overfull \hbox (3.65pt too wide) in paragraph at lines 202--203
 [][] 
  []
 
 Package svg Info: Last page of `./svg-inkscape/brainShapeHeatmapPvalues_svg-tex
-.pdf' is 1 on input line 203.
+.pdf' is 1 on input line 205.
 (./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf_tex
 <./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf, id=2412, page=1, 1330.219
 68pt x 184.43906pt>
@@ -2128,14 +2127,17 @@ Package pdftex.def Info: ./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf ,
 page1 used on input line 56.
 (pdftex.def)             Requested size: 568.71652pt x 78.85414pt.
 )
-Overfull \hbox (3.65pt too wide) in paragraph at lines 203--204
+Overfull \hbox (3.65pt too wide) in paragraph at lines 205--206
 [][] 
  []
 
+[46 <./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf> <./svg-inkscape/otherTraits
+HeatmapPvalues_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/CcaCircularOtherTraits_svg-tex.p
-df' is 1 on input line 215.
+df' is 1 on input line 217.
+
 (./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf_tex
-<./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf, id=2420, page=1, 2565.58426
+<./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf, id=2455, page=1, 2565.58426
 pt x 1286.8075pt>
 File: ./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf Graphic file (type pdf)
 
@@ -2145,10 +2147,10 @@ ge1 used on input line 56.
 (pdftex.def)             Requested size: 537.4487pt x 269.55032pt.
 )
 Package svg Info: Last page of `./svg-inkscape/otherTraitsLegend_svg-tex.pdf' i
-s 1 on input line 218.
+s 1 on input line 220.
 
 (./svg-inkscape/otherTraitsLegend_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsLegend_svg-tex.pdf, id=2422, page=1, 126.4725pt x 61
+<./svg-inkscape/otherTraitsLegend_svg-tex.pdf, id=2457, page=1, 126.4725pt x 61
 .73062pt>
 File: ./svg-inkscape/otherTraitsLegend_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/otherTraitsLegend_svg-tex.pdf, page 1>
@@ -2156,18 +2158,18 @@ Package pdftex.def Info: ./svg-inkscape/otherTraitsLegend_svg-tex.pdf , page1 u
 sed on input line 56.
 (pdftex.def)             Requested size: 59.72057pt x 29.14996pt.
 )
-Overfull \hbox (14.59996pt too wide) in paragraph at lines 215--219
+Overfull \hbox (14.59996pt too wide) in paragraph at lines 217--221
  [][][] 
  []
 
-[47 <./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf> <./svg-inkscape/otherTraits
-HeatmapPvalues_svg-tex.pdf> <./svg-inkscape/brainShapeHeatmap_svg-tex.pdf> <./s
-vg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf>]
+[47 <./svg-inkscape/brainShapeHeatmap_svg-tex.pdf> <./svg-inkscape/brainShapeHe
+atmapPvalues_svg-tex.pdf> <./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf> <
+./svg-inkscape/otherTraitsLegend_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-
-tex.pdf' is 1 on input line 232.
+tex.pdf' is 1 on input line 234.
 
 (./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf_tex
-<./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf, id=2494, page=1, 1021.
+<./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf, id=2568, page=1, 1021.
 56656pt x 414.04688pt>
 File: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf Graphic file (type
  pdf)
@@ -2175,35 +2177,33 @@ File: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf Graphic file (type
 Package pdftex.def Info: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf
  , page1 used on input line 56.
 (pdftex.def)             Requested size: 568.71652pt x 230.5pt.
-) [48 <./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf> <./svg-inkscape/other
-TraitsLegend_svg-tex.pdf>]
+) [48 <./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf>]
 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/partition
-sSummary/age.pdf, id=2576, 2292.75761pt x 512.36018pt>
+sSummary/age.pdf, id=2597, 2292.75761pt x 512.36018pt>
 File: ../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/part
 itionsSummary/age.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
 tionsSummary/age.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA/joinedDatasets/mean_imputed/
-not_subsampled/partitionsSummary/age.pdf  used on input line 243.
-(pdftex.def)             Requested size: 568.71652pt x 127.08902pt.
- [49 <./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf>]
+not_subsampled/partitionsSummary/age.pdf  used on input line 245.
+(pdftex.def)             Requested size: 454.97495pt x 101.67278pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 252.
+(Font)              <7> on input line 254.
 
-Overfull \hbox (11.91562pt too wide) in paragraph at lines 250--294
+Overfull \hbox (11.91562pt too wide) in paragraph at lines 252--296
  [] 
  []
 
-[50 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
+[49 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
 tionsSummary/age.pdf>]
 <./svg-inkscape/clusterMCL2_svg-raw.pdf, id=2668, 969.80714pt x 1045.45892pt>
 File: ./svg-inkscape/clusterMCL2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_svg-raw.pdf  used on input 
-line 309.
+line 311.
 (pdftex.def)             Requested size: 969.80478pt x 1045.45638pt.
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_1_svg-tex.pdf' is 13
- on input line 314.
+ on input line 316.
  (./svg-inkscape/clusterMCL2_1_svg-tex.pdf_tex
 <./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2670, page=1, 440.05067pt x 362.8
 3887pt>
@@ -2298,7 +2298,7 @@ Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page13 used
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
 )
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_2_svg-tex.pdf' is 8 
-on input line 318.
+on input line 320.
 
 (./svg-inkscape/clusterMCL2_2_svg-tex.pdf_tex
 <./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2684, page=1, 304.81644pt x 218.3
@@ -2359,7 +2359,7 @@ on input line 77.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
 )
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_3_svg-tex.pdf' is 8 
-on input line 322.
+on input line 324.
 
 (./svg-inkscape/clusterMCL2_3_svg-tex.pdf_tex
 <./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2693, page=1, 361.39574pt x 260.4
@@ -2419,27 +2419,27 @@ Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page8 used
 on input line 77.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 324--324
 []\T1/lmr/m/sc/9 (+20) (c) |\T1/lmr/m/n/9 (+20) Clus-ter 3, 8 genes
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 324--324
 \T1/lmr/m/n/9 (+20) assembly(P-value=1e-
  []
 
 
-Underfull \hbox (badness 5592) in paragraph at lines 322--322
+Underfull \hbox (badness 5592) in paragraph at lines 324--324
 \T1/lmr/m/n/9 (+20) 10), ac-ti-va-tion of AMPK
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 324--324
 \T1/lmr/m/n/9 (+20) down-stream of NM-DARs
  []
 
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_4_svg-tex.pdf' is 5 
-on input line 326.
+on input line 328.
 (./svg-inkscape/clusterMCL2_4_svg-tex.pdf_tex
 <./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2702, page=1, 229.90497pt x 329.7
 1512pt>
@@ -2477,11 +2477,11 @@ Package pdftex.def Info: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf , page5 used
 on input line 68.
 (pdftex.def)             Requested size: 113.74156pt x 163.12143pt.
 )
-Overfull \hbox (13.38333pt too wide) in paragraph at lines 307--329
+Overfull \hbox (13.38333pt too wide) in paragraph at lines 309--331
 []$[]$  $[]$ 
  []
 
-[51]) [52 <./svg-inkscape/clusterMCL2_svg-raw.pdf> <./svg-inkscape/clusterMCL2_
+[50]) [51 <./svg-inkscape/clusterMCL2_svg-raw.pdf> <./svg-inkscape/clusterMCL2_
 1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-inkscape/clust
 erMCL2_1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-inkscap
 e/clusterMCL2_1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-
@@ -2503,20 +2503,41 @@ pdf> <./svg-inkscape/clusterMCL2_4_svg-tex.pdf> <./svg-inkscape/clusterMCL2_4_s
 vg-tex.pdf>]
 \openout2 = `discussion.aux'.
 
- (./discussion.tex [53
+ (./discussion.tex [52
 
 
 
 
-] [54] [55] [56]) [57]
+] [53] [54]
+<graphics/spire2.png, id=7132, 2409.0pt x 371.3875pt>
+File: graphics/spire2.png Graphic file (type png)
+<use graphics/spire2.png>
+Package pdftex.def Info: graphics/spire2.png  used on input line 36.
+(pdftex.def)             Requested size: 554.49014pt x 85.48532pt.
+
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 36--37
+ [] 
+ []
+
+<graphics/tubb3.png, id=7133, 2409.0pt x 696.6025pt>
+File: graphics/tubb3.png Graphic file (type png)
+<use graphics/tubb3.png>
+Package pdftex.def Info: graphics/tubb3.png  used on input line 39.
+(pdftex.def)             Requested size: 554.49014pt x 160.34276pt.
+
+Overfull \hbox (3.65pt too wide) in paragraph at lines 39--40
+ [][] 
+ []
+
+[55] [56 <./graphics/spire2.png> <./graphics/tubb3.png>] [57]) [58]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex
+
+(./appendix.tex
 Package svg Info: Last page of `./svg-inkscape/filteredGwas_svg-tex.pdf' is 1 o
 n input line 9.
-
-(./svg-inkscape/filteredGwas_svg-tex.pdf_tex
-<./svg-inkscape/filteredGwas_svg-tex.pdf, id=7172, page=1, 1118.68121pt x 841.6
+ (./svg-inkscape/filteredGwas_svg-tex.pdf_tex
+<./svg-inkscape/filteredGwas_svg-tex.pdf, id=7229, page=1, 1118.68121pt x 841.6
 4438pt>
 File: ./svg-inkscape/filteredGwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/filteredGwas_svg-tex.pdf, page 1>
@@ -2528,12 +2549,12 @@ Overfull \hbox (6.49442pt too wide) in paragraph at lines 37--55
  [][] 
  []
 
-[58
+[59
 
 
 
 
- <./svg-inkscape/filteredGwas_svg-tex.pdf>] [59]
+ <./svg-inkscape/filteredGwas_svg-tex.pdf>] [60]
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_svg-tex.pdf' is 1
  on input line 110.
 
@@ -2551,7 +2572,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 110--111
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_not_imputed_svg-t
 ex.pdf' is 1 on input line 115.
 (./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf_tex
-<./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf, id=7246, page=1, 903.48
+<./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf, id=7304, page=1, 903.48
 515pt x 451.74257pt>
 File: ./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf Graphic file (type 
 pdf)
@@ -2565,7 +2586,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 115--116
  []
 
 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/
-partitions_gwas.pdf, id=7251, 2605.735pt x 1298.8525pt>
+partitions_gwas.pdf, id=7309, 2605.735pt x 1298.8525pt>
 File: ../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsam
 pled/partitions_gwas.pdf Graphic file (type pdf)
 <use ../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
@@ -2573,7 +2594,7 @@ led/partitions_gwas.pdf>
 Package pdftex.def Info: ../results/asymmetry/meta_analysis/joinedDatasets/mean
 _imputed/not_subsampled/partitions_gwas.pdf  used on input line 125.
 (pdftex.def)             Requested size: 554.49014pt x 276.39392pt.
-[60
+[61
 
  <./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf>]
 LaTeX Font Info:    Calculating math sizes for size <4> on input line 139.
@@ -2588,27 +2609,27 @@ Overfull \hbox (19.78638pt too wide) in paragraph at lines 134--146
  [] 
  []
 
-[61 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
+[62 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
 led/partitions_gwas.pdf>]
 Package svg Info: Last page of `./svg-inkscape/Lambda GC_svg-tex.pdf' is 1 on i
 nput line 151.
  (./svg-inkscape/Lambda GC_svg-tex.pdf_tex
-<./svg-inkscape/Lambda GC_svg-tex.pdf, id=7324, page=1, 385.44177pt x 867.24913
+<./svg-inkscape/Lambda GC_svg-tex.pdf, id=7382, page=1, 385.44177pt x 867.24913
 pt>
 File: ./svg-inkscape/Lambda GC_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Lambda GC_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Lambda GC_svg-tex.pdf , page1 used on i
 nput line 56.
 (pdftex.def)             Requested size: 199.0pt x 447.75648pt.
-) [62
+) [63
 
 ]
 Overfull \vbox (64.19052pt too high) has occurred while \output is active []
 
 
-[63 <./svg-inkscape/Lambda GC_svg-tex.pdf>]
+[64 <./svg-inkscape/Lambda GC_svg-tex.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_CC.pdf, id=7386, 1683.26462pt x 595.82402pt>
+/partitionsSummary/GO_CC.pdf, id=7444, 1683.26462pt x 595.82402pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_CC.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2617,7 +2638,7 @@ Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_CC.pdf  used on input line 162.
 (pdftex.def)             Requested size: 398.0pt x 140.87326pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_BP.pdf, id=7387, 1918.54964pt x 769.39949pt>
+/partitionsSummary/GO_BP.pdf, id=7445, 1918.54964pt x 769.39949pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_BP.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2626,7 +2647,7 @@ Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_BP.pdf  used on input line 166.
 (pdftex.def)             Requested size: 398.0pt x 159.60632pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_MF.pdf, id=7388, 1487.62477pt x 378.85439pt>
+/partitionsSummary/GO_MF.pdf, id=7446, 1487.62477pt x 378.85439pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_MF.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2650,7 +2671,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 162--171
  []
 
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_cc.pdf, id=7393, 1436.00491pt x 382.84532pt>
+/partitionsSummary/genes_GO_cc.pdf, id=7451, 1436.00491pt x 382.84532pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_cc.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2660,7 +2681,7 @@ n_imputed/not_subsampled/partitionsSummary/genes_GO_cc.pdf  used on input line
 178.
 (pdftex.def)             Requested size: 398.0pt x 106.10355pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_bp.pdf, id=7394, 1436.00491pt x 355.63765pt>
+/partitionsSummary/genes_GO_bp.pdf, id=7452, 1436.00491pt x 355.63765pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_bp.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2670,7 +2691,7 @@ n_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf  used on input line
 182.
 (pdftex.def)             Requested size: 398.0pt x 98.56308pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_mf.pdf, id=7395, 1436.00491pt x 378.62656pt>
+/partitionsSummary/genes_GO_mf.pdf, id=7453, 1436.00491pt x 378.62656pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_mf.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2694,19 +2715,19 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 178--187
  [][] 
  []
 
-[64
+[65
 
 ]
 Overfull \vbox (126.07263pt too high) has occurred while \output is active []
 
 
-[65 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[66 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GO_cc.pdf> <../results/asymmetry/FUMA gene2func/joinedDa
 tasets/mean_imputed/not_subsampled/partitionsSummary/GO_bp.pdf> <../results/asy
 mmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSumm
 ary/GO_mf.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/canonical_pathways.pdf, id=7446, 2230.93166pt x 3069.27586pt
+/partitionsSummary/canonical_pathways.pdf, id=7503, 2230.93166pt x 3069.27586pt
 >
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/canonical_pathways.pdf Graphic file (type pdf)
@@ -2717,7 +2738,7 @@ n_imputed/not_subsampled/partitionsSummary/canonical_pathways.pdf  used on inpu
 t line 192.
 (pdftex.def)             Requested size: 398.0pt x 547.52834pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_Canonical_Pathways.pdf, id=7447, 1436.00491pt x 1526.0
+/partitionsSummary/genes_Canonical_Pathways.pdf, id=7504, 1436.00491pt x 1526.0
 2322pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_Canonical_Pathways.pdf Graphic file (type pdf)
@@ -2725,45 +2746,41 @@ mpled/partitionsSummary/genes_Canonical_Pathways.pdf Graphic file (type pdf)
 pled/partitionsSummary/genes_Canonical_Pathways.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/genes_Canonical_Pathways.pdf  used o
-n input line 200.
-(pdftex.def)             Requested size: 398.0pt x 422.92926pt.
- [66 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
+n input line 201.
+(pdftex.def)             Requested size: 554.49014pt x 589.23222pt.
+ [67 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_cc.pdf> <../results/asymmetry/FUMA gene2func/j
 oinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf> <.
 ./results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/p
-artitionsSummary/genes_GO_mf.pdf>] [67 <../results/asymmetry/FUMA gene2func/joi
-nedDatasets/mean_imputed/not_subsampled/partitionsSummary/canonical_pathways.pd
-f>]
+artitionsSummary/genes_GO_mf.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/DEG.pdf, id=7493, 1409.62535pt x 726.00636pt>
+/partitionsSummary/DEG.pdf, id=7536, 1409.62535pt x 726.00636pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/DEG.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/DEG.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
-n_imputed/not_subsampled/partitionsSummary/DEG.pdf  used on input line 208.
+n_imputed/not_subsampled/partitionsSummary/DEG.pdf  used on input line 210.
 (pdftex.def)             Requested size: 398.0pt x 204.98639pt.
+ [68 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
+mpled/partitionsSummary/canonical_pathways.pdf>]
+Overfull \vbox (70.95193pt too high) has occurred while \output is active []
+
+
+[69 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/genes_Canonical_Pathways.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GWASCatalog.pdf, id=7494, 1617.02214pt x 2505.15514pt>
+/partitionsSummary/GWASCatalog.pdf, id=7565, 1617.02214pt x 2505.15514pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GWASCatalog.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GWASCatalog.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GWASCatalog.pdf  used on input line 
-215.
+217.
 (pdftex.def)             Requested size: 398.0pt x 616.57797pt.
- [68 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
-mpled/partitionsSummary/genes_Canonical_Pathways.pdf>]
-[69 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
-pled/partitionsSummary/DEG.pdf>]
-Overfull \vbox (54.77771pt too high) has occurred while \output is active []
-
-
-[70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
-pled/partitionsSummary/GWASCatalog.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GWASCatalog.pdf, id=7548, 1436.00491pt x 1169.04956pt>
+/partitionsSummary/genes_GWASCatalog.pdf, id=7566, 1436.00491pt x 1169.04956pt>
 
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GWASCatalog.pdf Graphic file (type pdf)
@@ -2771,19 +2788,26 @@ mpled/partitionsSummary/genes_GWASCatalog.pdf Graphic file (type pdf)
 pled/partitionsSummary/genes_GWASCatalog.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/genes_GWASCatalog.pdf  used on input
- line 223.
-(pdftex.def)             Requested size: 398.0pt x 323.9959pt.
-) [71 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subs
-ampled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [72
+ line 225.
+(pdftex.def)             Requested size: 554.49014pt x 451.39658pt.
+ [70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
+mpled/partitionsSummary/DEG.pdf>]
+Overfull \vbox (54.77771pt too high) has occurred while \output is active []
+
+
+[71 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/GWASCatalog.pdf>]) [72 <../results/asymmetry/FUMA gene2f
+unc/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GWAScata
+log.pdf>] (./main.bbl [73
 
 
 
 
-] [73] [74] [75] [76] [77] [78] [79] [80] [81]
-[82] [83] [84] [85] [86] [87]) [88]
+] [74] [75] [76] [77] [78] [79] [80] [81] [82]
+[83] [84] [85] [86] [87] [88]) [89]
 \openout2 = `popsum.aux'.
 
- (./popsum.tex) [89
+ (./popsum.tex) [90
 
 
 ]
@@ -2800,16 +2824,16 @@ ampled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [72
 (./introduction.aux) (./mat_and_methods.aux) (./results.aux) (./discussion.aux)
 (./appendix.aux) (./popsum.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CBF1B1E92F5A4F00EB76E17B8B34022D;5406.
+(rerunfilecheck)             Checksum: 4C7A22E6814DAE6D3613511A8EF12A91;5406.
  ) 
 Here is how much of TeX's memory you used:
- 34136 strings out of 478233
- 767386 string characters out of 5843844
- 1237047 words of memory out of 5000000
- 50786 multiletter control sequences out of 15000+600000
- 634634 words of font info for 345 fonts, out of 8000000 for 9000
+ 34194 strings out of 478233
+ 769927 string characters out of 5843844
+ 1242822 words of memory out of 5000000
+ 50830 multiletter control sequences out of 15000+600000
+ 634777 words of font info for 346 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,19n,133p,4100b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,19n,133p,4096b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/
@@ -2841,10 +2865,10 @@ lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lms
 y6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (100 pages, 33568089 bytes).
+Output written on main.pdf (101 pages, 33955636 bytes).
 PDF statistics:
- 7862 PDF objects out of 8907 (max. 8388607)
- 5677 compressed objects within 57 object streams
- 486 named destinations out of 1000 (max. 500000)
- 81254 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 7922 PDF objects out of 8907 (max. 8388607)
+ 5726 compressed objects within 58 object streams
+ 496 named destinations out of 1000 (max. 500000)
+ 81264 words of extra memory for PDF output out of 89155 (max. 10000000)
 
