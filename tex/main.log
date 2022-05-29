@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  29 MAY 2022 22:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  29 MAY 2022 23:10
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2510,7 +2510,7 @@ vg-tex.pdf>]
 
 
 ] [53] [54]
-<graphics/tubb3.png, id=7144, 2348.775pt x 355.3275pt>
+<graphics/tubb3.png, id=7145, 2348.775pt x 355.3275pt>
 File: graphics/tubb3.png Graphic file (type png)
 <use graphics/tubb3.png>
 Package pdftex.def Info: graphics/tubb3.png  used on input line 27.
@@ -2520,7 +2520,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 27--28
  [] 
  []
 
-<graphics/spire2.png, id=7145, 2409.0pt x 696.6025pt>
+<graphics/spire2.png, id=7146, 2409.0pt x 696.6025pt>
 File: graphics/spire2.png Graphic file (type png)
 <use graphics/spire2.png>
 Package pdftex.def Info: graphics/spire2.png  used on input line 31.
@@ -2892,7 +2892,7 @@ lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lms
 y6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (101 pages, 34730996 bytes).
+Output written on main.pdf (101 pages, 34730872 bytes).
 PDF statistics:
  7952 PDF objects out of 8907 (max. 8388607)
  5740 compressed objects within 58 object streams
