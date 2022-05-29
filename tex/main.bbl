@@ -1,4 +1,4 @@
-\begin{thebibliography}{182}
+\begin{thebibliography}{188}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -217,6 +217,14 @@ S.~Bracci, M.~Ietswaart, M.~V. Peelen, and C.~Cavina-Pratesi.
 \newblock ISSN 00223077.
 \newblock \doi{10.1152/JN.00215.2010}.
 
+\bibitem[Brenner and Smeets(2019)]{Brenner2019}
+E.~Brenner and J.~B. Smeets.
+\newblock {How Can You Best Measure Reaction Times?}
+\newblock \emph{Journal of motor behavior}, 51\penalty0 (5):\penalty0 486--495,
+  sep 2019.
+\newblock ISSN 1940-1027.
+\newblock \doi{10.1080/00222895.2018.1518311}.
+
 \bibitem[Brodmann(1909)]{Brodmann1909}
 K.~Brodmann.
 \newblock \emph{{Vergleichende Lokalisationslehre der Grosshirnrinde in ihren
@@ -312,6 +320,18 @@ E.~Cano-Gamez and G.~Trynka.
 \newblock ISSN 16648021.
 \newblock \doi{10.3389/FGENE.2020.00424}.
 
+\bibitem[Cao et~al.(2021)Cao, Ottino-Gonzalez, Cupertino, Schwab, Hoke,
+  Catherine, Cousijn, Dagher, Foxe, Goudriaan, Hester, Hutchison, Li, London,
+  Lorenzetti, Luijten, Martin-Santos, Momenan, Paulus, Schmaal, Sinha, Sjoerds,
+  Solowij, Stein, Stein, Uhlmann, van Holst, Veltman, Wiers, Y{\"{u}}cel,
+  Zhang, Jahanshad, Thompson, Conrod, Mackey, and Garavan]{Cao2021}
+Z.~Cao et al.
+\newblock {Mapping cortical and subcortical asymmetries in substance
+  dependence: Findings from the ENIGMA Addiction Working Group}.
+\newblock \emph{Addiction biology}, 26\penalty0 (5), sep 2021.
+\newblock ISSN 1369-1600.
+\newblock \doi{10.1111/ADB.13010}.
+
 \bibitem[Cara et~al.(2022)Cara, Streata, Buga, and Iliescu]{Cara2022}
 M.~L. Cara, I.~Streata, A.~M. Buga, and D.~G. Iliescu.
 \newblock {Developmental Brain Asymmetry. The Good and the Bad Sides}.
@@ -329,6 +349,15 @@ E.~Y. Chen, C.~M. Tan, Y.~Kou, Q.~Duan, Z.~Wang, G.~V. Meirelles, N.~R. Clark,
 \newblock \emph{BMC bioinformatics}, 14, apr 2013.
 \newblock ISSN 1471-2105.
 \newblock \doi{10.1186/1471-2105-14-128}.
+
+\bibitem[Cheng et~al.(2020)Cheng, Hegarty, and Chrastil]{Cheng2020}
+Y.~Cheng, M.~Hegarty, and E.~R. Chrastil.
+\newblock {Telling right from right: the influence of handedness in the mental
+  rotation of hands}.
+\newblock \emph{Cognitive Research: Principles and Implications}, 5\penalty0
+  (1):\penalty0 1--18, dec 2020.
+\newblock ISSN 23657464.
+\newblock \doi{10.1186/S41235-020-00230-9/FIGURES/6}.
 
 \bibitem[Chini and Hanganu-Opatz(2021)]{Chini2021}
 M.~Chini and I.~L. Hanganu-Opatz.
@@ -360,6 +389,15 @@ E.~T. Cirulli et al.
   1--10, jan 2020.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/s41467-020-14288-y}.
+
+\bibitem[Claassen et~al.(2016)Claassen, McDonell, Donahue, Rawal, Wylie,
+  Neimat, Kang, Hedera, Zald, Landman, Dawant, and Rane]{Claassen2016}
+D.~O. Claassen et al.
+\newblock {Cortical asymmetry in Parkinson's disease: early susceptibility of
+  the left hemisphere}.
+\newblock \emph{Brain and Behavior}, 6\penalty0 (12), dec 2016.
+\newblock ISSN 21623279.
+\newblock \doi{10.1002/BRB3.573}.
 
 \bibitem[Claes et~al.(2012)Claes, Walters, Shriver, Puts, Gibson, Clement,
   Baynam, Verbeke, Vandermeulen, and Suetens]{Claes2012}
@@ -401,7 +439,7 @@ M.~Claussnitzer et al.
 \newblock \emph{New England Journal of Medicine}, 373\penalty0 (10):\penalty0
   895--907, sep 2015.
 \newblock ISSN 0028-4793.
-\newblock \doi{10.1056/NEJMOA1502214/SUPPL_FILE/NEJMOA1502214_DISCLOSURES.PDF}.
+\newblock \doi{10.1056/NEJMOA1502214}.
 
 \bibitem[Coles(2008)]{Coles2008}
 P.~Coles.
@@ -1025,7 +1063,7 @@ R.~J. Klein et al.
   degeneration}.
 \newblock \emph{Science}, 308\penalty0 (5720):\penalty0 385--389, apr 2005.
 \newblock ISSN 00368075.
-\newblock \doi{10.1126/SCIENCE.1109557/SUPPL_FILE/KLEIN_SOM.PDF}.
+\newblock \doi{10.1126/SCIENCE.1109557}.
 
 \bibitem[Klingenberg(2020)]{Klingenberg2020}
 C.~P. Klingenberg.
@@ -1303,6 +1341,15 @@ H.~Mi, A.~Muruganujan, D.~Ebert, X.~Huang, and P.~D. Thomas.
 \newblock ISSN 1362-4962.
 \newblock \doi{10.1093/NAR/GKY1038}.
 
+\bibitem[Michaelson(2014)]{Michaelson2014}
+D.~M. Michaelson.
+\newblock {APOE $\epsilon$4: The most prevalent yet understudied risk factor
+  for Alzheimer's disease}.
+\newblock \emph{Alzheimer's \& Dementia}, 10\penalty0 (6):\penalty0 861--868,
+  nov 2014.
+\newblock ISSN 1552-5260.
+\newblock \doi{10.1016/J.JALZ.2014.06.015}.
+
 \bibitem[Moln{\'{a}}r et~al.(2019)Moln{\'{a}}r, Clowry, {\v{S}}estan, Alzu'bi,
   Bakken, Hevner, H{\"{u}}ppi, Kostovi{\'{c}}, Rakic, Anton, Edwards, Garcez,
   Hoerder-Suabedissen, and Kriegstein]{Molnar2019}
@@ -1412,7 +1459,7 @@ S.~Neubauer, P.~Gunz, N.~A. Scott, J.~J. Hublin, and P.~Mitteroecker.
   endocranial asymmetry is much more variable in humans than in great apes}.
 \newblock \emph{Science Advances}, 6\penalty0 (7):\penalty0 9935--9949, 2020.
 \newblock ISSN 23752548.
-\newblock \doi{10.1126/SCIADV.AAX9935/SUPPL_FILE/AAX9935_SM.PDF}.
+\newblock \doi{10.1126/SCIADV.AAX9935}.
 
 \bibitem[Ng et~al.(2002)Ng, Jordan, and Weiss]{Ng2002}
 A.~Y. Ng, M.~I. Jordan, and Y.~Weiss.
@@ -1661,6 +1708,21 @@ J.~M. Roe et al.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/s41467-021-21057-y}.
 
+\bibitem[Sakaue et~al.(2021)Sakaue, Kanai, Tanigawa, Karjalainen, Kurki,
+  Koshiba, Narita, Konuma, Yamamoto, Akiyama, Ishigaki, Suzuki, Suzuki, Obara,
+  Yamaji, Takahashi, Asai, Takahashi, Suzuki, Shinozaki, Yamaguchi, Minami,
+  Murayama, Yoshimori, Nagayama, Obata, Higashiyama, Masumoto, Koretsune, Ito,
+  Terao, Yamauchi, Komuro, Kadowaki, Tamiya, Yamamoto, Nakamura, Kubo,
+  Murakami, Yamamoto, Kamatani, Palotie, Rivas, Daly, Matsuda, and
+  Okada]{Sakaue2021}
+S.~Sakaue et al.
+\newblock {A cross-population atlas of genetic associations for 220 human
+  phenotypes}.
+\newblock \emph{Nature genetics}, 53\penalty0 (10):\penalty0 1415--1424, oct
+  2021.
+\newblock ISSN 1546-1718.
+\newblock \doi{10.1038/S41588-021-00931-X}.
+
 \bibitem[Sarica et~al.(2018)Sarica, Vasta, Novellino, Vaccaro, Cerasa, and
   Quattrone]{Sarica2018}
 A.~Sarica, R.~Vasta, F.~Novellino, M.~G. Vaccaro, A.~Cerasa, and A.~Quattrone.
@@ -1734,16 +1796,6 @@ J.~Shi and J.~Malik.
   Intelligence}, 22\penalty0 (8):\penalty0 888--905, 2000.
 \newblock ISSN 01628828.
 \newblock \doi{10.1109/34.868688}.
-
-\bibitem[Siewert-Rocks et~al.(2022)Siewert-Rocks, Kim, Yao, Shi, and
-  Price]{Siewert-Rocks2022}
-K.~M. Siewert-Rocks, S.~S. Kim, D.~W. Yao, H.~Shi, and A.~L. Price.
-\newblock {Leveraging gene co-regulation to identify gene sets enriched for
-  disease heritability}.
-\newblock \emph{The American Journal of Human Genetics}, 109\penalty0
-  (3):\penalty0 393--404, mar 2022.
-\newblock ISSN 0002-9297.
-\newblock \doi{10.1016/J.AJHG.2022.01.005}.
 
 \bibitem[Sniekers et~al.(2017)Sniekers, Stringer, Watanabe, Jansen, Coleman,
   Krapohl, Taskesen, Hammerschlag, Okbay, Zabaneh, Amin, Breen, Cesarini,
@@ -2011,6 +2063,15 @@ K.~Watanabe, E.~Taskesen, A.~{Van Bochoven}, and D.~Posthuma.
   1--11, nov 2017.
 \newblock ISSN 2041-1723.
 \newblock \doi{10.1038/s41467-017-01261-5}.
+
+\bibitem[Weil et~al.(2016)Weil, Schrag, Warren, Crutch, Lees, and
+  Morris]{Weil2016}
+R.~S. Weil, A.~E. Schrag, J.~D. Warren, S.~J. Crutch, A.~J. Lees, and H.~R.
+  Morris.
+\newblock {Visual dysfunction in Parkinson's disease}.
+\newblock \emph{Brain}, 139\penalty0 (11):\penalty0 2827--2843, nov 2016.
+\newblock ISSN 0006-8950.
+\newblock \doi{10.1093/BRAIN/AWW175}.
 
 \bibitem[White et~al.(2020)White, Indencleef, Naqvi, Eller, Hoskens,
   Roosenboom, Lee, Li, Mohammed, Richmond, Quillen, Norton, Feingold, Swigut,

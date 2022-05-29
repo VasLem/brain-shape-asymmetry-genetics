@@ -7,54 +7,54 @@ A level-1 auxiliary file: mat_and_methods.aux
 A level-1 auxiliary file: results.aux
 A level-1 auxiliary file: discussion.aux
 A level-1 auxiliary file: appendix.aux
-Illegal, another \bibstyle command---line 58 of file main.aux
+Illegal, another \bibstyle command---line 57 of file main.aux
  : \bibstyle
  :          {abbrv}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: popsum.aux
-Reallocated field_info (elt_size=4) to 10096 items from 5000.
+Reallocated field_info (elt_size=4) to 10264 items from 5000.
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-You've used 182 entries,
+You've used 188 entries,
             2785 wiz_defined-function locations,
-            2229 strings with 144560 characters,
-and the built_in function-call counts, 250356 in all, are:
-= -- 21560
-> -- 30813
-< -- 56
-+ -- 10240
-- -- 10055
-* -- 25676
-:= -- 40047
-add.period$ -- 887
-call.type$ -- 182
-change.case$ -- 5297
-chr.to.int$ -- 179
-cite$ -- 364
-duplicate$ -- 3883
-empty$ -- 7179
-format.name$ -- 10299
-if$ -- 49074
+            2282 strings with 147852 characters,
+and the built_in function-call counts, 256365 in all, are:
+= -- 22096
+> -- 31468
+< -- 58
++ -- 10458
+- -- 10267
+* -- 26279
+:= -- 41005
+add.period$ -- 917
+call.type$ -- 188
+change.case$ -- 5416
+chr.to.int$ -- 185
+cite$ -- 376
+duplicate$ -- 4005
+empty$ -- 7406
+format.name$ -- 10519
+if$ -- 50262
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 180
-newline$ -- 1254
-num.names$ -- 728
-pop$ -- 9951
+missing$ -- 186
+newline$ -- 1296
+num.names$ -- 752
+pop$ -- 10166
 preamble$ -- 1
-purify$ -- 5112
+purify$ -- 5225
 quote$ -- 0
-skip$ -- 7109
+skip$ -- 7283
 stack$ -- 0
-substring$ -- 3883
-swap$ -- 444
+substring$ -- 3998
+swap$ -- 456
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1997
+type$ -- 2063
 warning$ -- 0
-while$ -- 837
+while$ -- 863
 width$ -- 0
-write$ -- 3050
+write$ -- 3152
 (There was 1 error message)
