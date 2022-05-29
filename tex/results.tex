@@ -148,17 +148,7 @@ Another important question to be answered was how much of the variability of cor
 
 \section{Cross-traits correlation}
 \label{sec:ct-res}
-To examine whether cortical asymmetry is genetically related with other indications, and potentially reason about the universal patterns among individuals, statistical tests for cross-trait monotonicity followed. After performing Spearman correlation with the univariate traits mentioned in \autoref{subsec:other_sources}, no monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified:
-\begin{itemize}
-	\item{\Acf{adhd}}
-	\item{\Acf{asd}}
-	\item{\Acf{ad}}
-	\item{\Acf{bd}}
-	\item{Major Depressive Disorder}
-	\item{Schizophrenia}
-\end{itemize}
-
-
+To examine whether cortical asymmetry is genetically related with other indications, and potentially reason about the universal patterns among individuals, statistical tests for cross-trait monotonicity followed. 
 
 \begin{figure}[H]
 	\centering
@@ -176,13 +166,11 @@ To examine whether cortical asymmetry is genetically related with other indicati
 \end{figure}
 
 
-By inspecting the results from Spearman cross-trait correlation (\autoref{fig:spearmanOtherTraits} and \ref{fig:cross_trait_polar}), language functional connectivity exhibits the strongest relationship, for the entire hemisphere and partition 17.  Educational attainment also appears to be strongly correlated with cortical asymmetry, with the strongest sign occurring on the 2\textsuperscript{nd} partition, which includes most sensory areas. \Ac{ocd} exhibits strong correlation with cortical asymmetry with partitions 14 and 26. 
-Partition 11 from the 3rd level and its child partition 22 from the 4th level point to correlation with handedness. Furthermore, intelligence exhibits significant genetic correlation with partitions 9 and 11, both exhibiting \ac{gwas} peaks on chromosomes 9 and 15 (\autoref{fig:part_bonferroni}). Moreover, \ac{pd} appears to be genetically correlated with the cortical asymmetry observed on partition 20.
+By inspecting the results from Spearman cross-trait correlation with the univariate traits mentioned in \autoref{subsec:other_sources} (\autoref{fig:spearmanOtherTraits} and \ref{fig:cross_trait_polar}), language functional connectivity exhibits the strongest relationship, for the entire hemisphere and partition 17.  Educational attainment also appears to be strongly correlated with cortical asymmetry, with the strongest sign occurring on the 2\textsuperscript{nd} partition, which includes most sensory areas. \Ac{ocd} exhibits strong correlation with cortical asymmetry with partitions 14 and 26. Partition 11 from the 3rd level and its child partition 22 from the 4th level point to correlation with handedness. Furthermore, intelligence exhibits significant genetic correlation with partitions 9 and 11, both exhibiting \ac{gwas} peaks on chromosomes 9 and 15 (\autoref{fig:part_bonferroni}). Moreover, \ac{pd} appears to be genetically correlated with the cortical asymmetry observed on partition 20. No monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified for 
+acf{adhd}, \acf{asd}, \acf{ad}, \acf{bd}, major depressive disorder and schizophrenia.
+
 
 Investigating the relations of cortical asymmetry with another trait related to cortical structure, specifically the average mid-cortical surface per individual, coined as brain shape, and the corresponding 8-level \ac{hsc} partitioning and \ac{gwas} performed by \citet{Naqvi2021} in a similar fashion to the present study, it is apparent from \autoref{fig:spearmanShape} that there is a quite strongly supported genetic relationship. Such correlation stands not only for the entire hemisphere (partition 1 and shap1 respectively), but also for other pairs, with observed P-values getting as low as 10e-59, and Spearman correlation values as high as 0.34.
-
-
-
 
 
 \begin{figure}[H]
@@ -245,7 +233,7 @@ For the following analyses, only the \ac{gwas} scores produced by assessing the 
 	\begin{adjustwidth}{-3cm}{-3cm}
 	\centering
 	\includegraphics[width=0.8\linewidth]{asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/age}
-	\caption[Brain tissue specific age enriched genes analysis]{MAGMA analysis on age specific brain tissue enriched genes, on the \acp{gwas} of the entire hemisphere and the 2\textsuperscript{nd} level partitions.}
+	\caption[Brain tissue specific age enriched genes analysis]{MAGMA analysis on age specific brain tissue enriched genes, on the \acp{gwas} of the entire hemisphere and the 2\textsuperscript{nd} level partitions. Samples were densely collected from tissues during gestation, ranging from 8 to 37 post conception weeks (pcw), and also from individuals aged up to 40 years old.}
 	\label{fig:age_dev}
 	\end{adjustwidth}
 \end{figure}
@@ -293,7 +281,7 @@ For the following analyses, only the \ac{gwas} scores produced by assessing the 
 		& & & & & & & & &ZNF276 \\
 		\bottomrule
 	\end{tabular}
-	\caption[Identified gene sets]{Identified gene sets using FUMA and GREAT for the entire hemisphere and the 2\textsuperscript{nd} level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed. Lead \acp{snp} that have not been mapped to a gene are also displayed with their rs-id.}
+	\caption[Identified gene sets]{Identified gene sets using FUMA and extended with GREAT, for the entire hemisphere and the 2\textsuperscript{nd} level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed. Lead \acp{snp} that have not been mapped to a gene are also displayed with their rs-id.}
 	\label{tab:genesets}
 \end{threeparttable}\end{adjustwidth}
 
