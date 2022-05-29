@@ -17,62 +17,62 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Medial surface}}}{8}{subfigure.6.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Lateral surface}}}{8}{subfigure.6.2}%
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Desikan-Killiany atlas on midthickness surface}}{10}{figure.caption.12}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Yakovlevian Torque \cite {Kuo2022}}}{12}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Examples of \acs {gwas} Manhattan plots \cite {Klein2005}}}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Yakovlevian Torque \cite {Kuo2022}}}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Examples of \acs {gwas} Manhattan plots \cite {Klein2005}}}{15}{figure.caption.18}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}{subfigure.9.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}{subfigure.9.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Visual overview of methods and materials}}{22}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Cortical surface downsampling}}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Visual overview of methods and materials}}{22}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Cortical surface downsampling}}{26}{figure.caption.24}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Statistical brain shape analysis results}}{37}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Explained variance from covariates}}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 4-level brain shape partitioning based on asymmetry}}{40}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Statistical brain shape analysis results}}{37}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Explained variance from covariates}}{39}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 4-level brain shape partitioning based on asymmetry}}{40}{figure.caption.28}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{40}{subfigure.3.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{40}{subfigure.3.2}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Number of PCs per HSC cortical surface partition}}{41}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces mvGWAS of the entire hemisphere shape asymmetry}}{43}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Number of significant SNPs after Bonferroni correction along partitions}}{44}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces LDSR results across partitioning levels}}{45}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Number of PCs per HSC cortical surface partition}}{41}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces mvGWAS of the entire hemisphere shape asymmetry}}{43}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Number of significant SNPs after Bonferroni correction along partitions}}{44}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces LDSR results across partitioning levels}}{45}{figure.caption.34}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scaled heritability}}}{45}{subfigure.7.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\Ac {ld} score intercept}}}{45}{subfigure.7.2}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Cross-trait correlation stats across partitions in a tabular format.\relax }}{46}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Cross-trait correlation stats across partitions in a tabular format.\relax }}{46}{figure.caption.35}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Spearman Correlation}}}{46}{subfigure.8.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Bootstrapping P-value}}}{46}{subfigure.8.2}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Brain shape genetically related to cortical asymmetry}}{47}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Brain shape genetically related to cortical asymmetry}}{47}{figure.caption.36}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Spearman Correlation}}}{47}{subfigure.9.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Bootstrapping P-value}}}{47}{subfigure.9.2}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Cross-trait correlation with cortical asymmetry in a polar diagram}}{47}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces LDSC-SEG assessment on variable chromatin accessibility}}{48}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Brain tissue specific age enriched genes analysis}}{49}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces STRING protein-protein interaction network from the entire hemisphere GWAS}}{51}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Cross-trait correlation with cortical asymmetry in a polar diagram}}{47}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces LDSC-SEG assessment on variable chromatin accessibility}}{48}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Brain tissue specific age enriched genes analysis}}{49}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces STRING protein-protein interaction network from the entire hemisphere GWAS}}{51}{figure.caption.41}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cluster 1, 13 genes participating in Hedhegog gene signalling (Reactome GO enrichment through Panther without correction, with Fisher's exact test, P-value=1e-2).}}}{51}{subfigure.13.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Cluster 2, 8 genes participating in WNT ligand biogenesis, to regulate morphogenesis, namely the positioning of different cell types in a tissue during development (P-value={9e-3}).}}}{51}{subfigure.13.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Cluster 3, 8 genes with a role in gap junction assembly(P-value=1e-10), activation of AMPK downstream of NMDARs (P-value=4e-13) and tubulin folding(P-value=2e-10).}}}{51}{subfigure.13.3}%
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Cluster 4, 5 genes participating in extracellular matrix organization, specifically in collagen formation (P-value=2e-4), but also in its degradation (P-value=1e-4).}}}{51}{subfigure.13.4}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Entire hemisphere \ac {gwas} Manhattan plot chromosome 16 peaks in detail}}{56}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Entire hemisphere \ac {gwas} Manhattan plot chromosome 16 peaks in detail}}{56}{figure.caption.42}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Effect of 1000G phase3 \acs {snp} set filtering on entire hemisphere \acs {gwas}}}{59}{figure.caption.39}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Effect of 1000G phase3 \acs {snp} set filtering on entire hemisphere \acs {gwas}}}{59}{figure.caption.45}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Effect of \acs {snp} mean substitution on results}}{61}{figure.caption.41}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Effect of \acs {snp} mean substitution on results}}{61}{figure.caption.47}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Spearman correlation assessing mean substitution effect}}}{61}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With substitution}}}{61}{subfigure.1.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Without substitution}}}{61}{subfigure.1.3}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Combined Manhattan plots across different partitions}}{62}{figure.caption.42}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Combined Manhattan plots across different partitions}}{62}{figure.caption.48}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces $\lambda _{GC}$ coefficient, as computed by LDSR}}{64}{figure.caption.44}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces $\lambda _{GC}$ coefficient, as computed by LDSR}}{64}{figure.caption.50}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {D.1}{\ignorespaces GO terms GSEA -log10P values}}{66}{figure.caption.45}%
+\contentsline {figure}{\numberline {D.1}{\ignorespaces GO terms GSEA -log10P values}}{66}{figure.caption.51}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cell components}}}{66}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Biological processes}}}{66}{subfigure.1.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Molecular function}}}{66}{subfigure.1.3}%
-\contentsline {figure}{\numberline {D.2}{\ignorespaces GO terms GSEA genes}}{67}{figure.caption.46}%
+\contentsline {figure}{\numberline {D.2}{\ignorespaces GO terms GSEA genes}}{67}{figure.caption.52}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cell components}}}{67}{subfigure.2.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Biological processes}}}{67}{subfigure.2.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Molecular function}}}{67}{subfigure.2.3}%
-\contentsline {figure}{\numberline {D.3}{\ignorespaces Canonical pathways GSEA -log10P values}}{68}{figure.caption.47}%
-\contentsline {figure}{\numberline {D.4}{\ignorespaces Canonical pathways GSEA genes}}{69}{figure.caption.48}%
-\contentsline {figure}{\numberline {D.5}{\ignorespaces Differential gene expression enrichment analysis}}{70}{figure.caption.49}%
-\contentsline {figure}{\numberline {D.6}{\ignorespaces GWAS Catalog GSEA -log10P values}}{71}{figure.caption.50}%
-\contentsline {figure}{\numberline {D.7}{\ignorespaces GWAS Catalog GSEA genes}}{72}{figure.caption.51}%
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Canonical pathways GSEA -log10P values}}{68}{figure.caption.53}%
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Canonical pathways GSEA genes}}{69}{figure.caption.54}%
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Differential gene expression enrichment analysis}}{70}{figure.caption.55}%
+\contentsline {figure}{\numberline {D.6}{\ignorespaces GWAS Catalog GSEA -log10P values}}{71}{figure.caption.56}%
+\contentsline {figure}{\numberline {D.7}{\ignorespaces GWAS Catalog GSEA genes}}{72}{figure.caption.57}%

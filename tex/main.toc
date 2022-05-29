@@ -16,18 +16,18 @@
 \contentsline {subsection}{\numberline {1.1.2}Symmetry during \acs {cns} formation}{2}{subsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.1.3}Neurogenesis, neuronal migration and plasticity}{4}{subsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.1.4}The adult human cerebrum anatomic and functional properties}{6}{subsection.1.1.4}%
-\contentsline {subsection}{\numberline {1.1.5}Evolutionary studies}{10}{subsection.1.1.5}%
-\contentsline {subsection}{\numberline {1.1.6}Reported general human cortex symmetry traits}{11}{subsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.1.5}Reported general human cortex symmetry traits}{10}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}Evolutionary studies}{11}{subsection.1.1.6}%
 \contentsline {section}{\numberline {1.2}Genetics of multivariate quantitative traits}{12}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}\Acf {mvgwas}}{12}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}\Acf {snp} identity and importance}{12}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}\Acf {ld} effect on \acp {snp}}{13}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Genetic association modeling}{13}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Contradicting no association}{13}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Measuring \ac {snp} significance}{14}{subsection.1.2.6}%
-\contentsline {subsection}{\numberline {1.2.7}Major advantages and disadvantages of univariate \ac {gwas}}{15}{subsection.1.2.7}%
-\contentsline {subsection}{\numberline {1.2.8}\Acfp {mvgwas}}{15}{subsection.1.2.8}%
-\contentsline {subsection}{\numberline {1.2.9}Generalizing to genes - Functional association}{16}{subsection.1.2.9}%
+\contentsline {subsection}{\numberline {1.2.1}\Acfp {snp} and \ac {ld}}{12}{subsection.1.2.1}%
+\contentsline {subsubsection}{\Acf {ld} effect on \acp {snp}}{12}{section*.14}%
+\contentsline {subsection}{\numberline {1.2.2}\Acs {gwas}}{13}{subsection.1.2.2}%
+\contentsline {subsubsection}{Genetic association modeling}{13}{section*.15}%
+\contentsline {subsubsection}{Contradicting no association}{13}{section*.16}%
+\contentsline {subsubsection}{Measuring \ac {snp} significance}{14}{section*.17}%
+\contentsline {subsubsection}{Major advantages and disadvantages of univariate \ac {gwas}}{15}{section*.19}%
+\contentsline {subsubsection}{\Acfp {mvgwas}}{15}{section*.20}%
+\contentsline {subsection}{\numberline {1.2.3}Generalizing to genes - Functional association}{16}{subsection.1.2.3}%
 \contentsline {section}{\numberline {1.3}Related studies and contribution}{18}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}The current landscape of cortical asymmetry \ac {gwas}}{18}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Present work contributions}{20}{subsection.1.3.2}%
@@ -65,20 +65,16 @@
 \contentsline {section}{\numberline {3.10}Proteins set network analysis}{50}{section.3.10}%
 \contentsline {chapter}{\chapternumberline {4}Discussion}{52}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Comparison with literature}{52}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Phenotype}{52}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Genotype}{52}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Associations with other traits}{53}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Controversies leading to new questions}{55}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Dependency on gender needs to be assessed}{55}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Underlying subpopulation structure may exist}{55}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Contributions}{56}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Limitations and possible extensions}{57}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Limitations}{57}{subsection.4.4.1}%
-\contentsline {subsubsection}{First stage}{57}{section*.37}%
-\contentsline {subsubsection}{Second stage}{57}{section*.38}%
-\contentsline {subsection}{\numberline {4.4.2}Further extensions}{58}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.1.1}Associations with brain morphology}{52}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Associations with other traits}{53}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Contributions}{56}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Limitations and possible extensions}{57}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Limitations}{57}{subsection.4.3.1}%
+\contentsline {subsubsection}{First stage}{57}{section*.43}%
+\contentsline {subsubsection}{Second stage}{57}{section*.44}%
+\contentsline {subsection}{\numberline {4.3.2}Further extensions}{58}{subsection.4.3.2}%
 \contentsline {appendix}{\chapternumberline {A}Genome preprocessing and filtering}{59}{appendix.A}%
 \contentsline {appendix}{\chapternumberline {B}\Acs {gwas} results}{61}{appendix.B}%
 \contentsline {appendix}{\chapternumberline {C}Heritability}{64}{appendix.C}%
 \contentsline {appendix}{\chapternumberline {D}Functional analysis}{66}{appendix.D}%
-\contentsline {chapter}{Bibliography}{73}{appendix*.52}%
+\contentsline {chapter}{Bibliography}{73}{appendix*.58}%
