@@ -10,7 +10,7 @@
 	\label{fig:stat_analysis}	
 \end{figure}
 
-The main results from the 2-way permutation \ac{anova} are summarized in \autoref{fig:stat_analysis} and are also being more formally medically followed by \citet{Vanbiervliet2022}. The individual effect (first row), which corresponds to the average shape variability across individuals, exhibits greater variation in the medial surface, particularly in the middle-anterior and middle-posterior parts of the cingulate gyrus and sulcus ($\subseteq$BA28, processing emotions and behavior regulation), the rostral part of the cuneus ($\subseteq$BA17, processing of visual information), the parahippocampal gyrus ($\subseteq$BA27, memory encoding and retrieval), and the fusiform gyrus ($\subseteq$BA37, recognition of faces). 
+Prior to the genetic studies, a statistical analysis purely on the phenotypic trait was done, to reveal existing symmetric patterns. The main results from the 2-way permutation \ac{anova} are summarized in \autoref{fig:stat_analysis} and are also being more formally medically followed by \citet{Vanbiervliet2022}. The individual effect (first row), which corresponds to the average shape variability across individuals, exhibits greater variation in the medial surface, particularly in the middle-anterior and middle-posterior parts of the cingulate gyrus and sulcus ($\subseteq$BA28, processing emotions and behavior regulation), the rostral part of the cuneus ($\subseteq$BA17, processing of visual information), the parahippocampal gyrus ($\subseteq$BA27, memory encoding and retrieval), and the fusiform gyrus ($\subseteq$BA37, recognition of faces). 
 
 \Ac{da} (second row), the focus of this study, relevant to the general aptitude of individuals to exhibit certain asymmetric traits, is found to be highly significant in almost half of the studied surface. In line with the general identified asymmetry patterns presented in \autoref{subsec:general_sym_traits}, it is greatly localized around the peri-sylvian fissure and the temporal lobe (see peri-sylvian asymmetry). Also, it occurs in the medial surface, and the occipital lobe, implying relationship with the Yakovlevian torque, although lower significance of the effect is demonstrated on the prefrontal lobe.
 
@@ -18,14 +18,15 @@ The main results from the 2-way permutation \ac{anova} are summarized in \autore
 
 
 \section{Covariates control}
-In \autoref{fig:covar}, the average covariates explained variance on each segment of \ac{dk} atlas is observed as retrieved from \ac{plsr}. The largest part of the frontal lobe, with greater impact on the inferior frontal, the inferior parietal gyrus and the parahippocampal gyrus appear to be more correlated with the collected metadata, shown in \autoref{tab:covariates}. The results point to less observed explained variation around the area of the sylvian fissure and the temporal lobe, and also raise a degree of uncertainty on the significant response observed during the statistical shape asymmetry analysis, regarding the medial surface and the inferior part of the frontal lobe.
+The existing available metadata was used to exclude variability in the dataset that is not attributed to genetic factors. In \autoref{fig:covar}, the average covariates explained variance on each segment of \ac{dk} atlas is observed as retrieved from \ac{plsr}. The largest part of the frontal lobe, with greater impact on the inferior frontal, the inferior parietal gyrus and the parahippocampal gyrus appear to be more correlated with the collected metadata, shown in \autoref{tab:covariates}. The results point to less observed explained variation around the area of the sylvian fissure and the temporal lobe, and also raise a degree of uncertainty on the significant response observed during the statistical shape asymmetry analysis, regarding the medial surface and the inferior part of the frontal lobe.
 \begin{figure}[H]
 \includesvg[width=0.9\textwidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/explainedDKCovariates.svg}
 \caption[Explained variance from covariates]{Explained variance from the covariates on each \ac{dk} atlas segment, as retrieved from \ac{plsr}, mapped on the average left hemisphere medial and lateral side.}
 \label{fig:covar}
 \end{figure}
 \section{Partitioning and \acs{pca}}
-In \autoref{fig:partitioning}, the partitioning produced from the application of \ac{hsc} is displayed. On the first level, although the cross-section accurately follows the sylvian fissure on the lateral part and partitions the frontal lobe from the rest of the hemisphere, on the medial surface it appears to split the precuneus in half ($\subseteq$ BA07). On the second level, the occipital lobe is separated from the temporal lobe, while the central gyrus appears to be dissected from the frontal lobe, while inspected the lateral surface. On the medial surface, the paracentral gyrus ($\subseteq$ BA04)is approximately separated from the superior-frontal, whereas another cross section appears to share its boundaries with the temporal pole ($\subseteq$ BA38). In general, the unsupervised clustering follows the functional partitioning, validating the close relationship  between function and morphology of each cortical region. The calculated \ac{nmi} score for the partitioning, compared to the \ac{dk} atlas is displayed in \autoref{tab:nmi} for each level. Although the finer the partitioning, the further away from the theoretical maximum value, quantitatively the two clusterings highly agree.
+
+To perform a coarse-to-fine analysis,  \ac{hsc} was applied on the preprocessed phenotype. In \autoref{fig:partitioning}, the partitioning produced from the application of \ac{hsc} is displayed. On the first level, although the cross-section accurately follows the sylvian fissure on the lateral part and partitions the frontal lobe from the rest of the hemisphere, on the medial surface it appears to split the precuneus in half ($\subseteq$ BA07). On the second level, the occipital lobe is separated from the temporal lobe, while the central gyrus appears to be dissected from the frontal lobe, while inspected the lateral surface. On the medial surface, the paracentral gyrus ($\subseteq$ BA04)is approximately separated from the superior-frontal, whereas another cross section appears to share its boundaries with the temporal pole ($\subseteq$ BA38). In general, the unsupervised clustering follows the functional partitioning, validating the close relationship  between function and morphology of each cortical region. The calculated \ac{nmi} score for the partitioning, compared to the \ac{dk} atlas is displayed in \autoref{tab:nmi} for each level. Although the finer the partitioning, the further away from the theoretical maximum value, quantitatively the two clusterings highly agree.
 
 \begin{figure}[H]
 	\begin{adjustwidth}{-4cm}{-4cm}
@@ -58,16 +59,15 @@ In \autoref{fig:partitioning}, the partitioning produced from the application of
 The required number of \ac{pca} features per partition given the constraints, as computed by assessing the discovery dataset, is displayed in \autoref{fig:pcs_num}. A significant dimensionality reduction was achieved, given that the original total number of landmark coordinates per individual was 89367.
 \begin{figure}[H]
 \includesvg[width=0.9\textwidth]{asymmetry/hierarchicalClusteringDemo/STAGE00DATA/asymmetry_reduction1/levels4/explainedVarianceSIngleThreshold.svg}
-\caption[Number of PCs per HSC cortical surface partition]{Number of \acp{pc} for each \ac{hsc} cortical surface partition, required to explain 80\% of its variance, relatively to the discovery dataset. For the first partition, the upper limit of 500 components is reached and only 74\% of its variance is explained.}
+\caption[Number of PCs per HSC cortical surface partition]{Number of \acp{pc} for each \ac{hsc} cortical surface partition, required to explain 80\% of its variance, relatively to the discovery dataset. For the first partition, the upper limit of 500 components was reached and only 74\% of its variance is explained.}
 \label{fig:pcs_num}
 \end{figure}
 \section{\acs{gwas}}
-
-The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). In \autoref{tab:leadsnps}, the identified \acp{snp} are shown for the discovery and replication datasets \acp{gwas}, as well as the meta-analysis \ac{gwas} union and the ones reported in literature \cite{Sha2021}. Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}, with the overlaid Manhattan plots shown  in \autoref{fig:part_manhattan}. 
+By combining the aforementioned processed phenotypic and genetic features under the framework of \ac{cca}, insights were provided into the genetics of asymmetry. The resulting \ac{mvgwas} Manhattan plot on the entire hemisphere exhibits distinct peaks, that slightly differ between discovery and replication dataset (\autoref{fig:entire_gwas}). In \autoref{tab:leadsnps}, the identified \acp{snp} are shown for the discovery and replication datasets \acp{gwas}, as well as the meta-analysis \ac{gwas} union and the ones reported in literature \cite{Sha2021}. Additionally, the number of significant variants after Bonferroni correction is reported in \autoref{fig:part_bonferroni}, with the overlaid Manhattan plots shown  in \autoref{fig:part_manhattan}. 
 
 A different chromosome-based response is observed when inspecting the second level of partitioning, namely partitions 4-7, so a further analysis has been deemed necessary on each of those partitions separately. Furthermore, partition 6, which corresponds to the frontal lobe cortical asymmetry, appears to be quite less genetically determined and agrees with the findings from the statistical analysis, where \ac{da} did not appear to be, in general, significant in that region, whereas \ac{fa} did (\autoref{fig:stat_analysis}). An additional observation is that partitions do not necessarily share the genetic signature of their parents, for example partition 8 exhibits a significant peak at chromosome 21, while that chromosome has not been identified elsewhere to exhibit significant genetic effect on cortical asymmetry.  Chromosome 15 exhibits the highest peak, namely the \ac{snp} rs2033939 (P=2e-50). 
 
-To confirm that mean substitution of missing variants did not considerably affect the results, Spearman correlation was measured between the \ac{gwas} results produced from the discovery dataset, with and without mean substitution. The produced values clearly suggested that mean substitution had little to no effect on the overall monotonicity (table \autoref{tab: spearman_no_vs_mean}).
+To confirm that mean substitution of missing genotypes (i.e, variants that, even after imputation, had not been assigned a value) did not considerably affect the results, Spearman correlation was measured between the \ac{gwas} scores produced from the discovery dataset, with and without mean substitution. The produced values clearly suggested that mean substitution had little to no effect on the overall monotonicity (table \autoref{tab: spearman_no_vs_mean}).
 
 \begin{adjustwidth}{-3 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]	
 		\scriptsize
@@ -143,12 +143,12 @@ To confirm that mean substitution of missing variants did not considerably affec
 
 \section{\acs{ldsr}}
 \label{sec:ldsr_results}
-The observed heritability is generally below 0.3 across the different partitioning levels (figure \autoref{fig:herit_part}), as expected from the effect of plasticity on cortical asymmetry. The heritability estimates minima and maxima grossly agree with the results of \citet{Sha2021}. Comparably more heritable than in other regions appears to be the asymmetry on the temporal lobe, on the auditory cortex and the basal surface of the temporal lobe.  The confounding bias is found to be considerably low, with the \ac{ldsr} intercept being close to 1 \cite{Bulik-Sullivan2015} (figure \autoref{fig:confbias}), so little to no subpopulation stratification is observed. 
+Another important question to be answered was how much of the variability of cortical symmetry is attributed to genetic factors. The observed heritability is generally below 0.3 across the different partitioning levels (figure \autoref{fig:herit_part}), as expected from the effect of plasticity on human cortex. The heritability estimates minima and maxima grossly agree with the results of \citet{Sha2021}. Comparably more heritable than in other regions appears to be the asymmetry on the temporal lobe, on the auditory cortex and the basal surface of the temporal lobe.  The confounding bias is found to be considerably low, with the \ac{ldsr} intercept being close to 1 \cite{Bulik-Sullivan2015} (figure \autoref{fig:confbias}), so little to no evidence is presented regarding subpopulation stratification. 
 
 
 \section{Cross-traits correlation}
 \label{sec:ct-res}
-After performing Spearman correlation with the univariate traits mentioned in \autoref{subsec:other_sources}, no monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified:
+To examine whether cortical asymmetry is genetically related with other indications, and potentially reason about the universal patterns among individuals, statistical tests for cross-trait monotonicity followed. After performing Spearman correlation with the univariate traits mentioned in \autoref{subsec:other_sources}, no monotonicity between cortical asymmetry p-values and the \ac{gwas} scores of the following traits was identified:
 \begin{itemize}
 	\item{\Acf{adhd}}
 	\item{\Acf{asd}}
@@ -157,6 +157,8 @@ After performing Spearman correlation with the univariate traits mentioned in \a
 	\item{Major Depressive Disorder}
 	\item{Schizophrenia}
 \end{itemize}
+
+
 
 \begin{figure}[H]
 	\centering
@@ -174,13 +176,13 @@ After performing Spearman correlation with the univariate traits mentioned in \a
 \end{figure}
 
 
-By inspecting the results from Spearman cross-trait correlation (\autoref{fig:spearmanOtherTraits} and \ref{fig:cross_trait_polar}), language functional connectivity exhibits the strongest relationship, for the entire hemisphere and partition 17. This segment corresponds to the superior temporal lobe, associated with the auditory sensory system (BA41, BA42), and BA22, involved in auditory short-term memory and the production of speech. Studies performed on functional \ac{mri} (fMRI) stream by \citet{Hesling2012} have shown that different asymmetric patterns of activity on that region are observed, depending on language proficiency. Educational attainment also appears to be strongly correlated with cortical asymmetry, with the strongest sign occurring on the 2nd partition, which includes most sensory areas. \Ac{ocd} exhibits strong correlation with cortical asymmetry with partitions 14 and 26,  that correspond to the dorsolateral prefrontal cortex, an area broadly recognized as relevant to \ac{ocd} pathology \cite{Li2020,Han2016}. 
+By inspecting the results from Spearman cross-trait correlation (\autoref{fig:spearmanOtherTraits} and \ref{fig:cross_trait_polar}), language functional connectivity exhibits the strongest relationship, for the entire hemisphere and partition 17.  Educational attainment also appears to be strongly correlated with cortical asymmetry, with the strongest sign occurring on the 2\textsuperscript{nd} partition, which includes most sensory areas. \Ac{ocd} exhibits strong correlation with cortical asymmetry with partitions 14 and 26. 
+Partition 11 from the 3rd level and its child partition 22 from the 4th level point to correlation with handedness. Furthermore, intelligence exhibits significant genetic correlation with partitions 9 and 11, both exhibiting \ac{gwas} peaks on chromosomes 9 and 15 (\autoref{fig:part_bonferroni}).
 
-A controversial finding is handedness, whose correlation with cortical asymmetry has received mixed reception in the literature \cite{Sun2006}. Partition 11 from the 3rd level and its child partition 22 from the 4th level point to correlation of this trait with BA20 and BA37, which contain the fusiform and the inferior temporal gyri. Fusiform gyrus is known to encase neurons functionally allocated to the encoding of details of human body parts \cite{Peelen2005}. In addition, evidence from f\ac{mri} studies shows asymmetric activation of fusiform, correlated with manual dexterity \cite{Bracci2010}. 
+Investigating the relations of cortical asymmetry with another trait related to cortical structure, specifically the average mid-cortical surface per individual, coined as brain shape, and the corresponding 8-level \ac{hsc} partitioning and \ac{gwas} performed by \citet{Naqvi2021} in a similar fashion to the present study, it is apparent from \autoref{fig:spearmanShape} that there is a quite strongly supported genetic relationship. Such correlation stands not only for the entire hemisphere (partition 1 and shap1 respectively), but also for other pairs, with observed P-values getting as low as 10e-59, and Spearman correlation values as high as 0.34.
 
-Furthermore, intelligence exhibits significant genetic correlation with partitions 9 and 11, both exhibiting \ac{gwas} peaks on chromosomes 9 and 15 (\autoref{fig:part_bonferroni}). Partition 9 represents the posterior parietal cortex, an association area that participates in motion planning and spatial reasoning. However, connection of intelligence with asymmetric structure on that region is not supported by existing literature.
 
-Investigating the relations of cortical asymmetry with another trait related to cortical structure, specifically the average mid-cortical surface per individual, coined as brain shape, and the corresponding 8-level \ac{hsc} partitioning and \ac{gwas} performed by \citet{Naqvi2021} in a similar fashion to the present study, it is apparent from \autoref{fig:spearmanShape} that there is a quite strongly supported genetic relationship. Such correlation stands not only for the entire hemisphere (partition 1 and shap1 respectively), but also for other pairs, with observed P-values getting as low as 10e-59, and Spearman correlation values as high as 0.34. This finding provides a mathematical basis to consider structural asymmetry as an extension of the overall brain shape, with common factors driving the two related phenotypes.
+
 
 
 \begin{figure}[H]
@@ -223,7 +225,7 @@ Investigating the relations of cortical asymmetry with another trait related to 
 
 
 \section{\acs{ldsc-seg}}
-In \autoref{fig:ldsc-seg-chromatin} chromatin accessibility enriched regions for specific adult or developing tissues were found to be related with cortical asymmetry heritability. Out of the 489 tested tissues, mainly those related with the brain, and in particular with the fetal brain, exhibited more significant relationship with the studied population. The strongest significance was displayed by the fetal brain female tissue, versus the male analog, suggesting that female fetuses may exhibit increased asymmetric heritability. However, these results need to be taken with a grain of salt, as the underlying population used to collect the samples was comprised only by a few individuals, at different time periods, so it is quite possible that uncontrollable factors and sample bias obscure the results. Another observation is that partitions that `reacted` to this analysis are mainly localized on regions that had already been found to have increased heritability in \autoref{sec:ldsr_results} and figure \autoref{fig:herit_part}.
+After having determined the genetic factors that drive cortical asymmetry, it is of interest to examine the amount of epigenetic regulation affecting them, by investigating profiles of different types of tissues. In \autoref{fig:ldsc-seg-chromatin} chromatin accessibility enriched regions for specific adult or developing tissues were found to be related with cortical asymmetry heritability. Out of the 489 tested tissues, mainly those related with the brain, and in particular with the fetal brain, exhibited more significant relationship with the studied population. The strongest significance was displayed by the fetal brain female tissue, versus the male analog, suggesting that female fetuses may exhibit increased asymmetric heritability. However, these results need to be taken with a grain of salt, as the underlying population used to collect the samples was comprised only by a few individuals, at different time periods, so it is quite possible that uncontrollable factors and sample bias obscure the results. Another observation is that partitions that `reacted` to this analysis are mainly localized on regions that had already been found to have increased heritability in \autoref{sec:ldsr_results} and figure \autoref{fig:herit_part}.
 
 
 \begin{figure}[H]
@@ -235,19 +237,19 @@ In \autoref{fig:ldsc-seg-chromatin} chromatin accessibility enriched regions for
 	\end{adjustwidth}
 \end{figure}
 \section{Developmental analysis}
-For the following analyses, only the \ac{gwas} scores produced by assessing the entire hemisphere and the 2nd level partitions are assessed. In \autoref{fig:age_dev}, genetic loci that have been found strongly in connection with the existence of cortical asymmetry appear to be developmentally regulated, with their activity primarily detected in the early weeks of gestation, while the stringent regulatory mechanism, which is activated after the 2nd month of gestation, appears to `relax` during adolescence. The variability of the regulatory pattern on different partitions does infer that not all structural characteristics develop at the same time across the human cortex.
+For the following analyses, only the \ac{gwas} scores produced by assessing the entire hemisphere and the 2\textsuperscript{nd} level partitions are assessed. In \autoref{fig:age_dev}, genetic loci that have been found strongly in connection with the existence of cortical asymmetry appear to be developmentally regulated, with their activity primarily detected in the early weeks of gestation, while the stringent regulatory mechanism, which is activated after the 2\textsuperscript{nd} month of gestation, appears to `relax` during adolescence. The variability of the regulatory pattern on different partitions does infer that not all structural characteristics develop at the same time across the human cortex.
 
 \begin{figure}[H]
 	\begin{adjustwidth}{-3cm}{-3cm}
 	\centering
-	\includegraphics[width=\linewidth]{asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/age}
-	\caption[Brain tissue specific age enriched genes analysis]{MAGMA analysis on age specific brain tissue enriched genes, on the \acp{gwas} of the entire hemisphere and the 2nd level partitions.}
+	\includegraphics[width=0.8\linewidth]{asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/age}
+	\caption[Brain tissue specific age enriched genes analysis]{MAGMA analysis on age specific brain tissue enriched genes, on the \acp{gwas} of the entire hemisphere and the 2\textsuperscript{nd} level partitions.}
 	\label{fig:age_dev}
 	\end{adjustwidth}
 \end{figure}
 
 
-\begin{adjustwidth}{-3 cm}{-3 cm}\centering\begin{threeparttable}[!htb]
+\begin{adjustwidth}{-3 cm}{-3 cm}\centering\begin{threeparttable}[H]
 	\tiny
 	\begin{tabular}{ccc||cc||ccc||c||cc}\toprule
 		\multicolumn{3}{c}{\textbf{Partition 1}} &\multicolumn{2}{c}{\textbf{Partition 4}} &\multicolumn{3}{c}{\textbf{Partition 5}} &\textbf{Partition 6} &\textbf{Partition 7} \\
@@ -289,7 +291,7 @@ For the following analyses, only the \ac{gwas} scores produced by assessing the 
 		& & & & & & & & &ZNF276 \\
 		\bottomrule
 	\end{tabular}
-	\caption[Identified gene sets]{Identified gene sets using FUMA and GREAT for the entire hemisphere and the 2nd level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed. Lead \acp{snp} that have not been mapped to a gene are also displayed with their rs-id.}
+	\caption[Identified gene sets]{Identified gene sets using FUMA and GREAT for the entire hemisphere and the 2\textsuperscript{nd} level partitioning \acp{gwas}. In bold, the genes that do not occur in other gene sets are displayed. Lead \acp{snp} that have not been mapped to a gene are also displayed with their rs-id.}
 	\label{tab:genesets}
 \end{threeparttable}\end{adjustwidth}
 

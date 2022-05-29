@@ -1,4 +1,4 @@
-\begin{thebibliography}{177}
+\begin{thebibliography}{182}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -195,6 +195,17 @@ T.~Berisa and J.~K. Pickrell.
   283--285, jan 2016.
 \newblock ISSN 1367-4811.
 \newblock \doi{10.1093/BIOINFORMATICS/BTV546}.
+
+\bibitem[Boughton et~al.(2021)Boughton, Welch, Flickinger, Vandehaar, Taliun,
+  Abecasis, and Boehnke]{Boughton2021}
+A.~P. Boughton, R.~P. Welch, M.~Flickinger, P.~Vandehaar, D.~Taliun, G.~R.
+  Abecasis, and M.~Boehnke.
+\newblock {LocusZoom.js: interactive and embeddable visualization of genetic
+  association study results}.
+\newblock \emph{Bioinformatics}, 37\penalty0 (18):\penalty0 3017--3018, sep
+  2021.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/BIOINFORMATICS/BTAB186}.
 
 \bibitem[Bracci et~al.(2010)Bracci, Ietswaart, Peelen, and
   Cavina-Pratesi]{Bracci2010}
@@ -425,6 +436,17 @@ M.~R. Corces et al.
 \newblock \emph{Nature genetics}, 52\penalty0 (11):\penalty0 1158, nov 2020.
 \newblock ISSN 15461718.
 \newblock \doi{10.1038/S41588-020-00721-X}.
+
+\bibitem[Dalziel et~al.(2011)Dalziel, Kolesnichenko, {Das Neves}, Iborra,
+  Goding, and Furger]{Dalziel2011}
+M.~Dalziel, M.~Kolesnichenko, R.~P. {Das Neves}, F.~Iborra, C.~Goding, and
+  A.~Furger.
+\newblock {$\alpha$-MSH regulates intergenic splicing of MC1R and TUBB3 in
+  human melanocytes}.
+\newblock \emph{Nucleic Acids Research}, 39\penalty0 (6):\penalty0 2378, mar
+  2011.
+\newblock ISSN 03051048.
+\newblock \doi{10.1093/NAR/GKQ1125}.
 
 \bibitem[de~Kovel and Francks(2019)]{DeKovel2019}
 C.~G. de~Kovel and C.~Francks.
@@ -1770,6 +1792,15 @@ T.~Sun, S.~Chen, J.~Yang, X.~Hu, and P.~Shi.
   Engineering, CSIE 2009}, 6:\penalty0 95--99, 2009.
 \newblock \doi{10.1109/CSIE.2009.794}.
 
+\bibitem[Swope and Abdel-Malek(2018)]{Swope2018}
+V.~B. Swope and Z.~A. Abdel-Malek.
+\newblock {MC1R: Front and Center in the Bright Side of Dark Eumelanin and DNA
+  Repair}.
+\newblock \emph{International Journal of Molecular Sciences 2018, Vol. 19, Page
+  2667}, 19\penalty0 (9):\penalty0 2667, sep 2018.
+\newblock ISSN 1422-0067.
+\newblock \doi{10.3390/IJMS19092667}.
+
 \bibitem[Szklarczyk et~al.(2021)Szklarczyk, Gable, Nastou, Lyon, Kirsch,
   Pyysalo, Doncheva, Legeay, Fang, Bork, Jensen, and von
   Mering]{Szklarczyk2021}
@@ -1780,6 +1811,17 @@ D.~Szklarczyk et al.
   jan 2021.
 \newblock ISSN 1362-4962.
 \newblock \doi{10.1093/NAR/GKAA1074}.
+
+\bibitem[Takahashi et~al.(2018)Takahashi, Tahara, Tsubosaka, Fukazawa, Ozaki,
+  Iwakami, Nakaoka, and Shibata]{Takahashi2018}
+M.~Takahashi, Y.~Tahara, M.~Tsubosaka, M.~Fukazawa, M.~Ozaki, T.~Iwakami,
+  T.~Nakaoka, and S.~Shibata.
+\newblock {Chronotype and social jetlag influence human circadian clock gene
+  expression}.
+\newblock \emph{Scientific Reports 2018 8:1}, 8\penalty0 (1):\penalty0 1--10,
+  jul 2018.
+\newblock ISSN 2045-2322.
+\newblock \doi{10.1038/s41598-018-28616-2}.
 
 \bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'{e}}, Par{\'{e}}, and
   Meyre]{Tam2019}
@@ -1884,6 +1926,16 @@ G.~Vingerhoets, R.~Gerrits, and H.~Verhelst.
   695, apr 2021.
 \newblock ISSN 2073-8994.
 \newblock \doi{10.3390/SYM13040695}.
+
+\bibitem[Visconti et~al.(2018)Visconti, Duffy, Liu, Zhu, Wu, Chen, Hysi, Zeng,
+  Sanna, Iles, Kanetsky, Demenais, Hamer, Uitterlinden, Ikram, Nijsten, Martin,
+  Kayser, Spector, Han, Bataille, and Falchi]{Visconti2018}
+A.~Visconti et al.
+\newblock {Genome-wide association study in 176,678 Europeans reveals genetic
+  loci for tanning response to sun exposure}.
+\newblock \emph{Nature Communications}, 9\penalty0 (1), dec 2018.
+\newblock ISSN 20411723.
+\newblock \doi{10.1038/S41467-018-04086-Y}.
 
 \bibitem[Visscher et~al.(2012)Visscher, Brown, McCarthy, and
   Yang]{Visscher2012}

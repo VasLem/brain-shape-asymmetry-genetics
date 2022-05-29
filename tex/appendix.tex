@@ -184,7 +184,12 @@
 	\subfloat[Molecular function]{
 		\includegraphics[width=\textwidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GO_mf.pdf}
 	}
-	\caption[GO terms GSEA genes]{\Ac{go} terms enrichment analysis genes (the higher value and the lighter color, the more significant).For all three cases, the entire hemisphere and the four 2nd level partitions (ie. P1 and P4-P7)) were assessed. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios. The partition (P) information per cell is coded as follows: circle: P1, north:P4, east:P5, south:P6, west:P7. Next to the name of the category, the total number of related genes is displayed.}
+	\par\medskip
+	\raggedleft
+	\subfloat{\includegraphics[scale=0.3]{genes_legend.pdf}
+	}
+	
+	\caption[GO terms GSEA genes]{\Ac{go} terms enrichment analysis genes (the higher value and the lighter color, the more significant).For all three cases, the entire hemisphere and the four 2nd level partitions (ie. P1 and P4-P7)) were assessed. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios. The partition information per cell is coded as shown in the shape at the bottom right. Next to the name of the category, the total number of related genes is displayed.}
 	\label{fig:go_genes}
 \end{figure}
 \begin{figure}[H]
@@ -194,19 +199,25 @@
 	\caption[Canonical pathways GSEA -log10P values]{Differential gene set enrichment analysis performed on various canonical pathways reported by KEGG and Reactome, as computed by FUMA. Displayed -log10 P-values have increased lightness the higher the value.}
 	\label{fig:can_pathways}
 \end{figure}
-\begin{adjustwidth}{-3cm}{-3cm}
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_Canonical_Pathways.pdf}
 	
-	\caption[Canonical pathways GSEA genes]{Differential gene set enrichment analysis performed on various canonical pathways reported by KEGG and Reactome, as computed by FUMA. Displayed cells have increased lightness the higher the value. The entire hemisphere and the four 2nd level partitions (ie. P1 and P4-P7)) were assessed. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios. The partition (P) information per cell is coded as follows: circle: P1, north:P4, east:P5, south:P6, west:P7. Next to the name of the category, the total number of related genes is displayed.}
+	\begin{adjustwidth}{-3cm}{-2.5cm}
+	\centering
+	\subfloat{\includegraphics[width=\linewidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_Canonical_Pathways.pdf}
+	}
+	\par\medskip
+	\raggedleft
+	\subfloat{
+		\includegraphics[scale=0.1]{genes_legend.pdf}
+	}
+	\caption[Canonical pathways GSEA genes]{Differential gene set enrichment analysis performed on various canonical pathways reported by KEGG and Reactome, as computed by FUMA. Displayed cells have increased lightness the higher the value. The entire hemisphere and the four 2nd level partitions (ie. P1 and P4-P7)) were assessed. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios. The partition information per cell is coded as shown in the shape at the bottom right. Next to the name of the category, the total number of related genes is displayed.}
 	\label{fig:can_pathways_genes}
-\end{figure}
+	
 \end{adjustwidth}
+\end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/DEG.pdf}
-	
+	\includegraphics[width=\linewidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/DEG.pdf}	
 	\caption[Differential gene expression enrichment analysis]{Differential gene expression enrichment analysis performed on different tissues. Displayed -log10 P-values, as computed by FUMA using the identified partition-specific gene sets, are displayed in blue if the relation favors downregulated genes, red if it favors upregulated ones, or gray, if both downregulated and upregulated gene subsets are significantly enriched.}
 	\label{fig:de_genes}
 \end{figure}
@@ -217,12 +228,18 @@
 	\caption[GWAS Catalog GSEA -log10P values]{Differential gene set enrichment analysis performed on various traits reported by GWAS catalog, as computed by FUMA. -log10 P-values are shown, with increased lightness the higher the value.}
 	\label{fig:gw_catalog}
 \end{figure}
-\begin{adjustwidth}{-3cm}{-3cm}
 \begin{figure}[H]
+	\begin{adjustwidth}{-3cm}{-3cm}
 	\centering
-	\includegraphics[width=\textwidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GWASCatalog.pdf}
-	
-	\caption[GWAS Catalog GSEA genes]{Differential gene set enrichment analysis performed on various traits reported by GWAS catalog, as computed by FUMA. Displayed cells have increased lightness the higher the value. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios.  The entire hemisphere and the four 2nd level partitions (ie. P1 and P4-P7)) were assessed. The partition (P) information per cell is coded as follows: circle: P1, north:P4, east:P5, south:P6, west:P7. Next to the name of the category, the total number of related genes is displayed.}
+	\subfloat{
+	\includegraphics[width=\linewidth]{asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GWASCatalog.pdf}
+	}
+	\par\medskip
+	\subfloat{
+		\includegraphics[scale=0.2]{genes_legend.pdf}
+	}
+	\raggedleft
+	\caption[GWAS Catalog GSEA genes]{Differential gene set enrichment analysis performed on various traits reported by GWAS catalog, as computed by FUMA. Displayed cells have increased lightness the higher the value. With gray, genes are shown that, although intersecting with the trait gene set, were not enough for FUMA to identify significant correlation, based on the underlying gene sets sizes ratios. The partition information per cell is coded as shown in the shape at the bottom right. Next to the name of the category, the total number of related genes is displayed.}
 	\label{fig:gw_catalog_genes}
-\end{figure}
 \end{adjustwidth}
+\end{figure}
