@@ -8,7 +8,7 @@ setuplatex;
 DATASET = 'joinedDatasets';
 REDUCTION = 1;
 MODALITY = 'asymmetry';
-RECOMPUTE = 0;
+RECOMPUTE = 1;
 switch REDUCTION
     case 1
     SUBSAMPLED_ID = 'not_subsampled';

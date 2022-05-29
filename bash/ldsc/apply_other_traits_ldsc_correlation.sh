@@ -6,6 +6,7 @@ cd ../../python
 ROOT_DIR=".."
 MUNGED_DIR=$ROOT_DIR/results/$MODALITY/ldsc/$DATASET_ID/munged
 traits=$(ls $ROOT_DIR/SAMPLE_DATA/OTHER_TRAITS_GWAS)
+traits=ParkinsonsDisease
 RG_DIR=$ROOT_DIR/results/$MODALITY/ldsc/other_traits/$DATASET_ID/rg
 for i in {1..31}; do
     par_i=$(printf "%02.f" $i)
