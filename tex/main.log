@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  29 MAY 2022 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.22)  30 MAY 2022 19:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1529,9 +1529,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 38
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux
-(./introduction.aux) (./mat_and_methods.aux) (./results.aux) (./discussion.aux)
-(./appendix.aux) (./popsum.aux))
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -1623,6 +1621,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
+(|'inkscape' -V )
 Package hyperref Info: Link coloring OFF on input line 38.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1670,7 +1669,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `kulemtfpf' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<logokul.pdf, id=138, 159.33528pt x 56.90298pt>
+<logokul.pdf, id=7, 159.33528pt x 56.90298pt>
 File: logokul.pdf Graphic file (type pdf)
 <use logokul.pdf>
 Package pdftex.def Info: logokul.pdf  used on input line 38.
@@ -1698,113 +1697,320 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 
 ]
-(./main.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-9.
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-9.
+[2
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 9.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 9.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 9.
- [2
+]
 
-])
+Package hyperref Warning: old lof file detected, not used; run LaTeX again.
+
+[3
+
+
+]
+
+Package hyperref Warning: old lot file detected, not used; run LaTeX again.
+
+[4
+
+] [5
+
+
+]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
- [3]
-(./main.lof [4
-
-
-]) [5] (./main.lot) [6
-
-] [7
-
-
-] [8] [9
+ [6] [7
 
 ]
 \openout2 = `introduction.aux'.
 
- (./introduction.tex [1
+ (./introduction.tex
+
+Package natbib Warning: Citation `Concha2012' on page 1 undefined on input line
+ 5.
+
+
+Package natbib Warning: Citation `Corballis2009' on page 1 undefined on input l
+ine 5.
+
+
+LaTeX Warning: Reference `fig:bilateriaphylum' on page 1 undefined on input lin
+e 5.
+
+
+Package natbib Warning: Citation `Finnerty2003' on page 1 undefined on input li
+ne 5.
+
+
+Package natbib Warning: Citation `Heger2020' on page 1 undefined on input line 
+5.
+
+
+Package natbib Warning: Citation `F.Bear2016a' on page 1 undefined on input lin
+e 7.
+
+
+Package natbib Warning: Citation `Aw2008' on page 1 undefined on input line 7.
+
+
+Package natbib Warning: Citation `Aw2009' on page 1 undefined on input line 7.
+
+
+Package natbib Warning: Citation `Grimes2017' on page 1 undefined on input line
+ 7.
+
+
+Package natbib Warning: Citation `Okada2005' on page 1 undefined on input line 
+7.
+
+[1
 
 
 
 
 ]
-<graphics/bilateria_phylum.jpg, id=436, 328.68396pt x 278.09496pt>
+<graphics/bilateria_phylum.jpg, id=122, 328.68396pt x 278.09496pt>
 File: graphics/bilateria_phylum.jpg Graphic file (type jpg)
 <use graphics/bilateria_phylum.jpg>
 Package pdftex.def Info: graphics/bilateria_phylum.jpg  used on input line 11.
 (pdftex.def)             Requested size: 358.19757pt x 303.08778pt.
+
+
+Package natbib Warning: Citation `Hejnol2016' on page 2 undefined on input line
+ 12.
+
+
+Package natbib Warning: Citation `Hejnol2016' on page 2 undefined on input line
+ 12.
+
+
+Package natbib Warning: Citation `F.Bear2016a' on page 2 undefined on input lin
+e 17.
+
+
+Package natbib Warning: Citation `F.Bear2016b' on page 2 undefined on input lin
+e 17.
+
+
+Package natbib Warning: Citation `Abu-Rustum2013' on page 2 undefined on input 
+line 17.
+
+
+Package natbib Warning: Citation `Telano2021' on page 2 undefined on input line
+ 17.
+
+
+Package natbib Warning: Citation `Schmitz2019' on page 2 undefined on input lin
+e 17.
+
+
+LaTeX Warning: Reference `fig:brainlat' on page 2 undefined on input line 17.
+
+
+Package natbib Warning: Citation `Schmitz2019' on page 2 undefined on input lin
+e 17.
+
+
+Package natbib Warning: Citation `Corballis2009' on page 2 undefined on input l
+ine 17.
+
+
+Package natbib Warning: Citation `Molnar2019' on page 2 undefined on input line
+ 17.
 
 [2 <./graphics/bilateria_phylum.jpg>]
 Package svg Info: Last page of `./svg-inkscape/da_visualization_svg-tex.pdf' is
  1 on input line 23.
 
 (./svg-inkscape/da_visualization_svg-tex.pdf_tex
-<./svg-inkscape/da_visualization_svg-tex.pdf, id=463, page=1, 963.65532pt x 542
+<./svg-inkscape/da_visualization_svg-tex.pdf, id=133, page=1, 963.65532pt x 542
 .05612pt>
 File: ./svg-inkscape/da_visualization_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/da_visualization_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/da_visualization_svg-tex.pdf , page1 us
 ed on input line 56.
 (pdftex.def)             Requested size: 358.19757pt x 201.48398pt.
-) [3] [4 <./svg-inkscape/da_visualization_svg-tex.pdf>]
-<graphics/rg_cells_division.png, id=561, 570.13pt x 508.90125pt>
+)
+
+LaTeX Warning: Reference `subsec:pheno_preproc' on page 3 undefined on input li
+ne 24.
+
+
+LaTeX Warning: Reference `subsec:pheno_preproc' on page 3 undefined on input li
+ne 24.
+
+[3]
+
+Package natbib Warning: Citation `Gotz2005' on page 4 undefined on input line 3
+0.
+
+
+Package natbib Warning: Citation `Aaku-Saraste1997' on page 4 undefined on inpu
+t line 30.
+
+
+Package natbib Warning: Citation `Nowakowski2016' on page 4 undefined on input 
+line 30.
+
+
+Package natbib Warning: Citation `Gotz2005' on page 4 undefined on input line 3
+0.
+
+
+LaTeX Warning: Reference `fig:rgc' on page 4 undefined on input line 30.
+
+
+Package natbib Warning: Citation `Rakic2009' on page 4 undefined on input line 
+30.
+
+
+Package natbib Warning: Citation `Molnar2019' on page 4 undefined on input line
+ 30.
+
+
+Package natbib Warning: Citation `Nowakowski2016' on page 4 undefined on input 
+line 30.
+
+
+Package natbib Warning: Citation `Malik2013' on page 4 undefined on input line 
+30.
+
+
+Package natbib Warning: Citation `Ernst2015' on page 4 undefined on input line 
+30.
+
+
+Package natbib Warning: Citation `Dyck2017' on page 4 undefined on input line 3
+0.
+
+
+Package natbib Warning: Citation `Schmitz2019' on page 4 undefined on input lin
+e 30.
+
+
+Package natbib Warning: Citation `Cara2022' on page 4 undefined on input line 3
+0.
+
+
+Package natbib Warning: Citation `White2002' on page 4 undefined on input line 
+30.
+
+
+Package natbib Warning: Citation `Manzano2018' on page 4 undefined on input lin
+e 30.
+
+
+Package natbib Warning: Citation `Cara2022' on page 4 undefined on input line 3
+0.
+
+[4 <./svg-inkscape/da_visualization_svg-tex.pdf>]
+<graphics/rg_cells_division.png, id=197, 570.13pt x 508.90125pt>
 File: graphics/rg_cells_division.png Graphic file (type png)
 <use graphics/rg_cells_division.png>
 Package pdftex.def Info: graphics/rg_cells_division.png  used on input line 34.
 
 (pdftex.def)             Requested size: 318.40121pt x 284.20624pt.
- [5] [6 <./graphics/rg_cells_division.png>]
-<graphics/coronal_section.png, id=597, 749.80125pt x 716.6775pt>
+
+
+Package natbib Warning: Citation `Rakic2009' on page 5 undefined on input line 
+35.
+
+
+Package natbib Warning: Citation `Rakic2009' on page 5 undefined on input line 
+35.
+
+[5]
+
+Package natbib Warning: Citation `Bear2016chapter7app' on page 6 undefined on i
+nput line 41.
+
+
+Package natbib Warning: Citation `Ferng2022' on page 6 undefined on input line 
+41.
+
+
+LaTeX Warning: Reference `fig:cerebissection' on page 6 undefined on input line
+ 41.
+
+[6 <./graphics/rg_cells_division.png>]
+<graphics/coronal_section.png, id=220, 749.80125pt x 716.6775pt>
 File: graphics/coronal_section.png Graphic file (type png)
 <use graphics/coronal_section.png>
 Package pdftex.def Info: graphics/coronal_section.png  used on input line 48.
 (pdftex.def)             Requested size: 74.98451pt x 71.67194pt.
-<graphics/axial_section.png, id=598, 650.43pt x 750.805pt>
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+9.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+9.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+49.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+49.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 49.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 49.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 49.
+<graphics/axial_section.png, id=221, 650.43pt x 750.805pt>
 File: graphics/axial_section.png Graphic file (type png)
 <use graphics/axial_section.png>
 Package pdftex.def Info: graphics/axial_section.png  used on input line 55.
 (pdftex.def)             Requested size: 65.0468pt x 75.08488pt.
-<graphics/3d_sections.png, id=599, 684.5575pt x 728.7225pt>
+<graphics/3d_sections.png, id=222, 684.5575pt x 728.7225pt>
 File: graphics/3d_sections.png Graphic file (type png)
 <use graphics/3d_sections.png>
 Package pdftex.def Info: graphics/3d_sections.png  used on input line 60.
 (pdftex.def)             Requested size: 136.90907pt x 145.74191pt.
-<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=608, 1501.61pt x 1088.065pt>
+
+
+Package natbib Warning: Citation `VanEssen2013' on page 7 undefined on input li
+ne 61.
+
+
+Package natbib Warning: Citation `VanEssen2013' on page 7 undefined on input li
+ne 61.
+
+<graphics/1280px-Lobes_of_the_brain_NL.svg.png, id=223, 1501.61pt x 1088.065pt>
 
 File: graphics/1280px-Lobes_of_the_brain_NL.svg.png Graphic file (type png)
 <use graphics/1280px-Lobes_of_the_brain_NL.svg.png>
 Package pdftex.def Info: graphics/1280px-Lobes_of_the_brain_NL.svg.png  used on
  input line 69.
 (pdftex.def)             Requested size: 318.40121pt x 230.70853pt.
- [7 <./graphics/coronal_section.png> <./graphics/axial_section.png> <./graphics
-/3d_sections.png>]
-<graphics/brodmann_medial.png, id=621, 352.6776pt x 248.3679pt>
+[7 <./graphics/coronal_section.png> <./graphics/axial_section.png> <./graphics/
+3d_sections.png>]
+
+LaTeX Warning: Reference `fig:lobes' on page 8 undefined on input line 74.
+
+
+Package natbib Warning: Citation `Brodmann1909' on page 8 undefined on input li
+ne 74.
+
+
+LaTeX Warning: Reference `fig:corticalfunctions' on page 8 undefined on input l
+ine 74.
+
+<graphics/brodmann_medial.png, id=232, 352.6776pt x 248.3679pt>
 File: graphics/brodmann_medial.png Graphic file (type png)
 <use graphics/brodmann_medial.png>
 Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 82.
@@ -1812,41 +2018,192 @@ Package pdftex.def Info: graphics/brodmann_medial.png  used on input line 82.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/9'.
 (microtype)             Ignoring protrusion settings for this character.
-<graphics/brodmann_lateral.png, id=622, 359.6637pt x 269.5671pt>
+<graphics/brodmann_lateral.png, id=233, 359.6637pt x 269.5671pt>
 File: graphics/brodmann_lateral.png Graphic file (type png)
 <use graphics/brodmann_lateral.png>
 Package pdftex.def Info: graphics/brodmann_lateral.png  used on input line 86.
 (pdftex.def)             Requested size: 179.09879pt x 134.23615pt.
- [8 <./graphics/1280px-Lobes_of_the_brain_NL.svg.png> <./graphics/brodmann_medi
-al.png> <./graphics/brodmann_lateral.png>] [9]
+
+LaTeX Warning: Reference `fig:lobes' on page 8 undefined on input line 96.
+
+[8 <./graphics/1280px-Lobes_of_the_brain_NL.svg.png> <./graphics/brodmann_media
+l.png> <./graphics/brodmann_lateral.png>]
+
+LaTeX Warning: Reference `fig:lobes' on page 9 undefined on input line 104.
+
+
+Package natbib Warning: Citation `Ong2019' on page 9 undefined on input line 10
+9.
+
+
+Package natbib Warning: Citation `Chini2021' on page 9 undefined on input line 
+109.
+
+
+Package natbib Warning: Citation `Desikan2006' on page 9 undefined on input lin
+e 117.
+
+
+LaTeX Warning: Reference `fig:dk' on page 9 undefined on input line 117.
+
+[9]
 Package svg Info: Last page of `./svg-inkscape/dk_left_svg-tex.pdf' is 1 on inp
 ut line 121.
-
-(./svg-inkscape/dk_left_svg-tex.pdf_tex
-<./svg-inkscape/dk_left_svg-tex.pdf, id=651, page=1, 301.14227pt x 150.5625pt>
+ (./svg-inkscape/dk_left_svg-tex.pdf_tex
+<./svg-inkscape/dk_left_svg-tex.pdf, id=251, page=1, 301.14227pt x 150.5625pt>
 File: ./svg-inkscape/dk_left_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/dk_left_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/dk_left_svg-tex.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 318.40121pt x 159.19803pt.
-) [10 <./svg-inkscape/dk_left_svg-tex.pdf>]
-<graphics/yakovlevian_external.jpg, id=725, 421.59914pt x 155.69188pt>
+)
+
+Package natbib Warning: Citation `Dickie2019' on page 10 undefined on input lin
+e 122.
+
+
+Package natbib Warning: Citation `Dickie2019' on page 10 undefined on input lin
+e 122.
+
+
+Package natbib Warning: Citation `Herbert2005' on page 10 undefined on input li
+ne 129.
+
+
+Package natbib Warning: Citation `Kong2022' on page 10 undefined on input line 
+129.
+
+
+LaTeX Warning: Reference `fig:yaktorque' on page 10 undefined on input line 131
+.
+
+
+Package natbib Warning: Citation `Kuo2022' on page 10 undefined on input line 1
+31.
+
+
+Package natbib Warning: Citation `Maller2015' on page 10 undefined on input lin
+e 131.
+
+
+Package natbib Warning: Citation `Ribolsi2014' on page 10 undefined on input li
+ne 131.
+
+
+Package natbib Warning: Citation `Kuo2022' on page 10 undefined on input line 1
+32.
+
+
+Package natbib Warning: Citation `Guadalupe2015' on page 10 undefined on input 
+line 132.
+
+[10 <./svg-inkscape/dk_left_svg-tex.pdf>]
+
+Package natbib Warning: Citation `Kuo2022' on page 11 undefined on input line 1
+33.
+
+
+Package natbib Warning: Citation `Li2015' on page 11 undefined on input line 13
+3.
+
+
+Package natbib Warning: Citation `Klingenberg2020' on page 11 undefined on inpu
+t line 137.
+
+<graphics/yakovlevian_external.jpg, id=310, 421.59914pt x 155.69188pt>
 File: graphics/yakovlevian_external.jpg Graphic file (type jpg)
 <use graphics/yakovlevian_external.jpg>
 Package pdftex.def Info: graphics/yakovlevian_external.jpg  used on input line 
 151.
 (pdftex.def)             Requested size: 398.0pt x 146.97754pt.
- [11 <./graphics/yakovlevian_external.jpg>] [12] [13]
-<graphics/gwas_2005.png, id=835, 524.96124pt x 373.395pt>
+
+Package natbib Warning: Citation `Kuo2022' on page 11 undefined on input line 1
+52.
+
+
+Package natbib Warning: Citation `Kuo2022' on page 11 undefined on input line 1
+52.
+
+
+Package natbib Warning: Citation `Purnell2018' on page 11 undefined on input li
+ne 160.
+
+
+Package natbib Warning: Citation `Balzeau2012' on page 11 undefined on input li
+ne 160.
+
+
+Package natbib Warning: Citation `Neubauer2020' on page 11 undefined on input l
+ine 160.
+
+
+Package natbib Warning: Citation `Koch2021' on page 11 undefined on input line 
+160.
+
+[11 <./graphics/yakovlevian_external.jpg>]
+
+Package natbib Warning: Citation `Ramensky2002' on page 12 undefined on input l
+ine 167.
+
+
+Package natbib Warning: Citation `Nishizaki2020' on page 12 undefined on input 
+line 167.
+
+
+Package natbib Warning: Citation `Dunham2012' on page 12 undefined on input lin
+e 167.
+
+
+Package natbib Warning: Citation `Visscher2012' on page 12 undefined on input l
+ine 170.
+
+
+Package natbib Warning: Citation `Belmont2003' on page 12 undefined on input li
+ne 170.
+
+
+Package natbib Warning: Citation `Visscher2012' on page 12 undefined on input l
+ine 170.
+
+
+Package natbib Warning: Citation `Visscher2012' on page 12 undefined on input l
+ine 170.
+
+
+Package natbib Warning: Citation `Visscher2012' on page 12 undefined on input l
+ine 170.
+
+[12]
+
+Package natbib Warning: Citation `Uffelmann2021' on page 13 undefined on input 
+line 173.
+
+
+Package natbib Warning: Citation `Vogt2020' on page 13 undefined on input line 
+177.
+
+[13]
+
+Package natbib Warning: Citation `AlejandroGonzalez-Chica2015' on page 14 undef
+ined on input line 186.
+
+
+Package natbib Warning: Citation `Belmont2003' on page 14 undefined on input li
+ne 188.
+
+
+LaTeX Warning: Reference `fig:gwas_example' on page 14 undefined on input line 
+188.
+
+<graphics/gwas_2005.png, id=344, 524.96124pt x 373.395pt>
 File: graphics/gwas_2005.png Graphic file (type png)
 <use graphics/gwas_2005.png>
 Package pdftex.def Info: graphics/gwas_2005.png  used on input line 195.
 (pdftex.def)             Requested size: 179.09879pt x 127.38564pt.
 Package svg Info: Last page of `./svg-inkscape/gwas_svg-tex.pdf' is 1 on input 
 line 199.
-
 (./svg-inkscape/gwas_svg-tex.pdf_tex
-<./svg-inkscape/gwas_svg-tex.pdf, id=837, page=1, 903.48515pt x 451.74257pt>
+<./svg-inkscape/gwas_svg-tex.pdf, id=346, page=1, 903.48515pt x 451.74257pt>
 File: ./svg-inkscape/gwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_svg-tex.pdf , page1 used on input 
@@ -1857,49 +2214,858 @@ Overfull \hbox (34.50119pt too wide) in paragraph at lines 195--200
  [][][][] 
  []
 
-[14] [15 <./graphics/gwas_2005.png> <./svg-inkscape/gwas_svg-tex.pdf>] [16]
-[17] [18] [19]) [20] [21]
+
+Package natbib Warning: Citation `Klein2005' on page 14 undefined on input line
+ 200.
+
+
+Package natbib Warning: Citation `Klein2005' on page 14 undefined on input line
+ 200.
+
+[14]
+
+Package natbib Warning: Citation `Tam2019' on page 15 undefined on input line 2
+05.
+
+
+Package natbib Warning: Citation `Tam2019' on page 15 undefined on input line 2
+05.
+
+
+Package natbib Warning: Citation `Tam2019' on page 15 undefined on input line 2
+06.
+
+
+Package natbib Warning: Citation `Tam2019' on page 15 undefined on input line 2
+06.
+
+
+Package natbib Warning: Citation `Nicholls2020' on page 15 undefined on input l
+ine 206.
+
+
+Package natbib Warning: Citation `Gallagher2018' on page 15 undefined on input 
+line 206.
+
+
+Package natbib Warning: Citation `Galesloot2014' on page 15 undefined on input 
+line 209.
+
+
+Package natbib Warning: Citation `Uffelmann2021' on page 15 undefined on input 
+line 209.
+
+
+Package natbib Warning: Citation `Cichonska2016' on page 15 undefined on input 
+line 209.
+
+
+Package natbib Warning: Citation `Sheng2021' on page 15 undefined on input line
+ 209.
+
+
+Package natbib Warning: Citation `Fernandes2021' on page 15 undefined on input 
+line 209.
+
+
+Package natbib Warning: Citation `Usui2021' on page 15 undefined on input line 
+209.
+
+
+Package natbib Warning: Citation `Jackson2011' on page 15 undefined on input li
+ne 209.
+
+
+Package natbib Warning: Citation `Claes2018' on page 15 undefined on input line
+ 209.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 15 undefined on input line
+ 209.
+
+[15 <./graphics/gwas_2005.png> <./svg-inkscape/gwas_svg-tex.pdf>]
+
+Package natbib Warning: Citation `Belmont2003' on page 16 undefined on input li
+ne 214.
+
+
+Package natbib Warning: Citation `Claussnitzer2015' on page 16 undefined on inp
+ut line 214.
+
+
+Package natbib Warning: Citation `Do2017' on page 16 undefined on input line 21
+4.
+
+[16]
+
+Package natbib Warning: Citation `Rao2021' on page 17 undefined on input line 2
+16.
+
+
+Package natbib Warning: Citation `Visscher2012' on page 17 undefined on input l
+ine 216.
+
+
+Package natbib Warning: Citation `Yan2020' on page 17 undefined on input line 2
+16.
+
+
+Package natbib Warning: Citation `Zhou2022' on page 17 undefined on input line 
+216.
+
+
+Package natbib Warning: Citation `Corces2020' on page 17 undefined on input lin
+e 216.
+
+
+Package natbib Warning: Citation `Huo2019' on page 17 undefined on input line 2
+16.
+
+
+Package natbib Warning: Citation `Cano-Gamez2020' on page 17 undefined on input
+ line 216.
+
+
+Package natbib Warning: Citation `Schaid2018' on page 17 undefined on input lin
+e 218.
+
+
+Package natbib Warning: Citation `Wang2010' on page 17 undefined on input line 
+218.
+
+
+Package natbib Warning: Citation `McLean2010' on page 17 undefined on input lin
+e 218.
+
+
+Package natbib Warning: Citation `Wang2011' on page 17 undefined on input line 
+218.
+
+[17]
+
+Package natbib Warning: Citation `Subramanian2005' on page 18 undefined on inpu
+t line 221.
+
+
+Package natbib Warning: Citation `Chen2013' on page 18 undefined on input line 
+221.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 18 undefined on input l
+ine 221.
+
+
+Package natbib Warning: Citation `Liao2019' on page 18 undefined on input line 
+221.
+
+
+Package natbib Warning: Citation `Mootha2003' on page 18 undefined on input lin
+e 221.
+
+
+Package natbib Warning: Citation `Ashburner2000' on page 18 undefined on input 
+line 221.
+
+
+Package natbib Warning: Citation `Szklarczyk2021' on page 18 undefined on input
+ line 221.
+
+
+Package natbib Warning: Citation `Janky2014' on page 18 undefined on input line
+ 221.
+
+
+Package natbib Warning: Citation `Heinz2010' on page 18 undefined on input line
+ 221.
+
+
+Package natbib Warning: Citation `Wang2011' on page 18 undefined on input line 
+221.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+25.
+
+
+Package natbib Warning: Citation `Kong2018' on page 18 undefined on input line 
+225.
+
+
+Package natbib Warning: Citation `Kong2021' on page 18 undefined on input line 
+225.
+
+
+Package natbib Warning: Citation `Zhao2022' on page 18 undefined on input line 
+225.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 18 undefined on input line
+ 225.
+
+
+Package natbib Warning: Citation `Claes2018' on page 18 undefined on input line
+ 225.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+28.
+
+
+Package natbib Warning: Citation `Graham2022' on page 18 undefined on input lin
+e 228.
+
+
+Package natbib Warning: Citation `Sarica2018' on page 18 undefined on input lin
+e 228.
+
+
+Package natbib Warning: Citation `Kong2018' on page 18 undefined on input line 
+228.
+
+
+Package natbib Warning: Citation `Savic2008' on page 18 undefined on input line
+ 228.
+
+
+Package natbib Warning: Citation `Zuo2019' on page 18 undefined on input line 2
+28.
+
+
+Package natbib Warning: Citation `Graham2022' on page 18 undefined on input lin
+e 232.
+
+
+Package natbib Warning: Citation `Savic2008' on page 18 undefined on input line
+ 232.
+
+
+Package natbib Warning: Citation `Sarica2018' on page 18 undefined on input lin
+e 232.
+
+
+Package natbib Warning: Citation `Zuo2019' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Coles2008' on page 18 undefined on input line
+ 232.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Yang2010' on page 18 undefined on input line 
+232.
+
+
+Package natbib Warning: Citation `Lin2020' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 18 undefined on input l
+ine 232.
+
+
+Package natbib Warning: Citation `Wang2010' on page 18 undefined on input line 
+232.
+
+
+Package natbib Warning: Citation `DeLeeuw2015' on page 18 undefined on input li
+ne 232.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Kang2011' on page 18 undefined on input line 
+232.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Sha2021' on page 18 undefined on input line 2
+32.
+
+
+Package natbib Warning: Citation `Bycroft2018' on page 18 undefined on input li
+ne 232.
+
+[18]
+
+Package natbib Warning: Citation `Kong2018' on page 19 undefined on input line 
+234.
+
+
+Package natbib Warning: Citation `Kong2018' on page 19 undefined on input line 
+234.
+
+
+Package natbib Warning: Citation `Kong2021' on page 19 undefined on input line 
+234.
+
+
+Package natbib Warning: Citation `Kong2021' on page 19 undefined on input line 
+234.
+
+[19]
+
+Package natbib Warning: Citation `Zhao2022' on page 20 undefined on input line 
+236.
+
+
+Package natbib Warning: Citation `Destrieux2010' on page 20 undefined on input 
+line 236.
+
+
+Package natbib Warning: Citation `Volkow2018' on page 20 undefined on input lin
+e 236.
+
+
+Package natbib Warning: Citation `Jernigan2016' on page 20 undefined on input l
+ine 236.
+
+
+Package natbib Warning: Citation `Satterthwaite2016' on page 20 undefined on in
+put line 236.
+
+
+Package natbib Warning: Citation `Zhao2022' on page 20 undefined on input line 
+236.
+
+
+Package natbib Warning: Citation `Zhao2022' on page 20 undefined on input line 
+236.
+
+
+Package natbib Warning: Citation `Claes2012' on page 20 undefined on input line
+ 241.
+
+
+Package natbib Warning: Citation `Klingenberg1998' on page 20 undefined on inpu
+t line 241.
+
+
+Package natbib Warning: Citation `Vanbiervliet2022' on page 20 undefined on inp
+ut line 241.
+
+
+Package natbib Warning: Citation `Kong2022' on page 20 undefined on input line 
+243.
+
+
+Package natbib Warning: Citation `Zhao2022' on page 20 undefined on input line 
+243.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015' on page 20 undefined on i
+nput line 243.
+
+
+Package natbib Warning: Citation `Sha2021' on page 20 undefined on input line 2
+43.
+
+
+Package natbib Warning: Citation `McLean2010' on page 20 undefined on input lin
+e 243.
+
+
+Package natbib Warning: Citation `Finucane2018' on page 20 undefined on input l
+ine 243.
+
+
+Package natbib Warning: Citation `Szklarczyk2021' on page 20 undefined on input
+ line 243.
+
+
+Package natbib Warning: Citation `Sha2021' on page 20 undefined on input line 2
+43.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 20 undefined on input line
+ 243.
+
+
+Package natbib Warning: Citation `Claes2018' on page 20 undefined on input line
+ 243.
+
+) [20] [21]
 \openout2 = `mat_and_methods.aux'.
 
  (./mat_and_methods.tex
-<graphics/diagram.pdf, id=1166, 643.6547pt x 692.5875pt>
+
+LaTeX Warning: Reference `fig:mat_met_overview' on page 22 undefined on input l
+ine 2.
+
+<graphics/diagram.pdf, id=449, 643.6547pt x 692.5875pt>
 File: graphics/diagram.pdf Graphic file (type pdf)
 <use graphics/diagram.pdf>
 Package pdftex.def Info: graphics/diagram.pdf  used on input line 6.
 (pdftex.def)             Requested size: 318.40121pt x 342.61522pt.
- [22
+
+Package natbib Warning: Citation `Bycroft2018' on page 22 undefined on input li
+ne 15.
+
+
+Package natbib Warning: Citation `Littlejohns2020' on page 22 undefined on inpu
+t line 15.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 22 undefined on input line
+ 15.
+
+[22
 
 
 
 
  <./graphics/diagram.pdf>]
-[23] [24]
+
+Package natbib Warning: Citation `Buniello2019' on page 23 undefined on input l
+ine 19.
+
+
+Package natbib Warning: Citation `Demontis2019' on page 23 undefined on input l
+ine 37.
+
+
+Package natbib Warning: Citation `Jansen2019' on page 23 undefined on input lin
+e 37.
+
+
+Package natbib Warning: Citation `Grove2019' on page 23 undefined on input line
+ 37.
+
+
+Package natbib Warning: Citation `Mullins2021' on page 23 undefined on input li
+ne 37.
+
+
+Package natbib Warning: Citation `DeKovel2019' on page 23 undefined on input li
+ne 37.
+
+
+Package natbib Warning: Citation `Guindo-Martinez2021' on page 23 undefined on 
+input line 37.
+
+
+Package natbib Warning: Citation `Arnold2017' on page 23 undefined on input lin
+e 37.
+
+
+Package natbib Warning: Citation `Sakaue2021' on page 23 undefined on input lin
+e 37.
+
+
+Package natbib Warning: Citation `Morgan2018' on page 23 undefined on input lin
+e 37.
+
+
+Package natbib Warning: Citation `Ripke2014' on page 23 undefined on input line
+ 37.
+
+[23]
+
+Package natbib Warning: Citation `Sha2021' on page 24 undefined on input line 4
+6.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 24 undefined on input line
+ 47.
+
+
+Package natbib Warning: Citation `Okbay2016' on page 24 undefined on input line
+ 48.
+
+
+Package natbib Warning: Citation `Sniekers2017' on page 24 undefined on input l
+ine 49.
+
+
+Package natbib Warning: Citation `Mekki2022' on page 24 undefined on input line
+ 50.
+
+
+Package natbib Warning: Citation `Luciano2018' on page 24 undefined on input li
+ne 51.
+
+
+LaTeX Warning: Reference `tab:qualit_traits' on page 24 undefined on input line
+ 57.
+
+
+Package natbib Warning: Citation `Morgan2018' on page 24 undefined on input lin
+e 57.
+
+
+Package natbib Warning: Citation `Auton2015' on page 24 undefined on input line
+ 58.
+
+
+Package natbib Warning: Citation `Bycroft2018' on page 24 undefined on input li
+ne 58.
+
+
+Package natbib Warning: Citation `RoadmapEpigenomicsConsortium2015' on page 24 
+undefined on input line 58.
+
+
+Package natbib Warning: Citation `Dunham2012' on page 24 undefined on input lin
+e 58.
+
+
+Package natbib Warning: Citation `Finucane2018' on page 24 undefined on input l
+ine 58.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 24 undefined on input l
+ine 58.
+
+
+Package natbib Warning: Citation `Szklarczyk2021' on page 24 undefined on input
+ line 58.
+
+
+Package natbib Warning: Citation `Reuter2012' on page 24 undefined on input lin
+e 67.
+
+
+Package natbib Warning: Citation `Dickie2019' on page 24 undefined on input lin
+e 67.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 24 undefined on input line
+ 67.
+
+
+Package natbib Warning: Citation `Glasser2011' on page 24 undefined on input li
+ne 67.
+
+[24]
+
+Package natbib Warning: Citation `Wittens2021' on page 25 undefined on input li
+ne 70.
+
+
+Package natbib Warning: Citation `Klingenberg2020' on page 25 undefined on inpu
+t line 70.
+
+
+Package natbib Warning: Citation `Klingenberg2020' on page 25 undefined on inpu
+t line 70.
+
+
+LaTeX Warning: Reference `subsec:stat_methods' on page 25 undefined on input li
+ne 70.
+
+[25]
+
+Package natbib Warning: Citation `Lopez2014' on page 26 undefined on input line
+ 74.
+
+
+LaTeX Warning: Reference `fig:downsampling' on page 26 undefined on input line 
+74.
+
 Package svg Info: Last page of `./svg-inkscape/reduction_svg-tex.pdf' is 1 on i
 nput line 77.
- (./svg-inkscape/reduction_svg-tex.pdf_tex
-<./svg-inkscape/reduction_svg-tex.pdf, id=1298, page=1, 770.88pt x 289.08636pt>
-
+(./svg-inkscape/reduction_svg-tex.pdf_tex
+<./svg-inkscape/reduction_svg-tex.pdf, id=509, page=1, 770.88pt x 289.08636pt>
 File: ./svg-inkscape/reduction_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/reduction_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/reduction_svg-tex.pdf , page1 used on i
 nput line 56.
 (pdftex.def)             Requested size: 398.0pt x 149.25386pt.
-) [25] [26 <./svg-inkscape/reduction_svg-tex.pdf>] [27] [28] [29] [30] [31] [32
-] [33] [34]) [35]
+)
+
+Package natbib Warning: Citation `klingenberg2002' on page 26 undefined on inpu
+t line 84.
+
+
+Package natbib Warning: Citation `Vingerhoets2021' on page 26 undefined on inpu
+t line 84.
+
+
+Package natbib Warning: Citation `Neubauer2020' on page 26 undefined on input l
+ine 84.
+
+
+Package natbib Warning: Citation `klingenberg2002' on page 26 undefined on inpu
+t line 84.
+
+
+Package natbib Warning: Citation `VanDongen1999' on page 26 undefined on input 
+line 84.
+
+[26 <./svg-inkscape/reduction_svg-tex.pdf>]
+
+Package natbib Warning: Citation `klingenberg2002' on page 27 undefined on inpu
+t line 88.
+
+
+Package natbib Warning: Citation `VanEssen2013' on page 27 undefined on input l
+ine 94.
+
+
+LaTeX Warning: Reference `subsec:pheno_preproc' on page 27 undefined on input l
+ine 94.
+
+[27]
+
+Package natbib Warning: Citation `Anderson2001' on page 28 undefined on input l
+ine 96.
+
+
+Package natbib Warning: Citation `Klingenberg1998' on page 28 undefined on inpu
+t line 96.
+
+
+Package natbib Warning: Citation `Marozzi2004' on page 28 undefined on input li
+ne 96.
+
+
+Package natbib Warning: Citation `Vanbiervliet2022' on page 28 undefined on inp
+ut line 98.
+
+
+LaTeX Warning: Reference `subsec:downsampling' on page 28 undefined on input li
+ne 98.
+
+
+Package natbib Warning: Citation `Guebel2013' on page 28 undefined on input lin
+e 102.
+
+
+LaTeX Warning: Reference `subsec:primary_data_source' on page 28 undefined on i
+nput line 102.
+
+
+LaTeX Warning: Reference `tab:covariates' on page 28 undefined on input line 10
+2.
+
+[28]
+
+Package natbib Warning: Citation `Claes2018' on page 29 undefined on input line
+ 137.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 29 undefined on input line
+ 137.
+
+
+Package natbib Warning: Citation `VonLuxburg2007' on page 29 undefined on input
+ line 137.
+
+
+Package natbib Warning: Citation `Ng2002' on page 29 undefined on input line 13
+9.
+
+
+Package natbib Warning: Citation `Robert1976' on page 29 undefined on input lin
+e 139.
+
+
+Package natbib Warning: Citation `Shi2000' on page 29 undefined on input line 1
+39.
+
+
+Package natbib Warning: Citation `Arthur2007' on page 29 undefined on input lin
+e 139.
+
+
+LaTeX Warning: Reference `subsec:ldsr' on page 29 undefined on input line 139.
+
+[29]
+
+Package natbib Warning: Citation `Strehl2003' on page 30 undefined on input lin
+e 144.
+
+
+Package natbib Warning: Citation `Auton2015' on page 30 undefined on input line
+ 151.
+
+[30]
+
+Package natbib Warning: Citation `Little2002' on page 31 undefined on input lin
+e 159.
+
+
+Package natbib Warning: Citation `Sun2009' on page 31 undefined on input line 1
+59.
+
+
+Package natbib Warning: Citation `Dray2015' on page 31 undefined on input line 
+159.
+
+
+LaTeX Warning: Reference `chap:results' on page 31 undefined on input line 159.
+
+
+[31]
+
+Package natbib Warning: Citation `Teare2002' on page 32 undefined on input line
+ 187.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015' on page 32 undefined on i
+nput line 187.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 32 undefined on input line
+ 191.
+
+[32]
+
+Package natbib Warning: Citation `Trynka2013' on page 33 undefined on input lin
+e 198.
+
+
+Package natbib Warning: Citation `Finucane2015' on page 33 undefined on input l
+ine 198.
+
+
+Package natbib Warning: Citation `Finucane2018' on page 33 undefined on input l
+ine 198.
+
+
+Package natbib Warning: Citation `Lee2018' on page 33 undefined on input line 2
+02.
+
+
+Package natbib Warning: Citation `Gialluisi2020' on page 33 undefined on input 
+line 202.
+
+
+Package natbib Warning: Citation `Levey2021' on page 33 undefined on input line
+ 202.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015' on page 33 undefined on i
+nput line 202.
+
+
+LaTeX Warning: Reference `subsec:ldsr' on page 33 undefined on input line 209.
+
+
+Package natbib Warning: Citation `Finucane2018' on page 33 undefined on input l
+ine 209.
+
+[33]
+
+Package natbib Warning: Citation `Finucane2018' on page 34 undefined on input l
+ine 215.
+
+
+LaTeX Warning: Reference `subsec:other_sources' on page 34 undefined on input l
+ine 215.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015_cor' on page 34 undefined 
+on input line 219.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015_cor' on page 34 undefined 
+on input line 223.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015' on page 34 undefined on i
+nput line 223.
+
+
+Package natbib Warning: Citation `Berisa2016' on page 34 undefined on input lin
+e 223.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 34 undefined on input line
+ 225.
+
+
+LaTeX Warning: Reference `subsec:other_sources' on page 34 undefined on input l
+ine 225.
+
+
+Package natbib Warning: Citation `Sha2021' on page 34 undefined on input line 2
+25.
+
+[34]
+
+Package natbib Warning: Citation `Watanabe2017' on page 35 undefined on input l
+ine 229.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 35 undefined on input l
+ine 231.
+
+
+Package natbib Warning: Citation `Sha2021' on page 35 undefined on input line 2
+33.
+
+
+Package natbib Warning: Citation `Sha2021' on page 35 undefined on input line 2
+33.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 35 undefined on input l
+ine 233.
+
+
+Package natbib Warning: Citation `McLean2010' on page 35 undefined on input lin
+e 233.
+
+
+Package natbib Warning: Citation `McLean2010' on page 35 undefined on input lin
+e 233.
+
+
+Package natbib Warning: Citation `DeLeeuw2015' on page 35 undefined on input li
+ne 235.
+
+
+Package natbib Warning: Citation `DeLeeuw2015' on page 35 undefined on input li
+ne 235.
+
+
+Package natbib Warning: Citation `Sha2021' on page 35 undefined on input line 2
+35.
+
+
+Package natbib Warning: Citation `Watanabe2017' on page 35 undefined on input l
+ine 237.
+
+
+Package natbib Warning: Citation `Szklarczyk2021' on page 35 undefined on input
+ line 237.
+
+
+Package natbib Warning: Citation `Mi2019' on page 35 undefined on input line 23
+7.
+
+[35]) [36]
 \openout2 = `results.aux'.
 
-
-(./results.tex
+ (./results.tex
 Package svg Info: Last page of `./svg-inkscape/results_svg-tex.pdf' is 1 on inp
 ut line 7.
  (./svg-inkscape/results_svg-tex.pdf_tex
-<./svg-inkscape/results_svg-tex.pdf, id=1612, page=1, 1650.165pt x 832.6874pt>
+<./svg-inkscape/results_svg-tex.pdf, id=636, page=1, 1650.165pt x 832.6874pt>
 File: ./svg-inkscape/results_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/results_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/results_svg-tex.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 567.63065pt x 286.42618pt.
-) [36
+)
+
+LaTeX Warning: Reference `subsec:stat_methods' on page 37 undefined on input li
+ne 9.
+
+
+LaTeX Warning: Reference `subsec:stat_methods' on page 37 undefined on input li
+ne 9.
+
+[37
 
 
 
@@ -1908,25 +3074,61 @@ ut line 56.
 Overfull \vbox (36.66144pt too high) has occurred while \output is active []
 
 
-[37 <./svg-inkscape/results_svg-tex.pdf>]
+[38 <./svg-inkscape/results_svg-tex.pdf>]
+
+LaTeX Warning: Reference `fig:stat_analysis' on page 39 undefined on input line
+ 13.
+
+
+Package natbib Warning: Citation `Vanbiervliet2022' on page 39 undefined on inp
+ut line 13.
+
+
+LaTeX Warning: Reference `subsec:general_sym_traits' on page 39 undefined on in
+put line 15.
+
+
+LaTeX Warning: Reference `subsec:stat_methods' on page 39 undefined on input li
+ne 17.
+
+
+LaTeX Warning: Reference `subsec:plasticity' on page 39 undefined on input line
+ 17.
+
+
+Package natbib Warning: Citation `Vanbiervliet2022' on page 39 undefined on inp
+ut line 17.
+
+
+LaTeX Warning: Reference `fig:covar' on page 39 undefined on input line 21.
+
+
+LaTeX Warning: Reference `tab:covariates' on page 39 undefined on input line 21
+.
+
 Package svg Info: Last page of `./svg-inkscape/explainedDKCovariates_svg-tex.pd
 f' is 1 on input line 23.
-
 (./svg-inkscape/explainedDKCovariates_svg-tex.pdf_tex
-<./svg-inkscape/explainedDKCovariates_svg-tex.pdf, id=1696, page=1, 421.5992pt 
-x 316.18124pt>
+<./svg-inkscape/explainedDKCovariates_svg-tex.pdf, id=703, page=1, 421.5992pt x
+ 316.18124pt>
 File: ./svg-inkscape/explainedDKCovariates_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/explainedDKCovariates_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/explainedDKCovariates_svg-tex.pdf , pag
 e1 used on input line 56.
 (pdftex.def)             Requested size: 358.19757pt x 268.6347pt.
-) [38]
+) [39]
+
+LaTeX Warning: Reference `fig:partitioning' on page 40 undefined on input line 
+29.
+
+
+LaTeX Warning: Reference `tab:nmi' on page 40 undefined on input line 29.
+
 Package svg Info: Last page of `./svg-inkscape/segmentation_svg-tex.pdf' is 1 o
 n input line 36.
-
 (./svg-inkscape/segmentation_svg-tex.pdf_tex
-<./svg-inkscape/segmentation_svg-tex.pdf, id=1715, page=1, 1156.45772pt x 433.6
-2pt>
+<./svg-inkscape/segmentation_svg-tex.pdf, id=711, page=1, 1156.45772pt x 433.62
+pt>
 File: ./svg-inkscape/segmentation_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/segmentation_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/segmentation_svg-tex.pdf , page1 used o
@@ -1937,41 +3139,102 @@ Package svg Info: Last page of `./svg-inkscape/segmentation_circular_svg-tex.pd
 f' is 1 on input line 39.
 
 (./svg-inkscape/segmentation_circular_svg-tex.pdf_tex
-<./svg-inkscape/segmentation_circular_svg-tex.pdf, id=1717, page=1, 421.5992pt 
-x 316.18124pt>
+<./svg-inkscape/segmentation_circular_svg-tex.pdf, id=713, page=1, 421.5992pt x
+ 316.18124pt>
 File: ./svg-inkscape/segmentation_circular_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/segmentation_circular_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/segmentation_circular_svg-tex.pdf , pag
 e1 used on input line 56.
 (pdftex.def)             Requested size: 250.245pt x 187.67426pt.
-) [39 <./svg-inkscape/explainedDKCovariates_svg-tex.pdf>]
+) [40 <./svg-inkscape/explainedDKCovariates_svg-tex.pdf>] [41 <./svg-inkscape/s
+egmentation_svg-tex.pdf> <./svg-inkscape/segmentation_circular_svg-tex.pdf>]
+
+LaTeX Warning: Reference `fig:pcs_num' on page 42 undefined on input line 59.
+
 Package svg Info: Last page of `./svg-inkscape/explainedVarianceSIngleThreshold
 _svg-tex.pdf' is 1 on input line 61.
-
 (./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf_tex
-<./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf, id=1786, page=1, 
-963.6pt x 542.025pt>
+<./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf, id=962, page=1, 9
+63.6pt x 542.025pt>
 File: ./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf Graphic file 
 (type pdf)
 <use ./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/explainedVarianceSIngleThreshold_svg-te
 x.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 358.19757pt x 201.48068pt.
-) [40 <./svg-inkscape/segmentation_svg-tex.pdf> <./svg-inkscape/segmentation_ci
-rcular_svg-tex.pdf>] [41 <./svg-inkscape/explainedVarianceSIngleThreshold_svg-t
-ex.pdf>]
+)
+
+LaTeX Warning: Reference `fig:entire_gwas' on page 42 undefined on input line 6
+6.
+
+
+LaTeX Warning: Reference `tab:leadsnps' on page 42 undefined on input line 66.
+
+
+Package natbib Warning: Citation `Sha2021' on page 42 undefined on input line 6
+6.
+
+
+Package natbib Warning: Citation `Sha2021' on page 42 undefined on input line 6
+6.
+
+
+Package natbib Warning: Citation `Sha2021' on page 42 undefined on input line 6
+6.
+
+
+LaTeX Warning: Reference `tab:leadsnps' on page 42 undefined on input line 66.
+
+
+LaTeX Warning: Reference `sec:lit_discussion' on page 42 undefined on input lin
+e 66.
+
+[42 <./svg-inkscape/explainedVarianceSIngleThreshold_svg-tex.pdf>]
+
+LaTeX Warning: Reference `fig:part_bonferroni' on page 43 undefined on input li
+ne 68.
+
+
+LaTeX Warning: Reference `fig:part_manhattan' on page 43 undefined on input lin
+e 68.
+
+
+LaTeX Warning: Reference `fig:stat_analysis' on page 43 undefined on input line
+ 68.
+
+
+LaTeX Warning: Reference `tab: spearman_no_vs_mean' on page 43 undefined on inp
+ut line 70.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 74.
+
+Package natbib Warning: Citation `Sha2021' on page 43 undefined on input line 1
+06.
+
+
+Package natbib Warning: Citation `Sha2021' on page 43 undefined on input line 1
+06.
+
+
+Package natbib Warning: Citation `Sha2021' on page 43 undefined on input line 1
+06.
+
+
+Package natbib Warning: Citation `Sha2021' on page 43 undefined on input line 1
+06.
+
 
 Overfull \hbox (19.95639pt too wide) in paragraph at lines 72--108
  [] 
  []
 
+[43]
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_svg-tex.pdf' is 1
  on input line 114.
-(./svg-inkscape/gwas_discovery_svg-tex.pdf_tex
-<./svg-inkscape/gwas_discovery_svg-tex.pdf, id=2019, page=1, 903.4269pt x 451.7
-007pt>
+ (./svg-inkscape/gwas_discovery_svg-tex.pdf_tex
+<./svg-inkscape/gwas_discovery_svg-tex.pdf, id=981, page=1, 903.4269pt x 451.70
+07pt>
 File: ./svg-inkscape/gwas_discovery_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_discovery_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_discovery_svg-tex.pdf , page1 used
@@ -1985,8 +3248,8 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 114--115
 Package svg Info: Last page of `./svg-inkscape/gwas_replication_svg-tex.pdf' is
  1 on input line 119.
 (./svg-inkscape/gwas_replication_svg-tex.pdf_tex
-<./svg-inkscape/gwas_replication_svg-tex.pdf, id=2021, page=1, 903.4269pt x 451
-.7007pt>
+<./svg-inkscape/gwas_replication_svg-tex.pdf, id=983, page=1, 903.4269pt x 451.
+7007pt>
 File: ./svg-inkscape/gwas_replication_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_replication_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_replication_svg-tex.pdf , page1 us
@@ -2000,8 +3263,8 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 119--120
 Package svg Info: Last page of `./svg-inkscape/gwas_joined_svg-tex.pdf' is 1 on
  input line 124.
 (./svg-inkscape/gwas_joined_svg-tex.pdf_tex
-<./svg-inkscape/gwas_joined_svg-tex.pdf, id=2023, page=1, 903.4269pt x 451.7007
-pt>
+<./svg-inkscape/gwas_joined_svg-tex.pdf, id=985, page=1, 903.4269pt x 451.7007p
+t>
 File: ./svg-inkscape/gwas_joined_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/gwas_joined_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/gwas_joined_svg-tex.pdf , page1 used on
@@ -2012,17 +3275,17 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 124--125
  [][] 
  []
 
-[42]
+[44]
 Overfull \vbox (82.78152pt too high) has occurred while \output is active []
 
 
-[43 <./svg-inkscape/gwas_discovery_svg-tex.pdf> <./svg-inkscape/gwas_replicatio
+[45 <./svg-inkscape/gwas_discovery_svg-tex.pdf> <./svg-inkscape/gwas_replicatio
 n_svg-tex.pdf> <./svg-inkscape/gwas_joined_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/CcaCircularJoined_svg-tex.pdf' i
 s 1 on input line 135.
 
 (./svg-inkscape/CcaCircularJoined_svg-tex.pdf_tex
-<./svg-inkscape/CcaCircularJoined_svg-tex.pdf, id=2192, page=1, 2565.58426pt x 
+<./svg-inkscape/CcaCircularJoined_svg-tex.pdf, id=1152, page=1, 2565.58426pt x 
 1286.8075pt>
 File: ./svg-inkscape/CcaCircularJoined_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/CcaCircularJoined_svg-tex.pdf, page 1>
@@ -2034,7 +3297,7 @@ Package svg Info: Last page of `./svg-inkscape/legend_svg-tex.pdf' is 1 on inpu
 t line 138.
 
 (./svg-inkscape/legend_svg-tex.pdf_tex
-<./svg-inkscape/legend_svg-tex.pdf, id=2194, page=1, 48.18pt x 128.73094pt>
+<./svg-inkscape/legend_svg-tex.pdf, id=1154, page=1, 48.18pt x 128.73094pt>
 File: ./svg-inkscape/legend_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/legend_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/legend_svg-tex.pdf , page1 used on inpu
@@ -2045,10 +3308,26 @@ Overfull \hbox (14.59996pt too wide) in paragraph at lines 135--139
  [][][] 
  []
 
+
+LaTeX Warning: Reference `fig:herit_part' on page 46 undefined on input line 14
+6.
+
+
+Package natbib Warning: Citation `Sha2021' on page 46 undefined on input line 1
+46.
+
+
+Package natbib Warning: Citation `Bulik-Sullivan2015' on page 46 undefined on i
+nput line 146.
+
+
+LaTeX Warning: Reference `fig:confbias' on page 46 undefined on input line 146.
+
+
 Package svg Info: Last page of `./svg-inkscape/Total Observed scale h2_svg-tex.
 pdf' is 1 on input line 158.
 (./svg-inkscape/Total Observed scale h2_svg-tex.pdf_tex
-<./svg-inkscape/Total Observed scale h2_svg-tex.pdf, id=2204, page=1, 385.44177
+<./svg-inkscape/Total Observed scale h2_svg-tex.pdf, id=1157, page=1, 385.44177
 pt x 867.24913pt>
 File: ./svg-inkscape/Total Observed scale h2_svg-tex.pdf Graphic file (type pdf
 )
@@ -2061,21 +3340,45 @@ Package svg Info: Last page of `./svg-inkscape/Intercept_svg-tex.pdf' is 1 on i
 nput line 163.
 
 (./svg-inkscape/Intercept_svg-tex.pdf_tex
-<./svg-inkscape/Intercept_svg-tex.pdf, id=2206, page=1, 385.44177pt x 867.24913
+<./svg-inkscape/Intercept_svg-tex.pdf, id=1159, page=1, 385.44177pt x 867.24913
 pt>
 File: ./svg-inkscape/Intercept_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Intercept_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Intercept_svg-tex.pdf , page1 used on i
 nput line 56.
 (pdftex.def)             Requested size: 156.49014pt x 352.10736pt.
-) [44 <./svg-inkscape/CcaCircularJoined_svg-tex.pdf> <./svg-inkscape/legend_svg
--tex.pdf>] [45 <./svg-inkscape/Total Observed scale h2_svg-tex.pdf> <./svg-inks
-cape/Intercept_svg-tex.pdf>]
+) [46 <./svg-inkscape/CcaCircularJoined_svg-tex.pdf> <./svg-inkscape/legend_svg
+-tex.pdf>]
+
+LaTeX Warning: Reference `subsec:other_sources' on page 47 undefined on input l
+ine 169.
+
+
+LaTeX Warning: Reference `fig:spearmanOtherTraits' on page 47 undefined on inpu
+t line 169.
+
+
+LaTeX Warning: Reference `fig:cross_trait_polar' on page 47 undefined on input 
+line 169.
+
+
+LaTeX Warning: Reference `fig:part_bonferroni' on page 47 undefined on input li
+ne 169.
+
+[47 <./svg-inkscape/Total Observed scale h2_svg-tex.pdf> <./svg-inkscape/Interc
+ept_svg-tex.pdf>]
+
+Package natbib Warning: Citation `Naqvi2021' on page 48 undefined on input line
+ 173.
+
+
+LaTeX Warning: Reference `fig:spearmanShape' on page 48 undefined on input line
+ 173.
+
 Package svg Info: Last page of `./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf' 
 is 1 on input line 179.
-
 (./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, id=2409, page=1, 569.87906pt x 
+<./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, id=1350, page=1, 569.87906pt x 
 737.75626pt>
 File: ./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf, page 1>
@@ -2087,7 +3390,7 @@ Package svg Info: Last page of `./svg-inkscape/otherTraitsHeatmapPvalues_svg-te
 x.pdf' is 1 on input line 181.
 
 (./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf, id=2411, page=1, 569.879
+<./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf, id=1352, page=1, 569.879
 06pt x 737.75626pt>
 File: ./svg-inkscape/otherTraitsHeatmapPvalues_svg-tex.pdf Graphic file (type p
 df)
@@ -2103,7 +3406,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 179--182
 Package svg Info: Last page of `./svg-inkscape/brainShapeHeatmap_svg-tex.pdf' i
 s 1 on input line 190.
 (./svg-inkscape/brainShapeHeatmap_svg-tex.pdf_tex
-<./svg-inkscape/brainShapeHeatmap_svg-tex.pdf, id=2413, page=1, 1330.21968pt x 
+<./svg-inkscape/brainShapeHeatmap_svg-tex.pdf, id=1354, page=1, 1330.21968pt x 
 184.43906pt>
 File: ./svg-inkscape/brainShapeHeatmap_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/brainShapeHeatmap_svg-tex.pdf, page 1>
@@ -2118,7 +3421,7 @@ Overfull \hbox (3.65pt too wide) in paragraph at lines 190--191
 Package svg Info: Last page of `./svg-inkscape/brainShapeHeatmapPvalues_svg-tex
 .pdf' is 1 on input line 193.
 (./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf_tex
-<./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf, id=2415, page=1, 1330.219
+<./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf, id=1356, page=1, 1330.219
 68pt x 184.43906pt>
 File: ./svg-inkscape/brainShapeHeatmapPvalues_svg-tex.pdf Graphic file (type pd
 f)
@@ -2131,13 +3434,21 @@ Overfull \hbox (3.65pt too wide) in paragraph at lines 193--194
 [][] 
  []
 
-[46 <./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf> <./svg-inkscape/otherTraits
+
+Package natbib Warning: Citation `Naqvi2021' on page 48 undefined on input line
+ 194.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 48 undefined on input line
+ 194.
+
+[48 <./svg-inkscape/otherTraitsHeatmap_svg-tex.pdf> <./svg-inkscape/otherTraits
 HeatmapPvalues_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/CcaCircularOtherTraits_svg-tex.p
 df' is 1 on input line 205.
 
 (./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf_tex
-<./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf, id=2458, page=1, 2565.58426
+<./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf, id=1395, page=1, 2565.58426
 pt x 1286.8075pt>
 File: ./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf Graphic file (type pdf)
 
@@ -2150,7 +3461,7 @@ Package svg Info: Last page of `./svg-inkscape/otherTraitsLegend_svg-tex.pdf' i
 s 1 on input line 208.
 
 (./svg-inkscape/otherTraitsLegend_svg-tex.pdf_tex
-<./svg-inkscape/otherTraitsLegend_svg-tex.pdf, id=2460, page=1, 222.8325pt x 13
+<./svg-inkscape/otherTraitsLegend_svg-tex.pdf, id=1397, page=1, 222.8325pt x 13
 4.00063pt>
 File: ./svg-inkscape/otherTraitsLegend_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/otherTraitsLegend_svg-tex.pdf, page 1>
@@ -2162,14 +3473,26 @@ Overfull \hbox (14.59996pt too wide) in paragraph at lines 205--209
  [][][] 
  []
 
-[47 <./svg-inkscape/brainShapeHeatmap_svg-tex.pdf> <./svg-inkscape/brainShapeHe
+
+LaTeX Warning: Reference `fig:ldsc-seg-chromatin' on page 49 undefined on input
+ line 217.
+
+
+LaTeX Warning: Reference `sec:ldsr_results' on page 49 undefined on input line 
+217.
+
+
+LaTeX Warning: Reference `fig:herit_part' on page 49 undefined on input line 21
+7.
+
+[49 <./svg-inkscape/brainShapeHeatmap_svg-tex.pdf> <./svg-inkscape/brainShapeHe
 atmapPvalues_svg-tex.pdf> <./svg-inkscape/CcaCircularOtherTraits_svg-tex.pdf> <
 ./svg-inkscape/otherTraitsLegend_svg-tex.pdf>]
 Package svg Info: Last page of `./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-
 tex.pdf' is 1 on input line 223.
 
 (./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf_tex
-<./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf, id=2571, page=1, 1021.
+<./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf, id=1506, page=1, 1021.
 56656pt x 414.04688pt>
 File: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf Graphic file (type
  pdf)
@@ -2177,9 +3500,13 @@ File: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf Graphic file (type
 Package pdftex.def Info: ./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf
  , page1 used on input line 56.
 (pdftex.def)             Requested size: 568.71652pt x 230.5pt.
-) [48 <./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf>]
+)
+
+LaTeX Warning: Reference `fig:age_dev' on page 50 undefined on input line 230.
+
+[50 <./svg-inkscape/ldsc_seg_pHeatmap_chromatin_svg-tex.pdf>]
 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/partition
-sSummary/age.pdf, id=2600, 2292.75761pt x 512.36018pt>
+sSummary/age.pdf, id=1532, 2292.75761pt x 512.36018pt>
 File: ../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/part
 itionsSummary/age.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
@@ -2194,9 +3521,65 @@ Overfull \hbox (11.91562pt too wide) in paragraph at lines 242--286
  [] 
  []
 
-[49 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
-tionsSummary/age.pdf>] [50]
-<./svg-inkscape/clusterMCL2_svg-raw.pdf, id=2676, 969.80714pt x 1045.45892pt>
+[51 <../results/asymmetry/FUMA/joinedDatasets/mean_imputed/not_subsampled/parti
+tionsSummary/age.pdf>]
+
+LaTeX Warning: Reference `tab:genesets' on page 52 undefined on input line 291.
+
+
+
+LaTeX Warning: Reference `fig:go' on page 52 undefined on input line 291.
+
+
+LaTeX Warning: Reference `fig:go_genes' on page 52 undefined on input line 291.
+
+
+
+Package natbib Warning: Citation `Sha2021' on page 52 undefined on input line 2
+91.
+
+
+LaTeX Warning: Reference `fig:de_genes' on page 52 undefined on input line 291.
+
+
+
+LaTeX Warning: Reference `fig:gw_catalog' on page 52 undefined on input line 29
+1.
+
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 52 undefined on input l
+ine 291.
+
+
+LaTeX Warning: Reference `fig:can_pathways' on page 52 undefined on input line 
+291.
+
+
+LaTeX Warning: Reference `fig:can_pathways_genes' on page 52 undefined on input
+ line 291.
+
+
+Package natbib Warning: Citation `Li2009' on page 52 undefined on input line 29
+1.
+
+[52]
+
+LaTeX Warning: Reference `fig:string_net' on page 53 undefined on input line 29
+5.
+
+
+Package natbib Warning: Citation `Hu2017' on page 53 undefined on input line 29
+5.
+
+
+Package natbib Warning: Citation `Hikasa2013' on page 53 undefined on input lin
+e 295.
+
+
+Package natbib Warning: Citation `Myers2017' on page 53 undefined on input line
+ 295.
+
+<./svg-inkscape/clusterMCL2_svg-raw.pdf, id=1584, 969.80714pt x 1045.45892pt>
 File: ./svg-inkscape/clusterMCL2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_svg-raw.pdf  used on input 
@@ -2204,92 +3587,92 @@ line 301.
 (pdftex.def)             Requested size: 969.80478pt x 1045.45638pt.
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_1_svg-tex.pdf' is 13
  on input line 306.
- (./svg-inkscape/clusterMCL2_1_svg-tex.pdf_tex
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2678, page=1, 440.05067pt x 362.8
+(./svg-inkscape/clusterMCL2_1_svg-tex.pdf_tex
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1586, page=1, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2679, page=2, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1587, page=2, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 2>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page2 used 
 on input line 59.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2680, page=3, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1588, page=3, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 3>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page3 used 
 on input line 62.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2681, page=4, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1589, page=4, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 4>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page4 used 
 on input line 65.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2682, page=5, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1590, page=5, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 5>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page5 used 
 on input line 68.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2683, page=6, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1591, page=6, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 6>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page6 used 
 on input line 71.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2684, page=7, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1592, page=7, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 7>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page7 used 
 on input line 74.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2685, page=8, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1593, page=8, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 8>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page8 used 
 on input line 77.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2686, page=9, 440.05067pt x 362.8
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1594, page=9, 440.05067pt x 362.8
 3887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 9>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page9 used 
 on input line 80.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2687, page=10, 440.05067pt x 362.
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1595, page=10, 440.05067pt x 362.
 83887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 10>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page10 used
  on input line 83.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2688, page=11, 440.05067pt x 362.
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1596, page=11, 440.05067pt x 362.
 83887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 11>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page11 used
  on input line 86.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2689, page=12, 440.05067pt x 362.
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1597, page=12, 440.05067pt x 362.
 83887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 12>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf , page12 used
  on input line 89.
 (pdftex.def)             Requested size: 113.74156pt x 93.78223pt.
-<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=2690, page=13, 440.05067pt x 362.
+<./svg-inkscape/clusterMCL2_1_svg-tex.pdf, id=1598, page=13, 440.05067pt x 362.
 83887pt>
 File: ./svg-inkscape/clusterMCL2_1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_1_svg-tex.pdf, page 13>
@@ -2301,56 +3684,56 @@ Package svg Info: Last page of `./svg-inkscape/clusterMCL2_2_svg-tex.pdf' is 8
 on input line 310.
 
 (./svg-inkscape/clusterMCL2_2_svg-tex.pdf_tex
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2692, page=1, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1600, page=1, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2693, page=2, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1601, page=2, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 2>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page2 used 
 on input line 59.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2694, page=3, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1602, page=3, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 3>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page3 used 
 on input line 62.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2695, page=4, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1603, page=4, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 4>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page4 used 
 on input line 65.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2696, page=5, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1604, page=5, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 5>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page5 used 
 on input line 68.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2697, page=6, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1605, page=6, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 6>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page6 used 
 on input line 71.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2698, page=7, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1606, page=7, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 7>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf , page7 used 
 on input line 74.
 (pdftex.def)             Requested size: 113.74156pt x 81.45631pt.
-<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=2699, page=8, 304.81644pt x 218.3
+<./svg-inkscape/clusterMCL2_2_svg-tex.pdf, id=1607, page=8, 304.81644pt x 218.3
 0107pt>
 File: ./svg-inkscape/clusterMCL2_2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_2_svg-tex.pdf, page 8>
@@ -2362,56 +3745,56 @@ Package svg Info: Last page of `./svg-inkscape/clusterMCL2_3_svg-tex.pdf' is 8
 on input line 314.
 
 (./svg-inkscape/clusterMCL2_3_svg-tex.pdf_tex
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2701, page=1, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1609, page=1, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2702, page=2, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1610, page=2, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 2>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page2 used 
 on input line 59.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2703, page=3, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1611, page=3, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 3>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page3 used 
 on input line 62.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2704, page=4, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1612, page=4, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 4>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page4 used 
 on input line 65.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2705, page=5, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1613, page=5, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 5>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page5 used 
 on input line 68.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2706, page=6, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1614, page=6, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 6>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page6 used 
 on input line 71.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2707, page=7, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1615, page=7, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 7>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf , page7 used 
 on input line 74.
 (pdftex.def)             Requested size: 113.74156pt x 81.97264pt.
-<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=2708, page=8, 361.39574pt x 260.4
+<./svg-inkscape/clusterMCL2_3_svg-tex.pdf, id=1616, page=8, 361.39574pt x 260.4
 5638pt>
 File: ./svg-inkscape/clusterMCL2_3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_3_svg-tex.pdf, page 8>
@@ -2441,35 +3824,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 314--314
 Package svg Info: Last page of `./svg-inkscape/clusterMCL2_4_svg-tex.pdf' is 5 
 on input line 318.
 (./svg-inkscape/clusterMCL2_4_svg-tex.pdf_tex
-<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2710, page=1, 229.90497pt x 329.7
+<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=1618, page=1, 229.90497pt x 329.7
 1512pt>
 File: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_4_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 113.74156pt x 163.12143pt.
-<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2711, page=2, 229.90497pt x 329.7
+<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=1619, page=2, 229.90497pt x 329.7
 1512pt>
 File: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_4_svg-tex.pdf, page 2>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf , page2 used 
 on input line 59.
 (pdftex.def)             Requested size: 113.74156pt x 163.12143pt.
-<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2712, page=3, 229.90497pt x 329.7
+<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=1620, page=3, 229.90497pt x 329.7
 1512pt>
 File: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_4_svg-tex.pdf, page 3>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf , page3 used 
 on input line 62.
 (pdftex.def)             Requested size: 113.74156pt x 163.12143pt.
-<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2713, page=4, 229.90497pt x 329.7
+<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=1621, page=4, 229.90497pt x 329.7
 1512pt>
 File: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_4_svg-tex.pdf, page 4>
 Package pdftex.def Info: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf , page4 used 
 on input line 65.
 (pdftex.def)             Requested size: 113.74156pt x 163.12143pt.
-<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=2714, page=5, 229.90497pt x 329.7
+<./svg-inkscape/clusterMCL2_4_svg-tex.pdf, id=1622, page=5, 229.90497pt x 329.7
 1512pt>
 File: ./svg-inkscape/clusterMCL2_4_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/clusterMCL2_4_svg-tex.pdf, page 5>
@@ -2481,7 +3864,15 @@ Overfull \hbox (13.38333pt too wide) in paragraph at lines 299--321
 []$[]$  $[]$ 
  []
 
-[51]) [52 <./svg-inkscape/clusterMCL2_svg-raw.pdf> <./svg-inkscape/clusterMCL2_
+
+LaTeX Warning: Reference `subsec:func_mat_methods' on page 53 undefined on inpu
+t line 322.
+
+
+LaTeX Warning: Reference `subsec:func_mat_methods' on page 53 undefined on inpu
+t line 322.
+
+[53]) [54 <./svg-inkscape/clusterMCL2_svg-raw.pdf> <./svg-inkscape/clusterMCL2_
 1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-inkscape/clust
 erMCL2_1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-inkscap
 e/clusterMCL2_1_svg-tex.pdf> <./svg-inkscape/clusterMCL2_1_svg-tex.pdf> <./svg-
@@ -2503,13 +3894,244 @@ pdf> <./svg-inkscape/clusterMCL2_4_svg-tex.pdf> <./svg-inkscape/clusterMCL2_4_s
 vg-tex.pdf>]
 \openout2 = `discussion.aux'.
 
- (./discussion.tex [53
+ (./discussion.tex
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `Lin2020' on page 55 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `Kong2018' on page 55 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `Kong2021' on page 55 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `Zhao2022' on page 55 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 55 undefined on input line
+ 6.
+
+
+Package natbib Warning: Citation `Claes2018' on page 55 undefined on input line
+ 6.
+
+
+Package natbib Warning: Citation `Toga2003' on page 55 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `Vanbiervliet2022' on page 55 undefined on inp
+ut line 6.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 55 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Kranz2012' on page 55 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+LaTeX Warning: Reference `subsec:gencorr' on page 55 undefined on input line 8.
+
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 55 undefined on input line
+ 8.
+
+
+LaTeX Warning: Reference `tab:otherAsym' on page 55 undefined on input line 8.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `Sha2021' on page 55 undefined on input line 8
+.
+
+[55
 
 
 
 
-] [54] [55]
-<graphics/tubb3.png, id=7146, 2348.775pt x 355.3275pt>
+]
+
+LaTeX Warning: Reference `sec:res_functional' on page 56 undefined on input lin
+e 10.
+
+
+LaTeX Warning: Reference `sec:ldsc-seg' on page 56 undefined on input line 10.
+
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 56 undefined on input l
+ine 10.
+
+
+Package natbib Warning: Citation `Guadalupe2015' on page 56 undefined on input 
+line 10.
+
+
+Package natbib Warning: Citation `Sha2021' on page 56 undefined on input line 1
+0.
+
+
+Package natbib Warning: Citation `Hesling2012' on page 56 undefined on input li
+ne 16.
+
+
+Package natbib Warning: Citation `Li2020' on page 56 undefined on input line 16
+.
+
+
+Package natbib Warning: Citation `Han2016' on page 56 undefined on input line 1
+6.
+
+
+Package natbib Warning: Citation `Weil2016' on page 56 undefined on input line 
+16.
+
+
+Package natbib Warning: Citation `Claassen2016' on page 56 undefined on input l
+ine 16.
+
+
+Package natbib Warning: Citation `Kong2021' on page 56 undefined on input line 
+16.
+
+
+Package natbib Warning: Citation `Sun2006' on page 56 undefined on input line 1
+6.
+
+
+Package natbib Warning: Citation `Kong2021' on page 56 undefined on input line 
+16.
+
+
+Package natbib Warning: Citation `Peelen2005' on page 56 undefined on input lin
+e 16.
+
+
+Package natbib Warning: Citation `Bracci2010' on page 56 undefined on input lin
+e 16.
+
+
+Package natbib Warning: Citation `Naqvi2021' on page 56 undefined on input line
+ 16.
+
+[56]
+
+LaTeX Warning: Reference `tab:genesets' on page 57 undefined on input line 18.
+
+
+Package natbib Warning: Citation `Jackson2010' on page 57 undefined on input li
+ne 18.
+
+
+Package natbib Warning: Citation `VanderMeer2020' on page 57 undefined on input
+ line 18.
+
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 57 undefined on input l
+ine 18.
+
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 57 undefined on input l
+ine 18.
+
+
+Package natbib Warning: Citation `Michaelson2014' on page 57 undefined on input
+ line 18.
+
+
+Package natbib Warning: Citation `Roe2021' on page 57 undefined on input line 1
+8.
+
+
+Package natbib Warning: Citation `Wang2018' on page 57 undefined on input line 
+18.
+
+
+Package natbib Warning: Citation `Cao2021' on page 57 undefined on input line 1
+8.
+
+
+Package natbib Warning: Citation `Brenner2019' on page 57 undefined on input li
+ne 18.
+
+
+Package natbib Warning: Citation `Cheng2020' on page 57 undefined on input line
+ 18.
+
+[57]
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 58 undefined on input l
+ine 20.
+
+
+Package natbib Warning: Citation `Swope2018' on page 58 undefined on input line
+ 20.
+
+
+Package natbib Warning: Citation `Dalziel2011' on page 58 undefined on input li
+ne 20.
+
+
+LaTeX Warning: Reference `fig:chr16' on page 58 undefined on input line 20.
+
+
+Package natbib Warning: Citation `Takahashi2018' on page 58 undefined on input 
+line 20.
+
+
+LaTeX Warning: Reference `fig:gw_catalog_genes' on page 58 undefined on input l
+ine 20.
+
+
+Package natbib Warning: Citation `Visconti2018' on page 58 undefined on input l
+ine 20.
+
+
+LaTeX Warning: Reference `fig:chr16' on page 58 undefined on input line 20.
+
+
+Package natbib Warning: Citation `Finucane2015' on page 58 undefined on input l
+ine 20.
+
+[58]
+<graphics/tubb3.png, id=5951, 2348.775pt x 355.3275pt>
 File: graphics/tubb3.png Graphic file (type png)
 <use graphics/tubb3.png>
 Package pdftex.def Info: graphics/tubb3.png  used on input line 29.
@@ -2519,7 +4141,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 29--30
  [] 
  []
 
-<graphics/spire2.png, id=7147, 2409.0pt x 696.6025pt>
+<graphics/spire2.png, id=5952, 2409.0pt x 696.6025pt>
 File: graphics/spire2.png Graphic file (type png)
 <use graphics/spire2.png>
 Package pdftex.def Info: graphics/spire2.png  used on input line 33.
@@ -2529,15 +4151,83 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 33--34
  [][] 
  []
 
-[56] [57 <./graphics/tubb3.png> <./graphics/spire2.png>] [58]) [59]
+
+Package natbib Warning: Citation `Boughton2021' on page 59 undefined on input l
+ine 34.
+
+
+Package natbib Warning: Citation `Boughton2021' on page 59 undefined on input l
+ine 34.
+
+
+Package natbib Warning: Citation `Littlejohns2020' on page 59 undefined on inpu
+t line 41.
+
+
+Package natbib Warning: Citation `Sha2021' on page 59 undefined on input line 4
+1.
+
+
+LaTeX Warning: Reference `sec:methods_on_pheno' on page 59 undefined on input l
+ine 41.
+
+[59 <./graphics/tubb3.png> <./graphics/spire2.png>] [60]
+
+LaTeX Warning: Reference `tab:1000g_entire_hemisphere' on page 61 undefined on 
+input line 52.
+
+
+LaTeX Warning: Reference `fig:1000g_entire_hemisphere' on page 61 undefined on 
+input line 52.
+
+
+LaTeX Warning: Reference `tab:1000g_lost_bonf_chr' on page 61 undefined on inpu
+t line 52.
+
+
+Package natbib Warning: Citation `Bycroft2018' on page 61 undefined on input li
+ne 52.
+
+
+LaTeX Warning: Reference `sub:snpbased_filt' on page 61 undefined on input line
+ 54.
+
+
+Package natbib Warning: Citation `Kierczak2022' on page 61 undefined on input l
+ine 54.
+
+
+Package natbib Warning: Citation `Cirulli2020' on page 61 undefined on input li
+ne 54.
+
+
+Package natbib Warning: Citation `Halldorsson2022' on page 61 undefined on inpu
+t line 54.
+
+
+Package natbib Warning: Citation `Rawlik2016' on page 61 undefined on input lin
+e 58.
+
+
+Package natbib Warning: Citation `Filipe2019' on page 61 undefined on input lin
+e 58.
+
+
+Package natbib Warning: Citation `Claes2014' on page 61 undefined on input line
+ 58.
+
+
+Package natbib Warning: Citation `White2020' on page 61 undefined on input line
+ 58.
+
+) [61]
 \openout2 = `appendix.aux'.
 
-
-(./appendix.tex
+ (./appendix.tex
 Package svg Info: Last page of `./svg-inkscape/filteredGwas_svg-tex.pdf' is 1 o
 n input line 9.
  (./svg-inkscape/filteredGwas_svg-tex.pdf_tex
-<./svg-inkscape/filteredGwas_svg-tex.pdf, id=7243, page=1, 1118.68121pt x 841.6
+<./svg-inkscape/filteredGwas_svg-tex.pdf, id=5977, page=1, 1118.68121pt x 841.6
 4438pt>
 File: ./svg-inkscape/filteredGwas_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/filteredGwas_svg-tex.pdf, page 1>
@@ -2549,12 +4239,12 @@ Overfull \hbox (6.49442pt too wide) in paragraph at lines 37--55
  [][] 
  []
 
-[60
+[62
 
 
 
 
- <./svg-inkscape/filteredGwas_svg-tex.pdf>] [61]
+ <./svg-inkscape/filteredGwas_svg-tex.pdf>] [63]
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_svg-tex.pdf' is 1
  on input line 110.
 
@@ -2572,7 +4262,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 110--111
 Package svg Info: Last page of `./svg-inkscape/gwas_discovery_not_imputed_svg-t
 ex.pdf' is 1 on input line 115.
 (./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf_tex
-<./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf, id=7318, page=1, 903.48
+<./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf, id=6044, page=1, 903.48
 515pt x 451.74257pt>
 File: ./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf Graphic file (type 
 pdf)
@@ -2586,7 +4276,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 115--116
  []
 
 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsampled/
-partitions_gwas.pdf, id=7323, 2605.735pt x 1298.8525pt>
+partitions_gwas.pdf, id=6049, 2605.735pt x 1298.8525pt>
 File: ../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsam
 pled/partitions_gwas.pdf Graphic file (type pdf)
 <use ../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
@@ -2594,7 +4284,7 @@ led/partitions_gwas.pdf>
 Package pdftex.def Info: ../results/asymmetry/meta_analysis/joinedDatasets/mean
 _imputed/not_subsampled/partitions_gwas.pdf  used on input line 125.
 (pdftex.def)             Requested size: 554.49014pt x 276.39392pt.
-[62
+[64
 
  <./svg-inkscape/gwas_discovery_not_imputed_svg-tex.pdf>]
 LaTeX Font Info:    Calculating math sizes for size <4> on input line 139.
@@ -2605,31 +4295,40 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <2> on input line 139.
 
+
+Package natbib Warning: Citation `Sha2021' on page 65 undefined on input line 1
+44.
+
+
+Package natbib Warning: Citation `Sha2021' on page 65 undefined on input line 1
+44.
+
+
 Overfull \hbox (19.78638pt too wide) in paragraph at lines 134--146
  [] 
  []
 
-[63 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
+[65 <../results/asymmetry/meta_analysis/joinedDatasets/mean_imputed/not_subsamp
 led/partitions_gwas.pdf>]
 Package svg Info: Last page of `./svg-inkscape/Lambda GC_svg-tex.pdf' is 1 on i
 nput line 151.
  (./svg-inkscape/Lambda GC_svg-tex.pdf_tex
-<./svg-inkscape/Lambda GC_svg-tex.pdf, id=7396, page=1, 385.44177pt x 867.24913
+<./svg-inkscape/Lambda GC_svg-tex.pdf, id=6124, page=1, 385.44177pt x 867.24913
 pt>
 File: ./svg-inkscape/Lambda GC_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Lambda GC_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Lambda GC_svg-tex.pdf , page1 used on i
 nput line 56.
 (pdftex.def)             Requested size: 199.0pt x 447.75648pt.
-) [64
+) [66
 
 ]
-Overfull \vbox (64.19052pt too high) has occurred while \output is active []
+Overfull \vbox (77.79053pt too high) has occurred while \output is active []
 
 
-[65 <./svg-inkscape/Lambda GC_svg-tex.pdf>]
+[67 <./svg-inkscape/Lambda GC_svg-tex.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_CC.pdf, id=7458, 1683.26462pt x 587.37044pt>
+/partitionsSummary/GO_CC.pdf, id=6185, 1683.26462pt x 587.37044pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_CC.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2638,7 +4337,7 @@ Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_CC.pdf  used on input line 162.
 (pdftex.def)             Requested size: 398.0pt x 138.87454pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_BP.pdf, id=7459, 1918.54964pt x 757.56425pt>
+/partitionsSummary/GO_BP.pdf, id=6186, 1918.54964pt x 757.56425pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_BP.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2647,7 +4346,7 @@ Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/GO_BP.pdf  used on input line 166.
 (pdftex.def)             Requested size: 398.0pt x 157.15118pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GO_MF.pdf, id=7460, 1487.62477pt x 374.62761pt>
+/partitionsSummary/GO_MF.pdf, id=6187, 1487.62477pt x 374.62761pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GO_MF.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2671,7 +4370,7 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 162--171
  []
 
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_cc.pdf, id=7465, 1436.00491pt x 382.84532pt>
+/partitionsSummary/genes_GO_cc.pdf, id=6188, 1436.00491pt x 382.84532pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_cc.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2681,7 +4380,7 @@ n_imputed/not_subsampled/partitionsSummary/genes_GO_cc.pdf  used on input line
 178.
 (pdftex.def)             Requested size: 398.0pt x 106.10355pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_bp.pdf, id=7466, 1436.00491pt x 355.63765pt>
+/partitionsSummary/genes_GO_bp.pdf, id=6189, 1436.00491pt x 355.63765pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_bp.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2691,7 +4390,7 @@ n_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf  used on input line
 182.
 (pdftex.def)             Requested size: 398.0pt x 98.56308pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GO_mf.pdf, id=7467, 1436.00491pt x 378.62656pt>
+/partitionsSummary/genes_GO_mf.pdf, id=6190, 1436.00491pt x 378.62656pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GO_mf.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2715,24 +4414,24 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 178--187
  [][] 
  []
 
-<graphics/genes_legend.pdf, id=7468, 374.90062pt x 341.02406pt>
+<graphics/genes_legend.pdf, id=6191, 374.90062pt x 341.02406pt>
 File: graphics/genes_legend.pdf Graphic file (type pdf)
 <use graphics/genes_legend.pdf>
 Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 190.
 (pdftex.def)             Requested size: 112.47105pt x 102.308pt.
-[66
+[68
 
 ]
 Overfull \vbox (120.48798pt too high) has occurred while \output is active []
 
 
-[67 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[69 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GO_cc.pdf> <../results/asymmetry/FUMA gene2func/joinedDa
 tasets/mean_imputed/not_subsampled/partitionsSummary/GO_bp.pdf> <../results/asy
 mmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/partitionsSumm
 ary/GO_mf.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/canonical_pathways.pdf, id=7518, 2230.93166pt x 3012.63922pt
+/partitionsSummary/canonical_pathways.pdf, id=6241, 2230.93166pt x 3012.63922pt
 >
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/canonical_pathways.pdf Graphic file (type pdf)
@@ -2743,7 +4442,7 @@ n_imputed/not_subsampled/partitionsSummary/canonical_pathways.pdf  used on inpu
 t line 197.
 (pdftex.def)             Requested size: 398.0pt x 537.42491pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_Canonical_Pathways.pdf, id=7519, 1436.00491pt x 1526.0
+/partitionsSummary/genes_Canonical_Pathways.pdf, id=6242, 1436.00491pt x 1526.0
 2322pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_Canonical_Pathways.pdf Graphic file (type pdf)
@@ -2762,13 +4461,13 @@ File: graphics/genes_legend.pdf Graphic file (type pdf)
 <use graphics/genes_legend.pdf>
 Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 212.
 (pdftex.def)             Requested size: 37.49225pt x 34.1044pt.
-[68 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/genes_GO_cc.pdf> <../results/asymmetry/FUMA gene2func/jo
 inedDatasets/mean_imputed/not_subsampled/partitionsSummary/genes_GO_bp.pdf> <..
 /results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled/pa
 rtitionsSummary/genes_GO_mf.pdf> <./graphics/genes_legend.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/DEG.pdf, id=7566, 1420.82417pt x 1778.73029pt>
+/partitionsSummary/DEG.pdf, id=6291, 1420.82417pt x 1778.73029pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/DEG.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2776,15 +4475,15 @@ pled/partitionsSummary/DEG.pdf>
 Package pdftex.def Info: ../results/asymmetry/FUMA gene2func/joinedDatasets/mea
 n_imputed/not_subsampled/partitionsSummary/DEG.pdf  used on input line 220.
 (pdftex.def)             Requested size: 398.0pt x 498.25822pt.
- [69 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
+ [71 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/canonical_pathways.pdf>]
 Overfull \vbox (123.05634pt too high) has occurred while \output is active []
 
 
-[70 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[72 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/genes_Canonical_Pathways.pdf>]
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/GWASCatalog.pdf, id=7596, 1617.02214pt x 2459.50778pt>
+/partitionsSummary/GWASCatalog.pdf, id=6322, 1617.02214pt x 2459.50778pt>
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/GWASCatalog.pdf Graphic file (type pdf)
 <use ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
@@ -2794,7 +4493,7 @@ n_imputed/not_subsampled/partitionsSummary/GWASCatalog.pdf  used on input line
 226.
 (pdftex.def)             Requested size: 398.0pt x 605.34308pt.
 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsampled
-/partitionsSummary/genes_GWASCatalog.pdf, id=7597, 1436.00491pt x 1169.04956pt>
+/partitionsSummary/genes_GWASCatalog.pdf, id=6323, 1436.00491pt x 1169.04956pt>
 
 File: ../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsa
 mpled/partitionsSummary/genes_GWASCatalog.pdf Graphic file (type pdf)
@@ -2813,31 +4512,34 @@ File: graphics/genes_legend.pdf Graphic file (type pdf)
 <use graphics/genes_legend.pdf>
 Package pdftex.def Info: graphics/genes_legend.pdf  used on input line 240.
 (pdftex.def)             Requested size: 74.97879pt x 68.2036pt.
-[71 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[73 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/DEG.pdf>]
 Overfull \vbox (43.54282pt too high) has occurred while \output is active []
 
 
-[72 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+[74 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
 pled/partitionsSummary/GWASCatalog.pdf>])
 Overfull \vbox (17.31474pt too high) has occurred while \output is active []
 
 
-[73 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
-pled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [74
+[75 <../results/asymmetry/FUMA gene2func/joinedDatasets/mean_imputed/not_subsam
+pled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [76
 
 
 
 
-] [75] [76]
-[77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89]) [90]
+] [77] [78]
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92]) [93]
 \openout2 = `popsum.aux'.
 
 
-(./popsum.tex) [91
+(./popsum.tex) [94
 
 
 ]
+
+Package natbib Warning: There were undefined citations.
+
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -2847,17 +4549,34 @@ pled/partitionsSummary/genes_GWAScatalog.pdf>] (./main.bbl [74
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- (./main.aux (./introduction.aux) (./mat_and_methods.aux)
-(./results.aux) (./discussion.aux) (./appendix.aux) (./popsum.aux))
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DE0A04003FA09059F5717090368E94BA;5149.
+(./main.aux (./introduction.aux) (./mat_and_methods.aux) (./results.aux)
+(./discussion.aux) (./appendix.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+(./popsum.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  DE0A04003FA09059F5717090368E94BA;5149.
  ) 
 Here is how much of TeX's memory you used:
- 34308 strings out of 478233
- 772700 string characters out of 5843844
- 1247357 words of memory out of 5000000
- 50938 multiletter control sequences out of 15000+600000
- 634978 words of font info for 346 fonts, out of 8000000 for 9000
+ 34288 strings out of 478233
+ 770642 string characters out of 5843844
+ 1161931 words of memory out of 5000000
+ 50899 multiletter control sequences out of 15000+600000
+ 636393 words of font info for 362 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,19n,133p,4096b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -2891,10 +4610,10 @@ lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lms
 y6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (102 pages, 34731270 bytes).
+Output written on main.pdf (103 pages, 34690178 bytes).
 PDF statistics:
- 7956 PDF objects out of 8907 (max. 8388607)
- 5743 compressed objects within 58 object streams
- 503 named destinations out of 1000 (max. 500000)
- 81261 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 6881 PDF objects out of 7423 (max. 8388607)
+ 4744 compressed objects within 48 object streams
+ 505 named destinations out of 1000 (max. 500000)
+ 80997 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -12,49 +12,49 @@ Illegal, another \bibstyle command---line 57 of file main.aux
  :          {abbrv}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: popsum.aux
-Reallocated field_info (elt_size=4) to 10264 items from 5000.
+Reallocated field_info (elt_size=4) to 10292 items from 5000.
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-You've used 188 entries,
+You've used 189 entries,
             2785 wiz_defined-function locations,
-            2282 strings with 147852 characters,
-and the built_in function-call counts, 256365 in all, are:
-= -- 22096
-> -- 31468
-< -- 58
-+ -- 10458
-- -- 10267
-* -- 26279
-:= -- 41005
-add.period$ -- 917
-call.type$ -- 188
-change.case$ -- 5416
-chr.to.int$ -- 185
-cite$ -- 376
-duplicate$ -- 4005
-empty$ -- 7406
-format.name$ -- 10519
-if$ -- 50262
+            2290 strings with 148026 characters,
+and the built_in function-call counts, 256833 in all, are:
+= -- 22144
+> -- 31490
+< -- 59
++ -- 10465
+- -- 10273
+* -- 26317
+:= -- 41077
+add.period$ -- 922
+call.type$ -- 189
+change.case$ -- 5421
+chr.to.int$ -- 186
+cite$ -- 378
+duplicate$ -- 4025
+empty$ -- 7444
+format.name$ -- 10528
+if$ -- 50361
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 186
-newline$ -- 1296
-num.names$ -- 752
-pop$ -- 10166
+missing$ -- 187
+newline$ -- 1303
+num.names$ -- 756
+pop$ -- 10172
 preamble$ -- 1
-purify$ -- 5225
+purify$ -- 5229
 quote$ -- 0
-skip$ -- 7283
+skip$ -- 7300
 stack$ -- 0
-substring$ -- 3998
-swap$ -- 456
+substring$ -- 4019
+swap$ -- 457
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2063
+type$ -- 2074
 warning$ -- 0
-while$ -- 863
+while$ -- 868
 width$ -- 0
-write$ -- 3152
+write$ -- 3169
 (There was 1 error message)
