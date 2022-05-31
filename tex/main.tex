@@ -14,6 +14,7 @@
 \usepackage[pdfusetitle,hidelinks,plainpages=false]{hyperref}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage{subfig}
 \usepackage{changepage}
 \usepackage{multirow} % for borders and merged ranges
@@ -29,7 +30,14 @@
 	 {graphics}
 }
 \input{abbreviations}
+
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
+
+\makeatletter
+\renewcommand{\cleardoublepage}{\clearpage \ifodd\c@page\else
+	\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+\makeatother
+
 \usepackage{amsmath}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -59,7 +67,7 @@
 \include{mat_and_methods}
 \include{results}
 \include{discussion}
-\include{appendix}
+\input{appendix}
 
 \backmatter
 \bibliographystyle{abbrv}

@@ -13,15 +13,15 @@
 \contentsline {table}{\numberline {2.2}{\ignorespaces Quantitative traits \ac {gwas} sources.\relax }}{24}{table.caption.23}%
 \contentsline {table}{\numberline {2.3}{\ignorespaces Covariates used to control phenotype}}{28}{table.caption.25}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces \Ac {nmi} scores across \ac {hsc} partitioning levels}}{40}{table.caption.29}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Identified lead \acp {snp} for the entire hemisphere}}{42}{table.caption.31}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Identified gene sets}}{50}{table.caption.40}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces \Ac {nmi} scores across \ac {hsc} partitioning levels}}{39}{table.caption.29}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Identified lead \acp {snp} for the entire hemisphere}}{41}{table.caption.31}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Identified gene sets}}{49}{table.caption.41}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {A.1}{\ignorespaces Effect of 1000G Phase3 filtering on meta-analyzed \ac {gwas} scores\relax }}{61}{table.caption.46}%
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Overview of the entire hemisphere significant, based on the European threshold 5e-8, \ac {snp} filtering.}}}{61}{subtable.1.1}%
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Partition-chromosome pairs that had the entirety of Bonferroni significant \acp {snp} (P-value<5e-8/31) removed.}}}{61}{subtable.1.2}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Effect of 1000G Phase3 filtering on meta-analyzed \ac {gwas} scores\relax }}{60}{table.caption.48}%
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Overview of the entire hemisphere significant, based on the European threshold 5e-8, \ac {snp} filtering.}}}{60}{subtable.1.1}%
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Partition-chromosome pairs that had the entirety of Bonferroni significant \acp {snp} (P-value<5e-8/31) removed.}}}{60}{subtable.1.2}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {B.1}{\ignorespaces Spearman correlation of the mvGWAS on each partition with the results from \citet {Sha2021}, and the corresponding bootstrap p-values.\relax }}{63}{table.caption.49}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces Spearman correlation of the mvGWAS on each partition with the results from \citet {Sha2021}, and the corresponding bootstrap p-values.\relax }}{62}{table.caption.51}%
 \addvspace {10pt}
 \addvspace {10pt}
