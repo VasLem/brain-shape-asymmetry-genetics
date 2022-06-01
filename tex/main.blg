@@ -6,55 +6,54 @@ A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: mat_and_methods.aux
 A level-1 auxiliary file: results.aux
 A level-1 auxiliary file: discussion.aux
-A level-1 auxiliary file: appendix.aux
-Illegal, another \bibstyle command---line 57 of file main.aux
+Illegal, another \bibstyle command---line 111 of file main.aux
  : \bibstyle
  :          {abbrv}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: popsum.aux
-Reallocated field_info (elt_size=4) to 10292 items from 5000.
+Reallocated field_info (elt_size=4) to 10320 items from 5000.
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-You've used 189 entries,
+You've used 190 entries,
             2785 wiz_defined-function locations,
-            2290 strings with 148006 characters,
-and the built_in function-call counts, 256833 in all, are:
-= -- 22144
-> -- 31490
-< -- 59
-+ -- 10465
-- -- 10273
-* -- 26317
-:= -- 41077
-add.period$ -- 922
-call.type$ -- 189
-change.case$ -- 5421
-chr.to.int$ -- 186
-cite$ -- 378
-duplicate$ -- 4025
-empty$ -- 7444
-format.name$ -- 10528
-if$ -- 50361
+            2298 strings with 148339 characters,
+and the built_in function-call counts, 257256 in all, are:
+= -- 22185
+> -- 31512
+< -- 60
++ -- 10472
+- -- 10279
+* -- 26348
+:= -- 41145
+add.period$ -- 927
+call.type$ -- 190
+change.case$ -- 5426
+chr.to.int$ -- 187
+cite$ -- 380
+duplicate$ -- 4045
+empty$ -- 7478
+format.name$ -- 10537
+if$ -- 50451
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 187
-newline$ -- 1303
-num.names$ -- 756
-pop$ -- 10172
+missing$ -- 188
+newline$ -- 1310
+num.names$ -- 760
+pop$ -- 10178
 preamble$ -- 1
-purify$ -- 5229
+purify$ -- 5233
 quote$ -- 0
-skip$ -- 7300
+skip$ -- 7317
 stack$ -- 0
-substring$ -- 4019
-swap$ -- 457
+substring$ -- 4027
+swap$ -- 458
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2074
+type$ -- 2085
 warning$ -- 0
-while$ -- 868
+while$ -- 872
 width$ -- 0
-write$ -- 3169
+write$ -- 3186
 (There was 1 error message)
