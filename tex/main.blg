@@ -10,14 +10,13 @@ Illegal, another \bibstyle command---line 111 of file main.aux
  : \bibstyle
  :          {abbrv}
 I'm skipping whatever remains of this command
-A level-1 auxiliary file: popsum.aux
 Reallocated field_info (elt_size=4) to 10320 items from 5000.
 Database file #1: references.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 You've used 190 entries,
             2785 wiz_defined-function locations,
-            2298 strings with 148339 characters,
+            2297 strings with 148329 characters,
 and the built_in function-call counts, 257256 in all, are:
 = -- 22185
 > -- 31512
